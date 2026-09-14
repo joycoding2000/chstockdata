@@ -1,0 +1,110 @@
+"""MCP server entrypoint — exposes chstockdata vendor functions as tools.
+
+Install the extra and run::
+
+    pip install "chstockdata[mcp]"
+    chstockdata-mcp
+
+Or register in any MCP client config (see examples/mcp-config.json)::
+
+    {"mcpServers": {"chstockdata": {"command": "chstockdata-mcp"}}}
+
+Notes:
+  * The heavy import is guarded so the package import works without the
+    ``mcp`` extra; only this entrypoint requires it.
+  * Returns are flattened for LLM consumption: DataFrames render as text
+    tables, dicts/lists pass through as structured content.
+  * All built-in hardening stays active (Eastmoney throttle, server
+    selection negative cache, realtime fallback chain).
+"""
+
+from __future__ import annotations
+
+import argparse
+from typing import Any
+
+_TOOL_FUNCTIONS: tuple[str, ...] = (
+    # ticker / resolution
+    "resolve_ticker",
+    # quotes / OHLCV
+    "get_realtime_snapshot", "get_stock_data", "get_ohlcv_frame_cached",
+    "get_adjusted_bars", "get_stock_monitor", "get_hot_concept_examples",
+    # fundamentals / financials
+    "get_fundamentals", "get_balance_sheet", "get_cashflow",
+    "get_income_statement", "get_free_financial_indicators",
+    "get_earnings_forecast", "get_research_reports",
+    # corporate events / governance
+    "get_corporate_actions", "get_announcement_index",
+    "get_disclosure_schedule", "get_suspension_info", "get_delisting_info",
+    "get_insider_transactions", "get_shareholder_pledge",
+    "get_corporate_buyback",
+    # money flow / microstructure
+    "get_fund_flow", "get_dragon_tiger_board", "get_block_trades",
+    "get_northbound_flow", "get_market_breadth", "get_margin_trading",
+    "get_valuation_history", "get_industry_comparison", "get_concept_blocks",
+    # news / policy / macro
+    "get_news", "get_global_news", "get_policy_news", "get_hot_stocks",
+    "get_macro_indicators",
+    # calendar
+    "local_is_trading_day", "load_trading_calendar",
+)
+
+
+def _flatten(result: Any) -> Any:
+    """Coerce vendor returns into MCP-friendly content."""
+    import pandas as pd
+
+    if isinstance(result, pd.DataFrame):
+        return result.to_string(index=False)
+    if isinstance(result, pd.Series):
+        return result.to_string()
+    if isinstance(result, (str, int, float, bool)) or result is None:
+        return result
+    if isinstance(result, (dict, list, tuple)):
+        return result
+    return str(result)
+
+
+def build_server():  # pragma: no cover - exercised via the mcp extra
+    """Construct the FastMCP server with all vendor tools registered."""
+    from mcp.server.fastmcp import FastMCP
+
+    import chstockdata as cd
+
+    mcp = FastMCP("chstockdata")
+
+    for name in _TOOL_FUNCTIONS:
+        func = getattr(cd, name)
+
+        def _wrapped(*args, _func=func, **kwargs):
+            return _flatten(_func(*args, **kwargs))
+
+        _wrapped.__name__ = func.__name__
+        _wrapped.__doc__ = (
+            (func.__doc__ or "").strip()
+            or f"{func.__name__} from chstockdata"
+        )
+        _wrapped.__annotations__ = getattr(func, "__annotations__", {})
+        mcp.tool()(_wrapped)
+
+    return mcp
+
+
+def main(argv: list[str] | None = None) -> int:  # pragma: no cover
+    parser = argparse.ArgumentParser(
+        prog="chstockdata-mcp",
+        description="chstockdata MCP server (stdio transport by default)",
+    )
+    parser.add_argument(
+        "--transport", default="stdio", choices=["stdio"],
+        help="MCP transport (stdio is the standard for local agents)",
+    )
+    args = parser.parse_args(argv)
+
+    mcp = build_server()
+    mcp.run(transport=args.transport)
+    return 0
+
+
+if __name__ == "__main__":  # pragma: no cover
+    raise SystemExit(main())

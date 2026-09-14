@@ -20,7 +20,14 @@ import os
 import threading
 from typing import Any, Iterator, Mapping
 
-__all__ = ["configure", "reset_config", "get_setting", "get_config", "validate_vipdoc_history_config"]
+__all__ = [
+    "configure",
+    "reset_config",
+    "set_settings_provider",
+    "get_setting",
+    "get_config",
+    "validate_vipdoc_history_config",
+]
 
 _LOCK = threading.Lock()
 _INJECTED: dict[str, Any] = {}
@@ -102,22 +109,50 @@ def validate_vipdoc_history_config(cfg: Mapping) -> None:
 def configure(**settings: Any) -> None:
     """Inject or update settings (host applications call this at startup).
 
-    Accepted keys: ``data_cache_dir``, ``northbound_store_path``,
-    ``vipdoc_history_enabled``, ``vipdoc_history_dir``,
-    ``vipdoc_history_max_staleness_days``, ``vipdoc_history_url``.
-    Unknown keys are rejected loudly to catch typos.
+    Accepted keys — full setting names ``data_cache_dir``,
+    ``northbound_store_path``, ``vipdoc_history_enabled``,
+    ``vipdoc_history_dir``, ``vipdoc_history_max_staleness_days``,
+    ``vipdoc_history_url`` — plus the short aliases ``cache_dir``,
+    ``vipdoc_dir``, ``vipdoc_enabled``, ``vipdoc_max_staleness_days``,
+    ``vipdoc_url``. Unknown keys are rejected loudly to catch typos.
     """
-    unknown = set(settings) - set(_DEFAULTS)
+    short_aliases = {
+        "cache_dir": "data_cache_dir",
+        "vipdoc_dir": "vipdoc_history_dir",
+        "vipdoc_enabled": "vipdoc_history_enabled",
+        "vipdoc_max_staleness_days": "vipdoc_history_max_staleness_days",
+        "vipdoc_url": "vipdoc_history_url",
+    }
+    canonical = {
+        short_aliases.get(key, key): value for key, value in settings.items()
+    }
+    unknown = set(canonical) - set(_DEFAULTS)
     if unknown:
         raise ValueError(f"unknown chstockdata settings: {sorted(unknown)}")
     with _LOCK:
-        _INJECTED.update(settings)
+        _INJECTED.update(canonical)
 
 
 def reset_config() -> None:
     """Clear all injected settings (test helper)."""
     with _LOCK:
         _INJECTED.clear()
+
+
+_settings_provider = None
+
+
+def set_settings_provider(provider) -> None:
+    """Install a dynamic settings provider: ``key -> value or None``.
+
+    Hosts whose own configuration can change at runtime (e.g. TradingAgents,
+    where tests monkeypatch the host ``get_config``) install a provider so
+    every resolution sees the host's *current* value instead of a snapshot
+    taken at import time. ``None`` (or an exception) means "not provided"
+    and the resolver falls through to injected values / env / defaults.
+    """
+    global _settings_provider
+    _settings_provider = provider
 
 
 def _coerce(key: str, raw: str) -> Any:
@@ -132,9 +167,16 @@ def _coerce(key: str, raw: str) -> Any:
 
 
 def get_setting(key: str, default: Any = None) -> Any:
-    """Resolve one setting through the injection > env > default chain."""
+    """Resolve one setting through the provider > injection > env > default chain."""
     if key not in _DEFAULTS:
         return default
+    if _settings_provider is not None:
+        try:
+            value = _settings_provider(key)
+        except Exception:  # noqa: BLE001 - provider failure falls through
+            value = None
+        if value is not None:
+            return value
     with _LOCK:
         injected = dict(_INJECTED)
     if key in injected:
