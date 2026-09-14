@@ -29,6 +29,11 @@ dependencies = [
     "requests>=2.32.4",
     "python-dateutil>=2.9.0",
     "typing-extensions>=4.14.0",
+    # pd.read_html backends (THS EPS tables etc.); transitively present in the
+    # source repo via parsel, declared explicitly here.
+    "lxml>=4.9.0",
+    # trend-indicator computation (stockstats.wrap), guarded import
+    "stockstats>=0.6.5",
 ]
 
 [project.optional-dependencies]
