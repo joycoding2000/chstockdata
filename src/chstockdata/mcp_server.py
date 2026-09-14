@@ -42,6 +42,13 @@ _TOOL_FUNCTIONS: tuple[str, ...] = (
     "get_fund_flow", "get_dragon_tiger_board", "get_block_trades",
     "get_northbound_flow", "get_market_breadth", "get_margin_trading",
     "get_valuation_history", "get_industry_comparison", "get_concept_blocks",
+    # reversed-ported upstream endpoints (v0.2.0)
+    "get_daily_dragon_tiger", "get_board_fund_flow",
+    "get_limit_up_pool", "get_limit_up_reasons",
+    "get_chip_distribution",
+    "list_etf_option_contracts", "get_etf_option_tquote",
+    "get_etf_option_greeks", "get_etf_option_chain",
+    "get_hot_rank", "get_em_hot_rank", "get_hot_concepts", "get_investor_qa",
     # news / policy / macro
     "get_news", "get_global_news", "get_policy_news", "get_hot_stocks",
     "get_macro_indicators",

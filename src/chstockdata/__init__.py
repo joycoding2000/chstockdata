@@ -77,7 +77,21 @@ from .a_stock import (
     get_dragon_tiger_board,
     get_lockup_expiry,
     get_industry_comparison,
+    get_daily_dragon_tiger,
 )
+
+# ── Reversed-ported upstream endpoints (v0.2.0) ─────────────────────────────
+from .board_flow import get_board_fund_flow
+from .chips import chip_distribution, get_chip_distribution
+from .etf_options import (
+    get_etf_option_chain,
+    get_etf_option_greeks,
+    get_etf_option_tquote,
+    list_etf_option_contracts,
+)
+from .hot_rank import get_em_hot_rank, get_hot_concepts, get_hot_rank
+from .investor_qa import get_investor_qa
+from .limit_up import get_limit_up_pool, get_limit_up_reasons
 
 # ── Adjusted bars / calendar / vipdoc history ───────────────────────────────
 from .adjusted_bars import get_adjusted_bars
@@ -112,7 +126,7 @@ from .provenance import (
     validate_envelope,
 )
 
-__version__ = "0.1.0"
+__version__ = "0.2.0"
 
 __all__ = [
     # config
@@ -141,6 +155,15 @@ __all__ = [
     "get_fund_flow", "get_dragon_tiger_board", "get_block_trades",
     "get_northbound_flow", "get_market_breadth", "get_margin_trading",
     "get_valuation_history", "get_industry_comparison", "get_concept_blocks",
+    "get_daily_dragon_tiger", "get_board_fund_flow",
+    # limit-up / chip distribution
+    "get_limit_up_pool", "get_limit_up_reasons",
+    "chip_distribution", "get_chip_distribution",
+    # ETF options (Sina)
+    "list_etf_option_contracts", "get_etf_option_tquote",
+    "get_etf_option_greeks", "get_etf_option_chain",
+    # market sentiment / investor relations
+    "get_hot_rank", "get_em_hot_rank", "get_hot_concepts", "get_investor_qa",
     # news / policy
     "get_news", "get_global_news", "get_policy_news", "get_policy_news_for_context",
     "get_hot_stocks", "get_macro_indicators",

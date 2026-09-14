@@ -7,7 +7,8 @@ design), battle-tested in production by
 
 ```bash
 pip install chstockdata          # core (pandas/requests only)
-pip install "chstockdata[mootdx]"  # + mootdx TCP K-line source (optional)
+pip install "chstockdata[mootdx]"    # + mootdx TCP K-line source (optional)
+pip install "chstockdata[baostock]"  # + historical turnover for CYQ chips (optional)
 ```
 
 ```python
@@ -18,13 +19,16 @@ df = get_stock_data("600519", 365)    # daily OHLCV, vipdoc/mootdx/Sina chain
 get_realtime_snapshot("600519")       # realtime quote, Tencent -> mootdx -> Sina
 ```
 
-39 public functions: K-lines, realtime quotes, fundamentals / three financial
-statements, valuation history, margin trading, dragon-tiger board, lockup
-expiry, northbound flow, fund flow, industry comparison, concept blocks,
-block trades, market breadth, insider transactions, shareholder pledge /
-buyback, corporate actions, earnings forecast, research reports, news wires,
-policy news, trading calendar, delisting / suspension info, macro indicators,
-and more. See `chstockdata/__init__.py` for the full export list.
+53 public functions: K-lines, realtime quotes, fundamentals / three financial
+statements, valuation history, margin trading, dragon-tiger board (per-stock
+seats and whole-market daily), lockup expiry, northbound flow, fund flow, board
+fund flow, industry comparison, concept blocks, block trades, market breadth,
+limit-up / failed-board / limit-down / previous-day limit-up pools, CYQ chip
+distribution, ETF option chains (T-quote + greeks + IV), investor Q&A (互动易),
+hot rank / popularity rank / concept hits, insider transactions, shareholder
+pledge / buyback, corporate actions, earnings forecast, research reports, news
+wires, policy news, macro indicators, trading calendar, delisting / suspension
+info, and more. See `chstockdata/__init__.py` for the full export list.
 
 ## Data sources
 
@@ -34,15 +38,18 @@ and more. See `chstockdata/__init__.py` for the full export list.
 | TDX official after-market archive | HTTP (`data.tdx.com.cn/vipdoc`) | Full SH/SZ/BJ daily-bar archive → local vipdoc tree (primary history source) |
 | Tencent Finance | HTTP (`qt.gtimg.cn`) | Realtime quotes (primary), PE/PB/market cap/turnover |
 | easy-tdx (isolated process) | TCP 7709 | L1 fund-flow reconstruction, TDX industry/concept board rankings |
-| Eastmoney datacenter / F10 | HTTP | Dragon-tiger, lockup, holders, concept blocks, news, announcements |
-| Sina Finance | HTTP | Realtime fallback, K-line fallback, daily fund flow, financial statements |
-| 同花顺 10jqka | HTTP | Consensus EPS, hot stocks |
+| Eastmoney datacenter / F10 / emappdata / bkzj | HTTP | Dragon-tiger (per-stock + market-wide), lockup, holders, concept blocks, news, announcements, limit-up pools (push2ex), board fund flow, popularity rank, concept hits |
+| Sina Finance | HTTP | Realtime fallback, K-line fallback, daily fund flow, financial statements, ETF option contracts / T-quote / greeks + IV |
+| baostock (optional extra) | TCP | Historical daily turnover + ST/suspension flags for CYQ chip distribution (no Beijing exchange) |
+| 同花顺 10jqka | HTTP | Consensus EPS, hot stocks, limit-up reasons, hot rank |
 | 财联社 cls.cn | HTTP | Global news wire |
 | SSE / SZSE official | HTTP | Northbound daily turnover (trusted), delisting list |
+| 巨潮 cninfo | HTTP | Investor Q&A (互动易) |
 
 All Eastmoney requests go through a module-level serial throttle
 (`EM_MIN_INTERVAL`, default 1.0s) with jitter and a shared keep-alive session
-— do not bypass it, do not fan out concurrent full-market scans.
+— do not bypass it, do not fan out concurrent full-market scans. `push2` /
+`push2his` are deliberately not used (see `tests/test_astock_push2_source_scan.py`).
 
 ## Hardening carried over from production
 
@@ -111,12 +118,22 @@ Then register in any MCP client (Claude Code, etc.):
 ## Relationship to upstream projects
 
 Extracted from [TradingAgents-astock](https://github.com/joycoding2000/TradingAgents-astock)
-(Apache-2.0, itself a fork of [TauricResearch/TradingAgents](https://github.com/TauricResearch/TradingAgents)),
-with selected correctness fixes ported from
-[a-stock-data](https://github.com/simonlin1212/a-stock-data) (Apache-2.0).
-This package is **not** a superset of a-stock-data: it does not include ETF
-option greeks/IV, limit-up/down pools, or CYQ chip distribution. See
-MIGRATION.md.
+(Apache-2.0, itself a fork of [TauricResearch/TradingAgents](https://github.com/TauricResearch/TradingAgents)).
+Starting with 0.2.0, selected upstream-unique endpoints of
+[a-stock-data](https://github.com/simonlin1212/a-stock-data) (Apache-2.0) were
+reverse-ported: ETF options (contracts / T-quote / greeks + IV), limit-up pools
+(including the previous-day pool and THS limit-up reasons), CYQ chip
+distribution, market-wide dragon-tiger board, board fund flow, investor Q&A
+(互动易), hot rank / popularity rank / concept hits, and the upstream ticker
+routing fix (market identifier conflicts fail loud; `5x` ETFs route to
+Shanghai).
+
+This package is still **not** a full superset of a-stock-data. Deliberately not
+included: intraday anomaly pools (product hard boundary in the source project),
+Shenwan industry history, minute/tick order flow, and any `push2`/`push2his`
+dependency (board fund flow uses the non-push2 `bkzj` endpoint with a reduced
+field set — no four-tier breakdown). See MIGRATION.md and
+`docs/planned-upstream-ports.md`.
 
 ## License
 

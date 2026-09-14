@@ -38,7 +38,7 @@ import pandas as pd
 import requests as _requests
 
 from .utils import safe_ticker_component
-from .vendor_errors import VendorNetworkError
+from .vendor_errors import VendorError, VendorNetworkError, VendorNoDataError
 from .point_in_time import (
     POINT_IN_TIME_LIMITED_MARKER,
     filter_financial_records,
@@ -118,27 +118,63 @@ def _reject_non_a_share(original: str, code: str) -> None:
     )
 
 
+_TICKER_FORM_RE = _re.compile(
+    r"^(?:(sh|sz|bj)(\d{6})|(\d{6})(?:\.(sh|sz|bj))?)$", _re.IGNORECASE
+)
+
+
 def _normalize_ticker(symbol: str) -> str:
     """Strip exchange prefix/suffix, return pure 6-digit code.
 
     Handles: '688017', 'SH688017', '688017.SH', 'sh688017'
 
+    显式市场标识（前缀或后缀，二选一，不能同时写）必须与号段一致，否则直接
+    报错——静默丢掉市场信息会路由到另一只标的（移植自上游 a-stock-data
+    v3.7.1 的错票修复）：
+
+    - `SH000001.SZ`（自相矛盾）→ 报错；
+    - `600519.SZ` / `SZ600519`（号段属沪）→ 报错；
+    - `sh000016` / `000016.SH`（沪市指数，沪市无 000xxx 个股）→ 报错，
+      而不是静默查成深市 000016（深康佳A）；同号段深市个股请写 `sz000016`
+      或直接传 `000016`。
+
     非 A 股代码（港股 `00700` / `0700.HK`、美股 `AAPL`）会直接报错，不再原样
     放行去查 A 股数据源（#43）。
     """
-    s = symbol.strip().upper()
-    # Remove .SH / .SZ / .BJ suffix
-    for suffix in (".SH", ".SZ", ".BJ"):
-        if s.endswith(suffix):
-            s = s[: -len(suffix)]
-            break
-    # Remove SH / SZ / BJ prefix
-    for prefix in ("SH", "SZ", "BJ"):
-        if s.startswith(prefix):
-            s = s[len(prefix) :]
-            break
-    code = safe_ticker_component(s)
-    _reject_non_a_share(symbol, code)
+    raw = str(symbol or "").strip()
+    match = _TICKER_FORM_RE.match(raw)
+    if match is None:
+        # 交回原错误分类器：港股/美股/格式错误的既有报错文案保持不变。
+        _reject_non_a_share(raw, raw.upper())
+        raise ValueError(
+            f"'{symbol}' 不是有效的 A 股代码：支持 600519 / SH600519 / 600519.SH"
+            f"（前缀与后缀二选一，不能同时写）。"
+        )
+
+    code = match.group(2) or match.group(3)
+    market = (match.group(1) or match.group(4) or "").lower()
+    code = safe_ticker_component(code)
+    if not market:
+        return code
+
+    natural = _tdx_market_for_code(code).lower()
+    if code.startswith("000"):
+        # 000xxx 是沪市指数 / 深市个股共用的歧义段；本数据层只服务个股。
+        if market == "sh":
+            raise ValueError(
+                f"'{symbol}' 指向沪市指数而非个股（沪市无 000xxx 个股）。"
+                f"本数据层只支持个股；同号段的深市个股请显式写 sz{code}，"
+                f"或直接传 {code}。"
+            )
+        if market == "bj":
+            raise ValueError(f"'{symbol}' 市场标识与号段矛盾：000xxx 不属北交所。")
+        return code
+    if market != natural:
+        raise ValueError(
+            f"'{symbol}' 的市场标识与号段矛盾：{code} 属 {natural.upper()} 市，"
+            f"而不是 {market.upper()} 市。（改用 {natural}{code} / "
+            f"{code}.{natural.upper()}，或去掉市场标识）"
+        )
     return code
 
 
@@ -1537,6 +1573,59 @@ def _em_get(url, params=None, headers=None, timeout=15, retries=2, **kwargs):
                     "http_get",
                     lambda: _EM_SESSION.get(
                         url, params=params, headers=headers, timeout=timeout, **kwargs
+                    ),
+                    attempt_no=attempt,
+                )
+                _em_last_call[0] = time.time()
+                status_code = int(getattr(resp, "status_code", 200))
+                if status_code in {403, 429}:
+                    logger.warning("东财请求失败（HTTP %s）", status_code)
+                    raise _EastmoneyDataUnavailable("东财数据暂不可用")
+                if status_code >= 500 and attempt < total_attempts:
+                    time.sleep(0.5 * (2 ** (attempt - 1)))
+                    continue
+                if status_code >= 500:
+                    logger.warning("东财请求失败（HTTP %s）", status_code)
+                    raise _EastmoneyDataUnavailable("东财数据暂不可用")
+                return resp
+            except _EastmoneyDataUnavailable:
+                raise
+            except Exception as e:
+                if _source_deadline_error(e):
+                    raise
+                _em_last_call[0] = time.time()
+                if attempt < total_attempts and _source_retryable_exception(e):
+                    time.sleep(0.5 * (2 ** (attempt - 1)))
+                    continue
+                logger.warning("东财请求失败（%s）", type(e).__name__)
+                raise _EastmoneyDataUnavailable("东财数据暂不可用") from None
+        raise _EastmoneyDataUnavailable("东财数据暂不可用")
+
+
+def _em_post(url, json=None, data=None, headers=None, timeout=15, retries=2, **kwargs):
+    """东财统一 POST 入口：与 ``_em_get`` 同一把锁、同一节流与失败语义。
+
+    emappdata 等人气/热度端点只接受 POST；与 GET 共用 ``_em_last_call``
+    节流游标，保证"东财任意请求之间至少间隔 EM_MIN_INTERVAL"不被 POST 绕过。
+    """
+    total_attempts = min(2, max(1, int(retries)))
+    source_id = _eastmoney_source_id(url)
+    with _em_request_lock:
+        for attempt in range(1, total_attempts + 1):
+            wait = _EM_MIN_INTERVAL - (time.time() - _em_last_call[0])
+            if wait > 0:
+                time.sleep(wait + random.uniform(0.1, 0.5))
+            try:
+                resp = _source_call(
+                    source_id,
+                    "http_post",
+                    lambda: _EM_SESSION.post(
+                        url,
+                        json=json,
+                        data=data,
+                        headers=headers,
+                        timeout=timeout,
+                        **kwargs,
                     ),
                     attempt_no=attempt,
                 )
@@ -7279,6 +7368,107 @@ def get_dragon_tiger_board(
     )
 
     return "\n".join(lines)
+
+
+def get_daily_dragon_tiger(
+    trade_date: Annotated[str, "Date YYYY-MM-DD, empty string for today"] = "",
+    min_net_buy_wan: float | None = None,
+) -> dict[str, Any]:
+    """每日全市场龙虎榜汇总（上榜原因 + 买卖净额 + 换手率）。
+
+    与 ``get_dragon_tiger_board``（个股席位明细）互补：本函数按净买额降序给出
+    当日**全市场**上榜股票，用于横向扫描与游资数据面。数据源为东财 datacenter
+    ``RPT_DAILYBILLBOARD_DETAILSNEW``（走 ``_em_get`` 串行限流）。
+
+    Args:
+        trade_date: YYYY-MM-DD；空串取市场今天。
+        min_net_buy_wan: 净买入下限（万元）；None 不过滤。
+
+    Returns:
+        ``{status, date, query_date, count, min_net_buy_wan, stocks,
+        empty_reason, source, observed_at}``。``date`` 以返回行 TRADE_DATE
+        为准（源端在盘后更新，盘中请求可能返回上一交易日）。
+        非交易日/盘后未更新时 ``stocks=[]`` 并在 ``empty_reason`` 披露。
+    """
+    text = str(trade_date or "").strip()
+    if text:
+        try:
+            query_day = datetime.strptime(text, "%Y-%m-%d").date()
+        except ValueError as exc:
+            raise ValueError(
+                f"非法日期 '{trade_date}'：支持 YYYY-MM-DD"
+            ) from exc
+    else:
+        query_day = _today()
+    query_iso = query_day.isoformat()
+
+    try:
+        rows = _eastmoney_datacenter(
+            "RPT_DAILYBILLBOARD_DETAILSNEW",
+            filter_str=f"(TRADE_DATE>='{query_iso}')(TRADE_DATE<='{query_iso}')",
+            page_size=500,
+            sort_columns="BILLBOARD_NET_AMT",
+            sort_types="-1",
+            strict=True,
+        )
+    except Exception as exc:  # noqa: BLE001 - 统一转成脱敏的 vendor 语义
+        if _source_deadline_error(exc) or isinstance(exc, VendorError):
+            raise
+        if isinstance(exc, (ValueError, KeyError, TypeError, _json.JSONDecodeError)):
+            raise VendorNoDataError(
+                f"东财全市场龙虎榜载荷结构异常：{type(exc).__name__}",
+                vendor="eastmoney_datacenter",
+                method="RPT_DAILYBILLBOARD_DETAILSNEW",
+            ) from exc
+        raise VendorNetworkError(
+            f"东财全市场龙虎榜请求失败：{type(exc).__name__}",
+            vendor="eastmoney_datacenter",
+            method="RPT_DAILYBILLBOARD_DETAILSNEW",
+        ) from exc
+
+    stocks: list[dict[str, Any]] = []
+    actual_date = query_iso
+    for row in rows:
+        if not isinstance(row, Mapping):
+            continue
+        net_buy = _lhb_number(row.get("BILLBOARD_NET_AMT")) or 0.0
+        if min_net_buy_wan is not None and net_buy / 1e4 < float(min_net_buy_wan):
+            continue
+        code = str(row.get("SECURITY_CODE") or "").strip()
+        name = str(row.get("SECURITY_NAME_ABBR") or "").strip()
+        if not code:
+            continue
+        actual_date = str(row.get("TRADE_DATE") or "")[:10] or actual_date
+        stocks.append(
+            {
+                "code": code,
+                "name": name,
+                "reason": str(row.get("EXPLANATION") or ""),
+                "close": _lhb_number(row.get("CLOSE_PRICE")) or 0.0,
+                "pct": round(float(_lhb_number(row.get("CHANGE_RATE")) or 0.0), 2),
+                "net_buy_wan": round(net_buy / 1e4, 1),
+                "buy_wan": round((_lhb_number(row.get("BILLBOARD_BUY_AMT")) or 0.0) / 1e4, 1),
+                "sell_wan": round((_lhb_number(row.get("BILLBOARD_SELL_AMT")) or 0.0) / 1e4, 1),
+                "turnover_pct": round(float(_lhb_number(row.get("TURNOVERRATE")) or 0.0), 2),
+            }
+        )
+
+    return {
+        "status": "success" if stocks else "normal_empty",
+        "date": actual_date,
+        "query_date": query_iso,
+        "count": len(stocks),
+        "min_net_buy_wan": min_net_buy_wan,
+        "stocks": stocks,
+        "empty_reason": (
+            None
+            if stocks
+            else f"源端在 {query_iso} 无上榜记录（非交易日、盘后未更新或过滤条件过严）"
+        ),
+        "source": "eastmoney datacenter RPT_DAILYBILLBOARD_DETAILSNEW",
+        "observed_at": datetime.now(_MARKET_TZ).isoformat(timespec="seconds"),
+        "note": "列表按源端 BILLBOARD_NET_AMT 降序；净买额单位为万元。",
+    }
 
 
 # ---------------------------------------------------------------------------

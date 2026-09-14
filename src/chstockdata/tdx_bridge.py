@@ -166,13 +166,15 @@ def run_tdx_bridge(command: str, *args: str) -> dict[str, Any]:
 
 
 def market_for_code(code: str) -> str:
-    """6-digit A-stock code -> TDX market tag ("SH" / "SZ" / "BJ").
+    """6-digit A-stock/ETF code -> TDX market tag ("SH" / "SZ" / "BJ").
 
     北交所 920xxx 号段须先于 9 判断；4x/8x 为北交所老号段。
+    5x 为沪市 ETF/LOF（510050/510300/588000/510500 等），必须归沪市，
+    否则实时行情会拼出 sz510050 静默取不到数。
     """
     if code.startswith("92"):
         return "BJ"
-    if code.startswith(("6", "9")):
+    if code.startswith(("5", "6", "9")):
         return "SH"
     if code.startswith(("4", "8")):
         return "BJ"

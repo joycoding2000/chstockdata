@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "chstockdata"
-version = "0.1.0"
+version = "0.2.0"
 description = "Free China A-share market data toolkit: direct HTTP/TCP vendors (Tencent, mootdx/TDX, Eastmoney, Sina, THS, CLS, SSE/SZSE), no API keys, no third-party data SDKs"
 readme = "README.md"
 license = { file = "LICENSE" }
@@ -26,6 +26,7 @@ classifiers = [
 ]
 dependencies = [
     "pandas>=2.3.0",
+    "numpy>=1.26.0",
     "requests>=2.32.4",
     "python-dateutil>=2.9.0",
     "typing-extensions>=4.14.0",
@@ -41,6 +42,9 @@ dependencies = [
 # works via local vipdoc history + Sina fallback. NOTE: mootdx pins
 # httpx==0.25.2, which conflicts with stacks needing httpx>=0.28.
 mootdx = ["mootdx>=0.10.0"]
+# Historical turnover (turn) input for CYQ chip distribution. baostock is a
+# zero-key TCP client and does NOT support the Beijing Stock Exchange (4/8/92/920).
+baostock = ["baostock>=0.8.9"]
 mcp = ["mcp>=1.0"]
 dev = ["pytest>=8.0", "ruff>=0.6"]
 
