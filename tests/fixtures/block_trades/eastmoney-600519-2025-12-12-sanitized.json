@@ -1,0 +1,32 @@
+{
+  "source": "eastmoney_datacenter:RPT_DATA_BLOCKTRADE",
+  "purpose": "F4 field-and-unit acceptance record; buyer/seller names intentionally omitted",
+  "observed_at": "2026-09-07T07:37:00+00:00",
+  "record": {
+    "TRADE_DATE": "2025-12-12 00:00:00",
+    "SECURITY_CODE": "600519",
+    "DEAL_PRICE": 1420.65,
+    "DEAL_VOLUME": 5300,
+    "DEAL_AMT": 7529400,
+    "PREMIUM_RATIO": 0,
+    "BUYER_NAME": null,
+    "SELLER_NAME": null
+  },
+  "verified_units": {
+    "DEAL_PRICE": "元/股",
+    "DEAL_VOLUME": "股",
+    "DEAL_AMT": "元",
+    "PREMIUM_RATIO": "%"
+  },
+  "source_column_labels_checked": {
+    "DEAL_VOLUME": "成交量（股）",
+    "DEAL_AMT": "成交额（元）",
+    "PREMIUM_RATIO": "折溢价率（%）"
+  },
+  "cross_check": {
+    "deal_price_times_deal_volume_cny": 7529445,
+    "reported_deal_amount_cny": 7529400,
+    "difference_cny": 45,
+    "interpretation": "within source rounding tolerance; reported value is retained"
+  }
+}

@@ -20,7 +20,7 @@ import os
 import threading
 from typing import Any, Iterator, Mapping
 
-__all__ = ["configure", "reset_config", "get_setting", "get_config"]
+__all__ = ["configure", "reset_config", "get_setting", "get_config", "validate_vipdoc_history_config"]
 
 _LOCK = threading.Lock()
 _INJECTED: dict[str, Any] = {}
@@ -66,6 +66,37 @@ _ENV_ALIASES: dict[str, tuple[str, ...]] = {
 }
 
 _TRUTHY = frozenset({"1", "true", "yes", "on"})
+
+
+def validate_vipdoc_history_config(cfg: Mapping) -> None:
+    """Validate the local official-TDX-vipdoc daily-history layer keys.
+
+    Ported verbatim from the source repository: a malformed value must fail
+    the config load instead of silently disabling or misdirecting the
+    local-first raw-daily path.
+    """
+    import math
+
+    enabled = cfg.get("vipdoc_history_enabled", True)
+    if not isinstance(enabled, bool):
+        raise ValueError("vipdoc_history_enabled must be a boolean")
+
+    staleness = cfg.get("vipdoc_history_max_staleness_days", 5)
+    try:
+        staleness_value = float(staleness)
+    except (TypeError, ValueError) as exc:
+        raise ValueError(
+            "vipdoc_history_max_staleness_days must be a number"
+        ) from exc
+    if not math.isfinite(staleness_value) or staleness_value < 0:
+        raise ValueError(
+            "vipdoc_history_max_staleness_days must be finite and >= 0"
+        )
+
+    for key in ("vipdoc_history_dir", "vipdoc_history_url"):
+        value = cfg.get(key)
+        if value is not None and not isinstance(value, str):
+            raise ValueError(f"{key} must be a string or null")
 
 
 def configure(**settings: Any) -> None:

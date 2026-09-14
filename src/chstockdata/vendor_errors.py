@@ -104,8 +104,17 @@ class DeadlineExceeded(TimeoutError):
     retryable = True
 
 
+class SourceContextDeadlineExceeded(DeadlineExceeded):
+    """Kept under its historical name so error summaries and log lines that
+    embed ``type(exc).__name__`` stay byte-stable; host frameworks subclass
+    the ``DeadlineExceeded`` base with this same name."""
+
+    kind = "source_context_deadline_exceeded"
+
+
 __all__ = [
     "DeadlineExceeded",
+    "SourceContextDeadlineExceeded",
     "VendorError",
     "VendorNetworkError",
     "VendorNoDataError",

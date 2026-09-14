@@ -1,0 +1,178 @@
+{
+  "requested_date": "2026-09-04",
+  "actual_trade_date": "2026-09-04",
+  "snapshot": {
+    "sina_anchor_date": "2026-09-07",
+    "sina_anchor_time": "11:35:57",
+    "phase": "close"
+  },
+  "advance_decline": {
+    "definition": "上涨/下跌/平盘按新浪快照 pricechange（现价-昨收）符号分类；分母=三类家数之和；停牌/无有效报价（trade<=0）、无昨收参考价（settlement<=0，如上市首日）、零成交且零涨跌（停牌或全天无成交，快照无法区分）、涨跌字段缺失的股票一律排除在分母外并逐项计数，绝不默认计为平盘。",
+    "status": "unavailable",
+    "reason": "新浪快照仅支持最近交易日，历史日期无全市场涨跌家数；不使用池子样本伪装"
+  },
+  "limit_up": {
+    "definition": "涨停家数=东财涨停池（getTopicZTPool）源端标识的当日封住涨停股票数；主板10%/创业板与科创板20%/ST 5%/北交所30% 按各板块实际规则由源端判定，本模块不做 ±10% 推算。池日期以请求参数为准（源端 qdate 为查询时间戳）。",
+    "status": "success",
+    "trade_date": "2026-09-04",
+    "count": 39,
+    "source_total_count": 39,
+    "source": "eastmoney push2ex getTopicZTPool",
+    "source_query_date": "20260907",
+    "st_count": 0,
+    "new_listing_count": 0,
+    "bse_count": 1,
+    "limitations": [],
+    "consecutive": {
+      "max_boards": 5,
+      "distribution": {
+        "1": 32,
+        "2": 6,
+        "5": 1
+      },
+      "top": [
+        {
+          "code": "605577",
+          "name": "龙版传媒",
+          "boards": 5,
+          "days_boards": "5天5板"
+        },
+        {
+          "code": "002403",
+          "name": "爱仕达",
+          "boards": 2,
+          "days_boards": "2天2板"
+        },
+        {
+          "code": "600108",
+          "name": "亚盛集团",
+          "boards": 2,
+          "days_boards": "2天2板"
+        },
+        {
+          "code": "600865",
+          "name": "百大集团",
+          "boards": 2,
+          "days_boards": "2天2板"
+        },
+        {
+          "code": "603162",
+          "name": "海通发展",
+          "boards": 2,
+          "days_boards": "2天2板"
+        }
+      ]
+    }
+  },
+  "failed_board": {
+    "definition": "炸板=东财炸板池（getTopicZBPool）：盘中曾触及涨停但收盘未封住涨停的股票数（含曾封板后开板；计数对象为股票数，非开板次数，每股盘中开板次数 zbc 另计）；仅统计涨停方向，跌停方向开板不在本口径内。盘中事件依赖源端标记，不能仅凭收盘快照推断。",
+    "status": "success",
+    "trade_date": "2026-09-04",
+    "count": 48,
+    "source_total_count": 48,
+    "source": "eastmoney push2ex getTopicZBPool",
+    "source_query_date": "20260907",
+    "st_count": 0,
+    "new_listing_count": 0,
+    "bse_count": 0,
+    "limitations": [],
+    "open_count_total": 216,
+    "missing_open_count_fields": 0
+  },
+  "limit_down": {
+    "definition": "跌停家数=东财跌停池（getTopicDTPool）源端标识的当日封住跌停股票数；days 字段为连续跌停交易日数（含当日）。跌停为 0 是常见合法零值。",
+    "status": "success",
+    "trade_date": "2026-09-04",
+    "count": 9,
+    "source_total_count": 9,
+    "source": "eastmoney push2ex getTopicDTPool",
+    "source_query_date": "20260907",
+    "st_count": 0,
+    "new_listing_count": 0,
+    "bse_count": 0,
+    "limitations": [],
+    "max_consecutive_days": 2,
+    "missing_days_fields": 0
+  },
+  "consecutive_limit_up": {
+    "definition": "连板分布基于涨停池 lbc 字段（连续涨停交易日数，含当日，东财口径），与涨停池同池同口径；zttj={days,ct} 为'days 天 ct 板'（如 11 天 7 板），与 lbc 不可互相换算；lbc 缺失的个股计入 unknown 桶不猜板数；N 前缀（上市首日）与 C 前缀（次新）股票单独披露不剔除。连续收阳天数不是连板，本模块不输出该口径。",
+    "status": "success",
+    "trade_date": "2026-09-04",
+    "source": "eastmoney push2ex getTopicZTPool",
+    "max_boards": 5,
+    "distribution": {
+      "1": 32,
+      "2": 6,
+      "5": 1
+    },
+    "top": [
+      {
+        "code": "605577",
+        "name": "龙版传媒",
+        "boards": 5,
+        "days_boards": "5天5板"
+      },
+      {
+        "code": "002403",
+        "name": "爱仕达",
+        "boards": 2,
+        "days_boards": "2天2板"
+      },
+      {
+        "code": "600108",
+        "name": "亚盛集团",
+        "boards": 2,
+        "days_boards": "2天2板"
+      },
+      {
+        "code": "600865",
+        "name": "百大集团",
+        "boards": 2,
+        "days_boards": "2天2板"
+      },
+      {
+        "code": "603162",
+        "name": "海通发展",
+        "boards": 2,
+        "days_boards": "2天2板"
+      }
+    ]
+  },
+  "coverage": {
+    "sh_sz": "沪深两市（东财池 60/68/00/30 代码 + 新浪 sh/sz 前缀）",
+    "bse_pools": "北交所是否进入东财池以当日 bse_count 实测为准（43/83/87/92 代码段）；bse_count=0 不代表北交所无行情，仅代表该日无该状态个股",
+    "bse_advance_decline": "北交所计入涨/跌/平（新浪 hs_a 含 bj 前缀股票，家数见 valid_quote_by_market）",
+    "st_rule": "ST/*ST 含在全部统计内并单独计数（ST 涨跌停幅 5% 由源端规则判定）",
+    "new_listing_rule": "上市首日（N 前缀）无涨跌幅限制且常无昨收参考：池内单独披露 new_listing_count；涨/跌/平快照中无昨收参考者排除出分母（missing_reference_price）"
+  },
+  "status": "partial",
+  "limitations": [],
+  "attempts": [
+    {
+      "provider": "a_stock_eastmoney",
+      "method": "push2ex.getTopicZTPool",
+      "status": "success",
+      "duration_ms": 1123,
+      "error_summary": null,
+      "record_count": 39
+    },
+    {
+      "provider": "a_stock_eastmoney",
+      "method": "push2ex.getTopicZBPool",
+      "status": "success",
+      "duration_ms": 1246,
+      "error_summary": null,
+      "record_count": 48
+    },
+    {
+      "provider": "a_stock_eastmoney",
+      "method": "push2ex.getTopicDTPool",
+      "status": "success",
+      "duration_ms": 1399,
+      "error_summary": null,
+      "record_count": 9
+    }
+  ],
+  "_fixture_note": "真实已收盘交易日 2026-09-04（周五）：仅池历史可用，新浪快照子项按契约不可用。",
+  "_sample_provenance": "captured 2026-09-07 12:2x +08 via get_market_breadth; sources: sina Market_Center hs_a + hq.sinajs.cn sh000001 anchor, eastmoney push2ex topic pools; public market aggregates, no credentials"
+}

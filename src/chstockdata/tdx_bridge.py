@@ -20,7 +20,9 @@ from .vendor_errors import VendorNetworkError
 
 
 TDX_BRIDGE_TIMEOUT_SECONDS = 45
-_BRIDGE_SCRIPT = Path(__file__).parents[2] / "scripts" / "easy_tdx_bridge.py"
+# Shipped inside the package so installed wheels resolve it (a repo-level
+# scripts/ directory does not exist under site-packages).
+_BRIDGE_SCRIPT = Path(__file__).with_name("_easy_tdx_bridge.py")
 
 # 健康短路：TDX 已知不可用（如未配置 EASY_TDX_PYTHON、服务器屏蔽 TCP 7709）时，
 # 每次调用仍要等满 45s 超时。连续失败达到阈值后进入冷却期，期间直接返回不可用

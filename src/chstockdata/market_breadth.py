@@ -54,7 +54,7 @@ from .provenance import (
     ProviderAttempt,
     make_attempt,
 )
-from .vendor_errors import DeadlineExceeded as SourceContextDeadlineExceeded
+from .vendor_errors import SourceContextDeadlineExceeded
 
 logger = logging.getLogger(__name__)
 
