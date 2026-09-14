@@ -1,0 +1,62 @@
+[build-system]
+requires = ["setuptools>=80.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "chstockdata"
+version = "0.1.0"
+description = "Free China A-share market data toolkit: direct HTTP/TCP vendors (Tencent, mootdx/TDX, Eastmoney, Sina, THS, CLS, SSE/SZSE), no API keys, no third-party data SDKs"
+readme = "README.md"
+license = { file = "LICENSE" }
+requires-python = ">=3.10"
+authors = [{ name = "joycoding2000" }]
+keywords = ["a-share", "china", "stock", "market-data", "quant", "quantitative-finance"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Financial and Insurance Industry",
+    "License :: OSI Approved :: Apache Software License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Office/Business :: Financial :: Investment",
+]
+dependencies = [
+    "pandas>=2.3.0",
+    "requests>=2.32.4",
+    "python-dateutil>=2.9.0",
+    "typing-extensions>=4.14.0",
+]
+
+[project.optional-dependencies]
+# K-line primary source + financial snapshots. Without it the package still
+# works via local vipdoc history + Sina fallback. NOTE: mootdx pins
+# httpx==0.25.2, which conflicts with stacks needing httpx>=0.28.
+mootdx = ["mootdx>=0.10.0"]
+mcp = ["mcp>=1.0"]
+dev = ["pytest>=8.0", "ruff>=0.6"]
+
+[project.scripts]
+chstockdata-mcp = "chstockdata.mcp_server:main"
+chstockdata-refresh-vipdoc = "chstockdata.refresh_vipdoc:main"
+
+[project.urls]
+Homepage = "https://github.com/joycoding2000/chstockdata"
+Issues = "https://github.com/joycoding2000/chstockdata/issues"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+chstockdata = ["py.typed"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-m 'not network'"
+markers = [
+    "network: live network smoke tests (excluded from the default run)",
+    "allow_vipdoc_history: opt-in for tests exercising the real local vipdoc reader",
+]
