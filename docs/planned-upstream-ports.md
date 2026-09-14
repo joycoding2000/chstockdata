@@ -310,7 +310,11 @@ python -m ruff check src tests                   # dev 依赖内
      `list[dict]`（区分 `data=null` 非交易日与合法空池，`empty_reason` 显式披露）；
   3. 新增 `a_stock._em_post`：与 `_em_get` 共用同一把串行限流锁，供 emappdata
      POST 端点使用。
-- 未验证项：**CYQ 的 baostock 实拉**。本机未安装该 optional extra，按环境规范未
-  全局安装；需在 venv 中 `pip install "chstockdata[baostock]"` 后运行
-  `examples/chip_distribution.py 600519` 验证（离线算法与装配已有 10 例覆盖）。
+- CYQ baostock 实拉已完成（2026-09-14，`.venv` + baostock 0.9.3，Python 3.14）：
+  600519 `2026-02-01 ~ 2026-09-11`，149 个交易日，窗口累计换手 50.5%；现价
+  1275.16、获利比例 11.49%、平均成本 1368.47、90% 成本区间 1210.21~1423.98
+  （集中度 8.12%）、筹码峰 1398.99——与上游示例（131 日窗口，峰值同为
+  1398.99）同口径交叉吻合。`examples/chip_distribution.py` 为可复现入口。
+- 发布：tag `v0.2.0` → publish.yml（PyPI trusted publishing，v0.1.0 同一通道
+  已成功验证过）。
 - 未提交：全部改动留在工作区（按规范未自动提交）。
