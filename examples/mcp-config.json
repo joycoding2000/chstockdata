@@ -1,0 +1,10 @@
+{
+  "mcpServers": {
+    "chstockdata": {
+      "command": "chstockdata-mcp",
+      "env": {
+        "CHSTOCKDATA_CACHE_DIR": "/path/to/cache"
+      }
+    }
+  }
+}
