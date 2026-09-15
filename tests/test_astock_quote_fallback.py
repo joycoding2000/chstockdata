@@ -228,6 +228,15 @@ def test_fundamentals_consumes_fallback_quote_and_reports_actual_source(monkeypa
         "_Response", (), {"json": lambda self: {"data": {}}}
     )())
     monkeypatch.setattr(a_stock, "_ths_eps_forecast", lambda code: pd.DataFrame())
+    monkeypatch.setattr(
+        a_stock,
+        "_get_financial_report_sina",
+        lambda *args, **kwargs: pd.DataFrame([{
+            "报告日": pd.Timestamp("2026-03-31"),
+            "公告日": pd.Timestamp("2026-04-25"),
+            "营业收入": "53909252220.51",
+        }]),
+    )
 
     result = a_stock.get_fundamentals("600519", "2026-08-17", historical_review=False)
 

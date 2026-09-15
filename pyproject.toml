@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "chstockdata"
-version = "0.2.0"
+version = "0.2.1"
 description = "Free China A-share market data toolkit: direct HTTP/TCP vendors (Tencent, mootdx/TDX, Eastmoney, Sina, THS, CLS, SSE/SZSE), no API keys, no third-party data SDKs"
 readme = "README.md"
 license = { file = "LICENSE" }

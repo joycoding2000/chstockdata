@@ -2657,6 +2657,45 @@ def _resolve_price(code, curr_date, realtime_price, historical_review=None):
     return None, "realtime unavailable"
 
 
+def _format_tdx_date(value: float) -> str | None:
+    """TDX 财务快照日期字段（uint32 YYYYMMDD，如 20260815）→ 'YYYY-MM-DD'。"""
+    try:
+        digits = str(int(round(value)))
+    except (TypeError, ValueError, OverflowError):
+        return None
+    if len(digits) != 8 or not digits.isdigit():
+        return None
+    parsed = pd.to_datetime(digits, format="%Y%m%d", errors="coerce")
+    return None if pd.isna(parsed) else parsed.strftime("%Y-%m-%d")
+
+
+def _f10_report_period_reference(code: str) -> tuple[str, str | None] | None:
+    """新浪三表最新报告期，作为 TDX F10 快照的报告期参考。
+
+    TDX F10 finance 快照协议带 updated_date（实测 600519 updated_date=20260815
+    == 2026 中报公告日；ipo_date=20010827 为上市日）但不带报告期末，快照
+    金额≈最新已披露报告期（600519/000858 实测）。返回 (报告期末, 公告日)。
+    """
+    frame = _get_financial_report_sina(
+        code, "利润表", "quarterly", historical_review=False
+    )
+    if frame is None or frame.empty:
+        return None
+    row = frame.iloc[0]
+    period = pd.to_datetime(row.get("报告日"), errors="coerce")
+    if pd.isna(period):
+        return None
+    announcement = (
+        pd.to_datetime(row.get("公告日"), errors="coerce")
+        if "公告日" in frame.columns
+        else None
+    )
+    announcement_text = None
+    if announcement is not None and not pd.isna(announcement):
+        announcement_text = announcement.strftime("%Y-%m-%d")
+    return period.strftime("%Y-%m-%d"), announcement_text
+
+
 def get_fundamentals(
     ticker: Annotated[str, "A-stock code"],
     curr_date: Annotated[str, "current date"] = None,
@@ -2762,6 +2801,41 @@ def get_fundamentals(
                     except (TypeError, ValueError):
                         return None
                     return f if f == f else None  # 过滤 nan
+
+                # --- 报告期标注（T2）---
+                # TDX F10 快照不自带报告期末，只有 updated_date（公告/更新日）与
+                # ipo_date；绝对值读数必须带期，故用新浪三表最新报告期做参考并显式
+                # 披露来源。参考期与快照期的一致性有 600519/000858 实测佐证。
+                updated_date_text = _format_tdx_date(_raw("updated_date"))
+                ipo_date_text = _format_tdx_date(_raw("ipo_date"))
+                reference = None
+                try:
+                    reference = _f10_report_period_reference(code)
+                except Exception as e:
+                    _record_provider_failure("新浪三表（F10 快照期参考）", e)
+                if reference:
+                    reference_period, reference_announcement = reference
+                    detail = "来源：新浪三表最新报告期，非快照自带"
+                    if reference_announcement:
+                        detail += f"；公告日 {reference_announcement}"
+                        if updated_date_text == reference_announcement:
+                            detail += "（与 TDX updated_date 一致）"
+                    lines.append(
+                        f"F10 Snapshot Report Period (快照期参考): "
+                        f"{reference_period}（{detail}）"
+                    )
+                else:
+                    lines.append(
+                        "F10 Snapshot Report Period (快照期参考): 不可用"
+                        "（快照不携带报告期，新浪三表参考获取失败）"
+                    )
+                if updated_date_text:
+                    lines.append(
+                        f"F10 Snapshot Update Date (TDX updated_date): "
+                        f"{updated_date_text}（公告/更新日，非报告期末）"
+                    )
+                if ipo_date_text:
+                    lines.append(f"F10 Snapshot IPO Date (TDX ipo_date): {ipo_date_text}")
 
                 for field, label in field_map.items():
                     if field in idx:
@@ -2889,6 +2963,25 @@ def _sina_stock_code(code: str) -> str:
     return f"{_get_prefix(code)}{code}"
 
 
+def _sina_tongbi_to_percent(raw: Any) -> str | None:
+    """新浪 item_tongbi 原始值为小数比例（0.10791 = +10.79%），统一换算为百分数。
+
+    2026-09-15 实测 300452 / 002337 / 600519 各 20 期：item_tongbi 与
+    item_value 自算的同期累计同比逐项一致（仅末位小数舍入差），值本身是
+    小数比例而非百分数。解析层归一化后，{标题}同比 列统一为百分数语义。
+    不可解析/NaN 返回 None（该期该列不输出）。
+    """
+    if raw is None:
+        return None
+    try:
+        value = float(str(raw).replace(",", "").strip())
+    except (TypeError, ValueError):
+        return None
+    if not math.isfinite(value):
+        return None
+    return f"{round(value * 100, 4):g}"
+
+
 def _get_financial_report_sina(
     code: str,
     report_type: str,
@@ -2899,7 +2992,9 @@ def _get_financial_report_sina(
     """Shared helper: fetch financial report via Sina direct HTTP API.
 
     report_type: '资产负债表' | '利润表' | '现金流量表'
-    返回 DataFrame：每行一个报告期，列为报表项目名(item_title)，值为 item_value。
+    返回 DataFrame：每行一个报告期，列为报表项目名(item_title)，值为 item_value；
+    {item_title}同比 列为同期累计同比（百分数；新浪原始 item_tongbi 是小数
+    比例，解析时已 ×100，见 _sina_tongbi_to_percent）。
     """
     _report_type_map = {
         "资产负债表": "fzb",
@@ -2959,8 +3054,9 @@ def _get_financial_report_sina(
                 title = item.get("item_title")
                 if title and title not in row:
                     row[title] = item.get("item_value")
-                    if item.get("item_tongbi") is not None:
-                        row[f"{title}同比"] = item.get("item_tongbi")
+                    tongbi = _sina_tongbi_to_percent(item.get("item_tongbi"))
+                    if tongbi is not None:
+                        row[f"{title}同比"] = tongbi
         rows.append(row)
 
     df = pd.DataFrame(rows)
@@ -3115,7 +3211,13 @@ def get_free_financial_indicators(
     curr_date: Annotated[str, "current date in YYYY-MM-DD format"] = None,
     historical_review: bool | None = None,
 ) -> str:
-    """Derive Free core financial indicators from Sina's three statements."""
+    """Derive Free core financial indicators from Sina's three statements.
+
+    同比口径：自算同期累计同比（本期累计 ÷ |上年同期累计| − 1），基期为上一
+    报告年度同一期末；营收用营业收入（对齐 Tushare or_yoy），净利用归母净利润
+    （对齐 netprofit_yoy 与官方公告口径）。仅当上年同期行缺失时回退新浪
+    item_tongbi（解析层已把比例换算为百分数）。输出行携带基期标注。
+    """
     code = _normalize_ticker(ticker)
     reports = {
         "利润表": _get_financial_report_sina(
@@ -3152,6 +3254,8 @@ def get_free_financial_indicators(
         matching = frame.loc[
             frame["报告日"].map(date_text) == period
         ]
+        if matching.empty:
+            return {}
         return matching.iloc[0].to_dict()
 
     income_row = row_for(reports["利润表"], report_period)
@@ -3209,9 +3313,14 @@ def get_free_financial_indicators(
         return numerator / denominator * 100
 
     def raw_yoy(row: Mapping[str, Any], *names: str) -> float | None:
+        """新浪 item_tongbi 透传回退（解析层已换算为百分数）。
+
+        仅在自算同期比因上年同期行缺失而不可用时使用；值语义为同期累计同比。
+        """
         for name in names:
-            if name in row:
-                parsed = number(row[name])
+            column = f"{name}同比"
+            if column in row:
+                parsed = number(row[column])
                 if parsed is not None:
                     return parsed
         return None
@@ -3229,6 +3338,45 @@ def get_free_financial_indicators(
     is_financial = has_insurance_or_net_interest or has_bank_interest_structure
     previous_equity = None
     prior_period = (pd.Timestamp(report_period) - pd.DateOffset(years=1)).strftime("%Y-%m-%d")
+
+    def same_period_yoy(
+        frame: pd.DataFrame, current_row: Mapping[str, Any], *names: str
+    ) -> float | None:
+        """自算同期累计同比（百分数）。
+
+        Sina item_value 是年初累计口径（中报=H1 累计、三季报=前三季度累计），
+        基期 = 上一年同一报告期末行；分母取绝对值，与 Tushare or_yoy /
+        netprofit_yoy 的负基期处理保持一致（方向不因基期为负而翻转）。
+        缺本期值/上年同期行/零基期时返回 None，交由 raw_yoy 回退。
+        """
+        current_value = field(current_row, *names)
+        prior_value = field(row_for(frame, prior_period), *names)
+        if current_value is None or prior_value is None or prior_value == 0:
+            return None
+        return (current_value - prior_value) / abs(prior_value) * 100
+
+    # 营收对齐 Tushare or_yoy（营业收入）；净利对齐 netprofit_yoy（归母），
+    # 回退顺序与官方公告/上游指标口径一致。
+    revenue_yoy = same_period_yoy(
+        reports["利润表"], income_row, "营业收入", "主营业务收入"
+    )
+    if revenue_yoy is None:
+        revenue_yoy = raw_yoy(income_row, "营业收入", "主营业务收入")
+    net_profit_yoy = same_period_yoy(
+        reports["利润表"],
+        income_row,
+        "归属于母公司所有者的净利润",
+        "归属于母公司股东的净利润",
+        "净利润",
+    )
+    if net_profit_yoy is None:
+        net_profit_yoy = raw_yoy(
+            income_row,
+            "归属于母公司所有者的净利润",
+            "归属于母公司股东的净利润",
+            "净利润",
+        )
+
     prior_rows = reports["资产负债表"].loc[
         reports["资产负债表"]["报告日"].map(date_text) == prior_period
     ]
@@ -3272,6 +3420,31 @@ def get_free_financial_indicators(
     def rendered_percent(label: str, value: float | None, suffix: str = "%") -> str:
         return f"- {label}: {value:.2f}{suffix}" if value is not None else f"- {label}: 不可用"
 
+    def period_basis_label(period: str) -> str:
+        parsed = pd.Timestamp(period)
+        day = (parsed.month, parsed.day)
+        if day == (12, 31):
+            return f"{parsed.year}年报"
+        if day == (3, 31):
+            return f"{parsed.year}Q1"
+        if day == (6, 30):
+            return f"{parsed.year}H1"
+        if day == (9, 30):
+            return f"{parsed.year}前三季度"
+        return period
+
+    current_period_label = period_basis_label(report_period)
+    prior_period_label = period_basis_label(prior_period)
+    if report_period.endswith("12-31"):
+        yoy_basis = f"{current_period_label}，较{prior_period_label}"
+    else:
+        yoy_basis = f"{current_period_label}累计，较{prior_period_label}"
+
+    def rendered_yoy(label: str, value: float | None) -> str:
+        if value is None:
+            return f"- {label}: 不可用（{yoy_basis}）"
+        return f"- {label}: {value:.2f}%（{yoy_basis}）"
+
     cash_profit = (
         None if operating_cashflow is None or net_profit in (None, 0)
         else operating_cashflow / net_profit
@@ -3307,8 +3480,8 @@ def get_free_financial_indicators(
             if is_financial else rendered_percent("毛利率", gross_margin)
         ),
         rendered_percent("净利率", percent_ratio(net_profit, revenue)),
-        rendered_percent("营收同比增长率", raw_yoy(income_row, "营业收入同比", "主营业务收入同比")),
-        rendered_percent("净利润同比增长率", raw_yoy(income_row, "净利润同比", "归属于母公司股东的净利润同比")),
+        rendered_yoy("营收同比增长率", revenue_yoy),
+        rendered_yoy("净利润同比增长率", net_profit_yoy),
         rendered_percent("资产负债率", percent_ratio(total_liabilities, total_assets)),
         rendered_percent("经营性现金流/净利润匹配度", cash_profit, "x"),
     ]

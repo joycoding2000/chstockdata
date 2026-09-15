@@ -19,6 +19,17 @@ def _fake_mootdx_finance_row():
         "jingyingxianjinliu": 269_000_000_000.0,
         "zongzichan": 3_199_000_000_000.0,
         "jingzichan": 2_700_000_000_000.0,
+        "updated_date": 20260425.0,
+        "ipo_date": 20010827.0,
+    }])
+
+
+def _fake_sina_income_frame():
+    """F10 快照期参考用的离线新浪利润表（最新报告期 2026-03-31）。"""
+    return pd.DataFrame([{
+        "报告日": pd.Timestamp("2026-03-31"),
+        "公告日": pd.Timestamp("2026-04-25"),
+        "营业收入": "53909252220.51",
     }])
 
 
@@ -47,6 +58,9 @@ def test_get_fundamentals_derives_eps_roe_from_pinyin_fields(monkeypatch):
     monkeypatch.setattr(a_stock, "_tencent_quote", lambda codes, **_kwargs: {})
     monkeypatch.setattr(a_stock, "_ths_eps_forecast", lambda code: pd.DataFrame())
     monkeypatch.setattr(a_stock, "_today", lambda: pd.Timestamp("2026-07-14").date())
+    monkeypatch.setattr(
+        a_stock, "_get_financial_report_sina", lambda *a, **k: _fake_sina_income_frame()
+    )
 
     out = a_stock.get_fundamentals("600519", "2026-07-14")
 
@@ -59,6 +73,9 @@ def test_get_fundamentals_derives_eps_roe_from_pinyin_fields(monkeypatch):
     assert "ROE (%) (derived): 10.07" in out      # 272e9 / 2.7e12 * 100（比例不随缩放变化）
     assert "Book Value Per Share (每股净资产): 216.0" in out
     assert "Total Shares (总股本): 1250000000.0" in out
+    # T2: 快照绝对值读数必须带期（参考新浪三表最新报告期）并披露 updated_date
+    assert "F10 Snapshot Report Period (快照期参考): 2026-03-31" in out
+    assert "F10 Snapshot Update Date (TDX updated_date): 2026-04-25" in out
 
 
 def test_get_financial_report_sina_parses_report_list(monkeypatch):
@@ -126,8 +143,8 @@ def test_get_financial_report_sina_empty_report_list(monkeypatch):
     assert df.empty
 
 
-def test_get_financial_report_sina_preserves_announcement_and_item_yoy(monkeypatch):
-    """The derived Free indicators need both publication date and Sina's YoY field."""
+def test_get_financial_report_sina_normalizes_item_yoy_to_percent(monkeypatch):
+    """新浪 item_tongbi 是小数比例（0.125 = +12.5%），解析层统一换算为百分数。"""
     from chstockdata import a_stock
 
     fake_json = {
@@ -137,7 +154,7 @@ def test_get_financial_report_sina_preserves_announcement_and_item_yoy(monkeypat
                 "data": [{
                     "item_title": "营业收入",
                     "item_value": "100",
-                    "item_tongbi": "12.5",
+                    "item_tongbi": "0.125",
                 }],
             },
         }}},

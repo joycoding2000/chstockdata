@@ -3,6 +3,49 @@
 All notable changes to this project are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## [0.2.1] - 2026-09-15
+
+Financial report-period alignment (handover from TradingAgents-Astock
+P2-5): the Free data plane understated growth rates by 100× and the mootdx
+F10 snapshot had no report-period label. Evidence and probe tables:
+`docs/pending-financial-period-alignment.md` (appendix). Label names and
+value formats consumed downstream (`营收同比增长率`, `净利润同比增长率`,
+`report_period_end`, `announcement_date`) are unchanged.
+
+### Fixed
+
+- **Sina `item_tongbi` unit normalization** (`a_stock._get_financial_report_sina`):
+  the vendor field is a decimal fraction (0.10791 = +10.79%), but was stored
+  verbatim and rendered as a percentage (0.11%) — a 100× understatement that
+  produced the P2-5 contradictory readings. `{项目}同比` columns are now
+  normalized to percent at the parse boundary (behavior change for raw
+  statement CSV consumers).
+- **Self-computed same-period YoY** (`get_free_financial_indicators`):
+  `营收同比增长率` / `净利润同比增长率` are derived from raw `item_value`
+  against the prior-year same period (`report_period − 1 year`; denominator
+  `|prior|`, matching Tushare `or_yoy` / `netprofit_yoy` handling of negative
+  bases). Revenue uses `营业收入`; net profit prefers `归属于母公司所有者的净利润`
+  (official announcement caliber). The normalized `item_tongbi` column is only
+  a fallback when the prior-year row is missing. 300452 2026H1 now reads
+  +10.79% / +3.39% (was +0.11% / +0.04%).
+- **YoY basis disclosure (T3)**: growth lines carry their base period and
+  cumulative semantics, e.g. `- 营收同比增长率: 10.79%（2026H1累计，较2025H1）`;
+  when unavailable the same basis is still disclosed.
+
+### Added
+
+- **F10 snapshot report-period labeling** (`get_fundamentals`): TDX F10
+  finance carries `updated_date` (announcement/update date, live-verified
+  600519 = 20260815 = 2026 interim announcement) and `ipo_date`, but no
+  report-period-end field. The snapshot now emits a report-period reference
+  resolved from the latest Sina statement period (explicitly disclosed as a
+  reference, not snapshot-native), cross-checked against `updated_date`, plus
+  the `updated_date` / IPO date. If the reference cannot be fetched, the
+  output states 报告期不可用 instead of printing undated absolute amounts.
+- `tests/test_astock_financial_yoy_alignment.py`: offline fixture cases for
+  self-computed YoY, negative base, normalized fallback, unavailable basis
+  disclosure, `item_tongbi` conversion, and F10 period labeling.
+
 ## [0.2.0] - 2026-09-14
 
 Reverse-ported selected upstream-unique endpoints from
