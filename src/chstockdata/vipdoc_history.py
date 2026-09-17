@@ -10,6 +10,10 @@ issues/023 / 实施计划（docs/superpowers/plans/2026-09-11-tdx-official-vipdo
 - 纯本地、零网络、零副作用；文件缺失返回 ``None``，交给调用方回落现有链。
 - ``amount``/``volume`` 的单位口径以 Task 4 与在线源（新浪）实测对齐为准；
   本层不做任何复权，raw 就是不复权。
+- ``pre_close`` 是同一 ``.day`` 文件按日期排序后的前一交易日原始
+  ``Close``；它不是除息调整后的交易所前收盘价。读取器会先完整解析文件再
+  做窗口过滤，因此窗口首行通常仍能带出文件内上一交易日的 close；文件本身
+  没有更早记录时保留缺失，不 fabricate。
 """
 
 from __future__ import annotations
@@ -35,7 +39,8 @@ VIPDOC_SOURCE_URL = "https://data.tdx.com.cn/vipdoc/hsjday.zip"
 
 MANIFEST_SCHEMA_VERSION = 1
 
-DAY_COLUMNS = ["Date", "Open", "High", "Low", "Close", "Volume", "Amount"]
+DAY_COLUMNS = ["Date", "Open", "High", "Low", "Close", "pre_close", "Volume", "Amount"]
+_RAW_DAY_COLUMNS = ["Date", "Open", "High", "Low", "Close", "Volume", "Amount"]
 
 # record: date(uint32) open high low close(uint32 ×100) amount(float32) volume(uint32) reserved(uint32)
 _DAY_RECORD = struct.Struct("<IIIIIfII")
@@ -76,10 +81,11 @@ def vipdoc_history_dir() -> str:
 
 
 def parse_day_file(path: str | os.PathLike[str]) -> pd.DataFrame:
-    """解析单个 ``.day`` 文件为 ``Date/Open/High/Low/Close/Volume/Amount``。
+    """解析单个 ``.day`` 文件为含 ``pre_close`` 的原始日线帧。
 
     价格 uint32 ÷100 得元；``amount`` float32 元；``volume`` uint32 股。
-    坏日期/截断记录跳过并计数（不可让一个坏文件中断整个分析）。
+    ``pre_close`` 是文件内前一交易日原始 ``Close``，不做除息调整；坏日期/
+    截断记录跳过并计数（不可让一个坏文件中断整个分析）。
     """
     rows: list[tuple[Any, ...]] = []
     invalid = 0
@@ -124,13 +130,18 @@ def parse_day_file(path: str | os.PathLike[str]) -> pd.DataFrame:
     if not rows:
         return _empty_frame()
 
-    frame = pd.DataFrame(rows, columns=DAY_COLUMNS)
+    frame = pd.DataFrame(rows, columns=_RAW_DAY_COLUMNS)
     frame["Date"] = pd.to_datetime(frame["Date"])
     frame = (
         frame.drop_duplicates(subset=["Date"], keep="last")
         .sort_values("Date")
         .reset_index(drop=True)
     )
+    # Derive from the complete file before load_vipdoc_daily applies a date
+    # window.  This is deliberately raw file history, not an adjusted or
+    # exchange-reported ex-dividend previous close.
+    frame["pre_close"] = frame["Close"].shift(1)
+    frame = frame[["Date", "Open", "High", "Low", "Close", "pre_close", "Volume", "Amount"]]
     return frame
 
 
@@ -147,8 +158,9 @@ def load_vipdoc_daily(
     缺省按 sh/sz/bj（920 号段在前）路由；显式 ``market``（sh/sz/bj）用于
     无法按 6 位代码路由的标的——上证指数为 ``sh000001``，按代码会把
     ``000001`` 判给深市 ``sz000001``（平安银行，DEC-P1-27 实施坑）。
-    文件缺失返回 ``None``；文件存在但区间内无记录时返回空 frame。代码必须
-    为 6 位数字，防止路径穿越。
+    文件缺失返回 ``None``；文件存在但区间内无记录时返回空 frame。``pre_close``
+    是完整 ``.day`` 文件中前一交易日的原始 ``Close``，不是除息调整后的交易所
+    前收盘价；文件没有更早记录时保持缺失。代码必须为 6 位数字，防止路径穿越。
     """
     normalized = str(code).strip()
     if not _CODE_RE.fullmatch(normalized):

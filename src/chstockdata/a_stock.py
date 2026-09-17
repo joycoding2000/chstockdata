@@ -5336,7 +5336,16 @@ _SCHEDULE_LABEL = "Eastmoney disclosure schedule"
 
 _SUSPEND_REPORT_NAME = "RPT_CUSTOM_SUSPEND_DATA_INTERFACE"
 _SUSPEND_PAGE_SIZE = 500
+_SUSPEND_MAX_PAGES = 12
 _SUSPEND_LABEL = "Eastmoney suspend/resume snapshot"
+
+# The source is a market-wide per-date snapshot.  Cache the completed
+# aggregate, including an explicit failure, so four ETF lookups for one day
+# do not fan out into four identical full-market downloads.  The request
+# callable is part of the key to keep monkeypatched/test transports isolated;
+# in production it is the stable module-level _em_get function.
+_suspension_snapshot_cache: dict[tuple[str, Any], dict[str, Any]] = {}
+_suspension_snapshot_cache_lock = threading.RLock()
 
 _DELIST_LABEL = "Exchange official delisting records"
 _DELIST_CACHE_FILE = "delist-list.json"
@@ -5441,6 +5450,110 @@ def get_disclosure_schedule(
     return _dc_result("success", _SCHEDULE_LABEL, **base)
 
 
+def _suspension_snapshot_page(snapshot_date: str, page: int) -> tuple[list[Mapping[str, Any]], int | None]:
+    response = _em_get(
+        _DATACENTER_URL,
+        params={
+            "reportName": _SUSPEND_REPORT_NAME,
+            "columns": "ALL",
+            # The provider rejects filters without MARKET (verified
+            # 2026-09-10, code 9501); per-stock filtering is client-side.
+            "filter": f'(MARKET="全部")(DATETIME=\'{snapshot_date}\')',
+            "pageSize": _SUSPEND_PAGE_SIZE,
+            "pageNumber": page,
+            "sortColumns": "SUSPEND_START_DATE",
+            "sortTypes": "-1",
+            "source": "WEB",
+            "client": "WEB",
+        },
+        timeout=15,
+    )
+    raise_for_status = getattr(response, "raise_for_status", None)
+    if callable(raise_for_status):
+        raise_for_status()
+    response_payload = response.json()
+    return _dc_report_rows(response_payload, label=_SUSPEND_LABEL), _dc_result_count(response_payload)
+
+
+def _load_suspension_snapshot(snapshot_date: str) -> dict[str, Any]:
+    cache_key = (snapshot_date, _em_get)
+    with _suspension_snapshot_cache_lock:
+        cached = _suspension_snapshot_cache.get(cache_key)
+        if cached is not None:
+            return cached
+
+        try:
+            raw_rows, reported_count = _suspension_snapshot_page(snapshot_date, 1)
+            if reported_count is None:
+                if len(raw_rows) >= _SUSPEND_PAGE_SIZE:
+                    result = {
+                        "failure_kind": "failed_structure",
+                        "reason": "snapshot_count_missing",
+                        "rows": list(raw_rows),
+                        "reported_count": None,
+                        "snapshot_pages": 1,
+                    }
+                    _suspension_snapshot_cache[cache_key] = result
+                    return result
+                reported_count = len(raw_rows)
+            reported_count = max(reported_count, len(raw_rows))
+            expected_pages = max(1, math.ceil(reported_count / _SUSPEND_PAGE_SIZE))
+            pages_to_fetch = min(expected_pages, _SUSPEND_MAX_PAGES)
+            for page in range(2, pages_to_fetch + 1):
+                page_rows, page_count = _suspension_snapshot_page(snapshot_date, page)
+                raw_rows.extend(page_rows)
+                if page_count is not None:
+                    reported_count = max(reported_count, page_count)
+
+            if expected_pages > _SUSPEND_MAX_PAGES or len(raw_rows) < reported_count:
+                result = {
+                    "failure_kind": "failed_structure",
+                    "reason": "snapshot_truncated",
+                    "rows": list(raw_rows),
+                    "reported_count": reported_count,
+                    "snapshot_pages": pages_to_fetch,
+                }
+            else:
+                result = {
+                    "failure_kind": None,
+                    "reason": None,
+                    "rows": list(raw_rows),
+                    "reported_count": reported_count,
+                    "snapshot_pages": pages_to_fetch,
+                }
+        except (_requests.RequestException, TimeoutError, ConnectionError) as exc:
+            result = {
+                "failure_kind": "failed_network",
+                "reason": type(exc).__name__,
+                "rows": [],
+                "reported_count": None,
+                "snapshot_pages": 0,
+            }
+        except (ValueError, TypeError, _json.JSONDecodeError) as exc:
+            result = {
+                "failure_kind": "failed_structure",
+                "reason": type(exc).__name__,
+                "rows": [],
+                "reported_count": None,
+                "snapshot_pages": 0,
+            }
+        except Exception as exc:
+            logger.warning(
+                "Eastmoney suspend snapshot request failed for %s: %s",
+                snapshot_date,
+                type(exc).__name__,
+            )
+            result = {
+                "failure_kind": "failed_network",
+                "reason": type(exc).__name__,
+                "rows": [],
+                "reported_count": None,
+                "snapshot_pages": 0,
+            }
+        _suspension_snapshot_cache[cache_key] = result
+        return result
+
+
 def get_suspension_info(
     ticker: Annotated[str, "6-digit A-share code (e.g. 600519)"],
     curr_date: Annotated[str, "Snapshot date YYYY-MM-DD"],
@@ -5459,41 +5572,19 @@ def get_suspension_info(
     except (TypeError, ValueError) as exc:
         return _dc_result("invalid_input", _SUSPEND_LABEL, reason=type(exc).__name__)
 
-    try:
-        response = _em_get(
-            _DATACENTER_URL,
-            params={
-                "reportName": _SUSPEND_REPORT_NAME,
-                "columns": "ALL",
-                # The provider rejects filters without MARKET (verified
-                # 2026-09-10, code 9501); per-stock filtering is client-side.
-                "filter": f'(MARKET="全部")(DATETIME=\'{snapshot_date}\')',
-                "pageSize": _SUSPEND_PAGE_SIZE,
-                "pageNumber": 1,
-                "sortColumns": "SUSPEND_START_DATE",
-                "sortTypes": "-1",
-                "source": "WEB",
-                "client": "WEB",
-            },
-            timeout=15,
+    snapshot = _load_suspension_snapshot(snapshot_date)
+    if snapshot["failure_kind"] is not None:
+        return _dc_result(
+            snapshot["failure_kind"],
+            _SUSPEND_LABEL,
+            reason=snapshot["reason"],
+            snapshot_date=snapshot_date,
+            snapshot_rows=len(snapshot["rows"]),
+            reported_count=snapshot["reported_count"],
+            snapshot_pages=snapshot["snapshot_pages"],
         )
-        raise_for_status = getattr(response, "raise_for_status", None)
-        if callable(raise_for_status):
-            raise_for_status()
-        response_payload = response.json()
-        raw_rows = _dc_report_rows(response_payload, label=_SUSPEND_LABEL)
-        reported_count = _dc_result_count(response_payload)
-    except (_requests.RequestException, TimeoutError, ConnectionError) as exc:
-        return _dc_result("failed_network", _SUSPEND_LABEL, reason=type(exc).__name__)
-    except (ValueError, TypeError, _json.JSONDecodeError) as exc:
-        return _dc_result("failed_structure", _SUSPEND_LABEL, reason=type(exc).__name__)
-    except Exception as exc:
-        logger.warning(
-            "Eastmoney suspend snapshot request failed for %s: %s",
-            code,
-            type(exc).__name__,
-        )
-        return _dc_result("failed_network", _SUSPEND_LABEL, reason=type(exc).__name__)
+
+    raw_rows = snapshot["rows"]
 
     try:
         matched: Mapping[str, Any] | None = None
@@ -5503,18 +5594,6 @@ def get_suspension_info(
                 matched = row
                 break
         if matched is None:
-            if reported_count is not None and reported_count > len(raw_rows):
-                # The market-wide snapshot was paginated below its reported
-                # size; absence from the fetched page is NOT a no-suspension
-                # answer (v0.5.0 CR-UNIFIED-CAPABILITY-OWNERSHIP hygiene fix).
-                return _dc_result(
-                    "failed_structure",
-                    _SUSPEND_LABEL,
-                    reason="snapshot_truncated",
-                    snapshot_date=snapshot_date,
-                    snapshot_rows=len(raw_rows),
-                    reported_count=reported_count,
-                )
             observed_at = datetime.now(_MARKET_TZ).isoformat(timespec="seconds")
             return _dc_result(
                 "normal_empty",
@@ -5524,6 +5603,8 @@ def get_suspension_info(
                 as_of_date=_today().isoformat(),
                 snapshot_date=snapshot_date,
                 snapshot_rows=len(raw_rows),
+                reported_count=snapshot["reported_count"],
+                snapshot_pages=snapshot["snapshot_pages"],
                 suspended=False,
                 suspend_start_time=None,
                 suspend_expire=None,
@@ -5541,6 +5622,8 @@ def get_suspension_info(
             "as_of_date": _today().isoformat(),
             "snapshot_date": snapshot_date,
             "snapshot_rows": len(raw_rows),
+            "reported_count": snapshot["reported_count"],
+            "snapshot_pages": snapshot["snapshot_pages"],
             "suspended": True,
             "security_name": _dc_row_text(matched, "SECURITY_NAME_ABBR", "security_name_abbr", limit=20),
             "suspend_start_date": start_date,
@@ -6396,6 +6479,29 @@ def get_corporate_actions(
         page_size=page_size,
     )
     return _public_adapter_payload(result, label="Corporate actions")
+
+
+def get_fund_corporate_actions(
+    code: Annotated[str, "6-digit ETF/fund code"],
+    start: Annotated[str, "Action window start YYYY-MM-DD"],
+    end: Annotated[str, "Action window end YYYY-MM-DD"],
+    as_of_date: Annotated[str, "Known-information cutoff YYYY-MM-DD"] = "",
+    page: Annotated[int, "Bounded page number"] = 1,
+    page_size: Annotated[int, "Page size, at most 100"] = 50,
+) -> str:
+    """Return normalized ETF/fund distribution records from Eastmoney F10."""
+
+    from .corporate_actions import get_fund_corporate_actions as _get_fund_actions
+
+    result = _get_fund_actions(
+        str(code).strip(),
+        start or None,
+        end or None,
+        as_of_date=as_of_date or None,
+        page=page,
+        page_size=page_size,
+    )
+    return _public_adapter_payload(result, label="Fund corporate actions")
 
 
 def get_announcement_index(

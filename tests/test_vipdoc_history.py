@@ -15,7 +15,7 @@ import pytest
 
 from chstockdata import vipdoc_history as vh
 
-_COLUMNS = ["Date", "Open", "High", "Low", "Close", "Volume", "Amount"]
+_COLUMNS = ["Date", "Open", "High", "Low", "Close", "pre_close", "Volume", "Amount"]
 
 
 def _record(date_raw, o, h, low, c, amount, volume):
@@ -56,12 +56,14 @@ def test_parse_day_file_golden_layout_scales_and_skips_invalid(tmp_path):
     assert first["High"] == pytest.approx(1323.0)
     assert first["Low"] == pytest.approx(1309.05)
     assert first["Close"] == pytest.approx(1309.30)
+    assert pd.isna(first["pre_close"])
     assert first["Volume"] == 1753404
     assert first["Amount"] == pytest.approx(4.2e9, rel=1e-6)
 
     second = frame.iloc[1]
     assert second["Date"] == pd.Timestamp("2026-09-09")
     assert second["Close"] == pytest.approx(1290.88)
+    assert second["pre_close"] == pytest.approx(1309.30)
     assert second["Amount"] == pytest.approx(3.1e9, rel=1e-6)
 
 
@@ -106,6 +108,20 @@ def test_load_vipdoc_daily_routes_sh_sz_bj_and_filters_dates(tmp_path):
     assert sz is not None and len(sz) == 2
     assert bj is not None and len(bj) == 2
     assert list(bj.columns) == _COLUMNS
+
+
+def test_load_vipdoc_daily_derives_pre_close_before_window_filter(tmp_path):
+    path = tmp_path / "sh" / "lday" / "sh600519.day"
+    _write_day(
+        path,
+        _record(20260907, 100, 110, 90, 100, 1.0, 10)
+        + _record(20260908, 101, 111, 91, 105, 2.0, 20),
+    )
+
+    frame = vh.load_vipdoc_daily("600519", "2026-09-08", "2026-09-08", root=tmp_path)
+
+    assert "pre_close" in frame.columns
+    assert frame.iloc[0]["pre_close"] == 1.0
 
 
 def test_load_vipdoc_daily_missing_file_returns_none(tmp_path):

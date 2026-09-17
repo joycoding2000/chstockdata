@@ -243,6 +243,70 @@ def test_suspension_row_missing_required_start_date_fails_structure(monkeypatch)
     assert _result_payload(raw)["status"] == "failed_structure"
 
 
+def test_suspension_paginates_once_and_reuses_same_date_snapshot(monkeypatch):
+    requested_pages = []
+    target_by_page = {1: "510300", 2: "511010", 3: "518880"}
+
+    def page_rows(page: int) -> list[dict]:
+        rows = [_suspend_row(target_by_page[page], "2014-12-01")]
+        if page == 3:
+            rows.append(_suspend_row("159915", "2014-12-02"))
+            return rows
+        while len(rows) < 500:
+            rows.append(_suspend_row(f"{700000 + page * 1000 + len(rows):06d}", "2014-12-03"))
+        return rows
+
+    def fake_em_get(url, params=None, **kwargs):
+        page = int(params["pageNumber"])
+        requested_pages.append(page)
+        return _Response(
+            {
+                "status": 0,
+                "code": 0,
+                "result": {"data": page_rows(page), "count": 1002},
+            }
+        )
+
+    monkeypatch.setattr(a_stock, "_em_get", fake_em_get)
+
+    payloads = [
+        _result_payload(a_stock.get_suspension_info(code, "2015-01-05"))
+        for code in ("510300", "511010", "518880", "159915")
+    ]
+
+    assert [payload["status"] for payload in payloads] == ["success"] * 4
+    assert all(payload["snapshot_rows"] == 1002 for payload in payloads)
+    assert requested_pages == [1, 2, 3]
+
+
+def test_suspension_pagination_has_a_hard_page_bound(monkeypatch):
+    requested_pages = []
+
+    def fake_em_get(url, params=None, **kwargs):
+        page = int(params["pageNumber"])
+        requested_pages.append(page)
+        rows = [_suspend_row("510300", "2014-12-01")] if page == 1 else []
+        while len(rows) < 500:
+            rows.append(_suspend_row(f"{800000 + page * 1000 + len(rows):06d}", "2014-12-03"))
+        return _Response(
+            {
+                "status": 0,
+                "code": 0,
+                "result": {"data": rows, "count": 6001},
+            }
+        )
+
+    monkeypatch.setattr(a_stock, "_em_get", fake_em_get)
+
+    raw = a_stock.get_suspension_info("510300", "2015-01-06")
+    payload = _result_payload(raw)
+
+    assert payload["status"] == "failed_structure"
+    assert payload["reason"] == "snapshot_truncated"
+    assert payload["reported_count"] == 6001
+    assert requested_pages == list(range(1, 13))
+
+
 def test_suspension_rejects_invalid_date_input():
     raw = a_stock.get_suspension_info("600519", "not-a-date")
     assert "Invalid ticker" in raw

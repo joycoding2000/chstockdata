@@ -68,6 +68,7 @@ from .a_stock import (
     get_stock_monitor,
     get_market_breadth,
     get_corporate_actions,
+    get_fund_corporate_actions,
     get_announcement_index,
     get_block_trades,
     get_northbound_flow,
@@ -126,7 +127,7 @@ from .provenance import (
     validate_envelope,
 )
 
-__version__ = "0.2.1"
+__version__ = "0.3.0"
 
 __all__ = [
     # config
@@ -147,7 +148,7 @@ __all__ = [
     "get_income_statement", "get_free_financial_indicators",
     "get_earnings_forecast", "get_research_reports",
     # corporate events / governance
-    "get_corporate_actions", "get_announcement_index",
+    "get_corporate_actions", "get_fund_corporate_actions", "get_announcement_index",
     "get_disclosure_schedule", "get_suspension_info", "get_delisting_info",
     "get_insider_transactions", "get_shareholder_pledge",
     "get_corporate_buyback",

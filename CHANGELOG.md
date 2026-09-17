@@ -3,6 +3,17 @@
 All notable changes to this project are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## [0.3.0] - 2026-09-17
+
+### Added
+
+- Added ETF/fund distribution actions from Eastmoney F10 (`FHSP` + `FHGG`),
+  including announcement/ex-dividend/record/payment dates and normalized
+  per-10-share cash amounts.
+- Added bounded pagination and per-date in-process caching for the market-wide
+  suspension snapshot.
+- Added raw file-derived `pre_close` to local VIPDOC daily frames.
+
 ## [0.2.1] - 2026-09-15
 
 Financial report-period alignment (handover from TradingAgents-Astock

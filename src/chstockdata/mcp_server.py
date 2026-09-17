@@ -34,7 +34,7 @@ _TOOL_FUNCTIONS: tuple[str, ...] = (
     "get_income_statement", "get_free_financial_indicators",
     "get_earnings_forecast", "get_research_reports",
     # corporate events / governance
-    "get_corporate_actions", "get_announcement_index",
+    "get_corporate_actions", "get_fund_corporate_actions", "get_announcement_index",
     "get_disclosure_schedule", "get_suspension_info", "get_delisting_info",
     "get_insider_transactions", "get_shareholder_pledge",
     "get_corporate_buyback",
