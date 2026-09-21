@@ -2487,6 +2487,7 @@ def _load_vipdoc_ohlcv_frame(
 
 _LEGACY_OHLCV_COLUMNS = ("Date", "Open", "High", "Low", "Close", "Volume")
 _CACHED_OHLCV_LOOKBACK_YEARS = 4
+_CACHED_OHLCV_MAX_ROWS = 800
 
 
 def _cached_ohlcv_start_date(curr_date: str) -> str:
@@ -2524,6 +2525,22 @@ def _canonicalize_cached_ohlcv(df: pd.DataFrame) -> pd.DataFrame | None:
         return None
 
 
+def _prepare_cached_ohlcv_for_consumer(
+    df: pd.DataFrame, curr_date: str
+) -> pd.DataFrame:
+    """Apply the legacy cached consumer's PIT and history-depth contract."""
+    canonical = _legacy_ohlcv_columns(_normalize_ohlcv_dates(df))
+    cutoff = pd.to_datetime(curr_date).normalize()
+    prepared = (
+        canonical.loc[canonical["Date"] <= cutoff]
+        .sort_values("Date", kind="mergesort")
+        .tail(_CACHED_OHLCV_MAX_ROWS)
+        .reset_index(drop=True)
+    )
+    prepared.attrs = {}
+    return prepared
+
+
 def _fetch_cached_ohlcv_from_structured(
     code: str, curr_date: str
 ) -> pd.DataFrame:
@@ -2558,7 +2575,8 @@ def _load_ohlcv_astock(symbol: str, curr_date: str) -> pd.DataFrame:
     CSV freshness, point-in-time filtering, stale coverage, and the legacy
     ``ValueError`` envelope stay here.  Provider selection belongs exclusively
     to ``daily_bars.fetch_daily_bars``.  The returned frame always has columns
-    ``Date, Open, High, Low, Close, Volume``.
+    ``Date, Open, High, Low, Close, Volume``, is sorted by ascending ``Date``,
+    and contains at most the most recent 800 point-in-time rows.
     """
     from .config import get_config
 
@@ -2570,7 +2588,6 @@ def _load_ohlcv_astock(symbol: str, curr_date: str) -> pd.DataFrame:
     os.makedirs(cache_dir, exist_ok=True)
 
     cache_file = os.path.join(cache_dir, f"{code}-astock-daily.csv")
-    cutoff = pd.to_datetime(curr_date)
 
     if os.path.exists(cache_file):
         mtime = datetime.fromtimestamp(os.path.getmtime(cache_file))
@@ -2587,28 +2604,33 @@ def _load_ohlcv_astock(symbol: str, curr_date: str) -> pd.DataFrame:
             if cached is not None:
                 cached = _canonicalize_cached_ohlcv(cached)
             if cached is not None:
-                cached_last = _last_ohlcv_date(cached)
-                pit_cached = cached[cached["Date"] <= cutoff].reset_index(drop=True)
+                pit_cached = _prepare_cached_ohlcv_for_consumer(cached, curr_date)
                 coverage = _ohlcv_coverage(pit_cached, curr_date)
-                if (
-                    cached_last is not None
-                    and cached_last >= cutoff.normalize()
-                    and not coverage["stale"]
-                ):
+                pit_last = _last_ohlcv_date(pit_cached)
+                expected_last = _calendar_reference_last_bar(curr_date)
+                if expected_last is not None:
+                    cache_covers_market = (
+                        pit_last is not None
+                        and pit_last >= pd.to_datetime(expected_last).normalize()
+                    )
+                else:
+                    cache_covers_market = not coverage["stale"]
+                if cache_covers_market:
+                    pit_cached.to_csv(cache_file, index=False, encoding="utf-8")
                     return pit_cached
 
     # The cache is a storage layer.  A miss, malformed cache, or lagging cache
     # refreshes through the one authoritative structured provider route.
     df = _fetch_cached_ohlcv_from_structured(code, curr_date)
-    df.to_csv(cache_file, index=False, encoding="utf-8")
-
     # Keep the PIT hard cutoff even though the structured request is bounded by
     # curr_date; this protects the legacy consumer if a provider returns extra
-    # rows or a future cache is rewritten.
-    df = df[df["Date"] <= cutoff].reset_index(drop=True)
+    # rows or a future cache is rewritten.  The row limit is applied only after
+    # this filter so future rows cannot displace valid historical rows.
+    df = _prepare_cached_ohlcv_for_consumer(df, curr_date)
     coverage = _ohlcv_coverage(df, curr_date)
     if coverage["stale"]:
         raise ValueError(_stale_ohlcv_message(code, coverage))
+    df.to_csv(cache_file, index=False, encoding="utf-8")
     return df
 
 
@@ -2620,10 +2642,11 @@ def get_ohlcv_frame_cached(symbol: str, curr_date: str) -> pd.DataFrame:
     Date/Open/High/Low/Close/Volume rows filtered to ``<= curr_date``; the
     daily CSV cache is written/refreshed as a side effect.  Raises ``ValueError``
     on stale coverage (tolerance is calendar based — weekends and ordinary
-    holidays are covered, see ``_OHLCV_MAX_STALENESS_DAYS``).  Tool-facing
-    callers should keep using ``get_stock_data`` (formatted text); this wrapper
-    exists for code that needs the raw frame, e.g. the background memory
-    settlement task.
+    holidays are covered by the session reference when available, otherwise
+    see ``_OHLCV_MAX_STALENESS_DAYS``).  The returned frame contains at most
+    the recent 800 bars. Tool-facing callers should keep using ``get_stock_data``
+    (formatted text); this wrapper exists for code that needs the raw frame,
+    e.g. the background memory settlement task.
     """
     return _load_ohlcv_astock(symbol, curr_date)
 

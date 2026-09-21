@@ -261,13 +261,24 @@ provider route，同时保留 legacy CSV/PIT/staleness consumer contract：
 get_ohlcv_frame_cached()
         ↓
 _load_ohlcv_astock()
-        ├─ fresh + valid CSV → canonicalize(cache) → PIT → stale gate
+        ├─ fresh + valid CSV → canonicalize(cache) → PIT → Date asc → recent ≤800
+        │                       → market-session coverage gate → return/rewrite
         └─ miss / malformed / lagging CSV
                 ↓
-        daily_bars.fetch_daily_bars()
+                daily_bars.fetch_daily_bars()
                 ↓
-        six-column legacy CSV rewrite → PIT → stale gate
+        six-column legacy frame → PIT → Date asc → recent ≤800
+                → stale gate → CSV rewrite → return
 ```
+
+The structured refresh window remains four calendar years only as a retrieval
+safety margin; it is not a new consumer history contract. The cached legacy
+consumer is capped by `_CACHED_OHLCV_MAX_ROWS = 800`, and the PIT filter always
+runs before selecting those rows. Fresh-cache coverage first compares the
+PIT-filtered last bar with `_calendar_reference_last_bar(curr_date)` when the
+supportive trading calendar is available. Calendar failure falls back to the
+existing `_OHLCV_MAX_STALENESS_DAYS = 14` tolerance, so weekends and ordinary
+holidays do not force an unnecessary refresh.
 
 CSV 是 storage policy，不是 provider capability：不会产生 `cache` provider
 attempt/health，也不会保存 structured frame attrs。缓存写入与返回继续冻结为

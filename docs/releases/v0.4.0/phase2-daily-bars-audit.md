@@ -102,6 +102,13 @@ canonical 引擎**不重排单源 base 帧**（合同冻结优先），merge 语
   fallback 用）只保留 CSV storage、PIT 与 stale consumer policy；cache miss、
   malformed 或 lagging 时统一调用 `daily_bars.fetch_daily_bars`，不再直接
   编排 mootdx→Sina。CSV 仍只保存 legacy 六列，不保存 structured attrs。
+- Phase 2.2.1 明确兼容性边界：四年窗口只是 structured retrieval safety
+  margin；cache consumer 在 PIT 过滤后按 `Date` 升序只保留最近最多 800 根，
+  refresh 与 fresh cache hit 共用该归一化，CSV 也收敛到最多 800 根。
+- fresh cache coverage 优先以 PIT 后最后一根与
+  `_calendar_reference_last_bar(curr_date)` 的市场 session 比较；calendar
+  不可用时继续使用既有 14 日 `_OHLCV_MAX_STALENESS_DAYS` fallback。stale
+  refresh 结果在 stale gate 通过前不写入当天 cache。
 - vipdoc manifest/新鲜度（`vipdoc_history_status`）与本链路只通过
   `vipdoc_history_max_staleness_days`（默认 5）交互。
 

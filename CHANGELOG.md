@@ -28,6 +28,22 @@ nothing below changes the public API. Scope and rationale:
   without changing the public `fetch_daily_bars(code, start_date, end_date)`
   contract. Future rows are always excluded before returning to consumers.
 
+### Phase 2.2.1 — Cached OHLCV Compatibility Hardening (hotfix)
+
+#### Fixed
+
+- **The four-year window is retrieval-only**: the cached legacy consumer is
+  normalized to at most the most recent 800 bars after point-in-time filtering
+  and stable ascending `Date` ordering. Both structured refreshes and fresh CSV
+  hits use the same rule, and the CSV converges to the same six-column frame.
+- **Cache freshness is market-session-aware**: when
+  `_calendar_reference_last_bar(curr_date)` is available, PIT-filtered cache
+  coverage is compared with that expected session rather than the natural-day
+  cutoff. If the calendar is unavailable, the existing 14-day staleness
+  tolerance remains the fallback.
+- **Stale refresh results are not written as fresh cache artifacts**; the
+  legacy stale `ValueError` contract remains unchanged.
+
 ### Phase 2.1.1 — Supplement Canonicalization Closure (hotfix)
 
 #### Fixed
