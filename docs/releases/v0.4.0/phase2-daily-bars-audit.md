@@ -98,9 +98,10 @@ canonical 引擎**不重排单源 base 帧**（合同冻结优先），merge 语
 ## 3. Cache 语义
 
 - raw/D structured 目标路径本身无缓存（vipdoc 即本地包；mootdx/sina 每次实拉）。
-- `_load_ohlcv_astock`（CSV 日缓存，mootdx→sina）是**另一条独立
-  orchestration**（`get_ohlcv_frame_cached` / 指标 fallback 用），Phase 2
-  不合并、不改动 → 记为 Phase 2.x/3 debt。
+- Phase 2.2 后，`_load_ohlcv_astock`（`get_ohlcv_frame_cached` / 指标
+  fallback 用）只保留 CSV storage、PIT 与 stale consumer policy；cache miss、
+  malformed 或 lagging 时统一调用 `daily_bars.fetch_daily_bars`，不再直接
+  编排 mootdx→Sina。CSV 仍只保存 legacy 六列，不保存 structured attrs。
 - vipdoc manifest/新鲜度（`vipdoc_history_status`）与本链路只通过
   `vipdoc_history_max_staleness_days`（默认 5）交互。
 
@@ -132,6 +133,7 @@ normal_empty routing policy（bars engine 内）：vipdoc/mootdx normal_empty �
 ## 6. 已确认不动的外围
 
 - 非 raw / 非 D（qfq/hfq/W/M）路径继续直连 mootdx→sina（本 Phase 不迁移）。
-- `_load_ohlcv_astock` / `get_ohlcv_frame_cached` 保持原样。
+- `_load_ohlcv_astock` / `get_ohlcv_frame_cached` 的 public six-column、PIT
+  与 stale/error contract 保持；provider retrieval 收口到 structured engine。
 - `mootdx:finance` / `xdxr` 等 capability 隔离不受影响（engine 只写
   被尝试 provider 的 capability health）。

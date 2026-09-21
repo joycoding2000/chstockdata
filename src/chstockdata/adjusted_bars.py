@@ -1,7 +1,7 @@
 """F1 免费复权行情与周/月线（v0.5.0 独立模块，尚未接入生产消费链路）。
 
-在既有原始日线链路（``a_stock._load_ohlcv_astock``：mootdx TCP → 新浪 HTTP
-补充/兜底，两分支均为未复权价）之上叠加：
+在既有原始日线链路（``a_stock._load_ohlcv_astock``：CSV/PIT 兼容层 →
+structured daily-bars engine，两分支均为未复权价）之上叠加：
 
 1. 原始 / QFQ（前复权）/ HFQ（后复权）日线序列；
 2. 基于统一日线的周 / 月 OHLCV 聚合；
@@ -564,8 +564,9 @@ def get_adjusted_bars(
 
     ``daily_bars`` 可传入调用方已有的**原始**日线（Date/Open/High/Low/Close
     [/Volume 已含]/[Amount] 可选，mootdx 与新浪两分支的帧形状均可）；缺省时
-    经 ``a_stock._load_ohlcv_astock`` 既有链路（mootdx TCP → 新浪补充/兜底，
-    含 CSV 日缓存与陈旧覆盖检查）获取，再按 ``[start_date, end_date]`` 截窗。
+    经 ``a_stock._load_ohlcv_astock`` CSV/PIT 兼容层（底层委托
+    ``daily_bars.fetch_daily_bars``，含陈旧覆盖检查）获取，再按
+    ``[start_date, end_date]`` 截窗。
     估值 / 参考交易价请继续用原始价链路（``_resolve_price``），不要拿本函数
     的复权序列当真实成交价。
     """
@@ -582,7 +583,9 @@ def get_adjusted_bars(
     fetched_here = daily_bars is None
     if fetched_here:
         raw_all = a_stock._load_ohlcv_astock(code, end_date)
-        resolved_daily_source = "a_stock._load_ohlcv_astock（mootdx TCP → 新浪补充/兜底）"
+        resolved_daily_source = (
+            "a_stock._load_ohlcv_astock（CSV/PIT → structured daily-bars engine）"
+        )
     else:
         raw_all = daily_bars
         resolved_daily_source = daily_source or "调用方注入（须为原始未复权日线）"

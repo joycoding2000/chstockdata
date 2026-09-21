@@ -2482,14 +2482,83 @@ def _load_vipdoc_ohlcv_frame(
 
 
 # ---------------------------------------------------------------------------
-# OHLCV loading with cache (mootdx -> CSV)
+# OHLCV loading with cache (structured daily-bars engine -> CSV)
 # ---------------------------------------------------------------------------
 
-def _load_ohlcv_astock(symbol: str, curr_date: str) -> pd.DataFrame:
-    """Fetch OHLCV via mootdx, cache to CSV, filter by curr_date.
+_LEGACY_OHLCV_COLUMNS = ("Date", "Open", "High", "Low", "Close", "Volume")
+_CACHED_OHLCV_LOOKBACK_YEARS = 4
 
-    Mirrors stockstats_utils.load_ohlcv but uses mootdx instead of yfinance.
-    Returns DataFrame with columns: Date, Open, High, Low, Close, Volume
+
+def _cached_ohlcv_start_date(curr_date: str) -> str:
+    """Return a conservative window start for the legacy 800-bar consumer.
+
+    The old mootdx call requested 800 recent trading bars.  The structured
+    engine accepts dates rather than a bar count, so four calendar years gives
+    it a deliberately conservative window that covers the same indicator
+    history without changing the public ``fetch_daily_bars`` contract.
+    """
+    cutoff = pd.to_datetime(curr_date).normalize()
+    return (cutoff - relativedelta(years=_CACHED_OHLCV_LOOKBACK_YEARS)).strftime(
+        "%Y-%m-%d"
+    )
+
+
+def _legacy_ohlcv_columns(df: pd.DataFrame) -> pd.DataFrame:
+    """Freeze a frame to the cached loader's six-column legacy schema."""
+    legacy = df.loc[:, list(_LEGACY_OHLCV_COLUMNS)].reset_index(drop=True)
+    # Structured daily-bars attrs (for example ``volume_unit``) are not part
+    # of the legacy cached DataFrame contract and are lost on CSV round-trip.
+    legacy.attrs = {}
+    return legacy
+
+
+def _canonicalize_cached_ohlcv(df: pd.DataFrame) -> pd.DataFrame | None:
+    """Validate CSV ingress without treating cache failures as provider errors."""
+    from .daily_bars import canonicalize_daily_bars_frame
+
+    try:
+        canonical = canonicalize_daily_bars_frame(df, provider="cache")
+        return _legacy_ohlcv_columns(canonical)
+    except Exception as exc:  # noqa: BLE001 - malformed storage must be bypassed
+        logger.warning("OHLCV cache validation failed; bypassing cache: %s", exc)
+        return None
+
+
+def _fetch_cached_ohlcv_from_structured(
+    code: str, curr_date: str
+) -> pd.DataFrame:
+    """Fetch the legacy raw frame through the single structured bars route."""
+    from .daily_bars import DailyBarsRoutingError, fetch_daily_bars
+
+    start_date = _cached_ohlcv_start_date(curr_date)
+    try:
+        result = fetch_daily_bars(code, start_date, curr_date)
+    except DailyBarsRoutingError as exc:
+        logger.warning("structured daily-bars routing failed for %s", code)
+        raise ValueError(f"No OHLCV data from mootdx/sina for {code}") from exc
+
+    data = getattr(result, "data", None)
+    if (
+        getattr(result, "is_normal_empty", False)
+        or not isinstance(data, pd.DataFrame)
+        or data.empty
+    ):
+        raise ValueError(f"No OHLCV data from mootdx/sina for {code}")
+
+    try:
+        return _legacy_ohlcv_columns(_normalize_ohlcv_dates(data))
+    except Exception as exc:  # noqa: BLE001 - preserve the legacy error envelope
+        logger.warning("structured daily-bars payload unusable for %s: %s", code, exc)
+        raise ValueError(f"No OHLCV data from mootdx/sina for {code}") from exc
+
+
+def _load_ohlcv_astock(symbol: str, curr_date: str) -> pd.DataFrame:
+    """Load cached OHLCV or refresh through the structured daily-bars engine.
+
+    CSV freshness, point-in-time filtering, stale coverage, and the legacy
+    ``ValueError`` envelope stay here.  Provider selection belongs exclusively
+    to ``daily_bars.fetch_daily_bars``.  The returned frame always has columns
+    ``Date, Open, High, Low, Close, Volume``.
     """
     from .config import get_config
 
@@ -2501,45 +2570,42 @@ def _load_ohlcv_astock(symbol: str, curr_date: str) -> pd.DataFrame:
     os.makedirs(cache_dir, exist_ok=True)
 
     cache_file = os.path.join(cache_dir, f"{code}-astock-daily.csv")
+    cutoff = pd.to_datetime(curr_date)
 
     if os.path.exists(cache_file):
         mtime = datetime.fromtimestamp(os.path.getmtime(cache_file))
         if mtime.date() == datetime.now().date():
-            data = pd.read_csv(cache_file, on_bad_lines="skip", encoding="utf-8")
-            data = _normalize_ohlcv_dates(data)
-            data, supplemented = _supplement_stale_ohlcv_with_sina(
-                code, data, curr_date, start_date=None
-            )
-            if supplemented:
-                data.to_csv(cache_file, index=False, encoding="utf-8")
-            cutoff = pd.to_datetime(curr_date)
-            data = data[data["Date"] <= cutoff]
-            coverage = _ohlcv_coverage(data, curr_date)
-            if coverage["stale"]:
-                raise ValueError(_stale_ohlcv_message(code, coverage))
-            return data
+            try:
+                cached = pd.read_csv(
+                    cache_file,
+                    on_bad_lines="skip",
+                    encoding="utf-8",
+                )
+            except Exception as exc:  # noqa: BLE001 - storage degradation
+                logger.warning("OHLCV cache read failed; bypassing cache: %s", exc)
+                cached = None
+            if cached is not None:
+                cached = _canonicalize_cached_ohlcv(cached)
+            if cached is not None:
+                cached_last = _last_ohlcv_date(cached)
+                pit_cached = cached[cached["Date"] <= cutoff].reset_index(drop=True)
+                coverage = _ohlcv_coverage(pit_cached, curr_date)
+                if (
+                    cached_last is not None
+                    and cached_last >= cutoff.normalize()
+                    and not coverage["stale"]
+                ):
+                    return pit_cached
 
-    # Fetch from mootdx — 800 daily bars (~3 years of trading days)
-    try:
-        df = _fetch_mootdx_bars(code, offset=800)
-    except Exception as e:
-        logger.warning("mootdx OHLCV failed for %s: %s, trying sina HTTP fallback", code, e)
-        # Fallback: Sina direct HTTP API
-        try:
-            df = _sina_kline_fallback(code, fallback_from="mootdx")
-            if df.empty:
-                raise ValueError(f"No OHLCV data from sina for {code}")
-        except Exception:
-            raise ValueError(f"No OHLCV data from mootdx/sina for {code}")
-
-    df, _ = _supplement_stale_ohlcv_with_sina(code, df, curr_date, start_date=None)
-
-    # Cache to disk
+    # The cache is a storage layer.  A miss, malformed cache, or lagging cache
+    # refreshes through the one authoritative structured provider route.
+    df = _fetch_cached_ohlcv_from_structured(code, curr_date)
     df.to_csv(cache_file, index=False, encoding="utf-8")
 
-    # Filter by curr_date to prevent look-ahead bias
-    cutoff = pd.to_datetime(curr_date)
-    df = df[df["Date"] <= cutoff]
+    # Keep the PIT hard cutoff even though the structured request is bounded by
+    # curr_date; this protects the legacy consumer if a provider returns extra
+    # rows or a future cache is rewritten.
+    df = df[df["Date"] <= cutoff].reset_index(drop=True)
     coverage = _ohlcv_coverage(df, curr_date)
     if coverage["stale"]:
         raise ValueError(_stale_ohlcv_message(code, coverage))
@@ -2549,14 +2615,15 @@ def _load_ohlcv_astock(symbol: str, curr_date: str) -> pd.DataFrame:
 def get_ohlcv_frame_cached(symbol: str, curr_date: str) -> pd.DataFrame:
     """Public OHLCV DataFrame accessor for internal consumers.
 
-    Delegates to the cached mootdx→Sina path (``_load_ohlcv_astock``): the
-    returned frame carries Date/Open/High/Low/Close/Volume rows filtered to
-    ``<= curr_date``, and the daily CSV cache is written/refreshed as a side
-    effect.  Raises ``ValueError`` on stale coverage (tolerance is calendar
-    based — weekends and ordinary holidays are covered, see
-    ``_OHLCV_MAX_STALENESS_DAYS``).  Tool-facing callers should keep using
-    ``get_stock_data`` (formatted text); this wrapper exists for code that
-    needs the raw frame, e.g. the background memory settlement task.
+    Delegates to the CSV/PIT compatibility layer backed by the structured
+    daily-bars engine.  The returned frame carries
+    Date/Open/High/Low/Close/Volume rows filtered to ``<= curr_date``; the
+    daily CSV cache is written/refreshed as a side effect.  Raises ``ValueError``
+    on stale coverage (tolerance is calendar based — weekends and ordinary
+    holidays are covered, see ``_OHLCV_MAX_STALENESS_DAYS``).  Tool-facing
+    callers should keep using ``get_stock_data`` (formatted text); this wrapper
+    exists for code that needs the raw frame, e.g. the background memory
+    settlement task.
     """
     return _load_ohlcv_astock(symbol, curr_date)
 

@@ -254,10 +254,27 @@ tdx_vipdoc:daily_bars ──► mootdx:bars ──► sina:bars
   routing 共用同一 canonical validation（malformed 帧 = probe 红，
   不因帧非空就绿灯）；`tdx_vipdoc` 是本地数据路径，不进 CI live probe。
 
-其余 40+ API 路径（财务、事件、日历、停牌……）仍走原实现，按后续
-轮次逐条迁移。`get_ohlcv_frame_cached`（`_load_ohlcv_astock`：CSV 日缓存
-+ mootdx→sina）仍是**第二套独立 OHLCV orchestration**（含独立缓存语义），
-记录为 Phase 2.x/Phase 3 debt，本轮不合并。
+`get_ohlcv_frame_cached` / `_load_ohlcv_astock` 现在复用同一条 structured
+provider route，同时保留 legacy CSV/PIT/staleness consumer contract：
+
+```text
+get_ohlcv_frame_cached()
+        ↓
+_load_ohlcv_astock()
+        ├─ fresh + valid CSV → canonicalize(cache) → PIT → stale gate
+        └─ miss / malformed / lagging CSV
+                ↓
+        daily_bars.fetch_daily_bars()
+                ↓
+        six-column legacy CSV rewrite → PIT → stale gate
+```
+
+CSV 是 storage policy，不是 provider capability：不会产生 `cache` provider
+attempt/health，也不会保存 structured frame attrs。缓存写入与返回继续冻结为
+`Date/Open/High/Low/Close/Volume`；`pre_close`、provider extra columns 与
+`volume_unit` attrs 不进入 legacy cache。其余 40+ API 路径（财务、事件、
+日历、停牌……）仍走原实现，按后续轮次逐条迁移；非 raw/D 的 qfq/hfq/W/M
+路径也仍保留既有 legacy route。
 
 ## 6. Consumer Boundary（消费边界）
 
@@ -288,4 +305,5 @@ backtest、strategy；以及 TradingAgents-specific 的 `original_tool`、
 - capability health 持久化（health 观察有时效性，持久化需先定义 TTL /
   过期 / 冷启动 / 跨进程优先级；趋势走 GitHub Actions 日志）；
 - `data_as_of` vendor 实化（quote vendor 时间戳映射留给单独任务）；
-- daily bars / calendar / corporate actions 的 structured 迁移。
+- calendar / corporate actions 的 structured 迁移；daily bars 的 raw/D 与
+  cached-OHLCV convergence 已完成，但 qfq/hfq/W/M 仍保留既有 legacy route。

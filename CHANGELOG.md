@@ -9,6 +9,25 @@ Consumer compatibility baseline remains **0.3.0** (commit `143eb5a`);
 nothing below changes the public API. Scope and rationale:
 `docs/architecture.md`, `docs/provider-capability-matrix.md`.
 
+### Phase 2.2 — Cached OHLCV Orchestration Convergence
+
+#### Changed
+
+- **Cached legacy OHLCV now delegates provider retrieval to
+  `daily_bars.fetch_daily_bars()`**: `_load_ohlcv_astock()` keeps the existing
+  same-day CSV freshness rule, point-in-time cutoff, stale coverage gate, and
+  `ValueError` compatibility envelope, while removing its direct mootdx → Sina
+  fallback orchestration.
+- **CSV cache is validated as storage ingress**: fresh malformed caches are
+  bypassed and rewritten after a structured refresh; lagging caches refresh
+  through the structured engine instead of calling Sina directly. Cache rows
+  are frozen to `Date/Open/High/Low/Close/Volume`; `pre_close`, provider extra
+  columns, and structured frame attrs are not persisted.
+- **The legacy lookback is explicit**: refresh requests use a conservative
+  four-calendar-year window to cover the previous 800-trading-bar consumer
+  without changing the public `fetch_daily_bars(code, start_date, end_date)`
+  contract. Future rows are always excluded before returning to consumers.
+
 ### Phase 2.1.1 — Supplement Canonicalization Closure (hotfix)
 
 #### Fixed
