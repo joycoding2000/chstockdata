@@ -2245,7 +2245,9 @@ def _normalize_mootdx_bars_frame(df: pd.DataFrame) -> pd.DataFrame:
     DataFrame path and for the raw-response recovery path below.
     """
     if df is None or df.empty:
-        raise ValueError("No OHLCV data from mootdx")
+        # Structured adapters classify "vendor answered, nothing usable" via
+        # VendorNoDataError (normal_empty); shape problems stay ValueError.
+        raise VendorNoDataError("No OHLCV data from mootdx")
 
     frame = df.copy()
     if "Date" not in frame.columns:
@@ -2299,7 +2301,7 @@ def _normalize_mootdx_raw_bars(rows: object) -> pd.DataFrame:
     """Build OHLCV rows from raw TDX fields, dropping malformed timestamps."""
     frame = pd.DataFrame(rows)
     if frame.empty:
-        raise ValueError("No raw OHLCV data from mootdx")
+        raise VendorNoDataError("No raw OHLCV data from mootdx")
 
     date_fields = ("year", "month", "day", "hour", "minute")
     if not all(field in frame.columns for field in date_fields):
@@ -2454,75 +2456,26 @@ def _load_vipdoc_ohlcv_frame(
 ) -> pd.DataFrame | None:
     """Load raw daily bars from the local official TDX vipdoc package.
 
-    Local-first base for the ``adjust="raw"`` / ``period="D"`` path so history
-    no longer depends on the public HQ 7709 pool (issues/023).  Returns
-    ``None`` — falling back to the existing mootdx → Sina chain — when the
-    layer is disabled, the tree/file is missing, the requested window has no
-    local rows, or the local last bar lags the requested end by more than
-    ``vipdoc_history_max_staleness_days``.  Read-only, zero network (the
-    trading calendar's own cached fallback may consult the online chain; it
-    never triggers a per-stock online fetch).
+    v0.4.0 Phase 2: the vipdoc outcome classification (disabled / missing /
+    empty window / staleness policy with the DEC-P1-27 calendar confirmation)
+    now lives in :mod:`chstockdata.daily_bars`
+    (``daily_bars.fetch_vipdoc_daily_bars``), which is the authoritative
+    provider adapter.  This legacy helper keeps its historical frame-or-None
+    contract as a thin delegate — ``None`` means "not usable, fall back to
+    the online mootdx → Sina chain".
 
-    DEC-P1-27: when the calendar-day gap trips the threshold but the trading
-    calendar confirms the local package already reaches the market's latest
-    session (e.g. a long holiday), the local frame is kept instead of falling
-    back to the online chain.
-
-    The ``Amount`` column the reader parses is intentionally dropped here:
-    the public ``get_stock_data`` column contract is
+    The ``pre_close``/``Amount`` columns the reader parses are intentionally
+    dropped here: the public ``get_stock_data`` column contract is
     Date/Open/High/Low/Close/Volume.
     """
     try:
-        from .config import get_config
+        from .daily_bars import fetch_vipdoc_daily_bars
 
-        cfg = get_config()
-    except Exception:  # pragma: no cover - config failure must not kill the chain
-        return None
-    if not cfg.get("vipdoc_history_enabled", True):
-        return None
-    try:
-        max_staleness = float(cfg.get("vipdoc_history_max_staleness_days", 5))
-    except (TypeError, ValueError):
-        max_staleness = 5.0
-    try:
-        from .vipdoc_history import load_vipdoc_daily
-
-        frame = load_vipdoc_daily(code, start_date, end_date)
+        frame = fetch_vipdoc_daily_bars(code, start_date, end_date)
     except Exception as exc:  # noqa: BLE001 - a local read failure must degrade
-        logger.warning("vipdoc history read failed for %s: %s", code, exc)
+        logger.warning("vipdoc history unusable for %s: %s", code, exc)
         return None
     if frame is None or frame.empty:
-        return None
-    last = _last_ohlcv_date(frame)
-    if last is None:
-        return None
-    target = pd.to_datetime(end_date).normalize()
-    if (target - last).days > max_staleness:
-        reference = _calendar_reference_last_bar(end_date)
-        if reference is not None:
-            try:
-                reference_stamp = pd.to_datetime(reference).normalize()
-            except (TypeError, ValueError):
-                reference_stamp = None
-            if reference_stamp is not None and last >= reference_stamp:
-                logger.info(
-                    "vipdoc history for %s ends %s; the trading calendar "
-                    "confirms no newer session than the requested %s, keeping "
-                    "the local frame",
-                    code,
-                    last.date(),
-                    end_date,
-                )
-                columns = ["Date", "Open", "High", "Low", "Close", "Volume"]
-                return frame[columns].reset_index(drop=True)
-        logger.info(
-            "vipdoc history for %s ends %s, more than %s days behind requested %s; "
-            "using the online mootdx -> sina chain",
-            code,
-            last.date(),
-            max_staleness,
-            end_date,
-        )
         return None
     columns = ["Date", "Open", "High", "Low", "Close", "Volume"]
     return frame[columns].reset_index(drop=True)
@@ -2735,15 +2688,26 @@ def get_stock_data(
     adjust = str(adjust or "raw").strip().lower()
     period = str(period or "D").strip().upper()
 
-    data_source = "mootdx (TCP)"
-    df: pd.DataFrame | None = None
     if adjust == "raw" and period == "D":
-        # issues/023 方案 A：raw/D 主路径优先本地官方 vipdoc 包，不触发 mootdx
-        # 全表探测（公共 HQ 池会周期性整体失效）。
-        df = _load_vipdoc_ohlcv_frame(code, start_date, end_date)
-        if df is not None:
-            data_source = "vipdoc local (TDX official hsjday package)"
-    if df is None:
+        # v0.4.0 Phase 2：raw/D 主路径由 structured daily-bars engine 承载
+        # （vipdoc → mootdx → sina 唯一权威 provider 编排，逐 provider
+        # FetchAttempt + capability health）；本函数退化为兼容 renderer，
+        # 输出契约（列、顺序、错误文案、source 标注）逐字保持。
+        from .daily_bars import (
+            DailyBarsRoutingError,
+            fetch_daily_bars,
+            legacy_source_label,
+        )
+
+        try:
+            bars_result = fetch_daily_bars(code, start_date, end_date)
+        except DailyBarsRoutingError:
+            return "K线数据获取失败：mootdx和新浪备用源均不可用，请检查网络连接"
+        df = bars_result.data.copy()
+        data_source = legacy_source_label(bars_result.metadata)
+    else:
+        data_source = "mootdx (TCP)"
+        df = None
         try:
             df = _fetch_mootdx_bars(code, offset=800)
 
@@ -2760,9 +2724,9 @@ def get_stock_data(
             except Exception:
                 return "K线数据获取失败：mootdx和新浪备用源均不可用，请检查网络连接"
 
-    df, supplemented = _supplement_stale_ohlcv_with_sina(code, df, end_date, start_date)
-    if supplemented:
-        data_source = f"{data_source} + sina HTTP supplement"
+        df, supplemented = _supplement_stale_ohlcv_with_sina(code, df, end_date, start_date)
+        if supplemented:
+            data_source = f"{data_source} + sina HTTP supplement"
 
     # Filter raw provider data once.  Both the public bar output and QFQ
     # indicators below derive from this exact raw frame, never a second fetch.
@@ -2889,23 +2853,23 @@ _INDICATOR_DESCRIPTIONS = {
 
 
 def _get_close_on_date(code, date_str):
-    """取指定日期收盘价。复用 get_stock_data（mootdx + 新浪 fallback），与技术分析同源。
-    找不到返回 None。"""
+    """取指定日期收盘价。复用 structured daily-bars（与 get_stock_data 同一
+    权威 provider 编排，v0.4.0 Phase 2 起不再解析 formatted 文本输出）。
+    找不到返回 None。
+
+    契约与文本解析版逐值对齐：同 [date_str, date_str] 窗口、raw 收盘、
+    renderer 同款 round(2)、最后一行含有效 Close 的行优先。"""
     try:
-        out = get_stock_data(code, date_str, date_str)
-        if not out or "Close" not in out:
+        from .daily_bars import fetch_daily_bars
+
+        result = fetch_daily_bars(code, date_str, date_str)
+        frame = result.data
+        if frame is None or frame.empty or "Close" not in frame.columns:
             return None
-        for line in reversed(out.splitlines()):
-            line = line.strip()
-            if not line or line.startswith("#") or "," not in line:
-                continue
-            parts = line.split(",")
-            if len(parts) >= 5 and parts[4] not in ("Close", ""):
-                try:
-                    return float(parts[4])
-                except ValueError:
-                    continue
-        return None
+        closes = pd.to_numeric(frame["Close"], errors="coerce").dropna()
+        if closes.empty:
+            return None
+        return round(float(closes.iloc[-1]), 2)
     except Exception:
         return None
 

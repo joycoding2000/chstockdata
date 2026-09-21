@@ -1,4 +1,4 @@
-# Provider × Capability Matrix（v0.4.0 Phase 1.1，持续维护）
+# Provider × Capability Matrix（v0.4.0 Phase 2，持续维护）
 
 健康判定按 **provider + capability** 粒度记录。**同一 provider 的各
 capability 不视为整体一致健康**——尤其 mootdx：bars 失败不代表 finance /
@@ -21,18 +21,21 @@ xdxr 失败，反之亦然。该保证自 Phase 1.1 起是**运行行为**（真
 | mootdx | `mootdx:xdxr` | 除权除息 | `_mootdx_call("xdxr")` 埋点；同 finance（factory-only + bypass） | 独立能力，不随 bars/quote 失败判死 | active |
 | mootdx | `mootdx:stock_list` | 全市场名称表（名称→代码解析） | `_mootdx_call("stocks")` 埋点；factory-only | 磁盘日缓存优先，失败仅影响名称解析 | active |
 | sina | `sina:quote` | 实时快照兜底源 | `probe_quote_provider("sina")` + attempt 埋点 | 链尾兜底 | active |
-| sina | `sina:bars` | K 线兜底源（+ 三表） | 待埋点（本轮未迁移） | K 线链尾兜底 | active |
+| sina | `sina:bars` | K 线兜底源（+ 三表） | `probe_daily_bars_provider("sina")` + daily-bars chain attempt（Phase 2 埋点） | K 线链尾兜底 | active |
 | eastmoney | `eastmoney:datacenter` | 龙虎榜/解禁/资金流等 | 待埋点（刻意不进 live gate：封禁 IDC IP） | 独立能力 | active |
-| tdx_vipdoc | `tdx_vipdoc:daily_bars` | 本地官方日线包 | 待埋点 | K 线链本地首选 | active |
+| tdx_vipdoc | `tdx_vipdoc:daily_bars` | 本地官方日线包 | daily-bars chain attempt 埋点（local 源状态分类：disabled/missing→not_configured、损坏→failed_structure、空窗/超 staleness→normal_empty）；不进 CI live probe（本地路径） | K 线链本地首选 | active |
 | tdx_bridge | `easy_tdx:fund_flow` | L1 资金流/行业排名 | `test_tdx_bridge_health.py` | 独立能力 | active |
 
 ## 已埋点 vs 待埋点
 
-- **已埋点（v0.4.0 本轮）**：实时行情链三个 provider capability
+- **已埋点（v0.4.0）**：实时行情链三个 provider capability
   （`tencent:quote` / `mootdx:quote` / `sina:quote`，经
   `quote_chain.fetch_realtime_quotes` + `probe_quote_provider`）+ mootdx 各
-  method capability（经 `_mootdx_call` → `capabilities.record_capability_health`）。
-- **待埋点（后续轮次）**：daily-bars 链、财务/事件/资金流等 40+ API。
+  method capability（经 `_mootdx_call` → `capabilities.record_capability_health`）
+  + **daily-bars 链三个 capability（Phase 2）**：`tdx_vipdoc:daily_bars` /
+  `mootdx:bars` / `sina:bars`，经 `daily_bars.fetch_daily_bars` +
+  `probe_daily_bars_provider`。
+- **待埋点（后续轮次）**：财务/事件/资金流等 40+ API。
   原实现继续工作；`Status` 列在迁移时逐行更新。
 
 ## Live gate 分工
@@ -40,10 +43,12 @@ xdxr 失败，反之亦然。该保证自 Phase 1.1 起是**运行行为**（真
 - `tests/test_data_layer_live_smoke.py` —— **routing-chain smoke**（gate）：
   链上有任意一源存活即 green；
 - `tests/test_live_capability_probes.py` —— **逐 capability probe**
-  （报告，非阻塞）：走 `probe_quote_provider` 单 provider 执行路径，
+  （报告，非阻塞）：quote 走 `probe_quote_provider`、daily bars 走
+  `probe_daily_bars_provider` 的单 provider 执行路径，
   单个 probe 只更新自己的 capability health；单个非关键 provider 单点
   失败不 fail 整个 routing gate，但必须在 job 输出中单独可见，禁止被
-  fallback 成功掩盖；summary 打印真实最后观察（无 `not_configured` 污染）。
+  fallback 成功掩盖（mootdx:bars 在 CI 网络失败必须真实显示，不回退成绿）；
+  summary 打印真实最后观察（无 `not_configured` 污染）。
 
 ## 历史语义修正记录
 

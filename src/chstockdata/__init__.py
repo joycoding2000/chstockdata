@@ -152,6 +152,11 @@ from .fetch_result import (
     FetchResult,
 )
 from .quote_chain import fetch_realtime_quotes, probe_quote_provider
+from .daily_bars import (
+    DAILY_BAR_PROVIDERS,
+    fetch_daily_bars,
+    probe_daily_bars_provider,
+)
 
 __version__ = "0.3.0"
 
@@ -214,4 +219,6 @@ __all__ = [
     "FETCH_NOT_CONFIGURED", "FETCH_SKIPPED",
     "FetchAttempt", "FetchMetadata", "FetchResult", "fetch_realtime_quotes",
     "probe_quote_provider",
+    # daily bars structured routing (v0.4.0 Phase 2, additive)
+    "DAILY_BAR_PROVIDERS", "fetch_daily_bars", "probe_daily_bars_provider",
 ]

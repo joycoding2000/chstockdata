@@ -16,11 +16,15 @@ summary 打印的是真实最后观察。
 只覆盖零鉴权免费主力源；东财端点刻意排除（CI runner 是数据中心 IP）。
 """
 
+import datetime as dt
+
 import pytest
 
 from chstockdata import a_stock
 from chstockdata.capabilities import (
+    ProviderCapability,
     capability_health_snapshot,
+    get_capability_health,
     reset_capability_health,
 )
 from chstockdata.fetch_result import FETCH_SUCCESS
@@ -87,3 +91,65 @@ def test_capability_health_report_is_emitted():
     # 只有真正被 probe 过的三个 capability 有观察记录——没有 not_configured 污染。
     assert set(report) == {"tencent:quote", "mootdx:quote", "sina:quote"}, report
     assert all(status != "not_configured" for status in report.values()), report
+
+
+# ── daily bars capability probes（v0.4.0 Phase 2，观测性 / 非阻塞）───────────
+#
+# 与 quote 探针同一分工：routing smoke（test_data_layer_live_smoke）回答
+# 「daily-bars 用户路由是否最终拿到数据」；这里回答「哪个 individual provider
+# capability 当前坏了」。单个 probe 只更新自己的 capability health。
+# tdx_vipdoc 是本地数据路径，GitHub-hosted runner 无本地包，不进 live probe。
+# mootdx:bars 在 CI 网络中失败必须真实显示——不允许 fallback 成绿掩盖。
+
+
+def _bars_probe(provider: str) -> bool:
+    """对单个 provider 的 bars capability 做隔离探测（真实适配器路径）。"""
+    from chstockdata.daily_bars import ADAPTERS, probe_daily_bars_provider
+
+    end = dt.date.today()
+    start = end - dt.timedelta(days=30)
+    result = probe_daily_bars_provider(
+        provider,
+        TICKER,
+        start.isoformat(),
+        end.isoformat(),
+        ADAPTERS[provider],
+    )
+    return result.metadata.final_status == FETCH_SUCCESS
+
+
+def test_sina_bars_capability_probe():
+    ok = _bars_probe("sina")
+    health = get_capability_health(ProviderCapability("sina", "bars"))
+    assert health is not None and health.status != "not_configured", health
+    assert ok, f"sina:bars capability probe failed (health={health})"
+
+
+def test_mootdx_bars_capability_probe():
+    ok = _bars_probe("mootdx")
+    health = get_capability_health(ProviderCapability("mootdx", "bars"))
+    assert health is not None and health.status != "not_configured", health
+    assert ok, f"mootdx:bars capability probe failed (health={health})"
+
+
+def test_bars_capability_health_report_is_emitted():
+    """bars 探针结束后输出逐能力健康报告（与 quote 探针同款可见性）。"""
+    from chstockdata.daily_bars import DAILY_BAR_PROVIDERS
+
+    outcomes = {}
+    for provider, capability_id in DAILY_BAR_PROVIDERS:
+        if provider == "tdx_vipdoc":
+            continue  # 本地包路径，CI 无 fixture 包，不进 live probe
+        ok = _bars_probe(provider)
+        outcomes[provider] = ok
+        health = get_capability_health(ProviderCapability(*capability_id.split(":")))
+        if ok:
+            assert health.status == FETCH_SUCCESS, (provider, health)
+        else:
+            assert health.status != FETCH_SUCCESS, (provider, health)
+
+    report = {
+        capability_id: health.status
+        for capability_id, health in sorted(capability_health_snapshot().items())
+    }
+    print("\ndaily-bars capability health:", report)

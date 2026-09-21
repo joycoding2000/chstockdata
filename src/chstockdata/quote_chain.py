@@ -85,27 +85,14 @@ class RealtimeQuoteRoutingError(RuntimeError):
 
 
 def _classify_status(exc: Exception) -> str:
-    """Map a provider exception to a structured attempt status."""
-    from .vendor_errors import (
-        VendorNetworkError,
-        VendorNoDataError,
-        VendorNotConfiguredError,
-        VendorRateLimitError,
-    )
+    """Map a provider exception to a structured attempt status.
 
-    if isinstance(exc, VendorRateLimitError):
-        return "failed_rate_limit"
-    if isinstance(exc, VendorNoDataError):
-        return "normal_empty"
-    if isinstance(exc, VendorNotConfiguredError):
-        return "not_configured"
-    if isinstance(exc, VendorNetworkError):
-        return "failed_network"
-    # Structure failures are deterministic value/shape errors; everything
-    # else (timeouts, connection resets, unknown vendors) stays network.
-    if isinstance(exc, (ValueError, KeyError, TypeError)):
-        return "failed_structure"
-    return "failed_network"
+    Delegates to the single shared classification so the quote chain and
+    the daily-bars engine never diverge on identical failure behaviors.
+    """
+    from .vendor_errors import exception_to_fetch_status
+
+    return exception_to_fetch_status(exc)
 
 
 def _capability_for_provider(provider: str) -> tuple[ProviderCapability, str]:

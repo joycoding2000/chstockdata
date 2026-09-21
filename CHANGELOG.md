@@ -9,6 +9,75 @@ Consumer compatibility baseline remains **0.3.0** (commit `143eb5a`);
 nothing below changes the public API. Scope and rationale:
 `docs/architecture.md`, `docs/provider-capability-matrix.md`.
 
+### Phase 2 — Daily Bars Structured Vertical Slice
+
+#### Added
+
+- **`chstockdata.daily_bars`** — the raw/D historical daily-bars fallback
+  chain (local TDX vipdoc package → mootdx TCP → Sina HTTP) is now the
+  second real data path built on the structured core
+  (`FetchAttempt` / `FetchMetadata` / `FetchResult[pd.DataFrame]` /
+  `ProviderCapability` + capability health).  `fetch_daily_bars()` is the
+  single authoritative provider orchestration for daily bars; additive
+  public export (`DAILY_BAR_PROVIDERS`, `fetch_daily_bars`,
+  `probe_daily_bars_provider`).
+- **Provider capability ids for bars**: `tdx_vipdoc:daily_bars`,
+  `mootdx:bars`, `sina:bars` — every real provider call produces a
+  `FetchAttempt` and one capability-health observation through the single
+  `fetch_status_to_health_status` mapping.  `mootdx:bars` reuses the
+  Phase 1.1/1.1.1 readiness semantics unchanged (bars readiness canary,
+  negative-cache tiering, bounded bypass isolation for finance/xdxr).
+- **Local-source status semantics for `tdx_vipdoc`**: configuration-disabled
+  or missing package/file → `not_configured`; unreadable file →
+  `failed_structure`; empty requested window or staleness-policy rejection
+  (`vipdoc_history_max_staleness_days`, DEC-P1-27 calendar confirmation
+  preserved) → `normal_empty`.  No network semantics forced onto the local
+  path.
+- **Canonical bars schema** (locked by tests): required columns
+  `Date/Open/High/Low/Close/Volume` (`Date` normalized to daily granularity);
+  optional `pre_close` carried only when the contributing provider really
+  supplies it (vipdoc `.day` file semantics — never synthesized, never
+  "previous row close" invented by the engine); `Amount` intentionally not
+  carried (the legacy raw/D output never exposed it).  Units are
+  provider-native passthrough — no ×100/÷100 scaling is introduced
+  (regression-tested); documented units: vipdoc Volume 股, Sina Volume 股,
+  mootdx keeps the TDX wire `vol` (cross-source absolute comparison remains
+  unsupported per the `adjusted_bars` red line).
+- **Legacy tail-supplement contract preserved verbatim**: when the base
+  frame's last bar lags the requested end date, Sina is fetched over the
+  full requested window and merged (supplement rows win on overlapping
+  dates, dedupe keep-last, ascending); a failed supplement keeps the base
+  frame and marks the routing result `degraded`.
+- **`data_as_of`** is now realized for bars: the last business date of the
+  returned bars within the requested window (the bars' own business date);
+  `observed_at` stays unset (no provider observation timestamp in this
+  chain — none fabricated).
+- **Live bars capability probes** (`tests/test_live_capability_probes.py`):
+  isolated `sina:bars` / `mootdx:bars` probes via
+  `probe_daily_bars_provider` (observability, non-blocking); a red
+  individual probe must stay visible even when the routing smoke is green.
+
+#### Changed
+
+- **`get_stock_data` (raw/D) now routes through the structured engine**; the
+  tool itself is a compatibility renderer.  Public contract frozen and
+  regression-tested line-by-line: signature, accepted tickers, inclusive
+  date window, column order `Date,Open,High,Low,Close,Volume`, `# Data
+  source` wording (including the `+ sina HTTP supplement` suffix rule),
+  empty-result / both-sources-down / stale-coverage error envelopes.
+  Non-raw / non-D (qfq/hfq/W/M) paths keep the legacy mootdx→Sina chain
+  unchanged this round.
+- **`_get_close_on_date` reads the structured bars directly** (same
+  authoritative chain, same [date, date] window, same round(2) value) and
+  no longer parses the formatted `get_stock_data` text output.
+- **Empty mootdx answers are now `VendorNoDataError`** (classified
+  `normal_empty` by adapters) instead of a bare `ValueError`; shape errors
+  stay `ValueError` (`failed_structure`).  Behavior of every existing
+  caller is unchanged (both flow to the Sina fallback exactly as before).
+- **`vendor_errors.exception_to_fetch_status`** is the single shared
+  exception→fetch-status classification; `quote_chain._classify_status`
+  delegates to it so the quote and bars engines can never diverge.
+
 ### Phase 1.1.1 — Mixed Transport Verdict Fix (hotfix)
 
 #### Fixed

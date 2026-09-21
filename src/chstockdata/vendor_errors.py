@@ -26,6 +26,14 @@ Design constraints (kept intentionally minimal, see
 
 from __future__ import annotations
 
+from .fetch_result import (
+    FETCH_FAILED_NETWORK,
+    FETCH_FAILED_RATE_LIMIT,
+    FETCH_FAILED_STRUCTURE,
+    FETCH_NORMAL_EMPTY,
+    FETCH_NOT_CONFIGURED,
+)
+
 
 class VendorError(Exception):
     """Base for any condition where a vendor could not return usable data.
@@ -112,6 +120,34 @@ class SourceContextDeadlineExceeded(DeadlineExceeded):
     kind = "source_context_deadline_exceeded"
 
 
+def exception_to_fetch_status(exc: BaseException) -> str:
+    """Map a provider exception to a structured fetch-attempt status.
+
+    Single shared classification for every routing engine (quote chain,
+    daily bars, ...) so identical failure behaviors never diverge into
+    per-engine mappings.  Returns the fetch-attempt vocabulary (which
+    ``fetch_status_to_health_status`` accepts directly, keeping one
+    observation consistent across the fetch and health layers).
+    """
+    if isinstance(exc, VendorRateLimitError):
+        return FETCH_FAILED_RATE_LIMIT
+    if isinstance(exc, VendorNoDataError):
+        return FETCH_NORMAL_EMPTY
+    if isinstance(exc, VendorNotConfiguredError):
+        return FETCH_NOT_CONFIGURED
+    if isinstance(exc, VendorNetworkError):
+        return FETCH_FAILED_NETWORK
+    if isinstance(exc, DeadlineExceeded):
+        # A deadline budget failure is a transport-level failure for routing
+        # purposes (not a structure error, not "no data").
+        return FETCH_FAILED_NETWORK
+    # Structure failures are deterministic value/shape errors; everything
+    # else (timeouts, connection resets, unknown vendors) stays network.
+    if isinstance(exc, (ValueError, KeyError, TypeError)):
+        return FETCH_FAILED_STRUCTURE
+    return FETCH_FAILED_NETWORK
+
+
 __all__ = [
     "DeadlineExceeded",
     "SourceContextDeadlineExceeded",
@@ -120,4 +156,5 @@ __all__ = [
     "VendorNoDataError",
     "VendorNotConfiguredError",
     "VendorRateLimitError",
+    "exception_to_fetch_status",
 ]

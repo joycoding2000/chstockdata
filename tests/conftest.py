@@ -67,14 +67,32 @@ def _no_vipdoc_history(request, monkeypatch):
     (or CI) has one under ``data_cache_dir``; without this guard, existing
     OHLCV tests would become environment-dependent. Tests that exercise the
     layer opt in via ``allow_vipdoc_history``.
+
+    v0.4.0 Phase 2: the daily-bars structured engine owns the vipdoc adapter
+    (``daily_bars.ADAPTERS``), so BOTH the legacy helper and the engine
+    adapter are stubbed here (not-configured = absent local layer).
     """
     if request.node.get_closest_marker("allow_vipdoc_history"):
         return
+
+    def _vipdoc_unavailable(*args, **kwargs):
+        from chstockdata.vendor_errors import VendorNotConfiguredError
+
+        raise VendorNotConfiguredError(
+            "vipdoc history disabled for this test"
+        )
+
     try:
         from chstockdata import a_stock
     except Exception:  # pragma: no cover - heavy optional import unavailable
+        a_stock = None
+    else:
+        monkeypatch.setattr(a_stock, "_load_vipdoc_ohlcv_frame", lambda *args, **kwargs: None)
+    try:
+        from chstockdata import daily_bars
+    except Exception:  # pragma: no cover - heavy optional import unavailable
         return
-    monkeypatch.setattr(a_stock, "_load_vipdoc_ohlcv_frame", lambda *args, **kwargs: None)
+    monkeypatch.setitem(daily_bars.ADAPTERS, "tdx_vipdoc", _vipdoc_unavailable)
 
 
 @pytest.fixture(autouse=True)
