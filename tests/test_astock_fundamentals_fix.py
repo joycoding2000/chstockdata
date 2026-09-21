@@ -54,7 +54,7 @@ def test_get_fundamentals_derives_eps_roe_from_pinyin_fields(monkeypatch):
     """bug1: mootdx 字段为拼音缩写，应提取净利润/营收并推算 EPS/ROE。"""
     from chstockdata import a_stock
 
-    monkeypatch.setattr(a_stock, "_get_mootdx_client", lambda: _FakeMootdxClient())
+    monkeypatch.setattr(a_stock, "_get_mootdx_client", lambda *args, **kwargs: _FakeMootdxClient())
     monkeypatch.setattr(a_stock, "_tencent_quote", lambda codes, **_kwargs: {})
     monkeypatch.setattr(a_stock, "_ths_eps_forecast", lambda code: pd.DataFrame())
     monkeypatch.setattr(a_stock, "_today", lambda: pd.Timestamp("2026-07-14").date())

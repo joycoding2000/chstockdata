@@ -8,6 +8,11 @@
   但新浪兜底成功时，routing green 而 ``mootdx:quote`` probe 必须单独红，
   问题不会被 fallback 成功掩盖。
 
+Phase 1.1：probe 走 ``probe_quote_provider`` 单 provider 执行路径——
+probe Tencent 只更新 ``tencent:quote``，probe mootdx 只更新 ``mootdx:quote``，
+未参与 probe 的 provider 不会被写成 ``not_configured``、不会覆盖已有 health。
+summary 打印的是真实最后观察。
+
 只覆盖零鉴权免费主力源；东财端点刻意排除（CI runner 是数据中心 IP）。
 """
 
@@ -18,53 +23,67 @@ from chstockdata.capabilities import (
     capability_health_snapshot,
     reset_capability_health,
 )
-from chstockdata.quote_chain import fetch_realtime_quotes
+from chstockdata.fetch_result import FETCH_SUCCESS
+from chstockdata.quote_chain import QUOTE_PROVIDERS, probe_quote_provider
 
 pytestmark = pytest.mark.network
 
 TICKER = "600519"
 
+_QUOTE_FETCHERS = {
+    "tencent": a_stock._tencent_quote,
+    "mootdx": a_stock._mootdx_realtime_quote,
+    "sina": a_stock._sina_realtime_quote,
+}
 
-def _provider_probe(provider: str) -> bool:
-    """对单个 provider capability 做独立探测（不经过 fallback 链）。"""
-    fetchers = {
-        "tencent": a_stock._tencent_quote,
-        "mootdx": a_stock._mootdx_realtime_quote,
-        "sina": a_stock._sina_realtime_quote,
-    }
-    try:
-        result = fetch_realtime_quotes(
-            [TICKER],
-            {provider: fetchers[provider]},
-            quote_number=a_stock._quote_number,
-        )
-    except Exception:
-        return False
-    return bool(result.data.get(TICKER))
+
+def _probe(provider: str) -> bool:
+    """对单个 provider capability 做隔离探测（只更新它自己的 health）。"""
+    result = probe_quote_provider(
+        provider,
+        [TICKER],
+        _QUOTE_FETCHERS[provider],
+        quote_number=a_stock._quote_number,
+    )
+    return result.metadata.final_status == FETCH_SUCCESS
 
 
 def test_tencent_quote_capability_probe():
-    assert _provider_probe("tencent"), "tencent:quote capability probe failed"
+    assert _probe("tencent"), "tencent:quote capability probe failed"
 
 
 def test_mootdx_quote_capability_probe():
-    assert _provider_probe("mootdx"), "mootdx:quote capability probe failed"
+    assert _probe("mootdx"), "mootdx:quote capability probe failed"
 
 
 def test_sina_quote_capability_probe():
-    assert _provider_probe("sina"), "sina:quote capability probe failed"
+    assert _probe("sina"), "sina:quote capability probe failed"
 
 
 def test_capability_health_report_is_emitted():
-    """探测结束后输出逐能力健康报告（live gate 的分项可见性）。"""
+    """探测结束后输出逐能力健康报告（live gate 的分项可见性）。
+
+    每个 probe 只写自己的 capability；summary 与测试结论一一对应——
+    某个 provider 的 probe 失败时，snapshot 里它的状态必然是 failed。
+    """
     reset_capability_health()
-    for provider in ("tencent", "mootdx", "sina"):
-        _provider_probe(provider)
-    snapshot = capability_health_snapshot()
+    outcomes = {}
+    for provider, _cap in QUOTE_PROVIDERS:
+        ok = _probe(provider)
+        outcomes[provider] = ok
+        snapshot = capability_health_snapshot()
+        health = snapshot[f"{provider}:quote"]
+        # probe 结论与 health 记录一致（单 provider 探测不污染他人）。
+        if ok:
+            assert health.status == FETCH_SUCCESS, (provider, health)
+        else:
+            assert health.status != FETCH_SUCCESS, (provider, health)
+
     report = {
         capability_id: health.status
-        for capability_id, health in sorted(snapshot.items())
+        for capability_id, health in sorted(capability_health_snapshot().items())
     }
     print("\nprovider capability health:", report)
-    # 至少探测到 quote 能力的观察记录。
-    assert any(cap_id.endswith(":quote") for cap_id in report), report
+    # 只有真正被 probe 过的三个 capability 有观察记录——没有 not_configured 污染。
+    assert set(report) == {"tencent:quote", "mootdx:quote", "sina:quote"}, report
+    assert all(status != "not_configured" for status in report.values()), report

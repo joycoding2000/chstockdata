@@ -79,6 +79,14 @@ def _clean_error(message: str | None) -> str | None:
 class FetchAttempt:
     """One provider call attempt inside a routing chain.
 
+    Purely descriptive — an attempt records what happened on one provider
+    call; it does NOT decide routing policy.  In particular,
+    ``normal_empty`` does not encode "no fallback needed": whether an empty
+    result ends the route is a *capability policy* decision (quote chains
+    fall through on empty; a suspension snapshot's empty answer may be the
+    legitimate terminal result).  Routing engines decide; this model only
+    reports.
+
     ``capability`` is the stable ``"<provider>:<capability>"`` id from
     :mod:`chstockdata.capabilities` (e.g. ``"tencent:quote"``).
     """
@@ -107,9 +115,9 @@ class FetchAttempt:
             raise ValueError("elapsed_ms must be >= 0")
         self.message = _clean_error(self.message)
 
-    def is_terminal(self) -> bool:
-        """Usable outcome (data or legitimate empty); no fallback needed."""
-        return self.status in _TERMINAL
+    def is_success(self) -> bool:
+        """The attempt produced usable data."""
+        return self.status == FETCH_SUCCESS
 
     def is_failure(self) -> bool:
         """Hard failure (network/rate-limit/structure)."""
@@ -140,10 +148,16 @@ class FetchMetadata:
     Distinguishes provider health (per-attempt statuses) from routing health
     (the derived final outcome): a chain succeeds even when earlier providers
     failed, and those failures stay visible in ``attempts``.
+
+    Multi-provider results: a per-code fallback chain can assemble one
+    result from several providers.  ``providers_used`` lists every provider
+    that contributed data (in first-contribution order); ``final_provider``
+    is the *single* provider only when exactly one contributed, else
+    ``None`` — it never falsely claims one provider owns a mixed result.
     """
 
     capability: str  # requested capability, e.g. "quote"
-    final_provider: str | None  # provider that produced ``data``; None = failed
+    final_provider: str | None  # sole contributing provider; None = mixed/none
     retrieved_at: str  # when the fetch call completed (our wall clock)
     observed_at: str | None = None  # data's own timestamp (vendor/exchange)
     data_as_of: str | None = None  # business date the data is valid for
@@ -151,6 +165,7 @@ class FetchMetadata:
     partial: bool = False  # only part of the request could be satisfied
     limitations: list[str] = field(default_factory=list)
     attempts: list[FetchAttempt] = field(default_factory=list)
+    providers_used: list[str] = field(default_factory=list)
 
     def __post_init__(self) -> None:
         if not self.capability:
@@ -159,19 +174,43 @@ class FetchMetadata:
             raise ValueError("limitations must be a list")
         if not isinstance(self.attempts, list):
             raise ValueError("attempts must be a list")
+        if not isinstance(self.providers_used, list):
+            raise ValueError("providers_used must be a list")
+        # Contract: final_provider set ⟺ exactly one contributing provider.
+        if len(self.providers_used) == 1:
+            if self.final_provider is None:
+                self.final_provider = self.providers_used[0]
+            elif self.final_provider != self.providers_used[0]:
+                raise ValueError(
+                    "final_provider must match the sole entry of providers_used"
+                )
+        elif self.final_provider is not None:
+            raise ValueError(
+                "final_provider must be None unless exactly one provider "
+                "contributed (use providers_used for mixed results)"
+            )
 
     # ── Routing health (derived from attempts — never serialized as truth) ──
 
     @property
     def final_status(self) -> str:
-        """Routing outcome derived from attempts: success / normal_empty /
-        failed / skipped_empty."""
-        for attempt in reversed(self.attempts):
-            if attempt.is_terminal():
+        """Final outcome of the whole routing request (not of one attempt).
+
+        Priority order: any provider produced data → ``success``; else any
+        hard failure → that failure class (first failure wins, mirroring the
+        primary-degradation convention); else any normal-empty observation
+        → ``normal_empty``; else not-configured; else ``skipped``.
+        """
+        if any(a.is_success() for a in self.attempts):
+            return FETCH_SUCCESS
+        for attempt in self.attempts:
+            if attempt.is_failure():
                 return attempt.status
+        if any(a.status == FETCH_NORMAL_EMPTY for a in self.attempts):
+            return FETCH_NORMAL_EMPTY
         if any(a.status == FETCH_NOT_CONFIGURED for a in self.attempts):
             return FETCH_NOT_CONFIGURED
-        return FETCH_FAILED_NETWORK if self.attempts else FETCH_SKIPPED
+        return FETCH_SKIPPED
 
     @property
     def succeeded(self) -> bool:
@@ -196,6 +235,7 @@ class FetchMetadata:
         return {
             "capability": self.capability,
             "final_provider": self.final_provider,
+            "providers_used": list(self.providers_used),
             "final_status": self.final_status,
             "retrieved_at": self.retrieved_at,
             "observed_at": self.observed_at,

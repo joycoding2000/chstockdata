@@ -43,6 +43,23 @@ def _no_background_name_map_warmup(request, monkeypatch):
 
 
 @pytest.fixture(autouse=True)
+def _reset_mootdx_readiness_globals(monkeypatch):
+    """Isolate the v0.4.0 Phase 1.1 transport-readiness globals per test.
+
+    ``_mootdx_transport_ok`` / ``_mootdx_transport_candidates`` are process
+    globals written by full-table scans; without a per-test reset a canary
+    verdict from one file would leak into another file's selection paths.
+    monkeypatch restores the prior value automatically.
+    """
+    try:
+        from chstockdata import a_stock
+    except Exception:  # pragma: no cover - heavy optional import unavailable
+        return
+    monkeypatch.setattr(a_stock, "_mootdx_transport_ok", True)
+    monkeypatch.setattr(a_stock, "_mootdx_transport_candidates", ())
+
+
+@pytest.fixture(autouse=True)
 def _no_vipdoc_history(request, monkeypatch):
     """Keep the machine-local vipdoc layer out of the default test process.
 

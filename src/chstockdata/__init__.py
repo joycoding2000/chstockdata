@@ -134,6 +134,7 @@ from .capabilities import (
     CapabilityHealth,
     ProviderCapability,
     capability_health_snapshot,
+    fetch_status_to_health_status,
     get_capability_health,
     record_capability_health,
     reset_capability_health,
@@ -150,7 +151,7 @@ from .fetch_result import (
     FetchMetadata,
     FetchResult,
 )
-from .quote_chain import fetch_realtime_quotes
+from .quote_chain import fetch_realtime_quotes, probe_quote_provider
 
 __version__ = "0.3.0"
 
@@ -207,8 +208,10 @@ __all__ = [
     # capability health + structured results (v0.4.0, additive)
     "ProviderCapability", "CapabilityHealth", "capability_health_snapshot",
     "get_capability_health", "record_capability_health", "reset_capability_health",
+    "fetch_status_to_health_status",
     "FETCH_SUCCESS", "FETCH_NORMAL_EMPTY", "FETCH_FAILED_NETWORK",
     "FETCH_FAILED_RATE_LIMIT", "FETCH_FAILED_STRUCTURE",
     "FETCH_NOT_CONFIGURED", "FETCH_SKIPPED",
     "FetchAttempt", "FetchMetadata", "FetchResult", "fetch_realtime_quotes",
+    "probe_quote_provider",
 ]

@@ -199,7 +199,7 @@ def test_mootdx_realtime_quote_normalizes_dataframe_fields(monkeypatch):
                 }]
             )
 
-    monkeypatch.setattr(a_stock, "_get_mootdx_client", lambda: _Client())
+    monkeypatch.setattr(a_stock, "_get_mootdx_client", lambda *args, **kwargs: _Client())
 
     result = a_stock._mootdx_realtime_quote(["600519"])
 
@@ -217,7 +217,7 @@ def test_fundamentals_consumes_fallback_quote_and_reports_actual_source(monkeypa
         "_get_realtime_quotes",
         lambda codes: _quote(source="mootdx"),
     )
-    monkeypatch.setattr(a_stock, "_get_mootdx_client", lambda: type(
+    monkeypatch.setattr(a_stock, "_get_mootdx_client", lambda *args, **kwargs: type(
         "_Client", (), {"finance": lambda self, symbol: pd.DataFrame([{
             "zongguben": 1_000_000_000,
             "jinglirun": 10_000_000,

@@ -155,9 +155,9 @@ def test_mootdx_call_discards_client_after_failure(fake_tdx):
     # (which has dedicated tests below), so isolate every selection attempt.
     original_get_client = a_stock._get_mootdx_client
 
-    def get_client_without_external_negative_cache():
+    def get_client_without_external_negative_cache(*args, **kwargs):
         a_stock._mootdx_unavailable_until = 0.0
-        return original_get_client()
+        return original_get_client(*args, **kwargs)
 
     # Keep this patch local to the test so the dedicated cooldown tests still
     # exercise the real production negative-cache branch.

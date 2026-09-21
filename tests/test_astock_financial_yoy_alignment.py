@@ -220,7 +220,7 @@ def _stub_fundamentals(monkeypatch, advice_frame):
     monkeypatch.setattr(
         a_stock,
         "_get_mootdx_client",
-        lambda: type(
+        lambda *args, **kwargs: type(
             "_Client",
             (),
             {"finance": lambda self, symbol: advice_frame},

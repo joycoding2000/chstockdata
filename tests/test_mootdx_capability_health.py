@@ -49,7 +49,9 @@ class _Client:
 
 def _patch_client(monkeypatch, client):
     monkeypatch.setattr(a_stock, "_mootdx_client", client)
-    monkeypatch.setattr(a_stock, "_get_mootdx_client", lambda: client)
+    monkeypatch.setattr(
+        a_stock, "_get_mootdx_client", lambda *args, **kwargs: client
+    )
     monkeypatch.setattr(a_stock, "_tdx_min_interval", lambda: 0.0)
 
 
@@ -92,19 +94,24 @@ def test_empty_result_records_normal_empty_not_failed(monkeypatch):
     assert snapshot["mootdx:bars"].is_healthy
 
 
-def test_client_selection_failure_records_failed_but_transient(monkeypatch):
-    """服务器选择失败：本轮各能力记 failed，但这是观察不是永久判决。"""
-    def _raise():
-        raise RuntimeError("mootdx 通达信服务器不可用")
-
+def test_client_selection_failure_records_only_requested_capability(monkeypatch):
+    """选服失败只记录本次请求的 capability；其它能力由自己的调用各自观察。"""
     monkeypatch.setattr(a_stock, "_mootdx_client", None)
-    monkeypatch.setattr(a_stock, "_get_mootdx_client", _raise)
+    monkeypatch.setattr(
+        a_stock, "_get_mootdx_client", lambda *args, **kwargs: (_ for _ in ()).throw(
+            RuntimeError("mootdx 通达信服务器不可用")
+        )
+    )
 
     with pytest.raises(RuntimeError):
         a_stock._mootdx_call("bars", symbol="600519")
 
     snapshot = capability_health_snapshot()
     assert snapshot["mootdx:bars"].status == "failed"
+    # 不再代写其它 capability 的结论。
+    assert "mootdx:finance" not in snapshot
+    assert "mootdx:xdxr" not in snapshot
+
     # 随后服务器恢复：能力健康自然翻正（无永久黑名单）。
     _patch_client(monkeypatch, _Client())
     a_stock._mootdx_call("bars", symbol="600519")

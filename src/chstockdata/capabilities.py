@@ -10,14 +10,19 @@ Design constraints:
 
 - Consumer-neutral: capability names describe the *data operation*, never a
   downstream tool name (no TradingAgents tool ids here).
-- Names are stable dotted identifiers; ``ProviderCapability.id()`` is
-  ``"<provider>:<capability>"`` and is the key used by the health store,
-  caches, probes and live tests.
+- Capability ids are stable colon-separated composite identifiers;
+  ``ProviderCapability.id()`` is ``"<provider>:<capability>"`` (e.g.
+  ``"mootdx:bars"``) and is the key used by the health store, caches,
+  probes and live tests.
 - The health store is an in-process registry with a clock seam so tests are
   deterministic (no sleeps).  It records *provider health observations*;
   whether a user request ultimately succeeded (the fallback chain) is
   *routing health* and is expressed by
   :mod:`chstockdata.fetch_result` instead.
+- Attempt status (fetch layer) and capability health status (this layer)
+  share one mapping: :func:`fetch_status_to_health_status`.  One provider
+  observation must never produce conflicting statuses in
+  ``FetchAttempt`` and ``CapabilityHealth``.
 """
 
 from __future__ import annotations
@@ -28,6 +33,16 @@ import threading
 import time
 from typing import Callable
 
+from .fetch_result import (
+    FETCH_FAILED_NETWORK,
+    FETCH_FAILED_RATE_LIMIT,
+    FETCH_FAILED_STRUCTURE,
+    FETCH_NORMAL_EMPTY,
+    FETCH_NOT_CONFIGURED,
+    FETCH_SKIPPED,
+    FETCH_SUCCESS,
+)
+
 __all__ = [
     "ProviderCapability",
     "CapabilityHealth",
@@ -36,6 +51,7 @@ __all__ = [
     "HEALTH_FAILED",
     "HEALTH_NOT_CONFIGURED",
     "HEALTH_SKIPPED",
+    "fetch_status_to_health_status",
     "record_capability_health",
     "get_capability_health",
     "capability_health_snapshot",
@@ -55,6 +71,36 @@ HEALTH_NOT_CONFIGURED = "not_configured"
 HEALTH_SKIPPED = "skipped"
 
 _TERMINAL_HEALTH = frozenset({HEALTH_SUCCESS, HEALTH_NORMAL_EMPTY})
+
+# ── Single status mapping: fetch attempt ↔ capability health ────────────────
+# One provider observation must produce consistent statuses across the fetch
+# layer (FetchAttempt.status) and the health layer (CapabilityHealth.status).
+# This is the ONLY place the two vocabularies meet — no scattered ifs.
+_FETCH_TO_HEALTH: dict[str, str] = {
+    FETCH_SUCCESS: HEALTH_SUCCESS,
+    FETCH_NORMAL_EMPTY: HEALTH_NORMAL_EMPTY,
+    FETCH_NOT_CONFIGURED: HEALTH_NOT_CONFIGURED,
+    FETCH_SKIPPED: HEALTH_SKIPPED,
+    FETCH_FAILED_NETWORK: HEALTH_FAILED,
+    FETCH_FAILED_RATE_LIMIT: HEALTH_FAILED,
+    FETCH_FAILED_STRUCTURE: HEALTH_FAILED,
+}
+
+
+def fetch_status_to_health_status(status: str) -> str:
+    """Map a fetch-attempt status to its capability-health status.
+
+    Health-layer statuses pass through unchanged (idempotent), so callers
+    may hand in either vocabulary.  Failure subtypes collapse to
+    ``HEALTH_FAILED`` — the health layer records the observation outcome,
+    the failure class stays in the fetch attempt.
+    """
+    mapped = _FETCH_TO_HEALTH.get(status)
+    if mapped is not None:
+        return mapped
+    if status in _VALID_HEALTH_STATUSES:
+        return status
+    raise ValueError(f"unknown fetch/health status: {status!r}")
 
 
 @dataclass(frozen=True)
@@ -107,8 +153,14 @@ class CapabilityHealth:
 _LOCK = threading.Lock()
 _LATEST: dict[str, CapabilityHealth] = {}
 
-# Clock seam for deterministic tests; defaults to the real clock.
+# Clock seam for deterministic tests; defaults to the real clock. Used for
+# ``observed_at`` so a fake clock makes health observations deterministic.
 _clock: Callable[[], float] = time.time
+
+_VALID_HEALTH_STATUSES = frozenset({
+    HEALTH_SUCCESS, HEALTH_NORMAL_EMPTY, HEALTH_FAILED,
+    HEALTH_NOT_CONFIGURED, HEALTH_SKIPPED,
+})
 
 
 def set_health_clock(clock: Callable[[], float]) -> None:
@@ -127,18 +179,17 @@ def record_capability_health(
     """Record one health observation for a single capability.
 
     Other capabilities of the same provider are untouched — this is the
-    core isolation guarantee of the capability model.
+    core isolation guarantee of the capability model.  ``status`` may be
+    given in either the health vocabulary or the fetch-attempt vocabulary
+    (mapped via :func:`fetch_status_to_health_status`, so a
+    ``VendorNoDataError`` observation can never record ``failed``).
     """
-    if status not in (
-        HEALTH_SUCCESS, HEALTH_NORMAL_EMPTY, HEALTH_FAILED,
-        HEALTH_NOT_CONFIGURED, HEALTH_SKIPPED,
-    ):
-        raise ValueError(f"invalid capability health status: {status!r}")
+    status = fetch_status_to_health_status(status)
     health = CapabilityHealth(
         capability_id=capability.id(),
         status=status,
         observed_at=observed_at
-        or datetime.now(timezone.utc).isoformat(),
+        or datetime.fromtimestamp(_clock(), timezone.utc).isoformat(),
         error_summary=str(error_summary)[:500] if error_summary else None,
     )
     with _LOCK:

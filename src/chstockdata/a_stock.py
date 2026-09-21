@@ -268,8 +268,15 @@ def _load_mootdx_unavailable_from_disk() -> tuple[float, int] | None:
     return until, max(1, rounds)
 
 
-def _persist_mootdx_unavailable(until: float, rounds: int, reason: str) -> None:
-    """全表探测失败后原子写入持久化负缓存；写失败静默（诊断元数据）。"""
+def _persist_mootdx_unavailable(
+    until: float, rounds: int, reason: str, *, transport_ok: bool = False
+) -> None:
+    """全表探测失败后原子写入持久化负缓存；写失败静默（诊断元数据）。
+
+    ``transport_ok`` 记录本次结论的层级：False = 连 transport/协议握手都建不起来
+    （对所有 capability 一致成立）；True = 服务器可建 client，仅 bars readiness
+    canary 全失败（该结论只应约束 bars，见 ``_get_mootdx_client`` 的 bypass）。
+    """
     path = _mootdx_unavailable_cache_file()
     try:
         os.makedirs(os.path.dirname(path), exist_ok=True)
@@ -278,6 +285,7 @@ def _persist_mootdx_unavailable(until: float, rounds: int, reason: str) -> None:
             "rounds": max(1, rounds),
             "reason": str(reason)[:300],
             "persisted_at": time.time(),
+            "transport_ok": bool(transport_ok),
         }
         tmp = f"{path}.{os.getpid()}.tmp"
         with open(tmp, "w", encoding="utf-8") as fh:
@@ -285,6 +293,24 @@ def _persist_mootdx_unavailable(until: float, rounds: int, reason: str) -> None:
         os.replace(tmp, path)
     except Exception:
         return
+
+
+def _load_mootdx_transport_ok_from_disk() -> bool | None:
+    """读持久化负缓存的结论层级；旧格式/无字段/读失败返回 None（保守处理）。
+
+    True = canary 推导结论（transport 实际可用，非 bars capability 可 bypass）；
+    False = transport 级结论；None = 未知（旧文件，按 transport 级保守对待）。
+    """
+    path = _mootdx_unavailable_cache_file()
+    try:
+        with open(path, encoding="utf-8") as fh:
+            payload = _json.load(fh)
+    except Exception:
+        return None
+    value = payload.get("transport_ok")
+    if isinstance(value, bool):
+        return value
+    return None
 
 
 def _clear_mootdx_unavailable_disk() -> None:
@@ -505,6 +531,20 @@ _TDX_PROBE_GAP_S = float(os.environ.get("TDX_PROBE_GAP_SECONDS", "0.3"))
 _TOOL_CONTEXT_PROBE_BUDGET_S = float(
     os.environ.get("TDX_TOOL_PROBE_BUDGET_SECONDS", "6.0")
 )
+
+# ── v0.4.0 Phase 1.1：mootdx readiness 分层（transport vs capability）────────
+# 已知非 bars capability 的 client 接受标准：`Quotes.factory` 协议握手成功即可
+# （该 capability 的真实调用本身就是它的验证）。bars / 未知能力保守要求
+# bars readiness canary（与 Phase 1 之前行为一致）。
+_FACTORY_ONLY_MOOTDX_CAPABILITIES = frozenset({
+    "quote", "finance", "xdxr", "stock_list", "f10", "transaction",
+})
+
+# transport 层结论：最近一次全表扫描是否证明"至少一台候选能建 client"。
+# True 时 bars readiness 推导的负缓存不禁止非 bars capability 走 bounded bypass。
+_mootdx_transport_ok = True
+# 最近一次全表扫描确认 TCP 可达的候选表（bypass 的有界工厂遍历范围，避免重扫）。
+_mootdx_transport_candidates: tuple[tuple[str, int], ...] = ()
 
 
 def _tdx_min_interval() -> float:
@@ -764,21 +804,104 @@ def _preserve_mootdx_bestip():
                 logger.debug("恢复 mootdx BESTIP 失败：%s", e)
 
 
-def _get_mootdx_client():
+def _bypass_select_mootdx_client(*, probe_deadline_at: float | None):
+    """Bounded bypass：bars canary 推导的负缓存期间，为非 bars capability 选 client。
+
+    只在最近一次全表扫描确认 transport 可用的候选表上做 factory-only 遍历
+    （候选表为空时才做一次 TCP 预筛，且同样受工具预算 deadline 约束）；
+    **不做 bars canary**——由调用方的真实 capability 调用自我验证。
+    全部候选 factory 失败 = transport 层新证据：翻转结论、刷新负缓存、返回 None
+    （调用方随之快速失败，且不会在负缓存窗口内反复扫描）。
+    """
+    global _mootdx_client, _mootdx_transport_ok
+    global _mootdx_transport_candidates
+    from mootdx.quotes import Quotes
+
+    candidates = _mootdx_transport_candidates
+    if not candidates:
+        # 冷启动（磁盘负缓存命中、无进程内候选表）：一次有界 TCP 预筛。
+        if probe_deadline_at is not None and time.monotonic() >= probe_deadline_at:
+            raise _mootdx_probe_budget_exceeded()
+        candidates = tuple(
+            _reachable_tdx_servers(
+                _candidate_tdx_servers(), deadline_at=probe_deadline_at
+            )
+        )
+        _mootdx_transport_candidates = candidates
+        if not candidates:
+            _mootdx_transport_ok = False
+            _persist_mootdx_unavailable(
+                _mootdx_unavailable_until, _mootdx_outage_rounds,
+                "bypass TCP 预筛无可达候选（transport 层证据）",
+                transport_ok=False,
+            )
+            return None
+
+    with _preserve_mootdx_bestip() as keep_bestip:
+        for candidate_index, (ip, port) in enumerate(candidates):
+            if probe_deadline_at is not None and time.monotonic() >= probe_deadline_at:
+                raise _mootdx_probe_budget_exceeded()
+            if candidate_index and _TDX_PROBE_GAP_S > 0:
+                time.sleep(_TDX_PROBE_GAP_S)
+            try:
+                candidate = Quotes.factory(market="std", server=(ip, port))
+            except Exception as e:
+                logger.debug("mootdx bypass %s:%s 握手失败（%s）", ip, port, type(e).__name__)
+                continue
+            logger.info("mootdx bypass client selected (factory-only): %s:%s", ip, port)
+            keep_bestip()
+            _mootdx_client = candidate
+            return _mootdx_client
+
+    # 全部候选 factory 失败：上一次"transport 可用"的结论已失效。
+    _mootdx_transport_ok = False
+    _persist_mootdx_unavailable(
+        _mootdx_unavailable_until, _mootdx_outage_rounds,
+        "bypass 全部候选 factory 失败（transport 层证据）",
+        transport_ok=False,
+    )
+    return None
+
+
+def _get_mootdx_client(request_capability: str | None = None):
     """Lazy-init 健壮版 mootdx Quotes client（TCP 连接，可复用）。
 
     选服务器的顺序：内置服务器表（TCP 预筛 + 真实取数验证）→ 裸 factory（老用户
     config 里已有 IP）。每一级都必须真正取到数据才会被采用，避免把 client 钉死在
     一台"端口开着但协议不通"的服务器上（#90）。全部失败时抛 RuntimeError，并在
     `_MOOTDX_RETRY_AFTER_S` 内直接快速失败，不再逐台重探。
+
+    v0.4.0 Phase 1.1（capability 运行级隔离）：readiness 分层——
+
+    - **transport 层**（TCP 可连 + `Quotes.factory` 协议握手可建）：所有 capability
+      共享；transport 级失败（无一台能建 client）才对所有 capability 生效；
+    - **capability readiness 层**（bars readiness canary）：仅约束 bars。
+      ``_tdx_client_works`` 的 bars canary 全失败时，负缓存只对 bars 类请求
+      快速失败；其它 capability（finance/xdxr/quote/...）走 **bounded bypass**：
+      在最近一次扫描确认 transport 可用的候选表上做 factory-only 选client
+      （不再 TCP 全表预筛、不做 bars canary），由该 capability 的真实调用
+      自我验证。候选表已缓存时 bypass 不产生任何 TCP 探测——不恢复
+      "每次调用全表扫描"。
+
+    ``request_capability``：调用方的 capability 名（``_MOOTDX_METHOD_CAPABILITY``
+    映射后的名字）；``None``（历史直调路径）与未知名字保守视为 bars 类
+    （canary 必需），行为与 Phase 1 之前完全一致。
     """
     global _mootdx_client, _mootdx_unavailable_until
     global _mootdx_reselect_candidates, _mootdx_reselect_index
     global _mootdx_reselect_pending, _mootdx_outage_rounds
+    global _mootdx_transport_ok, _mootdx_transport_candidates
     if _mootdx_client is not None:
         return _mootdx_client
 
+    # bars readiness canary 只约束 bars；已知非 bars capability 用 factory-only
+    # 接受标准（该 capability 的真实调用本身就是它的验证）。
+    canary_required = request_capability not in _FACTORY_ONLY_MOOTDX_CAPABILITIES
+
     now = time.time()
+    # DEC-P3-19 P1：工具调用上下文内给选服探测一个短 deadline；上下文外为 None。
+    # bypass 选 client 同样受它约束。
+    probe_deadline_at = _tool_context_probe_deadline_at()
     # 可靠性（2026-09-11，数据层 DEC）：进程内存负缓存之外再查磁盘持久化负缓存。
     # 冷启动进程（审计/CLI/重启后的 worker）不再在工具预算内重付 ~100s 全表
     # 探测，而是立即快速失败、让新浪兜底接管；退避档位跨进程延续。
@@ -789,16 +912,35 @@ def _get_mootdx_client():
             _mootdx_outage_rounds = disk_rounds
         if disk_until > _mootdx_unavailable_until:
             _mootdx_unavailable_until = disk_until
+            # 磁盘结论更权威（更晚）：恢复结论层级。旧格式（无 transport_ok
+            # 字段）保守视为 transport 级——与 Phase 1.1 之前的全局语义一致。
+            disk_transport_ok = _load_mootdx_transport_ok_from_disk()
+            if disk_transport_ok is None:
+                _mootdx_transport_ok = False
+            else:
+                _mootdx_transport_ok = disk_transport_ok
     if now < _mootdx_unavailable_until:
+        if canary_required or not _mootdx_transport_ok:
+            raise RuntimeError(
+                "mootdx 通达信服务器暂不可用（%.0f 秒内不再重试）。"
+                "已尝试全部内置服务器：端口能连上的也没能完成通达信协议取数。"
+                "请检查网络环境（代理/防火墙/公司网络常拦 TCP 7709），"
+                "或改用 6 位股票代码直接查询。" % (_mootdx_unavailable_until - now)
+            )
+        # bars readiness canary 推导的负缓存不得禁止其它 capability（v0.4.0
+        # Phase 1.1）：transport 层上一次扫描是通的，做一次 bounded bypass——
+        # 只在已确认可达的候选表上 factory-only 选 client，不做 bars canary。
+        bypassed = _bypass_select_mootdx_client(
+            probe_deadline_at=probe_deadline_at
+        )
+        if bypassed is not None:
+            return bypassed
         raise RuntimeError(
             "mootdx 通达信服务器暂不可用（%.0f 秒内不再重试）。"
             "已尝试全部内置服务器：端口能连上的也没能完成通达信协议取数。"
             "请检查网络环境（代理/防火墙/公司网络常拦 TCP 7709），"
             "或改用 6 位股票代码直接查询。" % (_mootdx_unavailable_until - now)
         )
-
-    # DEC-P3-19 P1：工具调用上下文内给选服探测一个短 deadline；上下文外为 None。
-    probe_deadline_at = _tool_context_probe_deadline_at()
 
     from mootdx.quotes import Quotes
 
@@ -826,7 +968,7 @@ def _get_mootdx_client():
                 raise RuntimeError(
                     "mootdx readiness candidate replacement failed"
                 ) from exc
-            if _tdx_client_works(candidate):
+            if not canary_required or _tdx_client_works(candidate):
                 _mootdx_client = candidate
                 _mootdx_reselect_index = next_index
                 _mootdx_outage_rounds = 0
@@ -841,6 +983,8 @@ def _get_mootdx_client():
     _clear_mootdx_reselect_candidates()
 
     tcp_ok_but_dead = 0
+    factory_failures = 0  # transport/协议握手层失败（对所有 capability 成立）
+    canary_failures = 0   # bars readiness canary 失败（仅约束 bars）
     # 探测会覆写 mootdx 的持久化配置——包在这里，只有真选出可用服务器时才 keep()，
     # 其余每条退出路径（含异常）都自动还原。
     with _preserve_mootdx_bestip() as keep_bestip:
@@ -855,6 +999,7 @@ def _get_mootdx_client():
         else:
             reachable = _reachable_tdx_servers(candidates)
         _mootdx_reselect_candidates = tuple(reachable)
+        _mootdx_transport_candidates = tuple(reachable)
 
         for candidate_index, (ip, port) in enumerate(reachable):
             # DEC-P3-19 P1：预算烧尽即抛——截断的探测不得走到"全表失败"的
@@ -866,23 +1011,37 @@ def _get_mootdx_client():
             if candidate_index and _TDX_PROBE_GAP_S > 0:
                 time.sleep(_TDX_PROBE_GAP_S)
             # 「TCP 通但通达信协议不通」有两种表现：factory 建连时握手就被拒，
-            # 或者建出来了但取不到数。**两种都要算**——只统计后者的话，计数永远是 0，
-            # 下面的快速失败判断就失效了。
+            # 或者建出来了但取不到数。factory 失败是 transport 层证据；bars
+            # canary 失败只是 bars readiness 证据（v0.4.0 Phase 1.1 分层）。
             try:
                 candidate = Quotes.factory(market="std", server=(ip, port))
             except Exception as e:
                 tcp_ok_but_dead += 1
+                factory_failures += 1
                 logger.debug("mootdx %s:%s 握手失败（%s），换下一台", ip, port, type(e).__name__)
             else:
+                if not canary_required:
+                    # 已知非 bars capability：factory-only 接受，capability 的
+                    # 真实调用本身就是它的验证（该调用失败按 capability 记录）。
+                    logger.info("mootdx server selected (factory-only): %s:%s", ip, port)
+                    keep_bestip()
+                    _mootdx_client = candidate
+                    _mootdx_reselect_index = candidate_index
+                    _mootdx_outage_rounds = 0
+                    _mootdx_transport_ok = True
+                    _clear_mootdx_unavailable_disk()
+                    return _mootdx_client
                 if _tdx_client_works(candidate):
                     logger.info("mootdx server selected: %s:%s", ip, port)
                     keep_bestip()   # 这次的覆写正是我们想要的，别还原
                     _mootdx_client = candidate
                     _mootdx_reselect_index = candidate_index
                     _mootdx_outage_rounds = 0
+                    _mootdx_transport_ok = True
                     _clear_mootdx_unavailable_disk()
                     return _mootdx_client
                 tcp_ok_but_dead += 1
+                canary_failures += 1
                 logger.debug("mootdx %s:%s 建连成功但取不到数，换下一台", ip, port)
 
     # 走到这里说明逐台探测都没成——上面的 with 已经把 BESTIP 还原成用户原本的配置，
@@ -897,27 +1056,44 @@ def _get_mootdx_client():
     except Exception as e:
         logger.debug("mootdx 裸 factory 失败 — %s", e)
     else:
-        if _tdx_client_works(candidate):
+        if not canary_required or _tdx_client_works(candidate):
             logger.info("mootdx client from 裸 factory（用户已有配置）")
             _mootdx_client = candidate
             _clear_mootdx_reselect_candidates()
             _mootdx_outage_rounds = 0
+            _mootdx_transport_ok = True
             _clear_mootdx_unavailable_disk()
             return _mootdx_client
+        canary_failures += 1
 
     _clear_mootdx_reselect_candidates()
     backoff = _next_mootdx_backoff_seconds()
     _mootdx_unavailable_until = time.time() + backoff
-    if tcp_ok_but_dead:
-        # 说清楚是"协议被拒"而不是"连不上"——这两者的排查方向完全不同。
+    if factory_failures:
+        # transport 层结论：连协议握手都建不起来，对所有 capability 一致成立。
         cause = (
             "%d 台服务器端口能连上，但通达信协议握手/取数被拒。"
             "这通常是协议层被拦（代理、防火墙、公司网络对 TCP 7709 的策略），"
-            "换服务器解决不了。" % tcp_ok_but_dead
+            "换服务器解决不了。" % factory_failures
         )
+        verdict_transport_ok = False
+    elif canary_failures:
+        # capability readiness 层结论：client 都建得起来，仅 bars readiness
+        # canary 全失败——该结论只约束 bars（transport 实际可用）。
+        cause = (
+            "%d 台服务器能建通达信 client，但 bars readiness canary 全部失败。"
+            "该结论仅约束 bars 能力；其它 capability 将按 transport 可用"
+            "分别验证。" % canary_failures
+        )
+        verdict_transport_ok = True
     else:
         cause = "内置服务器表里没有一台的 TCP 7709 能连上，请检查网络连通性。"
-    _persist_mootdx_unavailable(_mootdx_unavailable_until, _mootdx_outage_rounds, cause)
+        verdict_transport_ok = False
+    _mootdx_transport_ok = verdict_transport_ok
+    _persist_mootdx_unavailable(
+        _mootdx_unavailable_until, _mootdx_outage_rounds, cause,
+        transport_ok=verdict_transport_ok,
+    )
     raise RuntimeError(
         "mootdx 通达信服务器不可用：%s"
         "可改用 6 位股票代码直接查询。%.0f 秒内将直接快速失败、不再逐台重探。"
@@ -980,23 +1156,25 @@ def _mootdx_call(method: str, *, _fallback_from: str | None = None, **kwargs):
 
     v0.4.0：每次调用的结果按 `mootdx:<method>` capability 记录健康观察——
     bars 失败只影响 `mootdx:bars`，finance/xdxr 等能力不受牵连。
+    v0.4.0 Phase 1.1：readiness 分层下沉到 `_get_mootdx_client`（transport 层
+    负缓存不禁止非 bars capability 的 bounded bypass），health 只记录**本次
+    请求的 capability**——其它 capability 的结论由它们自己的调用观察。
     """
     global _mootdx_last_call
+    capability_name = _MOOTDX_METHOD_CAPABILITY.get(method, method)
     with _mootdx_call_lock:
         wait = _tdx_min_interval() - (time.monotonic() - _mootdx_last_call)
         if wait > 0:
             time.sleep(wait)
         _mootdx_last_call = time.monotonic()
         try:
-            client = _get_mootdx_client()
+            client = _get_mootdx_client(request_capability=capability_name)
         except Exception as exc:
-            # 服务器选择失败（连接层）：所有 mootdx capability 当前都不可达，
-            # 记录 failed——但这是**本轮观察**，不写入任何永久性的
-            # "整个 provider 不健康"语义；退避过期后能力自然恢复探测。
-            for cap_method in sorted(set(_MOOTDX_METHOD_CAPABILITY.values())):
-                _record_mootdx_capability(
-                    cap_method, status="failed", error_summary=str(exc)
-                )
+            # 只记录本次请求的 capability（transport 级失败时，其它 capability
+            # 会在它们自己的调用里各自观察/记录，不在这里代写）。
+            _record_mootdx_capability(
+                method, status="failed", error_summary=str(exc)
+            )
             raise
         for attempt in range(1, 3):
             try:
@@ -1033,7 +1211,7 @@ def _mootdx_call(method: str, *, _fallback_from: str | None = None, **kwargs):
                         method, status="failed", error_summary=str(exc)
                     )
                     raise
-                client = _get_mootdx_client()
+                client = _get_mootdx_client(request_capability=capability_name)
         raise RuntimeError("mootdx call did not return")  # pragma: no cover
 
 

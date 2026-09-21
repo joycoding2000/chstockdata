@@ -161,7 +161,8 @@ class TestProviderVsRoutingHealth:
 
 class TestNormalEmptyVsFailure:
     def test_normal_empty_is_distinct_from_network_failure(self):
-        """空响应 = normal_empty（终端、健康）；连接失败 = failed（降级）。"""
+        """空响应 = normal_empty（健康观察）；连接失败 = failed（降级）。
+        normal_empty 不编码"路由停止"策略——那由各 routing engine 决定。"""
         empty_attempt = FetchAttempt(
             provider="tencent", capability="tencent:quote",
             status=FETCH_NORMAL_EMPTY, started_at="2026-01-01T00:00:00+00:00",
@@ -172,8 +173,9 @@ class TestNormalEmptyVsFailure:
             status=FETCH_FAILED_NETWORK, started_at="2026-01-01T00:00:01+00:00",
             elapsed_ms=10, error_type="ConnectionError",
         )
-        assert empty_attempt.is_terminal() and not empty_attempt.is_failure()
-        assert not failed_attempt.is_terminal() and failed_attempt.is_failure()
+        assert not empty_attempt.is_failure()
+        assert not empty_attempt.is_success()  # 没有 data，只是正常空
+        assert failed_attempt.is_failure() and not failed_attempt.is_success()
 
     def test_chain_with_only_empty_results_is_normal_empty_routing(self):
         """三源都正常返回空 → 路由结论 normal_empty，不是 failed_network。"""
@@ -220,6 +222,7 @@ class TestMetadataTiming:
                 status=FETCH_SUCCESS, started_at="2026-09-21T01:29:58+00:00",
                 elapsed_ms=120,
             )],
+            providers_used=["sina"],
         )
         # 抓取时间 ≠ 数据自身时间：两个字段独立存在且可不同。
         assert metadata.retrieved_at != metadata.observed_at
@@ -231,13 +234,14 @@ class TestMetadataTiming:
 
     def test_fetch_result_is_generic_and_typed_container(self):
         metadata = FetchMetadata(
-            capability="quote", final_provider="tencent",
+            capability="quote", final_provider=None,
             retrieved_at="2026-01-01T00:00:00+00:00",
             attempts=[FetchAttempt(
                 provider="tencent", capability="tencent:quote",
                 status=FETCH_SUCCESS, started_at="2026-01-01T00:00:00+00:00",
                 elapsed_ms=80, record_count=1,
             )],
+            providers_used=["tencent"],
         )
         result = FetchResult[dict](data={"600519": {"price": 1500.0}},
                                    metadata=metadata)
@@ -245,10 +249,12 @@ class TestMetadataTiming:
         assert not result.is_normal_empty
         assert result.data["600519"]["price"] == 1500.0
         assert result.metadata.capability == "quote"
+        # 单 provider：final_provider 由不变量自动补全。
+        assert metadata.final_provider == "tencent"
 
     def test_serialization_roundtrip_keeps_attempts_as_truth(self):
         metadata = FetchMetadata(
-            capability="quote", final_provider="sina",
+            capability="quote", final_provider=None,
             retrieved_at="2026-01-01T00:00:00+00:00",
             attempts=[
                 FetchAttempt(
@@ -263,6 +269,7 @@ class TestMetadataTiming:
                     elapsed_ms=120, record_count=1,
                 ),
             ],
+            providers_used=["sina"],
         )
         payload = metadata.to_dict()
         # 派生路由结论 = success（最后 terminal attempt），但早期失败保留在

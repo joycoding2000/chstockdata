@@ -9,7 +9,65 @@ Consumer compatibility baseline remains **0.3.0** (commit `143eb5a`);
 nothing below changes the public API. Scope and rationale:
 `docs/architecture.md`, `docs/provider-capability-matrix.md`.
 
-### Added
+### Phase 1.1 — Structured Core Stabilization (hardening round)
+
+No new capabilities; fixes the semantic gaps found in Phase 1 before
+extending to daily bars.
+
+#### Fixed
+
+- **mootdx operational capability isolation** (`a_stock._get_mootdx_client`):
+  Phase 1 recorded capability-specific health but the runtime gate was still
+  provider-global — a full-table bars-readiness canary failure wrote the
+  global negative cache, which fast-failed `finance`/`xdxr`/`quote` calls
+  that were never attempted. Readiness is now layered: transport-level
+  failure (no candidate can even construct a client) still gates all
+  capabilities, while a bars-canary-derived negative cache only constrains
+  bars requests; other capabilities may run a **bounded bypass** selection
+  (factory-only over the already-known reachable candidates — no TCP
+  re-scan, no canary) and validate themselves via their real call. All
+  historical protections are preserved (tool-context probe budget, disk
+  negative cache + backoff, bounded scan, candidate reselection, BESTIP
+  preservation, call lock/min-interval). The persisted negative cache now
+  records the verdict layer (`transport_ok`); legacy files without the
+  field are treated conservatively (transport-level, as before).
+- **Live capability probe pollution**: single-provider probes ran through
+  the full routing chain, recording `not_configured` for un-injected
+  providers and overwriting other capabilities' health. The new
+  `quote_chain.probe_quote_provider` owns a single-provider execution path:
+  probing one provider updates only its own capability health
+  (`tests/test_live_capability_probes.py` now uses it).
+- **FetchAttempt ↔ CapabilityHealth status consistency**: one provider
+  observation could yield `FetchAttempt=normal_empty` while
+  `CapabilityHealth=failed` (e.g. `VendorNoDataError`). A single mapping,
+  `capabilities.fetch_status_to_health_status`, is now the only place the
+  two vocabularies meet; `record_capability_health` accepts either
+  vocabulary.
+- **FetchMetadata multi-provider semantics**: per-code fallback can mix
+  sources, but `final_provider` was picked from the first result, falsely
+  claiming one provider owned the whole result. New `providers_used` field
+  lists every contributing provider (first-contribution order);
+  `final_provider` is the sole provider only when exactly one contributed,
+  else `None` (invariant enforced at construction; both fields serialize).
+- **Generic `normal_empty` no longer encodes routing policy**:
+  `FetchAttempt.is_terminal()` (which asserted "no fallback needed") was
+  removed — attempts describe facts (`is_success` / `is_failure`), and
+  whether an empty result ends a route is capability-policy owned by each
+  routing engine. `FetchMetadata.final_status` now derives the whole
+  request's outcome by priority (any success → success; else first hard
+  failure; else normal-empty; else not-configured; else skipped) instead of
+  mechanically reading the last attempt.
+- **Health clock seam** (`capabilities.set_health_clock`): the seam existed
+  but `record_capability_health` ignored it (`datetime.now`). It now drives
+  `observed_at` via `datetime.fromtimestamp(_clock(), ...)` so tests are
+  deterministic.
+- Module docstring: capability ids described as "dotted identifiers" while
+  the contract is colon-separated `provider:capability` — wording fixed,
+  id contract unchanged.
+
+### Phase 1 — capability health + structured result foundation
+
+#### Added
 
 - **Capability-specific provider health** (`capabilities.py`): health is
   now observed per `provider + capability` (`mootdx:bars`,

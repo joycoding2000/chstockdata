@@ -22,7 +22,9 @@ def test_get_fundamentals_marks_tencent_failure_without_leaking_request_details(
         raise RuntimeError("https://private.example/quote?token=secret-token")
 
     monkeypatch.setattr(a_stock, "_get_realtime_quotes", _raise_tencent_failure)
-    monkeypatch.setattr(a_stock, "_get_mootdx_client", lambda: _EmptyMootdxClient())
+    monkeypatch.setattr(
+        a_stock, "_get_mootdx_client", lambda *args, **kwargs: _EmptyMootdxClient()
+    )
     monkeypatch.setattr(
         a_stock, "_em_get", lambda *args, **kwargs: _EmptyEastmoneyResponse()
     )
@@ -68,7 +70,9 @@ def test_get_fundamentals_marks_tencent_failure_during_forward_pe_calculation(
         raise RuntimeError("https://private.example/quote?token=secret-token")
 
     monkeypatch.setattr(a_stock, "_get_realtime_quotes", _get_realtime_quotes)
-    monkeypatch.setattr(a_stock, "_get_mootdx_client", lambda: _EmptyMootdxClient())
+    monkeypatch.setattr(
+        a_stock, "_get_mootdx_client", lambda *args, **kwargs: _EmptyMootdxClient()
+    )
     monkeypatch.setattr(
         a_stock, "_em_get", lambda *args, **kwargs: _EmptyEastmoneyResponse()
     )
