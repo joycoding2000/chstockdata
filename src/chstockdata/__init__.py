@@ -98,7 +98,13 @@ from .limit_up import get_limit_up_pool, get_limit_up_reasons
 
 # ── Adjusted bars / calendar / vipdoc history ───────────────────────────────
 from .adjusted_bars import get_adjusted_bars
-from .trading_calendar import local_is_trading_day, load_trading_calendar
+from .trading_calendar import (
+    TRADING_CALENDAR_PROVIDERS,
+    fetch_trading_calendar,
+    load_trading_calendar,
+    local_is_trading_day,
+    probe_trading_calendar_provider,
+)
 from .vipdoc_history import (
     load_vipdoc_daily,
     vipdoc_history_dir,
@@ -201,6 +207,8 @@ __all__ = [
     "get_hot_stocks", "get_macro_indicators",
     # calendar / vipdoc history
     "local_is_trading_day", "load_trading_calendar",
+    "TRADING_CALENDAR_PROVIDERS", "fetch_trading_calendar",
+    "probe_trading_calendar_provider",
     "load_vipdoc_daily", "vipdoc_history_dir", "vipdoc_history_status",
     # provenance
     "ATTEMPT_SUCCESS", "ATTEMPT_NORMAL_EMPTY", "ATTEMPT_FAILED_NETWORK",

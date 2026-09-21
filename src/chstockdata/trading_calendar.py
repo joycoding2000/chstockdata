@@ -24,14 +24,33 @@ from __future__ import annotations
 import bisect
 import json
 import logging
+import time
 from collections.abc import Mapping
 from dataclasses import dataclass
 from datetime import date, datetime, timedelta, timezone
-from typing import Any
+from typing import Any, Callable
 
 import pandas as pd
 
 from .vipdoc_history import load_vipdoc_daily
+from .capabilities import (
+    ProviderCapability,
+    fetch_status_to_health_status,
+    record_capability_health,
+)
+from .fetch_result import (
+    FETCH_NOT_CONFIGURED,
+    FETCH_NORMAL_EMPTY,
+    FETCH_SUCCESS,
+    FetchAttempt,
+    FetchMetadata,
+    FetchResult,
+)
+from .vendor_errors import (
+    VendorNoDataError,
+    VendorNotConfiguredError,
+    exception_to_fetch_status,
+)
 
 logger = logging.getLogger(__name__)
 
@@ -41,6 +60,19 @@ CALENDAR_INDEX_MARKET = "sh"
 SOURCE_LOCAL = "vipdoc_sh000001"
 SOURCE_MOOTDX = "mootdx_sh000001"
 SOURCE_SINA = "sina_sh000001"
+
+TRADING_CALENDAR_CAPABILITY = "trading_calendar"
+TRADING_CALENDAR_PROVIDERS: tuple[tuple[str, str], ...] = (
+    ("tdx_vipdoc", "tdx_vipdoc:index_bars"),
+    ("mootdx", "mootdx:index"),
+    ("sina", "sina:index_bars"),
+)
+
+_SOURCE_BY_PROVIDER = {
+    "tdx_vipdoc": SOURCE_LOCAL,
+    "mootdx": SOURCE_MOOTDX,
+    "sina": SOURCE_SINA,
+}
 
 # ~8 years of daily bars: enough for week/season-level consumers without
 # making the fallback payload large.
@@ -124,11 +156,61 @@ def _frame_days(frame: Any) -> tuple[str, ...] | None:
     return tuple(days) if days else None
 
 
-# ── local (zero network) ─────────────────────────────────────────────────────
+def _calendar_values(values: Any, *, provider: str) -> list[Any]:
+    if isinstance(values, pd.DataFrame):
+        if "Date" not in values.columns:
+            raise ValueError(f"{provider} calendar payload missing Date column")
+        values = values["Date"].tolist()
+    elif values is None or isinstance(values, (str, bytes, Mapping)):
+        raise ValueError(f"{provider} calendar payload must contain date rows")
+    else:
+        try:
+            values = list(values)
+        except TypeError as exc:
+            raise ValueError(
+                f"{provider} calendar payload must be iterable"
+            ) from exc
+
+    if not values:
+        raise ValueError(f"{provider} calendar payload has no date rows")
+    return values
 
 
-def _read_local_index_days(root: Any = None) -> tuple[str, ...] | None:
-    """Read the local index daily file with an explicit sh market address."""
+def _canonicalize_trading_days_with_quality(
+    values: Any, *, provider: str
+) -> tuple[tuple[str, ...], bool]:
+    """Return canonical days and whether invalid rows were dropped."""
+
+    values = _calendar_values(values, provider=provider)
+
+    normalized_values = [_normalize_day(value) for value in values]
+    days = {value for value in normalized_values if value is not None}
+    if not days:
+        raise ValueError(f"{provider} calendar payload has no valid dates")
+    return tuple(sorted(days)), any(value is None for value in normalized_values)
+
+
+def canonicalize_trading_days(values: Any, *, provider: str) -> tuple[str, ...]:
+    """Normalize one provider's raw date values at the calendar boundary.
+
+    Valid rows are retained when a payload also contains malformed dates, which
+    preserves the legacy ``errors="coerce"`` tolerance.  A payload with no
+    valid rows is a shape/structure failure; the adapter boundary classifies a
+    truly empty response as ``normal_empty`` before calling this helper.
+    """
+
+    days, _partial = _canonicalize_trading_days_with_quality(
+        values,
+        provider=provider,
+    )
+    return days
+
+
+# ── structured provider adapters ───────────────────────────────────────────
+
+
+def _fetch_local_index_days(*, root: Any = None) -> Any:
+    """Read the official Shanghai index file without converting failures to None."""
 
     try:
         frame = load_vipdoc_daily(
@@ -136,12 +218,106 @@ def _read_local_index_days(root: Any = None) -> tuple[str, ...] | None:
             market=CALENDAR_INDEX_MARKET,
             root=root,
         )
+    except (VendorNoDataError, VendorNotConfiguredError):
+        raise
+    except Exception as exc:  # noqa: BLE001 - adapter boundary classifies shape/read errors
+        raise ValueError(
+            f"vipdoc calendar file unreadable ({type(exc).__name__})"
+        ) from exc
+
+    if frame is None:
+        raise VendorNotConfiguredError("vipdoc calendar file missing")
+    if not isinstance(frame, pd.DataFrame):
+        raise ValueError("vipdoc calendar payload must be a pandas DataFrame")
+    if frame.empty:
+        raise VendorNoDataError("vipdoc calendar file has no usable rows")
+    if "Date" not in frame.columns:
+        raise ValueError("vipdoc calendar payload missing Date column")
+    return frame["Date"].tolist()
+
+
+def _fetch_mootdx_index_days(*, root: Any = None) -> Any:
+    """Read index bars through the existing ``mootdx:index`` operation."""
+
+    del root
+    from .a_stock import _mootdx_call, _normalize_mootdx_bars_frame
+
+    raw = _mootdx_call(
+        "index",
+        symbol=CALENDAR_INDEX_CODE,
+        frequency=9,
+        offset=_ONLINE_INDEX_BARS,
+    )
+    if raw is None:
+        raise VendorNoDataError("mootdx calendar returned no rows")
+    if not isinstance(raw, pd.DataFrame):
+        raise ValueError("mootdx calendar payload must be a pandas DataFrame")
+    frame = _normalize_mootdx_bars_frame(raw)
+    if frame is None or frame.empty:
+        raise VendorNoDataError("mootdx calendar returned no rows")
+    if "Date" not in frame.columns:
+        raise ValueError("mootdx calendar payload missing Date column")
+    return frame["Date"].tolist()
+
+
+def _fetch_sina_index_days(*, root: Any = None) -> Any:
+    """Read Shanghai index daily bars through the audited Sina endpoint."""
+
+    del root
+    from .a_stock import _source_http_get
+
+    response = _source_http_get(
+        "sina",
+        _SINA_KLINE_URL,
+        params={
+            "symbol": f"{CALENDAR_INDEX_MARKET}{CALENDAR_INDEX_CODE}",
+            "scale": "240",
+            "ma": "no",
+            "datalen": _ONLINE_INDEX_BARS,
+        },
+        timeout=15,
+        fallback_from="trading_calendar",
+    )
+    raise_for_status = getattr(response, "raise_for_status", None)
+    if callable(raise_for_status):
+        raise_for_status()
+    try:
+        payload = json.loads(response.text)
+    except AttributeError as exc:
+        raise ValueError("sina calendar response has no text payload") from exc
+    if not isinstance(payload, list):
+        raise ValueError("sina calendar payload must be a list")
+    if not payload:
+        raise VendorNoDataError("sina calendar returned no rows")
+    return [
+        item.get("day") if isinstance(item, Mapping) else None
+        for item in payload
+    ]
+
+
+CALENDAR_ADAPTERS: dict[str, Callable[..., Any]] = {
+    "tdx_vipdoc": _fetch_local_index_days,
+    "mootdx": _fetch_mootdx_index_days,
+    "sina": _fetch_sina_index_days,
+}
+
+
+# ── local (zero network) ─────────────────────────────────────────────────────
+
+
+def _read_local_index_days(root: Any = None) -> tuple[str, ...] | None:
+    """Read the local index daily file with an explicit sh market address."""
+
+    try:
+        return canonicalize_trading_days(
+            _fetch_local_index_days(root=root),
+            provider="tdx_vipdoc",
+        )
     except Exception as exc:  # noqa: BLE001 - a local read failure must degrade
         logger.info(
             "trading calendar local read failed: %s", type(exc).__name__
         )
         return None
-    return _frame_days(frame)
 
 
 def local_is_trading_day(day: str, *, root: Any = None) -> bool | None:
@@ -175,59 +351,28 @@ def local_latest_index_bar(*, root: Any = None) -> str | None:
 
 def _read_mootdx_index_days() -> tuple[str, ...] | None:
     try:
-        from .a_stock import _mootdx_call, _normalize_mootdx_bars_frame
-
-        frame = _normalize_mootdx_bars_frame(
-            _mootdx_call(
-                "index",
-                symbol=CALENDAR_INDEX_CODE,
-                frequency=9,
-                offset=_ONLINE_INDEX_BARS,
-            )
+        return canonicalize_trading_days(
+            _fetch_mootdx_index_days(),
+            provider="mootdx",
         )
     except Exception as exc:  # noqa: BLE001 - fallback chain handles failures
         logger.info(
             "trading calendar mootdx fallback failed: %s", type(exc).__name__
         )
         return None
-    return _frame_days(frame)
 
 
 def _read_sina_index_days() -> tuple[str, ...] | None:
     try:
-        from .a_stock import _source_http_get
-
-        response = _source_http_get(
-            "sina",
-            _SINA_KLINE_URL,
-            params={
-                "symbol": f"{CALENDAR_INDEX_MARKET}{CALENDAR_INDEX_CODE}",
-                "scale": "240",
-                "ma": "no",
-                "datalen": _ONLINE_INDEX_BARS,
-            },
-            timeout=15,
-            fallback_from="trading_calendar",
+        return canonicalize_trading_days(
+            _fetch_sina_index_days(),
+            provider="sina",
         )
-        raise_for_status = getattr(response, "raise_for_status", None)
-        if callable(raise_for_status):
-            raise_for_status()
-        payload = json.loads(response.text)
     except Exception as exc:  # noqa: BLE001 - fallback chain handles failures
         logger.info(
             "trading calendar sina fallback failed: %s", type(exc).__name__
         )
         return None
-    if not isinstance(payload, list):
-        return None
-    days: set[str] = set()
-    for item in payload:
-        if not isinstance(item, Mapping):
-            continue
-        normalized = _normalize_day(item.get("day"))
-        if normalized is not None:
-            days.add(normalized)
-    return tuple(sorted(days)) if days else None
 
 
 def _read_online_index_days() -> tuple[str, tuple[str, ...]] | None:
@@ -243,6 +388,194 @@ def _read_online_index_days() -> tuple[str, tuple[str, ...]] | None:
 
 
 # ── public derivation ────────────────────────────────────────────────────────
+
+
+def _calendar_capability(capability_id: str) -> ProviderCapability:
+    return ProviderCapability(*capability_id.split(":", 1))
+
+
+def _calendar_observe_health(
+    capability_id: str,
+    status: str,
+    *,
+    error_summary: str | None = None,
+) -> None:
+    record_capability_health(
+        _calendar_capability(capability_id),
+        fetch_status_to_health_status(status),
+        error_summary=error_summary,
+    )
+
+
+def _calendar_attempt(
+    provider: str,
+    capability_id: str,
+    status: str,
+    started_at: str,
+    elapsed_ms: int,
+    *,
+    record_count: int | None = None,
+    error_type: str | None = None,
+    message: str | None = None,
+) -> FetchAttempt:
+    return FetchAttempt(
+        provider=provider,
+        capability=capability_id,
+        status=status,
+        started_at=started_at,
+        elapsed_ms=elapsed_ms,
+        record_count=record_count,
+        error_type=error_type,
+        message=message,
+    )
+
+
+def _calendar_now_iso() -> str:
+    return datetime.now(timezone.utc).isoformat()
+
+
+def _run_calendar_adapter(
+    provider: str,
+    capability_id: str,
+    adapter: Callable[..., Any] | None,
+    *,
+    root: Any,
+    attempts: list[FetchAttempt],
+    clock: Callable[[], float],
+) -> tuple[tuple[str, ...] | None, bool]:
+    """Execute one truthful adapter and append its attempt/health observation."""
+
+    started = clock()
+    started_at = _calendar_now_iso()
+    if adapter is None:
+        attempt = _calendar_attempt(
+            provider,
+            capability_id,
+            FETCH_NOT_CONFIGURED,
+            started_at,
+            0,
+            message="provider not available in this chain",
+        )
+        attempts.append(attempt)
+        _calendar_observe_health(capability_id, FETCH_NOT_CONFIGURED)
+        return None, False
+
+    try:
+        raw = adapter(root=root)
+    except Exception as exc:  # noqa: BLE001 - classification is the adapter contract
+        elapsed = max(0, int((clock() - started) * 1000))
+        status = exception_to_fetch_status(exc)
+        attempts.append(
+            _calendar_attempt(
+                provider,
+                capability_id,
+                status,
+                started_at,
+                elapsed,
+                error_type=type(exc).__name__,
+                message=str(exc),
+            )
+        )
+        _calendar_observe_health(
+            capability_id,
+            status,
+            error_summary=str(exc),
+        )
+        return None, False
+
+    elapsed = max(0, int((clock() - started) * 1000))
+    is_empty = raw is None
+    if isinstance(raw, pd.DataFrame):
+        # An empty frame with no Date field is malformed, not a valid empty
+        # response.  Provider adapters that represent a genuine empty answer
+        # raise VendorNoDataError before reaching this generic boundary.
+        is_empty = raw.empty and "Date" in raw.columns
+    elif not is_empty and not isinstance(raw, (str, bytes, Mapping)):
+        try:
+            is_empty = len(raw) == 0
+        except TypeError:
+            is_empty = False
+    if is_empty:
+        attempts.append(
+            _calendar_attempt(
+                provider,
+                capability_id,
+                FETCH_NORMAL_EMPTY,
+                started_at,
+                elapsed,
+                record_count=0,
+                message="provider returned no trading-day rows",
+            )
+        )
+        _calendar_observe_health(capability_id, FETCH_NORMAL_EMPTY)
+        return None, False
+
+    try:
+        days, partial = _canonicalize_trading_days_with_quality(
+            raw,
+            provider=provider,
+        )
+    except Exception as exc:  # noqa: BLE001 - canonical boundary is structure
+        status = exception_to_fetch_status(exc)
+        attempts.append(
+            _calendar_attempt(
+                provider,
+                capability_id,
+                status,
+                started_at,
+                elapsed,
+                error_type=type(exc).__name__,
+                message=str(exc),
+            )
+        )
+        _calendar_observe_health(
+            capability_id,
+            status,
+            error_summary=str(exc),
+        )
+        return None, False
+
+    attempts.append(
+        _calendar_attempt(
+            provider,
+            capability_id,
+            FETCH_SUCCESS,
+            started_at,
+            elapsed,
+            record_count=len(days),
+        )
+    )
+    _calendar_observe_health(capability_id, FETCH_SUCCESS)
+    return days, partial
+
+
+def _calendar_result(
+    calendar: TradingCalendar | None,
+    attempts: list[FetchAttempt],
+    *,
+    providers_used: list[str] | None = None,
+    limitations: list[str] | None = None,
+    partial: bool = False,
+) -> FetchResult[TradingCalendar | None]:
+    final_limitations = list(limitations or ())
+    if calendar is not None:
+        final_limitations = list(calendar.limitations) + final_limitations
+    if partial and "invalid_calendar_dates_dropped" not in final_limitations:
+        final_limitations.append("invalid_calendar_dates_dropped")
+    providers = list(providers_used or ())
+    metadata = FetchMetadata(
+        capability=TRADING_CALENDAR_CAPABILITY,
+        final_provider=providers[0] if len(providers) == 1 else None,
+        retrieved_at=_calendar_now_iso(),
+        observed_at=None,
+        data_as_of=calendar.last_bar_date if calendar is not None else None,
+        stale=calendar.stale if calendar is not None else False,
+        partial=partial,
+        limitations=final_limitations,
+        attempts=list(attempts),
+        providers_used=providers,
+    )
+    return FetchResult(data=calendar, metadata=metadata)
 
 
 def _calendar_from_days(
@@ -264,16 +597,42 @@ def _calendar_from_days(
     )
 
 
-def _build_calendar(root: Any, today: date) -> TradingCalendar | None:
+def fetch_trading_calendar(
+    *,
+    root: Any = None,
+    today: Any = None,
+    adapters: Mapping[str, Callable[..., Any]] | None = None,
+    clock: Callable[[], float] = time.monotonic,
+) -> FetchResult[TradingCalendar | None]:
+    """Fetch the trading calendar through the structured local-first route.
+
+    This capability is supportive: no provider combination raises a routing
+    exception.  ``data`` is ``None`` when no provider produced a usable
+    calendar; the factual outcome remains visible in ``metadata.attempts``.
+    ``adapters`` and ``clock`` are test seams and do not alter the default
+    provider request semantics.
+    """
+
+    resolved_today = _coerce_day(today)
+    chain = CALENDAR_ADAPTERS if adapters is None else adapters
+    attempts: list[FetchAttempt] = []
     max_staleness = _max_staleness_days()
-    local_days = _read_local_index_days(root)
+
+    local_days, partial = _run_calendar_adapter(
+        "tdx_vipdoc",
+        "tdx_vipdoc:index_bars",
+        chain.get("tdx_vipdoc"),
+        root=root,
+        attempts=attempts,
+        clock=clock,
+    )
     local_calendar: TradingCalendar | None = None
     if local_days:
-        age = (today - date.fromisoformat(local_days[-1])).days
+        age = (resolved_today - date.fromisoformat(local_days[-1])).days
         local_calendar = _calendar_from_days(
             local_days,
             SOURCE_LOCAL,
-            today,
+            resolved_today,
             stale=age > max_staleness,
             limitations=(
                 (
@@ -285,15 +644,41 @@ def _build_calendar(root: Any, today: date) -> TradingCalendar | None:
             ),
         )
         if not local_calendar.stale:
-            return local_calendar
+            return _calendar_result(
+                local_calendar,
+                attempts,
+                providers_used=["tdx_vipdoc"],
+                partial=partial,
+            )
 
-    online = _read_online_index_days()
-    if online is not None:
-        source, days = online
-        online_last = days[-1]
-        if local_calendar is None or online_last >= local_calendar.last_bar_date:
-            return _calendar_from_days(days, source, today, stale=False)
-        return TradingCalendar(
+    for provider, capability_id in TRADING_CALENDAR_PROVIDERS[1:]:
+        days, provider_partial = _run_calendar_adapter(
+            provider,
+            capability_id,
+            chain.get(provider),
+            root=root,
+            attempts=attempts,
+            clock=clock,
+        )
+        partial = partial or provider_partial
+        if not days:
+            continue
+
+        online_calendar = _calendar_from_days(
+            days,
+            _SOURCE_BY_PROVIDER[provider],
+            resolved_today,
+            stale=False,
+        )
+        if local_calendar is None or online_calendar.last_bar_date >= local_calendar.last_bar_date:
+            return _calendar_result(
+                online_calendar,
+                attempts,
+                providers_used=[provider],
+                partial=partial,
+            )
+
+        preserved = TradingCalendar(
             trading_days=local_calendar.trading_days,
             source=local_calendar.source,
             covered_range=local_calendar.covered_range,
@@ -303,9 +688,15 @@ def _build_calendar(root: Any, today: date) -> TradingCalendar | None:
             limitations=local_calendar.limitations
             + ("在线回落返回的日线不新于本地包，保留本地（陈旧）日历",),
         )
+        return _calendar_result(
+            preserved,
+            attempts,
+            providers_used=["tdx_vipdoc"],
+            partial=partial,
+        )
 
     if local_calendar is not None:
-        return TradingCalendar(
+        preserved = TradingCalendar(
             trading_days=local_calendar.trading_days,
             source=local_calendar.source,
             covered_range=local_calendar.covered_range,
@@ -315,7 +706,80 @@ def _build_calendar(root: Any, today: date) -> TradingCalendar | None:
             limitations=local_calendar.limitations
             + ("本地包超过陈旧度阈值，且在线回落失败；覆盖区间外日期不能判定",),
         )
-    return None
+        return _calendar_result(
+            preserved,
+            attempts,
+            providers_used=["tdx_vipdoc"],
+            partial=partial,
+        )
+
+    if any(attempt.is_failure() for attempt in attempts):
+        limitations = ["all_sources_failed"]
+    elif any(attempt.status == FETCH_NORMAL_EMPTY for attempt in attempts):
+        limitations = ["all_sources_normal_empty"]
+    elif any(attempt.status == FETCH_NOT_CONFIGURED for attempt in attempts):
+        limitations = ["all_sources_not_configured"]
+    else:
+        limitations = ["all_sources_unavailable"]
+    return _calendar_result(
+        None,
+        attempts,
+        limitations=limitations,
+        partial=partial,
+    )
+
+
+def _build_calendar(root: Any, today: date) -> TradingCalendar | None:
+    """Compatibility seam returning only the structured route payload."""
+
+    return fetch_trading_calendar(root=root, today=today).data
+
+
+def probe_trading_calendar_provider(
+    provider: str,
+    *,
+    root: Any = None,
+    today: Any = None,
+    adapter: Callable[..., Any] | None = None,
+    clock: Callable[[], float] = time.monotonic,
+) -> FetchResult[TradingCalendar | None]:
+    """Observe exactly one provider's calendar capability."""
+
+    provider_map = dict(TRADING_CALENDAR_PROVIDERS)
+    if provider not in provider_map:
+        raise ValueError(f"unknown trading calendar provider: {provider!r}")
+
+    resolved_today = _coerce_day(today)
+    capability_id = provider_map[provider]
+    attempts: list[FetchAttempt] = []
+    selected = adapter if adapter is not None else CALENDAR_ADAPTERS.get(provider)
+    days, partial = _run_calendar_adapter(
+        provider,
+        capability_id,
+        selected,
+        root=root,
+        attempts=attempts,
+        clock=clock,
+    )
+    if days:
+        calendar = _calendar_from_days(
+            days,
+            _SOURCE_BY_PROVIDER[provider],
+            resolved_today,
+            stale=False,
+        )
+        return _calendar_result(
+            calendar,
+            attempts,
+            providers_used=[provider],
+            partial=partial,
+        )
+    return _calendar_result(
+        None,
+        attempts,
+        limitations=[f"probe_unusable:{provider}"],
+        partial=partial,
+    )
 
 
 def load_trading_calendar(
@@ -334,7 +798,10 @@ def load_trading_calendar(
     key = (str(root) if root is not None else "", resolved_today.isoformat())
     if use_cache and key in _CALENDAR_CACHE:
         return _CALENDAR_CACHE[key]
-    calendar = _build_calendar(root, resolved_today)
+    calendar = fetch_trading_calendar(
+        root=root,
+        today=resolved_today,
+    ).data
     if use_cache:
         _CALENDAR_CACHE[key] = calendar
     return calendar
@@ -388,10 +855,15 @@ __all__ = [
     "SOURCE_LOCAL",
     "SOURCE_MOOTDX",
     "SOURCE_SINA",
+    "TRADING_CALENDAR_CAPABILITY",
+    "TRADING_CALENDAR_PROVIDERS",
     "TradingCalendar",
+    "canonicalize_trading_days",
+    "fetch_trading_calendar",
     "is_trading_day",
     "latest_trading_day_on_or_before",
     "load_trading_calendar",
     "local_is_trading_day",
     "local_latest_index_bar",
+    "probe_trading_calendar_provider",
 ]

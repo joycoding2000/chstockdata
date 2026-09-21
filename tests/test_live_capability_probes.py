@@ -153,3 +153,63 @@ def test_bars_capability_health_report_is_emitted():
         for capability_id, health in sorted(capability_health_snapshot().items())
     }
     print("\ndaily-bars capability health:", report)
+
+
+# ── trading-calendar capability probes (v0.4.0 Phase 3) ─────────────────────
+# The local vipdoc adapter is intentionally excluded from hosted probes.  The
+# two online probes are observability-only and remain under the workflow's
+# continue-on-error probe step.
+
+
+def _calendar_probe(provider: str) -> bool:
+    from chstockdata.trading_calendar import (
+        CALENDAR_ADAPTERS,
+        probe_trading_calendar_provider,
+    )
+
+    result = probe_trading_calendar_provider(
+        provider,
+        today=dt.date.today(),
+        adapter=CALENDAR_ADAPTERS[provider],
+    )
+    return result.metadata.final_status == FETCH_SUCCESS
+
+
+def test_sina_trading_calendar_capability_probe():
+    ok = _calendar_probe("sina")
+    health = get_capability_health(ProviderCapability("sina", "index_bars"))
+    assert health is not None and health.status != "not_configured", health
+    assert ok, f"sina:index_bars capability probe failed (health={health})"
+
+
+def test_mootdx_trading_calendar_capability_probe():
+    ok = _calendar_probe("mootdx")
+    health = get_capability_health(ProviderCapability("mootdx", "index"))
+    assert health is not None and health.status != "not_configured", health
+    assert ok, f"mootdx:index capability probe failed (health={health})"
+
+
+def test_trading_calendar_capability_health_report_is_emitted():
+    from chstockdata.trading_calendar import TRADING_CALENDAR_PROVIDERS
+
+    reset_capability_health()
+    outcomes = {}
+    for provider, capability_id in TRADING_CALENDAR_PROVIDERS:
+        if provider == "tdx_vipdoc":
+            continue
+        ok = _calendar_probe(provider)
+        outcomes[provider] = ok
+        health = get_capability_health(
+            ProviderCapability(*capability_id.split(":", 1))
+        )
+        if ok:
+            assert health.status == FETCH_SUCCESS, (provider, health)
+        else:
+            assert health.status != FETCH_SUCCESS, (provider, health)
+
+    report = {
+        capability_id: health.status
+        for capability_id, health in sorted(capability_health_snapshot().items())
+    }
+    print("\ntrading-calendar capability health:", report)
+    assert set(report) == {"mootdx:index", "sina:index_bars"}, report

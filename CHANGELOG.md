@@ -9,6 +9,37 @@ Consumer compatibility baseline remains **0.3.0** (commit `143eb5a`);
 nothing below changes the public API. Scope and rationale:
 `docs/architecture.md`, `docs/provider-capability-matrix.md`.
 
+### Phase 3 — Trading Calendar Structured Vertical Slice
+
+#### Added
+
+- **Structured trading-calendar route**: `fetch_trading_calendar()` and
+  `probe_trading_calendar_provider()` use the existing `TradingCalendar` domain
+  payload with `FetchAttempt` / `FetchMetadata` / `FetchResult` and the
+  operation-level capabilities `tdx_vipdoc:index_bars`, `mootdx:index`, and
+  `sina:index_bars`.
+- **Canonical trading-day boundary**: successful calendar payloads are unique,
+  ascending ISO `YYYY-MM-DD` tuples; empty responses, malformed payloads, and
+  invalid-only dates retain distinct structured statuses. Mixed valid/invalid
+  rows preserve valid days and expose `partial` plus an explicit limitation.
+
+#### Changed
+
+- `load_trading_calendar()` is now a fail-soft compatibility wrapper around the
+  structured route while preserving its exact signature, `(root, day)` process
+  memo, stale policy, source labels, and `TradingCalendar | None` return shape.
+- Stale local calendars remain successful provider observations: newer online
+  data wins, older online data leaves the stale local payload in place, and
+  online hard failures remain visible as degraded metadata without breaking
+  legacy consumers. `local_is_trading_day()` remains a zero-network seam.
+- No package version bump or consumer-repository upgrade is included; this is
+  still `0.4.0` development on the `0.3.0` compatibility baseline.
+
+#### Explicitly not migrated
+
+Suspension/tradability, corporate actions, qfq/hfq/W/M, and a generic fallback
+router remain outside Phase 3.
+
 ### Phase 2.2 — Cached OHLCV Orchestration Convergence
 
 #### Changed

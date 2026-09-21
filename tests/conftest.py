@@ -116,3 +116,10 @@ def _no_trading_calendar(request, monkeypatch):
     monkeypatch.setattr(
         trading_calendar, "_read_online_index_days", lambda *args, **kwargs: None
     )
+    # The structured calendar route has truthful provider adapters and no
+    # longer consults the legacy fail-soft readers.  Keep the default suite
+    # hermetic by making the legacy compatibility seam unavailable unless a
+    # test opts into the real calendar or supplies its own route adapters.
+    monkeypatch.setattr(
+        trading_calendar, "load_trading_calendar", lambda *args, **kwargs: None
+    )

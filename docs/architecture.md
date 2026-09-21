@@ -1,4 +1,4 @@
-# chstockdata 架构（v0.4.0 Phase 2.1）
+# chstockdata 架构（v0.4.0 Phase 3）
 
 > 基线：v0.3.0（commit `143eb5a`）已被 `TradingAgents-AStock-Private` 与
 > `systematic-investing-os` 作为冻结 provider baseline 消费。本文档描述
@@ -17,6 +17,7 @@
 │ Legacy compatibility layer                                   │
 │  a_stock.get_realtime_snapshot → _get_realtime_quotes        │
 │  a_stock.get_stock_data (raw/D) → daily_bars.fetch_daily_bars│
+│  load_trading_calendar → fetch_trading_calendar               │
 │  （wrapper / renderer，行为契约不变）                         │
 └──────────────────────────┬──────────────────────────────────┘
                            │
@@ -24,6 +25,7 @@
 │ Structured core（v0.4.0 新增，additive）                      │
 │  quote_chain.fetch_realtime_quotes → FetchResult[T]          │
 │  daily_bars.fetch_daily_bars → FetchResult[pd.DataFrame]     │
+│  trading_calendar.fetch_trading_calendar → FetchResult[...]  │
 │  fetch_result: FetchAttempt / FetchMetadata / FetchResult[T] │
 ├──────────────────────────────────────────────────────────────┤
 │ Capability health（v0.4.0 新增）                              │
@@ -138,7 +140,7 @@ FetchResult[T] # data + metadata，generic
 
 ## 5. Routing（structured vertical slices）
 
-v0.4.0 目前有两条真实数据路径迁入 structured core：
+v0.4.0 目前有三条真实数据路径迁入 structured core：
 
 ### 5.1 实时行情（Phase 1，quote）
 
@@ -254,6 +256,53 @@ tdx_vipdoc:daily_bars ──► mootdx:bars ──► sina:bars
   routing 共用同一 canonical validation（malformed 帧 = probe 红，
   不因帧非空就绿灯）；`tdx_vipdoc` 是本地数据路径，不进 CI live probe。
 
+### 5.3 交易日历（Phase 3，supportive trading calendar）
+
+交易日历继续使用既有 `TradingCalendar` domain model，不创建第二套
+calendar payload。第三条 structured route 是：
+
+```text
+tdx_vipdoc:index_bars ──► mootdx:index ──► sina:index_bars
+        │                      │                 │
+        └──────── canonicalize_trading_days() ───┘
+                               │
+                fetch_trading_calendar()
+                               │
+                FetchResult[TradingCalendar | None]
+                               │
+                load_trading_calendar() 兼容 wrapper
+```
+
+- **provider boundary**：local 适配器仍精确调用
+  `load_vipdoc_daily("000001", market="sh", root=root)`；mootdx 保持
+  `_mootdx_call("index", symbol="000001", frequency=9, offset=2000)`；
+  Sina 保持 `sh000001`、`scale=240`、`ma=no`、`datalen=2000`。结构化
+  适配器不调用已吞异常的 legacy helper 来猜测失败类型；每次真实调用都
+  产生一个 `FetchAttempt` 与同 capability 的 health observation。
+- **canonical contract**：进入 success 的日期是 ISO `YYYY-MM-DD`、唯一、
+  升序且至少一条；混合坏日期保留有效日期，空响应是 `normal_empty`，
+  全坏/缺字段/错误 shape 是 `failed_structure`；混合坏日期以
+  `metadata.partial=True` 与 `invalid_calendar_dates_dropped` limitation
+  可见。`covered_range` 永远是
+  实际 `days[0], days[-1]`，不因 `today` 或请求日期扩展。
+- **routing**：fresh local 成功立即停止；stale local 仍是 success observation
+  并继续在线路由。在线结果不旧于本地时在线 payload 胜出；在线更旧时保留
+  stale local；在线硬失败时也保留 stale local 并让 `metadata.degraded=True`。
+  无本地时按 mootdx → Sina 回落；所有 provider 不可用时返回
+  `FetchResult(data=None, ...)`，不抛 calendar routing exception。
+- **provenance**：`metadata.attempts` 是真实 observation 全量；
+  `providers_used` 只列最终 `TradingCalendar` payload 贡献者；
+  `final_provider` 只在唯一贡献者时设置。`mootdx:index` 或
+  `sina:index_bars` 不会写成 `mootdx:trading_calendar` / 下游 bars、quote
+  等重叠 identity。
+- **时间语义**：`TradingCalendar.as_of` 是 staleness evaluation date；
+  `FetchMetadata.data_as_of` 是最终 calendar 的实际 `last_bar_date`；
+  `observed_at` 没有 vendor timestamp 时保持 `None`。
+- **兼容/隔离**：`load_trading_calendar()` 仍只缓存
+  `(root, day) -> TradingCalendar | None`，structured API 不读取旧 memo；
+  `local_is_trading_day()` / `local_latest_index_bar()` 仍是 zero-network
+  local-only seam，所有既有消费者继续使用它们并保留自己的 fallback。
+
 `get_ohlcv_frame_cached` / `_load_ohlcv_astock` 现在复用同一条 structured
 provider route，同时保留 legacy CSV/PIT/staleness consumer contract：
 
@@ -311,10 +360,10 @@ backtest、strategy；以及 TradingAgents-specific 的 `original_tool`、
   仅触及 Phase 1 新增且未发布（未 release）的 structured core API，
   对 v0.3.0 消费面零影响。
 
-## 8. 明确不做（Phase 1.1 范围外）
+## 8. 明确不做（Phase 3 范围外）
 
 - capability health 持久化（health 观察有时效性，持久化需先定义 TTL /
   过期 / 冷启动 / 跨进程优先级；趋势走 GitHub Actions 日志）；
 - `data_as_of` vendor 实化（quote vendor 时间戳映射留给单独任务）；
-- calendar / corporate actions 的 structured 迁移；daily bars 的 raw/D 与
-  cached-OHLCV convergence 已完成，但 qfq/hfq/W/M 仍保留既有 legacy route。
+- suspension/tradability、corporate actions、qfq/hfq/W/M 的 structured 迁移；
+- `GenericFallbackRouter` 抽象、consumer repository 升级与 v0.4.0 发布。

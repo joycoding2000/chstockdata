@@ -1,4 +1,4 @@
-# Provider × Capability Matrix（v0.4.0 Phase 2.1，持续维护）
+# Provider × Capability Matrix（v0.4.0 Phase 3，持续维护）
 
 健康判定按 **provider + capability** 粒度记录。**同一 provider 的各
 capability 不视为整体一致健康**——尤其 mootdx：bars 失败不代表 finance /
@@ -17,13 +17,16 @@ xdxr 失败，反之亦然。该保证自 Phase 1.1 起是**运行行为**（真
 | tencent | `tencent:quote` | 实时快照主源（含 PE/PB/市值） | `probe_quote_provider("tencent")` + quote chain attempt | 链首；失败降级 mootdx | active |
 | mootdx | `mootdx:quote` | 实时快照备源（TCP） | `probe_quote_provider("mootdx")` + attempt 埋点；client 接受标准 = factory-only（transport 层） | 第 2 级；失败降级 sina | active |
 | mootdx | `mootdx:bars` | 日线 K 线主源（TCP） | `_mootdx_call("bars")` 埋点 + daily-bars chain attempt；服务器选择用 bars readiness canary（结论**仅约束 bars**，落盘 `transport_ok` 层级标注） | K 线链主源；失败降级新浪 K 线；Volume 单位 = provider_native_unknown（TDX wire `vol` 未实测，requires reachable TDX environment verification） | active |
+| mootdx | `mootdx:index` | 交易日历在线 index bars | `probe_trading_calendar_provider("mootdx")` + calendar route attempt；复用 `_mootdx_call("index")` 的真实 operation identity | stale local 后的在线日历候选；失败降级 Sina；不影响 bars/quote/finance/xdxr | active |
 | mootdx | `mootdx:finance` | F10 财务快照 | `_mootdx_call("finance")` 埋点；client 接受标准 = factory-only；**bars canary 全失败时仍可经 bounded bypass 成功** | 独立能力，不随 bars/quote 失败判死（运行级，测试锁定） | active |
 | mootdx | `mootdx:xdxr` | 除权除息 | `_mootdx_call("xdxr")` 埋点；同 finance（factory-only + bypass） | 独立能力，不随 bars/quote 失败判死 | active |
 | mootdx | `mootdx:stock_list` | 全市场名称表（名称→代码解析） | `_mootdx_call("stocks")` 埋点；factory-only | 磁盘日缓存优先，失败仅影响名称解析 | active |
 | sina | `sina:quote` | 实时快照兜底源 | `probe_quote_provider("sina")` + attempt 埋点 | 链尾兜底 | active |
 | sina | `sina:bars` | K 线兜底源（+ 三表） | `probe_daily_bars_provider("sina")` + daily-bars chain attempt（Phase 2 埋点）；canonical validation 共用（malformed = failed_structure） | K 线链尾兜底；Volume 单位 = shares | active |
+| sina | `sina:index_bars` | 交易日历在线 index bars | `probe_trading_calendar_provider("sina")` + calendar route attempt；`sh000001` / `scale=240` | stale local 后的在线日历尾级兜底；失败只影响 trading_calendar | active |
 | eastmoney | `eastmoney:datacenter` | 龙虎榜/解禁/资金流等 | 待埋点（刻意不进 live gate：封禁 IDC IP） | 独立能力 | active |
 | tdx_vipdoc | `tdx_vipdoc:daily_bars` | 本地官方日线包 | daily-bars chain attempt 埋点（local 源状态分类：disabled/missing→not_configured、损坏/malformed→failed_structure、空窗/超 staleness→normal_empty）；不进 CI live probe（本地路径） | K 线链本地首选；Volume 单位 = shares | active |
+| tdx_vipdoc | `tdx_vipdoc:index_bars` | 本地上证指数日线日历（`sh000001`） | `fetch_trading_calendar` attempt；零网络；显式 `market="sh"` 防止误读 `sz000001` | 交易日历链首选；缺失/空数据在线回落，不影响其它 tdx_vipdoc capability | active |
 | tdx_bridge | `easy_tdx:fund_flow` | L1 资金流/行业排名 | `test_tdx_bridge_health.py` | 独立能力 | active |
 
 ## 已埋点 vs 待埋点
@@ -34,7 +37,9 @@ xdxr 失败，反之亦然。该保证自 Phase 1.1 起是**运行行为**（真
   method capability（经 `_mootdx_call` → `capabilities.record_capability_health`）
   + **daily-bars 链三个 capability（Phase 2）**：`tdx_vipdoc:daily_bars` /
   `mootdx:bars` / `sina:bars`，经 `daily_bars.fetch_daily_bars` +
-  `probe_daily_bars_provider`。
+  `probe_daily_bars_provider` + **trading-calendar 链三个 capability（Phase 3）**：
+  `tdx_vipdoc:index_bars` / `mootdx:index` / `sina:index_bars`，经
+  `fetch_trading_calendar` + `probe_trading_calendar_provider`。
 - **待埋点（后续轮次）**：财务/事件/资金流等 40+ API。
   原实现继续工作；`Status` 列在迁移时逐行更新。
 
@@ -44,7 +49,8 @@ xdxr 失败，反之亦然。该保证自 Phase 1.1 起是**运行行为**（真
   链上有任意一源存活即 green；
 - `tests/test_live_capability_probes.py` —— **逐 capability probe**
   （报告，非阻塞）：quote 走 `probe_quote_provider`、daily bars 走
-  `probe_daily_bars_provider` 的单 provider 执行路径，
+  `probe_daily_bars_provider`、calendar 走
+  `probe_trading_calendar_provider` 的单 provider 执行路径，
   单个 probe 只更新自己的 capability health；单个非关键 provider 单点
   失败不 fail 整个 routing gate，但必须在 job 输出中单独可见，禁止被
   fallback 成功掩盖（mootdx:bars 在 CI 网络失败必须真实显示，不回退成绿）；
