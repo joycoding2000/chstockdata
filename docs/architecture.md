@@ -1,4 +1,4 @@
-# chstockdata 架构（v0.4.0 Phase 2）
+# chstockdata 架构（v0.4.0 Phase 2.1）
 
 > 基线：v0.3.0（commit `143eb5a`）已被 `TradingAgents-AStock-Private` 与
 > `systematic-investing-os` 作为冻结 provider baseline 消费。本文档描述
@@ -105,7 +105,9 @@ FetchAttempt   # 一次 provider 调用：provider / capability / status /
                # started_at / elapsed_ms / record_count / error_type
 FetchMetadata  # capability / final_provider / providers_used /
                # retrieved_at / observed_at / data_as_of / stale / partial /
-               # limitations / attempts（派生：final_status / degraded /
+               # limitations / attempts / outcome_status（Phase 2.1：
+               # 显式 request 级结论 override，None = 沿用 attempt 派生）
+               # （派生：final_status / request_status / degraded /
                # failed_providers）
 FetchResult[T] # data + metadata，generic
 ```
@@ -153,7 +155,7 @@ v0.4.0 目前有两条真实数据路径迁入 structured core：
   provider **不会**被写成 `not_configured`、不会覆盖已有观察。live gate
   的 `tests/test_live_capability_probes.py` 使用该路径。
 
-### 5.2 历史日线（Phase 2，daily bars）
+### 5.2 历史日线（Phase 2，daily bars；Phase 2.1 contract hardening）
 
 raw/D 历史日线链（本地 vipdoc 包 → mootdx TCP → 新浪 HTTP）是第二条
 structured vertical slice：
@@ -162,36 +164,68 @@ structured vertical slice：
 tdx_vipdoc:daily_bars ──► mootdx:bars ──► sina:bars
         │                     │               │
         ▼                     ▼               ▼
+        canonicalize_daily_bars_frame() （唯一 canonicalization boundary，
+        │                               routing 与 probe 共用；未通过 =
+        │                               failed_structure，绝不记 success）
+        ▼
         daily_bars.fetch_daily_bars()   （唯一权威 provider 编排）
         │  FetchAttempt + capability health（每次真实调用）
         ▼
-        FetchResult[pd.DataFrame]       （canonical bars schema）
+        FetchResult[pd.DataFrame]       （enforced canonical bars schema）
         ▼
         a_stock.get_stock_data()        （兼容 renderer，输出契约逐字冻结）
 ```
 
-- **canonical schema**（测试锁死，`tests/test_daily_bars_schema.py`）：
-  必需列 `Date/Open/High/Low/Close/Volume`（`Date` 归一化到日粒度、
-  双端闭区间窗口）；可选列 `pre_close`（仅当贡献 provider 真实提供——
-  现为 vipdoc `.day` 文件语义"完整文件内前一交易日原始 Close"，
-  **引擎绝不派生**，不提供即缺列/NaN）；`Amount` 不进 canonical bars
-  （legacy raw/D 输出从未暴露该列）；
-- **units**：provider 原生透传，provider boundary 不做任何 ×100/÷100
-  换算（regression test 锁死）。记录口径：vipdoc Volume=股、新浪
-  Volume=股；mootdx 保持 TDX wire `vol`（沿用 `adjusted_bars` 口径红线：
-  跨源绝对值不作横向比较）；
+- **canonical schema（enforced，不再只是声明）**：每个 provider 帧必须
+  通过 `canonicalize_daily_bars_frame()` 才允许记 `success`——缺必需列、
+  存在不可解析 `Date`、存在非数值的必需数值字段（非空源值）→
+  `failed_structure` attempt + health failed，路由继续回落下一 provider。
+  合法数字字符串（如 `"10.25"`）自动转换；空数值单元格保持 `NaN`
+  （记录在案，不伪造）。重复业务日期确定性 keep-last 去重、保留
+  provider 原生行序（不重排）。必需列 `Date/Open/High/Low/Close/Volume`
+  （`Date` 归一化到日粒度、双端闭区间窗口）；可选列 `pre_close`（仅当
+  贡献 provider 真实提供——现为 vipdoc `.day` 文件语义"完整文件内前一
+  交易日原始 Close"，**引擎绝不派生**；新浪接管重叠日期后该行
+  `pre_close` 保持 NaN，不得继承 vipdoc 旧值）；`Amount` 不进 canonical
+  bars（legacy raw/D 输出从未暴露该列）；
+- **volume unit semantics（不猜、不冒充统一）**：值 provider 原生透传
+  （无 ×100/÷100 换算，regression test 锁死）。unit 语义随结果双通道
+  携带：`frame.attrs["volume_unit"]` + `volume_unit:<value>` limitation。
+  取值：vipdoc= `shares`、sina= `shares`、mootdx=
+  `provider_native_unknown`（TDX wire `vol` 单位**未实测**——需要可达的
+  TDX TCP 环境验证；不得描述成统一 shares）；多 provider 单位类不同 →
+  `mixed_provider_native`。跨源 Volume 绝对值比较仍按 `adjusted_bars`
+  红线：不支持；
 - **行序**：单源 base 帧保持 provider 原生行序（vipdoc/新浪升序；mootdx
   为 wire 序，未做库内排序）；合并（supplement）帧按 legacy
   `_merge_ohlcv` 语义去重 keep-last + 升序。renderer 不重排；
+- **provider provenance truth**：`providers_used` 列出**所有实际向最终
+  payload 贡献了行的 provider**——包括只重叠未推进末根的新浪补齐
+  （其 keep-last 行接管了 base 行），不再是"末根推进才算"；
+- **legacy label 与 structured provenance 解耦**：`# Data source` 后缀
+  规则（仅末根推进时追加 `+ sina HTTP supplement`）是 presentation
+  contract，由 engine 的显式 limitation 哨兵
+  `sina_supplement_advanced_end` 驱动；overlap-only 贡献记录为
+  `sina_supplement_overlap_only`。structured truth 不再被 legacy
+  wording 反向简化；
+- **request outcome 与 provider success 分离**（generic core 增量，
+  Phase 2.1）：`FetchMetadata` 新增 consumer-neutral 的
+  `outcome_status`（显式 request 级结论 override；quote 等不设置的链
+  行为完全不变）；`request_status = outcome_status or final_status`；
+  `FetchResult.is_normal_empty` 经 `request_status` 解析，
+  `succeeded` 仍表示"provider 路由完成"。daily-bars 在"provider 有数据
+  但请求窗口过滤后为空"时声明 `outcome_status="normal_empty"`——
+  consumer 不必从空 DataFrame 猜，也不必解析 limitation 字符串；
 - **routing policy（bars engine 内，不污染 generic core）**：
   - `not_configured`（vipdoc 被配置禁用 / 本地包或文件缺失）是事实，
     不是硬失败——不构成 degraded，路由继续；
   - vipdoc 文件损坏/不可读 → `failed_structure`（local 源不套网络语义）；
   - vipdoc 空窗口 / 超过 `vipdoc_history_max_staleness_days`（交易日历
     无法确认市场无更新 session，DEC-P1-27）→ `normal_empty`，路由继续；
-  - 首个可用帧即 base（单一数据源事实层；唯一例外是 legacy 本就存在的
-    **尾部补齐 contract**：base 末根落后请求截止时新浪整窗拉取并合并、
-    重叠日新浪行胜出；补齐失败保留 base 并标记 `degraded`）；
+  - 首个通过 canonical validation 的帧即 base（单一数据源事实层；唯一
+    例外是 legacy 本就存在的**尾部补齐 contract**：base 末根落后请求
+    截止时新浪整窗拉取并合并、重叠日新浪行胜出；补齐失败保留 base 并
+    标记 `degraded`）；
   - 全部 provider `normal_empty` → routing `normal_empty`；全部硬失败 →
     `DailyBarsRoutingError`（脱敏，不带 vendor 细节）；
 - **stale policy**：覆盖缺口超过 `_OHLCV_MAX_STALENESS_DAYS`（14 天）
@@ -210,8 +244,9 @@ tdx_vipdoc:daily_bars ──► mootdx:bars ──► sina:bars
   round(2) 值），不再解析 formatted 文本；
 - **隔离单 provider 探针**：`daily_bars.probe_daily_bars_provider` 与
   quote 探针同分工——live gate 里 `sina:bars` / `mootdx:bars` 为观测性
-  非阻塞项，单个失败必须真实显示、不得被 routing green 掩盖；
-  `tdx_vipdoc` 是本地数据路径，不进 CI live probe。
+  非阻塞项，单个失败必须真实显示、不得被 routing green 掩盖；probe 与
+  routing 共用同一 canonical validation（malformed 帧 = probe 红，
+  不因帧非空就绿灯）；`tdx_vipdoc` 是本地数据路径，不进 CI live probe。
 
 其余 40+ API 路径（财务、事件、日历、停牌……）仍走原实现，按后续
 轮次逐条迁移。`get_ohlcv_frame_cached`（`_load_ohlcv_astock`：CSV 日缓存

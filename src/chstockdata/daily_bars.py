@@ -1,7 +1,8 @@
 """Structured daily-bars routing engine (tdx_vipdoc → mootdx → Sina).
 
-v0.4.0 Phase 2 vertical slice: the raw/D historical daily-bars fallback chain
-is the second real data path rebuilt on the generic structured core.  Layering::
+v0.4.0 Phase 2 vertical slice (Phase 2.1 contract-hardened): the raw/D
+historical daily-bars fallback chain is the second real data path rebuilt on
+the generic structured core.  Layering::
 
     fetch_daily_bars()               structured FetchResult (this module)
         ↓
@@ -15,30 +16,68 @@ observation through the single ``fetch_status_to_health_status`` mapping, so
 ``mootdx:bars`` failing is visible even when the Sina fallback saves the
 chain — and it never touches ``mootdx:finance``/``mootdx:xdxr``.
 
-Canonical schema (locked by tests, see ``tests/test_daily_bars_schema.py``):
+Canonical schema (ENFORCED, not just declared — every provider frame passes
+:func:`canonicalize_daily_bars_frame` on both the routing and the probe path
+before it may be recorded as ``success``):
 
-- Required columns: ``Date, Open, High, Low, Close, Volume``.
-- Optional column: ``pre_close`` — present only when the contributing
+- Required columns: ``Date, Open, High, Low, Close, Volume``.  A non-empty
+  frame missing any of them is a ``failed_structure`` attempt (and the chain
+  falls through to the next provider) — never a silent success.
+- ``Date``: parsed with ``errors="coerce"``; any unparseable value is a
+  ``failed_structure`` attempt (strict — malformed dates are never silently
+  dropped).  Valid values are normalized to daily granularity
+  (``datetime64[ns]``, midnight, timezone-naive exchange business date).
+- Required numeric fields: coerced with ``errors="coerce"``; any originally
+  non-null value that is not numeric (e.g. ``"abc"``) is a
+  ``failed_structure`` attempt.  Valid numeric strings (``"10.25"``) are
+  converted; null numeric cells stay ``NaN`` (documented, never fabricated).
+- Duplicate business dates: deduplicated keep-last, deterministically, in
+  the provider's native row order — no re-sorting.
+- Optional column ``pre_close`` — present only when the contributing
   provider actually supplies it (today: ``tdx_vipdoc``'s ``.day`` file
   semantics = previous trading day's raw close **as recorded in the file**;
   never synthesized by this engine, never ``previous row close`` of another
-  provider).  Rows merged from providers without it carry ``NaN``.
+  provider).  Rows merged from providers without it carry ``NaN`` — a Sina
+  row that takes over a date never inherits the vipdoc ``pre_close``.
 - ``Amount`` is deliberately NOT carried: no provider path in the legacy
   raw/D output ever exposed it (vipdoc's reader column is dropped exactly as
   before), and carrying it would leak a new column into the legacy CSV.
-- Date: ``datetime64[ns]`` normalized to daily granularity (midnight,
-  exchange business date, no timezone).  One row per trading date; no
-  duplicate dates after a merge.
 - Ordering: single-provider base frames keep the provider's native row order
   (vipdoc/sina ascend; mootdx keeps wire order) — the legacy output contract
   is frozen, and this engine does not reorder what the provider returned.
   Merged (supplement) frames are deduped keep-last and sorted ascending by
   the legacy ``_merge_ohlcv`` semantics (supplement rows win on overlap).
-- Units: provider-native passthrough at the adapter boundary — values are
-  never scaled.  Documented units: vipdoc ``Volume`` in 股, sina ``Volume``
-  in 股; mootdx keeps the TDX wire ``vol``.  The project red line
-  (``adjusted_bars``) stands: cross-source absolute volume comparison is
-  unsupported.  A unit regression test locks "no scaling introduced".
+
+Volume unit semantics (never guessed, never unified by fiat):
+
+- values are provider-native passthrough — no ×100/÷100 scaling anywhere;
+- the engine stamps the resolved unit on the returned frame
+  (``frame.attrs["volume_unit"]``) and mirrors it as a
+  ``volume_unit:<value>`` limitation (the durable serialized channel):
+  ``shares`` for ``tdx_vipdoc`` / ``sina``, ``provider_native_unknown`` for
+  ``mootdx`` (the TDX wire ``vol`` unit is NOT verified — requires a
+  reachable TDX TCP environment), and ``mixed_provider_native`` when
+  contributing providers carry different unit classes.  Consumers must not
+  compare ``Volume`` absolutes across sources (``adjusted_bars`` red line).
+
+Provider provenance truth (``providers_used``):
+
+- lists every provider that actually contributed rows to the final payload —
+  including a Sina supplement that only overlapped existing dates (its
+  keep-last rows replace the base rows), not just one that advanced the
+  last bar date;
+- the legacy ``# Data source`` label stays a presentation rule and is keyed
+  off the explicit ``sina_supplement_advanced_end`` limitation sentinel —
+  never re-derived from ``providers_used``.
+
+Request outcome vs provider success (two explicit levels):
+
+- ``result.succeeded`` — the provider route completed (attempt-derived);
+- ``result.is_normal_empty`` — the request itself produced no bars.  When
+  providers answered but the requested window filtered everything away, the
+  engine declares ``metadata.outcome_status = "normal_empty"`` (generic,
+  consumer-neutral ``FetchMetadata`` field) instead of leaving consumers to
+  inspect an empty dataframe.
 
 Routing policy (THIS engine's, not the generic model's):
 
@@ -99,7 +138,9 @@ __all__ = [
     "DAILY_BAR_PROVIDERS",
     "CANONICAL_REQUIRED_COLUMNS",
     "CANONICAL_OPTIONAL_COLUMNS",
+    "VOLUME_UNIT_MIXED",
     "ADAPTERS",
+    "canonicalize_daily_bars_frame",
     "fetch_daily_bars",
     "probe_daily_bars_provider",
     "legacy_source_label",
@@ -119,6 +160,18 @@ DAILY_BAR_PROVIDERS: tuple[tuple[str, str], ...] = (
 CANONICAL_REQUIRED_COLUMNS = ("Date", "Open", "High", "Low", "Close", "Volume")
 CANONICAL_OPTIONAL_COLUMNS = ("pre_close",)
 
+# Volume unit semantics — resolved per contributing provider, never guessed:
+# - vipdoc: .day file uint32 = 股 (project-verified reader semantics);
+# - sina: getKLineData volume = 股;
+# - mootdx: TDX wire `vol` unit NOT verified (requires a reachable TDX TCP
+#   environment).  It must never be described as a unified canonical unit.
+_VOLUME_UNIT_BY_PROVIDER = {
+    "tdx_vipdoc": "shares",
+    "sina": "shares",
+    "mootdx": "provider_native_unknown",
+}
+VOLUME_UNIT_MIXED = "mixed_provider_native"
+
 
 class DailyBarsRoutingError(RuntimeError):
     """All daily-bars providers failed; no usable bars could be routed.
@@ -131,6 +184,100 @@ class DailyBarsRoutingError(RuntimeError):
     def __init__(self, attempts: list[FetchAttempt]):
         self.attempts = list(attempts)
         super().__init__("日线数据不可用：本地vipdoc、mootdx、新浪均未返回有效日线数据")
+
+
+# ---------------------------------------------------------------------------
+# Canonicalization boundary (shared by routing + probe paths)
+# ---------------------------------------------------------------------------
+
+
+def canonicalize_daily_bars_frame(
+    frame: pd.DataFrame, *, provider: str
+) -> pd.DataFrame:
+    """Validate and normalize one provider frame into the canonical shape.
+
+    THE single canonicalization boundary: a provider frame is only allowed
+    to be recorded as ``success`` (and reach the routing chain or a probe
+    result) after passing this validation.  Malformed payloads raise
+    ``ValueError`` so the shared classification records
+    ``failed_structure`` and the routing chain falls through to the next
+    provider — a non-empty malformed frame must never masquerade as usable
+    data.
+
+    Validation rules (strict, see module docstring):
+
+    - required columns ``Date/Open/High/Low/Close/Volume`` must exist;
+    - ``Date`` parses with ``errors="coerce"`` — any unparseable value is a
+      structure failure; valid values are normalized to daily granularity
+      (``datetime64[ns]``, midnight, timezone-naive business date);
+    - required numeric fields coerce with ``errors="coerce"`` — any
+      originally non-null non-numeric value (``"abc"``) is a structure
+      failure; valid numeric strings (``"10.25"``) are converted; null
+      numeric cells stay ``NaN`` (documented, never fabricated);
+    - duplicate business dates are deduplicated keep-last, deterministically
+      and in the provider's native row order (no re-sorting);
+    - ``pre_close`` (optional) passes through untouched.
+    """
+    if frame is None or len(frame) == 0:
+        raise ValueError(f"{provider} returned no rows to canonicalize")
+
+    missing = [
+        column
+        for column in CANONICAL_REQUIRED_COLUMNS
+        if column not in frame.columns
+    ]
+    if missing:
+        raise ValueError(
+            f"{provider} bars frame missing required columns: "
+            + ", ".join(missing)
+        )
+
+    out = frame.copy()
+
+    raw_dates = out["Date"]
+    parsed_dates = pd.to_datetime(raw_dates, errors="coerce")
+    if parsed_dates.isna().any():
+        bad = raw_dates[parsed_dates.isna()].astype(str).head(3).tolist()
+        raise ValueError(
+            f"{provider} bars frame has unparseable Date values: {bad}"
+        )
+    out["Date"] = parsed_dates.dt.normalize()
+
+    for column in ("Open", "High", "Low", "Close", "Volume"):
+        raw_values = out[column]
+        numeric = pd.to_numeric(raw_values, errors="coerce")
+        invalid = numeric.isna() & raw_values.notna()
+        if invalid.any():
+            bad = raw_values[invalid].astype(str).head(3).tolist()
+            raise ValueError(
+                f"{provider} bars frame has non-numeric {column} values: {bad}"
+            )
+        out[column] = numeric
+
+    if out["Date"].duplicated().any():
+        # Deterministic keep-last dedupe; preserves the provider's native
+        # row order for the surviving rows (no re-sorting — the legacy
+        # output contract is frozen).
+        out = out.drop_duplicates(subset="Date", keep="last")
+
+    return out.reset_index(drop=True)
+
+
+def _volume_unit_for(providers_used: list[str]) -> str:
+    """Resolve the Volume unit semantics for the contributing providers.
+
+    A single contributing provider reports its own unit class; providers
+    with different unit classes in one payload resolve to
+    ``mixed_provider_native`` — the result never claims a unified unit that
+    no single provider actually guaranteed.
+    """
+    units = {
+        _VOLUME_UNIT_BY_PROVIDER.get(provider, "provider_native_unknown")
+        for provider in providers_used
+    }
+    if len(units) == 1:
+        return next(iter(units))
+    return VOLUME_UNIT_MIXED
 
 
 # ---------------------------------------------------------------------------
@@ -326,8 +473,11 @@ def _run_adapter(
 ) -> pd.DataFrame | None:
     """Run one provider adapter, append its attempt + health observation.
 
-    Returns the provider frame on success, ``None`` otherwise (the attempt
-    list always carries the factual outcome).
+    Returns the canonicalized provider frame on success, ``None`` otherwise
+    (the attempt list always carries the factual outcome).  A frame is only
+    recorded as ``success`` after passing
+    :func:`canonicalize_daily_bars_frame` — a non-empty malformed payload is
+    a ``failed_structure`` attempt, never a success.
     """
     capability = _capability_for(capability_id)
     start = clock()
@@ -367,6 +517,27 @@ def _run_adapter(
         _observe_health(capability, FETCH_NORMAL_EMPTY)
         return None
 
+    try:
+        frame = canonicalize_daily_bars_frame(frame, provider=provider)
+    except Exception as exc:  # noqa: BLE001 - classified below
+        attempts.append(
+            _attempt(
+                provider,
+                capability_id,
+                exception_to_fetch_status(exc),
+                started_at,
+                elapsed,
+                error_type=type(exc).__name__,
+                message=str(exc),
+            )
+        )
+        _observe_health(
+            capability,
+            exception_to_fetch_status(exc),
+            error_summary=str(exc),
+        )
+        return None
+
     attempts.append(
         _attempt(
             provider,
@@ -390,8 +561,8 @@ def _supplement_with_sina(
     attempts: list[FetchAttempt],
     *,
     clock: Callable[[], float],
-) -> tuple[pd.DataFrame, bool, bool]:
-    """Legacy tail-supplement contract, verbatim.
+) -> tuple[pd.DataFrame, bool, bool, bool]:
+    """Legacy tail-supplement contract, verbatim — with truthful provenance.
 
     When the base frame's last bar is behind the requested end date, Sina is
     fetched over the full requested window and merged (supplement rows win on
@@ -399,11 +570,23 @@ def _supplement_with_sina(
     supplement keeps the base frame — it never fails the routing (legacy
     behavior), but hard supplement failures remain visible as failed attempts
     (and hence as a degraded routing result).
+
+    Returns ``(frame, sina_contributed, advanced_end, supplement_failed)``
+    as three DISTINCT facts:
+
+    - ``sina_contributed`` — Sina returned rows that were merged into the
+      final payload.  True even when it only overlapped existing dates (its
+      keep-last rows replace the base rows there): ``providers_used`` must
+      list Sina in that case, not just when the last bar date advanced.
+    - ``advanced_end`` — the merged last bar date moved forward.  This is
+      the ONLY fact the legacy ``# Data source`` suffix rule keys off.
+    - ``supplement_failed`` — a hard (non-empty) failure occurred while
+      supplementing; the base frame stands (legacy swallow).
     """
     from . import a_stock
 
     if not a_stock._needs_sina_supplement(base_frame, end_date):
-        return base_frame, False, False
+        return base_frame, False, False, False
 
     adapter = adapters.get("sina")
     provider, capability_id = "sina", "sina:bars"
@@ -422,7 +605,7 @@ def _supplement_with_sina(
             )
         )
         _observe_health(capability, FETCH_NOT_CONFIGURED)
-        return base_frame, False, False
+        return base_frame, False, False, False
     try:
         supplement = adapter(code, start_date, end_date)
     except Exception as exc:  # noqa: BLE001 - supplement failure must not kill the base
@@ -440,7 +623,7 @@ def _supplement_with_sina(
             )
         )
         _observe_health(capability, status, error_summary=str(exc))
-        return base_frame, False, status in (
+        return base_frame, False, False, status in (
             FETCH_FAILED_NETWORK,
             FETCH_FAILED_RATE_LIMIT,
             FETCH_FAILED_STRUCTURE,
@@ -460,7 +643,7 @@ def _supplement_with_sina(
             )
         )
         _observe_health(capability, FETCH_NORMAL_EMPTY)
-        return base_frame, False, False
+        return base_frame, False, False, False
 
     attempts.append(
         _attempt(
@@ -474,10 +657,10 @@ def _supplement_with_sina(
     )
     _observe_health(capability, FETCH_SUCCESS)
     merged = a_stock._merge_ohlcv(base_frame, supplement)
-    supplemented = a_stock._last_ohlcv_date(merged) != a_stock._last_ohlcv_date(
+    advanced_end = a_stock._last_ohlcv_date(merged) != a_stock._last_ohlcv_date(
         base_frame
     )
-    return merged, supplemented, False
+    return merged, True, advanced_end, False
 
 
 def fetch_daily_bars(
@@ -490,12 +673,14 @@ def fetch_daily_bars(
 ) -> FetchResult[pd.DataFrame]:
     """Fetch canonical daily bars through the structured routing chain.
 
-    Providers are tried in ``DAILY_BAR_PROVIDERS`` order; the first usable
-    frame becomes the base (single source of truth — no cross-provider
-    history stitching beyond the legacy Sina tail supplement).  Every real
-    provider call produces a ``FetchAttempt`` plus one capability-health
-    observation; routing outcomes are expressed by ``FetchMetadata``
-    (``final_status`` / ``degraded`` / ``providers_used``).
+    Providers are tried in ``DAILY_BAR_PROVIDERS`` order; the first frame
+    that passes canonical validation becomes the base (single source of
+    truth — no cross-provider history stitching beyond the legacy Sina tail
+    supplement).  Every real provider call produces a ``FetchAttempt`` plus
+    one capability-health observation; routing outcomes are expressed by
+    ``FetchMetadata`` (``final_status`` / ``degraded`` /
+    ``providers_used``), and the request-level outcome by
+    ``outcome_status``/``is_normal_empty`` (see module docstring).
 
     ``adapters`` replaces the whole provider chain (tests inject fakes);
     by default the module-level ``ADAPTERS`` registry is used.
@@ -557,15 +742,38 @@ def fetch_daily_bars(
         return FetchResult(data=_empty_canonical_frame(), metadata=metadata)
 
     # Legacy tail-supplement contract (see _supplement_with_sina).
-    base_frame, supplemented, supplement_failed = _supplement_with_sina(
-        code,
-        start_date,
-        end_date,
-        base_frame,
-        chain,
-        attempts,
-        clock=clock,
+    base_frame, sina_contributed, advanced_end, supplement_failed = (
+        _supplement_with_sina(
+            code,
+            start_date,
+            end_date,
+            base_frame,
+            chain,
+            attempts,
+            clock=clock,
+        )
     )
+
+    # Truthful provenance: every provider that contributed rows to the final
+    # payload — including an overlap-only Sina supplement whose keep-last
+    # rows replace base rows without advancing the last bar date.
+    providers_used = [base_provider]
+    if sina_contributed and base_provider != "sina":
+        providers_used.append("sina")
+
+    volume_unit = _volume_unit_for(providers_used)
+
+    # Structured limitation sentinels (documented, consumer-neutral).  The
+    # supplement facts are recorded separately from providers_used so the
+    # legacy label can keep its presentation-only rule without the
+    # structured provenance lying about (or hiding) contributions.
+    limitations: list[str] = [f"volume_unit:{volume_unit}"]
+    if advanced_end:
+        limitations.append("sina_supplement_advanced_end")
+    elif sina_contributed:
+        limitations.append("sina_supplement_overlap_only")
+    if supplement_failed:
+        limitations.append("sina_supplement_failed")
 
     # Window filter (inclusive both ends), applied after the supplement step
     # exactly where the legacy renderer filtered.  Comparison values mirror
@@ -577,15 +785,16 @@ def fetch_daily_bars(
     frame = frame[(frame["Date"] >= start_dt) & (frame["Date"] <= end_dt)]
     frame = frame.reset_index(drop=True)
 
-    providers_used = [base_provider]
-    if supplemented:
-        providers_used.append("sina")
-
-    limitations: list[str] = []
     stale = False
     data_as_of: str | None = None
+    outcome_status: str | None = None
     if frame.empty:
+        # Providers answered (possibly successfully) but the requested
+        # window filtered everything away: the REQUEST produced no bars.
+        # Declared explicitly via the generic outcome override so consumers
+        # never have to guess from an empty dataframe.
         limitations.append("no_bars_in_requested_window")
+        outcome_status = FETCH_NORMAL_EMPTY
     else:
         data_as_of = frame["Date"].max().strftime("%Y-%m-%d")
         coverage = a_stock._ohlcv_coverage(frame, end_date)
@@ -600,8 +809,11 @@ def fetch_daily_bars(
                 f",observed_max={coverage['observed_max']}"
                 f",gap_days={coverage['gap_days']}"
             )
-    if supplement_failed:
-        limitations.append("sina_supplement_failed")
+
+    # Volume unit contract travels on the frame (attrs) AND in metadata
+    # (limitation above) — set last so the returned object carries it
+    # regardless of intermediate pandas ops.
+    frame.attrs["volume_unit"] = volume_unit
 
     metadata = FetchMetadata(
         capability=DAILY_BARS_CAPABILITY,
@@ -613,6 +825,7 @@ def fetch_daily_bars(
         limitations=limitations,
         attempts=attempts,
         providers_used=providers_used,
+        outcome_status=outcome_status,
     )
     return FetchResult(data=frame, metadata=metadata)
 
@@ -636,9 +849,13 @@ def probe_daily_bars_provider(
     Live capability probes use this instead of the routing chain so that
     probing ``mootdx`` updates only ``mootdx:bars`` — never any other
     capability's health entry — and providers not part of the probe are NOT
-    recorded as ``not_configured``.  Provider-level policies still apply
-    inside the adapter (a stale vipdoc package is a policy rejection, not a
-    hard failure); the probe reports the attempt's factual outcome.
+    recorded as ``not_configured``.  The probe exercises the REAL
+    capability contract: the adapter's frame must pass
+    :func:`canonicalize_daily_bars_frame` exactly as in the routing chain —
+    a non-empty malformed frame is ``failed_structure``, never a green
+    probe.  Provider-level policies still apply inside the adapter (a stale
+    vipdoc package is a policy rejection, not a hard failure); the probe
+    reports the attempt's factual outcome.
     """
     capability_id = dict(DAILY_BAR_PROVIDERS)[provider]
     capability = _capability_for(capability_id)
@@ -654,11 +871,14 @@ def probe_daily_bars_provider(
         clock=clock,
     )
     if result is not None:
+        volume_unit = _volume_unit_for([provider])
+        result.attrs["volume_unit"] = volume_unit
         metadata = FetchMetadata(
             capability=DAILY_BARS_CAPABILITY,
             final_provider=None,
             retrieved_at=_now_iso(),
             data_as_of=result["Date"].max().strftime("%Y-%m-%d"),
+            limitations=[f"volume_unit:{volume_unit}"],
             attempts=attempts,
             providers_used=[provider],
         )
@@ -685,16 +905,20 @@ _SOURCE_LABELS = {
 
 
 def legacy_source_label(metadata: FetchMetadata) -> str:
-    """Map the routing metadata onto the frozen legacy ``# Data source`` label.
+    """Map the routing result onto the frozen legacy ``# Data source`` label.
 
-    The supplement suffix appears only when Sina actually advanced the last
-    bar date (the historical ``supplemented`` semantics) — overlap-only
-    contributions keep the base label, exactly as before.
+    Deliberately DECOUPLED from structured provenance (Phase 2.1):
+    ``metadata.providers_used`` truthfully lists every payload contributor
+    (including an overlap-only Sina supplement), but the legacy suffix rule
+    is a presentation contract — the suffix appears only when Sina actually
+    advanced the last bar date.  The label therefore keys off the engine's
+    explicit ``sina_supplement_advanced_end`` limitation sentinel, never off
+    ``providers_used``.
     """
     providers = list(metadata.providers_used)
     if not providers:
         return _SOURCE_LABELS["mootdx"]
     base = _SOURCE_LABELS.get(providers[0], providers[0])
-    if any(extra == "sina" for extra in providers[1:]):
+    if "sina_supplement_advanced_end" in metadata.limitations:
         return f"{base} + sina HTTP supplement"
     return base

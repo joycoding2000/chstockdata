@@ -154,6 +154,18 @@ class FetchMetadata:
     that contributed data (in first-contribution order); ``final_provider``
     is the *single* provider only when exactly one contributed, else
     ``None`` — it never falsely claims one provider owns a mixed result.
+
+    Two outcome levels (v0.4.0 Phase 2.1):
+
+    - ``final_status``   — attempt-derived routing conclusion: did any
+      provider produce data / fail / answer empty.  This is the *provider
+      observation* truth and stays derived from ``attempts``.
+    - ``outcome_status`` — optional engine-declared *request-level* outcome
+      for cases the attempt-derived status cannot express, e.g. "data was
+      retrieved but the request window filtered it all away".  Engines set
+      it explicitly; ``None`` (the default, used by every existing chain)
+      keeps the attempt-derived semantics.  ``request_status`` resolves the
+      two: the explicit declaration when present, else ``final_status``.
     """
 
     capability: str  # requested capability, e.g. "quote"
@@ -166,6 +178,7 @@ class FetchMetadata:
     limitations: list[str] = field(default_factory=list)
     attempts: list[FetchAttempt] = field(default_factory=list)
     providers_used: list[str] = field(default_factory=list)
+    outcome_status: str | None = None  # explicit request-level outcome override
 
     def __post_init__(self) -> None:
         if not self.capability:
@@ -176,6 +189,14 @@ class FetchMetadata:
             raise ValueError("attempts must be a list")
         if not isinstance(self.providers_used, list):
             raise ValueError("providers_used must be a list")
+        if self.outcome_status is not None and self.outcome_status not in (
+            FETCH_SUCCESS, FETCH_NORMAL_EMPTY, FETCH_FAILED_NETWORK,
+            FETCH_FAILED_RATE_LIMIT, FETCH_FAILED_STRUCTURE,
+            FETCH_NOT_CONFIGURED, FETCH_SKIPPED,
+        ):
+            raise ValueError(
+                f"invalid outcome_status: {self.outcome_status!r}"
+            )
         # Contract: final_provider set ⟺ exactly one contributing provider.
         if len(self.providers_used) == 1:
             if self.final_provider is None:
@@ -213,6 +234,18 @@ class FetchMetadata:
         return FETCH_SKIPPED
 
     @property
+    def request_status(self) -> str:
+        """Request-level outcome: explicit engine declaration when present.
+
+        ``outcome_status`` carries what the attempt-derived ``final_status``
+        cannot say (e.g. bars retrieved, then the whole requested window
+        filtered them away — providers succeeded, the request still produced
+        no rows).  Engines that never set ``outcome_status`` get exactly the
+        attempt-derived ``final_status`` here.
+        """
+        return self.outcome_status or self.final_status
+
+    @property
     def succeeded(self) -> bool:
         """Routing chain produced a usable answer (data or normal empty)."""
         return self.final_status in _TERMINAL
@@ -237,6 +270,8 @@ class FetchMetadata:
             "final_provider": self.final_provider,
             "providers_used": list(self.providers_used),
             "final_status": self.final_status,
+            "outcome_status": self.outcome_status,
+            "request_status": self.request_status,
             "retrieved_at": self.retrieved_at,
             "observed_at": self.observed_at,
             "data_as_of": self.data_as_of,
@@ -256,6 +291,17 @@ class FetchResult(Generic[T]):
     ``data`` carries the typed payload (a dict of quotes, a DataFrame, ...);
     for ``normal_empty`` it holds the empty container.  ``metadata.attempts``
     is the single source of truth for what happened across providers.
+
+    Two outcome levels (both explicit, never guessed from payload shape):
+
+    - ``succeeded``       — the provider route completed (attempt-derived
+      ``final_status`` is terminal).  True does NOT imply the payload is
+      non-empty.
+    - ``is_normal_empty`` — the request itself produced no usable payload
+      (resolves the engine-declared ``outcome_status`` when present, else
+      ``final_status``).  This is what consumers check to distinguish
+      "providers answered, request satisfied" from "request produced
+      nothing".
     """
 
     data: T
@@ -271,7 +317,14 @@ class FetchResult(Generic[T]):
 
     @property
     def is_normal_empty(self) -> bool:
-        return self.metadata.final_status == FETCH_NORMAL_EMPTY
+        """The request produced no usable payload (request-level outcome).
+
+        Resolves through ``metadata.request_status``, so a routing engine
+        that retrieved data but whose request window filtered it all away
+        can declare the request outcome explicitly instead of forcing
+        consumers to inspect an empty dataframe.
+        """
+        return self.metadata.request_status == FETCH_NORMAL_EMPTY
 
     def to_dict(self) -> dict:
         """Serialize with ``data`` passed through as-is (caller knows T)."""

@@ -9,6 +9,62 @@ Consumer compatibility baseline remains **0.3.0** (commit `143eb5a`);
 nothing below changes the public API. Scope and rationale:
 `docs/architecture.md`, `docs/provider-capability-matrix.md`.
 
+### Phase 2.1 — Daily Bars Contract Stabilization
+
+#### Fixed
+
+- **Canonical schema is now enforced, not just declared**
+  (`daily_bars.canonicalize_daily_bars_frame`): every provider frame passes
+  a single canonicalization boundary — shared by the routing chain AND the
+  single-provider probe — before it may be recorded as `success`.  A
+  non-empty frame missing a required column (`Date/Open/High/Low/Close/
+  Volume`), carrying an unparseable `Date`, or carrying a non-null
+  non-numeric required field is a `failed_structure` attempt (health
+  `failed`) and the chain falls through to the next provider — malformed
+  payloads can no longer masquerade as usable data.  Valid numeric strings
+  (`"10.25"`) are converted; duplicate business dates are deduplicated
+  keep-last deterministically in the provider's native row order (no
+  re-sorting).  This also exposed and fixed a latent test issue: the legacy
+  vipdoc-chain test fixture returned a non-canonical frame shape that had
+  been silently masked by real Sina HTTP fallback (test network dependency
+  removed).
+- **`providers_used` is now truthful about supplement contributions**: the
+  Sina tail supplement contributes rows whenever it returns any (its
+  keep-last rows take over overlapping dates), so it is listed in
+  `providers_used` even when it does not advance the last bar date —
+  previously only the "advanced" case was recorded, under-reporting real
+  mixed-source payloads.  `final_provider` stays `None` for mixed payloads
+  and dedupes when the base provider IS Sina.
+- **Legacy `# Data source` label decoupled from structured provenance**:
+  the `+ sina HTTP supplement` suffix rule (advance-only) is now keyed off
+  the explicit `sina_supplement_advanced_end` limitation sentinel instead
+  of being re-derived from `providers_used`; an overlap-only contribution
+  is recorded as `sina_supplement_overlap_only`.  Structured truth and
+  legacy wording no longer contaminate each other.
+- **Request outcome is explicit, not guessed**: `FetchMetadata` gains a
+  generic, consumer-neutral `outcome_status` (explicit request-level
+  override; `None` keeps the attempt-derived `final_status` — quote and
+  every other existing chain are behaviorally unchanged) plus the derived
+  `request_status`; `FetchResult.is_normal_empty` resolves through
+  `request_status` and both fields are serialized.  When providers
+  succeeded but the requested window filtered all bars away,
+  `fetch_daily_bars` declares `outcome_status="normal_empty"` so consumers
+  never have to infer emptiness from a bare dataframe or limitation
+  strings.
+
+#### Added
+
+- **Volume unit semantics without guessing**: the resolved unit travels on
+  the returned frame (`frame.attrs["volume_unit"]`) and as a
+  `volume_unit:<value>` limitation — `shares` for `tdx_vipdoc`/`sina`,
+  `provider_native_unknown` for `mootdx` (TDX wire `vol` unit is NOT
+  verified; requires a reachable TDX TCP environment — no ×100/÷100
+  scaling is introduced), `mixed_provider_native` when contributing
+  providers carry different unit classes.
+- **pre_close merge regression**: a Sina row that takes over an overlapped
+  date carries no `pre_close` (NaN) — it never inherits the vipdoc value
+  while masquerading as Sina data; non-overlapped vipdoc rows keep theirs.
+
 ### Phase 2 — Daily Bars Structured Vertical Slice
 
 #### Added

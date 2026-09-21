@@ -4,6 +4,40 @@
 > 真实链路。本文是 Phase 2 动工前的行为快照，用于约束"保持真实行为"，不描述
 > 改造后架构。
 
+## 7. Phase 2.1 contract gap 复核（2026-09-21，commit `225dcc1` 基线）
+
+Phase 2 交付后确认的四个 contract 缺口，及复核结论：
+
+1. **canonical validation gap —— 确认存在，已修复**。Phase 2 的
+   `CANONICAL_REQUIRED_COLUMNS` 只是声明：`_run_adapter` 对"非空帧"直接记
+   success，缺列/坏日期/坏数值要到 renderer 甚至消费端才崩。
+   Phase 2.1 引入唯一 `canonicalize_daily_bars_frame()`（routing + probe
+   共用），provider 只有通过 validation 才允许 success。
+2. **providers_used overlap-only 不真实 —— 确认存在，已修复**。旧逻辑以
+   "merged last date != base last date"（末根推进）决定是否把新浪写进
+   `providers_used`；但 legacy supplement 的 keep-last 语义下，新浪只重叠
+   未推进时也实际接管了 base 行。Phase 2.1 分离两个事实：
+   `sina_contributed`（进 providers_used）与 `advanced_end`（legacy label
+   后缀哨兵 `sina_supplement_advanced_end` limitation）。
+3. **request success vs satisfaction 歧义 —— 确认存在，已修复**。provider
+   检索成功但请求窗口过滤后为空时，consumer 只能靠 `data.empty` 猜。
+   Phase 2.1 在 generic `FetchMetadata` 增加显式 `outcome_status`
+   （None = 沿用 attempt 派生，quote 链行为不变）+ `request_status` 派生；
+   `FetchResult.is_normal_empty` 经 `request_status` 解析。
+4. **volume unit 歧义 —— 确认存在，已按"不猜"处理**。canonical schema 统一
+   叫 `Volume` 但单位是 provider 原生口径；mootdx wire `vol` 单位未实测。
+   Phase 2.1 以 `frame.attrs["volume_unit"]` + `volume_unit:<value>`
+   limitation 双通道显式携带：vipdoc/sina=`shares`、mootdx=
+   `provider_native_unknown`、混合=`mixed_provider_native`。不做任何
+   ×100/÷100 换算（本机 TDX TCP 7709 不可达，live 验证列为遗留项）。
+
+附带发现：`test_astock_kline_vipdoc_chain.py` 旧 fixture
+`_mootdx_frame` 返回 datetime-index 形状（缺 `Date` 列），与
+`_fetch_mootdx_bars` 真实返回契约不符——历史上被"真实新浪 HTTP 兜底"
+意外掩盖（测试对网络有隐式依赖）。Phase 2.1 canonical validation 上线后
+该 fake 被正确判为 `failed_structure`，暴露并修复了这个问题（fake 改为
+真实归一化形状）。
+
 ## 1. 改造前真实 route（`a_stock.get_stock_data`，adjust="raw" & period="D"）
 
 ```text

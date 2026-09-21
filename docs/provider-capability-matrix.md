@@ -1,4 +1,4 @@
-# Provider × Capability Matrix（v0.4.0 Phase 2，持续维护）
+# Provider × Capability Matrix（v0.4.0 Phase 2.1，持续维护）
 
 健康判定按 **provider + capability** 粒度记录。**同一 provider 的各
 capability 不视为整体一致健康**——尤其 mootdx：bars 失败不代表 finance /
@@ -16,14 +16,14 @@ xdxr 失败，反之亦然。该保证自 Phase 1.1 起是**运行行为**（真
 | --- | --- | --- | --- | --- | --- |
 | tencent | `tencent:quote` | 实时快照主源（含 PE/PB/市值） | `probe_quote_provider("tencent")` + quote chain attempt | 链首；失败降级 mootdx | active |
 | mootdx | `mootdx:quote` | 实时快照备源（TCP） | `probe_quote_provider("mootdx")` + attempt 埋点；client 接受标准 = factory-only（transport 层） | 第 2 级；失败降级 sina | active |
-| mootdx | `mootdx:bars` | 日线 K 线主源（TCP） | `_mootdx_call("bars")` 埋点；服务器选择用 bars readiness canary（结论**仅约束 bars**，落盘 `transport_ok` 层级标注） | K 线链主源；失败降级新浪 K 线 | active |
+| mootdx | `mootdx:bars` | 日线 K 线主源（TCP） | `_mootdx_call("bars")` 埋点 + daily-bars chain attempt；服务器选择用 bars readiness canary（结论**仅约束 bars**，落盘 `transport_ok` 层级标注） | K 线链主源；失败降级新浪 K 线；Volume 单位 = provider_native_unknown（TDX wire `vol` 未实测，requires reachable TDX environment verification） | active |
 | mootdx | `mootdx:finance` | F10 财务快照 | `_mootdx_call("finance")` 埋点；client 接受标准 = factory-only；**bars canary 全失败时仍可经 bounded bypass 成功** | 独立能力，不随 bars/quote 失败判死（运行级，测试锁定） | active |
 | mootdx | `mootdx:xdxr` | 除权除息 | `_mootdx_call("xdxr")` 埋点；同 finance（factory-only + bypass） | 独立能力，不随 bars/quote 失败判死 | active |
 | mootdx | `mootdx:stock_list` | 全市场名称表（名称→代码解析） | `_mootdx_call("stocks")` 埋点；factory-only | 磁盘日缓存优先，失败仅影响名称解析 | active |
 | sina | `sina:quote` | 实时快照兜底源 | `probe_quote_provider("sina")` + attempt 埋点 | 链尾兜底 | active |
-| sina | `sina:bars` | K 线兜底源（+ 三表） | `probe_daily_bars_provider("sina")` + daily-bars chain attempt（Phase 2 埋点） | K 线链尾兜底 | active |
+| sina | `sina:bars` | K 线兜底源（+ 三表） | `probe_daily_bars_provider("sina")` + daily-bars chain attempt（Phase 2 埋点）；canonical validation 共用（malformed = failed_structure） | K 线链尾兜底；Volume 单位 = shares | active |
 | eastmoney | `eastmoney:datacenter` | 龙虎榜/解禁/资金流等 | 待埋点（刻意不进 live gate：封禁 IDC IP） | 独立能力 | active |
-| tdx_vipdoc | `tdx_vipdoc:daily_bars` | 本地官方日线包 | daily-bars chain attempt 埋点（local 源状态分类：disabled/missing→not_configured、损坏→failed_structure、空窗/超 staleness→normal_empty）；不进 CI live probe（本地路径） | K 线链本地首选 | active |
+| tdx_vipdoc | `tdx_vipdoc:daily_bars` | 本地官方日线包 | daily-bars chain attempt 埋点（local 源状态分类：disabled/missing→not_configured、损坏/malformed→failed_structure、空窗/超 staleness→normal_empty）；不进 CI live probe（本地路径） | K 线链本地首选；Volume 单位 = shares | active |
 | tdx_bridge | `easy_tdx:fund_flow` | L1 资金流/行业排名 | `test_tdx_bridge_health.py` | 独立能力 | active |
 
 ## 已埋点 vs 待埋点

@@ -55,22 +55,27 @@ def _patch_config(monkeypatch, cfg):
 
 
 def _mootdx_frame(days=("2026-09-08", "2026-09-09")):
+    """``_fetch_mootdx_bars`` 的真实返回形状：归一化后的 Date 列帧。
+
+    Phase 2.1 canonical validation 起引擎会拒绝缺 Date 列的非空帧
+    （failed_structure）——旧版这里的 datetime-index 形状曾被"真实新浪
+    兜底"意外掩盖，属于测试对网络的隐式依赖，必须用真实契约形状。
+    """
     return pd.DataFrame(
         {
-            "datetime": pd.to_datetime([f"{day} 15:00:00" for day in days]),
-            "open": [1.0] * len(days),
-            "high": [1.1] * len(days),
-            "low": [0.9] * len(days),
-            "close": [1.05] * len(days),
-            "volume": [100.0] * len(days),
+            "Date": pd.to_datetime(list(days)),
+            "Open": [1.0] * len(days),
+            "High": [1.1] * len(days),
+            "Low": [0.9] * len(days),
+            "Close": [1.05] * len(days),
+            "Volume": [100.0] * len(days),
         }
-    ).set_index("datetime")
+    )
 
 
 def _fake_adjusted_result(days=("2026-09-08", "2026-09-09")):
-    frame = _mootdx_frame(days).reset_index().rename(columns={"datetime": "Date"})
     return SimpleNamespace(
-        frame=frame,
+        frame=_mootdx_frame(days),
         factor_source="fake",
         anchor_date=None,
         limitations=[],
