@@ -222,6 +222,78 @@ def test_mixed_invalid_dates_keep_data_and_expose_partial_metadata():
     assert "invalid_calendar_dates_dropped" in result.metadata.limitations
 
 
+def test_partial_stale_local_does_not_pollute_clean_newer_online_payload():
+    result = fetch_trading_calendar(
+        today="2026-09-21",
+        adapters=_calendar_adapters(
+            ["2026-09-09", "bad-date", "2026-09-10"],
+            _days("2026-09-20"),
+            AssertionError("Sina must not run after mootdx success"),
+        ),
+    )
+
+    assert result.data is not None
+    assert result.data.source == "mootdx_sh000001"
+    assert result.metadata.providers_used == ["mootdx"]
+    assert result.metadata.final_provider == "mootdx"
+    assert result.metadata.partial is False
+    assert "invalid_calendar_dates_dropped" not in result.metadata.limitations
+    assert result.metadata.attempts[0].status == FETCH_SUCCESS
+
+
+def test_partial_older_online_does_not_pollute_retained_clean_local_payload():
+    result = fetch_trading_calendar(
+        today="2026-09-21",
+        adapters=_calendar_adapters(
+            _days("2026-09-10"),
+            ["2026-09-08", "bad-date", "2026-09-09"],
+            AssertionError("Sina is not reached after a usable mootdx response"),
+        ),
+    )
+
+    assert result.data is not None
+    assert result.data.source == "vipdoc_sh000001"
+    assert result.metadata.providers_used == ["tdx_vipdoc"]
+    assert result.metadata.partial is False
+    assert "invalid_calendar_dates_dropped" not in result.metadata.limitations
+    assert "在线回落返回的日线不新于本地包，保留本地（陈旧）日历" in result.data.limitations
+
+
+def test_partial_newer_online_owns_final_payload_quality():
+    result = fetch_trading_calendar(
+        today="2026-09-21",
+        adapters=_calendar_adapters(
+            _days("2026-09-10"),
+            ["2026-09-20", "bad-date", "2026-09-21"],
+            AssertionError("Sina must not run after mootdx success"),
+        ),
+    )
+
+    assert result.data is not None
+    assert result.data.source == "mootdx_sh000001"
+    assert result.metadata.providers_used == ["mootdx"]
+    assert result.metadata.partial is True
+    assert "invalid_calendar_dates_dropped" in result.metadata.limitations
+
+
+def test_partial_stale_local_remains_partial_when_online_fails():
+    result = fetch_trading_calendar(
+        today="2026-09-21",
+        adapters=_calendar_adapters(
+            ["2026-09-09", "bad-date", "2026-09-10"],
+            VendorNetworkError("mootdx down"),
+            VendorNetworkError("sina down"),
+        ),
+    )
+
+    assert result.data is not None
+    assert result.data.source == "vipdoc_sh000001"
+    assert result.metadata.providers_used == ["tdx_vipdoc"]
+    assert result.metadata.partial is True
+    assert result.metadata.degraded is True
+    assert "invalid_calendar_dates_dropped" in result.metadata.limitations
+
+
 def test_stale_local_and_newer_mootdx_uses_online_payload():
     result = fetch_trading_calendar(
         today="2026-09-21",
@@ -533,6 +605,42 @@ def test_probe_runs_one_provider_and_only_records_its_capability():
     ]
     assert set(capability_health_snapshot()) == {"mootdx:index"}
     assert capability_health_snapshot()["mootdx:index"].status == "success"
+
+
+def test_local_probe_applies_stale_policy_while_remaining_successful(monkeypatch):
+    monkeypatch.setattr(tc, "_max_staleness_days", lambda: 5.0)
+
+    result = probe_trading_calendar_provider(
+        "tdx_vipdoc",
+        today="2026-09-21",
+        adapter=_adapter(_days("2026-09-10")),
+    )
+
+    assert result.data is not None
+    assert result.data.source == "vipdoc_sh000001"
+    assert result.data.stale is True
+    assert result.metadata.stale is True
+    assert result.metadata.providers_used == ["tdx_vipdoc"]
+    assert result.metadata.final_provider == "tdx_vipdoc"
+    assert result.metadata.attempts[0].status == FETCH_SUCCESS
+    assert capability_health_snapshot()["tdx_vipdoc:index_bars"].status == "success"
+    assert "本地 vipdoc 上证指数最新 bar 落后 11 天（阈值 5 天）" in result.data.limitations
+
+
+def test_fresh_local_probe_remains_fresh_and_successful(monkeypatch):
+    monkeypatch.setattr(tc, "_max_staleness_days", lambda: 5.0)
+
+    result = probe_trading_calendar_provider(
+        "tdx_vipdoc",
+        today="2026-09-21",
+        adapter=_adapter(_days("2026-09-20")),
+    )
+
+    assert result.data is not None
+    assert result.data.stale is False
+    assert result.metadata.stale is False
+    assert result.metadata.attempts[0].status == FETCH_SUCCESS
+    assert capability_health_snapshot()["tdx_vipdoc:index_bars"].status == "success"
 
 
 def test_mootdx_index_failure_does_not_touch_other_mootdx_capabilities():

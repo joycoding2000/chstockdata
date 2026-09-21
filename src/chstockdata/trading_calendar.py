@@ -597,6 +597,37 @@ def _calendar_from_days(
     )
 
 
+def _calendar_from_provider_days(
+    provider: str,
+    days: tuple[str, ...],
+    today: date,
+) -> TradingCalendar:
+    """Build a provider payload using the route's freshness policy."""
+
+    if provider == "tdx_vipdoc":
+        age = (today - date.fromisoformat(days[-1])).days
+        max_staleness = _max_staleness_days()
+        stale = age > max_staleness
+        limitations = (
+            (
+                f"本地 vipdoc 上证指数最新 bar 落后 {age} 天"
+                f"（阈值 {max_staleness:g} 天）",
+            )
+            if stale
+            else ()
+        )
+    else:
+        stale = False
+        limitations = ()
+    return _calendar_from_days(
+        days,
+        _SOURCE_BY_PROVIDER[provider],
+        today,
+        stale=stale,
+        limitations=limitations,
+    )
+
+
 def fetch_trading_calendar(
     *,
     root: Any = None,
@@ -616,9 +647,8 @@ def fetch_trading_calendar(
     resolved_today = _coerce_day(today)
     chain = CALENDAR_ADAPTERS if adapters is None else adapters
     attempts: list[FetchAttempt] = []
-    max_staleness = _max_staleness_days()
 
-    local_days, partial = _run_calendar_adapter(
+    local_days, local_partial = _run_calendar_adapter(
         "tdx_vipdoc",
         "tdx_vipdoc:index_bars",
         chain.get("tdx_vipdoc"),
@@ -628,27 +658,17 @@ def fetch_trading_calendar(
     )
     local_calendar: TradingCalendar | None = None
     if local_days:
-        age = (resolved_today - date.fromisoformat(local_days[-1])).days
-        local_calendar = _calendar_from_days(
+        local_calendar = _calendar_from_provider_days(
+            "tdx_vipdoc",
             local_days,
-            SOURCE_LOCAL,
             resolved_today,
-            stale=age > max_staleness,
-            limitations=(
-                (
-                    f"本地 vipdoc 上证指数最新 bar 落后 {age} 天"
-                    f"（阈值 {max_staleness:g} 天）",
-                )
-                if age > max_staleness
-                else ()
-            ),
         )
         if not local_calendar.stale:
             return _calendar_result(
                 local_calendar,
                 attempts,
                 providers_used=["tdx_vipdoc"],
-                partial=partial,
+                partial=local_partial,
             )
 
     for provider, capability_id in TRADING_CALENDAR_PROVIDERS[1:]:
@@ -660,22 +680,20 @@ def fetch_trading_calendar(
             attempts=attempts,
             clock=clock,
         )
-        partial = partial or provider_partial
         if not days:
             continue
 
-        online_calendar = _calendar_from_days(
+        online_calendar = _calendar_from_provider_days(
+            provider,
             days,
-            _SOURCE_BY_PROVIDER[provider],
             resolved_today,
-            stale=False,
         )
         if local_calendar is None or online_calendar.last_bar_date >= local_calendar.last_bar_date:
             return _calendar_result(
                 online_calendar,
                 attempts,
                 providers_used=[provider],
-                partial=partial,
+                partial=provider_partial,
             )
 
         preserved = TradingCalendar(
@@ -692,7 +710,7 @@ def fetch_trading_calendar(
             preserved,
             attempts,
             providers_used=["tdx_vipdoc"],
-            partial=partial,
+            partial=local_partial,
         )
 
     if local_calendar is not None:
@@ -710,7 +728,7 @@ def fetch_trading_calendar(
             preserved,
             attempts,
             providers_used=["tdx_vipdoc"],
-            partial=partial,
+            partial=local_partial,
         )
 
     if any(attempt.is_failure() for attempt in attempts):
@@ -725,7 +743,7 @@ def fetch_trading_calendar(
         None,
         attempts,
         limitations=limitations,
-        partial=partial,
+        partial=False,
     )
 
 
@@ -762,11 +780,10 @@ def probe_trading_calendar_provider(
         clock=clock,
     )
     if days:
-        calendar = _calendar_from_days(
+        calendar = _calendar_from_provider_days(
+            provider,
             days,
-            _SOURCE_BY_PROVIDER[provider],
             resolved_today,
-            stale=False,
         )
         return _calendar_result(
             calendar,

@@ -281,10 +281,12 @@ tdx_vipdoc:index_bars ──► mootdx:index ──► sina:index_bars
   产生一个 `FetchAttempt` 与同 capability 的 health observation。
 - **canonical contract**：进入 success 的日期是 ISO `YYYY-MM-DD`、唯一、
   升序且至少一条；混合坏日期保留有效日期，空响应是 `normal_empty`，
-  全坏/缺字段/错误 shape 是 `failed_structure`；混合坏日期以
+  全坏/缺字段/错误 shape 是 `failed_structure`。混合坏日期先记录为该
+  provider candidate 的质量；只有它成为最终 payload contributor 时，才以
   `metadata.partial=True` 与 `invalid_calendar_dates_dropped` limitation
-  可见。`covered_range` 永远是
-  实际 `days[0], days[-1]`，不因 `today` 或请求日期扩展。
+  对外可见，落败的 fallback candidate 不污染最终结果。没有最终 payload
+  时 `partial=False`。`covered_range` 永远是实际 `days[0], days[-1]`，不因
+  `today` 或请求日期扩展。
 - **routing**：fresh local 成功立即停止；stale local 仍是 success observation
   并继续在线路由。在线结果不旧于本地时在线 payload 胜出；在线更旧时保留
   stale local；在线硬失败时也保留 stale local 并让 `metadata.degraded=True`。
@@ -295,6 +297,10 @@ tdx_vipdoc:index_bars ──► mootdx:index ──► sina:index_bars
   `final_provider` 只在唯一贡献者时设置。`mootdx:index` 或
   `sina:index_bars` 不会写成 `mootdx:trading_calendar` / 下游 bars、quote
   等重叠 identity。
+- **probe freshness**：`probe_trading_calendar_provider("tdx_vipdoc")`
+  复用 route 的 `vipdoc_history_max_staleness_days` policy；stale 只标记
+  payload 时效，不会把 `FetchAttempt` 或 capability health 从 `success`
+  改成 failure。mootdx/Sina probe 仍不引入额外 online freshness gate。
 - **时间语义**：`TradingCalendar.as_of` 是 staleness evaluation date；
   `FetchMetadata.data_as_of` 是最终 calendar 的实际 `last_bar_date`；
   `observed_at` 没有 vendor timestamp 时保持 `None`。

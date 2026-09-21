@@ -46,7 +46,10 @@ mootdx request and Sina endpoint parameters.
 - `failed_structure` means an unreadable or malformed payload, including an
   invalid-only date payload.
 - Mixed valid/invalid dates preserve the valid canonical set and expose
-  `metadata.partial=True` with `invalid_calendar_dates_dropped`.
+  candidate quality. `metadata.partial=True` and
+  `invalid_calendar_dates_dropped` are exposed only when that candidate
+  contributes the final calendar payload; discarded fallback candidates do not
+  contaminate the result. With no final payload, `partial=False`.
 - `failed_network` means an online transport/HTTP failure.
 - `providers_used` lists only providers contributing to the final calendar;
   `attempts` includes all providers actually called.
@@ -69,6 +72,11 @@ mootdx request and Sina endpoint parameters.
   is degraded, while local `not_configured` alone is not.
 - All providers unusable: structured `data=None`, complete attempts, no routing
   exception; legacy `load_trading_calendar()` returns `None`.
+
+The local single-provider probe applies the same staleness calculation and
+limitation as the route. A stale local probe is still a `success` attempt and
+health observation; staleness is a payload data-quality attribute, not a
+provider failure. Online probes keep `stale=False` without a new freshness gate.
 
 ## Compatibility boundary
 

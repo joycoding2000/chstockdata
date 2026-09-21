@@ -28,10 +28,16 @@ nothing below changes the public API. Scope and rationale:
 - `load_trading_calendar()` is now a fail-soft compatibility wrapper around the
   structured route while preserving its exact signature, `(root, day)` process
   memo, stale policy, source labels, and `TradingCalendar | None` return shape.
+- Calendar `metadata.partial` and `invalid_calendar_dates_dropped` now describe
+  only the final returned calendar payload; dropped invalid dates in a fallback
+  candidate that loses routing do not contaminate the winning result.
 - Stale local calendars remain successful provider observations: newer online
   data wins, older online data leaves the stale local payload in place, and
   online hard failures remain visible as degraded metadata without breaking
   legacy consumers. `local_is_trading_day()` remains a zero-network seam.
+- The local calendar provider probe applies the same vipdoc staleness policy as
+  routing. A stale local probe remains a successful provider observation while
+  exposing `data.stale=True` and matching metadata.
 - No package version bump or consumer-repository upgrade is included; this is
   still `0.4.0` development on the `0.3.0` compatibility baseline.
 
