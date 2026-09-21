@@ -548,3 +548,125 @@ def test_sina_takeover_does_not_inherit_vipdoc_pre_close():
     assert result.metadata.providers_used == ["tdx_vipdoc", "sina"]
     assert result.data["Close"].tolist() == [20.0, 20.0], "重叠行由新浪接管"
     assert result.data["pre_close"].isna().all()
+
+
+# ── G. supplement 也必须通过唯一 canonicalization boundary（Phase 2.1.1）────
+
+
+def test_malformed_supplement_is_failed_structure_not_success():
+    """Sina supplement 非空但 malformed（缺 Close）：
+
+    - 不得记 success（attempt/health 都不能）；
+    - 不进 merge，base 保留；
+    - routing 仍 success（base 已确立）+ degraded=True；
+    - providers_used 不含 sina（收到响应 ≠ 贡献 canonical payload）；
+    - legacy label 保持 base-only；
+    - volume_unit 仍按 base 贡献者计算（shares），不得变 mixed。
+    """
+    base_rows = _frame([START, END], close=10.0)
+
+    def _vipdoc(code, start, end):
+        return base_rows.copy()
+
+    def _sina_malformed(code, start, end):
+        assert str(end)[:10] == "2026-09-10"
+        return _malformed_missing_close([START, END])
+
+    result = fetch_daily_bars(
+        CODE, START, "2026-09-10",
+        adapters={
+            "tdx_vipdoc": _vipdoc,
+            "mootdx": _must_not_run("mootdx"),
+            "sina": _sina_malformed,
+        },
+    )
+
+    sina_attempt = result.metadata.attempts[-1]
+    assert (sina_attempt.provider, sina_attempt.status) == (
+        "sina", FETCH_FAILED_STRUCTURE,
+    ), f"malformed supplement 不得记 success：{sina_attempt}"
+    assert "missing required columns: Close" in sina_attempt.message
+
+    # routing：base 保留，请求仍成功但降级
+    assert result.succeeded
+    assert result.metadata.degraded
+    assert result.metadata.providers_used == ["tdx_vipdoc"]
+    assert result.metadata.final_provider == "tdx_vipdoc"
+    assert result.data["Close"].tolist() == base_rows["Close"].tolist(), (
+        "malformed supplement 不得进入 merge，base 数据原样保留"
+    )
+
+    # limitations：只有 supplement_failed，没有任何"成功贡献"语义
+    assert "sina_supplement_failed" in result.metadata.limitations
+    assert "sina_supplement_advanced_end" not in result.metadata.limitations
+    assert "sina_supplement_overlap_only" not in result.metadata.limitations
+
+    # health 同步 failed；volume_unit 仍按 base 贡献者 = shares
+    health = capability_health_snapshot()
+    assert health["sina:bars"].status == "failed"
+    assert result.data.attrs["volume_unit"] == "shares"
+    assert "volume_unit:shares" in result.metadata.limitations
+
+    # legacy label：base-only，不加 supplement 后缀
+    assert legacy_source_label(result.metadata) == (
+        "vipdoc local (TDX official hsjday package)"
+    )
+
+
+def test_non_dataframe_supplement_is_failed_structure():
+    """supplement 返回 list（非 DataFrame）→ failed_structure，base 保留。"""
+
+    def _vipdoc(code, start, end):
+        return _frame([START, END], close=10.0)
+
+    def _sina_list(code, start, end):
+        return [{"Date": "2026-09-10", "Open": 1.0, "High": 1.1,
+                 "Low": 0.9, "Close": 1.05, "Volume": 100}]
+
+    result = fetch_daily_bars(
+        CODE, START, "2026-09-10",
+        adapters={
+            "tdx_vipdoc": _vipdoc,
+            "mootdx": _must_not_run("mootdx"),
+            "sina": _sina_list,
+        },
+    )
+
+    sina_attempt = result.metadata.attempts[-1]
+    assert (sina_attempt.provider, sina_attempt.status) == (
+        "sina", FETCH_FAILED_STRUCTURE,
+    )
+    assert "must be a pandas DataFrame" in sina_attempt.message
+    assert result.succeeded
+    assert result.metadata.degraded
+    assert result.metadata.providers_used == ["tdx_vipdoc"]
+    assert len(result.data) == 2, "base 保留，list payload 不得混入"
+    assert "sina_supplement_failed" in result.metadata.limitations
+    assert legacy_source_label(result.metadata) == (
+        "vipdoc local (TDX official hsjday package)"
+    )
+
+
+def test_non_dataframe_base_payload_is_failed_structure_and_falls_back():
+    """base provider 返回 dict → failed_structure → 后续 provider 接管。"""
+
+    def _vipdoc_dict(code, start, end):
+        return {"Date": [START, END], "Close": [10.0, 10.5]}
+
+    result = fetch_daily_bars(
+        CODE, START, END,
+        adapters={
+            "tdx_vipdoc": _vipdoc_dict,
+            "mootdx": _ok([START, END]),
+            "sina": _must_not_run("sina"),
+        },
+    )
+
+    first = result.metadata.attempts[0]
+    assert (first.provider, first.status) == ("tdx_vipdoc", FETCH_FAILED_STRUCTURE)
+    assert "must be a pandas DataFrame" in first.message
+    health = capability_health_snapshot()
+    assert health["tdx_vipdoc:daily_bars"].status == "failed"
+    assert result.succeeded
+    assert result.metadata.degraded
+    assert result.metadata.final_provider == "mootdx"

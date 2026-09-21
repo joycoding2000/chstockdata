@@ -206,6 +206,9 @@ def canonicalize_daily_bars_frame(
 
     Validation rules (strict, see module docstring):
 
+    - the payload must be a ``pd.DataFrame`` (a list/dict/tuple from a
+      provider is a payload-shape bug → ``ValueError`` → classified
+      ``failed_structure``, never misreported as a network failure);
     - required columns ``Date/Open/High/Low/Close/Volume`` must exist;
     - ``Date`` parses with ``errors="coerce"`` — any unparseable value is a
       structure failure; valid values are normalized to daily granularity
@@ -218,7 +221,11 @@ def canonicalize_daily_bars_frame(
       and in the provider's native row order (no re-sorting);
     - ``pre_close`` (optional) passes through untouched.
     """
-    if frame is None or len(frame) == 0:
+    if not isinstance(frame, pd.DataFrame):
+        raise ValueError(
+            f"{provider} bars payload must be a pandas DataFrame"
+        )
+    if frame.empty:
         raise ValueError(f"{provider} returned no rows to canonicalize")
 
     missing = [
@@ -630,7 +637,9 @@ def _supplement_with_sina(
         )
 
     elapsed = int((clock() - start) * 1000)
-    if supplement is None or supplement.empty:
+    if supplement is None or (
+        isinstance(supplement, pd.DataFrame) and supplement.empty
+    ):
         attempts.append(
             _attempt(
                 provider,
@@ -644,6 +653,29 @@ def _supplement_with_sina(
         )
         _observe_health(capability, FETCH_NORMAL_EMPTY)
         return base_frame, False, False, False
+
+    # Supplement payloads are provider ingress too: they must pass the SAME
+    # canonicalization boundary as base routing and probes BEFORE any
+    # success may be recorded — a non-empty malformed supplement is a
+    # failed_structure attempt, never merged, never a contributor.
+    try:
+        supplement = canonicalize_daily_bars_frame(supplement, provider=provider)
+    except Exception as exc:  # noqa: BLE001 - classified below
+        status = exception_to_fetch_status(exc)
+        attempts.append(
+            _attempt(
+                provider,
+                capability_id,
+                status,
+                started_at,
+                elapsed,
+                error_type=type(exc).__name__,
+                message=str(exc),
+            )
+        )
+        _observe_health(capability, status, error_summary=str(exc))
+        # Base stands (legacy swallow); the malformed payload never merges.
+        return base_frame, False, False, True
 
     attempts.append(
         _attempt(

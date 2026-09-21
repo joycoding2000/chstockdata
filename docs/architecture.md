@@ -177,8 +177,14 @@ tdx_vipdoc:daily_bars ──► mootdx:bars ──► sina:bars
 ```
 
 - **canonical schema（enforced，不再只是声明）**：每个 provider 帧必须
-  通过 `canonicalize_daily_bars_frame()` 才允许记 `success`——缺必需列、
-  存在不可解析 `Date`、存在非数值的必需数值字段（非空源值）→
+  通过 `canonicalize_daily_bars_frame()` 才允许记 `success`——**三条
+  ingress 全部共用同一 boundary**：base 路由、单 provider probe、Sina
+  supplement（Phase 2.1.1 封口：supplement 在记 success/health/merge
+  之前必须先通过 validation；malformed supplement = `failed_structure`、
+  不进 merge、base 保留、routing 仍 success 但 `degraded=True`、
+  `providers_used` 不含 sina）。缺必需列、payload 非 `pd.DataFrame`
+  （list/dict/tuple → 明确 `failed_structure`，不误报 network）、存在
+  不可解析 `Date`、存在非数值的必需数值字段（非空源值）→
   `failed_structure` attempt + health failed，路由继续回落下一 provider。
   合法数字字符串（如 `"10.25"`）自动转换；空数值单元格保持 `NaN`
   （记录在案，不伪造）。重复业务日期确定性 keep-last 去重、保留

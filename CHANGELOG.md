@@ -9,6 +9,33 @@ Consumer compatibility baseline remains **0.3.0** (commit `143eb5a`);
 nothing below changes the public API. Scope and rationale:
 `docs/architecture.md`, `docs/provider-capability-matrix.md`.
 
+### Phase 2.1.1 — Supplement Canonicalization Closure (hotfix)
+
+#### Fixed
+
+- **The Sina tail supplement no longer bypasses the canonicalization
+  boundary** (`daily_bars._supplement_with_sina`): Phase 2.1 enforced
+  canonical validation on base routing and probes, but a supplement frame
+  that returned non-empty rows was recorded as `success` (attempt + health)
+  and merged *before* any validation — a malformed supplement could leak
+  NaN/missing-column rows into the final payload while claiming a clean
+  Sina success.  The supplement now passes the SAME
+  `canonicalize_daily_bars_frame()` gate before any success is recorded:
+  a malformed supplement is a `failed_structure` attempt (health
+  `failed`), is never merged, the base payload stands untouched, routing
+  stays `succeeded` with `degraded=True`, `providers_used` excludes Sina
+  ("received a response" ≠ "contributed canonical payload"), the legacy
+  `# Data source` label stays base-only, and `volume_unit` keeps
+  resolving from the base contributors only.
+- **Payload type guard in the canonicalizer**: a provider payload that is
+  not a `pd.DataFrame` (list/dict/tuple) now raises a clear `ValueError`
+  (`"<provider> bars payload must be a pandas DataFrame"`) classified as
+  `failed_structure` — previously an `AttributeError` from such payloads
+  fell through the shared classification into `failed_network`,
+  misreporting a shape bug as a transport failure.  The guard automatically
+  covers base routing, probes, and the supplement through the single
+  shared boundary.
+
 ### Phase 2.1 — Daily Bars Contract Stabilization
 
 #### Fixed
