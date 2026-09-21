@@ -240,6 +240,85 @@ def test_cold_start_with_legacy_disk_cache_still_fast_fails(
         a_stock._mootdx_call("finance", symbol="600519")
 
 
+def test_mixed_factory_failure_and_canary_failure_keeps_transport_available(
+    mootdx_env,
+):
+    """Phase 1.1.1 核心验收（mixed 边界）：
+
+    A: factory fail；B: factory success + bars canary fail + finance success。
+    存在性结论：至少一台 factory 成功 → transport_ok=True；
+    bars 结论只约束 bars；finance 必须仍可尝试并成功。
+    """
+    mootdx_env["factory_ok"] = {"2.2.2.2"}   # A(1.1.1.1) 握手失败，B 可建 client
+    mootdx_env["finance_ok"] = {"2.2.2.2"}
+    # bars_ok 保持空集：B 的 bars canary 失败。
+
+    with pytest.raises(RuntimeError):
+        a_stock._mootdx_call("bars", symbol="600519")
+
+    # 落盘结论必须是"transport 可用、bars readiness 失败"，而不是 transport 级。
+    assert mootdx_env["cache_file"].exists()
+    payload = json.loads(mootdx_env["cache_file"].read_text(encoding="utf-8"))
+    assert payload["transport_ok"] is True
+    assert "bars readiness canary" in payload["reason"]
+    assert capability_health_snapshot()["mootdx:bars"].status == "failed"
+    assert a_stock._mootdx_transport_ok is True
+
+    # finance 走 bounded bypass 成功；复用已缓存候选表，不重新 TCP 全表扫描。
+    probes_before = len(mootdx_env["probe_calls"])
+    result = a_stock._mootdx_call("finance", symbol="600519")
+    assert not result.empty
+    assert a_stock._mootdx_client is not None
+    assert capability_health_snapshot()["mootdx:finance"].status == "success"
+    assert len(mootdx_env["probe_calls"]) == probes_before
+
+
+def test_all_factory_failures_still_yield_transport_unavailable(mootdx_env):
+    """反向回归：所有 factory 都失败（无任何成功证据）→ transport_ok=False。"""
+    mootdx_env["factory_ok"] = set()
+
+    with pytest.raises(RuntimeError, match="协议握手/取数被拒"):
+        a_stock._mootdx_call("bars", symbol="600519")
+
+    payload = json.loads(mootdx_env["cache_file"].read_text(encoding="utf-8"))
+    assert payload["transport_ok"] is False
+    assert "协议握手/取数被拒" in payload["reason"]
+
+    with pytest.raises(RuntimeError, match="不再重试"):
+        a_stock._mootdx_call("finance", symbol="600519")
+
+
+def test_bare_factory_success_counts_as_transport_evidence(mootdx_env):
+    """裸 factory 成功（+ bars canary 失败）也必须纳入 transport evidence。
+
+    候选表全部 factory 失败时，裸 factory 兜底若能建 client，transport 层
+    同样被证明可用——不能因为候选表曾有 factory 失败就写 transport_ok=False。
+    """
+    mootdx_env["factory_ok"] = set()  # 候选表全部 factory 失败
+    # 裸 factory 走 user-config 分支：fixture 的 FakeQuotes 对 server=None 用
+    # "bestip" 键 —— 这里直接让它成功（factory_ok 加 "bestip"）。
+    mootdx_env["factory_ok"].add("bestip")
+    mootdx_env["finance_ok"].add("bestip")
+
+    with pytest.raises(RuntimeError):
+        a_stock._mootdx_call("bars", symbol="600519")
+
+    payload = json.loads(mootdx_env["cache_file"].read_text(encoding="utf-8"))
+    assert payload["transport_ok"] is True
+
+    # finance 走 bypass：候选表为空（全部 factory 失败未缓存）时做一次有界
+    # TCP 预筛，随后复用；不陷入重复全表扫描。
+    probes_before = len(mootdx_env["probe_calls"])
+    result = a_stock._mootdx_call("finance", symbol="600519")
+    assert not result.empty
+    probes_after = len(mootdx_env["probe_calls"])
+    probes_before2 = probes_after
+    a_stock._mootdx_call("finance", symbol="600519")
+    assert len(mootdx_env["probe_calls"]) == probes_before2
+    # 有界：bypass 只补一轮预筛（2 台），不是每次调用都扫全表。
+    assert probes_after - probes_before <= len(mootdx_env["tcp_open"])
+
+
 def test_unknown_capability_stays_conservative(mootdx_env):
     """未知 capability 名保守要求 canary（与 Phase 1 之前一致）。"""
     with pytest.raises(RuntimeError):

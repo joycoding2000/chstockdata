@@ -9,6 +9,25 @@ Consumer compatibility baseline remains **0.3.0** (commit `143eb5a`);
 nothing below changes the public API. Scope and rationale:
 `docs/architecture.md`, `docs/provider-capability-matrix.md`.
 
+### Phase 1.1.1 — Mixed Transport Verdict Fix (hotfix)
+
+#### Fixed
+
+- **`_get_mootdx_client` transport verdict used a universal instead of an
+  existential check**: the final verdict fired `transport_ok=False` when
+  *any* candidate's `Quotes.factory()` failed, discarding the transport
+  evidence already proven by another candidate that constructed a client
+  successfully (mixed: A factory-fail + B factory-ok/bars-canary-fail →
+  transport downgraded → finance/xdxr blocked globally). The verdict is now
+  the existential invariant `factory_successes > 0` (counted on both the
+  named-candidate and the bare-factory fallback path), so mixed failures
+  yield `transport_ok=True` with a bars-readiness cause, while
+  `factory_successes == 0` still yields the transport-level verdict. The
+  bounded bypass also tries the bare factory (user-persisted BESTIP) before
+  downgrading transport evidence. All four semantics preserved: all-factory-
+  fail → global gate; all-factory-ok/canary-fail → bars-only gate; mixed →
+  bars-only gate; canary success → client selected, cache cleared.
+
 ### Phase 1.1 — Structured Core Stabilization (hardening round)
 
 No new capabilities; fixes the semantic gaps found in Phase 1 before

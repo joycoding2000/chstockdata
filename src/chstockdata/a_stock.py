@@ -853,11 +853,26 @@ def _bypass_select_mootdx_client(*, probe_deadline_at: float | None):
             _mootdx_client = candidate
             return _mootdx_client
 
-    # 全部候选 factory 失败：上一次"transport 可用"的结论已失效。
+        # 候选表全部 factory 失败 ≠ transport 死：还有裸 factory（用户持久化
+        # BESTIP，可能不在候选表里）一条 transport 证据路径——与
+        # `_get_mootdx_client` 的兜底顺序一致（Phase 1.1.1）。
+        if probe_deadline_at is not None and time.monotonic() >= probe_deadline_at:
+            raise _mootdx_probe_budget_exceeded()
+        try:
+            candidate = Quotes.factory(market="std")
+        except Exception as e:
+            logger.debug("mootdx bypass 裸 factory 失败 — %s", e)
+        else:
+            logger.info("mootdx bypass client from 裸 factory（用户已有配置）")
+            keep_bestip()
+            _mootdx_client = candidate
+            return _mootdx_client
+
+    # 全部路径 factory 失败：上一次"transport 可用"的结论已失效。
     _mootdx_transport_ok = False
     _persist_mootdx_unavailable(
         _mootdx_unavailable_until, _mootdx_outage_rounds,
-        "bypass 全部候选 factory 失败（transport 层证据）",
+        "bypass 全部候选及裸 factory 均失败（transport 层证据）",
         transport_ok=False,
     )
     return None
@@ -983,7 +998,8 @@ def _get_mootdx_client(request_capability: str | None = None):
     _clear_mootdx_reselect_candidates()
 
     tcp_ok_but_dead = 0
-    factory_failures = 0  # transport/协议握手层失败（对所有 capability 成立）
+    factory_failures = 0  # transport/协议握手层失败次数（诊断用）
+    factory_successes = 0  # 成功构造 client 的次数——transport 可用性的存在性证据
     canary_failures = 0   # bars readiness canary 失败（仅约束 bars）
     # 探测会覆写 mootdx 的持久化配置——包在这里，只有真选出可用服务器时才 keep()，
     # 其余每条退出路径（含异常）都自动还原。
@@ -1020,6 +1036,9 @@ def _get_mootdx_client(request_capability: str | None = None):
                 factory_failures += 1
                 logger.debug("mootdx %s:%s 握手失败（%s），换下一台", ip, port, type(e).__name__)
             else:
+                # 一次 factory 成功即证明 transport/协议层可构造 client
+                # （存在性结论，不可被其它候选的失败抹掉）。
+                factory_successes += 1
                 if not canary_required:
                     # 已知非 bars capability：factory-only 接受，capability 的
                     # 真实调用本身就是它的验证（该调用失败按 capability 记录）。
@@ -1056,6 +1075,9 @@ def _get_mootdx_client(request_capability: str | None = None):
     except Exception as e:
         logger.debug("mootdx 裸 factory 失败 — %s", e)
     else:
+        # 裸 factory 成功同样计入 transport evidence（候选表全失败时它是
+        # 唯一的 transport 证明）。
+        factory_successes += 1
         if not canary_required or _tdx_client_works(candidate):
             logger.info("mootdx client from 裸 factory（用户已有配置）")
             _mootdx_client = candidate
@@ -1069,23 +1091,28 @@ def _get_mootdx_client(request_capability: str | None = None):
     _clear_mootdx_reselect_candidates()
     backoff = _next_mootdx_backoff_seconds()
     _mootdx_unavailable_until = time.time() + backoff
-    if factory_failures:
-        # transport 层结论：连协议握手都建不起来，对所有 capability 一致成立。
-        cause = (
-            "%d 台服务器端口能连上，但通达信协议握手/取数被拒。"
-            "这通常是协议层被拦（代理、防火墙、公司网络对 TCP 7709 的策略），"
-            "换服务器解决不了。" % factory_failures
-        )
-        verdict_transport_ok = False
-    elif canary_failures:
-        # capability readiness 层结论：client 都建得起来，仅 bars readiness
-        # canary 全失败——该结论只约束 bars（transport 实际可用）。
+    # transport verdict 是**存在性结论**：是否至少一台 server 成功构造过
+    # client（factory_successes > 0），而不是"是否出现过任何一次 factory
+    # 失败"（全称结论）。部分 server 握手失败是正常网络现实，不得抹掉
+    # 另一台 server 已证明的 transport success evidence。
+    if factory_successes > 0:
+        # transport/协议层已被证明可用；此处的剩余失败只能是 bars readiness
+        # 层（factory 成功的候选都过了 canary 时早已返回 client）——该结论
+        # 仅约束 bars。
         cause = (
             "%d 台服务器能建通达信 client，但 bars readiness canary 全部失败。"
             "该结论仅约束 bars 能力；其它 capability 将按 transport 可用"
             "分别验证。" % canary_failures
         )
         verdict_transport_ok = True
+    elif factory_failures:
+        # 无任何 factory 成功证据：transport 层结论，对所有 capability 一致成立。
+        cause = (
+            "%d 台服务器端口能连上，但通达信协议握手/取数被拒。"
+            "这通常是协议层被拦（代理、防火墙、公司网络对 TCP 7709 的策略），"
+            "换服务器解决不了。" % factory_failures
+        )
+        verdict_transport_ok = False
     else:
         cause = "内置服务器表里没有一台的 TCP 7709 能连上，请检查网络连通性。"
         verdict_transport_ok = False
