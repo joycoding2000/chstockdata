@@ -66,6 +66,18 @@ def test_successful_bars_records_mootdx_bars_success(monkeypatch):
     assert "mootdx:finance" not in snapshot
 
 
+def test_suppressed_call_leaves_health_to_its_structured_owner(monkeypatch):
+    _patch_client(monkeypatch, _Client())
+
+    a_stock._mootdx_call(
+        "bars",
+        symbol="600519",
+        _observe_capability_health=False,
+    )
+
+    assert "mootdx:bars" not in capability_health_snapshot()
+
+
 def test_bars_failure_does_not_poison_finance_or_xdxr(monkeypatch):
     client = _Client(bars_error=ConnectionError("bars endpoint down"))
     _patch_client(monkeypatch, client)

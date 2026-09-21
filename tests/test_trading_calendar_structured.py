@@ -136,8 +136,39 @@ def test_mootdx_adapter_preserves_index_request_shape(monkeypatch):
     ) == ("2026-09-20", "2026-09-21")
     assert calls == {
         "method": "index",
-        "kwargs": {"symbol": "000001", "frequency": 9, "offset": 2000},
+        "kwargs": {
+            "symbol": "000001",
+            "frequency": 9,
+            "offset": 2000,
+            "_observe_capability_health": True,
+        },
     }
+
+
+def test_structured_mootdx_calendar_adapter_suppresses_primitive_health(monkeypatch):
+    from chstockdata import a_stock
+
+    calls = {}
+
+    def _mootdx(method, **kwargs):
+        calls.update(method=method, kwargs=kwargs)
+        return pd.DataFrame(
+            {
+                "open": [1],
+                "high": [1],
+                "low": [1],
+                "close": [1],
+                "vol": [1],
+            },
+            index=pd.to_datetime(["2026-09-21"]),
+        )
+
+    monkeypatch.setattr(a_stock, "_mootdx_call", _mootdx)
+    assert tc.canonicalize_trading_days(
+        tc.CALENDAR_ADAPTERS["mootdx"](),
+        provider="mootdx",
+    ) == ("2026-09-21",)
+    assert calls["kwargs"]["_observe_capability_health"] is False
 
 
 def test_sina_adapter_preserves_endpoint_and_parameters(monkeypatch):

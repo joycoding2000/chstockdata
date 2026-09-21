@@ -36,7 +36,10 @@ TICKER = "600519"
 
 _QUOTE_FETCHERS = {
     "tencent": a_stock._tencent_quote,
-    "mootdx": a_stock._mootdx_realtime_quote,
+    "mootdx": lambda codes: a_stock._mootdx_realtime_quote(
+        codes,
+        _observe_capability_health=False,
+    ),
     "sina": a_stock._sina_realtime_quote,
 }
 
