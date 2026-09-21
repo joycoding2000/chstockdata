@@ -1,8 +1,11 @@
 # chstockdata
 
 Free China A-share market data toolkit — direct HTTP/TCP access to public
-quote vendors, **no API keys, no third-party data SDKs** (akshare-free by
-design), battle-tested in production by
+quote vendors, **no API keys, no mandatory third-party market-data SDK in
+the core path** (akshare-free by design). Optional integrations are
+available for specific capabilities: `[mootdx]` unlocks the TCP K-line
+primary source, `[baostock]` historical turnover for CYQ chips.
+Battle-tested in production by
 [TradingAgents-astock](https://github.com/joycoding2000/TradingAgents-astock).
 
 ```bash

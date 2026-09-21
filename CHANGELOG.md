@@ -3,6 +3,59 @@
 All notable changes to this project are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## [Unreleased] — 0.4.0 development
+
+Consumer compatibility baseline remains **0.3.0** (commit `143eb5a`);
+nothing below changes the public API. Scope and rationale:
+`docs/architecture.md`, `docs/provider-capability-matrix.md`.
+
+### Added
+
+- **Capability-specific provider health** (`capabilities.py`): health is
+  now observed per `provider + capability` (`mootdx:bars`,
+  `mootdx:finance`, `tencent:quote`, ...). One capability failing never
+  marks the other capabilities of the same provider unhealthy (isolation
+  regression tests). `a_stock._mootdx_call` records per-method
+  capability health; `_tdx_client_works` (bars canary) is re-scoped to
+  server-selection connectivity verification only.
+- **Generic structured result foundation** (`fetch_result.py`):
+  consumer-neutral `FetchAttempt` / `FetchMetadata` / `FetchResult[T]`
+  with `success` / `normal_empty` / `failed_network` /
+  `failed_rate_limit` / `failed_structure` / `not_configured` / `skipped`
+  statuses. `retrieved_at` (when we fetched) is kept separate from
+  `observed_at` / `data_as_of` (when the data is valid). Naming is
+  deliberately distinct from the TradingAgents-compatibility
+  `provenance.ProviderAttempt` / `EvidenceEnvelope`, which stay unchanged.
+- **Structured realtime-quote chain** (`quote_chain.py`) — first vertical
+  slice: `fetch_realtime_quotes()` runs the Tencent → mootdx → Sina chain
+  on the structured core, recording per-provider attempts (provider
+  health) plus the derived routing outcome (routing health), while
+  `a_stock._get_realtime_quotes` becomes a compatibility wrapper with an
+  unchanged legacy contract.
+- **Live gate split**: `tests/test_data_layer_live_smoke.py` remains the
+  routing-chain gate; the new `tests/test_live_capability_probes.py`
+  reports each provider capability separately (non-blocking), so a
+  mootdx capability outage can no longer hide behind a successful Sina
+  fallback.
+- Docs: `docs/architecture.md` (providers / capabilities / routing /
+  structured result / legacy compatibility / consumer boundary) and
+  `docs/provider-capability-matrix.md`.
+
+### Fixed
+
+- **`configure()` value validation + atomic commit**: non-boolean values
+  for boolean settings (e.g. `vipdoc_enabled="false"`) are rejected
+  instead of being accepted as truthy; all settings are validated before
+  any is committed, so an invalid call cannot partially pollute the
+  global config. Unknown-key validation is unchanged.
+- **Name-map warmup retry**: a failed first `_build_name_code_map()`
+  warmup no longer permanently disables retries for the process
+  lifetime (the one-shot flag is reset on failure; idempotency on
+  success is unchanged).
+- README / package metadata wording: "no third-party data SDKs" corrected
+  to "no mandatory third-party market-data SDK in the core path; optional
+  integrations are available for specific capabilities".
+
 ## [0.3.0] - 2026-09-17
 
 ### Added

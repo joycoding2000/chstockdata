@@ -106,6 +106,28 @@ def validate_vipdoc_history_config(cfg: Mapping) -> None:
             raise ValueError(f"{key} must be a string or null")
 
 
+def _validate_setting(key: str, value: Any) -> str | None:
+    """Type/value-check one canonical setting; return an error message or None."""
+    if key == "vipdoc_history_enabled":
+        if not isinstance(value, bool):
+            return "vipdoc_history_enabled must be a boolean"
+        return None
+    if key == "vipdoc_history_max_staleness_days":
+        import math
+
+        if isinstance(value, bool) or not isinstance(value, (int, float)):
+            return "vipdoc_history_max_staleness_days must be a number"
+        if not math.isfinite(float(value)) or float(value) < 0:
+            return "vipdoc_history_max_staleness_days must be finite and >= 0"
+        return None
+    if key in ("data_cache_dir", "northbound_store_path",
+               "vipdoc_history_dir", "vipdoc_history_url"):
+        if value is not None and not isinstance(value, str):
+            return f"{key} must be a string or null"
+        return None
+    return None  # unknown keys are rejected by the caller
+
+
 def configure(**settings: Any) -> None:
     """Inject or update settings (host applications call this at startup).
 
@@ -115,6 +137,13 @@ def configure(**settings: Any) -> None:
     ``vipdoc_history_url`` — plus the short aliases ``cache_dir``,
     ``vipdoc_dir``, ``vipdoc_enabled``, ``vipdoc_max_staleness_days``,
     ``vipdoc_url``. Unknown keys are rejected loudly to catch typos.
+
+    v0.4.0 correctness: values are type/validated against the same rules as
+    :func:`validate_vipdoc_history_config` (e.g. ``vipdoc_enabled="false"``
+    is a string, not a boolean, and is rejected instead of being accepted as
+    a truthy value). Validation happens for **all** settings before any is
+    committed, so an invalid call cannot partially pollute the global config
+    (atomic commit).
     """
     short_aliases = {
         "cache_dir": "data_cache_dir",
@@ -129,6 +158,13 @@ def configure(**settings: Any) -> None:
     unknown = set(canonical) - set(_DEFAULTS)
     if unknown:
         raise ValueError(f"unknown chstockdata settings: {sorted(unknown)}")
+    errors = []
+    for key, value in canonical.items():
+        message = _validate_setting(key, value)
+        if message is not None:
+            errors.append(message)
+    if errors:
+        raise ValueError("; ".join(errors))
     with _LOCK:
         _INJECTED.update(canonical)
 

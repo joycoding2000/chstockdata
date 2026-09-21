@@ -37,5 +37,24 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           python -m pip install -e ".[mootdx]" pytest
-      - name: Run network-marked live smoke
+      - name: Run network-marked live smoke (routing-chain gate)
         run: python -m pytest tests/test_data_layer_live_smoke.py -m network -v --no-header -p no:cacheprovider
+
+      # Observability, not a gate: per-capability probes report each provider
+      # capability separately, so "mootdx failed → Sina fallback saved the
+      # chain" stays green on routing while the mootdx capability failure
+      # remains visible here. A non-critical provider's single failure must
+      # not fail the whole routing gate — hence continue-on-error.
+      - name: Probe individual provider capabilities (reported, non-blocking)
+        id: capability-probes
+        continue-on-error: true
+        run: python -m pytest tests/test_live_capability_probes.py -m network -v --no-header -p no:cacheprovider -s
+
+      - name: Capability probe summary
+        if: always()
+        run: |
+          if [ "${{ steps.capability-probes.outcome }}" = "failure" ]; then
+            echo "::warning::Some provider capability probes failed — see the probe step above. Routing gate is unaffected unless the smoke step also failed."
+          else
+            echo "All provider capability probes passed."
+          fi

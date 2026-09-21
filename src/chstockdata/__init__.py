@@ -1,8 +1,10 @@
 """chstockdata — free China A-share market data toolkit.
 
-Zero third-party data SDKs, no API keys. Direct HTTP/TCP access to public
-quote vendors (Tencent, mootdx/TDX, Eastmoney, Sina, THS, CLS, SSE/SZSE),
-extracted and battle-tested from TradingAgents-astock.
+No API keys, no mandatory third-party market-data SDK in the core path —
+direct HTTP/TCP access to public quote vendors (Tencent, mootdx/TDX,
+Eastmoney, Sina, THS, CLS, SSE/SZSE), extracted and battle-tested from
+TradingAgents-astock. Optional extras (``mootdx``, ``baostock``) unlock
+specific capabilities such as the K-line primary source.
 
 Quick start::
 
@@ -127,6 +129,29 @@ from .provenance import (
     validate_envelope,
 )
 
+# ── Capability health + structured results (v0.4.0, additive) ───────────────
+from .capabilities import (
+    CapabilityHealth,
+    ProviderCapability,
+    capability_health_snapshot,
+    get_capability_health,
+    record_capability_health,
+    reset_capability_health,
+)
+from .fetch_result import (
+    FETCH_FAILED_NETWORK,
+    FETCH_FAILED_RATE_LIMIT,
+    FETCH_FAILED_STRUCTURE,
+    FETCH_NORMAL_EMPTY,
+    FETCH_NOT_CONFIGURED,
+    FETCH_SKIPPED,
+    FETCH_SUCCESS,
+    FetchAttempt,
+    FetchMetadata,
+    FetchResult,
+)
+from .quote_chain import fetch_realtime_quotes
+
 __version__ = "0.3.0"
 
 __all__ = [
@@ -179,4 +204,11 @@ __all__ = [
     "COMPLETENESS_FULL", "COMPLETENESS_PARTIAL", "COMPLETENESS_MINIMAL",
     "EvidenceEnvelope", "ProviderAttempt", "make_attempt", "make_envelope",
     "set_capability_resolver", "validate_envelope",
+    # capability health + structured results (v0.4.0, additive)
+    "ProviderCapability", "CapabilityHealth", "capability_health_snapshot",
+    "get_capability_health", "record_capability_health", "reset_capability_health",
+    "FETCH_SUCCESS", "FETCH_NORMAL_EMPTY", "FETCH_FAILED_NETWORK",
+    "FETCH_FAILED_RATE_LIMIT", "FETCH_FAILED_STRUCTURE",
+    "FETCH_NOT_CONFIGURED", "FETCH_SKIPPED",
+    "FetchAttempt", "FetchMetadata", "FetchResult", "fetch_realtime_quotes",
 ]

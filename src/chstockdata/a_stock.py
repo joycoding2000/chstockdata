@@ -200,6 +200,10 @@ def ensure_name_code_map_warmup() -> None:
     （实测最坏 ~70s）。UI 渲染线程绝不能同步等它——渲染被阻塞时 Streamlit
     本次运行无法正常收尾，旧界面元素会以孤儿形式残留（2026-08-30 首页残留
     问题的根因）。渲染路径用 ``name_code_map_ready()`` 判断，未就绪就跳过。
+
+    v0.4.0 correctness 修复：首次 warmup 失败（mootdx 暂不可达等）会重置
+    warmup 标志，后续调用可再次尝试——此前一次性标志会把一次网络抖动变成
+    进程生命周期内的永久跳过。
     """
     global _name_map_warmup_started
     if _name_map_warmup_started or _name_to_code is not None:
@@ -207,9 +211,13 @@ def ensure_name_code_map_warmup() -> None:
     _name_map_warmup_started = True
 
     def _warm() -> None:
+        global _name_map_warmup_started
         try:
             _build_name_code_map()
         except Exception as exc:
+            # 构建失败：允许后续再次 warmup（重置一次性标志），否则本次
+            # 进程内永远不会重试。
+            _name_map_warmup_started = False
             logger.info("name-code map warmup skipped (%s)", type(exc).__name__)
 
     threading.Thread(target=_warm, name="ta-name-map-warmup", daemon=True).start()
@@ -657,7 +665,14 @@ def _probe_tdx(ip: str, port: int, timeout: float = 2.0) -> bool:
 
 
 def _tdx_client_works(client) -> bool:
-    """真实拉一根 K 线来验证这个 client 确实能取数。"""
+    """真实拉一根 K 线来验证这个 client 确实能取数。
+
+    ⚠️ v0.4.0 语义澄清：本函数是**服务器选择连通性 canary**（选服时判断"这台
+    服务器能否完成通达信协议取数"），不是 mootdx 的能力健康判定。bars canary
+    失败只说明该服务器当前不可用于取数验证，**不得**推论 mootdx 的 finance /
+    xdxr / quote 等能力不可用——能力健康按 `mootdx:<method>` 逐能力记录在
+    ``chstockdata.capabilities``，与本函数解耦。
+    """
     try:
         df = _source_call(
             "mootdx",
@@ -910,6 +925,48 @@ def _get_mootdx_client():
     )
 
 
+# ── v0.4.0 capability-specific health (mootdx) ──────────────────────────────
+# 健康观察按 provider + capability 记录（见 chstockdata.capabilities）：
+# mootdx 的 bars / quote / finance / xdxr 等能力**互不代表**。历史上
+# `_tdx_client_works()` 用一根 K 线 canary 表达"整个 mootdx 健康"，那是
+# 服务器选择语义（连通性），不是能力健康语义——某能力失败不得把其他能力判死。
+
+# mootdx 方法 → capability 名（稳定命名，不绑定任何下游 tool name）。
+_MOOTDX_METHOD_CAPABILITY: dict[str, str] = {
+    "bars": "bars",
+    "quotes": "quote",
+    "finance": "finance",
+    "f10": "f10",
+    "xdxr": "xdxr",
+    "stocks": "stock_list",
+    "k": "bars",
+    "transaction": "transaction",
+}
+
+
+def _mootdx_capability_for_method(method: str):
+    """mootdx method 名 → ProviderCapability（未知方法按 method 原名归档）。"""
+    from .capabilities import ProviderCapability
+
+    return ProviderCapability("mootdx", _MOOTDX_METHOD_CAPABILITY.get(method, method))
+
+
+def _record_mootdx_capability(
+    method: str, *, status: str, error_summary: str | None = None
+) -> None:
+    """记录一次 mootdx capability 健康观察；失败不影响主流程。"""
+    try:
+        from .capabilities import record_capability_health
+
+        record_capability_health(
+            _mootdx_capability_for_method(method),
+            status,
+            error_summary=error_summary,
+        )
+    except Exception:  # pragma: no cover - 健康遥测绝不影响取数主流程
+        logger.debug("mootdx capability health recording failed", exc_info=True)
+
+
 def _mootdx_call(method: str, *, _fallback_from: str | None = None, **kwargs):
     """调用 mootdx 的某个方法，失败就弃用当前服务器。
 
@@ -920,6 +977,9 @@ def _mootdx_call(method: str, *, _fallback_from: str | None = None, **kwargs):
     issues/023 止血：全程持 `_mootdx_call_lock`——七分析师并行分支与 prefetch
     worker 共享同一个 TCP socket，串行化既避免二进制帧交错（正确性），也保证
     服务器重选不会并发发生；相邻调用间补足 `_tdx_min_interval()` 最小间隔。
+
+    v0.4.0：每次调用的结果按 `mootdx:<method>` capability 记录健康观察——
+    bars 失败只影响 `mootdx:bars`，finance/xdxr 等能力不受牵连。
     """
     global _mootdx_last_call
     with _mootdx_call_lock:
@@ -927,26 +987,51 @@ def _mootdx_call(method: str, *, _fallback_from: str | None = None, **kwargs):
         if wait > 0:
             time.sleep(wait)
         _mootdx_last_call = time.monotonic()
-        client = _get_mootdx_client()
+        try:
+            client = _get_mootdx_client()
+        except Exception as exc:
+            # 服务器选择失败（连接层）：所有 mootdx capability 当前都不可达，
+            # 记录 failed——但这是**本轮观察**，不写入任何永久性的
+            # "整个 provider 不健康"语义；退避过期后能力自然恢复探测。
+            for cap_method in sorted(set(_MOOTDX_METHOD_CAPABILITY.values())):
+                _record_mootdx_capability(
+                    cap_method, status="failed", error_summary=str(exc)
+                )
+            raise
         for attempt in range(1, 3):
             try:
-                return _source_call(
+                result = _source_call(
                     "mootdx",
                     method,
                     lambda: getattr(client, method)(**kwargs),
                     attempt_no=attempt,
                     fallback_from=_fallback_from,
                 )
+                # 成功/正常空由返回值区分：None 或空 DataFrame 记 normal_empty。
+                empty_result = result is None or (
+                    isinstance(result, pd.DataFrame) and result.empty
+                )
+                _record_mootdx_capability(
+                    method,
+                    status="normal_empty" if empty_result else "success",
+                )
+                return result
             except Exception as exc:
                 # A malformed wire timestamp is a response-structure issue; keep
                 # the selected client available for the raw-date recovery path
                 # instead of needlessly selecting another server.
                 if "year must be in 1..9999" in str(exc).lower():
+                    _record_mootdx_capability(
+                        method, status="failed", error_summary=str(exc)
+                    )
                     raise
                 if _source_deadline_error(exc):
                     raise
                 reset_mootdx_client(preserve_candidates=attempt < 2)
                 if attempt >= 2:
+                    _record_mootdx_capability(
+                        method, status="failed", error_summary=str(exc)
+                    )
                     raise
                 client = _get_mootdx_client()
         raise RuntimeError("mootdx call did not return")  # pragma: no cover
@@ -1205,75 +1290,57 @@ def _sina_realtime_quote(
 def _get_realtime_quotes(codes: list[str]) -> dict[str, dict]:
     """Get snapshots in the explicit free-source order Tencent → TDX → Sina.
 
-    Fallback is per code, so a partial Tencent response does not discard valid
-    data for other symbols.  ``_RealtimeQuoteUnavailable`` is raised only when
-    no requested code has a usable positive-price snapshot.
+    v0.4.0: the routing logic now lives in :mod:`chstockdata.quote_chain`
+    (structured FetchResult core); this function is a legacy compatibility
+    wrapper that preserves the historical contract:
+
+    - returns ``dict[code] -> quote`` (per-code fallback, stale last resort);
+    - raises :class:`_RealtimeQuoteUnavailable` only when no requested code
+      has a usable positive-price snapshot;
+    - ``_RealtimeQuoteUnavailable.attempts`` keeps the per-code error-type
+      lists used by existing diagnostics.
+
+    Structured attempts (FetchResult/FetchMetadata) are available from
+    ``chstockdata.quote_chain.fetch_realtime_quotes``; the per-code
+    ``fallback_attempts`` list on each quote dict is preserved verbatim so
+    existing consumers need no change.
     """
+    from .quote_chain import RealtimeQuoteRoutingError, fetch_realtime_quotes
+
     requested = list(
         dict.fromkeys(str(code).strip() for code in codes if str(code).strip())
     )
-    if not requested:
-        raise _RealtimeQuoteUnavailable({})
+    try:
+        fetch_result = fetch_realtime_quotes(
+            codes,
+            {
+                "tencent": _tencent_quote,
+                "mootdx": _mootdx_realtime_quote,
+                "sina": _sina_realtime_quote,
+            },
+            quote_number=_quote_number,
+        )
+    except RealtimeQuoteRoutingError as exc:
+        # Rebuild the legacy per-code error lists from the structured
+        # attempts (error class names only; provider messages stay out of
+        # the public exception, matching the sanitized-error contract).
+        legacy_attempts: dict[str, list[str]] = {code: [] for code in requested}
+        for attempt in exc.attempts:
+            marker = attempt.error_type or (
+                "empty" if attempt.status in ("normal_empty", "not_configured")
+                else attempt.status
+            )
+            for code in requested:
+                legacy_attempts[code].append(marker)
+        raise _RealtimeQuoteUnavailable(legacy_attempts) from exc
 
-    remaining = set(requested)
-    result: dict[str, dict] = {}
-    stale_candidates: dict[str, dict] = {}
-    attempts = {code: [] for code in requested}
-    providers = (
-        ("tencent", _tencent_quote),
-        ("mootdx", _mootdx_realtime_quote),
-        ("sina", _sina_realtime_quote),
-    )
-
-    fallback_from: str | None = None
-    for provider, fetcher in providers:
-        if not remaining:
-            break
-        current = sorted(remaining)
-        try:
-            payload = fetcher(current, fallback_from=fallback_from) or {}
-        except Exception as exc:
-            error_type = type(exc).__name__
-            for code in current:
-                attempts[code].append(error_type)
-            fallback_from = provider
-            continue
-        if not isinstance(payload, dict):
-            payload = {}
-        for code in current:
-            quote = payload.get(code)
-            if not isinstance(quote, dict):
-                attempts[code].append("empty")
-                continue
-            price = _quote_number(quote.get("price"))
-            if price is None or price <= 0:
-                attempts[code].append("invalid_price")
-                continue
-            if quote.get("is_stale"):
-                # A stale snapshot may be a suspended/legacy-code zombie, but
-                # it is also the legitimate last-close response outside market
-                # hours. Prefer a fresh next source; retain the first stale
-                # candidate only as a last resort rather than reporting a
-                # false network failure.
-                stale_candidates.setdefault(code, dict(quote))
-                attempts[code].append("stale")
-                continue
-            normalized = dict(quote)
-            normalized.setdefault("source", provider)
-            normalized["fallback_attempts"] = list(attempts[code])
-            result[code] = normalized
-            remaining.remove(code)
-        fallback_from = provider
-
-    for code, quote in stale_candidates.items():
-        if code in result:
-            continue
-        quote["fallback_attempts"] = list(attempts[code])
-        quote["quote_status"] = "stale_last_resort"
-        result[code] = quote
-
+    result = fetch_result.data
     if not result:
-        raise _RealtimeQuoteUnavailable(attempts)
+        # Structured normal-empty routing (all providers terminal, no usable
+        # price) maps to the same legacy failure contract as before.
+        raise _RealtimeQuoteUnavailable(
+            {code: ["empty"] for code in requested}
+        )
     return result
 
 
