@@ -163,6 +163,7 @@ from .daily_bars import (
     fetch_daily_bars,
     probe_daily_bars_provider,
 )
+from .suspension import fetch_suspension_info
 
 __version__ = "0.3.0"
 
@@ -229,4 +230,6 @@ __all__ = [
     "probe_quote_provider",
     # daily bars structured routing (v0.4.0 Phase 2, additive)
     "DAILY_BAR_PROVIDERS", "fetch_daily_bars", "probe_daily_bars_provider",
+    # suspension structured snapshot (v0.4.0 Phase 5, additive)
+    "fetch_suspension_info",
 ]

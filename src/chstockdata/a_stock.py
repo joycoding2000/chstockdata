@@ -5835,82 +5835,10 @@ def _suspension_snapshot_page(snapshot_date: str, page: int) -> tuple[list[Mappi
 
 
 def _load_suspension_snapshot(snapshot_date: str) -> dict[str, Any]:
-    cache_key = (snapshot_date, _em_get)
-    with _suspension_snapshot_cache_lock:
-        cached = _suspension_snapshot_cache.get(cache_key)
-        if cached is not None:
-            return cached
+    """Compatibility access to the structured snapshot cache."""
+    from .suspension import _load_suspension_snapshot as _structured_load
 
-        try:
-            raw_rows, reported_count = _suspension_snapshot_page(snapshot_date, 1)
-            if reported_count is None:
-                if len(raw_rows) >= _SUSPEND_PAGE_SIZE:
-                    result = {
-                        "failure_kind": "failed_structure",
-                        "reason": "snapshot_count_missing",
-                        "rows": list(raw_rows),
-                        "reported_count": None,
-                        "snapshot_pages": 1,
-                    }
-                    _suspension_snapshot_cache[cache_key] = result
-                    return result
-                reported_count = len(raw_rows)
-            reported_count = max(reported_count, len(raw_rows))
-            expected_pages = max(1, math.ceil(reported_count / _SUSPEND_PAGE_SIZE))
-            pages_to_fetch = min(expected_pages, _SUSPEND_MAX_PAGES)
-            for page in range(2, pages_to_fetch + 1):
-                page_rows, page_count = _suspension_snapshot_page(snapshot_date, page)
-                raw_rows.extend(page_rows)
-                if page_count is not None:
-                    reported_count = max(reported_count, page_count)
-
-            if expected_pages > _SUSPEND_MAX_PAGES or len(raw_rows) < reported_count:
-                result = {
-                    "failure_kind": "failed_structure",
-                    "reason": "snapshot_truncated",
-                    "rows": list(raw_rows),
-                    "reported_count": reported_count,
-                    "snapshot_pages": pages_to_fetch,
-                }
-            else:
-                result = {
-                    "failure_kind": None,
-                    "reason": None,
-                    "rows": list(raw_rows),
-                    "reported_count": reported_count,
-                    "snapshot_pages": pages_to_fetch,
-                }
-        except (_requests.RequestException, TimeoutError, ConnectionError) as exc:
-            result = {
-                "failure_kind": "failed_network",
-                "reason": type(exc).__name__,
-                "rows": [],
-                "reported_count": None,
-                "snapshot_pages": 0,
-            }
-        except (ValueError, TypeError, _json.JSONDecodeError) as exc:
-            result = {
-                "failure_kind": "failed_structure",
-                "reason": type(exc).__name__,
-                "rows": [],
-                "reported_count": None,
-                "snapshot_pages": 0,
-            }
-        except Exception as exc:
-            logger.warning(
-                "Eastmoney suspend snapshot request failed for %s: %s",
-                snapshot_date,
-                type(exc).__name__,
-            )
-            result = {
-                "failure_kind": "failed_network",
-                "reason": type(exc).__name__,
-                "rows": [],
-                "reported_count": None,
-                "snapshot_pages": 0,
-            }
-        _suspension_snapshot_cache[cache_key] = result
-        return result
+    return _structured_load(snapshot_date)
 
 
 def get_suspension_info(
@@ -5925,78 +5853,33 @@ def get_suspension_info(
     snapshot is a normal empty — it means no suspension record on that date,
     never "never suspended" and never a statement about liquidity quality.
     """
-    try:
-        code = _normalize_ticker(ticker)
-        snapshot_date = date.fromisoformat(str(curr_date)[:10]).isoformat()
-    except (TypeError, ValueError) as exc:
-        return _dc_result("invalid_input", _SUSPEND_LABEL, reason=type(exc).__name__)
+    from .suspension import fetch_suspension_info
 
-    snapshot = _load_suspension_snapshot(snapshot_date)
-    if snapshot["failure_kind"] is not None:
+    result = fetch_suspension_info(ticker, curr_date)
+    if result.metadata.attempts == [] and result.metadata.request_status == "failed_structure":
+        return _dc_result("invalid_input", _SUSPEND_LABEL, reason=result.metadata.limitations[0])
+    if not result.data:
+        snapshot = _load_suspension_snapshot(str(curr_date)[:10])
         return _dc_result(
-            snapshot["failure_kind"],
+            result.metadata.request_status,
             _SUSPEND_LABEL,
-            reason=snapshot["reason"],
-            snapshot_date=snapshot_date,
+            reason=result.metadata.limitations[0] if result.metadata.limitations else None,
+            snapshot_date=str(curr_date)[:10],
             snapshot_rows=len(snapshot["rows"]),
             reported_count=snapshot["reported_count"],
             snapshot_pages=snapshot["snapshot_pages"],
         )
-
-    raw_rows = snapshot["rows"]
-
-    try:
-        matched: Mapping[str, Any] | None = None
-        for row in raw_rows:
-            row_code = _dc_row_text(row, "SECURITY_CODE", "security_code")
-            if row_code == code:
-                matched = row
-                break
-        if matched is None:
-            observed_at = datetime.now(_MARKET_TZ).isoformat(timespec="seconds")
-            return _dc_result(
-                "normal_empty",
-                _SUSPEND_LABEL,
-                source=f"Eastmoney datacenter {_SUSPEND_REPORT_NAME}",
-                observed_at=observed_at,
-                as_of_date=_today().isoformat(),
-                snapshot_date=snapshot_date,
-                snapshot_rows=len(raw_rows),
-                reported_count=snapshot["reported_count"],
-                snapshot_pages=snapshot["snapshot_pages"],
-                suspended=False,
-                suspend_start_time=None,
-                suspend_expire=None,
-                suspend_reason=None,
-                trade_market=None,
-                predict_resume_date=None,
-            )
-        start_time = _dc_row_text(matched, "SUSPEND_START_TIME", "suspend_start_time")
-        start_date = _dc_row_date(_dc_row_field(matched, "SUSPEND_START_DATE", "suspend_start_date"))
-        if start_date is None:
-            raise ValueError("suspend row missing required SUSPEND_START_DATE")
-        payload = {
-            "source": f"Eastmoney datacenter {_SUSPEND_REPORT_NAME}",
-            "observed_at": datetime.now(_MARKET_TZ).isoformat(timespec="seconds"),
-            "as_of_date": _today().isoformat(),
-            "snapshot_date": snapshot_date,
-            "snapshot_rows": len(raw_rows),
-            "reported_count": snapshot["reported_count"],
-            "snapshot_pages": snapshot["snapshot_pages"],
-            "suspended": True,
-            "security_name": _dc_row_text(matched, "SECURITY_NAME_ABBR", "security_name_abbr", limit=20),
-            "suspend_start_date": start_date,
-            "suspend_start_time": start_time,
-            "suspend_expire": _dc_row_text(matched, "SUSPEND_EXPIRE", "suspend_expire", limit=30),
-            "suspend_reason": _dc_row_text(matched, "SUSPEND_REASON", "suspend_reason", limit=80),
-            "trade_market": _dc_row_text(matched, "TRADE_MARKET", "trade_market", limit=20),
-            "predict_resume_date": _dc_row_date(
-                _dc_row_field(matched, "PREDICT_RESUME_DATE", "predict_resume_date")
-            ),
-        }
-    except (TypeError, ValueError) as exc:
-        return _dc_result("failed_structure", _SUSPEND_LABEL, reason=type(exc).__name__)
-    return _dc_result("success", _SUSPEND_LABEL, **payload)
+    payload = dict(result.data)
+    if result.metadata.request_status == "normal_empty":
+        # The legacy empty envelope predates these two structured keys.
+        payload.pop("security_name", None)
+        payload.pop("suspend_start_date", None)
+    payload.update(
+        source=f"Eastmoney datacenter {_SUSPEND_REPORT_NAME}",
+        observed_at=datetime.now(_MARKET_TZ).isoformat(timespec="seconds"),
+        as_of_date=_today().isoformat(),
+    )
+    return _dc_result(result.metadata.request_status, _SUSPEND_LABEL, **payload)
 
 
 def _delist_cache_path() -> str:
