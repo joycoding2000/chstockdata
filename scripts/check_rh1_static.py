@@ -50,7 +50,11 @@ STRUCTURED_PATHS = (
     "tests/test_trading_calendar_structured.py",
 )
 
+RUFF_MIN_VERSION = (0, 16, 6)
+RUFF_MAX_VERSION = (0, 17, 0)
+
 _HUNK_RE = re.compile(r"^@@ .* \+(\d+)(?:,(\d+))? ")
+_RUFF_VERSION_RE = re.compile(r"\bruff\s+(\d+)\.(\d+)\.(\d+)\b")
 
 
 def _run(*args: str) -> subprocess.CompletedProcess[str]:
@@ -141,17 +145,40 @@ def _is_added_line(finding: dict, ranges: dict[str, list[tuple[int, int]]]) -> b
     return any(start <= row <= end for start, end in ranges.get(path, ()))
 
 
+def _check_ruff_version() -> bool:
+    result = _run(sys.executable, "-m", "ruff", "--version")
+    if result.returncode != 0:
+        print(result.stderr.strip(), file=sys.stderr)
+        return False
+
+    version_text = result.stdout.strip()
+    match = _RUFF_VERSION_RE.search(version_text)
+    if match is None:
+        print(f"Could not parse Ruff version: {version_text}", file=sys.stderr)
+        return False
+
+    version = tuple(int(part) for part in match.groups())
+    if not RUFF_MIN_VERSION <= version < RUFF_MAX_VERSION:
+        minimum = ".".join(str(part) for part in RUFF_MIN_VERSION)
+        maximum = ".".join(str(part) for part in RUFF_MAX_VERSION)
+        print(
+            f"Unsupported Ruff version {version_text}; expected >= {minimum}, < {maximum}",
+            file=sys.stderr,
+        )
+        return False
+
+    print(f"Ruff: {version_text} (supported range >=0.16.6,<0.17)")
+    return True
+
+
 def main() -> int:
     baseline_check = _run("git", "cat-file", "-e", f"{BASELINE_SHA}^{{commit}}")
     if baseline_check.returncode != 0:
         print(f"Missing RH1 baseline commit: {BASELINE_SHA}", file=sys.stderr)
         return 2
 
-    version = _run(sys.executable, "-m", "ruff", "--version")
-    if version.returncode != 0:
-        print(version.stderr.strip(), file=sys.stderr)
+    if not _check_ruff_version():
         return 2
-    print(f"Ruff: {version.stdout.strip()}")
 
     structured_exit, structured_findings = _ruff(STRUCTURED_PATHS)
     if structured_findings:

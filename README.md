@@ -12,7 +12,15 @@ Battle-tested in production by
 pip install chstockdata          # core (pandas/requests only)
 pip install "chstockdata[mootdx]"    # + mootdx TCP K-line source (optional)
 pip install "chstockdata[baostock]"  # + historical turnover for CYQ chips (optional)
+pip install "chstockdata[mcp]"       # + MCP server entry point (optional)
 ```
+
+The optional profiles are supported independently. The MCP extra currently
+stays on the MCP 1.x API because the MCP 2.x server API is not compatible with
+this entry point. Within that supported range, `mootdx` pins `httpx==0.25.2`
+while MCP 1.x requires `httpx>=0.27.1`; a clean resolver therefore rejects
+`chstockdata[mootdx,mcp]`. Keep those two profiles in separate environments
+until the upstream constraints converge.
 
 ```python
 from chstockdata import get_stock_data, get_realtime_snapshot, resolve_ticker

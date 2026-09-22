@@ -21,6 +21,8 @@ Notes:
 from __future__ import annotations
 
 import argparse
+from functools import wraps
+import inspect
 from typing import Any
 
 _TOOL_FUNCTIONS: tuple[str, ...] = (
@@ -80,19 +82,34 @@ def build_server():  # pragma: no cover - exercised via the mcp extra
 
     mcp = FastMCP("chstockdata")
 
+    def _make_wrapped(func):
+        @wraps(func)
+        def _wrapped(*args, **kwargs):
+            return _flatten(func(*args, **kwargs))
+
+        if not _wrapped.__doc__:
+            _wrapped.__doc__ = f"{func.__name__} from chstockdata"
+        annotations = dict(getattr(func, "__annotations__", {}))
+        annotations["return"] = Any
+        signature = inspect.signature(func)
+        parameters = []
+        for parameter in signature.parameters.values():
+            annotation = parameter.annotation
+            if isinstance(annotation, str) and "DataFrame" in annotation:
+                # DataFrames are internal convenience inputs; MCP receives JSON.
+                annotation = Any
+                annotations[parameter.name] = Any
+            parameters.append(parameter.replace(annotation=annotation))
+        _wrapped.__annotations__ = annotations
+        _wrapped.__signature__ = signature.replace(
+            parameters=parameters,
+            return_annotation=Any,
+        )
+        return _wrapped
+
     for name in _TOOL_FUNCTIONS:
         func = getattr(cd, name)
-
-        def _wrapped(*args, _func=func, **kwargs):
-            return _flatten(_func(*args, **kwargs))
-
-        _wrapped.__name__ = func.__name__
-        _wrapped.__doc__ = (
-            (func.__doc__ or "").strip()
-            or f"{func.__name__} from chstockdata"
-        )
-        _wrapped.__annotations__ = getattr(func, "__annotations__", {})
-        mcp.tool()(_wrapped)
+        mcp.tool()(_make_wrapped(func))
 
     return mcp
 

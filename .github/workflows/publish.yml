@@ -18,10 +18,80 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
+      - name: Install release gate dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install ".[dev,mootdx]" build twine
+      - name: Run deterministic release gate
+        run: |
+          python -m pytest tests/ -q --no-header
+          python scripts/check_rh1_static.py
+          python -m compileall -q src tests
       - name: Build sdist and wheel
         run: |
-          python -m pip install --upgrade pip build
           python -m build
+      - name: Validate built artifacts before publish
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m twine check dist/*
+          wheel="$(find dist -maxdepth 1 -type f -name '*.whl' -print -quit)"
+          sdist="$(find dist -maxdepth 1 -type f -name '*.tar.gz' -print -quit)"
+          test -n "$wheel"
+          test -n "$sdist"
+
+          core_venv="$RUNNER_TEMP/chstockdata-rh2-core"
+          sdist_venv="$RUNNER_TEMP/chstockdata-rh2-sdist"
+          python -m venv "$core_venv"
+          python -m venv "$sdist_venv"
+          "$core_venv/bin/python" -m pip install --upgrade pip
+          "$core_venv/bin/python" -m pip install "$wheel"
+          "$core_venv/bin/python" -m pip check
+          test -x "$core_venv/bin/chstockdata-mcp"
+          test -x "$core_venv/bin/chstockdata-refresh-vipdoc"
+          (cd "$RUNNER_TEMP" && "$core_venv/bin/chstockdata-mcp" --help >/dev/null)
+          (cd "$RUNNER_TEMP" && "$core_venv/bin/chstockdata-refresh-vipdoc" --help >/dev/null)
+          (cd "$RUNNER_TEMP" && "$core_venv/bin/python" - <<'PY'
+          import importlib.metadata as metadata
+          import os
+          from pathlib import Path
+          import chstockdata
+
+          assert chstockdata.__version__ == "0.3.0"
+          package_path = Path(chstockdata.__file__).resolve()
+          workspace = os.environ.get("GITHUB_WORKSPACE")
+          assert workspace is None or not package_path.is_relative_to(
+              Path(workspace).resolve()
+          )
+          for name in (
+              "fetch_realtime_quotes", "fetch_daily_bars", "fetch_trading_calendar",
+              "fetch_suspension_info", "fetch_delisting_status", "fetch_tradability",
+              "FetchAttempt", "FetchMetadata", "FetchResult",
+          ):
+              assert name in chstockdata.__all__
+              assert hasattr(chstockdata, name)
+          scripts = {
+              entry.name for entry in metadata.entry_points(group="console_scripts")
+          }
+          assert {"chstockdata-mcp", "chstockdata-refresh-vipdoc"} <= scripts
+          PY
+          )
+
+          mcp_venv="$RUNNER_TEMP/chstockdata-rh2-mcp"
+          python -m venv "$mcp_venv"
+          "$mcp_venv/bin/python" -m pip install "$wheel[mcp]"
+          "$mcp_venv/bin/python" -m pip check
+          (cd "$RUNNER_TEMP" && "$mcp_venv/bin/python" -c \
+            'from chstockdata.mcp_server import build_server; assert build_server() is not None')
+
+          "$sdist_venv/bin/python" -m pip install "$sdist"
+          "$sdist_venv/bin/python" -m pip check
+          (cd "$RUNNER_TEMP" && "$sdist_venv/bin/python" - <<'PY'
+          import chstockdata
+
+          assert chstockdata.__version__ == "0.3.0"
+          PY
+          )
       - uses: actions/upload-artifact@v4
         with:
           name: dist

@@ -45,8 +45,8 @@ mootdx = ["mootdx>=0.10.0"]
 # Historical turnover (turn) input for CYQ chip distribution. baostock is a
 # zero-key TCP client and does NOT support the Beijing Stock Exchange (4/8/92/920).
 baostock = ["baostock>=0.8.9"]
-mcp = ["mcp>=1.0"]
-dev = ["pytest>=8.0", "ruff>=0.6"]
+mcp = ["mcp>=1.0,<2"]
+dev = ["pytest>=8.0", "ruff>=0.16.6,<0.17"]
 
 [project.scripts]
 chstockdata-mcp = "chstockdata.mcp_server:main"
