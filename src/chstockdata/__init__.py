@@ -164,6 +164,7 @@ from .daily_bars import (
     probe_daily_bars_provider,
 )
 from .suspension import fetch_suspension_info
+from .delisting import fetch_delisting_status
 from .tradability import fetch_tradability
 
 __version__ = "0.3.0"
@@ -233,6 +234,8 @@ __all__ = [
     "DAILY_BAR_PROVIDERS", "fetch_daily_bars", "probe_daily_bars_provider",
     # suspension structured snapshot (v0.4.0 Phase 5, additive)
     "fetch_suspension_info",
+    # delisting structured status (additive)
+    "fetch_delisting_status",
     # derived tradability (calendar + suspension, additive)
     "fetch_tradability",
 ]

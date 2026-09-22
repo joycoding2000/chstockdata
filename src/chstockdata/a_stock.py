@@ -6091,65 +6091,10 @@ def _delist_reference(http_get=None) -> dict[str, Any]:
 def get_delisting_info(
     ticker: Annotated[str, "6-digit A-share code (e.g. 600519)"],
 ) -> str:
-    """Return the stock's official delisting record, if any (退市名单).
+    """Return the unchanged legacy delisting envelope (退市名单)."""
+    from .delisting import render_legacy_delisting_info
 
-    Sources are the exchange-official terminated-listing boards (SSE common
-    query + SZSE terminated tab), merged with a same-day reference cache.
-    "Not in the list" is a normal empty for the covered markets only: BSE
-    delisting has no free official source here and is reported as uncovered,
-    never as "not delisted".
-    """
-    try:
-        code = _normalize_ticker(ticker)
-    except (TypeError, ValueError) as exc:
-        return _dc_result("invalid_input", _DELIST_LABEL, reason=type(exc).__name__)
-
-    market = _delist_market_for(code)
-    observed_at = datetime.now(_MARKET_TZ).isoformat(timespec="seconds")
-    if market == "bse":
-        return _dc_result(
-            "normal_empty",
-            _DELIST_LABEL,
-            source="SSE/SZSE exchange official terminated listings",
-            observed_at=observed_at,
-            as_of_date=_today().isoformat(),
-            searched_market=market,
-            coverage_note="北交所退市名单无沪深交易所官方零鉴权来源，本工具未覆盖；未覆盖不是未退市。",
-            delisted=None,
-            record=None,
-        )
-
-    reference = _delist_reference()
-    rows = reference["rows"]
-    failed = reference["failed_sources"]
-    market_by_source = {"sse": "sh", "szse": "sz"}
-    failed_market = {
-        market_by_source[name] for name in failed if name in market_by_source
-    }
-    if market in failed_market:
-        return _dc_result(
-            "failed_network",
-            _DELIST_LABEL,
-            reason="reference_source_unavailable",
-            failed_sources=failed,
-        )
-
-    matched = next((row for row in rows if row.get("code") == code), None)
-    payload = {
-        "source": "SSE/SZSE exchange official terminated listings",
-        "observed_at": reference["observed_at"],
-        "as_of_date": _today().isoformat(),
-        "reference_date": reference["cache_date"],
-        "searched_market": market,
-        "reference_rows": len(rows),
-        "cross_market_source_failed": bool(failed),
-        "delisted": matched is not None,
-        "record": matched,
-    }
-    if matched is None:
-        payload["coverage_note"] = "在覆盖市场内未命中退市名单；名单为交易所官方已终止上市板，不含在市股票。"
-        return _dc_result("normal_empty", _DELIST_LABEL, **payload)
-    return _dc_result("success", _DELIST_LABEL, **payload)
+    return render_legacy_delisting_info(ticker)
 
 
 # ---- 12. get_hot_stocks ----
