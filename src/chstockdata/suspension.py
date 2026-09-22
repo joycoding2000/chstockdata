@@ -123,22 +123,6 @@ def _fetch_suspension_snapshot_uncached(snapshot_date: str) -> dict[str, Any]:
                 elapsed=elapsed_ms(clock, started),
             )
 
-        # A snapshot with an incomplete suspension row cannot support a
-        # truthful yes/no answer.  Validate before caching it as usable.
-        for row in raw_rows:
-            if astock._dc_row_date(
-                astock._dc_row_field(row, "SUSPEND_START_DATE", "suspend_start_date")
-            ) is None:
-                return _snapshot_failure(
-                    status=FETCH_FAILED_STRUCTURE,
-                    reason="ValueError",
-                    rows=list(raw_rows),
-                    reported_count=reported_count,
-                    snapshot_pages=pages_to_fetch,
-                    attempts=attempts,
-                    started_at=started_at,
-                    elapsed=elapsed_ms(clock, started),
-                )
     except (astock._requests.RequestException, TimeoutError, ConnectionError) as exc:
         return _snapshot_failure(
             status=FETCH_FAILED_NETWORK,
@@ -218,6 +202,7 @@ def _result_from_snapshot(snapshot_date: str, snapshot: dict[str, Any], code: st
         None,
     ) if provider_ok else None
     outcome_status = FETCH_SUCCESS if matched is not None else FETCH_NORMAL_EMPTY
+    derivation_reason: str | None = None
     data: dict[str, Any]
     if not provider_ok:
         outcome_status = snapshot["status"]
@@ -238,27 +223,39 @@ def _result_from_snapshot(snapshot_date: str, snapshot: dict[str, Any], code: st
             "snapshot_pages": snapshot["snapshot_pages"],
         }
     else:
-        data = {
-            "suspended": True,
-            "security_name": astock._dc_row_text(matched, "SECURITY_NAME_ABBR", "security_name_abbr", limit=20),
-            "suspend_start_date": astock._dc_row_date(astock._dc_row_field(matched, "SUSPEND_START_DATE", "suspend_start_date")),
-            "suspend_start_time": astock._dc_row_text(matched, "SUSPEND_START_TIME", "suspend_start_time"),
-            "suspend_expire": astock._dc_row_text(matched, "SUSPEND_EXPIRE", "suspend_expire", limit=30),
-            "suspend_reason": astock._dc_row_text(matched, "SUSPEND_REASON", "suspend_reason", limit=80),
-            "trade_market": astock._dc_row_text(matched, "TRADE_MARKET", "trade_market", limit=20),
-            "predict_resume_date": astock._dc_row_date(astock._dc_row_field(matched, "PREDICT_RESUME_DATE", "predict_resume_date")),
-            "snapshot_date": snapshot_date,
-            "snapshot_rows": len(rows),
-            "reported_count": snapshot["reported_count"],
-            "snapshot_pages": snapshot["snapshot_pages"],
-        }
+        start_date = astock._dc_row_date(
+            astock._dc_row_field(
+                matched, "SUSPEND_START_DATE", "suspend_start_date"
+            )
+        )
+        if start_date is None:
+            outcome_status = FETCH_FAILED_STRUCTURE
+            derivation_reason = "ValueError"
+            data = {}
+        else:
+            data = {
+                "suspended": True,
+                "security_name": astock._dc_row_text(matched, "SECURITY_NAME_ABBR", "security_name_abbr", limit=20),
+                "suspend_start_date": start_date,
+                "suspend_start_time": astock._dc_row_text(matched, "SUSPEND_START_TIME", "suspend_start_time"),
+                "suspend_expire": astock._dc_row_text(matched, "SUSPEND_EXPIRE", "suspend_expire", limit=30),
+                "suspend_reason": astock._dc_row_text(matched, "SUSPEND_REASON", "suspend_reason", limit=80),
+                "trade_market": astock._dc_row_text(matched, "TRADE_MARKET", "trade_market", limit=20),
+                "predict_resume_date": astock._dc_row_date(astock._dc_row_field(matched, "PREDICT_RESUME_DATE", "predict_resume_date")),
+                "snapshot_date": snapshot_date,
+                "snapshot_rows": len(rows),
+                "reported_count": snapshot["reported_count"],
+                "snapshot_pages": snapshot["snapshot_pages"],
+            }
     metadata = FetchMetadata(
         capability=_CAPABILITY,
         final_provider=_PROVIDER if provider_ok else None,
         retrieved_at=snapshot["retrieved_at"],
         observed_at=None,
         data_as_of=snapshot_date if provider_ok else None,
-        limitations=[snapshot["reason"]] if snapshot["reason"] else [],
+        limitations=[snapshot["reason"] or derivation_reason]
+        if snapshot["reason"] or derivation_reason
+        else [],
         attempts=list(snapshot["attempts"]),
         providers_used=[_PROVIDER] if provider_ok else [],
         outcome_status=outcome_status,

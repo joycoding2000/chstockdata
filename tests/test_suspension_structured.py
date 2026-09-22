@@ -92,7 +92,6 @@ def test_absent_ticker_is_request_normal_empty_after_successful_provider(monkeyp
     ("transport", "expected"),
     [
         (lambda *_args, **_kwargs: (_ for _ in ()).throw(ConnectionError("offline")), FETCH_FAILED_NETWORK),
-        (lambda *_args, **_kwargs: _Response(_snapshot([{"SECURITY_CODE": "600519", "SUSPEND_START_DATE": None}], 1)), FETCH_FAILED_STRUCTURE),
         (lambda *_args, **_kwargs: _Response(_snapshot([_row("688432")], 501)), FETCH_FAILED_STRUCTURE),
     ],
 )
@@ -105,6 +104,67 @@ def test_snapshot_failures_are_provider_attempt_failures(monkeypatch, transport,
     assert result.metadata.final_status == expected
     assert result.metadata.request_status == expected
     assert result.metadata.attempts[0].status == expected
+
+
+def test_unrelated_malformed_row_does_not_fail_valid_ticker_request(monkeypatch):
+    malformed = _row("000001")
+    malformed["SUSPEND_START_DATE"] = None
+    monkeypatch.setattr(
+        a_stock,
+        "_em_get",
+        lambda *_args, **_kwargs: _Response(_snapshot([_row("600519"), malformed], 2)),
+    )
+
+    result = fetch_suspension_info("600519", "2026-09-10")
+
+    assert result.metadata.final_status == FETCH_SUCCESS
+    assert result.metadata.request_status == FETCH_SUCCESS
+    assert result.metadata.attempts[0].status == FETCH_SUCCESS
+    assert result.data["suspended"] is True
+    assert get_capability_health(
+        ProviderCapability("eastmoney", "suspension_snapshot")
+    ).status == "success"
+
+
+def test_queried_malformed_row_is_request_structure_failure_only(monkeypatch):
+    malformed = _row("600519")
+    malformed["SUSPEND_START_DATE"] = None
+    monkeypatch.setattr(
+        a_stock,
+        "_em_get",
+        lambda *_args, **_kwargs: _Response(_snapshot([malformed, _row("000001")], 2)),
+    )
+
+    result = fetch_suspension_info("600519", "2026-09-10")
+
+    assert result.data == {}
+    assert result.metadata.final_status == FETCH_SUCCESS
+    assert result.metadata.request_status == FETCH_FAILED_STRUCTURE
+    assert result.metadata.final_provider == "eastmoney"
+    assert result.metadata.providers_used == ["eastmoney"]
+    assert result.metadata.attempts[0].status == FETCH_SUCCESS
+    assert get_capability_health(
+        ProviderCapability("eastmoney", "suspension_snapshot")
+    ).status == "success"
+    assert '"status":"failed_structure"' in get_suspension_info("600519", "2026-09-10")
+    assert '"reason":"ValueError"' in get_suspension_info("600519", "2026-09-10")
+
+
+def test_absent_ticker_ignores_unrelated_malformed_business_field(monkeypatch):
+    malformed = _row("000001")
+    malformed["SUSPEND_START_DATE"] = None
+    monkeypatch.setattr(
+        a_stock,
+        "_em_get",
+        lambda *_args, **_kwargs: _Response(_snapshot([malformed], 1)),
+    )
+
+    result = fetch_suspension_info("600519", "2026-09-10")
+
+    assert result.metadata.final_status == FETCH_SUCCESS
+    assert result.metadata.request_status == FETCH_NORMAL_EMPTY
+    assert result.metadata.attempts[0].status == FETCH_SUCCESS
+    assert result.data["suspended"] is False
 
 
 def test_full_page_without_snapshot_count_is_failed_structure(monkeypatch):
