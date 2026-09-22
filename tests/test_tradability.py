@@ -43,6 +43,7 @@ def _calendar_result(
     providers_used: list[str] | None = None,
     limitations: list[str] | None = None,
     outcome_status: str | None = None,
+    partial: bool = False,
 ) -> FetchResult[TradingCalendar | None]:
     calendar = TradingCalendar(
         trading_days=days,
@@ -61,6 +62,7 @@ def _calendar_result(
         final_provider=None,
         retrieved_at="2026-09-10T00:00:01+00:00",
         data_as_of=days[-1] if days else None,
+        partial=partial,
         limitations=limitations or [],
         attempts=attempts,
         providers_used=providers_used,
@@ -124,6 +126,73 @@ def test_holiday_is_closed_without_requesting_suspension(monkeypatch):
     assert suspension_calls == []
     assert result.metadata.request_status == FETCH_SUCCESS
     assert result.metadata.data_as_of == _DATE
+
+
+def test_partial_calendar_positive_membership_still_queries_suspension(monkeypatch):
+    monkeypatch.setattr(
+        tradability,
+        "fetch_trading_calendar",
+        lambda **_kwargs: _calendar_result(
+            days=("2026-09-09", _DATE, "2026-09-11"),
+            partial=True,
+            limitations=["invalid_calendar_dates_dropped"],
+        ),
+    )
+    calls = []
+    monkeypatch.setattr(
+        tradability,
+        "fetch_suspension_info",
+        lambda ticker, curr_date: (
+            calls.append((ticker, curr_date))
+            or _suspension_result(status=FETCH_NORMAL_EMPTY, suspended=False)
+        ),
+    )
+
+    result = fetch_tradability("600519", _DATE)
+
+    assert result.data["tradable"] is True
+    assert result.data["reason"] == "open_not_suspended"
+    assert calls == [("600519", _DATE)]
+    assert result.metadata.request_status == FETCH_SUCCESS
+
+
+def test_partial_calendar_negative_membership_is_unknown_without_suspension(
+    monkeypatch,
+):
+    monkeypatch.setattr(
+        tradability,
+        "fetch_trading_calendar",
+        lambda **_kwargs: _calendar_result(
+            days=("2026-09-09", "2026-09-11"),
+            partial=True,
+            limitations=["invalid_calendar_dates_dropped"],
+        ),
+    )
+    monkeypatch.setattr(
+        tradability,
+        "fetch_suspension_info",
+        lambda *_args: pytest.fail(
+            "partial calendar absence must not query suspension"
+        ),
+    )
+
+    result = fetch_tradability("600519", _DATE)
+
+    assert result.data == {
+        "ticker": "600519",
+        "date": _DATE,
+        "tradable": None,
+        "market_open": None,
+        "suspended": None,
+        "reason": "calendar_unknown",
+    }
+    assert result.metadata.request_status == FETCH_NORMAL_EMPTY
+    assert [
+        (attempt.provider, attempt.status)
+        for attempt in result.metadata.attempts
+    ] == [("tdx_vipdoc", FETCH_SUCCESS)]
+    assert result.metadata.providers_used == ["tdx_vipdoc"]
+    assert result.metadata.limitations == ["invalid_calendar_dates_dropped"]
 
 
 def test_trading_day_without_suspension_is_tradable(monkeypatch):

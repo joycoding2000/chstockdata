@@ -137,7 +137,7 @@ def fetch_tradability(
 
     calendar_open = is_trading_day(calendar_result.data, requested_date)
 
-    if calendar_open is False:
+    if calendar_open is False and not calendar_result.metadata.partial:
         return _result(
             _verdict(
                 ticker,
