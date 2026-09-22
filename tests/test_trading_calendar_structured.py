@@ -31,8 +31,8 @@ from chstockdata.fetch_result import (
 )
 from chstockdata.vendor_errors import (
     VendorNetworkError,
-    VendorNotConfiguredError,
     VendorNoDataError,
+    VendorNotConfiguredError,
 )
 
 pytestmark = pytest.mark.allow_trading_calendar

@@ -22,7 +22,55 @@ df = get_stock_data("600519", 365)    # daily OHLCV, vipdoc/mootdx/Sina chain
 get_realtime_snapshot("600519")       # realtime quote, Tencent -> mootdx -> Sina
 ```
 
-53 public functions: K-lines, realtime quotes, fundamentals / three financial
+## Structured API（v0.4.0 development）
+
+The structured surface is additive and returns `FetchResult` objects. The
+quote route keeps its provider functions injectable; `quote_fetchers` below is
+a mapping whose values accept the existing `fetcher(codes, fallback_from=...)`
+shape, and `to_finite_number` is the caller's numeric coercion helper.
+
+```python
+from chstockdata import (
+    fetch_realtime_quotes,
+    fetch_daily_bars,
+    fetch_trading_calendar,
+    fetch_suspension_info,
+    fetch_delisting_status,
+    fetch_tradability,
+)
+
+quotes = fetch_realtime_quotes(
+    ["600519"], quote_fetchers, quote_number=to_finite_number
+)
+bars = fetch_daily_bars("600519", "2026-01-01", "2026-09-22")
+calendar = fetch_trading_calendar(today="2026-09-22")
+suspension = fetch_suspension_info("600519", "2026-09-22")
+delisting = fetch_delisting_status("600519")
+tradability = fetch_tradability("600519", "2026-09-22")
+```
+
+Consumer-facing status guide:
+
+| Field | Meaning |
+|---|---|
+| `metadata.final_status` | Attempt-derived provider/routing conclusion. |
+| `metadata.request_status` | Request-level result consumers should branch on. |
+| `metadata.outcome_status` | Optional engine-declared request override; otherwise `None`. |
+| `metadata.providers_used` | Providers that actually contributed the returned payload. |
+| `metadata.limitations` | Coverage, staleness, partial-data, or validation caveats. |
+
+Cache-only results intentionally have `attempts=[]` and
+`final_status="skipped"`, while `request_status` may be
+`"success"` or `"normal_empty"`. Do not mechanically treat
+`succeeded=False` or `final_status="skipped"` as unusable cache data; use
+`request_status` for the request decision. A `tradable=True` result only means
+the currently covered calendar, delisting-date, and suspension facts support
+that verdict; it does not promise complete IPO or listing-lifecycle
+eligibility.
+
+The public surface combines legacy callables, structured result types,
+constants, and compatibility exports; `__all__` is not a count of functions.
+It covers K-lines, realtime quotes, fundamentals / three financial
 statements, valuation history, margin trading, dragon-tiger board (per-stock
 seats and whole-market daily), lockup expiry, northbound flow, fund flow, board
 fund flow, industry comparison, concept blocks, block trades, market breadth,
@@ -31,7 +79,9 @@ distribution, ETF option chains (T-quote + greeks + IV), investor Q&A (互动易
 hot rank / popularity rank / concept hits, insider transactions, shareholder
 pledge / buyback, corporate actions, earnings forecast, research reports, news
 wires, policy news, macro indicators, trading calendar, delisting / suspension
-info, and more. See `chstockdata/__init__.py` for the full export list.
+info, and more. See `chstockdata/__init__.py` for the full export list. The
+package remains `0.4.0 development`; its compatibility version is still
+`0.3.0` and this README does not announce a release.
 
 ## Data sources
 

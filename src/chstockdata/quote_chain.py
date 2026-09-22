@@ -39,7 +39,7 @@ from __future__ import annotations
 
 import inspect
 import time
-from typing import Callable
+from collections.abc import Callable
 
 from .fetch_result import (
     FETCH_NORMAL_EMPTY,
@@ -57,9 +57,9 @@ from .routing_observation import (
 
 __all__ = [
     "QUOTE_PROVIDERS",
+    "RealtimeQuoteRoutingError",
     "fetch_realtime_quotes",
     "probe_quote_provider",
-    "RealtimeQuoteRoutingError",
 ]
 
 QUOTE_CAPABILITY = "quote"
@@ -202,7 +202,7 @@ def fetch_realtime_quotes(
             payload = _normalize_quote_payload(
                 fetcher(current, fallback_from=fallback_from)
             )
-        except Exception as exc:
+        except Exception as exc:  # noqa: BLE001 - provider adapter boundary classifies failures
             elapsed = elapsed_ms(clock, start)
             status = _classify_status(exc)
             record_fetch_observation(
@@ -358,7 +358,7 @@ def probe_quote_provider(
         payload = _normalize_quote_payload(
             _probe_quote_payload(provider, fetcher, requested)
         )
-    except Exception as exc:
+    except Exception as exc:  # noqa: BLE001 - provider probe boundary classifies failures
         elapsed = elapsed_ms(clock, start)
         status = _classify_status(exc)
         record_fetch_observation(

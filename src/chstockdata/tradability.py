@@ -2,8 +2,9 @@
 
 from __future__ import annotations
 
+from collections.abc import Mapping
 from datetime import date
-from typing import Any, Mapping
+from typing import Any
 
 from .delisting import fetch_delisting_status
 from .fetch_result import (
@@ -18,7 +19,6 @@ from .fetch_result import (
 from .routing_observation import utc_now_iso
 from .suspension import fetch_suspension_info
 from .trading_calendar import fetch_trading_calendar, is_trading_day
-
 
 _CAPABILITY = "tradability"
 _HARD_FAILURES = frozenset(

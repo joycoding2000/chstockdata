@@ -1,4 +1,4 @@
-# Provider × Capability Matrix（v0.4.0 Phase 3，持续维护）
+# Provider × Capability Matrix（v0.4.0 RH1，持续维护）
 
 健康判定按 **provider + capability** 粒度记录。**同一 provider 的各
 capability 不视为整体一致健康**——尤其 mootdx：bars 失败不代表 finance /
@@ -24,10 +24,33 @@ xdxr 失败，反之亦然。该保证自 Phase 1.1 起是**运行行为**（真
 | sina | `sina:quote` | 实时快照兜底源 | `probe_quote_provider("sina")` + attempt 埋点 | 链尾兜底 | active |
 | sina | `sina:bars` | K 线兜底源（+ 三表） | `probe_daily_bars_provider("sina")` + daily-bars chain attempt（Phase 2 埋点）；canonical validation 共用（malformed = failed_structure） | K 线链尾兜底；Volume 单位 = shares | active |
 | sina | `sina:index_bars` | 交易日历在线 index bars | `probe_trading_calendar_provider("sina")` + calendar route attempt；`sh000001` / `scale=240` | stale local 后的在线日历尾级兜底；失败只影响 trading_calendar | active |
+| eastmoney | `eastmoney:suspension_snapshot` | 指定日期的全市场停牌快照 | `fetch_suspension_info` 的 snapshot route；同日 cache hit 不产生新 attempt/health | 先取一次全市场快照，再做 matched-row validation；ticker 缺失是 request-level `normal_empty` | active |
+| sse | `sse:delisting` | 上交所官方终止上市名单 | `fetch_delisting_status` 的 SSE source observation | 与 SZSE 独立；本市场 miss 不被另一市场成功掩盖 | active |
+| szse | `szse:delisting` | 深交所官方终止上市名单 | `fetch_delisting_status` 的 SZSE source observation | 与 SSE 独立；本市场 miss 不被另一市场成功掩盖 | active |
 | eastmoney | `eastmoney:datacenter` | 龙虎榜/解禁/资金流等 | 待埋点（刻意不进 live gate：封禁 IDC IP） | 独立能力 | active |
 | tdx_vipdoc | `tdx_vipdoc:daily_bars` | 本地官方日线包 | daily-bars chain attempt 埋点（local 源状态分类：disabled/missing→not_configured、损坏/malformed→failed_structure、空窗/超 staleness→normal_empty）；不进 CI live probe（本地路径） | K 线链本地首选；Volume 单位 = shares | active |
 | tdx_vipdoc | `tdx_vipdoc:index_bars` | 本地上证指数日线日历（`sh000001`） | `fetch_trading_calendar` attempt；零网络；显式 `market="sh"` 防止误读 `sz000001` | 交易日历链首选；缺失/空数据在线回落，不影响其它 tdx_vipdoc capability | active |
 | tdx_bridge | `easy_tdx:fund_flow` | L1 资金流/行业排名 | `test_tdx_bridge_health.py` | 独立能力 | active |
+
+`Tradability` is intentionally absent from the provider rows: it is a derived
+capability computed from calendar, delisting-date, and suspension facts. It
+must not create a `tradability:*` provider-health identity or an independent
+provider-health claim. BSE delisting is currently uncovered; no BSE row means
+"not covered", not "not delisted".
+
+Provider health and request outcome are separate dimensions. A provider
+observation records what a source did (`metadata.attempts` and the matrix
+identity); the completed request is read from `metadata.request_status`, while
+`metadata.final_status` remains the attempt-derived routing conclusion.
+`providers_used` lists contributors and `limitations` carries coverage or
+quality caveats. A cache hit performs no provider call, so it adds neither an
+attempt nor a health observation.
+
+For structured mootdx calls, the canonical structured boundary is the sole
+owner of the operation-level health write; primitive/internal calls do not add
+a duplicate observation. Derived tradability likewise emits no provider
+health. The routing smoke result and a non-blocking live provider probe remain
+separate facts, so a probe cannot mask a real routing failure (or vice versa).
 
 ## 已埋点 vs 待埋点
 
@@ -39,9 +62,12 @@ xdxr 失败，反之亦然。该保证自 Phase 1.1 起是**运行行为**（真
   `mootdx:bars` / `sina:bars`，经 `daily_bars.fetch_daily_bars` +
   `probe_daily_bars_provider` + **trading-calendar 链三个 capability（Phase 3）**：
   `tdx_vipdoc:index_bars` / `mootdx:index` / `sina:index_bars`，经
-  `fetch_trading_calendar` + `probe_trading_calendar_provider`。
+  `fetch_trading_calendar` + `probe_trading_calendar_provider`；**suspension**
+  使用 `eastmoney:suspension_snapshot`，**delisting** 使用独立的
+  `sse:delisting` / `szse:delisting` source observations。
 - **待埋点（后续轮次）**：财务/事件/资金流等 40+ API。
-  原实现继续工作；`Status` 列在迁移时逐行更新。
+  原实现继续工作；未迁移的 legacy API 不得因本表存在而被标成
+  structured，`Status` 列在迁移时逐行更新。
 
 ## Live gate 分工
 
@@ -55,6 +81,10 @@ xdxr 失败，反之亦然。该保证自 Phase 1.1 起是**运行行为**（真
   失败不 fail 整个 routing gate，但必须在 job 输出中单独可见，禁止被
   fallback 成功掩盖（mootdx:bars 在 CI 网络失败必须真实显示，不回退成绿）；
   summary 打印真实最后观察（无 `not_configured` 污染）。
+
+Live provider probes are observational and non-blocking. They cannot turn a
+failed routing smoke into a green result; routing smoke and provider probes
+must remain separately visible.
 
 ## 历史语义修正记录
 

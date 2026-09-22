@@ -7,11 +7,13 @@ ticker lookup reuses the original attempt rather than claiming a new fetch.
 
 from __future__ import annotations
 
-from datetime import date
 import math
 import time
-from typing import Any, Mapping
+from collections.abc import Mapping
+from datetime import date
+from typing import Any
 
+from . import a_stock as _legacy_a_stock
 from .fetch_result import (
     FETCH_FAILED_NETWORK,
     FETCH_FAILED_STRUCTURE,
@@ -22,8 +24,6 @@ from .fetch_result import (
     FetchResult,
 )
 from .routing_observation import elapsed_ms, record_fetch_observation, utc_now_iso
-from . import a_stock as _legacy_a_stock
-
 
 _PROVIDER = "eastmoney"
 _PROVIDER_CAPABILITY = "eastmoney:suspension_snapshot"
@@ -145,7 +145,7 @@ def _fetch_suspension_snapshot_uncached(snapshot_date: str) -> dict[str, Any]:
             started_at=started_at,
             elapsed=elapsed_ms(clock, started),
         )
-    except Exception as exc:  # existing legacy contract classifies unknown request failures as network
+    except Exception as exc:  # noqa: BLE001 - legacy contract classifies unknown failures as network
         return _snapshot_failure(
             status=FETCH_FAILED_NETWORK,
             reason=type(exc).__name__,

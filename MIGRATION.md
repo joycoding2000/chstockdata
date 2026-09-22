@@ -28,3 +28,53 @@ shims that keep `from tradingagents.dataflows.a_stock import ...` working.
 `tests/test_data_layer_live_smoke.py` (network-marked live sentinel) exists in
 both repositories on purpose: the source repo's copy validates the full
 shim→package chain, this repo's copy validates the package directly.
+
+## v0.4.0 structured API（development）
+
+The six structured entry points are additive. Existing legacy functions keep
+their signatures and output envelopes; consumers may migrate one capability at
+a time without replacing the legacy surface.
+
+```python
+from chstockdata import (
+    fetch_realtime_quotes,
+    fetch_daily_bars,
+    fetch_trading_calendar,
+    fetch_suspension_info,
+    fetch_delisting_status,
+    fetch_tradability,
+)
+
+quotes = fetch_realtime_quotes(
+    ["600519"], quote_fetchers, quote_number=to_finite_number
+)
+bars = fetch_daily_bars("600519", "2026-01-01", "2026-09-22")
+calendar = fetch_trading_calendar(today="2026-09-22")
+suspension = fetch_suspension_info("600519", "2026-09-22")
+delisting = fetch_delisting_status("600519")
+tradability = fetch_tradability("600519", "2026-09-22")
+```
+
+`quote_fetchers` is the real `fetch_realtime_quotes` injection argument: its
+values use the existing `fetcher(codes, fallback_from=...)` shape;
+`to_finite_number` is the required numeric coercion callback. The other calls
+above use the actual public signatures and return `FetchResult` values.
+
+For a result, consumers should inspect:
+
+- `metadata.final_status`: attempt-derived provider/routing conclusion;
+- `metadata.request_status`: request-level result used for branching;
+- `metadata.outcome_status`: optional request-level override, otherwise `None`;
+- `metadata.providers_used`: providers that contributed the payload;
+- `metadata.limitations`: coverage, staleness, partial-data, and validation caveats.
+
+Cache-only results can intentionally expose `attempts=[]`,
+`final_status="skipped"`, and `request_status="success"` or
+`"normal_empty"`. Use `request_status` rather than mechanically treating
+`succeeded=False` as unusable data. `tradable=True` is only a verdict supported
+by the covered calendar, delisting-date, and suspension facts; it is not a
+complete IPO or listing-lifecycle eligibility claim.
+
+The v0.4.0 development line does not add a `GenericFallbackRouter` and does
+not complete the `a_stock.py` decomposition. The package version remains
+`0.3.0` until an explicit release.

@@ -9,6 +9,36 @@ Consumer compatibility baseline remains **0.3.0** (commit `143eb5a`);
 nothing below changes the public API. Scope and rationale:
 `docs/architecture.md`, `docs/provider-capability-matrix.md`.
 
+### Phases 5–8 — Structured status coverage and historical guards
+
+These phases are part of the current development line, not a published
+0.4.0 release.
+
+- **Phase 5 / 5.1 — Suspension:** added additive
+  `fetch_suspension_info(ticker, curr_date)`. It fetches one Eastmoney
+  full-date snapshot, validates the matched ticker row, and exposes provider
+  observations separately from the request-level result. A same-day cache hit
+  does not invent a provider attempt or health observation.
+- **Phase 6 / 6.1 — Tradability:** added derived
+  `fetch_tradability(ticker, curr_date)`. It applies the calendar first,
+  treats positive membership from a partial calendar as usable while refusing
+  to infer closure from missing dates, and then applies delisting-date and
+  suspension evidence conservatively.
+- **Phase 7 — Delisting status:** added additive
+  `fetch_delisting_status(ticker)` with independent SSE and SZSE structured
+  status observations. BSE delisting is explicitly uncovered; a miss in a
+  covered market is not proof of complete listing eligibility.
+- **Phase 8 — Historical guard:** the tradability route applies an effective
+  delisting date only on that date and afterward, preventing a later delisting
+  record from leaking into an earlier request. This is a date guard, not a
+  complete historical point-in-time snapshot database.
+
+All six structured entry points are additive; the legacy API and its renderer
+contracts remain compatible. There is no `GenericFallbackRouter`, and
+`a_stock.py` has not been fully decomposed. The package remains in
+`0.4.0 development` with the compatibility version at `0.3.0`; this section
+does not claim that 0.4.0 has been released.
+
 ### Phase 4.1 — Structured Observation Kernel + Boundary Hardening
 
 #### Added

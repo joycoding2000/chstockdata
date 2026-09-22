@@ -5,7 +5,7 @@ owned by ``daily_bars.fetch_daily_bars`` and must not be reimplemented here.
 """
 
 import os
-from datetime import datetime
+from datetime import datetime, timezone
 from types import SimpleNamespace
 
 import pandas as pd
@@ -68,7 +68,7 @@ def _cache_path(tmp_path):
 def _fresh_cache(tmp_path, frame):
     path = _cache_path(tmp_path)
     frame.to_csv(path, index=False, encoding="utf-8")
-    now = datetime.now().timestamp()
+    now = datetime.now(timezone.utc).timestamp()
     os.utime(path, (now, now))
     return path
 
@@ -136,7 +136,7 @@ def test_malformed_fresh_cache_is_bypassed_and_rewritten(tmp_path, monkeypatch):
             "Volume": [1000],
         }
     ).to_csv(path, index=False, encoding="utf-8")
-    now = datetime.now().timestamp()
+    now = datetime.now(timezone.utc).timestamp()
     os.utime(path, (now, now))
     calls = []
 

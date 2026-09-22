@@ -25,17 +25,16 @@ import bisect
 import json
 import logging
 import time
-from collections.abc import Mapping
+from collections.abc import Callable, Mapping
 from dataclasses import dataclass
 from datetime import date, datetime, timedelta, timezone
-from typing import Any, Callable
+from typing import Any
 
 import pandas as pd
 
-from .vipdoc_history import load_vipdoc_daily
 from .fetch_result import (
-    FETCH_NOT_CONFIGURED,
     FETCH_NORMAL_EMPTY,
+    FETCH_NOT_CONFIGURED,
     FETCH_SUCCESS,
     FetchAttempt,
     FetchMetadata,
@@ -51,6 +50,7 @@ from .vendor_errors import (
     VendorNotConfiguredError,
     exception_to_fetch_status,
 )
+from .vipdoc_history import load_vipdoc_daily
 
 logger = logging.getLogger(__name__)
 
@@ -88,7 +88,7 @@ _MARKET_TZ = timezone(timedelta(hours=8))
 # most once per trading day, so this keeps repeated consumers (vipdoc staleness
 # checks across prefetched tools) from re-parsing the index file or repeating
 # the online fallback inside one run.
-_CALENDAR_CACHE: dict[tuple[str, str], "TradingCalendar | None"] = {}
+_CALENDAR_CACHE: dict[tuple[str, str], TradingCalendar | None] = {}
 
 
 @dataclass(frozen=True)
@@ -136,7 +136,7 @@ def _max_staleness_days() -> float:
         from .config import get_config
 
         cfg = get_config()
-    except Exception:  # pragma: no cover - config failure keeps the default
+    except Exception:  # noqa: BLE001 - config failure keeps the default
         return 5.0
     try:
         value = float(cfg.get("vipdoc_history_max_staleness_days", 5))
@@ -220,7 +220,7 @@ def _fetch_local_index_days(*, root: Any = None) -> Any:
         )
     except (VendorNoDataError, VendorNotConfiguredError):
         raise
-    except Exception as exc:  # noqa: BLE001 - adapter boundary classifies shape/read errors
+    except Exception as exc:
         raise ValueError(
             f"vipdoc calendar file unreadable ({type(exc).__name__})"
         ) from exc
@@ -228,7 +228,9 @@ def _fetch_local_index_days(*, root: Any = None) -> Any:
     if frame is None:
         raise VendorNotConfiguredError("vipdoc calendar file missing")
     if not isinstance(frame, pd.DataFrame):
-        raise ValueError("vipdoc calendar payload must be a pandas DataFrame")
+        raise ValueError(  # noqa: TRY004 - structure failures use ValueError taxonomy
+            "vipdoc calendar payload must be a pandas DataFrame"
+        )
     if frame.empty:
         raise VendorNoDataError("vipdoc calendar file has no usable rows")
     if "Date" not in frame.columns:
@@ -256,7 +258,9 @@ def _fetch_mootdx_index_days(
     if raw is None:
         raise VendorNoDataError("mootdx calendar returned no rows")
     if not isinstance(raw, pd.DataFrame):
-        raise ValueError("mootdx calendar payload must be a pandas DataFrame")
+        raise ValueError(  # noqa: TRY004 - structure failures use ValueError taxonomy
+            "mootdx calendar payload must be a pandas DataFrame"
+        )
     frame = _normalize_mootdx_bars_frame(raw)
     if frame is None or frame.empty:
         raise VendorNoDataError("mootdx calendar returned no rows")
@@ -291,7 +295,9 @@ def _fetch_sina_index_days(*, root: Any = None) -> Any:
     except AttributeError as exc:
         raise ValueError("sina calendar response has no text payload") from exc
     if not isinstance(payload, list):
-        raise ValueError("sina calendar payload must be a list")
+        raise ValueError(  # noqa: TRY004 - structure failures use ValueError taxonomy
+            "sina calendar payload must be a list"
+        )
     if not payload:
         raise VendorNoDataError("sina calendar returned no rows")
     return [
@@ -559,8 +565,10 @@ def _calendar_from_provider_days(
         stale = age > max_staleness
         limitations = (
             (
-                f"本地 vipdoc 上证指数最新 bar 落后 {age} 天"
-                f"（阈值 {max_staleness:g} 天）",
+                (
+                    f"本地 vipdoc 上证指数最新 bar 落后 {age} 天"
+                    f"（阈值 {max_staleness:g} 天）"
+                ),
             )
             if stale
             else ()

@@ -27,11 +27,11 @@ Design constraints:
 
 from __future__ import annotations
 
-from dataclasses import dataclass
-from datetime import datetime, timezone
 import threading
 import time
-from typing import Callable
+from collections.abc import Callable
+from dataclasses import dataclass
+from datetime import datetime, timezone
 
 from .fetch_result import (
     FETCH_FAILED_NETWORK,
@@ -44,20 +44,20 @@ from .fetch_result import (
 )
 
 __all__ = [
-    "ProviderCapability",
-    "CapabilityHealth",
-    "HEALTH_SUCCESS",
-    "HEALTH_NORMAL_EMPTY",
     "HEALTH_FAILED",
+    "HEALTH_NORMAL_EMPTY",
     "HEALTH_NOT_CONFIGURED",
     "HEALTH_SKIPPED",
-    "fetch_status_to_health_status",
-    "record_capability_health",
-    "get_capability_health",
+    "HEALTH_SUCCESS",
+    "CapabilityHealth",
+    "ProviderCapability",
     "capability_health_snapshot",
+    "fetch_status_to_health_status",
+    "get_capability_health",
+    "known_capabilities",
+    "record_capability_health",
     "reset_capability_health",
     "set_health_clock",
-    "known_capabilities",
 ]
 
 # ── Health status vocabulary ────────────────────────────────────────────────

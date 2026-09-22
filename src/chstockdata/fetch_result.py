@@ -34,13 +34,13 @@ from datetime import datetime, timezone
 from typing import Generic, TypeVar
 
 __all__ = [
-    "FETCH_SUCCESS",
-    "FETCH_NORMAL_EMPTY",
     "FETCH_FAILED_NETWORK",
     "FETCH_FAILED_RATE_LIMIT",
     "FETCH_FAILED_STRUCTURE",
+    "FETCH_NORMAL_EMPTY",
     "FETCH_NOT_CONFIGURED",
     "FETCH_SKIPPED",
+    "FETCH_SUCCESS",
     "FetchAttempt",
     "FetchMetadata",
     "FetchResult",
@@ -184,11 +184,17 @@ class FetchMetadata:
         if not self.capability:
             raise ValueError("capability must not be empty")
         if not isinstance(self.limitations, list):
-            raise ValueError("limitations must be a list")
+            raise ValueError(  # noqa: TRY004 - preserve the structured validation taxonomy
+                "limitations must be a list"
+            )
         if not isinstance(self.attempts, list):
-            raise ValueError("attempts must be a list")
+            raise ValueError(  # noqa: TRY004 - preserve the structured validation taxonomy
+                "attempts must be a list"
+            )
         if not isinstance(self.providers_used, list):
-            raise ValueError("providers_used must be a list")
+            raise ValueError(  # noqa: TRY004 - preserve the structured validation taxonomy
+                "providers_used must be a list"
+            )
         if self.outcome_status is not None and self.outcome_status not in (
             FETCH_SUCCESS, FETCH_NORMAL_EMPTY, FETCH_FAILED_NETWORK,
             FETCH_FAILED_RATE_LIMIT, FETCH_FAILED_STRUCTURE,
@@ -309,7 +315,9 @@ class FetchResult(Generic[T]):
 
     def __post_init__(self) -> None:
         if not isinstance(self.metadata, FetchMetadata):
-            raise ValueError("metadata must be a FetchMetadata")
+            raise ValueError(  # noqa: TRY004 - preserve the structured validation taxonomy
+                "metadata must be a FetchMetadata"
+            )
 
     @property
     def succeeded(self) -> bool:

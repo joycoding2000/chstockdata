@@ -98,13 +98,13 @@ class TestProviderVsRoutingHealth:
 
     def test_exception_classification_uses_vendor_taxonomy(self):
         """vendor_errors 行为分类：限流/无数据/未配置/网络/结构 各归其位。"""
+        from chstockdata.quote_chain import _classify_status
         from chstockdata.vendor_errors import (
             VendorNetworkError,
             VendorNoDataError,
             VendorNotConfiguredError,
             VendorRateLimitError,
         )
-        from chstockdata.quote_chain import _classify_status
 
         assert _classify_status(VendorRateLimitError("slow down")) == "failed_rate_limit"
         assert _classify_status(VendorNoDataError("no rows")) == "normal_empty"

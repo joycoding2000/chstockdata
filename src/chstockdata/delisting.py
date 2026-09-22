@@ -10,11 +10,12 @@ covered official terminated-listing reference.
 
 from __future__ import annotations
 
-from dataclasses import dataclass
-from datetime import datetime
 import json
 import time
-from typing import Any, Callable, Mapping
+from collections.abc import Callable, Mapping
+from dataclasses import dataclass
+from datetime import datetime
+from typing import Any
 
 from .fetch_result import (
     FETCH_FAILED_NETWORK,

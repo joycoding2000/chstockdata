@@ -109,7 +109,7 @@ def _bars_probe(provider: str) -> bool:
     """对单个 provider 的 bars capability 做隔离探测（真实适配器路径）。"""
     from chstockdata.daily_bars import ADAPTERS, probe_daily_bars_provider
 
-    end = dt.date.today()
+    end = dt.datetime.now(dt.timezone.utc).date()
     start = end - dt.timedelta(days=30)
     result = probe_daily_bars_provider(
         provider,
@@ -172,7 +172,7 @@ def _calendar_probe(provider: str) -> bool:
 
     result = probe_trading_calendar_provider(
         provider,
-        today=dt.date.today(),
+        today=dt.datetime.now(dt.timezone.utc).date(),
         adapter=CALENDAR_ADAPTERS[provider],
     )
     return result.metadata.final_status == FETCH_SUCCESS

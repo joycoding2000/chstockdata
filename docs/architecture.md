@@ -1,4 +1,4 @@
-# chstockdata 架构（v0.4.0 Phase 3）
+# chstockdata 架构（v0.4.0 RH1）
 
 > 基线：v0.3.0（commit `143eb5a`）已被 `TradingAgents-AStock-Private` 与
 > `systematic-investing-os` 作为冻结 provider baseline 消费。本文档描述
@@ -22,12 +22,12 @@
 └──────────────────────────┬──────────────────────────────────┘
                            │
 ┌──────────────────────────▼──────────────────────────────────┐
-│ Structured core（v0.4.0 新增，additive）                      │
-│  quote_chain.fetch_realtime_quotes → FetchResult[T]          │
-│  daily_bars.fetch_daily_bars → FetchResult[pd.DataFrame]     │
-│  trading_calendar.fetch_trading_calendar → FetchResult[...]  │
-│  fetch_result: FetchAttempt / FetchMetadata / FetchResult[T] │
-│  routing_observation: attempt + health emission only          │
+│ Structured factual capabilities（v0.4.0 新增，additive）        │
+│  Quote / Daily Bars / Trading Calendar                         │
+│  Suspension / Delisting Status                                 │
+│  fetch_result: FetchAttempt / FetchMetadata / FetchResult[T]   │
+│  routing_observation: attempt + health emission only            │
+│ Derived facts: Tradability                                    │
 ├──────────────────────────────────────────────────────────────┤
 │ Capability health（v0.4.0 新增）                              │
 │  capabilities: ProviderCapability / 逐能力健康观察            │
@@ -37,13 +37,41 @@
 └──────────────────────────────────────────────────────────────┘
 ```
 
+### 1.1 六项 structured capability
+
+```text
+Provider / local source
+        ↓
+Structured factual capabilities
+  Quote · Daily Bars · Trading Calendar · Suspension · Delisting Status
+        ↓
+Derived facts
+  Tradability
+        ↓
+Legacy renderers / future consumers
+```
+
+| Capability | Structured entry point | Kind | Legacy boundary |
+| --- | --- | --- | --- |
+| Quote | `fetch_realtime_quotes(...)` | factual provider route | `get_realtime_snapshot` renderer |
+| Daily Bars | `fetch_daily_bars(code, start_date, end_date)` | factual provider route | `get_stock_data` raw/D and cached OHLCV |
+| Trading Calendar | `fetch_trading_calendar(*, root=None, today=None, adapters=None, clock=time.monotonic)` | factual supportive route | `load_trading_calendar` fail-soft wrapper |
+| Suspension | `fetch_suspension_info(ticker, curr_date)` | factual Eastmoney snapshot route | `get_suspension_info` renderer |
+| Delisting Status | `fetch_delisting_status(ticker)` | factual SSE/SZSE status route | `get_delisting_info` renderer |
+| Tradability | `fetch_tradability(ticker, curr_date, *, root=None)` | derived capability | additive structured consumer surface |
+
+`Tradability` is derived capability, not a provider. It therefore does not
+have an independent `tradability:*` capability-health identity.
+
 ### 1.1 Structured observation boundary (Phase 4.1)
 
 `routing_observation.record_fetch_observation()` is internal plumbing shared
-by the quote, daily-bars, and trading-calendar structured routes and their
-probes. It constructs and appends exactly one `FetchAttempt`, maps the
-already-classified fetch status to health, and records exactly one capability
-health observation. `utc_now_iso()` and `elapsed_ms()` only normalize timing.
+by provider-backed structured routes and their probes. It constructs and
+appends exactly one `FetchAttempt`, maps the already-classified fetch status to
+health, and records exactly one capability-health observation.
+`utc_now_iso()` and `elapsed_ms()` only normalize timing. Suspension and
+delisting routes own their snapshot/source policy; the observation helper does
+not turn a cache hit into a provider attempt.
 
 The kernel explicitly does **not** own provider ordering, fallback decisions,
 canonicalization, normal-empty/stale/partial semantics, payload merging, or
@@ -158,7 +186,20 @@ FetchResult[T] # data + metadata，generic
 
 ## 5. Routing（structured vertical slices）
 
-v0.4.0 目前有三条真实数据路径迁入 structured core：
+v0.4.0 currently has six structured entry points: five factual capabilities
+and one derived capability. The runtime order for a tradability request is
+fixed and intentionally conservative:
+
+```text
+Calendar
+→ Delisting date guard
+→ Suspension
+→ Tradability verdict
+```
+
+Quote, daily bars, and trading calendar retain their route-specific provider
+policies; suspension and delisting use their own validated snapshot/source
+boundaries. No generic fallback router is introduced.
 
 ### 5.1 实时行情（Phase 1，quote）
 
@@ -197,7 +238,7 @@ tdx_vipdoc:daily_bars ──► mootdx:bars ──► sina:bars
 ```
 
 - **canonical schema（enforced，不再只是声明）**：每个 provider 帧必须
-  通过 `canonicalize_daily_bars_frame()` 才允许记 `success`——**三条
+  通过 `canonicalize_daily_bars_frame()` 才允许记 `success`——各 provider
   ingress 全部共用同一 boundary**：base 路由、单 provider probe、Sina
   supplement（Phase 2.1.1 封口：supplement 在记 success/health/merge
   之前必须先通过 validation；malformed supplement = `failed_structure`、
@@ -277,7 +318,7 @@ tdx_vipdoc:daily_bars ──► mootdx:bars ──► sina:bars
 ### 5.3 交易日历（Phase 3，supportive trading calendar）
 
 交易日历继续使用既有 `TradingCalendar` domain model，不创建第二套
-calendar payload。第三条 structured route 是：
+calendar payload。交易日历的 structured route 是：
 
 ```text
 tdx_vipdoc:index_bars ──► mootdx:index ──► sina:index_bars
@@ -326,6 +367,44 @@ tdx_vipdoc:index_bars ──► mootdx:index ──► sina:index_bars
   `(root, day) -> TradingCalendar | None`，structured API 不读取旧 memo；
   `local_is_trading_day()` / `local_latest_index_bar()` 仍是 zero-network
   local-only seam，所有既有消费者继续使用它们并保留自己的 fallback。
+
+### 5.4 停牌（Suspension）
+
+`fetch_suspension_info(ticker, curr_date)` reads one Eastmoney full-date
+snapshot, validates the matched ticker row, and returns a structured result.
+The snapshot fetch is observed once under `eastmoney:suspension_snapshot`;
+ticker lookup reuses that observation. A valid snapshot with no matching row is
+request-level `normal_empty`, not a provider failure. A same-day cache hit has
+`attempts=[]` and creates no new capability-health record.
+
+### 5.5 退市状态（Delisting Status）
+
+`fetch_delisting_status(ticker)` queries the covered official SSE and SZSE
+sources independently and preserves each source's attempt/result. A miss in a
+covered market means no matching terminated-listing row was observed in that
+reference; it is not proof of complete listing eligibility. BSE delisting is
+currently uncovered because no equivalent official zero-auth source is wired
+into this package.
+
+The provider identities are `sse:delisting` and `szse:delisting`. Cache-only
+reads do not synthesize attempts or health observations. Legacy
+`get_delisting_info` remains a renderer over this route.
+
+### 5.6 可交易性（Tradability）
+
+`fetch_tradability(ticker, curr_date, *, root=None)` is a derived capability.
+It first asks the calendar whether the market is open. If the calendar is
+partial, positive membership (`date in days`) may support an open-day answer;
+absence from that partial set cannot prove a closure. Once an open day is
+supported, the route applies the delisting-date guard and only then asks for
+the suspension snapshot. Any uncertainty in these factual inputs keeps
+`tradable` unknown rather than manufacturing `True` or `False`.
+
+The delisting guard blocks on the effective delisting date and afterward, but
+does not leak a later delisting fact into an earlier request. This is a
+historical date guard, not a complete point-in-time snapshot database, and a
+`tradable=True` verdict is limited to the facts covered by these routes; it
+does not assert full IPO/listing-lifecycle eligibility.
 
 `get_ohlcv_frame_cached` / `_load_ohlcv_astock` 现在复用同一条 structured
 provider route，同时保留 legacy CSV/PIT/staleness consumer contract：
@@ -384,10 +463,13 @@ backtest、strategy；以及 TradingAgents-specific 的 `original_tool`、
   仅触及 Phase 1 新增且未发布（未 release）的 structured core API，
   对 v0.3.0 消费面零影响。
 
-## 8. 明确不做（Phase 3 范围外）
+## 8. 明确不做（RH1 release hardening 范围外）
 
 - capability health 持久化（health 观察有时效性，持久化需先定义 TTL /
   过期 / 冷启动 / 跨进程优先级；趋势走 GitHub Actions 日志）；
 - `data_as_of` vendor 实化（quote vendor 时间戳映射留给单独任务）；
-- suspension/tradability、corporate actions、qfq/hfq/W/M 的 structured 迁移；
-- `GenericFallbackRouter` 抽象、consumer repository 升级与 v0.4.0 发布。
+- corporate actions、qfq/hfq/W/M 的 structured 迁移；
+- listing-date / IPO eligibility、BSE delisting coverage、完整 PIT snapshot
+  database；
+- `GenericFallbackRouter` 抽象、`a_stock.py` 全面拆分、consumer repository
+  升级与 v0.4.0 发布。

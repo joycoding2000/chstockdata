@@ -106,7 +106,7 @@ in this chain reports an observation timestamp, and none is fabricated.
 from __future__ import annotations
 
 import time
-from typing import Callable
+from collections.abc import Callable
 
 import pandas as pd
 
@@ -114,8 +114,8 @@ from .fetch_result import (
     FETCH_FAILED_NETWORK,
     FETCH_FAILED_RATE_LIMIT,
     FETCH_FAILED_STRUCTURE,
-    FETCH_NOT_CONFIGURED,
     FETCH_NORMAL_EMPTY,
+    FETCH_NOT_CONFIGURED,
     FETCH_SUCCESS,
     FetchAttempt,
     FetchMetadata,
@@ -127,24 +127,23 @@ from .routing_observation import (
     utc_now_iso,
 )
 from .vendor_errors import (
-    VendorNetworkError,
     VendorNoDataError,
     VendorNotConfiguredError,
     exception_to_fetch_status,
 )
 
 __all__ = [
+    "ADAPTERS",
+    "CANONICAL_OPTIONAL_COLUMNS",
+    "CANONICAL_REQUIRED_COLUMNS",
     "DAILY_BARS_CAPABILITY",
     "DAILY_BAR_PROVIDERS",
-    "CANONICAL_REQUIRED_COLUMNS",
-    "CANONICAL_OPTIONAL_COLUMNS",
     "VOLUME_UNIT_MIXED",
-    "ADAPTERS",
+    "DailyBarsRoutingError",
     "canonicalize_daily_bars_frame",
     "fetch_daily_bars",
-    "probe_daily_bars_provider",
     "legacy_source_label",
-    "DailyBarsRoutingError",
+    "probe_daily_bars_provider",
 ]
 
 DAILY_BARS_CAPABILITY = "daily_bars"
@@ -222,7 +221,7 @@ def canonicalize_daily_bars_frame(
     - ``pre_close`` (optional) passes through untouched.
     """
     if not isinstance(frame, pd.DataFrame):
-        raise ValueError(
+        raise ValueError(  # noqa: TRY004 - structure failures use ValueError taxonomy
             f"{provider} bars payload must be a pandas DataFrame"
         )
     if frame.empty:
@@ -334,7 +333,7 @@ def fetch_vipdoc_daily_bars(
         from .vipdoc_history import load_vipdoc_daily
 
         frame = load_vipdoc_daily(code, start_date, end_date)
-    except Exception as exc:  # noqa: BLE001 - local read failure must degrade
+    except Exception as exc:
         raise ValueError(
             f"vipdoc day file unreadable ({type(exc).__name__})"
         ) from exc
@@ -521,7 +520,7 @@ def _run_adapter(
         status=FETCH_SUCCESS,
         started_at=started_at,
         elapsed_ms=elapsed,
-        record_count=int(len(frame)),
+        record_count=len(frame),
     )
     return frame
 
@@ -644,7 +643,7 @@ def _supplement_with_sina(
         status=FETCH_SUCCESS,
         started_at=started_at,
         elapsed_ms=elapsed,
-        record_count=int(len(supplement)),
+        record_count=len(supplement),
     )
     merged = a_stock._merge_ohlcv(base_frame, supplement)
     advanced_end = a_stock._last_ohlcv_date(merged) != a_stock._last_ohlcv_date(

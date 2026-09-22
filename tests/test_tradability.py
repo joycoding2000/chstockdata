@@ -4,17 +4,16 @@ from __future__ import annotations
 
 import pytest
 
-import chstockdata.tradability as tradability
 from chstockdata import (
     FETCH_FAILED_NETWORK,
     FETCH_NORMAL_EMPTY,
     FETCH_SUCCESS,
     fetch_tradability,
+    tradability,
 )
 from chstockdata.capabilities import capability_health_snapshot, reset_capability_health
 from chstockdata.fetch_result import FetchAttempt, FetchMetadata, FetchResult
 from chstockdata.trading_calendar import TradingCalendar
-
 
 _DATE = "2026-09-10"
 

@@ -18,7 +18,6 @@ import pytest
 from chstockdata.capabilities import (
     ProviderCapability,
     capability_health_snapshot,
-    get_capability_health,
     reset_capability_health,
 )
 from chstockdata.daily_bars import (
@@ -28,9 +27,9 @@ from chstockdata.daily_bars import (
     probe_daily_bars_provider,
 )
 from chstockdata.fetch_result import (
+    FETCH_FAILED_NETWORK,
     FETCH_NORMAL_EMPTY,
     FETCH_NOT_CONFIGURED,
-    FETCH_FAILED_NETWORK,
     FETCH_SUCCESS,
 )
 from chstockdata.vendor_errors import (
@@ -493,7 +492,6 @@ def test_vipdoc_adapter_classifies_disabled_and_missing(tmp_path, monkeypatch):
 @pytest.mark.allow_vipdoc_history
 def test_vipdoc_adapter_classifies_empty_window_and_staleness(tmp_path, monkeypatch):
     import struct
-    from datetime import datetime, timezone, timedelta
 
     from chstockdata import vipdoc_history as vh
     from chstockdata.daily_bars import fetch_vipdoc_daily_bars

@@ -4,15 +4,15 @@ from __future__ import annotations
 
 import pytest
 
-import chstockdata.a_stock as a_stock
 from chstockdata import (
     FETCH_FAILED_NETWORK,
     FETCH_FAILED_STRUCTURE,
     FETCH_NORMAL_EMPTY,
     FETCH_SUCCESS,
+    a_stock,
     fetch_suspension_info,
-    get_suspension_info,
     get_capability_health,
+    get_suspension_info,
     reset_capability_health,
 )
 from chstockdata.capabilities import ProviderCapability
@@ -51,7 +51,7 @@ def _snapshot(rows: list[dict], count: int | None = None) -> dict:
 
 @pytest.fixture(autouse=True)
 def _clean_health_and_snapshot_cache():
-    import chstockdata.suspension as suspension
+    from chstockdata import suspension
 
     reset_capability_health()
     suspension._suspension_snapshot_cache.clear()

@@ -37,7 +37,7 @@ def _no_background_name_map_warmup(request, monkeypatch):
         return
     try:
         from chstockdata import a_stock
-    except Exception:  # pragma: no cover - heavy optional import unavailable
+    except Exception:  # noqa: BLE001 - optional import failure must not block collection
         return
     monkeypatch.setattr(a_stock, "ensure_name_code_map_warmup", lambda: None)
 
@@ -53,7 +53,7 @@ def _reset_mootdx_readiness_globals(monkeypatch):
     """
     try:
         from chstockdata import a_stock
-    except Exception:  # pragma: no cover - heavy optional import unavailable
+    except Exception:  # noqa: BLE001 - optional import failure must not block collection
         return
     monkeypatch.setattr(a_stock, "_mootdx_transport_ok", True)
     monkeypatch.setattr(a_stock, "_mootdx_transport_candidates", ())
@@ -84,13 +84,13 @@ def _no_vipdoc_history(request, monkeypatch):
 
     try:
         from chstockdata import a_stock
-    except Exception:  # pragma: no cover - heavy optional import unavailable
+    except Exception:  # noqa: BLE001 - optional import failure must not block collection
         a_stock = None
     else:
         monkeypatch.setattr(a_stock, "_load_vipdoc_ohlcv_frame", lambda *args, **kwargs: None)
     try:
         from chstockdata import daily_bars
-    except Exception:  # pragma: no cover - heavy optional import unavailable
+    except Exception:  # noqa: BLE001 - optional import failure must not block collection
         return
     monkeypatch.setitem(daily_bars.ADAPTERS, "tdx_vipdoc", _vipdoc_unavailable)
 
@@ -107,7 +107,7 @@ def _no_trading_calendar(request, monkeypatch):
         return
     try:
         from chstockdata import trading_calendar
-    except Exception:  # pragma: no cover - heavy optional import unavailable
+    except Exception:  # noqa: BLE001 - optional import failure must not block collection
         return
     trading_calendar._clear_calendar_cache()
     monkeypatch.setattr(

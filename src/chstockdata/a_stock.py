@@ -305,7 +305,7 @@ def _load_mootdx_transport_ok_from_disk() -> bool | None:
     try:
         with open(path, encoding="utf-8") as fh:
             payload = _json.load(fh)
-    except Exception:
+    except Exception:  # noqa: BLE001 - old or malformed disk cache is non-fatal
         return None
     value = payload.get("transport_ok")
     if isinstance(value, bool):
@@ -845,7 +845,7 @@ def _bypass_select_mootdx_client(*, probe_deadline_at: float | None):
                 time.sleep(_TDX_PROBE_GAP_S)
             try:
                 candidate = Quotes.factory(market="std", server=(ip, port))
-            except Exception as e:
+            except Exception as e:  # noqa: BLE001 - factory failures are candidate-local
                 logger.debug("mootdx bypass %s:%s 握手失败（%s）", ip, port, type(e).__name__)
                 continue
             logger.info("mootdx bypass client selected (factory-only): %s:%s", ip, port)
@@ -860,7 +860,7 @@ def _bypass_select_mootdx_client(*, probe_deadline_at: float | None):
             raise _mootdx_probe_budget_exceeded()
         try:
             candidate = Quotes.factory(market="std")
-        except Exception as e:
+        except Exception as e:  # noqa: BLE001 - fallback factory failure is non-fatal
             logger.debug("mootdx bypass 裸 factory 失败 — %s", e)
         else:
             logger.info("mootdx bypass client from 裸 factory（用户已有配置）")
@@ -1100,9 +1100,9 @@ def _get_mootdx_client(request_capability: str | None = None):
         # 层（factory 成功的候选都过了 canary 时早已返回 client）——该结论
         # 仅约束 bars。
         cause = (
-            "%d 台服务器能建通达信 client，但 bars readiness canary 全部失败。"
+            f"{canary_failures} 台服务器能建通达信 client，但 bars readiness canary 全部失败。"
             "该结论仅约束 bars 能力；其它 capability 将按 transport 可用"
-            "分别验证。" % canary_failures
+            "分别验证。"
         )
         verdict_transport_ok = True
     elif factory_failures:
@@ -2597,7 +2597,7 @@ def _fetch_cached_ohlcv_from_structured(
 
     try:
         return _legacy_ohlcv_columns(_normalize_ohlcv_dates(data))
-    except Exception as exc:  # noqa: BLE001 - preserve the legacy error envelope
+    except Exception as exc:
         logger.warning("structured daily-bars payload unusable for %s: %s", code, exc)
         raise ValueError(f"No OHLCV data from mootdx/sina for {code}") from exc
 
