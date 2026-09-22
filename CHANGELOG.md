@@ -9,6 +9,32 @@ Consumer compatibility baseline remains **0.3.0** (commit `143eb5a`);
 nothing below changes the public API. Scope and rationale:
 `docs/architecture.md`, `docs/provider-capability-matrix.md`.
 
+### Phase 4.1 — Structured Observation Kernel + Boundary Hardening
+
+#### Added
+
+- Internal `routing_observation` plumbing shared by quote, daily-bars, and
+  trading-calendar structured routes/probes. It emits one `FetchAttempt` and
+  one mapped capability-health observation without owning routing policy,
+  canonicalization, empty/stale/partial semantics, or metadata assembly.
+
+#### Fixed
+
+- Quote top-level payloads now distinguish legitimate `None`/`{}` empty
+  responses from malformed non-dict payloads. Lists, strings, bytes, and
+  other non-dict values become `failed_structure` in both route and probe,
+  allowing the route to fall back truthfully.
+- Structured mootdx calls suppress primitive self-observation until their
+  canonical boundary has completed. Legacy/direct `_mootdx_call()` retains
+  its default capability telemetry, while structured observations write health
+  exactly once after canonical truth is known.
+
+#### Explicitly not migrated
+
+No generic fallback router/provider executor, suspension/tradability,
+corporate actions, qfq/hfq/W/M, consumer migration, or release work is part
+of Phase 4.1.
+
 ### Phase 3 — Trading Calendar Structured Vertical Slice
 
 #### Added

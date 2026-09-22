@@ -33,11 +33,6 @@ from typing import Any, Callable
 import pandas as pd
 
 from .vipdoc_history import load_vipdoc_daily
-from .capabilities import (
-    ProviderCapability,
-    fetch_status_to_health_status,
-    record_capability_health,
-)
 from .fetch_result import (
     FETCH_NOT_CONFIGURED,
     FETCH_NORMAL_EMPTY,
@@ -45,6 +40,11 @@ from .fetch_result import (
     FetchAttempt,
     FetchMetadata,
     FetchResult,
+)
+from .routing_observation import (
+    elapsed_ms,
+    record_fetch_observation,
+    utc_now_iso,
 )
 from .vendor_errors import (
     VendorNoDataError,
@@ -236,7 +236,11 @@ def _fetch_local_index_days(*, root: Any = None) -> Any:
     return frame["Date"].tolist()
 
 
-def _fetch_mootdx_index_days(*, root: Any = None) -> Any:
+def _fetch_mootdx_index_days(
+    *,
+    root: Any = None,
+    _observe_capability_health: bool = True,
+) -> Any:
     """Read index bars through the existing ``mootdx:index`` operation."""
 
     del root
@@ -247,6 +251,7 @@ def _fetch_mootdx_index_days(*, root: Any = None) -> Any:
         symbol=CALENDAR_INDEX_CODE,
         frequency=9,
         offset=_ONLINE_INDEX_BARS,
+        _observe_capability_health=_observe_capability_health,
     )
     if raw is None:
         raise VendorNoDataError("mootdx calendar returned no rows")
@@ -297,7 +302,10 @@ def _fetch_sina_index_days(*, root: Any = None) -> Any:
 
 CALENDAR_ADAPTERS: dict[str, Callable[..., Any]] = {
     "tdx_vipdoc": _fetch_local_index_days,
-    "mootdx": _fetch_mootdx_index_days,
+    "mootdx": lambda *, root=None: _fetch_mootdx_index_days(
+        root=root,
+        _observe_capability_health=False,
+    ),
     "sina": _fetch_sina_index_days,
 }
 
@@ -390,50 +398,6 @@ def _read_online_index_days() -> tuple[str, tuple[str, ...]] | None:
 # ── public derivation ────────────────────────────────────────────────────────
 
 
-def _calendar_capability(capability_id: str) -> ProviderCapability:
-    return ProviderCapability(*capability_id.split(":", 1))
-
-
-def _calendar_observe_health(
-    capability_id: str,
-    status: str,
-    *,
-    error_summary: str | None = None,
-) -> None:
-    record_capability_health(
-        _calendar_capability(capability_id),
-        fetch_status_to_health_status(status),
-        error_summary=error_summary,
-    )
-
-
-def _calendar_attempt(
-    provider: str,
-    capability_id: str,
-    status: str,
-    started_at: str,
-    elapsed_ms: int,
-    *,
-    record_count: int | None = None,
-    error_type: str | None = None,
-    message: str | None = None,
-) -> FetchAttempt:
-    return FetchAttempt(
-        provider=provider,
-        capability=capability_id,
-        status=status,
-        started_at=started_at,
-        elapsed_ms=elapsed_ms,
-        record_count=record_count,
-        error_type=error_type,
-        message=message,
-    )
-
-
-def _calendar_now_iso() -> str:
-    return datetime.now(timezone.utc).isoformat()
-
-
 def _run_calendar_adapter(
     provider: str,
     capability_id: str,
@@ -446,44 +410,38 @@ def _run_calendar_adapter(
     """Execute one truthful adapter and append its attempt/health observation."""
 
     started = clock()
-    started_at = _calendar_now_iso()
+    started_at = utc_now_iso()
     if adapter is None:
-        attempt = _calendar_attempt(
-            provider,
-            capability_id,
-            FETCH_NOT_CONFIGURED,
-            started_at,
-            0,
+        record_fetch_observation(
+            attempts,
+            provider=provider,
+            capability_id=capability_id,
+            status=FETCH_NOT_CONFIGURED,
+            started_at=started_at,
+            elapsed_ms=0,
             message="provider not available in this chain",
         )
-        attempts.append(attempt)
-        _calendar_observe_health(capability_id, FETCH_NOT_CONFIGURED)
         return None, False
 
     try:
         raw = adapter(root=root)
     except Exception as exc:  # noqa: BLE001 - classification is the adapter contract
-        elapsed = max(0, int((clock() - started) * 1000))
+        elapsed = elapsed_ms(clock, started)
         status = exception_to_fetch_status(exc)
-        attempts.append(
-            _calendar_attempt(
-                provider,
-                capability_id,
-                status,
-                started_at,
-                elapsed,
-                error_type=type(exc).__name__,
-                message=str(exc),
-            )
-        )
-        _calendar_observe_health(
-            capability_id,
-            status,
+        record_fetch_observation(
+            attempts,
+            provider=provider,
+            capability_id=capability_id,
+            status=status,
+            started_at=started_at,
+            elapsed_ms=elapsed,
+            error_type=type(exc).__name__,
+            message=str(exc),
             error_summary=str(exc),
         )
         return None, False
 
-    elapsed = max(0, int((clock() - started) * 1000))
+    elapsed = elapsed_ms(clock, started)
     is_empty = raw is None
     if isinstance(raw, pd.DataFrame):
         # An empty frame with no Date field is malformed, not a valid empty
@@ -496,18 +454,16 @@ def _run_calendar_adapter(
         except TypeError:
             is_empty = False
     if is_empty:
-        attempts.append(
-            _calendar_attempt(
-                provider,
-                capability_id,
-                FETCH_NORMAL_EMPTY,
-                started_at,
-                elapsed,
-                record_count=0,
-                message="provider returned no trading-day rows",
-            )
+        record_fetch_observation(
+            attempts,
+            provider=provider,
+            capability_id=capability_id,
+            status=FETCH_NORMAL_EMPTY,
+            started_at=started_at,
+            elapsed_ms=elapsed,
+            record_count=0,
+            message="provider returned no trading-day rows",
         )
-        _calendar_observe_health(capability_id, FETCH_NORMAL_EMPTY)
         return None, False
 
     try:
@@ -517,35 +473,28 @@ def _run_calendar_adapter(
         )
     except Exception as exc:  # noqa: BLE001 - canonical boundary is structure
         status = exception_to_fetch_status(exc)
-        attempts.append(
-            _calendar_attempt(
-                provider,
-                capability_id,
-                status,
-                started_at,
-                elapsed,
-                error_type=type(exc).__name__,
-                message=str(exc),
-            )
-        )
-        _calendar_observe_health(
-            capability_id,
-            status,
+        record_fetch_observation(
+            attempts,
+            provider=provider,
+            capability_id=capability_id,
+            status=status,
+            started_at=started_at,
+            elapsed_ms=elapsed,
+            error_type=type(exc).__name__,
+            message=str(exc),
             error_summary=str(exc),
         )
         return None, False
 
-    attempts.append(
-        _calendar_attempt(
-            provider,
-            capability_id,
-            FETCH_SUCCESS,
-            started_at,
-            elapsed,
-            record_count=len(days),
-        )
+    record_fetch_observation(
+        attempts,
+        provider=provider,
+        capability_id=capability_id,
+        status=FETCH_SUCCESS,
+        started_at=started_at,
+        elapsed_ms=elapsed,
+        record_count=len(days),
     )
-    _calendar_observe_health(capability_id, FETCH_SUCCESS)
     return days, partial
 
 
@@ -566,7 +515,7 @@ def _calendar_result(
     metadata = FetchMetadata(
         capability=TRADING_CALENDAR_CAPABILITY,
         final_provider=providers[0] if len(providers) == 1 else None,
-        retrieved_at=_calendar_now_iso(),
+        retrieved_at=utc_now_iso(),
         observed_at=None,
         data_as_of=calendar.last_bar_date if calendar is not None else None,
         stale=calendar.stale if calendar is not None else False,

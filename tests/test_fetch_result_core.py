@@ -10,6 +10,7 @@ from chstockdata.capabilities import (
 )
 from chstockdata.fetch_result import (
     FETCH_FAILED_NETWORK,
+    FETCH_FAILED_STRUCTURE,
     FETCH_NORMAL_EMPTY,
     FETCH_SUCCESS,
     FetchAttempt,
@@ -20,6 +21,7 @@ from chstockdata.quote_chain import (
     QUOTE_PROVIDERS,
     RealtimeQuoteRoutingError,
     fetch_realtime_quotes,
+    probe_quote_provider,
 )
 
 
@@ -160,6 +162,55 @@ class TestProviderVsRoutingHealth:
 
 
 class TestNormalEmptyVsFailure:
+    def test_malformed_top_level_quote_payload_fails_structure_and_falls_back(self):
+        result = fetch_realtime_quotes(
+            ["600519"],
+            {
+                "tencent": lambda _codes, **_kwargs: ["bad"],
+                "mootdx": lambda _codes, **_kwargs: _quote(source="mootdx"),
+            },
+            quote_number=_noop_quote_number,
+        )
+
+        assert result.data["600519"]["source"] == "mootdx"
+        tencent = result.metadata.attempts[0]
+        assert (tencent.provider, tencent.status) == (
+            "tencent",
+            FETCH_FAILED_STRUCTURE,
+        )
+        assert result.metadata.degraded
+        assert capability_health_snapshot()["tencent:quote"].status == "failed"
+
+    def test_quote_probe_marks_malformed_top_level_payload_as_failed_structure(self):
+        result = probe_quote_provider(
+            "mootdx",
+            ["600519"],
+            lambda _codes: "unexpected html",
+            quote_number=_noop_quote_number,
+        )
+
+        assert result.data == {}
+        assert result.metadata.attempts[0].status == FETCH_FAILED_STRUCTURE
+        assert "probe_failed:mootdx" in result.metadata.limitations
+        assert capability_health_snapshot()["mootdx:quote"].status == "failed"
+
+    def test_mootdx_quote_probe_requests_primitive_health_suppression(self):
+        observed = []
+
+        def _mootdx_fetcher(codes, *, _observe_capability_health=True):
+            observed.append(_observe_capability_health)
+            return _quote(codes[0], source="mootdx")
+
+        result = probe_quote_provider(
+            "mootdx",
+            ["600519"],
+            _mootdx_fetcher,
+            quote_number=_noop_quote_number,
+        )
+
+        assert result.succeeded
+        assert observed == [False]
+
     def test_normal_empty_is_distinct_from_network_failure(self):
         """空响应 = normal_empty（健康观察）；连接失败 = failed（降级）。
         normal_empty 不编码"路由停止"策略——那由各 routing engine 决定。"""

@@ -155,6 +155,82 @@ def test_vipdoc_unavailable_mootdx_success_sina_untouched():
     assert "sina:bars" not in snapshot
 
 
+def test_structured_mootdx_adapter_suppresses_primitive_health(monkeypatch):
+    """The structured canonical boundary is the only mootdx:bars owner."""
+    from chstockdata import a_stock
+    from chstockdata import daily_bars as bars
+
+    calls = []
+
+    def _mootdx_bars(*args, **kwargs):
+        calls.append(kwargs)
+        return _frame([START, END])
+
+    monkeypatch.setattr(a_stock, "_fetch_mootdx_bars", _mootdx_bars)
+    result = fetch_daily_bars(
+        CODE,
+        START,
+        END,
+        adapters=_chain(
+            tdx_vipdoc=_unconfigured,
+            mootdx=bars._fetch_structured_mootdx_daily_bars,
+            sina=_never("sina"),
+        ),
+    )
+
+    assert result.metadata.attempts[-1].status == FETCH_SUCCESS
+    assert calls == [{"offset": 800, "_observe_capability_health": False}]
+
+
+def test_malformed_structured_mootdx_payload_has_one_failed_health_owner(monkeypatch):
+    """Primitive success telemetry must not precede structured rejection."""
+    from chstockdata import a_stock
+    from chstockdata import daily_bars as bars
+
+    primitive_observations = []
+
+    class _Client:
+        def bars(self, **_kwargs):
+            return pd.DataFrame(
+                {
+                    "Date": [START],
+                    "Open": [10.0],
+                    "High": [11.0],
+                    "Low": [9.0],
+                    "Volume": [1000],
+                }
+            )
+
+    client = _Client()
+    monkeypatch.setattr(a_stock, "_mootdx_client", client)
+    monkeypatch.setattr(a_stock, "_get_mootdx_client", lambda **_kwargs: client)
+    monkeypatch.setattr(a_stock, "_tdx_min_interval", lambda: 0.0)
+    monkeypatch.setattr(
+        a_stock,
+        "_record_mootdx_capability",
+        lambda *args, **kwargs: primitive_observations.append((args, kwargs)),
+    )
+
+    with pytest.raises(DailyBarsRoutingError) as exc_info:
+        fetch_daily_bars(
+            CODE,
+            START,
+            END,
+            adapters=_chain(
+                tdx_vipdoc=_unconfigured,
+                mootdx=bars._fetch_structured_mootdx_daily_bars,
+                sina=_no_data,
+            ),
+        )
+
+    mootdx_attempt = next(
+        attempt for attempt in exc_info.value.attempts if attempt.provider == "mootdx"
+    )
+    assert mootdx_attempt.status == "failed_structure"
+    assert primitive_observations == []
+    assert capability_health_snapshot()["mootdx:bars"].status == "failed"
+
+
 def test_vipdoc_unavailable_mootdx_failure_sina_success():
     result = fetch_daily_bars(
         CODE,

@@ -27,6 +27,7 @@
 │  daily_bars.fetch_daily_bars → FetchResult[pd.DataFrame]     │
 │  trading_calendar.fetch_trading_calendar → FetchResult[...]  │
 │  fetch_result: FetchAttempt / FetchMetadata / FetchResult[T] │
+│  routing_observation: attempt + health emission only          │
 ├──────────────────────────────────────────────────────────────┤
 │ Capability health（v0.4.0 新增）                              │
 │  capabilities: ProviderCapability / 逐能力健康观察            │
@@ -35,6 +36,23 @@
 │  a_stock: _tencent_quote / _mootdx_* / _sina_* / ...         │
 └──────────────────────────────────────────────────────────────┘
 ```
+
+### 1.1 Structured observation boundary (Phase 4.1)
+
+`routing_observation.record_fetch_observation()` is internal plumbing shared
+by the quote, daily-bars, and trading-calendar structured routes and their
+probes. It constructs and appends exactly one `FetchAttempt`, maps the
+already-classified fetch status to health, and records exactly one capability
+health observation. `utc_now_iso()` and `elapsed_ms()` only normalize timing.
+
+The kernel explicitly does **not** own provider ordering, fallback decisions,
+canonicalization, normal-empty/stale/partial semantics, payload merging, or
+`FetchMetadata` assembly; those remain route-specific.
+
+For mootdx, legacy/direct `_mootdx_call()` keeps self-observing by default.
+Structured adapters pass its private `_observe_capability_health=False` seam,
+so their health conclusion is emitted once, after the structured canonical
+boundary has accepted or rejected the payload.
 
 ## 2. Providers 与 Capabilities（三层 readiness/health 模型）
 

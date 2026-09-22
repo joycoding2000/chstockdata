@@ -37,14 +37,10 @@ probe.
 
 from __future__ import annotations
 
+import inspect
 import time
 from typing import Callable
 
-from .capabilities import (
-    ProviderCapability,
-    fetch_status_to_health_status,
-    record_capability_health,
-)
 from .fetch_result import (
     FETCH_NORMAL_EMPTY,
     FETCH_NOT_CONFIGURED,
@@ -52,6 +48,11 @@ from .fetch_result import (
     FetchAttempt,
     FetchMetadata,
     FetchResult,
+)
+from .routing_observation import (
+    elapsed_ms,
+    record_fetch_observation,
+    utc_now_iso,
 )
 
 __all__ = [
@@ -95,21 +96,43 @@ def _classify_status(exc: Exception) -> str:
     return exception_to_fetch_status(exc)
 
 
-def _capability_for_provider(provider: str) -> tuple[ProviderCapability, str]:
-    """provider 名 → (ProviderCapability, capability_id)；未知名字报错。"""
+def _capability_id_for_provider(provider: str) -> str:
+    """Resolve one known quote provider to its stable capability id."""
     for name, capability_id in QUOTE_PROVIDERS:
         if name == provider:
-            return ProviderCapability(*capability_id.split(":", 1)), capability_id
+            return capability_id
     raise ValueError(f"unknown quote provider: {provider!r}")
 
 
-def _observe_health(capability: ProviderCapability, status: str, *, error_summary: str | None = None) -> None:
-    """单点写入 capability health：fetch status 经唯一映射转为 health status。"""
-    record_capability_health(
-        capability,
-        fetch_status_to_health_status(status),
-        error_summary=error_summary,
+def _normalize_quote_payload(payload: object) -> dict:
+    """Apply the quote route's shared top-level payload contract."""
+    if payload is None:
+        return {}
+    if isinstance(payload, dict):
+        return payload
+    raise ValueError("quote payload must be a dict or None")
+
+
+def _probe_quote_payload(
+    provider: str,
+    fetcher: Callable[..., dict],
+    requested: list[str],
+) -> object:
+    """Call one probe fetcher, suppressing mootdx primitive telemetry when able."""
+    if provider != "mootdx":
+        return fetcher(requested)
+    try:
+        parameters = inspect.signature(fetcher).parameters.values()
+    except (TypeError, ValueError):
+        return fetcher(requested)
+    accepts_private_seam = any(
+        parameter.name == "_observe_capability_health"
+        or parameter.kind is inspect.Parameter.VAR_KEYWORD
+        for parameter in parameters
     )
+    if accepts_private_seam:
+        return fetcher(requested, _observe_capability_health=False)
+    return fetcher(requested)
 
 
 def _dedupe_codes(codes: list[str]) -> list[str]:
@@ -160,45 +183,45 @@ def fetch_realtime_quotes(
         if not remaining:
             break
         fetcher = fetchers.get(provider)
-        capability = ProviderCapability(*capability_id.split(":", 1))
         if fetcher is None:
-            attempts.append(FetchAttempt(
+            record_fetch_observation(
+                attempts,
                 provider=provider,
-                capability=capability_id,
                 status=FETCH_NOT_CONFIGURED,
-                started_at=_now_iso(),
+                capability_id=capability_id,
+                started_at=utc_now_iso(),
                 elapsed_ms=0,
                 message="provider not available in this chain",
-            ))
-            _observe_health(capability, FETCH_NOT_CONFIGURED)
+            )
             continue
 
         current = sorted(remaining)
         start = clock()
-        started_at = _now_iso()
+        started_at = utc_now_iso()
         try:
-            payload = fetcher(current, fallback_from=fallback_from) or {}
+            payload = _normalize_quote_payload(
+                fetcher(current, fallback_from=fallback_from)
+            )
         except Exception as exc:
-            elapsed = int((clock() - start) * 1000)
+            elapsed = elapsed_ms(clock, start)
             status = _classify_status(exc)
-            attempts.append(FetchAttempt(
+            record_fetch_observation(
+                attempts,
                 provider=provider,
-                capability=capability_id,
                 status=status,
+                capability_id=capability_id,
                 started_at=started_at,
                 elapsed_ms=elapsed,
                 error_type=type(exc).__name__,
                 message=str(exc),
-            ))
-            _observe_health(capability, status, error_summary=str(exc))
+                error_summary=str(exc),
+            )
             for code in current:
                 per_code_failures[code].append(type(exc).__name__)
             fallback_from = provider
             continue
 
-        elapsed = int((clock() - start) * 1000)
-        if not isinstance(payload, dict):
-            payload = {}
+        elapsed = elapsed_ms(clock, start)
 
         got_any = False
         for code in current:
@@ -224,30 +247,30 @@ def fetch_realtime_quotes(
             remaining.discard(code)
 
         if got_any:
-            attempts.append(FetchAttempt(
+            record_fetch_observation(
+                attempts,
                 provider=provider,
-                capability=capability_id,
                 status=FETCH_SUCCESS,
+                capability_id=capability_id,
                 started_at=started_at,
                 elapsed_ms=elapsed,
                 record_count=len(payload),
-            ))
-            _observe_health(capability, FETCH_SUCCESS)
+            )
         else:
             # Provider responded but gave nothing usable for the remaining
             # codes: a normal-empty observation for this capability.  This
             # chain's POLICY is to fall through to the next source; the
             # attempt itself only records the fact.
-            attempts.append(FetchAttempt(
+            record_fetch_observation(
+                attempts,
                 provider=provider,
-                capability=capability_id,
                 status=FETCH_NORMAL_EMPTY,
+                capability_id=capability_id,
                 started_at=started_at,
                 elapsed_ms=elapsed,
                 record_count=0,
                 message="no usable quote for requested codes",
-            ))
-            _observe_health(capability, FETCH_NORMAL_EMPTY)
+            )
         fallback_from = provider
 
     # Stale last resort (unchanged legacy semantics).
@@ -268,7 +291,7 @@ def fetch_realtime_quotes(
         metadata = FetchMetadata(
             capability=QUOTE_CAPABILITY,
             final_provider=None,
-            retrieved_at=_now_iso(),
+            retrieved_at=utc_now_iso(),
             attempts=attempts,
             limitations=["all_sources_normal_empty"],
         )
@@ -290,7 +313,7 @@ def fetch_realtime_quotes(
     metadata = FetchMetadata(
         capability=QUOTE_CAPABILITY,
         final_provider=None,
-        retrieved_at=_now_iso(),
+        retrieved_at=utc_now_iso(),
         stale=saw_stale_resort,
         partial=partial,
         limitations=(
@@ -304,8 +327,6 @@ def fetch_realtime_quotes(
     if partial:
         metadata.limitations = metadata.limitations or ["partial_response"]
     return FetchResult(data=result, metadata=metadata)
-
-
 def probe_quote_provider(
     provider: str,
     codes: list[str],
@@ -327,39 +348,40 @@ def probe_quote_provider(
     price required); a stale snapshot still proves the capability alive and
     is reported as success with a ``stale_snapshot`` limitation.
     """
-    capability, capability_id = _capability_for_provider(provider)
+    capability_id = _capability_id_for_provider(provider)
     requested = _dedupe_codes(codes)
     attempts: list[FetchAttempt] = []
 
     start = clock()
-    started_at = _now_iso()
+    started_at = utc_now_iso()
     try:
-        payload = fetcher(requested) or {}
+        payload = _normalize_quote_payload(
+            _probe_quote_payload(provider, fetcher, requested)
+        )
     except Exception as exc:
-        elapsed = int((clock() - start) * 1000)
+        elapsed = elapsed_ms(clock, start)
         status = _classify_status(exc)
-        attempts.append(FetchAttempt(
+        record_fetch_observation(
+            attempts,
             provider=provider,
-            capability=capability_id,
             status=status,
+            capability_id=capability_id,
             started_at=started_at,
             elapsed_ms=elapsed,
             error_type=type(exc).__name__,
             message=str(exc),
-        ))
-        _observe_health(capability, status, error_summary=str(exc))
+            error_summary=str(exc),
+        )
         metadata = FetchMetadata(
             capability=QUOTE_CAPABILITY,
             final_provider=None,
-            retrieved_at=_now_iso(),
+            retrieved_at=utc_now_iso(),
             attempts=attempts,
             limitations=[f"probe_failed:{provider}"],
         )
         return FetchResult(data={}, metadata=metadata)
 
-    elapsed = int((clock() - start) * 1000)
-    if not isinstance(payload, dict):
-        payload = {}
+    elapsed = elapsed_ms(clock, start)
 
     result: dict[str, dict] = {}
     saw_stale = False
@@ -377,46 +399,40 @@ def probe_quote_provider(
         result[code] = normalized
 
     if result:
-        attempts.append(FetchAttempt(
+        record_fetch_observation(
+            attempts,
             provider=provider,
-            capability=capability_id,
             status=FETCH_SUCCESS,
+            capability_id=capability_id,
             started_at=started_at,
             elapsed_ms=elapsed,
             record_count=len(payload),
-        ))
-        _observe_health(capability, FETCH_SUCCESS)
+        )
         metadata = FetchMetadata(
             capability=QUOTE_CAPABILITY,
             final_provider=None,
-            retrieved_at=_now_iso(),
+            retrieved_at=utc_now_iso(),
             stale=saw_stale,
             limitations=["stale_snapshot"] if saw_stale else [],
             attempts=attempts,
             providers_used=[provider],
         )
     else:
-        attempts.append(FetchAttempt(
+        record_fetch_observation(
+            attempts,
             provider=provider,
-            capability=capability_id,
             status=FETCH_NORMAL_EMPTY,
+            capability_id=capability_id,
             started_at=started_at,
             elapsed_ms=elapsed,
             record_count=0,
             message="no usable quote for requested codes",
-        ))
-        _observe_health(capability, FETCH_NORMAL_EMPTY)
+        )
         metadata = FetchMetadata(
             capability=QUOTE_CAPABILITY,
             final_provider=None,
-            retrieved_at=_now_iso(),
+            retrieved_at=utc_now_iso(),
             attempts=attempts,
             limitations=[f"probe_normal_empty:{provider}"],
         )
     return FetchResult(data=result, metadata=metadata)
-
-
-def _now_iso() -> str:
-    from datetime import datetime, timezone
-
-    return datetime.now(timezone.utc).isoformat()

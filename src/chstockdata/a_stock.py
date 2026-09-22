@@ -1170,7 +1170,13 @@ def _record_mootdx_capability(
         logger.debug("mootdx capability health recording failed", exc_info=True)
 
 
-def _mootdx_call(method: str, *, _fallback_from: str | None = None, **kwargs):
+def _mootdx_call(
+    method: str,
+    *,
+    _fallback_from: str | None = None,
+    _observe_capability_health: bool = True,
+    **kwargs,
+):
     """调用 mootdx 的某个方法，失败就弃用当前服务器。
 
     选中的服务器随时可能挂掉；不弃用的话单例会一直指着它，之后每次取数都失败降级
@@ -1199,9 +1205,10 @@ def _mootdx_call(method: str, *, _fallback_from: str | None = None, **kwargs):
         except Exception as exc:
             # 只记录本次请求的 capability（transport 级失败时，其它 capability
             # 会在它们自己的调用里各自观察/记录，不在这里代写）。
-            _record_mootdx_capability(
-                method, status="failed", error_summary=str(exc)
-            )
+            if _observe_capability_health:
+                _record_mootdx_capability(
+                    method, status="failed", error_summary=str(exc)
+                )
             raise
         for attempt in range(1, 3):
             try:
@@ -1216,27 +1223,30 @@ def _mootdx_call(method: str, *, _fallback_from: str | None = None, **kwargs):
                 empty_result = result is None or (
                     isinstance(result, pd.DataFrame) and result.empty
                 )
-                _record_mootdx_capability(
-                    method,
-                    status="normal_empty" if empty_result else "success",
-                )
+                if _observe_capability_health:
+                    _record_mootdx_capability(
+                        method,
+                        status="normal_empty" if empty_result else "success",
+                    )
                 return result
             except Exception as exc:
                 # A malformed wire timestamp is a response-structure issue; keep
                 # the selected client available for the raw-date recovery path
                 # instead of needlessly selecting another server.
                 if "year must be in 1..9999" in str(exc).lower():
-                    _record_mootdx_capability(
-                        method, status="failed", error_summary=str(exc)
-                    )
+                    if _observe_capability_health:
+                        _record_mootdx_capability(
+                            method, status="failed", error_summary=str(exc)
+                        )
                     raise
                 if _source_deadline_error(exc):
                     raise
                 reset_mootdx_client(preserve_candidates=attempt < 2)
                 if attempt >= 2:
-                    _record_mootdx_capability(
-                        method, status="failed", error_summary=str(exc)
-                    )
+                    if _observe_capability_health:
+                        _record_mootdx_capability(
+                            method, status="failed", error_summary=str(exc)
+                        )
                     raise
                 client = _get_mootdx_client(request_capability=capability_name)
         raise RuntimeError("mootdx call did not return")  # pragma: no cover
@@ -1398,10 +1408,18 @@ def _normalize_realtime_quote(
 
 
 def _mootdx_realtime_quote(
-    codes: list[str], *, fallback_from: str | None = None
+    codes: list[str],
+    *,
+    fallback_from: str | None = None,
+    _observe_capability_health: bool = True,
 ) -> dict[str, dict]:
     """Fetch real-time snapshots from the TDX TCP service via mootdx."""
-    frame = _mootdx_call("quotes", symbol=codes, _fallback_from=fallback_from)
+    frame = _mootdx_call(
+        "quotes",
+        symbol=codes,
+        _fallback_from=fallback_from,
+        _observe_capability_health=_observe_capability_health,
+    )
     if frame is None:
         return {}
     if not isinstance(frame, pd.DataFrame):
@@ -1520,7 +1538,11 @@ def _get_realtime_quotes(codes: list[str]) -> dict[str, dict]:
             codes,
             {
                 "tencent": _tencent_quote,
-                "mootdx": _mootdx_realtime_quote,
+                "mootdx": lambda codes, fallback_from=None: _mootdx_realtime_quote(
+                    codes,
+                    fallback_from=fallback_from,
+                    _observe_capability_health=False,
+                ),
                 "sina": _sina_realtime_quote,
             },
             quote_number=_quote_number,
@@ -2332,12 +2354,23 @@ def _normalize_mootdx_raw_bars(rows: object) -> pd.DataFrame:
     return _normalize_mootdx_bars_frame(frame)
 
 
-def _fetch_mootdx_bars(code: str, offset: int = 800) -> pd.DataFrame:
+def _fetch_mootdx_bars(
+    code: str,
+    offset: int = 800,
+    *,
+    _observe_capability_health: bool = True,
+) -> pd.DataFrame:
     """Fetch and normalize mootdx bars, recovering malformed wire dates."""
     client = _get_mootdx_client()
     try:
         return _normalize_mootdx_bars_frame(
-            _mootdx_call("bars", symbol=code, category=4, offset=offset)
+            _mootdx_call(
+                "bars",
+                symbol=code,
+                category=4,
+                offset=offset,
+                _observe_capability_health=_observe_capability_health,
+            )
         )
     except Exception as exc:
         message = str(exc).lower()

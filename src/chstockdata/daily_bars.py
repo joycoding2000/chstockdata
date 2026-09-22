@@ -110,11 +110,6 @@ from typing import Callable
 
 import pandas as pd
 
-from .capabilities import (
-    ProviderCapability,
-    fetch_status_to_health_status,
-    record_capability_health,
-)
 from .fetch_result import (
     FETCH_FAILED_NETWORK,
     FETCH_FAILED_RATE_LIMIT,
@@ -125,6 +120,11 @@ from .fetch_result import (
     FetchAttempt,
     FetchMetadata,
     FetchResult,
+)
+from .routing_observation import (
+    elapsed_ms,
+    record_fetch_observation,
+    utc_now_iso,
 )
 from .vendor_errors import (
     VendorNetworkError,
@@ -364,7 +364,11 @@ def fetch_vipdoc_daily_bars(
 
 
 def fetch_mootdx_daily_bars(
-    code: str, start_date: str, end_date: str
+    code: str,
+    start_date: str,
+    end_date: str,
+    *,
+    _observe_capability_health: bool = True,
 ) -> pd.DataFrame:
     """mootdx TCP daily bars adapter.
 
@@ -377,7 +381,23 @@ def fetch_mootdx_daily_bars(
     """
     from . import a_stock
 
-    return a_stock._fetch_mootdx_bars(code, offset=800)
+    return a_stock._fetch_mootdx_bars(
+        code,
+        offset=800,
+        _observe_capability_health=_observe_capability_health,
+    )
+
+
+def _fetch_structured_mootdx_daily_bars(
+    code: str, start_date: str, end_date: str
+) -> pd.DataFrame:
+    """Invoke the mootdx bars adapter with structured health ownership."""
+    return fetch_mootdx_daily_bars(
+        code,
+        start_date,
+        end_date,
+        _observe_capability_health=False,
+    )
 
 
 def fetch_sina_daily_bars(
@@ -401,7 +421,7 @@ def fetch_sina_daily_bars(
 # registry so tests can stub single providers via ``monkeypatch.setitem``.
 ADAPTERS: dict[str, Callable[..., pd.DataFrame]] = {
     "tdx_vipdoc": fetch_vipdoc_daily_bars,
-    "mootdx": fetch_mootdx_daily_bars,
+    "mootdx": _fetch_structured_mootdx_daily_bars,
     "sina": fetch_sina_daily_bars,
 }
 
@@ -424,49 +444,6 @@ def _empty_canonical_frame() -> pd.DataFrame:
     )
 
 
-def _capability_for(capability_id: str) -> ProviderCapability:
-    return ProviderCapability(*capability_id.split(":", 1))
-
-
-def _observe_health(
-    capability: ProviderCapability, status: str, *, error_summary: str | None = None
-) -> None:
-    record_capability_health(
-        capability,
-        fetch_status_to_health_status(status),
-        error_summary=error_summary,
-    )
-
-
-def _now_iso() -> str:
-    from datetime import datetime, timezone
-
-    return datetime.now(timezone.utc).isoformat()
-
-
-def _attempt(
-    provider: str,
-    capability_id: str,
-    status: str,
-    started_at: str,
-    elapsed_ms: int,
-    *,
-    record_count: int | None = None,
-    error_type: str | None = None,
-    message: str | None = None,
-) -> FetchAttempt:
-    return FetchAttempt(
-        provider=provider,
-        capability=capability_id,
-        status=status,
-        started_at=started_at,
-        elapsed_ms=elapsed_ms,
-        record_count=record_count,
-        error_type=error_type,
-        message=message,
-    )
-
-
 def _run_adapter(
     provider: str,
     capability_id: str,
@@ -486,76 +463,66 @@ def _run_adapter(
     :func:`canonicalize_daily_bars_frame` — a non-empty malformed payload is
     a ``failed_structure`` attempt, never a success.
     """
-    capability = _capability_for(capability_id)
     start = clock()
-    started_at = _now_iso()
+    started_at = utc_now_iso()
     try:
         frame = adapter(code, start_date, end_date)
     except Exception as exc:  # noqa: BLE001 - classified below
-        elapsed = int((clock() - start) * 1000)
+        elapsed = elapsed_ms(clock, start)
         status = exception_to_fetch_status(exc)
-        attempts.append(
-            _attempt(
-                provider,
-                capability_id,
-                status,
-                started_at,
-                elapsed,
-                error_type=type(exc).__name__,
-                message=str(exc),
-            )
+        record_fetch_observation(
+            attempts,
+            provider=provider,
+            capability_id=capability_id,
+            status=status,
+            started_at=started_at,
+            elapsed_ms=elapsed,
+            error_type=type(exc).__name__,
+            message=str(exc),
+            error_summary=str(exc),
         )
-        _observe_health(capability, status, error_summary=str(exc))
         return None
 
-    elapsed = int((clock() - start) * 1000)
+    elapsed = elapsed_ms(clock, start)
     if frame is None or (hasattr(frame, "empty") and frame.empty):
-        attempts.append(
-            _attempt(
-                provider,
-                capability_id,
-                FETCH_NORMAL_EMPTY,
-                started_at,
-                elapsed,
-                record_count=0,
-                message="provider returned no rows",
-            )
+        record_fetch_observation(
+            attempts,
+            provider=provider,
+            capability_id=capability_id,
+            status=FETCH_NORMAL_EMPTY,
+            started_at=started_at,
+            elapsed_ms=elapsed,
+            record_count=0,
+            message="provider returned no rows",
         )
-        _observe_health(capability, FETCH_NORMAL_EMPTY)
         return None
 
     try:
         frame = canonicalize_daily_bars_frame(frame, provider=provider)
     except Exception as exc:  # noqa: BLE001 - classified below
-        attempts.append(
-            _attempt(
-                provider,
-                capability_id,
-                exception_to_fetch_status(exc),
-                started_at,
-                elapsed,
-                error_type=type(exc).__name__,
-                message=str(exc),
-            )
-        )
-        _observe_health(
-            capability,
-            exception_to_fetch_status(exc),
+        status = exception_to_fetch_status(exc)
+        record_fetch_observation(
+            attempts,
+            provider=provider,
+            capability_id=capability_id,
+            status=status,
+            started_at=started_at,
+            elapsed_ms=elapsed,
+            error_type=type(exc).__name__,
+            message=str(exc),
             error_summary=str(exc),
         )
         return None
 
-    attempts.append(
-        _attempt(
-            provider,
-            capability_id,
-            FETCH_SUCCESS,
-            started_at,
-            elapsed,
-            record_count=int(len(frame)),
-        )
+    record_fetch_observation(
+        attempts,
+        provider=provider,
+        capability_id=capability_id,
+        status=FETCH_SUCCESS,
+        started_at=started_at,
+        elapsed_ms=elapsed,
+        record_count=int(len(frame)),
     )
-    _observe_health(capability, FETCH_SUCCESS)
     return frame
 
 
@@ -597,61 +564,55 @@ def _supplement_with_sina(
 
     adapter = adapters.get("sina")
     provider, capability_id = "sina", "sina:bars"
-    capability = _capability_for(capability_id)
     start = clock()
-    started_at = _now_iso()
+    started_at = utc_now_iso()
     if adapter is None:
-        attempts.append(
-            _attempt(
-                provider,
-                capability_id,
-                FETCH_NOT_CONFIGURED,
-                started_at,
-                0,
-                message="sina adapter not available in this chain",
-            )
+        record_fetch_observation(
+            attempts,
+            provider=provider,
+            capability_id=capability_id,
+            status=FETCH_NOT_CONFIGURED,
+            started_at=started_at,
+            elapsed_ms=0,
+            message="sina adapter not available in this chain",
         )
-        _observe_health(capability, FETCH_NOT_CONFIGURED)
         return base_frame, False, False, False
     try:
         supplement = adapter(code, start_date, end_date)
     except Exception as exc:  # noqa: BLE001 - supplement failure must not kill the base
-        elapsed = int((clock() - start) * 1000)
+        elapsed = elapsed_ms(clock, start)
         status = exception_to_fetch_status(exc)
-        attempts.append(
-            _attempt(
-                provider,
-                capability_id,
-                status,
-                started_at,
-                elapsed,
-                error_type=type(exc).__name__,
-                message=str(exc),
-            )
+        record_fetch_observation(
+            attempts,
+            provider=provider,
+            capability_id=capability_id,
+            status=status,
+            started_at=started_at,
+            elapsed_ms=elapsed,
+            error_type=type(exc).__name__,
+            message=str(exc),
+            error_summary=str(exc),
         )
-        _observe_health(capability, status, error_summary=str(exc))
         return base_frame, False, False, status in (
             FETCH_FAILED_NETWORK,
             FETCH_FAILED_RATE_LIMIT,
             FETCH_FAILED_STRUCTURE,
         )
 
-    elapsed = int((clock() - start) * 1000)
+    elapsed = elapsed_ms(clock, start)
     if supplement is None or (
         isinstance(supplement, pd.DataFrame) and supplement.empty
     ):
-        attempts.append(
-            _attempt(
-                provider,
-                capability_id,
-                FETCH_NORMAL_EMPTY,
-                started_at,
-                elapsed,
-                record_count=0,
-                message="supplement returned no rows",
-            )
+        record_fetch_observation(
+            attempts,
+            provider=provider,
+            capability_id=capability_id,
+            status=FETCH_NORMAL_EMPTY,
+            started_at=started_at,
+            elapsed_ms=elapsed,
+            record_count=0,
+            message="supplement returned no rows",
         )
-        _observe_health(capability, FETCH_NORMAL_EMPTY)
         return base_frame, False, False, False
 
     # Supplement payloads are provider ingress too: they must pass the SAME
@@ -662,32 +623,29 @@ def _supplement_with_sina(
         supplement = canonicalize_daily_bars_frame(supplement, provider=provider)
     except Exception as exc:  # noqa: BLE001 - classified below
         status = exception_to_fetch_status(exc)
-        attempts.append(
-            _attempt(
-                provider,
-                capability_id,
-                status,
-                started_at,
-                elapsed,
-                error_type=type(exc).__name__,
-                message=str(exc),
-            )
+        record_fetch_observation(
+            attempts,
+            provider=provider,
+            capability_id=capability_id,
+            status=status,
+            started_at=started_at,
+            elapsed_ms=elapsed,
+            error_type=type(exc).__name__,
+            message=str(exc),
+            error_summary=str(exc),
         )
-        _observe_health(capability, status, error_summary=str(exc))
         # Base stands (legacy swallow); the malformed payload never merges.
         return base_frame, False, False, True
 
-    attempts.append(
-        _attempt(
-            provider,
-            capability_id,
-            FETCH_SUCCESS,
-            started_at,
-            elapsed,
-            record_count=int(len(supplement)),
-        )
+    record_fetch_observation(
+        attempts,
+        provider=provider,
+        capability_id=capability_id,
+        status=FETCH_SUCCESS,
+        started_at=started_at,
+        elapsed_ms=elapsed,
+        record_count=int(len(supplement)),
     )
-    _observe_health(capability, FETCH_SUCCESS)
     merged = a_stock._merge_ohlcv(base_frame, supplement)
     advanced_end = a_stock._last_ohlcv_date(merged) != a_stock._last_ohlcv_date(
         base_frame
@@ -727,17 +685,15 @@ def fetch_daily_bars(
     for provider, capability_id in DAILY_BAR_PROVIDERS:
         adapter = chain.get(provider)
         if adapter is None:
-            attempts.append(
-                _attempt(
-                    provider,
-                    capability_id,
-                    FETCH_NOT_CONFIGURED,
-                    _now_iso(),
-                    0,
-                    message="provider not available in this chain",
-                )
+            record_fetch_observation(
+                attempts,
+                provider=provider,
+                capability_id=capability_id,
+                status=FETCH_NOT_CONFIGURED,
+                started_at=utc_now_iso(),
+                elapsed_ms=0,
+                message="provider not available in this chain",
             )
-            _observe_health(_capability_for(capability_id), FETCH_NOT_CONFIGURED)
             continue
         frame = _run_adapter(
             provider,
@@ -766,7 +722,7 @@ def fetch_daily_bars(
         metadata = FetchMetadata(
             capability=DAILY_BARS_CAPABILITY,
             final_provider=None,
-            retrieved_at=_now_iso(),
+            retrieved_at=utc_now_iso(),
             data_as_of=None,
             limitations=limitations,
             attempts=attempts,
@@ -850,7 +806,7 @@ def fetch_daily_bars(
     metadata = FetchMetadata(
         capability=DAILY_BARS_CAPABILITY,
         final_provider=None,
-        retrieved_at=_now_iso(),
+        retrieved_at=utc_now_iso(),
         data_as_of=data_as_of,
         stale=stale,
         partial=False,
@@ -890,7 +846,6 @@ def probe_daily_bars_provider(
     reports the attempt's factual outcome.
     """
     capability_id = dict(DAILY_BAR_PROVIDERS)[provider]
-    capability = _capability_for(capability_id)
     attempts: list[FetchAttempt] = []
     result = _run_adapter(
         provider,
@@ -908,7 +863,7 @@ def probe_daily_bars_provider(
         metadata = FetchMetadata(
             capability=DAILY_BARS_CAPABILITY,
             final_provider=None,
-            retrieved_at=_now_iso(),
+            retrieved_at=utc_now_iso(),
             data_as_of=result["Date"].max().strftime("%Y-%m-%d"),
             limitations=[f"volume_unit:{volume_unit}"],
             attempts=attempts,
@@ -918,7 +873,7 @@ def probe_daily_bars_provider(
     metadata = FetchMetadata(
         capability=DAILY_BARS_CAPABILITY,
         final_provider=None,
-        retrieved_at=_now_iso(),
+        retrieved_at=utc_now_iso(),
         attempts=attempts,
         limitations=[f"probe_unusable:{provider}"],
     )
