@@ -46,3 +46,19 @@ the current state from the repository, authoritative documents,
 diffs, tests, and audit evidence before continuing.
 
 Do not infer phase completion from a conversation summary alone.
+
+## ChatGPT Handoff
+
+At the end of each milestone or implementation step,
+include a concise handoff summary containing:
+
+- Current phase and step
+- Commit SHA and working tree status
+- Gate verdict and supporting evidence
+- Unresolved blockers and scope changes
+- Recommended next action
+
+Do not claim that the next phase is authorized.
+
+The summary must be sufficient for an independent
+ChatGPT planning/review session to reconstruct the state.
