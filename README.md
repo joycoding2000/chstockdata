@@ -9,7 +9,7 @@ Battle-tested in production by
 [TradingAgents-astock](https://github.com/joycoding2000/TradingAgents-astock).
 
 ```bash
-pip install chstockdata          # core (pandas/requests only)
+pip install chstockdata          # core package (base dependencies)
 pip install "chstockdata[mootdx]"    # + mootdx TCP K-line source (optional)
 pip install "chstockdata[baostock]"  # + historical turnover for CYQ chips (optional)
 pip install "chstockdata[mcp]"       # + MCP server entry point (optional)
