@@ -21,8 +21,8 @@ Notes:
 from __future__ import annotations
 
 import argparse
-from functools import wraps
 import inspect
+from functools import wraps
 from typing import Any
 
 _TOOL_FUNCTIONS: tuple[str, ...] = (

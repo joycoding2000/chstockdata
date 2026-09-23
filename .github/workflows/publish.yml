@@ -15,6 +15,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
@@ -27,6 +29,12 @@ jobs:
           python -m pytest tests/ -q --no-header
           python scripts/check_rh1_static.py
           python -m compileall -q src tests
+      - name: Validate release tag and project version
+        run: |
+          python scripts/check_release_version.py \
+            --tag "$GITHUB_REF_NAME" \
+            --project-root "$GITHUB_WORKSPACE" \
+            --project-only
       - name: Build sdist and wheel
         run: |
           python -m build
@@ -51,13 +59,16 @@ jobs:
           test -x "$core_venv/bin/chstockdata-refresh-vipdoc"
           (cd "$RUNNER_TEMP" && "$core_venv/bin/chstockdata-mcp" --help >/dev/null)
           (cd "$RUNNER_TEMP" && "$core_venv/bin/chstockdata-refresh-vipdoc" --help >/dev/null)
+          (cd "$RUNNER_TEMP" && "$core_venv/bin/python" \
+            "$GITHUB_WORKSPACE/scripts/check_release_version.py" \
+            --tag "$GITHUB_REF_NAME" \
+            --project-root "$GITHUB_WORKSPACE")
           (cd "$RUNNER_TEMP" && "$core_venv/bin/python" - <<'PY'
           import importlib.metadata as metadata
           import os
           from pathlib import Path
           import chstockdata
 
-          assert chstockdata.__version__ == "0.3.0"
           package_path = Path(chstockdata.__file__).resolve()
           workspace = os.environ.get("GITHUB_WORKSPACE")
           assert workspace is None or not package_path.is_relative_to(
@@ -86,12 +97,10 @@ jobs:
 
           "$sdist_venv/bin/python" -m pip install "$sdist"
           "$sdist_venv/bin/python" -m pip check
-          (cd "$RUNNER_TEMP" && "$sdist_venv/bin/python" - <<'PY'
-          import chstockdata
-
-          assert chstockdata.__version__ == "0.3.0"
-          PY
-          )
+          (cd "$RUNNER_TEMP" && "$sdist_venv/bin/python" \
+            "$GITHUB_WORKSPACE/scripts/check_release_version.py" \
+            --tag "$GITHUB_REF_NAME" \
+            --project-root "$GITHUB_WORKSPACE")
       - uses: actions/upload-artifact@v4
         with:
           name: dist
