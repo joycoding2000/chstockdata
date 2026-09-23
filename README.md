@@ -30,7 +30,7 @@ df = get_stock_data("600519", 365)    # daily OHLCV, vipdoc/mootdx/Sina chain
 get_realtime_snapshot("600519")       # realtime quote, Tencent -> mootdx -> Sina
 ```
 
-## Structured API（v0.4.0 development）
+## Structured API（v0.4.0 release candidate）
 
 The structured surface is additive and returns `FetchResult` objects. The
 quote route keeps its provider functions injectable; `quote_fetchers` below is
@@ -88,8 +88,8 @@ hot rank / popularity rank / concept hits, insider transactions, shareholder
 pledge / buyback, corporate actions, earnings forecast, research reports, news
 wires, policy news, macro indicators, trading calendar, delisting / suspension
 info, and more. See `chstockdata/__init__.py` for the full export list. The
-package remains `0.4.0 development`; its compatibility version is still
-`0.3.0` and this README does not announce a release.
+candidate package version is `0.4.0`; `0.3.0` is the prior consumer
+compatibility baseline. This release candidate has not been published.
 
 ## Data sources
 

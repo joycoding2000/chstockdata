@@ -29,7 +29,7 @@ shims that keep `from tradingagents.dataflows.a_stock import ...` working.
 both repositories on purpose: the source repo's copy validates the full
 shim→package chain, this repo's copy validates the package directly.
 
-## v0.4.0 structured API（development）
+## v0.4.0 structured API（release candidate）
 
 The six structured entry points are additive. Existing legacy functions keep
 their signatures and output envelopes; consumers may migrate one capability at
@@ -75,6 +75,6 @@ Cache-only results can intentionally expose `attempts=[]`,
 by the covered calendar, delisting-date, and suspension facts; it is not a
 complete IPO or listing-lifecycle eligibility claim.
 
-The v0.4.0 development line does not add a `GenericFallbackRouter` and does
-not complete the `a_stock.py` decomposition. The package version remains
-`0.3.0` until an explicit release.
+The v0.4.0 release candidate does not add a `GenericFallbackRouter` and does
+not complete the `a_stock.py` decomposition. The candidate package version is
+`0.4.0`; publication requires separate RH3-B Owner authorization.

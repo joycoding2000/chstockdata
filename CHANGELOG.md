@@ -3,16 +3,18 @@
 All notable changes to this project are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
-## [Unreleased] — 0.4.0 development
+## [Unreleased] — v0.4.0 release candidate (2026-09-23)
 
-Consumer compatibility baseline remains **0.3.0** (commit `143eb5a`);
-nothing below changes the public API. Scope and rationale:
+The candidate version is **0.4.0**. The previous consumer compatibility
+baseline is **0.3.0** (commit `143eb5a`). This entry describes the release
+candidate; publication still requires separate RH3-B Owner authorization.
+Scope and rationale:
 `docs/architecture.md`, `docs/provider-capability-matrix.md`.
 
 ### Phases 5–8 — Structured status coverage and historical guards
 
-These phases are part of the current development line, not a published
-0.4.0 release.
+These completed phases are included in the v0.4.0 release candidate, which
+has not been published.
 
 - **Phase 5 / 5.1 — Suspension:** added additive
   `fetch_suspension_info(ticker, curr_date)`. It fetches one Eastmoney
@@ -35,9 +37,9 @@ These phases are part of the current development line, not a published
 
 All six structured entry points are additive; the legacy API and its renderer
 contracts remain compatible. There is no `GenericFallbackRouter`, and
-`a_stock.py` has not been fully decomposed. The package remains in
-`0.4.0 development` with the compatibility version at `0.3.0`; this section
-does not claim that 0.4.0 has been released.
+`a_stock.py` has not been fully decomposed. The candidate package version is
+`0.4.0`; `0.3.0` is the prior consumer compatibility baseline. This candidate
+is not a published release.
 
 ### Phase 4.1 — Structured Observation Kernel + Boundary Hardening
 
