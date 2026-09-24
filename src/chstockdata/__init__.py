@@ -167,7 +167,7 @@ from .suspension import fetch_suspension_info
 from .delisting import fetch_delisting_status
 from .tradability import fetch_tradability
 
-__version__ = "0.4.0"
+__version__ = "0.4.1"
 
 __all__ = [
     # config

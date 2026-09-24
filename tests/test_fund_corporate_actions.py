@@ -152,5 +152,5 @@ def test_public_fund_distribution_adapter_preserves_empty_envelope(monkeypatch):
     assert json.loads(raw[raw.find("{") :])["status"] == "normal_empty"
 
 
-def test_release_version_is_040():
-    assert chstockdata.__version__ == "0.4.0"
+def test_release_version_is_041():
+    assert chstockdata.__version__ == "0.4.1"
