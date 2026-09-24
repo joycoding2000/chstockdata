@@ -1,0 +1,12 @@
+VIPDOC_RUNTIME_DIR=/tmp/chstockdata-rh3b4-20260924/vipdoc
+CACHE_DIR=/tmp/chstockdata-rh3b4-20260924/cache
+PYTHON=3.12.14
+DISTRIBUTION_RUNTIME=0.4.1
+IMPORT_PATH=/tmp/chstockdata-rh3b4-20260924/.venv/lib/python3.12/site-packages/chstockdata/__init__.py
+STATUS={"age_days": 2, "available": true, "dir": "/tmp/chstockdata-rh3b4-20260924/vipdoc", "enabled": true, "latest_bar_date": "2026-09-22", "max_staleness_days": 5.0, "record_counts": {"bj": 468855, "sh": 15194081, "sz": 14085112}, "stale": false}
+SOURCE={"downloaded_at": "2026-09-23T06:19:31Z", "source_last_modified": "Tue, 22 Sep 2026 07:56:47 GMT", "source_url": "https://data.tdx.com.cn/vipdoc/hsjday.zip", "zip_sha256": "72bf25fb6dd5fbdb1a83c64a37d8ad7c4d9652f7036919b6694ba955b643e968"}
+DAY=sh/000001 rows=8731 columns=['Date', 'Open', 'High', 'Low', 'Close', 'pre_close', 'Volume', 'Amount'] date_min=1990-12-19 00:00:00 date_max=2026-09-22 00:00:00 manifest_max=2026-09-22
+DAY=sh/510300 rows=3483 columns=['Date', 'Open', 'High', 'Low', 'Close', 'pre_close', 'Volume', 'Amount'] date_min=2012-05-28 00:00:00 date_max=2026-09-22 00:00:00 manifest_max=2026-09-22
+DAY=sh/511010 rows=3282 columns=['Date', 'Open', 'High', 'Low', 'Close', 'pre_close', 'Volume', 'Amount'] date_min=2013-03-25 00:00:00 date_max=2026-09-22 00:00:00 manifest_max=2026-09-22
+DAY=sh/518880 rows=3200 columns=['Date', 'Open', 'High', 'Low', 'Close', 'pre_close', 'Volume', 'Amount'] date_min=2013-07-29 00:00:00 date_max=2026-09-22 00:00:00 manifest_max=2026-09-22
+DAY=sz/159915 rows=3591 columns=['Date', 'Open', 'High', 'Low', 'Close', 'pre_close', 'Volume', 'Amount'] date_min=2011-12-09 00:00:00 date_max=2026-09-22 00:00:00 manifest_max=2026-09-22

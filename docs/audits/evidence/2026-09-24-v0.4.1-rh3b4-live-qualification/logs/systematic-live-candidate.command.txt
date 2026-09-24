@@ -1,0 +1,8 @@
+WORKDIR=/tmp/chstockdata-rh3b4-20260924/sios
+PYTHON=/tmp/chstockdata-rh3b4-20260924/.venv/bin/python (Python 3.12.14)
+SIOS_CHSTOCKDATA_LIVE_QUALIFICATION=1
+CHSTOCKDATA_VIPDOC_HISTORY_DIR=/tmp/chstockdata-rh3b4-20260924/vipdoc
+CHSTOCKDATA_CACHE_DIR=/tmp/chstockdata-rh3b4-20260924/cache
+HTTP_PROXY HTTPS_PROXY ALL_PROXY http_proxy https_proxy all_proxy=unset
+NO_PROXY=no_proxy=*
+COMMAND=python -m pytest -vv tests/qualification/test_chstockdata_etf_gate.py -k test_live

@@ -1,0 +1,32 @@
+diff --git a/src/systematic_investing/adapters/chstockdata/provider.py b/src/systematic_investing/adapters/chstockdata/provider.py
+--- a/src/systematic_investing/adapters/chstockdata/provider.py
++++ b/src/systematic_investing/adapters/chstockdata/provider.py
+@@ -245,7 +245,7 @@
+     version: str, *, pinned: str = PINNED_CHSTOCKDATA_VERSION
+ ) -> str:
+     """Fail closed unless the resolved vendor release is the pinned one."""
+-    if version != pinned and version != "0.4.0":
++    if version != pinned and version != "0.4.1":
+         raise ChStockDataConfigurationError(
+             f"chstockdata {version!r} does not match the pinned qualified release "
+             f"{pinned!r}; upgrades require contract, ETF, golden, and smoke re-qualification"
+diff --git a/tests/qualification/test_chstockdata_etf_gate.py b/tests/qualification/test_chstockdata_etf_gate.py
+--- a/tests/qualification/test_chstockdata_etf_gate.py
++++ b/tests/qualification/test_chstockdata_etf_gate.py
+@@ -268,13 +268,13 @@
+         evidence = provider.capability_evidence()
+ 
+         assert isinstance(evidence, ProviderEvidence)
+-        assert evidence.provider_version == "0.4.0"
++        assert evidence.provider_version == "0.4.1"
+         assert evidence.adapter_version == ChStockDataProvider.ADAPTER_VERSION
+ 
+     @live_qualification
+     def test_live_client_accepts_the_explicitly_qualified_candidate(self) -> None:
+         import chstockdata
+ 
+-        assert chstockdata.__version__ == "0.4.0"
++        assert chstockdata.__version__ == "0.4.1"
+         client = LibraryChStockDataClient()
+-        assert client.provider_version() == "0.4.0"
++        assert client.provider_version() == "0.4.1"

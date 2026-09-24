@@ -1,0 +1,9 @@
+WORKDIR=/tmp/chstockdata-rh3b4-20260924/sios
+PYTHON=/tmp/chstockdata-rh3b4-20260924/.venv/bin/python (Python 3.12.14)
+SIOS_CHSTOCKDATA_LIVE_QUALIFICATION=1
+CHSTOCKDATA_VIPDOC_HISTORY_DIR=/tmp/chstockdata-rh3b4-20260924/vipdoc
+CHSTOCKDATA_CACHE_DIR=/tmp/chstockdata-rh3b4-20260924/cache
+HTTP_PROXY HTTPS_PROXY ALL_PROXY http_proxy https_proxy all_proxy=unset
+NO_PROXY=no_proxy=*
+SCOPE=the four frozen MATRIX instruments, 2026-09-11 evaluation session, 2026-09-08..2026-09-11 window
+MODE=real adapter, existing candidate wheel, no mock or stub

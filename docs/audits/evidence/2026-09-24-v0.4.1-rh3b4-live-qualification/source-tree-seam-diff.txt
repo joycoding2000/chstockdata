@@ -1,0 +1,18 @@
+--- /tmp/chstockdata-rh3b4-20260924/source-tree-before-seam.sha256	2026-09-24 17:14:59.276448363 +0800
++++ /tmp/chstockdata-rh3b4-20260924/source-tree-after-seam.sha256	2026-09-24 17:18:00.909840739 +0800
+@@ -1,5 +1,5 @@
+ 4c07646187af1983e5df9ba895883404c49d9ac6110da5b498cdb04db03378d3  src/systematic_investing/adapters/chstockdata/__init__.py
+-e16d71ec4844837089c0ff000894b66b70701ecb6a49c3181b619979c2ea158a  src/systematic_investing/adapters/chstockdata/provider.py
++2204a70db07da61c44cff8174f4b72a2bdb8f62098f3e70abf0e6b97d016e281  src/systematic_investing/adapters/chstockdata/provider.py
+ 21afc3262178ee7304f8309ff2635cb9adbb0f30e1b89689137cf3046b9d428e  src/systematic_investing/adapters/chstockdata/__pycache__/__init__.cpython-312.pyc
+ 2d75eda2ad62625c7ec3d3eac7d6d7cee5177e5c4daf79759c697229727b451f  src/systematic_investing/adapters/chstockdata/__pycache__/provider.cpython-312.pyc
+ 8864f5919c82ce5c1c44f676a3f8455f64c2bbfff2bb96fc52afb810c3c594aa  src/systematic_investing/adapters/__init__.py
+@@ -225,7 +225,7 @@
+ 439924420272a19add79ed2a3a9107eb47f0e1b251ae64c0e8d9343d917353e3  tests/qualification/__pycache__/test_chstockdata_etf_gate.cpython-312-pytest-9.1.1.pyc
+ e28c8e3ad8f9d5b6b9bc6f1debdbb964492a086745abe3eb125ac61039d0db8b  tests/qualification/__pycache__/test_m0_real_data_vertical_smoke.cpython-312-pytest-9.1.1.pyc
+ 4b57a747eb31792552b2fcf8f94cdbaa95c3119016044d37c6c853b257979cc8  tests/qualification/reports/m0-etf-qualification-offline-v1.json
+-fabaa792c97923c09992c825acd4de3b055fa5e5f4c2241793e2ed0daffc8e44  tests/qualification/test_chstockdata_etf_gate.py
++a5d0b0899ccc1e642a353e96d33d6fa647c62115d2baa622f5b2891c993dc622  tests/qualification/test_chstockdata_etf_gate.py
+ 5fd37e96f7716ebcfd72ead284aceedfb8d0a9e7795662ddf6b548cbe00cd608  tests/qualification/test_m0_real_data_vertical_smoke.py
+ 8afd9f060b95200d776524d6e0d01d5f77284a39e8d736ce2831edc46e80dd75  tests/research/conftest.py
+ 601db8800288094fa610851cad5db700d7736eb22591f1b28ceaff7994c92913  tests/research/__pycache__/conftest.cpython-312-pytest-9.1.1.pyc

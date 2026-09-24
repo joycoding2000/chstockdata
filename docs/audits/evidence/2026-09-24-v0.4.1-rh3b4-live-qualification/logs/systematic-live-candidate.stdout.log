@@ -1,0 +1,14 @@
+============================= test session starts ==============================
+platform linux -- Python 3.12.14, pytest-9.1.1, pluggy-1.6.0 -- /tmp/chstockdata-rh3b4-20260924/.venv/bin/python
+cachedir: .pytest_cache
+rootdir: /tmp/chstockdata-rh3b4-20260924/sios
+configfile: pyproject.toml
+collecting ... collected 17 items / 12 deselected / 5 selected
+
+tests/qualification/test_chstockdata_etf_gate.py::TestLiveEtfQualification::test_live_routing_and_ohlcv_pre_close PASSED [ 20%]
+tests/qualification/test_chstockdata_etf_gate.py::TestLiveEtfQualification::test_live_units_calendar_and_history_coverage PASSED [ 40%]
+tests/qualification/test_chstockdata_etf_gate.py::TestLiveEtfQualification::test_live_tradability_adjustment_and_freshness PASSED [ 60%]
+tests/qualification/test_chstockdata_etf_gate.py::TestLiveEtfQualification::test_live_provider_version_evidence PASSED [ 80%]
+tests/qualification/test_chstockdata_etf_gate.py::TestLiveEtfQualification::test_live_client_accepts_the_explicitly_qualified_candidate PASSED [100%]
+
+====================== 5 passed, 12 deselected in 10.84s =======================
