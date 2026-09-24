@@ -1,0 +1,6 @@
+python=3.14.5
+tradingagents=C:\Users\Administrator\AppData\Local\Temp\chstockdata-rh3b3-execution-20260924\consumer-ta-rh3a-baseline\tradingagents\__init__.py
+chstockdata=0.3.0 C:\Users\Administrator\AppData\Local\Temp\chstockdata-rh3b3-execution-20260924\ta-rh3a-baseline-py314\Lib\site-packages\chstockdata\__init__.py
+langgraph_cache=D:\Dev\Projects\TradingAgents-AStock-Private\.venv\Lib\site-packages\langgraph\cache\base\__init__.py
+D:\Dev\Projects\TradingAgents-AStock-Private\.venv\Lib\site-packages\langgraph\cache\base\__init__.py:8: LangChainPendingDeprecationWarning: The default value of `allowed_objects` will change in a future version. Pass an explicit value (e.g., allowed_objects='messages' or allowed_objects='core') to suppress this warning.
+  from langgraph.checkpoint.serde.jsonplus import JsonPlusSerializer

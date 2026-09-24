@@ -1,0 +1,3 @@
+[console_scripts]
+chstockdata-mcp = chstockdata.mcp_server:main
+chstockdata-refresh-vipdoc = chstockdata.refresh_vipdoc:main

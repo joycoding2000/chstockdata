@@ -1,0 +1,20 @@
+warning: unable to access 'C:\Users\Administrator/.config/git/ignore': Permission denied
+warning: unable to access 'C:\Users\Administrator/.config/git/ignore': Permission denied
+warning: unable to access 'C:\Users\Administrator/.config/git/ignore': Permission denied
+warning: unable to access 'C:\Users\Administrator/.config/git/ignore': Permission denied
+REPO=C:\Users\Administrator\AppData\Local\Temp\chstockdata-rh3b3-execution-20260924\consumer-sios-rh3a-baseline
+RESTORED=tests/parity/reports/m0-parity-offline-v1.json BYTES=21205 SHA256=919303549d6a421d2a5c4ef00cd36025f4026652a5f1f3d65c400d167897422c
+RESTORED=tests/qualification/reports/m0-etf-qualification-offline-v1.json BYTES=18172 SHA256=4b57a747eb31792552b2fcf8f94cdbaa95c3119016044d37c6c853b257979cc8
+GIT_STATUS_BEGIN
+ M tests/parity/reports/m0-parity-offline-v1.json
+ M tests/qualification/reports/m0-etf-qualification-offline-v1.json
+GIT_STATUS_END
+REPO=C:\Users\Administrator\AppData\Local\Temp\chstockdata-rh3b3-execution-20260924\consumer-sios-rh3a-candidate
+RESTORED=tests/parity/reports/m0-parity-offline-v1.json BYTES=21205 SHA256=919303549d6a421d2a5c4ef00cd36025f4026652a5f1f3d65c400d167897422c
+RESTORED=tests/qualification/reports/m0-etf-qualification-offline-v1.json BYTES=18172 SHA256=4b57a747eb31792552b2fcf8f94cdbaa95c3119016044d37c6c853b257979cc8
+GIT_STATUS_BEGIN
+ M src/systematic_investing/adapters/chstockdata/provider.py
+ M tests/parity/reports/m0-parity-offline-v1.json
+ M tests/qualification/reports/m0-etf-qualification-offline-v1.json
+ M tests/qualification/test_chstockdata_etf_gate.py
+GIT_STATUS_END

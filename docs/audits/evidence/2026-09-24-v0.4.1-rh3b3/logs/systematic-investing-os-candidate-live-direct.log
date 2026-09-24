@@ -1,0 +1,71 @@
+============================= test session starts =============================
+platform win32 -- Python 3.12.14, pytest-9.1.1, pluggy-1.6.0 -- C:\Users\Administrator\AppData\Local\Temp\chstockdata-rh3b3-execution-20260924\sios-rh3a-candidate-py314\Scripts\python.exe
+rootdir: C:\Users\Administrator\AppData\Local\Temp\chstockdata-rh3b3-execution-20260924\consumer-sios-rh3a-candidate
+configfile: pyproject.toml
+collecting ... collected 17 items / 12 deselected / 5 selected
+
+tests/qualification/test_chstockdata_etf_gate.py::TestLiveEtfQualification::test_live_routing_and_ohlcv_pre_close PASSED
+tests/qualification/test_chstockdata_etf_gate.py::TestLiveEtfQualification::test_live_units_calendar_and_history_coverage PASSED
+tests/qualification/test_chstockdata_etf_gate.py::TestLiveEtfQualification::test_live_tradability_adjustment_and_freshness 
+-------------------------------- live log call --------------------------------
+DEBUG    urllib3.connectionpool:connectionpool.py:1081 Starting new HTTPS connection (1): datacenter-web.eastmoney.com:443
+DEBUG    urllib3.connectionpool:connectionpool.py:1081 Starting new HTTPS connection (2): datacenter-web.eastmoney.com:443
+WARNING  chstockdata.a_stock:a_stock.py:1894 ��������ʧ�ܣ�ConnectionError��
+FAILED
+tests/qualification/test_chstockdata_etf_gate.py::TestLiveEtfQualification::test_live_provider_version_evidence PASSED
+tests/qualification/test_chstockdata_etf_gate.py::TestLiveEtfQualification::test_live_client_accepts_the_explicitly_qualified_candidate PASSED
+
+================================== FAILURES ===================================
+___ TestLiveEtfQualification.test_live_tradability_adjustment_and_freshness ___
+
+self = <test_chstockdata_etf_gate.TestLiveEtfQualification object at 0x000002C231C15640>
+
+    @live_qualification
+    def test_live_tradability_adjustment_and_freshness(self) -> None:
+        from live_qualification import live_provider, matrix_requests
+    
+        provider = live_provider()
+        for request in matrix_requests(MATRIX):
+            tradability = provider.fetch_tradability(request.tradability_request)
+>           assert tradability.is_success
+E           AssertionError: assert False
+E            +  where False = ProviderFailure(error_code=<ProviderErrorCode.UNAVAILABLE_OR_RATE_LIMITED: 'UNAVAILABLE_OR_RATE_LIMITED'>, message='vendor suspension snapshot unavailable: failed_network: _EastmoneyDataUnavailable', evidence=None, cause=ChStockDataUnavailableError('vendor suspension snapshot unavailable: failed_network: _EastmoneyDataUnavailable')).is_success
+
+live_provider = <function live_provider at 0x000002C231EEF1A0>
+matrix_requests = <function matrix_requests at 0x000002C231EEF240>
+provider   = <systematic_investing.adapters.chstockdata.provider.ChStockDataProvider object at 0x000002C25391D610>
+request    = MatrixRequest(subtype='BROAD_BASED_EQUITY',
+              instrument_id=InstrumentId(exchange=<Exchange.XSHG: 'XSHG'>,
+                                         symbol='510300'),
+              bar_request=DailyBarRequest(instrument_ids=(InstrumentId(exchange=<Exchange.XSHG: 'XSHG'>,
+                                                                       symbol='510300'),),
+                                          start_date=datetime.date(2026, 9, 8),
+                                          end_date=datetime.date(2026, 9, 11),
+                                          adjustment_mode=<AdjustmentMode.RAW: 'RAW'>),
+              calendar_request=CalendarRequest(calendar_id='XSHG',
+                                               start_date=datetime.date(2026, 9, 8),
+                                               end_date=datetime.date(2026, 9, 11)),
+              tradability_request=TradabilityRequest(instrument_ids=(InstrumentId(exchange=<Exchange.XSHG: 'XSHG'>,
+                                                                                  symbol='510300'),),
+                                                     session_date=datetime.date(2026, 9, 11)),
+              corporate_action_request=CorporateActionRequest(instrument_ids=(InstrumentId(exchange=<Exchange.XSHG: 'XSHG'>,
+                                                                                           symbol='510300'),),
+                                                              start_date=datetime.date(2026, 9, 8),
+                                                              end_date=datetime.date(2026, 9, 11),
+                                                              instrument_kind='ETF'))
+self       = <test_chstockdata_etf_gate.TestLiveEtfQualification object at 0x000002C231C15640>
+tradability = ProviderFailure(error_code=<ProviderErrorCode.UNAVAILABLE_OR_RATE_LIMITED: 'UNAVAILABLE_OR_RATE_LIMITED'>,
+                message='vendor suspension snapshot unavailable: '
+                        'failed_network: _EastmoneyDataUnavailable',
+                evidence=None,
+                cause=ChStockDataUnavailableError('vendor suspension snapshot unavailable: failed_network: _EastmoneyDataUnavailable'))
+
+tests\qualification\test_chstockdata_etf_gate.py:248: AssertionError
+------------------------------ Captured log call ------------------------------
+DEBUG    urllib3.connectionpool:connectionpool.py:1081 Starting new HTTPS connection (1): datacenter-web.eastmoney.com:443
+DEBUG    urllib3.connectionpool:connectionpool.py:1081 Starting new HTTPS connection (2): datacenter-web.eastmoney.com:443
+WARNING  chstockdata.a_stock:a_stock.py:1894 ��������ʧ�ܣ�ConnectionError��
+=========================== short test summary info ===========================
+FAILED tests/qualification/test_chstockdata_etf_gate.py::TestLiveEtfQualification::test_live_tradability_adjustment_and_freshness - AssertionError: assert False
+ +  where False = ProviderFailure(error_code=<ProviderErrorCode.UNAVAILABLE_OR_RATE_LIMITED: 'UNAVAILABLE_OR_RATE_LIMITED'>, message='vendor suspension snapshot unavailable: failed_network: _EastmoneyDataUnavailable', evidence=None, cause=ChStockDataUnavailableError('vendor suspension snapshot unavailable: failed_network: _EastmoneyDataUnavailable')).is_success
+================= 1 failed, 4 passed, 12 deselected in 3.80s ==================

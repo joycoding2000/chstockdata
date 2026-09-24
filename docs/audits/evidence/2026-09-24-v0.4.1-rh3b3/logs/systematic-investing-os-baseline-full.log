@@ -1,0 +1,55 @@
+........................................................................ [  7%]
+........................................................................ [ 15%]
+........................................................................ [ 23%]
+........................................................................ [ 30%]
+........................................................................ [ 38%]
+........................................................................ [ 46%]
+...F...........F.sssss.................................................. [ 53%]
+........................................................................ [ 61%]
+........................................................................ [ 69%]
+........................................................................ [ 77%]
+........................................................................ [ 84%]
+........................................................................ [ 92%]
+......................................................................   [100%]
+================================== FAILURES ===================================
+_ TestParityReferenceCases.test_generated_report_matches_the_committed_parity_evidence _
+
+self = <test_reference_cases.TestParityReferenceCases object at 0x000002514780EF90>
+tmp_path = WindowsPath('C:/Users/Administrator/AppData/Local/Temp/pytest-of-Administrator/pytest-2588/test_generated_report_matches_0')
+
+    def test_generated_report_matches_the_committed_parity_evidence(
+        self, tmp_path: Path
+    ) -> None:
+        generated = write_report(build_report(), directory=tmp_path)
+        committed = DEFAULT_REPORT_DIR / OFFLINE_REPORT_NAME
+    
+>       assert generated.read_bytes() == committed.read_bytes()
+E       assert b'{\n  "cases..."0"\n  }\n}\n' == b'{\r\n  "cas...n  }\r\n}\r\n'
+E         
+E         At index 1 diff: b'\n' != b'\r'
+E         Use -v to get more diff
+
+tests\parity\test_reference_cases.py:353: AssertionError
+_ TestOfflineEtfGate.test_generated_report_matches_the_committed_offline_evidence _
+
+self = <test_chstockdata_etf_gate.TestOfflineEtfGate object at 0x0000025147897470>
+tmp_path = WindowsPath('C:/Users/Administrator/AppData/Local/Temp/pytest-of-Administrator/pytest-2588/test_generated_report_matches_1')
+
+    def test_generated_report_matches_the_committed_offline_evidence(
+        self, tmp_path: Path
+    ) -> None:
+        report = evaluate_offline(MATRIX, PAYLOADS)
+        generated = write_report(report, directory=tmp_path)
+        committed = DEFAULT_REPORT_DIR / OFFLINE_REPORT_NAME
+    
+>       assert generated.read_bytes() == committed.read_bytes()
+E       assert b'{\n  "appro...08"\n  }\n}\n' == b'{\r\n  "app...n  }\r\n}\r\n'
+E         
+E         At index 1 diff: b'\n' != b'\r'
+E         Use -v to get more diff
+
+tests\qualification\test_chstockdata_etf_gate.py:193: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/parity/test_reference_cases.py::TestParityReferenceCases::test_generated_report_matches_the_committed_parity_evidence
+FAILED tests/qualification/test_chstockdata_etf_gate.py::TestOfflineEtfGate::test_generated_report_matches_the_committed_offline_evidence
+2 failed, 927 passed, 5 skipped in 26.52s

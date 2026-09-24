@@ -1,0 +1,21 @@
+........................................................................ [ 10%]
+........................................................................ [ 21%]
+........................................................................ [ 32%]
+........................................................................ [ 43%]
+........................................................................ [ 54%]
+........................................................................ [ 65%]
+.................................................s...................... [ 76%]
+........................................................................ [ 87%]
+........................................................................ [ 98%]
+.........                                                                [100%]
+============================== warnings summary ===============================
+tests/test_mootdx_capability_isolation.py::test_bars_readiness_failure_does_not_block_finance
+  C:\Users\Administrator\AppData\Local\Temp\chstockdata-rh3b3-execution-20260924\clean-python312\Lib\site-packages\mootdx\server.py:113: DeprecationWarning: There is no current event loop
+    event = asyncio.get_event_loop()
+
+C:\Users\Administrator\AppData\Local\Temp\chstockdata-rh3b3-execution-20260924\clean-python312\Lib\site-packages\_pytest\cacheprovider.py:469
+  C:\Users\Administrator\AppData\Local\Temp\chstockdata-rh3b3-execution-20260924\clean-python312\Lib\site-packages\_pytest\cacheprovider.py:469: PytestCacheWarning: cache could not write path D:\Dev\Projects\chstockdata\.pytest_cache\v\cache\nodeids: [Errno 13] Permission denied: 'D:\\Dev\\Projects\\chstockdata\\.pytest_cache\\v\\cache\\nodeids'
+    config.cache.set("cache/nodeids", sorted(self.cached_nodeids))
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+656 passed, 1 skipped, 15 deselected, 2 warnings in 19.08s

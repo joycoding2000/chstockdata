@@ -1,0 +1,12 @@
+SYSTEMATIC_BASELINE_RESULT=929 passed, 5 skipped; exit 0
+SYSTEMATIC_CANDIDATE_RESULT=929 passed, 5 skipped; exit 0
+SYSTEMATIC_BASELINE_FAILURES=none
+SYSTEMATIC_CANDIDATE_FAILURES=none
+SYSTEMATIC_FAILURE_DIFF=none
+
+LIVE_BASELINE_RESULT=4 passed, 1 failed, 12 deselected; exit 1
+LIVE_CANDIDATE_RESULT=4 passed, 1 failed, 12 deselected; exit 1
+LIVE_BASELINE_FAILURE=tests/qualification/test_chstockdata_etf_gate.py::TestLiveEtfQualification::test_live_tradability_adjustment_and_freshness
+LIVE_CANDIDATE_FAILURE=tests/qualification/test_chstockdata_etf_gate.py::TestLiveEtfQualification::test_live_tradability_adjustment_and_freshness
+LIVE_FAILURE_DIFF=none
+LIVE_FAILURE_DETAIL=ProviderFailure(error_code=UNAVAILABLE_OR_RATE_LIMITED, message="vendor suspension snapshot unavailable: failed_network: _EastmoneyDataUnavailable", evidence=None); two HTTPS connection attempts to datacenter-web.eastmoney.com were logged. Full baseline and candidate tracebacks are in logs/systematic-investing-os-baseline-live-direct.log and logs/systematic-investing-os-candidate-live-direct.log.

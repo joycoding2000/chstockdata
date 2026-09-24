@@ -1,0 +1,6 @@
+distribution_version=0.4.1
+runtime_version=0.4.1
+import_path=C:\Users\Administrator\AppData\Local\Temp\chstockdata-rh3b3-execution-20260924\sdist-core-py312\Lib\site-packages\chstockdata\__init__.py
+public_exports=118
+required_api=FetchAttempt,FetchMetadata,FetchResult,fetch_daily_bars,fetch_delisting_status,fetch_realtime_quotes,fetch_suspension_info,fetch_tradability,fetch_trading_calendar
+console_entry_points=chstockdata-mcp,chstockdata-refresh-vipdoc

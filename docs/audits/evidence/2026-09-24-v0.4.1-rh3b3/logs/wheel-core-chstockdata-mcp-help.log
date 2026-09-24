@@ -1,0 +1,7 @@
+usage: chstockdata-mcp [-h] [--transport {stdio}]
+
+chstockdata MCP server (stdio transport by default)
+
+options:
+  -h, --help           show this help message and exit
+  --transport {stdio}  MCP transport (stdio is the standard for local agents)

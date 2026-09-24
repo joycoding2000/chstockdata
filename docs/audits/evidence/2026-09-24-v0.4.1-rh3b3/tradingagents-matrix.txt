@@ -1,0 +1,22 @@
+SNAPSHOT_COMMIT=14673992b9cd1d8a74e514027843be3298e029c7
+SNAPSHOT_TREE=8988328c74ffde982322d77f0315c21b548bb783
+SNAPSHOT_OVERLAYS=three then-untracked RH3-A files, identified by Git blob and SHA256 in consumer-snapshot-identities.txt
+PACKAGE_BASELINE=chstockdata 0.3.0, wheel SHA256 BE759128FCBE818D7FF782E09EA0B69A5DED06FA7A3A6B9A3EBD3038D5A2E627
+PACKAGE_CANDIDATE=chstockdata 0.4.1, wheel SHA256 EB4882858CCE1328447F7C100916E30697D5D49B171E7646DF96077666C46F9F
+PYTHON=3.14.5
+TEST_SELECTION=9 files; deselect the four named Sina online fallback tests with the exact -k expression below
+
+COMMAND:
+python -m pytest -q --tb=long -p no:cacheprovider tests/test_upstream_adapters.py tests/test_trading_calendar.py tests/test_f1_public_integration.py tests/test_free_adjusted_bars.py tests/test_point_in_time_fundamentals.py tests/test_performance_optimization.py tests/test_p1_listing_status_data_plane.py tests/test_phase2_step3_projection.py tests/test_phase2_step3_validation.py -k 'not stale_local_falls_back_online_and_labels_source and not stale_local_without_online_keeps_local_flagged and not missing_local_online_fallback_and_total_failure and not empty_or_missing_tree_returns_none'
+
+DESELECTED:
+- stale_local_falls_back_online_and_labels_source
+- stale_local_without_online_keeps_local_flagged
+- missing_local_online_fallback_and_total_failure
+- empty_or_missing_tree_returns_none
+
+BASELINE=123 passed, 7 failed, 4 deselected; exit 1
+CANDIDATE=123 passed, 7 failed, 4 deselected; exit 1
+FAILURE_DIFF=none; all seven names match in tradingagents-failure-diff.txt. Full tracebacks are in logs/tradingagents-baseline-123-matrix.log and logs/tradingagents-candidate-123-matrix.log.
+
+HISTORICAL_SECOND_MATRIX=204 passed, 9 failed, 3 deselected; this is the later RH3-B record, a different 17-file pattern-based selection comparing v0.4.0 with v0.4.1. It selected test_astock_*.py, test_free_*.py, *calendar*.py, test_data_layer_live_smoke.py, test_phase2_step5_validation.py, test_upstream_adapters.py, and test_upstream_plane_integration.py. It is not the RH3-A 9-file matrix above. Its exact frozen consumer source SHA was not preserved and it was not rerun in this execution. The nine historical failure names are transcribed in the execution report; see the RH3-B recovery audit for the original record.

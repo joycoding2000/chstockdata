@@ -1,0 +1,4 @@
+Ruff: ruff 0.16.8 (supported range >=0.16.6,<0.17)
+Structured gate: PASS (24 paths)
+Full Ruff findings (visible legacy debt included): 287
+Added-line gate: PASS (no findings on lines added since 143eb5a)

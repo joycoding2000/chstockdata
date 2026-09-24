@@ -1,0 +1,1189 @@
+................................................................F....... [ 55%]
+..............................................FF.F.FF.F...               [100%]
+================================== FAILURES ===================================
+________ test_get_adjusted_bars_uses_existing_loader_and_rejects_stale ________
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x00000263BD2FF070>
+
+    def test_get_adjusted_bars_uses_existing_loader_and_rejects_stale(monkeypatch):
+        stale = _raw_daily(["2025-11-17", "2025-11-18"], [1500.0, 1515.0])
+        calls = []
+    
+        def fake_loader(code, curr_date):
+            calls.append((code, curr_date))
+            return stale
+    
+        monkeypatch.setattr(a_stock, "_load_ohlcv_astock", fake_loader)
+        monkeypatch.setattr(ab, "fetch_adjust_factors", lambda code: _factors())
+    
+        # ������·���ص����ݳ¾ɣ��� end_date �� 14 �죩�� ���ü���ʧ�����塣
+        with pytest.raises(ValueError, match="����ȱʧ|stale"):
+            ab.get_adjusted_bars("600519", "2025-06-01", "2026-07-24")
+    
+        assert calls == [("600519", "2026-07-24")]
+    
+        # ���������������أ����� _load_ohlcv_astock ������·��
+        fresh = _raw_daily(["2026-01-05", "2026-01-06"], [10.0, 10.5])
+        monkeypatch.setattr(
+            a_stock, "_load_ohlcv_astock", lambda code, curr_date: fresh
+        )
+        result = ab.get_adjusted_bars("600519", "2026-01-05", "2026-01-06")
+>       assert "mootdx" in result.daily_source
+E       AssertionError: assert 'mootdx' in 'a_stock._load_ohlcv_astock��CSV/PIT �� structured daily-bars engine��'
+E        +  where 'a_stock._load_ohlcv_astock��CSV/PIT �� structured daily-bars engine��' = AdjustedBars(code='600519', adjust='qfq', period='D', frame=        Date       Open       High        Low      Close  ...nts_in_window=[], factor_first_event='2025-06-26', factor_last_event='2026-06-26', limitations=['�������޳�Ȩ�¼�����Ȩ������ԭʼ��һ��']).daily_source
+
+tests\test_free_adjusted_bars.py:631: AssertionError
+------------------------------ Captured log call ------------------------------
+WARNING  chstockdata.a_stock:a_stock.py:2237 OHLCV coverage stale for 600519: requested_end=2026-07-24 observed_max=2025-11-18 gap_days=248
+_____ test_full_output_numeric_scan_covers_conflict_risk_and_final_fields _____
+
+    def test_full_output_numeric_scan_covers_conflict_risk_and_final_fields():
+        from tradingagents.agents.contracts.phase2 import (
+            CitationBundle,
+            ConflictReview,
+            ExecutionStatus,
+            FailureKind,
+            FinalEvidenceTracePayload,
+            FinalResearchView,
+            FinalResearchViewPayload,
+            Phase2NodeResult,
+            ResearchAvailability,
+            ResearchConfidence,
+            ResearchOutcome,
+            ResearchRating,
+            RiskFactorPayload,
+            RiskReview,
+            RiskReviewPayload,
+            RiskSeverity,
+            TimeHorizon,
+            build_result_id,
+        )
+        from tradingagents.agents.utils.phase2_projection import (
+            Phase2ContractValidationError,
+            assess_research_basis,
+            build_node_projection,
+            validate_analysis_output,
+        )
+    
+        admitted = _admitted()
+        price, _ = _domain_result(admitted, "price_trend")
+        business, _ = _domain_result(admitted, "business_valuation")
+        domains = (price, business)
+        conflict, conflict_projection = _review_result(
+            admitted, "contrarian_conflict", domains
+        )
+        risk_projection = build_node_projection(
+            admitted,
+            "risk_review",
+            _policy(),
+            validated_upstream_results=(*domains, conflict),
+        )
+        risk_id = build_result_id(
+            contract_version=admitted.context.contract_version,
+            run_id=admitted.context.run_id,
+            snapshot_fingerprint=admitted.context.snapshot_fingerprint,
+            node_name="risk_review",
+            logical_execution_no=1,
+        )
+        risk_citations = _citation_for(risk_projection)
+        safe_risk_statement = _grounded(
+            risk_citations, text="ԓ������Ҫ���m�Pע��"
+        )
+        risk_output = RiskReview.from_payload(
+            RiskReviewPayload(
+                risk_factors=(
+                    RiskFactorPayload(
+                        risk=safe_risk_statement,
+                        severity=RiskSeverity.HIGH,
+                        severity_rationale=safe_risk_statement,
+                        trigger_condition=safe_risk_statement,
+                    ),
+                )
+            ),
+            result_id=risk_id,
+        )
+        risk_result = Phase2NodeResult.from_context(
+            admitted.context,
+            node_name="risk_review",
+            logical_execution_no=1,
+            execution_status=ExecutionStatus.COMPLETED,
+            research_availability=ResearchAvailability.AVAILABLE,
+            research_outcome=ResearchOutcome.SUBSTANTIVE,
+            output=risk_output,
+        )
+        checked_risk = validate_analysis_output(
+            risk_result,
+            risk_projection.manifest,
+            admitted,
+            validated_upstream_results=(*domains, conflict),
+        )
+    
+        for field_name in ("disposition_rationale",):
+            statement = getattr(conflict.result.output, field_name)
+            bad_statement = statement.model_copy(
+                update={"text_template": "�nͻ���Ȟ�5Ԫ��"}
+            )
+            bad_output = conflict.result.output.model_copy(
+                update={field_name: bad_statement}
+            )
+            with pytest.raises(Phase2ContractValidationError, match="numeric"):
+                validate_analysis_output(
+                    conflict.result.model_copy(update={"output": bad_output}),
+                    conflict_projection.manifest,
+                    admitted,
+                    validated_upstream_results=domains,
+                )
+    
+        for field_name in ("risk", "severity_rationale", "trigger_condition"):
+            factor = checked_risk.result.output.risk_factors[0]
+            bad_statement = getattr(factor, field_name).model_copy(
+                update={"text_template": "�L�U�ֵ��5Ԫ��"}
+            )
+            bad_factor = factor.model_copy(update={field_name: bad_statement})
+            bad_output = checked_risk.result.output.model_copy(
+                update={"risk_factors": (bad_factor,)}
+            )
+            with pytest.raises(Phase2ContractValidationError, match="numeric"):
+                validate_analysis_output(
+                    checked_risk.result.model_copy(update={"output": bad_output}),
+                    risk_projection.manifest,
+                    admitted,
+                    validated_upstream_results=(*domains, conflict),
+                )
+    
+        basis = assess_research_basis(
+            domains, conflict, checked_risk, admitted
+        )
+        final_upstream = (*domains, conflict, checked_risk)
+>       final_projection = build_node_projection(
+            admitted,
+            "final_research_view",
+            _policy(),
+            validated_upstream_results=final_upstream,
+            basis_assessment=basis,
+        )
+
+tests\test_phase2_step3_validation.py:586: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+admitted_snapshot = AdmittedResearchSnapshot(snapshot=ResearchSnapshot(schema_version='v1', run_id='run-step5-001', ticker='600519', instr...rompt_budget_policy_id='test-budget-policy.v1', research_basis_policy_id='phase2_basis.v1', provider_request_limit=10))
+node_name = 'final_research_view'
+prompt_budget_policy = PromptBudgetPolicy(policy_id='test-budget-policy.v1', policy_version='v1', provider='test-only', model='test-model-v1'...-upper-bound.v1', estimator_approved_for_model='test-model-v1', estimator_safety_factor=Decimal('1.1'), test_only=True)
+validated_upstream_results = (ValidatedPhase2Result(result=Phase2NodeResult(result_id='p2r_4039c7afd1144ac97029163a4498cfbb7c6b59b490e9d9908a60b7e6...jection_digest='b46deeec17f944b6b92e71820ae8d33d65e1203e0bcb65238c7eb91b8282bd31'), validated_upstream_results=()))))))
+basis_assessment = ResearchBasisAssessment(policy_id='phase2_basis.v1', snapshot_fingerprint='fe5161d58335b315eb859c6ed8e9250c9ec6a3dabfb...d_major_event_risk_refs=(), execution_failure_node=None, execution_failure_kind=None, execution_failure_result_id=None)
+_active_result_ids = frozenset()
+
+    def build_node_projection(
+        admitted_snapshot: AdmittedResearchSnapshot,
+        node_name: Phase2NodeName | str,
+        prompt_budget_policy: PromptBudgetPolicy,
+        validated_upstream_results: Sequence[ValidatedPhase2Result] = (),
+        *,
+        basis_assessment: ResearchBasisAssessment | None = None,
+        _active_result_ids: frozenset[str] = frozenset(),
+    ) -> NodePromptProjection:
+        """Build a deterministic, budgeted projection from the admitted authority."""
+    
+        _assert_admitted(admitted_snapshot)
+        if not isinstance(prompt_budget_policy, PromptBudgetPolicy):
+            raise TypeError("prompt_budget_policy must be a PromptBudgetPolicy")
+        normalized_node = str(node_name)
+        if normalized_node not in _ALL_NODE_NAMES:
+            raise Phase2ContractValidationError(f"unsupported Phase 2 node: {normalized_node}")
+        if prompt_budget_policy.policy_id != admitted_snapshot.context.prompt_budget_policy_id:
+            raise Phase2ContractValidationError(
+                "PromptBudgetPolicy ID does not match GraphContext"
+            )
+        upstream = tuple(validated_upstream_results)
+        _validate_upstream_names(normalized_node, upstream)
+        _validate_upstream_wrappers(
+            admitted_snapshot, upstream, active_result_ids=_active_result_ids
+        )
+        if normalized_node == "final_research_view":
+            if basis_assessment is None:
+                raise Phase2ContractValidationError(
+                    "final_research_view requires a code-owned basis assessment"
+                )
+            if basis_assessment.snapshot_fingerprint != admitted_snapshot.context.snapshot_fingerprint:
+                raise Phase2ContractValidationError(
+                    "basis assessment fingerprint differs from GraphContext"
+                )
+            if basis_assessment.policy_id != admitted_snapshot.context.research_basis_policy_id:
+                raise Phase2ContractValidationError(
+                    "basis assessment policy differs from GraphContext"
+                )
+            if basis_assessment.status is ResearchBasisStatus.UPSTREAM_EXECUTION_FAILURE:
+                raise Phase2UpstreamExecutionFailure(
+                    next(
+                        wrapper.result
+                        for wrapper in upstream
+                        if wrapper.result.result_id == basis_assessment.execution_failure_result_id
+                    )
+                )
+            if basis_assessment.status is not ResearchBasisStatus.READY_FOR_FINAL:
+                raise InsufficientResearchBasisError(basis_assessment)
+        elif basis_assessment is not None:
+            raise Phase2ContractValidationError(
+                "basis assessment is only an input to final_research_view"
+            )
+    
+        effective_limit = _policy_effective_limit(prompt_budget_policy)
+        snapshot = admitted_snapshot.snapshot
+        indexes = _snapshot_indexes(snapshot)
+        node_domain = _domain_from_node(normalized_node)
+        (
+            facts,
+            materials,
+            cited_metrics,
+            cited_evidence,
+            cited_health,
+            _cited_upstream_result_ids,
+            direct_health_refs,
+            domain_health,
+        ) = _node_input_sets(admitted_snapshot, normalized_node, upstream)
+        if node_domain is None:
+            # Review projections inherit only explicit, validated citations.
+            facts = [item for item in facts if item.fact_id in {
+                identifier
+                for wrapper in upstream
+                for identifier in _snapshot_source_refs_for_result(wrapper.result)[0]
+            }]
+            materials = [item for item in materials if item.material_id in {
+                identifier
+                for wrapper in upstream
+                for identifier in _snapshot_source_refs_for_result(wrapper.result)[1]
+            } or item.material_id in {
+                chunk.material_id
+                for wrapper in upstream
+                for chunk in wrapper.projection_manifest.selected_material_chunks
+            }]
+    
+        for wrapper in upstream:
+            if wrapper.result.snapshot_fingerprint != admitted_snapshot.context.snapshot_fingerprint:
+                raise Phase2ContractValidationError(
+                    "upstream result belongs to another Snapshot fingerprint"
+                )
+            if wrapper.result.node_name not in _upstream_nodes_allowed(normalized_node):
+                raise Phase2ContractValidationError(
+                    f"{normalized_node} cannot receive {wrapper.result.node_name}"
+                )
+    
+        # Validate provenance/PIT before admitting any source object to a prompt.
+        derivation_by_id = indexes["derivations"]
+        for fact in facts:
+            source_evidence = _result_evidence_ids_for_fact(fact, derivation_by_id)
+            source_health = _fact_health_refs(fact, snapshot, derivation_by_id)
+            _assert_pit_scope(
+                snapshot,
+                admitted_snapshot.context,
+                evidence_ids=tuple(sorted(source_evidence)),
+                health_refs=tuple(sorted(source_health)),
+                fact=fact,
+            )
+        for material in materials:
+            source_health = _material_health_refs(material, snapshot)
+            _assert_pit_scope(
+                snapshot,
+                admitted_snapshot.context,
+                evidence_ids=material.evidence_ids,
+                health_refs=tuple(sorted(source_health)),
+                material=material,
+            )
+    
+        health_refs = _health_refs_for_inputs(
+            snapshot,
+            facts,
+            materials,
+            derivation_by_id,
+            domain_health=domain_health,
+            cited_health_refs=cited_health | direct_health_refs,
+        )
+        if node_domain is not None and domain_health is not None:
+            # Domain status and all localized data availability are required input.
+            health_refs.update(domain_health.data_health_refs)
+        all_health = indexes["health"]
+        if not health_refs.issubset(all_health):
+            raise Phase2ContractValidationError("projection contains a dangling health reference")
+    
+        metric_ids = _metric_ids_for_facts(facts, cited_metrics)
+        if not metric_ids.issubset(indexes["derivations"]):
+            raise Phase2ContractValidationError(
+                "projection DerivedMetric IDs are not closed over the Phase 1 Snapshot"
+            )
+        for metric_id in metric_ids:
+            metric = indexes["derivations"][metric_id]
+            if not metric.input_evidence_ids:
+                raise Phase2ContractValidationError(
+                    f"DerivedMetric {metric_id} has no input Evidence"
+                )
+        chunks_by_id = {
+            item.material_id: _chunk_material(item, snapshot) for item in materials
+        }
+        all_material_chunks = _sort_material_chunks(materials, chunks_by_id, node_domain)
+        critical_facts = [
+            fact
+            for fact in facts
+            if _is_critical_importance(
+                _fact_importance(fact, snapshot, derivation_by_id)
+            )
+        ]
+        optional_facts = [fact for fact in facts if fact not in critical_facts]
+        optional_facts.sort(key=lambda item: (-item.priority, item.fact_id))
+        critical_chunks = [
+            pair
+            for pair in all_material_chunks
+            if _is_critical_importance(pair[1].source_metadata.source_importance)
+        ]
+        optional_chunks = [pair for pair in all_material_chunks if pair not in critical_chunks]
+    
+        selected_facts = list(critical_facts)
+        selected_chunks = [chunk for _, chunk in critical_chunks]
+        exclusions: list[ProjectionExclusion] = []
+    
+        def make_current_projection(current_facts, current_chunks, current_exclusions, estimate=0):
+            selected_source_materials = [
+                next(
+                    item
+                    for item in snapshot.materials
+                    if item.material_id == material_id
+                )
+                for material_id in sorted({item.material_id for item in current_chunks})
+            ]
+            current_metric_ids = _metric_ids_for_facts(current_facts, cited_metrics)
+            current_health_refs = _health_refs_for_inputs(
+                snapshot,
+                current_facts,
+                selected_source_materials,
+                derivation_by_id,
+                domain_health=domain_health,
+                cited_health_refs=cited_health | direct_health_refs,
+            )
+            if node_domain is not None and domain_health is not None:
+                current_health_refs.update(domain_health.data_health_refs)
+            manifest = _make_manifest(
+                admitted_snapshot,
+                normalized_node,
+                prompt_budget_policy,
+                current_facts,
+                current_chunks,
+                current_metric_ids,
+                current_health_refs,
+                upstream,
+                current_exclusions,
+                estimate,
+                effective_limit,
+                basis_assessment,
+            )
+            return _build_projection_object(admitted_snapshot, manifest, upstream)
+    
+        current = make_current_projection(selected_facts, selected_chunks, exclusions)
+        input_estimate, estimator_id = _count_input_tokens(
+            serialize_projection_input(current), prompt_budget_policy
+        )
+        if input_estimate > effective_limit:
+>           raise PromptProjectionError(
+                "required identity, health, limitations, upstream results, and "
+                "decision-critical input exceed effective prompt capacity"
+            )
+E           tradingagents.agents.utils.phase2_projection.PromptProjectionError: required identity, health, limitations, upstream results, and decision-critical input exceed effective prompt capacity
+
+tradingagents\agents\utils\phase2_projection.py:1823: PromptProjectionError
+________ test_date_exemption_requires_exact_admitted_or_cited_metadata ________
+
+    def test_date_exemption_requires_exact_admitted_or_cited_metadata():
+        from tradingagents.agents.utils.phase2_projection import (
+            Phase2ContractValidationError,
+            validate_analysis_output,
+        )
+    
+        admitted = _admitted()
+        result, projection = _domain_result(admitted, "price_trend")
+>       statement = _grounded(
+            _citation_for(projection), text="�о����ڞ�2026-09-21��"
+        )
+
+tests\test_phase2_step3_validation.py:656: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+citations = CitationBundle(fact_ids=('fact-3292c3d0f8bba1fd',), material_ids=(), derived_metric_ids=(), evidence_ids=('ev-7aef3b56...6a4648f2f58b82c54d716966',), health_refs=(), upstream_result_ids=(), upstream_statement_ids=(), upstream_reason_ids=())
+text = '�о����ڞ�2026-09-21��', values = ()
+
+    def _grounded(citations, *, text="�о�����֧�ָ��жϡ�", values=()):
+        from tradingagents.agents.contracts.phase2 import GroundedStatementPayload
+    
+>       return GroundedStatementPayload(
+            statement_kind="interpretation",
+            text_template=text,
+            citations=citations,
+            value_refs=tuple(values),
+        )
+E       pydantic_core._pydantic_core.ValidationError: 1 validation error for GroundedStatementPayload
+E         Value error, factual numeric literals must use a GroundedValueRef slot [type=value_error, input_value={'statement_kind': 'inter...s=()), 'value_refs': ()}, input_type=dict]
+E           For further information visit https://errors.pydantic.dev/2.13/v/value_error
+
+tests\test_phase2_step3_validation.py:99: ValidationError
+_____ test_derived_metric_numeric_render_uses_its_closed_source_evidence ______
+
+    def test_derived_metric_numeric_render_uses_its_closed_source_evidence():
+        from tradingagents.agents.contracts.phase2 import (
+            CitationBundle,
+            DomainInsight,
+            GroundedStatement,
+            GroundedValueRef,
+            build_result_id,
+        )
+        from tradingagents.agents.utils.phase2_projection import (
+            build_node_projection,
+            render_grounded_statement,
+            validate_analysis_output,
+        )
+    
+        admitted = _admitted()
+        result, _ = _domain_result(admitted, "business_valuation")
+        projection = build_node_projection(admitted, "business_valuation", _policy())
+        metric = projection.selected_derived_metrics[0]
+        citations = CitationBundle(
+            derived_metric_ids=(metric.derivation_id,),
+            evidence_ids=tuple(metric.input_evidence_ids),
+        )
+        value_ref = GroundedValueRef(
+            slot="v0",
+            source_kind="derived_metric",
+            source_id=metric.derivation_id,
+            value_path="value",
+            render_policy_id="percent_2dp.v1",
+        )
+        payload = _grounded(
+            citations, text="����ͬ��׃����{v0}��", values=(value_ref,)
+        )
+        statement = GroundedStatement.from_payload(
+            payload,
+            result_id=result.result.result_id,
+            json_pointer="/conclusion",
+        )
+        rendered = render_grounded_statement(statement, projection.manifest, admitted)
+        output = result.result.output.model_copy(update={"conclusion": statement})
+>       checked = validate_analysis_output(
+            result.result.model_copy(update={"output": output}),
+            projection.manifest,
+            admitted,
+        )
+
+tests\test_phase2_step3_validation.py:781: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+materialized_output = Phase2NodeResult(result_id='p2r_899dddaae116c6c971d0767b8012036c5efb5d30c84eca9e7d1a3d3e8ae04c90', node_name='business...s=(), uncertainties=(), limitations=(), next_observations=()), limitations=(), failure_summary=None, telemetry_refs=())
+node_projection_manifest = PromptProjectionManifest(projection_version='phase2_projection.v1', run_id='run-step5-001', snapshot_fingerprint='fe51...ens=12000, basis_assessment=None, projection_digest='b46deeec17f944b6b92e71820ae8d33d65e1203e0bcb65238c7eb91b8282bd31')
+admitted_snapshot = AdmittedResearchSnapshot(snapshot=ResearchSnapshot(schema_version='v1', run_id='run-step5-001', ticker='600519', instr...rompt_budget_policy_id='test-budget-policy.v1', research_basis_policy_id='phase2_basis.v1', provider_request_limit=10))
+validated_upstream_results = ()
+
+    def validate_analysis_output(
+        materialized_output: Phase2NodeResult | Mapping[str, Any],
+        node_projection_manifest: PromptProjectionManifest,
+        admitted_snapshot: AdmittedResearchSnapshot,
+        validated_upstream_results: Sequence[ValidatedPhase2Result] = (),
+    ) -> ValidatedPhase2Result:
+        """Validate Step 2 structure, code IDs, input membership, closure, and values."""
+    
+>       return _validate_analysis_output(
+            materialized_output,
+            node_projection_manifest,
+            admitted_snapshot,
+            validated_upstream_results,
+            allow_failed_result=True,
+        )
+
+tradingagents\agents\utils\phase2_projection.py:2961: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+materialized_output = Phase2NodeResult(result_id='p2r_899dddaae116c6c971d0767b8012036c5efb5d30c84eca9e7d1a3d3e8ae04c90', node_name='business...s=(), uncertainties=(), limitations=(), next_observations=()), limitations=(), failure_summary=None, telemetry_refs=())
+node_projection_manifest = PromptProjectionManifest(projection_version='phase2_projection.v1', run_id='run-step5-001', snapshot_fingerprint='fe51...ens=12000, basis_assessment=None, projection_digest='b46deeec17f944b6b92e71820ae8d33d65e1203e0bcb65238c7eb91b8282bd31')
+admitted_snapshot = AdmittedResearchSnapshot(snapshot=ResearchSnapshot(schema_version='v1', run_id='run-step5-001', ticker='600519', instr...rompt_budget_policy_id='test-budget-policy.v1', research_basis_policy_id='phase2_basis.v1', provider_request_limit=10))
+validated_upstream_results = (), allow_failed_result = True
+active_result_ids = frozenset()
+
+    def _validate_analysis_output(
+        materialized_output: Phase2NodeResult | Mapping[str, Any],
+        node_projection_manifest: PromptProjectionManifest,
+        admitted_snapshot: AdmittedResearchSnapshot,
+        validated_upstream_results: Sequence[ValidatedPhase2Result] = (),
+        *,
+        allow_failed_result: bool = False,
+        active_result_ids: frozenset[str] = frozenset(),
+    ) -> ValidatedPhase2Result:
+        _assert_admitted(admitted_snapshot)
+        if not isinstance(node_projection_manifest, PromptProjectionManifest):
+            try:
+                node_projection_manifest = PromptProjectionManifest.model_validate(
+                    node_projection_manifest
+                )
+            except (ValidationError, TypeError, ValueError) as exc:
+                raise Phase2ContractValidationError(
+                    f"projection manifest validation failed: {exc}"
+                ) from exc
+        manifest = node_projection_manifest
+        upstream = tuple(validated_upstream_results)
+        result = _reparse_phase2_result(materialized_output)
+        if result.result_id in active_result_ids:
+            raise Phase2ContractValidationError("cyclic Step 3 validated-result chain")
+        _check_manifest_identity(manifest, admitted_snapshot)
+        if result.node_name != manifest.node_name:
+            raise Phase2ContractValidationError(
+                "Phase2NodeResult node_name differs from its actual projection manifest"
+            )
+        _validate_code_owned_ids(result, admitted_snapshot.context)
+        try:
+            expected_projection = build_node_projection(
+                admitted_snapshot,
+                manifest.node_name,
+                manifest.budget_policy,
+                validated_upstream_results=upstream,
+                basis_assessment=manifest.basis_assessment,
+                _active_result_ids=active_result_ids | {result.result_id},
+            )
+        except (PromptProjectionError, InsufficientResearchBasisError, Phase2UpstreamExecutionFailure):
+            raise
+        except (TypeError, ValueError) as exc:
+            raise Phase2ContractValidationError(
+                f"projection manifest cannot be reproduced from admitted inputs: {exc}"
+            ) from exc
+        if expected_projection.manifest.model_dump(mode="json") != manifest.model_dump(
+            mode="json"
+        ):
+            raise Phase2ContractValidationError(
+                "projection manifest/digest does not match deterministic admitted input"
+            )
+        if result.snapshot_fingerprint != admitted_snapshot.context.snapshot_fingerprint:
+            raise Phase2ContractValidationError(
+                "node result has a foreign Snapshot fingerprint"
+            )
+        if result.execution_status.value != "completed":
+            if not allow_failed_result:
+                raise Phase2ContractValidationError(
+                    "failed execution has no validated analytical output"
+                )
+            if result.output is not None:
+                raise Phase2ContractValidationError(
+                    "failed execution must not carry a model output"
+                )
+            return ValidatedPhase2Result(
+                _VALIDATION_SEAL, result, manifest, upstream
+            )
+        if result.output is None:
+            raise Phase2ContractValidationError("completed node result requires output")
+        wrappers_with_current = upstream
+        content_index = _content_index(wrappers_with_current)
+        for _, _, statement in _walk_grounded_statements(result.output):
+>           _validate_grounded_statement(
+                statement, manifest, admitted_snapshot, content_index
+            )
+
+tradingagents\agents\utils\phase2_projection.py:2926: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+statement = GroundedStatement(statement_kind=<StatementKind.INTERPRETATION: 'interpretation'>, text_template='����ͬ��׃����{v0}��', citat...der_policy_id='percent_2dp.v1'),), statement_id='p2s_4a7aff2f07be6c22fd406996f52c07f777623d31b54d63023587bb7f269e1eff')
+manifest = PromptProjectionManifest(projection_version='phase2_projection.v1', run_id='run-step5-001', snapshot_fingerprint='fe51...ens=12000, basis_assessment=None, projection_digest='b46deeec17f944b6b92e71820ae8d33d65e1203e0bcb65238c7eb91b8282bd31')
+admitted = AdmittedResearchSnapshot(snapshot=ResearchSnapshot(schema_version='v1', run_id='run-step5-001', ticker='600519', instr...rompt_budget_policy_id='test-budget-policy.v1', research_basis_policy_id='phase2_basis.v1', provider_request_limit=10))
+content_index = ({}, {}, {})
+
+    def _validate_grounded_statement(
+        statement: GroundedStatement,
+        manifest: PromptProjectionManifest,
+        admitted: AdmittedResearchSnapshot,
+        content_index,
+    ) -> None:
+        try:
+            # Reparse the serialized statement so model_copy/update cannot bypass
+            # Step 2's template, slot, and no-unbacked-number rules.
+            type(statement).model_validate(statement.model_dump(mode="json"))
+        except ValidationError as exc:
+            raise Phase2ContractValidationError(
+                f"GroundedStatement numeric/template validation failed: {exc}"
+            ) from exc
+        roots = _validate_citation_bundle(
+            statement.citations, manifest, admitted, content_index
+        )
+        _validate_date_literals(statement, manifest, admitted, content_index)
+        kind = statement.statement_kind
+        if kind in {StatementKind.INTERPRETATION, StatementKind.MONITORING_CONDITION}:
+            has_direct_layer = bool(
+                statement.citations.fact_ids or statement.citations.material_ids
+            )
+            has_upstream_layer = bool(
+                statement.citations.upstream_result_ids
+                or statement.citations.upstream_statement_ids
+                or statement.citations.upstream_reason_ids
+            )
+            if not (has_direct_layer or (has_upstream_layer and roots)):
+>               raise Phase2ContractValidationError(
+                    "interpretation/monitoring statement lacks Fact/Material or "
+                    "recursively grounded upstream input"
+E                   tradingagents.agents.utils.phase2_projection.Phase2ContractValidationError: interpretation/monitoring statement lacks Fact/Material or recursively grounded upstream input
+
+tradingagents\agents\utils\phase2_projection.py:2617: Phase2ContractValidationError
+___ test_scoped_absence_requires_a_matching_normal_empty_datahealth_source ____
+
+    def test_scoped_absence_requires_a_matching_normal_empty_datahealth_source():
+        from tradingagents.agents.contracts.phase2 import (
+            CitationBundle,
+            GroundedStatement,
+            GroundedStatementPayload,
+            StatementKind,
+        )
+        from tradingagents.agents.utils.phase2_projection import (
+            Phase2ContractValidationError,
+            build_node_projection,
+            validate_analysis_output,
+        )
+        from test_phase1_step8_acceptance import _acceptance_snapshot
+    
+        snapshot = _acceptance_snapshot()
+        admitted = _admitted(snapshot)
+>       result, projection = _domain_result(admitted, "events_policy")
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_phase2_step3_validation.py:886: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+admitted = AdmittedResearchSnapshot(snapshot=ResearchSnapshot(schema_version='v1', run_id='run-step5-001', ticker='600519', instr...rompt_budget_policy_id='test-budget-policy.v1', research_basis_policy_id='phase2_basis.v1', provider_request_limit=10))
+node_name = 'events_policy', fact_id = None, material_id = None, text = None
+
+    def _domain_result(admitted, node_name, *, fact_id=None, material_id=None, text=None):
+        from tradingagents.agents.contracts.phase2 import (
+            DomainInsight,
+            DomainInsightPayload,
+            ExecutionStatus,
+            Phase2NodeResult,
+            ReasonPayload,
+            ResearchAvailability,
+            ResearchOutcome,
+            build_result_id,
+        )
+        from tradingagents.agents.utils.phase2_projection import (
+            build_node_projection,
+            validate_analysis_output,
+        )
+    
+>       projection = build_node_projection(admitted, node_name, _policy())
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_phase2_step3_validation.py:123: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+admitted_snapshot = AdmittedResearchSnapshot(snapshot=ResearchSnapshot(schema_version='v1', run_id='run-step5-001', ticker='600519', instr...rompt_budget_policy_id='test-budget-policy.v1', research_basis_policy_id='phase2_basis.v1', provider_request_limit=10))
+node_name = 'events_policy'
+prompt_budget_policy = PromptBudgetPolicy(policy_id='test-budget-policy.v1', policy_version='v1', provider='test-only', model='test-model-v1'...-upper-bound.v1', estimator_approved_for_model='test-model-v1', estimator_safety_factor=Decimal('1.1'), test_only=True)
+validated_upstream_results = (), basis_assessment = None
+_active_result_ids = frozenset()
+
+    def build_node_projection(
+        admitted_snapshot: AdmittedResearchSnapshot,
+        node_name: Phase2NodeName | str,
+        prompt_budget_policy: PromptBudgetPolicy,
+        validated_upstream_results: Sequence[ValidatedPhase2Result] = (),
+        *,
+        basis_assessment: ResearchBasisAssessment | None = None,
+        _active_result_ids: frozenset[str] = frozenset(),
+    ) -> NodePromptProjection:
+        """Build a deterministic, budgeted projection from the admitted authority."""
+    
+        _assert_admitted(admitted_snapshot)
+        if not isinstance(prompt_budget_policy, PromptBudgetPolicy):
+            raise TypeError("prompt_budget_policy must be a PromptBudgetPolicy")
+        normalized_node = str(node_name)
+        if normalized_node not in _ALL_NODE_NAMES:
+            raise Phase2ContractValidationError(f"unsupported Phase 2 node: {normalized_node}")
+        if prompt_budget_policy.policy_id != admitted_snapshot.context.prompt_budget_policy_id:
+            raise Phase2ContractValidationError(
+                "PromptBudgetPolicy ID does not match GraphContext"
+            )
+        upstream = tuple(validated_upstream_results)
+        _validate_upstream_names(normalized_node, upstream)
+        _validate_upstream_wrappers(
+            admitted_snapshot, upstream, active_result_ids=_active_result_ids
+        )
+        if normalized_node == "final_research_view":
+            if basis_assessment is None:
+                raise Phase2ContractValidationError(
+                    "final_research_view requires a code-owned basis assessment"
+                )
+            if basis_assessment.snapshot_fingerprint != admitted_snapshot.context.snapshot_fingerprint:
+                raise Phase2ContractValidationError(
+                    "basis assessment fingerprint differs from GraphContext"
+                )
+            if basis_assessment.policy_id != admitted_snapshot.context.research_basis_policy_id:
+                raise Phase2ContractValidationError(
+                    "basis assessment policy differs from GraphContext"
+                )
+            if basis_assessment.status is ResearchBasisStatus.UPSTREAM_EXECUTION_FAILURE:
+                raise Phase2UpstreamExecutionFailure(
+                    next(
+                        wrapper.result
+                        for wrapper in upstream
+                        if wrapper.result.result_id == basis_assessment.execution_failure_result_id
+                    )
+                )
+            if basis_assessment.status is not ResearchBasisStatus.READY_FOR_FINAL:
+                raise InsufficientResearchBasisError(basis_assessment)
+        elif basis_assessment is not None:
+            raise Phase2ContractValidationError(
+                "basis assessment is only an input to final_research_view"
+            )
+    
+        effective_limit = _policy_effective_limit(prompt_budget_policy)
+        snapshot = admitted_snapshot.snapshot
+        indexes = _snapshot_indexes(snapshot)
+        node_domain = _domain_from_node(normalized_node)
+        (
+            facts,
+            materials,
+            cited_metrics,
+            cited_evidence,
+            cited_health,
+            _cited_upstream_result_ids,
+            direct_health_refs,
+            domain_health,
+        ) = _node_input_sets(admitted_snapshot, normalized_node, upstream)
+        if node_domain is None:
+            # Review projections inherit only explicit, validated citations.
+            facts = [item for item in facts if item.fact_id in {
+                identifier
+                for wrapper in upstream
+                for identifier in _snapshot_source_refs_for_result(wrapper.result)[0]
+            }]
+            materials = [item for item in materials if item.material_id in {
+                identifier
+                for wrapper in upstream
+                for identifier in _snapshot_source_refs_for_result(wrapper.result)[1]
+            } or item.material_id in {
+                chunk.material_id
+                for wrapper in upstream
+                for chunk in wrapper.projection_manifest.selected_material_chunks
+            }]
+    
+        for wrapper in upstream:
+            if wrapper.result.snapshot_fingerprint != admitted_snapshot.context.snapshot_fingerprint:
+                raise Phase2ContractValidationError(
+                    "upstream result belongs to another Snapshot fingerprint"
+                )
+            if wrapper.result.node_name not in _upstream_nodes_allowed(normalized_node):
+                raise Phase2ContractValidationError(
+                    f"{normalized_node} cannot receive {wrapper.result.node_name}"
+                )
+    
+        # Validate provenance/PIT before admitting any source object to a prompt.
+        derivation_by_id = indexes["derivations"]
+        for fact in facts:
+            source_evidence = _result_evidence_ids_for_fact(fact, derivation_by_id)
+            source_health = _fact_health_refs(fact, snapshot, derivation_by_id)
+            _assert_pit_scope(
+                snapshot,
+                admitted_snapshot.context,
+                evidence_ids=tuple(sorted(source_evidence)),
+                health_refs=tuple(sorted(source_health)),
+                fact=fact,
+            )
+        for material in materials:
+            source_health = _material_health_refs(material, snapshot)
+            _assert_pit_scope(
+                snapshot,
+                admitted_snapshot.context,
+                evidence_ids=material.evidence_ids,
+                health_refs=tuple(sorted(source_health)),
+                material=material,
+            )
+    
+        health_refs = _health_refs_for_inputs(
+            snapshot,
+            facts,
+            materials,
+            derivation_by_id,
+            domain_health=domain_health,
+            cited_health_refs=cited_health | direct_health_refs,
+        )
+        if node_domain is not None and domain_health is not None:
+            # Domain status and all localized data availability are required input.
+            health_refs.update(domain_health.data_health_refs)
+        all_health = indexes["health"]
+        if not health_refs.issubset(all_health):
+            raise Phase2ContractValidationError("projection contains a dangling health reference")
+    
+        metric_ids = _metric_ids_for_facts(facts, cited_metrics)
+        if not metric_ids.issubset(indexes["derivations"]):
+            raise Phase2ContractValidationError(
+                "projection DerivedMetric IDs are not closed over the Phase 1 Snapshot"
+            )
+        for metric_id in metric_ids:
+            metric = indexes["derivations"][metric_id]
+            if not metric.input_evidence_ids:
+                raise Phase2ContractValidationError(
+                    f"DerivedMetric {metric_id} has no input Evidence"
+                )
+        chunks_by_id = {
+            item.material_id: _chunk_material(item, snapshot) for item in materials
+        }
+        all_material_chunks = _sort_material_chunks(materials, chunks_by_id, node_domain)
+        critical_facts = [
+            fact
+            for fact in facts
+            if _is_critical_importance(
+                _fact_importance(fact, snapshot, derivation_by_id)
+            )
+        ]
+        optional_facts = [fact for fact in facts if fact not in critical_facts]
+        optional_facts.sort(key=lambda item: (-item.priority, item.fact_id))
+        critical_chunks = [
+            pair
+            for pair in all_material_chunks
+            if _is_critical_importance(pair[1].source_metadata.source_importance)
+        ]
+        optional_chunks = [pair for pair in all_material_chunks if pair not in critical_chunks]
+    
+        selected_facts = list(critical_facts)
+        selected_chunks = [chunk for _, chunk in critical_chunks]
+        exclusions: list[ProjectionExclusion] = []
+    
+        def make_current_projection(current_facts, current_chunks, current_exclusions, estimate=0):
+            selected_source_materials = [
+                next(
+                    item
+                    for item in snapshot.materials
+                    if item.material_id == material_id
+                )
+                for material_id in sorted({item.material_id for item in current_chunks})
+            ]
+            current_metric_ids = _metric_ids_for_facts(current_facts, cited_metrics)
+            current_health_refs = _health_refs_for_inputs(
+                snapshot,
+                current_facts,
+                selected_source_materials,
+                derivation_by_id,
+                domain_health=domain_health,
+                cited_health_refs=cited_health | direct_health_refs,
+            )
+            if node_domain is not None and domain_health is not None:
+                current_health_refs.update(domain_health.data_health_refs)
+            manifest = _make_manifest(
+                admitted_snapshot,
+                normalized_node,
+                prompt_budget_policy,
+                current_facts,
+                current_chunks,
+                current_metric_ids,
+                current_health_refs,
+                upstream,
+                current_exclusions,
+                estimate,
+                effective_limit,
+                basis_assessment,
+            )
+            return _build_projection_object(admitted_snapshot, manifest, upstream)
+    
+        current = make_current_projection(selected_facts, selected_chunks, exclusions)
+        input_estimate, estimator_id = _count_input_tokens(
+            serialize_projection_input(current), prompt_budget_policy
+        )
+        if input_estimate > effective_limit:
+>           raise PromptProjectionError(
+                "required identity, health, limitations, upstream results, and "
+                "decision-critical input exceed effective prompt capacity"
+            )
+E           tradingagents.agents.utils.phase2_projection.PromptProjectionError: required identity, health, limitations, upstream results, and decision-critical input exceed effective prompt capacity
+
+tradingagents\agents\utils\phase2_projection.py:1823: PromptProjectionError
+_ test_basis_counts_distinct_result_store_roots_and_requires_two_effective_domains _
+
+    def test_basis_counts_distinct_result_store_roots_and_requires_two_effective_domains():
+        from tradingagents.agents.utils.phase2_projection import (
+            ResearchBasisStatus,
+            assess_research_basis,
+            build_node_projection,
+        )
+    
+        admitted = _admitted()
+        price, _ = _domain_result(admitted, "price_trend")
+        business, _ = _domain_result(admitted, "business_valuation")
+        conflict, _ = _review_result(admitted, "contrarian_conflict", (price, business))
+        risk, _ = _review_result(
+            admitted,
+            "risk_review",
+            (price, business, conflict),
+        )
+    
+        valid = assess_research_basis(
+            (price, business), conflict, risk, admitted, policy_id="phase2_basis.v1"
+        )
+        assert valid.status is ResearchBasisStatus.READY_FOR_FINAL
+        assert len(valid.effective_domains) == 2
+        assert len(valid.root_result_key_fingerprints) >= 2
+>       final_projection = build_node_projection(
+            admitted,
+            "final_research_view",
+            _policy(),
+            validated_upstream_results=(price, business, conflict, risk),
+            basis_assessment=valid,
+        )
+
+tests\test_phase2_step3_validation.py:1036: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+admitted_snapshot = AdmittedResearchSnapshot(snapshot=ResearchSnapshot(schema_version='v1', run_id='run-step5-001', ticker='600519', instr...rompt_budget_policy_id='test-budget-policy.v1', research_basis_policy_id='phase2_basis.v1', provider_request_limit=10))
+node_name = 'final_research_view'
+prompt_budget_policy = PromptBudgetPolicy(policy_id='test-budget-policy.v1', policy_version='v1', provider='test-only', model='test-model-v1'...-upper-bound.v1', estimator_approved_for_model='test-model-v1', estimator_safety_factor=Decimal('1.1'), test_only=True)
+validated_upstream_results = (ValidatedPhase2Result(result=Phase2NodeResult(result_id='p2r_4039c7afd1144ac97029163a4498cfbb7c6b59b490e9d9908a60b7e6...jection_digest='b46deeec17f944b6b92e71820ae8d33d65e1203e0bcb65238c7eb91b8282bd31'), validated_upstream_results=()))))))
+basis_assessment = ResearchBasisAssessment(policy_id='phase2_basis.v1', snapshot_fingerprint='fe5161d58335b315eb859c6ed8e9250c9ec6a3dabfb...d_major_event_risk_refs=(), execution_failure_node=None, execution_failure_kind=None, execution_failure_result_id=None)
+_active_result_ids = frozenset()
+
+    def build_node_projection(
+        admitted_snapshot: AdmittedResearchSnapshot,
+        node_name: Phase2NodeName | str,
+        prompt_budget_policy: PromptBudgetPolicy,
+        validated_upstream_results: Sequence[ValidatedPhase2Result] = (),
+        *,
+        basis_assessment: ResearchBasisAssessment | None = None,
+        _active_result_ids: frozenset[str] = frozenset(),
+    ) -> NodePromptProjection:
+        """Build a deterministic, budgeted projection from the admitted authority."""
+    
+        _assert_admitted(admitted_snapshot)
+        if not isinstance(prompt_budget_policy, PromptBudgetPolicy):
+            raise TypeError("prompt_budget_policy must be a PromptBudgetPolicy")
+        normalized_node = str(node_name)
+        if normalized_node not in _ALL_NODE_NAMES:
+            raise Phase2ContractValidationError(f"unsupported Phase 2 node: {normalized_node}")
+        if prompt_budget_policy.policy_id != admitted_snapshot.context.prompt_budget_policy_id:
+            raise Phase2ContractValidationError(
+                "PromptBudgetPolicy ID does not match GraphContext"
+            )
+        upstream = tuple(validated_upstream_results)
+        _validate_upstream_names(normalized_node, upstream)
+        _validate_upstream_wrappers(
+            admitted_snapshot, upstream, active_result_ids=_active_result_ids
+        )
+        if normalized_node == "final_research_view":
+            if basis_assessment is None:
+                raise Phase2ContractValidationError(
+                    "final_research_view requires a code-owned basis assessment"
+                )
+            if basis_assessment.snapshot_fingerprint != admitted_snapshot.context.snapshot_fingerprint:
+                raise Phase2ContractValidationError(
+                    "basis assessment fingerprint differs from GraphContext"
+                )
+            if basis_assessment.policy_id != admitted_snapshot.context.research_basis_policy_id:
+                raise Phase2ContractValidationError(
+                    "basis assessment policy differs from GraphContext"
+                )
+            if basis_assessment.status is ResearchBasisStatus.UPSTREAM_EXECUTION_FAILURE:
+                raise Phase2UpstreamExecutionFailure(
+                    next(
+                        wrapper.result
+                        for wrapper in upstream
+                        if wrapper.result.result_id == basis_assessment.execution_failure_result_id
+                    )
+                )
+            if basis_assessment.status is not ResearchBasisStatus.READY_FOR_FINAL:
+                raise InsufficientResearchBasisError(basis_assessment)
+        elif basis_assessment is not None:
+            raise Phase2ContractValidationError(
+                "basis assessment is only an input to final_research_view"
+            )
+    
+        effective_limit = _policy_effective_limit(prompt_budget_policy)
+        snapshot = admitted_snapshot.snapshot
+        indexes = _snapshot_indexes(snapshot)
+        node_domain = _domain_from_node(normalized_node)
+        (
+            facts,
+            materials,
+            cited_metrics,
+            cited_evidence,
+            cited_health,
+            _cited_upstream_result_ids,
+            direct_health_refs,
+            domain_health,
+        ) = _node_input_sets(admitted_snapshot, normalized_node, upstream)
+        if node_domain is None:
+            # Review projections inherit only explicit, validated citations.
+            facts = [item for item in facts if item.fact_id in {
+                identifier
+                for wrapper in upstream
+                for identifier in _snapshot_source_refs_for_result(wrapper.result)[0]
+            }]
+            materials = [item for item in materials if item.material_id in {
+                identifier
+                for wrapper in upstream
+                for identifier in _snapshot_source_refs_for_result(wrapper.result)[1]
+            } or item.material_id in {
+                chunk.material_id
+                for wrapper in upstream
+                for chunk in wrapper.projection_manifest.selected_material_chunks
+            }]
+    
+        for wrapper in upstream:
+            if wrapper.result.snapshot_fingerprint != admitted_snapshot.context.snapshot_fingerprint:
+                raise Phase2ContractValidationError(
+                    "upstream result belongs to another Snapshot fingerprint"
+                )
+            if wrapper.result.node_name not in _upstream_nodes_allowed(normalized_node):
+                raise Phase2ContractValidationError(
+                    f"{normalized_node} cannot receive {wrapper.result.node_name}"
+                )
+    
+        # Validate provenance/PIT before admitting any source object to a prompt.
+        derivation_by_id = indexes["derivations"]
+        for fact in facts:
+            source_evidence = _result_evidence_ids_for_fact(fact, derivation_by_id)
+            source_health = _fact_health_refs(fact, snapshot, derivation_by_id)
+            _assert_pit_scope(
+                snapshot,
+                admitted_snapshot.context,
+                evidence_ids=tuple(sorted(source_evidence)),
+                health_refs=tuple(sorted(source_health)),
+                fact=fact,
+            )
+        for material in materials:
+            source_health = _material_health_refs(material, snapshot)
+            _assert_pit_scope(
+                snapshot,
+                admitted_snapshot.context,
+                evidence_ids=material.evidence_ids,
+                health_refs=tuple(sorted(source_health)),
+                material=material,
+            )
+    
+        health_refs = _health_refs_for_inputs(
+            snapshot,
+            facts,
+            materials,
+            derivation_by_id,
+            domain_health=domain_health,
+            cited_health_refs=cited_health | direct_health_refs,
+        )
+        if node_domain is not None and domain_health is not None:
+            # Domain status and all localized data availability are required input.
+            health_refs.update(domain_health.data_health_refs)
+        all_health = indexes["health"]
+        if not health_refs.issubset(all_health):
+            raise Phase2ContractValidationError("projection contains a dangling health reference")
+    
+        metric_ids = _metric_ids_for_facts(facts, cited_metrics)
+        if not metric_ids.issubset(indexes["derivations"]):
+            raise Phase2ContractValidationError(
+                "projection DerivedMetric IDs are not closed over the Phase 1 Snapshot"
+            )
+        for metric_id in metric_ids:
+            metric = indexes["derivations"][metric_id]
+            if not metric.input_evidence_ids:
+                raise Phase2ContractValidationError(
+                    f"DerivedMetric {metric_id} has no input Evidence"
+                )
+        chunks_by_id = {
+            item.material_id: _chunk_material(item, snapshot) for item in materials
+        }
+        all_material_chunks = _sort_material_chunks(materials, chunks_by_id, node_domain)
+        critical_facts = [
+            fact
+            for fact in facts
+            if _is_critical_importance(
+                _fact_importance(fact, snapshot, derivation_by_id)
+            )
+        ]
+        optional_facts = [fact for fact in facts if fact not in critical_facts]
+        optional_facts.sort(key=lambda item: (-item.priority, item.fact_id))
+        critical_chunks = [
+            pair
+            for pair in all_material_chunks
+            if _is_critical_importance(pair[1].source_metadata.source_importance)
+        ]
+        optional_chunks = [pair for pair in all_material_chunks if pair not in critical_chunks]
+    
+        selected_facts = list(critical_facts)
+        selected_chunks = [chunk for _, chunk in critical_chunks]
+        exclusions: list[ProjectionExclusion] = []
+    
+        def make_current_projection(current_facts, current_chunks, current_exclusions, estimate=0):
+            selected_source_materials = [
+                next(
+                    item
+                    for item in snapshot.materials
+                    if item.material_id == material_id
+                )
+                for material_id in sorted({item.material_id for item in current_chunks})
+            ]
+            current_metric_ids = _metric_ids_for_facts(current_facts, cited_metrics)
+            current_health_refs = _health_refs_for_inputs(
+                snapshot,
+                current_facts,
+                selected_source_materials,
+                derivation_by_id,
+                domain_health=domain_health,
+                cited_health_refs=cited_health | direct_health_refs,
+            )
+            if node_domain is not None and domain_health is not None:
+                current_health_refs.update(domain_health.data_health_refs)
+            manifest = _make_manifest(
+                admitted_snapshot,
+                normalized_node,
+                prompt_budget_policy,
+                current_facts,
+                current_chunks,
+                current_metric_ids,
+                current_health_refs,
+                upstream,
+                current_exclusions,
+                estimate,
+                effective_limit,
+                basis_assessment,
+            )
+            return _build_projection_object(admitted_snapshot, manifest, upstream)
+    
+        current = make_current_projection(selected_facts, selected_chunks, exclusions)
+        input_estimate, estimator_id = _count_input_tokens(
+            serialize_projection_input(current), prompt_budget_policy
+        )
+        if input_estimate > effective_limit:
+>           raise PromptProjectionError(
+                "required identity, health, limitations, upstream results, and "
+                "decision-critical input exceed effective prompt capacity"
+            )
+E           tradingagents.agents.utils.phase2_projection.PromptProjectionError: required identity, health, limitations, upstream results, and decision-critical input exceed effective prompt capacity
+
+tradingagents\agents\utils\phase2_projection.py:1823: PromptProjectionError
+_ test_basis_excludes_boilerplate_domains_and_retains_event_risk_inputs_for_partial_work _
+
+    def test_basis_excludes_boilerplate_domains_and_retains_event_risk_inputs_for_partial_work():
+        from tradingagents.agents.utils.phase2_projection import (
+            ResearchBasisStatus,
+            assess_research_basis,
+        )
+    
+        admitted = _admitted()
+        shell, _ = _domain_result(
+            admitted,
+            "business_valuation",
+            text="���ޡ�",
+        )
+        price, _ = _domain_result(admitted, "price_trend")
+>       event_fact = next(
+            item
+            for item in admitted.snapshot.facts
+            if item.domain.value == "events_policy" and "event" in " ".join(item.semantic_tags).casefold()
+        )
+E       StopIteration
+
+tests\test_phase2_step3_validation.py:1144: StopIteration
+============================== warnings summary ===============================
+D:\Dev\Projects\TradingAgents-AStock-Private\.venv\Lib\site-packages\langgraph\cache\base\__init__.py:8
+  D:\Dev\Projects\TradingAgents-AStock-Private\.venv\Lib\site-packages\langgraph\cache\base\__init__.py:8: LangChainPendingDeprecationWarning: The default value of `allowed_objects` will change in a future version. Pass an explicit value (e.g., allowed_objects='messages' or allowed_objects='core') to suppress this warning.
+    from langgraph.checkpoint.serde.jsonplus import JsonPlusSerializer
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ===========================
+FAILED tests/test_free_adjusted_bars.py::test_get_adjusted_bars_uses_existing_loader_and_rejects_stale
+FAILED tests/test_phase2_step3_validation.py::test_full_output_numeric_scan_covers_conflict_risk_and_final_fields
+FAILED tests/test_phase2_step3_validation.py::test_date_exemption_requires_exact_admitted_or_cited_metadata
+FAILED tests/test_phase2_step3_validation.py::test_derived_metric_numeric_render_uses_its_closed_source_evidence
+FAILED tests/test_phase2_step3_validation.py::test_scoped_absence_requires_a_matching_normal_empty_datahealth_source
+FAILED tests/test_phase2_step3_validation.py::test_basis_counts_distinct_result_store_roots_and_requires_two_effective_domains
+FAILED tests/test_phase2_step3_validation.py::test_basis_excludes_boilerplate_domains_and_retains_event_risk_inputs_for_partial_work
+7 failed, 123 passed, 4 deselected, 1 warning in 51.02s

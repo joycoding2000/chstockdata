@@ -1,0 +1,43 @@
+Name: build
+Version: 1.6.1
+Summary: A simple, correct Python build frontend
+Home-page: https://build.pypa.io
+Author: 
+Author-email: Filipe La��ns <lains@riseup.net>, Bern��t G��bor <gaborjbernat@gmail.com>, layday <layday@protonmail.com>, Henry Schreiner <henryschreineriii@gmail.com>
+License-Expression: MIT
+Location: C:\Users\ADMINI~1\AppData\Local\Temp\chstockdata-rh3b3-execution-20260924\clean-python312\Lib\site-packages
+Requires: colorama, packaging, pyproject_hooks
+Required-by: 
+---
+Name: twine
+Version: 7.0.0
+Summary: Collection of utilities for publishing packages on PyPI
+Home-page: https://twine.readthedocs.io/
+Author: 
+Author-email: Donald Stufft and individual contributors <donald@stufft.io>
+License-Expression: Apache-2.0
+Location: C:\Users\ADMINI~1\AppData\Local\Temp\chstockdata-rh3b3-execution-20260924\clean-python312\Lib\site-packages
+Requires: id, keyring, packaging, readme-renderer, requests, requests-toolbelt, rfc3986, rich, urllib3
+Required-by: 
+---
+Name: pytest
+Version: 9.1.1
+Summary: pytest: simple powerful testing with Python
+Home-page: https://docs.pytest.org/en/latest/
+Author: Brianna Laugher, Bruno Oliveira, Floris Bruynooghe, Freya Bruhin, Holger Krekel, Others (See AUTHORS), Ronny Pfannschmidt
+Author-email: 
+License-Expression: MIT
+Location: C:\Users\ADMINI~1\AppData\Local\Temp\chstockdata-rh3b3-execution-20260924\clean-python312\Lib\site-packages
+Requires: colorama, iniconfig, packaging, pluggy, pygments
+Required-by: 
+---
+Name: ruff
+Version: 0.16.8
+Summary: An extremely fast Python linter and code formatter, written in Rust.
+Home-page: https://docs.astral.sh/ruff
+Author: 
+Author-email: "Astral Software Inc." <hey@astral.sh>
+License-Expression: MIT
+Location: C:\Users\ADMINI~1\AppData\Local\Temp\chstockdata-rh3b3-execution-20260924\clean-python312\Lib\site-packages
+Requires: 
+Required-by: 

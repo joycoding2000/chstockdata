@@ -1,0 +1,12 @@
+usage: chstockdata-refresh-vipdoc [-h] [--dir DIR] [--url URL] [--force]
+                                  [--dry-run] [--timeout TIMEOUT]
+
+刷新通达信官方 vipdoc 日线包（离线工具）
+
+options:
+  -h, --help         show this help message and exit
+  --dir DIR          本地 vipdoc 库存根（默认取配置）
+  --url URL          数据包 URL（默认取配置/官方 URL）
+  --force            忽略 Last-Modified 强制重下
+  --dry-run          只做 HEAD，不下载
+  --timeout TIMEOUT  HTTP 超时秒

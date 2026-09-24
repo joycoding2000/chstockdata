@@ -1,0 +1,15 @@
+BASELINE_SNAPSHOT
+HEAD=84fd54fae0740bc06b1d250afa4578be29556956
+STATUS:
+## HEAD (no branch)
+ M tests/parity/reports/m0-parity-offline-v1.json
+ M tests/qualification/reports/m0-etf-qualification-offline-v1.json
+CANDIDATE_SNAPSHOT
+HEAD=84fd54fae0740bc06b1d250afa4578be29556956
+PIN=PINNED_CHSTOCKDATA_VERSION = "0.3.0"
+STATUS:
+## HEAD (no branch)
+ M src/systematic_investing/adapters/chstockdata/provider.py
+ M tests/parity/reports/m0-parity-offline-v1.json
+ M tests/qualification/reports/m0-etf-qualification-offline-v1.json
+ M tests/qualification/test_chstockdata_etf_gate.py

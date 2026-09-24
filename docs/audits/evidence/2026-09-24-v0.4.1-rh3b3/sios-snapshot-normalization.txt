@@ -1,0 +1,5 @@
+SNAPSHOT_NORMALIZATION=restored two raw JSON files from frozen commit 84fd54fae0740bc06b1d250afa4578be29556956 in each isolated copy to reproduce RH3-A worktree bytes; no JSON values changed.
+FILE=tests/parity/reports/m0-parity-offline-v1.json BYTES=21205 SHA256=919303549D6A421D2A5C4EF00CD36025F4026652A5F1F3D65C400D167897422C
+FILE=tests/qualification/reports/m0-etf-qualification-offline-v1.json BYTES=18172 SHA256=4B57A747EB31792552B2FCF8F94CDBAA95C3119016044D37C6C853B257979CC8
+INITIAL_BASELINE_ATTEMPT=927 passed, 2 failed, 5 skipped; failures were byte-level newline mismatch between generated LF JSON and CRLF checkout copy. See logs/systematic-investing-os-baseline-full.log.
+FINAL_RESULTS=baseline and candidate both 929 passed, 5 skipped after copying exact frozen RH3-A JSON bytes; offline M0/M1 data tree SHA is in sios-var-tree-identities.txt.

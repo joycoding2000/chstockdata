@@ -1,0 +1,444 @@
+Metadata-Version: 2.4
+Name: chstockdata
+Version: 0.4.1
+Summary: Free China A-share market data toolkit: direct HTTP/TCP vendors (Tencent, mootdx/TDX, Eastmoney, Sina, THS, CLS, SSE/SZSE), no API keys, no mandatory third-party market-data SDK in the core path; optional mootdx/baostock integrations
+Author: joycoding2000
+License:                                  Apache License
+                                   Version 2.0, January 2004
+                                http://www.apache.org/licenses/
+        
+           TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION
+        
+           1. Definitions.
+        
+              "License" shall mean the terms and conditions for use, reproduction,
+              and distribution as defined by Sections 1 through 9 of this document.
+        
+              "Licensor" shall mean the copyright owner or entity authorized by
+              the copyright owner that is granting the License.
+        
+              "Legal Entity" shall mean the union of the acting entity and all
+              other entities that control, are controlled by, or are under common
+              control with that entity. For the purposes of this definition,
+              "control" means (i) the power, direct or indirect, to cause the
+              direction or management of such entity, whether by contract or
+              otherwise, or (ii) ownership of fifty percent (50%) or more of the
+              outstanding shares, or (iii) beneficial ownership of such entity.
+        
+              "You" (or "Your") shall mean an individual or Legal Entity
+              exercising permissions granted by this License.
+        
+              "Source" form shall mean the preferred form for making modifications,
+              including but not limited to software source code, documentation
+              source, and configuration files.
+        
+              "Object" form shall mean any form resulting from mechanical
+              transformation or translation of a Source form, including but
+              not limited to compiled object code, generated documentation,
+              and conversions to other media types.
+        
+              "Work" shall mean the work of authorship, whether in Source or
+              Object form, made available under the License, as indicated by a
+              copyright notice that is included in or attached to the work
+              (an example is provided in the Appendix below).
+        
+              "Derivative Works" shall mean any work, whether in Source or Object
+              form, that is based on (or derived from) the Work and for which the
+              editorial revisions, annotations, elaborations, or other modifications
+              represent, as a whole, an original work of authorship. For the purposes
+              of this License, Derivative Works shall not include works that remain
+              separable from, or merely link (or bind by name) to the interfaces of,
+              the Work and Derivative Works thereof.
+        
+              "Contribution" shall mean any work of authorship, including
+              the original version of the Work and any modifications or additions
+              to that Work or Derivative Works thereof, that is intentionally
+              submitted to Licensor for inclusion in the Work by the copyright owner
+              or by an individual or Legal Entity authorized to submit on behalf of
+              the copyright owner. For the purposes of this definition, "submitted"
+              means any form of electronic, verbal, or written communication sent
+              to the Licensor or its representatives, including but not limited to
+              communication on electronic mailing lists, source code control systems,
+              and issue tracking systems that are managed by, or on behalf of, the
+              Licensor for the purpose of discussing and improving the Work, but
+              excluding communication that is conspicuously marked or otherwise
+              designated in writing by the copyright owner as "Not a Contribution."
+        
+              "Contributor" shall mean Licensor and any individual or Legal Entity
+              on behalf of whom a Contribution has been received by Licensor and
+              subsequently incorporated within the Work.
+        
+           2. Grant of Copyright License. Subject to the terms and conditions of
+              this License, each Contributor hereby grants to You a perpetual,
+              worldwide, non-exclusive, no-charge, royalty-free, irrevocable
+              copyright license to reproduce, prepare Derivative Works of,
+              publicly display, publicly perform, sublicense, and distribute the
+              Work and such Derivative Works in Source or Object form.
+        
+           3. Grant of Patent License. Subject to the terms and conditions of
+              this License, each Contributor hereby grants to You a perpetual,
+              worldwide, non-exclusive, no-charge, royalty-free, irrevocable
+              (except as stated in this section) patent license to make, have made,
+              use, offer to sell, sell, import, and otherwise transfer the Work,
+              where such license applies only to those patent claims licensable
+              by such Contributor that are necessarily infringed by their
+              Contribution(s) alone or by combination of their Contribution(s)
+              with the Work to which such Contribution(s) was submitted. If You
+              institute patent litigation against any entity (including a
+              cross-claim or counterclaim in a lawsuit) alleging that the Work
+              or a Contribution incorporated within the Work constitutes direct
+              or contributory patent infringement, then any patent licenses
+              granted to You under this License for that Work shall terminate
+              as of the date such litigation is filed.
+        
+           4. Redistribution. You may reproduce and distribute copies of the
+              Work or Derivative Works thereof in any medium, with or without
+              modifications, and in Source or Object form, provided that You
+              meet the following conditions:
+        
+              (a) You must give any other recipients of the Work or
+                  Derivative Works a copy of this License; and
+        
+              (b) You must cause any modified files to carry prominent notices
+                  stating that You changed the files; and
+        
+              (c) You must retain, in the Source form of any Derivative Works
+                  that You distribute, all copyright, patent, trademark, and
+                  attribution notices from the Source form of the Work,
+                  excluding those notices that do not pertain to any part of
+                  the Derivative Works; and
+        
+              (d) If the Work includes a "NOTICE" text file as part of its
+                  distribution, then any Derivative Works that You distribute must
+                  include a readable copy of the attribution notices contained
+                  within such NOTICE file, excluding those notices that do not
+                  pertain to any part of the Derivative Works, in at least one
+                  of the following places: within a NOTICE text file distributed
+                  as part of the Derivative Works; within the Source form or
+                  documentation, if provided along with the Derivative Works; or,
+                  within a display generated by the Derivative Works, if and
+                  wherever such third-party notices normally appear. The contents
+                  of the NOTICE file are for informational purposes only and
+                  do not modify the License. You may add Your own attribution
+                  notices within Derivative Works that You distribute, alongside
+                  or as an addendum to the NOTICE text from the Work, provided
+                  that such additional attribution notices cannot be construed
+                  as modifying the License.
+        
+              You may add Your own copyright statement to Your modifications and
+              may provide additional or different license terms and conditions
+              for use, reproduction, or distribution of Your modifications, or
+              for any such Derivative Works as a whole, provided Your use,
+              reproduction, and distribution of the Work otherwise complies with
+              the conditions stated in this License.
+        
+           5. Submission of Contributions. Unless You explicitly state otherwise,
+              any Contribution intentionally submitted for inclusion in the Work
+              by You to the Licensor shall be under the terms and conditions of
+              this License, without any additional terms or conditions.
+              Notwithstanding the above, nothing herein shall supersede or modify
+              the terms of any separate license agreement you may have executed
+              with Licensor regarding such Contributions.
+        
+           6. Trademarks. This License does not grant permission to use the trade
+              names, trademarks, service marks, or product names of the Licensor,
+              except as required for reasonable and customary use in describing the
+              origin of the Work and reproducing the content of the NOTICE file.
+        
+           7. Disclaimer of Warranty. Unless required by applicable law or
+              agreed to in writing, Licensor provides the Work (and each
+              Contributor provides its Contributions) on an "AS IS" BASIS,
+              WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+              implied, including, without limitation, any warranties or conditions
+              of TITLE, NON-INFRINGEMENT, MERCHANTABILITY, or FITNESS FOR A
+              PARTICULAR PURPOSE. You are solely responsible for determining the
+              appropriateness of using or redistributing the Work and assume any
+              risks associated with Your exercise of permissions under this License.
+        
+           8. Limitation of Liability. In no event and under no legal theory,
+              whether in tort (including negligence), contract, or otherwise,
+              unless required by applicable law (such as deliberate and grossly
+              negligent acts) or agreed to in writing, shall any Contributor be
+              liable to You for damages, including any direct, indirect, special,
+              incidental, or consequential damages of any character arising as a
+              result of this License or out of the use or inability to use the
+              Work (including but not limited to damages for loss of goodwill,
+              work stoppage, computer failure or malfunction, or any and all
+              other commercial damages or losses), even if such Contributor
+              has been advised of the possibility of such damages.
+        
+           9. Accepting Warranty or Additional Liability. While redistributing
+              the Work or Derivative Works thereof, You may choose to offer,
+              and charge a fee for, acceptance of support, warranty, indemnity,
+              or other liability obligations and/or rights consistent with this
+              License. However, in accepting such obligations, You may act only
+              on Your own behalf and on Your sole responsibility, not on behalf
+              of any other Contributor, and only if You agree to indemnify,
+              defend, and hold each Contributor harmless for any liability
+              incurred by, or claims asserted against, such Contributor by reason
+              of your accepting any such warranty or additional liability.
+        
+           END OF TERMS AND CONDITIONS
+        
+           APPENDIX: How to apply the Apache License to your work.
+        
+              To apply the Apache License to your work, attach the following
+              boilerplate notice, with the fields enclosed by brackets "[]"
+              replaced with your own identifying information. (Don't include
+              the brackets!)  The text should be enclosed in the appropriate
+              comment syntax for the file format. We also recommend that a
+              file or class name and description of purpose be included on the
+              same "printed page" as the copyright notice for easier
+              identification within third-party archives.
+        
+           Copyright [yyyy] [name of copyright owner]
+        
+           Licensed under the Apache License, Version 2.0 (the "License");
+           you may not use this file except in compliance with the License.
+           You may obtain a copy of the License at
+        
+               http://www.apache.org/licenses/LICENSE-2.0
+        
+           Unless required by applicable law or agreed to in writing, software
+           distributed under the License is distributed on an "AS IS" BASIS,
+           WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+           See the License for the specific language governing permissions and
+           limitations under the License.
+        
+Project-URL: Homepage, https://github.com/joycoding2000/chstockdata
+Project-URL: Issues, https://github.com/joycoding2000/chstockdata/issues
+Keywords: a-share,china,stock,market-data,quant,quantitative-finance
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Financial and Insurance Industry
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Classifier: Topic :: Office/Business :: Financial :: Investment
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+License-File: LICENSE
+License-File: NOTICE
+Requires-Dist: pandas>=2.3.0
+Requires-Dist: numpy>=1.26.0
+Requires-Dist: requests>=2.32.4
+Requires-Dist: python-dateutil>=2.9.0
+Requires-Dist: typing-extensions>=4.14.0
+Requires-Dist: lxml>=4.9.0
+Requires-Dist: stockstats>=0.6.5
+Provides-Extra: mootdx
+Requires-Dist: mootdx>=0.10.0; extra == "mootdx"
+Provides-Extra: baostock
+Requires-Dist: baostock>=0.8.9; extra == "baostock"
+Provides-Extra: mcp
+Requires-Dist: mcp<2,>=1.0; extra == "mcp"
+Provides-Extra: dev
+Requires-Dist: pytest>=8.0; extra == "dev"
+Requires-Dist: ruff<0.17,>=0.16.6; extra == "dev"
+Dynamic: license-file
+
+# chstockdata
+
+Free China A-share market data toolkit — direct HTTP/TCP access to public
+quote vendors, **no API keys, no mandatory third-party market-data SDK in
+the core path** (akshare-free by design). Optional integrations are
+available for specific capabilities: `[mootdx]` unlocks the TCP K-line
+primary source, `[baostock]` historical turnover for CYQ chips.
+Battle-tested in production by
+[TradingAgents-astock](https://github.com/joycoding2000/TradingAgents-astock).
+
+```bash
+pip install chstockdata          # core package (base dependencies)
+pip install "chstockdata[mootdx]"    # + mootdx TCP K-line source (optional)
+pip install "chstockdata[baostock]"  # + historical turnover for CYQ chips (optional)
+pip install "chstockdata[mcp]"       # + MCP server entry point (optional)
+```
+
+The optional profiles are supported independently. The MCP extra currently
+stays on the MCP 1.x API because the MCP 2.x server API is not compatible with
+this entry point. Within that supported range, `mootdx` pins `httpx==0.25.2`
+while MCP 1.x requires `httpx>=0.27.1`; a clean resolver therefore rejects
+`chstockdata[mootdx,mcp]`. Keep those two profiles in separate environments
+until the upstream constraints converge.
+
+```python
+from chstockdata import get_stock_data, get_realtime_snapshot, resolve_ticker
+
+resolve_ticker("贵州茅台")            # -> "600519" (Chinese name -> 6-digit code)
+df = get_stock_data("600519", 365)    # daily OHLCV, vipdoc/mootdx/Sina chain
+get_realtime_snapshot("600519")       # realtime quote, Tencent -> mootdx -> Sina
+```
+
+## Structured API（v0.4.1 release candidate）
+
+The structured surface is additive and returns `FetchResult` objects. The
+quote route keeps its provider functions injectable; `quote_fetchers` below is
+a mapping whose values accept the existing `fetcher(codes, fallback_from=...)`
+shape, and `to_finite_number` is the caller's numeric coercion helper.
+
+```python
+from chstockdata import (
+    fetch_realtime_quotes,
+    fetch_daily_bars,
+    fetch_trading_calendar,
+    fetch_suspension_info,
+    fetch_delisting_status,
+    fetch_tradability,
+)
+
+quotes = fetch_realtime_quotes(
+    ["600519"], quote_fetchers, quote_number=to_finite_number
+)
+bars = fetch_daily_bars("600519", "2026-01-01", "2026-09-22")
+calendar = fetch_trading_calendar(today="2026-09-22")
+suspension = fetch_suspension_info("600519", "2026-09-22")
+delisting = fetch_delisting_status("600519")
+tradability = fetch_tradability("600519", "2026-09-22")
+```
+
+Consumer-facing status guide:
+
+| Field | Meaning |
+|---|---|
+| `metadata.final_status` | Attempt-derived provider/routing conclusion. |
+| `metadata.request_status` | Request-level result consumers should branch on. |
+| `metadata.outcome_status` | Optional engine-declared request override; otherwise `None`. |
+| `metadata.providers_used` | Providers that actually contributed the returned payload. |
+| `metadata.limitations` | Coverage, staleness, partial-data, or validation caveats. |
+
+Cache-only results intentionally have `attempts=[]` and
+`final_status="skipped"`, while `request_status` may be
+`"success"` or `"normal_empty"`. Do not mechanically treat
+`succeeded=False` or `final_status="skipped"` as unusable cache data; use
+`request_status` for the request decision. A `tradable=True` result only means
+the currently covered calendar, delisting-date, and suspension facts support
+that verdict; it does not promise complete IPO or listing-lifecycle
+eligibility.
+
+The public surface combines legacy callables, structured result types,
+constants, and compatibility exports; `__all__` is not a count of functions.
+It covers K-lines, realtime quotes, fundamentals / three financial
+statements, valuation history, margin trading, dragon-tiger board (per-stock
+seats and whole-market daily), lockup expiry, northbound flow, fund flow, board
+fund flow, industry comparison, concept blocks, block trades, market breadth,
+limit-up / failed-board / limit-down / previous-day limit-up pools, CYQ chip
+distribution, ETF option chains (T-quote + greeks + IV), investor Q&A (互动易),
+hot rank / popularity rank / concept hits, insider transactions, shareholder
+pledge / buyback, corporate actions, earnings forecast, research reports, news
+wires, policy news, macro indicators, trading calendar, delisting / suspension
+info, and more. See `chstockdata/__init__.py` for the full export list. The
+candidate package version is `0.4.1`; `0.3.0` is the prior consumer
+compatibility baseline. This release candidate has not been published.
+
+## Data sources
+
+| Source | Protocol | Data |
+|---|---|---|
+| mootdx | TCP 7709 | OHLCV K-lines, realtime snapshots, financial snapshots, F10 text |
+| TDX official after-market archive | HTTP (`data.tdx.com.cn/vipdoc`) | Full SH/SZ/BJ daily-bar archive → local vipdoc tree (primary history source) |
+| Tencent Finance | HTTP (`qt.gtimg.cn`) | Realtime quotes (primary), PE/PB/market cap/turnover |
+| easy-tdx (isolated process) | TCP 7709 | L1 fund-flow reconstruction, TDX industry/concept board rankings |
+| Eastmoney datacenter / F10 / emappdata / bkzj | HTTP | Dragon-tiger (per-stock + market-wide), lockup, holders, concept blocks, news, announcements, limit-up pools (push2ex), board fund flow, popularity rank, concept hits |
+| Sina Finance | HTTP | Realtime fallback, K-line fallback, daily fund flow, financial statements, ETF option contracts / T-quote / greeks + IV |
+| baostock (optional extra) | TCP | Historical daily turnover + ST/suspension flags for CYQ chip distribution (no Beijing exchange) |
+| 同花顺 10jqka | HTTP | Consensus EPS, hot stocks, limit-up reasons, hot rank |
+| 财联社 cls.cn | HTTP | Global news wire |
+| SSE / SZSE official | HTTP | Northbound daily turnover (trusted), delisting list |
+| 巨潮 cninfo | HTTP | Investor Q&A (互动易) |
+
+All Eastmoney requests go through a module-level serial throttle
+(`EM_MIN_INTERVAL`, default 1.0s) with jitter and a shared keep-alive session
+— do not bypass it, do not fan out concurrent full-market scans. `push2` /
+`push2his` are deliberately not used (see `tests/test_astock_push2_source_scan.py`).
+
+## Hardening carried over from production
+
+This package is not a scraper starter kit; it is an extraction of a data layer
+that survived months of live A-share analysis runs:
+
+- **Realtime fallback chain** Tencent → mootdx → Sina, with zombie-quote
+  detection (zero-amount + price == prev-close) so suspended/legacy tickers
+  cannot silently poison valuations.
+- **mootdx canary server selection**: TCP reachability is not enough — every
+  candidate must serve one real K-line bar before adoption; dead pools get an
+  exponential-backoff negative cache (5min → 6h, immediate 6h outside trading
+  hours).
+- **Local vipdoc history layer**: after the official TDX archive is refreshed
+  (via `chstockdata-refresh-vipdoc`), historical daily bars are read from disk
+  with zero network and never trigger full server-pool probing.
+- **Point-in-time filtering** for historical analyses (financial records are
+  clipped to the analysis date).
+- **Known pitfall fixes verified against live data**: Tencent total/float
+  market-cap fields swapped, static-PE wrong slot, BJ-exchange 920-prefix
+  routing, Eastmoney lockup column renames, block-trade premium-ratio unit
+  (decimal → percent), northbound SSE holiday `result:[null]` handling, and
+  more — each guarded by regression tests ported from the incidents.
+
+## Configuration
+
+Zero-config works out of the box. Optional overrides, in priority order:
+
+```python
+from chstockdata import configure
+configure(cache_dir="...", vipdoc_dir="...", vipdoc_enabled=True,
+          vipdoc_max_staleness_days=5, northbound_store_path="...")
+```
+
+Environment variables (both prefixes accepted): `CHSTOCKDATA_CACHE_DIR`,
+`CHSTOCKDATA_VIPDOC_HISTORY_DIR`, ... or the legacy
+`TRADINGAGENTS_VIPDOC_HISTORY_*` / `TRADINGAGENTS_DATA_CACHE_DIR` names.
+Tuning knobs: `EM_MIN_INTERVAL` (Eastmoney throttle seconds),
+`TDX_MIN_INTERVAL`, `TDX_TOOL_PROBE_BUDGET_SECONDS`,
+`EASY_TDX_PYTHON` (path to an isolated venv python with `easy-tdx==1.20.6`).
+
+## MCP server (for AI agents)
+
+```bash
+pip install "chstockdata[mcp]"
+chstockdata-mcp
+```
+
+Then register in any MCP client (Claude Code, etc.):
+
+```json
+{ "mcpServers": { "chstockdata": { "command": "chstockdata-mcp" } } }
+```
+
+## Risk & usage notes
+
+- All endpoints are **public, unofficial interfaces** of the respective
+  vendors. Rate-limit thresholds cited anywhere in the docs are community
+  observations, **not vendor guarantees**; endpoints can break or change at
+  any time without notice.
+- Built-in throttling must be kept as-is. For heavy or commercial workloads
+  use official paid feeds (Eastmoney Choice, exchange data services).
+- Data is provided for research/educational purposes, as-is, with no
+  warranty of accuracy or fitness for trading decisions.
+
+## Relationship to upstream projects
+
+Extracted from [TradingAgents-astock](https://github.com/joycoding2000/TradingAgents-astock)
+(Apache-2.0, itself a fork of [TauricResearch/TradingAgents](https://github.com/TauricResearch/TradingAgents)).
+Starting with 0.2.0, selected upstream-unique endpoints of
+[a-stock-data](https://github.com/simonlin1212/a-stock-data) (Apache-2.0) were
+reverse-ported: ETF options (contracts / T-quote / greeks + IV), limit-up pools
+(including the previous-day pool and THS limit-up reasons), CYQ chip
+distribution, market-wide dragon-tiger board, board fund flow, investor Q&A
+(互动易), hot rank / popularity rank / concept hits, and the upstream ticker
+routing fix (market identifier conflicts fail loud; `5x` ETFs route to
+Shanghai).
+
+This package is still **not** a full superset of a-stock-data. Deliberately not
+included: intraday anomaly pools (product hard boundary in the source project),
+Shenwan industry history, minute/tick order flow, and any `push2`/`push2his`
+dependency (board fund flow uses the non-push2 `bkzj` endpoint with a reduced
+field set — no four-tier breakdown). See MIGRATION.md and
+`docs/planned-upstream-ports.md`.
+
+## License
+
+Apache-2.0 — see [LICENSE](LICENSE) and [NOTICE](NOTICE).

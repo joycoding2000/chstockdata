@@ -1,0 +1,462 @@
+* Creating isolated environment: venv+pip...
+* Installing packages in isolated environment:
+  - setuptools>=80.0
+* Getting build dependencies for sdist...
+running egg_info
+writing src\chstockdata.egg-info\PKG-INFO
+writing dependency_links to src\chstockdata.egg-info\dependency_links.txt
+writing entry points to src\chstockdata.egg-info\entry_points.txt
+writing requirements to src\chstockdata.egg-info\requires.txt
+writing top-level names to src\chstockdata.egg-info\top_level.txt
+reading manifest file 'src\chstockdata.egg-info\SOURCES.txt'
+adding license file 'LICENSE'
+adding license file 'NOTICE'
+writing manifest file 'src\chstockdata.egg-info\SOURCES.txt'
+WARNING `project.license` as a TOML table is deprecated
+!!
+
+        ********************************************************************************
+        Please use a simple string containing a SPDX expression for `project.license`. You can also use `project.license-files`. (Both options available on setuptools>=77.0.0).
+
+        By 2027-Feb-18, you need to update your project and remove deprecated calls
+        or your builds will no longer be supported.
+
+        See https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license for details.
+        ********************************************************************************
+
+!!
+WARNING License classifiers are deprecated.
+!!
+
+        ********************************************************************************
+        Please consider removing the following classifiers in favor of a SPDX license expression:
+
+        License :: OSI Approved :: Apache Software License
+
+        See https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license for details.
+        ********************************************************************************
+
+!!
+WARNING License classifiers are deprecated.
+!!
+
+        ********************************************************************************
+        Please consider removing the following classifiers in favor of a SPDX license expression:
+
+        License :: OSI Approved :: Apache Software License
+
+        See https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license for details.
+        ********************************************************************************
+
+!!
+* Installed build dependency versions:
+  - setuptools==84.0.0
+* Building sdist...
+running sdist
+running egg_info
+writing src\chstockdata.egg-info\PKG-INFO
+writing dependency_links to src\chstockdata.egg-info\dependency_links.txt
+writing entry points to src\chstockdata.egg-info\entry_points.txt
+writing requirements to src\chstockdata.egg-info\requires.txt
+writing top-level names to src\chstockdata.egg-info\top_level.txt
+reading manifest file 'src\chstockdata.egg-info\SOURCES.txt'
+adding license file 'LICENSE'
+adding license file 'NOTICE'
+writing manifest file 'src\chstockdata.egg-info\SOURCES.txt'
+running check
+creating chstockdata-0.4.1
+creating chstockdata-0.4.1\src\chstockdata
+creating chstockdata-0.4.1\src\chstockdata.egg-info
+creating chstockdata-0.4.1\tests
+copying files to chstockdata-0.4.1...
+copying LICENSE -> chstockdata-0.4.1
+copying NOTICE -> chstockdata-0.4.1
+copying README.md -> chstockdata-0.4.1
+copying pyproject.toml -> chstockdata-0.4.1
+copying src\chstockdata\__init__.py -> chstockdata-0.4.1\src\chstockdata
+copying src\chstockdata\_easy_tdx_bridge.py -> chstockdata-0.4.1\src\chstockdata
+copying src\chstockdata\a_stock.py -> chstockdata-0.4.1\src\chstockdata
+copying src\chstockdata\adjusted_bars.py -> chstockdata-0.4.1\src\chstockdata
+copying src\chstockdata\block_trades.py -> chstockdata-0.4.1\src\chstockdata
+copying src\chstockdata\board_flow.py -> chstockdata-0.4.1\src\chstockdata
+copying src\chstockdata\capabilities.py -> chstockdata-0.4.1\src\chstockdata
+copying src\chstockdata\chips.py -> chstockdata-0.4.1\src\chstockdata
+copying src\chstockdata\config.py -> chstockdata-0.4.1\src\chstockdata
+copying src\chstockdata\corporate_actions.py -> chstockdata-0.4.1\src\chstockdata
+copying src\chstockdata\daily_bars.py -> chstockdata-0.4.1\src\chstockdata
+copying src\chstockdata\delisting.py -> chstockdata-0.4.1\src\chstockdata
+copying src\chstockdata\etf_options.py -> chstockdata-0.4.1\src\chstockdata
+copying src\chstockdata\fetch_result.py -> chstockdata-0.4.1\src\chstockdata
+copying src\chstockdata\hot_rank.py -> chstockdata-0.4.1\src\chstockdata
+copying src\chstockdata\investor_qa.py -> chstockdata-0.4.1\src\chstockdata
+copying src\chstockdata\limit_up.py -> chstockdata-0.4.1\src\chstockdata
+copying src\chstockdata\market_breadth.py -> chstockdata-0.4.1\src\chstockdata
+copying src\chstockdata\mcp_server.py -> chstockdata-0.4.1\src\chstockdata
+copying src\chstockdata\northbound_data.py -> chstockdata-0.4.1\src\chstockdata
+copying src\chstockdata\northbound_store.py -> chstockdata-0.4.1\src\chstockdata
+copying src\chstockdata\point_in_time.py -> chstockdata-0.4.1\src\chstockdata
+copying src\chstockdata\policy_news.py -> chstockdata-0.4.1\src\chstockdata
+copying src\chstockdata\policy_news_models.py -> chstockdata-0.4.1\src\chstockdata
+copying src\chstockdata\policy_news_registry.py -> chstockdata-0.4.1\src\chstockdata
+copying src\chstockdata\policy_news_sources.py -> chstockdata-0.4.1\src\chstockdata
+copying src\chstockdata\provenance.py -> chstockdata-0.4.1\src\chstockdata
+copying src\chstockdata\py.typed -> chstockdata-0.4.1\src\chstockdata
+copying src\chstockdata\quote_chain.py -> chstockdata-0.4.1\src\chstockdata
+copying src\chstockdata\refresh_vipdoc.py -> chstockdata-0.4.1\src\chstockdata
+copying src\chstockdata\routing_observation.py -> chstockdata-0.4.1\src\chstockdata
+copying src\chstockdata\source_context.py -> chstockdata-0.4.1\src\chstockdata
+copying src\chstockdata\suspension.py -> chstockdata-0.4.1\src\chstockdata
+copying src\chstockdata\tdx_bridge.py -> chstockdata-0.4.1\src\chstockdata
+copying src\chstockdata\tradability.py -> chstockdata-0.4.1\src\chstockdata
+copying src\chstockdata\trading_calendar.py -> chstockdata-0.4.1\src\chstockdata
+copying src\chstockdata\utils.py -> chstockdata-0.4.1\src\chstockdata
+copying src\chstockdata\vendor_errors.py -> chstockdata-0.4.1\src\chstockdata
+copying src\chstockdata\vipdoc_history.py -> chstockdata-0.4.1\src\chstockdata
+copying src\chstockdata.egg-info\PKG-INFO -> chstockdata-0.4.1\src\chstockdata.egg-info
+copying src\chstockdata.egg-info\SOURCES.txt -> chstockdata-0.4.1\src\chstockdata.egg-info
+copying src\chstockdata.egg-info\dependency_links.txt -> chstockdata-0.4.1\src\chstockdata.egg-info
+copying src\chstockdata.egg-info\entry_points.txt -> chstockdata-0.4.1\src\chstockdata.egg-info
+copying src\chstockdata.egg-info\requires.txt -> chstockdata-0.4.1\src\chstockdata.egg-info
+copying src\chstockdata.egg-info\top_level.txt -> chstockdata-0.4.1\src\chstockdata.egg-info
+copying tests\test_astock_cls_v1.py -> chstockdata-0.4.1\tests
+copying tests\test_astock_daily_lhb.py -> chstockdata-0.4.1\tests
+copying tests\test_astock_earnings_forecast.py -> chstockdata-0.4.1\tests
+copying tests\test_astock_eastmoney_fix.py -> chstockdata-0.4.1\tests
+copying tests\test_astock_em_post.py -> chstockdata-0.4.1\tests
+copying tests\test_astock_financial_yoy_alignment.py -> chstockdata-0.4.1\tests
+copying tests\test_astock_fundamentals_fix.py -> chstockdata-0.4.1\tests
+copying tests\test_astock_interface_fix.py -> chstockdata-0.4.1\tests
+copying tests\test_astock_kline_vipdoc_chain.py -> chstockdata-0.4.1\tests
+copying tests\test_astock_lhb_seat_dimension.py -> chstockdata-0.4.1\tests
+copying tests\test_astock_listing_status.py -> chstockdata-0.4.1\tests
+copying tests\test_astock_macro_indicators.py -> chstockdata-0.4.1\tests
+copying tests\test_astock_margin_valuation.py -> chstockdata-0.4.1\tests
+copying tests\test_astock_pledge_buyback.py -> chstockdata-0.4.1\tests
+copying tests\test_astock_push2_source_scan.py -> chstockdata-0.4.1\tests
+copying tests\test_astock_quote_fallback.py -> chstockdata-0.4.1\tests
+copying tests\test_astock_research_reports.py -> chstockdata-0.4.1\tests
+copying tests\test_astock_silent_failure_sentinel.py -> chstockdata-0.4.1\tests
+copying tests\test_astock_tdx_fallback.py -> chstockdata-0.4.1\tests
+copying tests\test_astock_tencent_quote_fix.py -> chstockdata-0.4.1\tests
+copying tests\test_astock_ticker_routing.py -> chstockdata-0.4.1\tests
+copying tests\test_astock_v0221_fix.py -> chstockdata-0.4.1\tests
+copying tests\test_board_flow.py -> chstockdata-0.4.1\tests
+copying tests\test_cached_ohlcv_structured.py -> chstockdata-0.4.1\tests
+copying tests\test_calendar_consumers.py -> chstockdata-0.4.1\tests
+copying tests\test_capability_isolation.py -> chstockdata-0.4.1\tests
+copying tests\test_chip_distribution.py -> chstockdata-0.4.1\tests
+copying tests\test_config_and_warmup_regression.py -> chstockdata-0.4.1\tests
+copying tests\test_daily_bars_contract.py -> chstockdata-0.4.1\tests
+copying tests\test_daily_bars_legacy_compat.py -> chstockdata-0.4.1\tests
+copying tests\test_daily_bars_routing.py -> chstockdata-0.4.1\tests
+copying tests\test_daily_bars_schema.py -> chstockdata-0.4.1\tests
+copying tests\test_data_layer_live_smoke.py -> chstockdata-0.4.1\tests
+copying tests\test_delisting_structured.py -> chstockdata-0.4.1\tests
+copying tests\test_easy_tdx_bridge.py -> chstockdata-0.4.1\tests
+copying tests\test_etf_options.py -> chstockdata-0.4.1\tests
+copying tests\test_fetch_result_core.py -> chstockdata-0.4.1\tests
+copying tests\test_free_block_trades.py -> chstockdata-0.4.1\tests
+copying tests\test_free_market_breadth.py -> chstockdata-0.4.1\tests
+copying tests\test_free_northbound_history.py -> chstockdata-0.4.1\tests
+copying tests\test_fund_corporate_actions.py -> chstockdata-0.4.1\tests
+copying tests\test_hot_rank.py -> chstockdata-0.4.1\tests
+copying tests\test_investor_qa.py -> chstockdata-0.4.1\tests
+copying tests\test_limit_up.py -> chstockdata-0.4.1\tests
+copying tests\test_live_capability_probes.py -> chstockdata-0.4.1\tests
+copying tests\test_market_date.py -> chstockdata-0.4.1\tests
+copying tests\test_mcp_server.py -> chstockdata-0.4.1\tests
+copying tests\test_mootdx_capability_health.py -> chstockdata-0.4.1\tests
+copying tests\test_mootdx_capability_isolation.py -> chstockdata-0.4.1\tests
+copying tests\test_mootdx_server_selection.py -> chstockdata-0.4.1\tests
+copying tests\test_refresh_vipdoc_history.py -> chstockdata-0.4.1\tests
+copying tests\test_release_version.py -> chstockdata-0.4.1\tests
+copying tests\test_routing_observation.py -> chstockdata-0.4.1\tests
+copying tests\test_structured_semantics_phase11.py -> chstockdata-0.4.1\tests
+copying tests\test_suspension_structured.py -> chstockdata-0.4.1\tests
+copying tests\test_tdx_bridge_health.py -> chstockdata-0.4.1\tests
+copying tests\test_tdx_request_hygiene.py -> chstockdata-0.4.1\tests
+copying tests\test_tradability.py -> chstockdata-0.4.1\tests
+copying tests\test_trading_calendar_structured.py -> chstockdata-0.4.1\tests
+copying tests\test_vipdoc_history.py -> chstockdata-0.4.1\tests
+Writing chstockdata-0.4.1\setup.cfg
+Creating tar archive
+removing 'chstockdata-0.4.1' (and everything under it)
+WARNING `project.license` as a TOML table is deprecated
+!!
+
+        ********************************************************************************
+        Please use a simple string containing a SPDX expression for `project.license`. You can also use `project.license-files`. (Both options available on setuptools>=77.0.0).
+
+        By 2027-Feb-18, you need to update your project and remove deprecated calls
+        or your builds will no longer be supported.
+
+        See https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license for details.
+        ********************************************************************************
+
+!!
+WARNING License classifiers are deprecated.
+!!
+
+        ********************************************************************************
+        Please consider removing the following classifiers in favor of a SPDX license expression:
+
+        License :: OSI Approved :: Apache Software License
+
+        See https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license for details.
+        ********************************************************************************
+
+!!
+WARNING License classifiers are deprecated.
+!!
+
+        ********************************************************************************
+        Please consider removing the following classifiers in favor of a SPDX license expression:
+
+        License :: OSI Approved :: Apache Software License
+
+        See https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license for details.
+        ********************************************************************************
+
+!!
+* Building wheel from sdist
+* Creating isolated environment: venv+pip...
+* Installing packages in isolated environment:
+  - setuptools>=80.0
+* Getting build dependencies for wheel...
+running egg_info
+writing src\chstockdata.egg-info\PKG-INFO
+writing dependency_links to src\chstockdata.egg-info\dependency_links.txt
+writing entry points to src\chstockdata.egg-info\entry_points.txt
+writing requirements to src\chstockdata.egg-info\requires.txt
+writing top-level names to src\chstockdata.egg-info\top_level.txt
+reading manifest file 'src\chstockdata.egg-info\SOURCES.txt'
+adding license file 'LICENSE'
+adding license file 'NOTICE'
+writing manifest file 'src\chstockdata.egg-info\SOURCES.txt'
+WARNING `project.license` as a TOML table is deprecated
+!!
+
+        ********************************************************************************
+        Please use a simple string containing a SPDX expression for `project.license`. You can also use `project.license-files`. (Both options available on setuptools>=77.0.0).
+
+        By 2027-Feb-18, you need to update your project and remove deprecated calls
+        or your builds will no longer be supported.
+
+        See https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license for details.
+        ********************************************************************************
+
+!!
+WARNING License classifiers are deprecated.
+!!
+
+        ********************************************************************************
+        Please consider removing the following classifiers in favor of a SPDX license expression:
+
+        License :: OSI Approved :: Apache Software License
+
+        See https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license for details.
+        ********************************************************************************
+
+!!
+WARNING License classifiers are deprecated.
+!!
+
+        ********************************************************************************
+        Please consider removing the following classifiers in favor of a SPDX license expression:
+
+        License :: OSI Approved :: Apache Software License
+
+        See https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license for details.
+        ********************************************************************************
+
+!!
+* Installed build dependency versions:
+  - setuptools==84.0.0
+* Building wheel...
+running bdist_wheel
+running build
+running build_py
+creating build\lib\chstockdata
+copying src\chstockdata\adjusted_bars.py -> build\lib\chstockdata
+copying src\chstockdata\a_stock.py -> build\lib\chstockdata
+copying src\chstockdata\block_trades.py -> build\lib\chstockdata
+copying src\chstockdata\board_flow.py -> build\lib\chstockdata
+copying src\chstockdata\capabilities.py -> build\lib\chstockdata
+copying src\chstockdata\chips.py -> build\lib\chstockdata
+copying src\chstockdata\config.py -> build\lib\chstockdata
+copying src\chstockdata\corporate_actions.py -> build\lib\chstockdata
+copying src\chstockdata\daily_bars.py -> build\lib\chstockdata
+copying src\chstockdata\delisting.py -> build\lib\chstockdata
+copying src\chstockdata\etf_options.py -> build\lib\chstockdata
+copying src\chstockdata\fetch_result.py -> build\lib\chstockdata
+copying src\chstockdata\hot_rank.py -> build\lib\chstockdata
+copying src\chstockdata\investor_qa.py -> build\lib\chstockdata
+copying src\chstockdata\limit_up.py -> build\lib\chstockdata
+copying src\chstockdata\market_breadth.py -> build\lib\chstockdata
+copying src\chstockdata\mcp_server.py -> build\lib\chstockdata
+copying src\chstockdata\northbound_data.py -> build\lib\chstockdata
+copying src\chstockdata\northbound_store.py -> build\lib\chstockdata
+copying src\chstockdata\point_in_time.py -> build\lib\chstockdata
+copying src\chstockdata\policy_news.py -> build\lib\chstockdata
+copying src\chstockdata\policy_news_models.py -> build\lib\chstockdata
+copying src\chstockdata\policy_news_registry.py -> build\lib\chstockdata
+copying src\chstockdata\policy_news_sources.py -> build\lib\chstockdata
+copying src\chstockdata\provenance.py -> build\lib\chstockdata
+copying src\chstockdata\quote_chain.py -> build\lib\chstockdata
+copying src\chstockdata\refresh_vipdoc.py -> build\lib\chstockdata
+copying src\chstockdata\routing_observation.py -> build\lib\chstockdata
+copying src\chstockdata\source_context.py -> build\lib\chstockdata
+copying src\chstockdata\suspension.py -> build\lib\chstockdata
+copying src\chstockdata\tdx_bridge.py -> build\lib\chstockdata
+copying src\chstockdata\tradability.py -> build\lib\chstockdata
+copying src\chstockdata\trading_calendar.py -> build\lib\chstockdata
+copying src\chstockdata\utils.py -> build\lib\chstockdata
+copying src\chstockdata\vendor_errors.py -> build\lib\chstockdata
+copying src\chstockdata\vipdoc_history.py -> build\lib\chstockdata
+copying src\chstockdata\_easy_tdx_bridge.py -> build\lib\chstockdata
+copying src\chstockdata\__init__.py -> build\lib\chstockdata
+running egg_info
+writing src\chstockdata.egg-info\PKG-INFO
+writing dependency_links to src\chstockdata.egg-info\dependency_links.txt
+writing entry points to src\chstockdata.egg-info\entry_points.txt
+writing requirements to src\chstockdata.egg-info\requires.txt
+writing top-level names to src\chstockdata.egg-info\top_level.txt
+reading manifest file 'src\chstockdata.egg-info\SOURCES.txt'
+adding license file 'LICENSE'
+adding license file 'NOTICE'
+writing manifest file 'src\chstockdata.egg-info\SOURCES.txt'
+copying src\chstockdata\py.typed -> build\lib\chstockdata
+installing to build\bdist.win-amd64\wheel
+running install
+running install_lib
+creating build\bdist.win-amd64\wheel
+creating build\bdist.win-amd64\wheel\chstockdata
+copying build\lib\chstockdata\adjusted_bars.py -> build\bdist.win-amd64\wheel\.\chstockdata
+copying build\lib\chstockdata\a_stock.py -> build\bdist.win-amd64\wheel\.\chstockdata
+copying build\lib\chstockdata\block_trades.py -> build\bdist.win-amd64\wheel\.\chstockdata
+copying build\lib\chstockdata\board_flow.py -> build\bdist.win-amd64\wheel\.\chstockdata
+copying build\lib\chstockdata\capabilities.py -> build\bdist.win-amd64\wheel\.\chstockdata
+copying build\lib\chstockdata\chips.py -> build\bdist.win-amd64\wheel\.\chstockdata
+copying build\lib\chstockdata\config.py -> build\bdist.win-amd64\wheel\.\chstockdata
+copying build\lib\chstockdata\corporate_actions.py -> build\bdist.win-amd64\wheel\.\chstockdata
+copying build\lib\chstockdata\daily_bars.py -> build\bdist.win-amd64\wheel\.\chstockdata
+copying build\lib\chstockdata\delisting.py -> build\bdist.win-amd64\wheel\.\chstockdata
+copying build\lib\chstockdata\etf_options.py -> build\bdist.win-amd64\wheel\.\chstockdata
+copying build\lib\chstockdata\fetch_result.py -> build\bdist.win-amd64\wheel\.\chstockdata
+copying build\lib\chstockdata\hot_rank.py -> build\bdist.win-amd64\wheel\.\chstockdata
+copying build\lib\chstockdata\investor_qa.py -> build\bdist.win-amd64\wheel\.\chstockdata
+copying build\lib\chstockdata\limit_up.py -> build\bdist.win-amd64\wheel\.\chstockdata
+copying build\lib\chstockdata\market_breadth.py -> build\bdist.win-amd64\wheel\.\chstockdata
+copying build\lib\chstockdata\mcp_server.py -> build\bdist.win-amd64\wheel\.\chstockdata
+copying build\lib\chstockdata\northbound_data.py -> build\bdist.win-amd64\wheel\.\chstockdata
+copying build\lib\chstockdata\northbound_store.py -> build\bdist.win-amd64\wheel\.\chstockdata
+copying build\lib\chstockdata\point_in_time.py -> build\bdist.win-amd64\wheel\.\chstockdata
+copying build\lib\chstockdata\policy_news.py -> build\bdist.win-amd64\wheel\.\chstockdata
+copying build\lib\chstockdata\policy_news_models.py -> build\bdist.win-amd64\wheel\.\chstockdata
+copying build\lib\chstockdata\policy_news_registry.py -> build\bdist.win-amd64\wheel\.\chstockdata
+copying build\lib\chstockdata\policy_news_sources.py -> build\bdist.win-amd64\wheel\.\chstockdata
+copying build\lib\chstockdata\provenance.py -> build\bdist.win-amd64\wheel\.\chstockdata
+copying build\lib\chstockdata\py.typed -> build\bdist.win-amd64\wheel\.\chstockdata
+copying build\lib\chstockdata\quote_chain.py -> build\bdist.win-amd64\wheel\.\chstockdata
+copying build\lib\chstockdata\refresh_vipdoc.py -> build\bdist.win-amd64\wheel\.\chstockdata
+copying build\lib\chstockdata\routing_observation.py -> build\bdist.win-amd64\wheel\.\chstockdata
+copying build\lib\chstockdata\source_context.py -> build\bdist.win-amd64\wheel\.\chstockdata
+copying build\lib\chstockdata\suspension.py -> build\bdist.win-amd64\wheel\.\chstockdata
+copying build\lib\chstockdata\tdx_bridge.py -> build\bdist.win-amd64\wheel\.\chstockdata
+copying build\lib\chstockdata\tradability.py -> build\bdist.win-amd64\wheel\.\chstockdata
+copying build\lib\chstockdata\trading_calendar.py -> build\bdist.win-amd64\wheel\.\chstockdata
+copying build\lib\chstockdata\utils.py -> build\bdist.win-amd64\wheel\.\chstockdata
+copying build\lib\chstockdata\vendor_errors.py -> build\bdist.win-amd64\wheel\.\chstockdata
+copying build\lib\chstockdata\vipdoc_history.py -> build\bdist.win-amd64\wheel\.\chstockdata
+copying build\lib\chstockdata\_easy_tdx_bridge.py -> build\bdist.win-amd64\wheel\.\chstockdata
+copying build\lib\chstockdata\__init__.py -> build\bdist.win-amd64\wheel\.\chstockdata
+running install_egg_info
+Copying src\chstockdata.egg-info to build\bdist.win-amd64\wheel\.\chstockdata-0.4.1-py3.12.egg-info
+running install_scripts
+creating build\bdist.win-amd64\wheel\chstockdata-0.4.1.dist-info\WHEEL
+creating 'D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-09-24-v0.4.1-rh3b3\\build-python312\\.tmp-_yy4wmqj\\chstockdata-0.4.1-py3-none-any.whl' and adding 'build\\bdist.win-amd64\\wheel' to it
+adding 'chstockdata/__init__.py'
+adding 'chstockdata/_easy_tdx_bridge.py'
+adding 'chstockdata/a_stock.py'
+adding 'chstockdata/adjusted_bars.py'
+adding 'chstockdata/block_trades.py'
+adding 'chstockdata/board_flow.py'
+adding 'chstockdata/capabilities.py'
+adding 'chstockdata/chips.py'
+adding 'chstockdata/config.py'
+adding 'chstockdata/corporate_actions.py'
+adding 'chstockdata/daily_bars.py'
+adding 'chstockdata/delisting.py'
+adding 'chstockdata/etf_options.py'
+adding 'chstockdata/fetch_result.py'
+adding 'chstockdata/hot_rank.py'
+adding 'chstockdata/investor_qa.py'
+adding 'chstockdata/limit_up.py'
+adding 'chstockdata/market_breadth.py'
+adding 'chstockdata/mcp_server.py'
+adding 'chstockdata/northbound_data.py'
+adding 'chstockdata/northbound_store.py'
+adding 'chstockdata/point_in_time.py'
+adding 'chstockdata/policy_news.py'
+adding 'chstockdata/policy_news_models.py'
+adding 'chstockdata/policy_news_registry.py'
+adding 'chstockdata/policy_news_sources.py'
+adding 'chstockdata/provenance.py'
+adding 'chstockdata/py.typed'
+adding 'chstockdata/quote_chain.py'
+adding 'chstockdata/refresh_vipdoc.py'
+adding 'chstockdata/routing_observation.py'
+adding 'chstockdata/source_context.py'
+adding 'chstockdata/suspension.py'
+adding 'chstockdata/tdx_bridge.py'
+adding 'chstockdata/tradability.py'
+adding 'chstockdata/trading_calendar.py'
+adding 'chstockdata/utils.py'
+adding 'chstockdata/vendor_errors.py'
+adding 'chstockdata/vipdoc_history.py'
+adding 'chstockdata-0.4.1.dist-info/licenses/LICENSE'
+adding 'chstockdata-0.4.1.dist-info/licenses/NOTICE'
+adding 'chstockdata-0.4.1.dist-info/METADATA'
+adding 'chstockdata-0.4.1.dist-info/WHEEL'
+adding 'chstockdata-0.4.1.dist-info/entry_points.txt'
+adding 'chstockdata-0.4.1.dist-info/top_level.txt'
+adding 'chstockdata-0.4.1.dist-info/RECORD'
+removing build\bdist.win-amd64\wheel
+WARNING `project.license` as a TOML table is deprecated
+!!
+
+        ********************************************************************************
+        Please use a simple string containing a SPDX expression for `project.license`. You can also use `project.license-files`. (Both options available on setuptools>=77.0.0).
+
+        By 2027-Feb-18, you need to update your project and remove deprecated calls
+        or your builds will no longer be supported.
+
+        See https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license for details.
+        ********************************************************************************
+
+!!
+WARNING License classifiers are deprecated.
+!!
+
+        ********************************************************************************
+        Please consider removing the following classifiers in favor of a SPDX license expression:
+
+        License :: OSI Approved :: Apache Software License
+
+        See https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license for details.
+        ********************************************************************************
+
+!!
+WARNING License classifiers are deprecated.
+!!
+
+        ********************************************************************************
+        Please consider removing the following classifiers in favor of a SPDX license expression:
+
+        License :: OSI Approved :: Apache Software License
+
+        See https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license for details.
+        ********************************************************************************
+
+!!
+Successfully built chstockdata-0.4.1.tar.gz and chstockdata-0.4.1-py3-none-any.whl
