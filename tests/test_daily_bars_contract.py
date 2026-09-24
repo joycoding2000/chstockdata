@@ -461,6 +461,7 @@ def test_vipdoc_volume_unit_is_shares(tmp_path, monkeypatch):
     monkeypatch.setattr(dataflow_config, "get_config", lambda: {
         "vipdoc_history_enabled": True,
         "vipdoc_history_max_staleness_days": 5,
+        "vipdoc_history_dir": str(tmp_path),
     })
 
     result = fetch_daily_bars(
@@ -472,6 +473,13 @@ def test_vipdoc_volume_unit_is_shares(tmp_path, monkeypatch):
         },
     )
 
+    assert result.succeeded
+    assert result.metadata.final_provider == "tdx_vipdoc"
+    assert result.metadata.providers_used == ["tdx_vipdoc"]
+    assert [
+        (attempt.provider, attempt.status) for attempt in result.metadata.attempts
+    ] == [("tdx_vipdoc", FETCH_SUCCESS)]
+    assert result.data["Volume"].tolist() == [1000, 1000]
     assert result.data.attrs["volume_unit"] == "shares"
     assert "volume_unit:shares" in result.metadata.limitations
 
