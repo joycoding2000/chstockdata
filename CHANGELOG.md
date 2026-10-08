@@ -3,6 +3,29 @@
 All notable changes to this project are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## [0.4.2] — Local release candidate (2026-10-08)
+
+This candidate contains only the approved VIPDOC Price Scale correctness fix
+relative to the v0.4.1 baseline. It has not been published; consumer
+qualification and separate Owner release authorization are still required.
+
+### Fixed
+
+- Convert VIPDOC OHLC and derived `pre_close` using the qualified filename
+  market and six-digit ASCII code: SH60/68 and SZ00/30 use a 0.01 multiplier;
+  SH50/51 and SZ15/16 use a 0.001 multiplier. Stock conversion remains
+  compatible with v0.4.1; qualified fund prices correct the previous tenfold
+  scale error.
+- BJ, SH58, SZ18 and all other unqualified categories or filenames retain
+  legacy division by 100. This compatibility behavior does not certify their
+  price precision. Volume and amount units are unchanged.
+
+Historical suspension semantics are not fixed in v0.4.2. No Provider,
+architecture, dependency, frozen SIOS/M1 data or admission-rule changes are
+included. Existing v0.4.1 records and audit conclusions remain unchanged.
+
+See [v0.4.2 release notes](docs/releases/v0.4.2.md).
+
 ## [Unreleased] — v0.4.1 release candidate (2026-09-24)
 
 The candidate version is **0.4.1**. The previous consumer compatibility
