@@ -1,0 +1,87 @@
+{
+  "source": "Existing local .rh3a2-vipdoc; exact 32-byte records copied without re-encoding; 2022-12-29 and 2022-12-30",
+  "source_zip_sha256": "72bf25fb6dd5fbdb1a83c64a37d8ad7c4d9652f7036919b6694ba955b643e968",
+  "source_downloaded_at": "2026-09-23T06:19:31Z",
+  "fixtures": [
+    {
+      "market": "sh",
+      "code": "600519",
+      "source_file_sha256": "8b27f2d55a0f014eb9e1d8f45329bcc2b2e49a47339d137cae3199d7381adf08",
+      "raw_hex": "2d8d3401b49e02009ba20200799802007c9f02006926654ff4342200000001002e8d340120a60200c3ac02009ca202009ca20200276a834fc0a7260000000100",
+      "raw_sha256": "8863f0bdc78ab6592cef5bfbb66b72f505d29e16bb9602ce67755f73e8bd4564",
+      "expected_ohlc": [
+        1736.0,
+        1752.99,
+        1727.0,
+        1727.0
+      ],
+      "expected_pre_close": 1719.0,
+      "expected_amount": 4409544192.0,
+      "expected_volume": 2533312
+    },
+    {
+      "market": "sh",
+      "code": "510300",
+      "source_file_sha256": "56db5fb84ac0965428748b6fa6228622d7e86021e37e2ecc4b0f79d1e88743ab",
+      "raw_hex": "2d8d34014f0f00005d0f0000380f0000520f0000b070284fdbb8fd2a000001002e8d3401610f00006f0f00005e0f0000620f00004920144f6086902500000100",
+      "raw_sha256": "464732654f8ee0d77cf7f91d120e9b51771578be34f760b9bf9af768c9fcc825",
+      "expected_ohlc": [
+        3.937,
+        3.951,
+        3.934,
+        3.938
+      ],
+      "expected_pre_close": 3.922,
+      "expected_amount": 2485143808.0,
+      "expected_volume": 630228576
+    },
+    {
+      "market": "sz",
+      "code": "159915",
+      "source_file_sha256": "caf336760dfe6317f5117f88eee05e366e1bb970459eeb7f1fd53999c38ae9a3",
+      "raw_hex": "2d8d3401cf080000f7080000cc080000e508000051ba6e4e99f22b1a000001002e8d3401ef080000fa080000e6080000e70800008d484f4e4fd0a91600000100",
+      "raw_sha256": "6d6d2ee92ed64802312b8176bfe9b8d17247cdd412f98a27534b9841b8f53f68",
+      "expected_ohlc": [
+        2.287,
+        2.298,
+        2.278,
+        2.279
+      ],
+      "expected_pre_close": 2.277,
+      "expected_amount": 869409600.0,
+      "expected_volume": 380227663
+    },
+    {
+      "market": "sh",
+      "code": "518880",
+      "source_file_sha256": "f73b02ec305007cef07cc77ae08b49c7b583cdad3c3a71c4f3e6f127f2201eef",
+      "raw_hex": "2d8d3401820f0000860f0000780f0000780f0000d418ea4d3da45f07000001002e8d3401820f0000930f0000820f0000920f0000c8bb004eaad0160800000100",
+      "raw_sha256": "a1fb9775d695884ec34ac2d211ca0837764c58eeb45d773c1fd54c3a9ab6c977",
+      "expected_ohlc": [
+        3.97,
+        3.987,
+        3.97,
+        3.986
+      ],
+      "expected_pre_close": 3.96,
+      "expected_amount": 539947520.0,
+      "expected_volume": 135712938
+    },
+    {
+      "market": "sh",
+      "code": "511010",
+      "source_file_sha256": "3f4225663778f898ef36a8562f4d8774b1a20eae08ea9d1caf7d8d3a5548a78d",
+      "raw_hex": "2d8d34013af70100baf7010020f7010081f701003f39fc4dc4a23e00000001002e8d3401b3f701000cf9010084f7010050f8010086a3d64b2c53030000000100",
+      "raw_sha256": "e7f445470a474b4e9d22a4562030c813305c21e2f1a724f8110516a4c7c4f321",
+      "expected_ohlc": [
+        128.947,
+        129.292,
+        128.9,
+        129.104
+      ],
+      "expected_pre_close": 128.897,
+      "expected_amount": 28133132.0,
+      "expected_volume": 217900
+    }
+  ]
+}

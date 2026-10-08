@@ -6,7 +6,10 @@ issues/023 / 实施计划（docs/superpowers/plans/2026-09-11-tdx-official-vipdo
 ``get_stock_data`` 的 raw/D 口径提供确定性 base：
 
 - ``.day`` 记录 32B 小端定长：``date``(uint32 YYYYMMDD)、``open/high/low/close``
-  (uint32 ×100 元)、``amount``(float32 元)、``volume``(uint32 股)、``reserved``。
+  (uint32，价格尺度见下)、``amount``(float32 元)、``volume``(uint32 股)、``reserved``。
+- 已认证价格尺度严格按文件名 market + 6 位 ASCII code 匹配：SH60/68、
+  SZ00/30 为 ×0.01；SH50/51、SZ15/16 为 ×0.001。BJ、SH58、SZ18 及
+  其他未认证类别保留 legacy ÷100，兼容行为不代表其价格精度已认证。
 - 纯本地、零网络、零副作用；文件缺失返回 ``None``，交给调用方回落现有链。
 - ``amount``/``volume`` 的单位口径以 Task 4 与在线源（新浪）实测对齐为准；
   本层不做任何复权，raw 就是不复权。
@@ -42,7 +45,7 @@ MANIFEST_SCHEMA_VERSION = 1
 DAY_COLUMNS = ["Date", "Open", "High", "Low", "Close", "pre_close", "Volume", "Amount"]
 _RAW_DAY_COLUMNS = ["Date", "Open", "High", "Low", "Close", "Volume", "Amount"]
 
-# record: date(uint32) open high low close(uint32 ×100) amount(float32) volume(uint32) reserved(uint32)
+# record: date(uint32) OHLC(uint32, class-specific scale) amount(float32) volume(uint32) reserved(uint32)
 _DAY_RECORD = struct.Struct("<IIIIIfII")
 _DAY_RECORD_SIZE = _DAY_RECORD.size  # 32
 
@@ -50,6 +53,18 @@ _CODE_RE = re.compile(r"\d{6}")
 _DAY_FILE_RE = re.compile(r"(sh|sz|bj)(\d{6})", re.IGNORECASE)
 _MANIFEST_NAME = "manifest.json"
 _MARKET_TZ = timezone(timedelta(hours=8))
+_QUALIFIED_STOCK_RE = re.compile(r"(?:sh(?:60|68)|sz(?:00|30))[0-9]{4}\.day", re.IGNORECASE)
+_QUALIFIED_FUND_RE = re.compile(r"(?:sh(?:50|51)|sz(?:15|16))[0-9]{4}\.day", re.IGNORECASE)
+
+
+def _qualified_price_multiplier(path: str | os.PathLike[str]) -> float | None:
+    """Return only Owner-qualified scales; None explicitly selects legacy."""
+    filename = Path(path).name
+    if _QUALIFIED_STOCK_RE.fullmatch(filename):
+        return 0.01
+    if _QUALIFIED_FUND_RE.fullmatch(filename):
+        return 0.001
+    return None
 
 
 def _market_today() -> date:
@@ -83,12 +98,14 @@ def vipdoc_history_dir() -> str:
 def parse_day_file(path: str | os.PathLike[str]) -> pd.DataFrame:
     """解析单个 ``.day`` 文件为含 ``pre_close`` 的原始日线帧。
 
-    价格 uint32 ÷100 得元；``amount`` float32 元；``volume`` uint32 股。
+    价格按已认证文件名类别换算得元；未认证名称保留 legacy ÷100（精度未认证）。
+    ``amount`` float32 元；``volume`` uint32 股。
     ``pre_close`` 是文件内前一交易日原始 ``Close``，不做除息调整；坏日期/
     截断记录跳过并计数（不可让一个坏文件中断整个分析）。
     """
     rows: list[tuple[Any, ...]] = []
     invalid = 0
+    multiplier = _qualified_price_multiplier(path)
     with open(path, "rb") as fh:
         while True:
             chunk = fh.read(_DAY_RECORD_SIZE)
@@ -112,13 +129,19 @@ def parse_day_file(path: str | os.PathLike[str]) -> pd.DataFrame:
             except ValueError:
                 invalid += 1
                 continue
+            raw_prices = (open_raw, high_raw, low_raw, close_raw)
+            if multiplier is None:
+                # Preserve unqualified classes and arbitrary legacy filenames.
+                prices = tuple(value / 100.0 for value in raw_prices)
+            elif multiplier == 0.01:
+                # Keep the existing stock conversion byte-for-byte compatible.
+                prices = tuple(value / 100.0 for value in raw_prices)
+            else:
+                prices = tuple(value * multiplier for value in raw_prices)
             rows.append(
                 (
                     stamp,
-                    open_raw / 100.0,
-                    high_raw / 100.0,
-                    low_raw / 100.0,
-                    close_raw / 100.0,
+                    *prices,
                     int(volume),
                     float(amount),
                 )
