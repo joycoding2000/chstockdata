@@ -105,6 +105,7 @@ def _added_line_ranges() -> dict[str, list[tuple[int, int]]]:
         "git",
         "diff",
         "--no-ext-diff",
+        "--ignore-cr-at-eol",
         "--unified=0",
         BASELINE_SHA,
         "--",

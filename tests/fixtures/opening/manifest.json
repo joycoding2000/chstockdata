@@ -1,0 +1,31 @@
+{
+  "provenance": {
+    "sse_688432_interval.bin": "W/evidence/step1/live prior bounded request original bytes, SHA331477...",
+    "szse_159509_announcements_control.bin": "W/evidence/step1/live prior bounded official list original bytes, SHA1c799...",
+    "szse_159915_announcements.bin": "W/evidence/step1/live prior bounded official list original bytes, SHA13c652...",
+    "159509-20260911.pdf": "single necessary official raw fixture acquisition recorded in W/evidence/r21-step1/pdf-fixture-acquisition.json; exact old certified PDF SHA18cf4..."
+  },
+  "files": [
+    {
+      "file": "159509-20260911.pdf",
+      "sha256": "18cf4d821cd8f4de15d515ce0ceef828be5aff3beea30128d4b2049d39647fcd",
+      "bytes": 96655
+    },
+    {
+      "file": "sse_688432_interval.bin",
+      "sha256": "33147724bcee2f692e3de7a637c2490017a86c1399183c7f8ccf1f7fe017d924",
+      "bytes": 954
+    },
+    {
+      "file": "szse_159509_announcements_control.bin",
+      "sha256": "1c799d8c18359ac482465556350b9b889e1c36689eda35f3d033edb5ec3a9813",
+      "bytes": 1280
+    },
+    {
+      "file": "szse_159915_announcements.bin",
+      "sha256": "13c652bf1ce25aeaec1c58d705053fb10bf37d09128a3dd2b11c4585f24a9797",
+      "bytes": 2295
+    }
+  ],
+  "fixture_note": "Tests use original source bytes and frozen TDX complete parser-returned JSONL identities; fault injection and request-date rebinding are explicitly labeled synthetic, never live evidence."
+}

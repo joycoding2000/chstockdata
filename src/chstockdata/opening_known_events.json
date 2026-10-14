@@ -1,0 +1,96 @@
+[
+  {
+    "instrument": "688432",
+    "market": "SSE",
+    "effective_start": "2026-08-31T09:30:00+08:00",
+    "effective_end": "2026-09-14T09:30:00+08:00",
+    "source_url": "https://pdf.dfcfw.com/pdf/H2_AN202609111829278590_1.pdf",
+    "raw_sha256": "026b42096af80856f7ae69fb81fc7166d2e805e7dacfd3ddd2566d5278f891ea",
+    "source_kind": "issuer_authored_distributor_mirror",
+    "offline_cache": true,
+    "certification_basis": "issuer-authored resume disclosure page 2 explicitly identifies 688432 halt from 2026-08-31 open and resume 2026-09-14 open; SSE endStopDate=20260911 is LAST_STOP_DAY",
+    "retrieved_at": "2026-10-11T07:35:19.626967+00:00",
+    "raw_fields": {
+      "issuer": "有研半导体硅材料股份公司",
+      "announcement": "2026-039",
+      "page": 2,
+      "halt_excerpt": "股票（证券简称：有研硅，证券代码：688432）自2026年8月31日开市起开始停牌",
+      "resume_excerpt": "将于2026年9月14日（星期一）开市起复牌",
+      "cache_origin": "docs/audits/evidence/2026-10-09-v0.4.2-history-recovery/issuer-resume-mirror.pdf",
+      "source_retrieved_at": null,
+      "cache_imported_at": "2026-10-11T07:35:19.626967+00:00",
+      "retrieved_at_basis": "offline cache import wall clock; original HTTP retrieval time not authenticated"
+    }
+  },
+  {
+    "instrument": "000002",
+    "market": "SZSE",
+    "effective_start": "2015-12-18T13:00:00+08:00",
+    "effective_end": null,
+    "source_url": "https://static.cninfo.com.cn/finalpage/2016-07-02/1202445845.PDF",
+    "raw_sha256": "d1e3f6de50f64b5fda46a93b39a28b0573b3541e85e98e2107fdb8f361c818f3",
+    "source_kind": "issuer_official_disclosure",
+    "offline_cache": true,
+    "certification_basis": "issuer disclosure pages 13/113 explicitly 2015-12-18 13:00 continuous halt; official fund report page 25 records 2016-07-04 resume DATE only, no authenticated resume clock; do not infer an effective interval end; this halt is inapplicable after the authenticated resume date, while opening on the resume date remains unknown",
+    "retrieved_at": "2026-10-09T13:03:37.528586+00:00",
+    "raw_fields": {
+      "issuer": "万科企业股份有限公司",
+      "page": 13,
+      "halt_excerpt": "公司A股股票从2015年12月18日13:00起开始停牌",
+      "resume_source_url": "https://static.cninfo.com.cn/finalpage/2016-08-29/1202629464.PDF",
+      "resume_raw_sha256": "3bd3084bae486a56ba03cc55e45df43573fa6da6063017341fe0bd4ca06e94ce",
+      "resume_page": 25,
+      "resume_date": "2016-07-04",
+      "cache_origin": "docs/audits/evidence/2026-10-09-v0.4.2-history-recovery/vanke-issuer-history.pdf",
+      "cache_imported_at": "2026-10-11T07:35:19.626967+00:00"
+    }
+  },
+  {
+    "instrument": "159509",
+    "market": "SZSE",
+    "effective_start": "2026-09-11T09:30:00+08:00",
+    "effective_end": "2026-09-11T10:30:00+08:00",
+    "source_url": "https://disc.static.szse.cn/disc/disk03/finalpage/2026-09-11/441bfc71-d5d9-4f67-aed6-05eeeec9aaf3.PDF",
+    "raw_sha256": "18cf4d821cd8f4de15d515ce0ceef828be5aff3beea30128d4b2049d39647fcd",
+    "source_kind": "issuer_official_disclosure",
+    "offline_cache": true,
+    "certification_basis": "official PDF explicitly secondary-market halt from open until 10:30; redemption remains available, distinct from trading halt",
+    "retrieved_at": "2026-10-11T07:32:47.892700+00:00",
+    "raw_fields": {
+      "issuer": "景顺长城基金管理有限公司",
+      "annId": 1225557465,
+      "effective_interval": "2026-09-11 开市起停牌，10:30 起复牌",
+      "cache_origin": "2026-10-09 official history investigation ZF5 raw PDF hash",
+      "cache_imported_at": "2026-10-11T07:35:19.626967+00:00",
+      "source_retrieved_at": "2026-10-11T07:32:47.892700+00:00"
+    }
+  },
+  {
+    "instrument": "513100",
+    "market": "SSE",
+    "effective_start": "2026-09-11T09:15:00+08:00",
+    "effective_end": "2026-09-11T10:30:00+08:00",
+    "source_url": "https://query.sse.com.cn/sseQuery/commonSoaQuery.do",
+    "raw_sha256": "b0c084336ced5abfd30e2d1ac3b0e2d46c0b35758934e75651f9ae6ad216fd02",
+    "source_kind": "exchange_official_history",
+    "offline_cache": true,
+    "certification_basis": "SSE actual source dateSource=2, startStopType=LSTP, stopTime=915; authenticated front-end maps to 09:15-10:30",
+    "retrieved_at": "2026-10-11T07:32:46.083821+00:00",
+    "raw_fields": {
+      "endStopType": "LSTP",
+      "startStopReason": "根据基金管理人申请",
+      "endStopDate": "20260911",
+      "endType": "",
+      "secCode": "513100",
+      "expandAbbr": "纳指ETF国泰",
+      "startType": "null",
+      "startStopDate": "20260911",
+      "endStopReason": "根据基金管理人申请",
+      "startStopType": "LSTP",
+      "dateSource": "2",
+      "secAbbr": "纳指ETF",
+      "stopTime": "915",
+      "cache_imported_at": "2026-10-11T07:35:19.626967+00:00"
+    }
+  }
+]

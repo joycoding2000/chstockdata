@@ -42,6 +42,8 @@ dependencies = [
 # works via local vipdoc history + Sina fallback. NOTE: mootdx pins
 # httpx==0.25.2, which conflicts with stacks needing httpx>=0.28.
 mootdx = ["mootdx>=0.10.0"]
+# Optional structured parser for essential official historical halt PDF bodies.
+opening-pdf = ["pypdf>=6.0"]
 # Historical turnover (turn) input for CYQ chip distribution. baostock is a
 # zero-key TCP client and does NOT support the Beijing Stock Exchange (4/8/92/920).
 baostock = ["baostock>=0.8.9"]
@@ -60,7 +62,7 @@ Issues = "https://github.com/joycoding2000/chstockdata/issues"
 where = ["src"]
 
 [tool.setuptools.package-data]
-chstockdata = ["py.typed"]
+chstockdata = ["py.typed", "opening_known_events.json"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

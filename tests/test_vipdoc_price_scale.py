@@ -4,6 +4,7 @@ import hashlib
 import io
 import json
 import struct
+from decimal import Decimal
 from pathlib import Path
 
 import pandas as pd
@@ -48,6 +49,35 @@ def test_real_raw_parse_and_filtered_pre_close(golden):
     window = vh.load_vipdoc_daily(item["code"], "2022-12-30", "2022-12-30", root=root)
     assert len(window) == 1
     _assert_target(window, item)
+
+
+def test_real_raw_prices_match_exact_decimal_contract(golden):
+    item, _, root = golden
+    frame = vh.load_vipdoc_daily(item["code"], "2022-12-30", "2022-12-30", root=root)
+    row = frame.iloc[0]
+    actual = [Decimal(str(row[column])) for column in [*OHLC, "pre_close"]]
+    expected = [Decimal(str(value)) for value in [*item["expected_ohlc"], item["expected_pre_close"]]]
+    assert actual == expected
+
+
+@pytest.mark.parametrize("filename, denominator", [
+    ("sh600519.day", 100), ("sh688001.day", 100),
+    ("sz000001.day", 100), ("sz300001.day", 100),
+    ("sh500001.day", 1000), ("sh510300.day", 1000),
+    ("sz159915.day", 1000), ("sz160001.day", 1000),
+])
+def test_qualified_ohlc_and_pre_close_have_no_reciprocal_tail(tmp_path, filename, denominator):
+    path = tmp_path / filename
+    path.write_bytes(b"".join(
+        struct.pack("<IIIIIfII", session, 3937, 3937, 3937, 3937, 25.0, 10, 0)
+        for session in (20221229, 20221230)
+    ))
+    frame = vh.parse_day_file(path)
+    row = frame.iloc[1]
+    expected = Decimal(3937) / Decimal(denominator)
+    assert [Decimal(str(row[column])) for column in [*OHLC, "pre_close"]] == [expected] * 5
+    assert all(frame[column].dtype.kind == "f" for column in [*OHLC, "pre_close"])
+    assert row["Volume"] == 10 and row["Amount"] == 25.0
 
 
 @pytest.mark.allow_vipdoc_history

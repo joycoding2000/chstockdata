@@ -9,10 +9,19 @@ tab with a same-day disk cache).  Provider access is mocked; no network.
 from __future__ import annotations
 
 import json
+from datetime import date
 
 import pytest
 
 import chstockdata.a_stock as a_stock
+
+
+@pytest.fixture(autouse=True)
+def _current_suspension_clock(request, monkeypatch):
+    # These existing tests certify acquisition/legacy formatting, not history.
+    if request.node.name.startswith("test_suspension_"):
+        day = date(2015, 1, 5) if "paginates_once" in request.node.name else date(2026, 9, 10)
+        monkeypatch.setattr(a_stock, "_today", lambda: day)
 
 
 class _Response:

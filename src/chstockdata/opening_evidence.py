@@ -1,0 +1,533 @@
+"""Bounded R2.1 historical opening execution evidence; independent of legacy PIT.
+
+The HH:MM transaction window is an activity proxy, never an order fill, volume
+quota, all-day status, or a statement that information was known before open.
+TDX and current official retrieval observations remain distinct from eligibility.
+"""
+from __future__ import annotations
+
+import hashlib
+import importlib.metadata
+import io
+import json
+import re
+import time
+from collections.abc import Callable, Sequence
+from dataclasses import asdict, dataclass, field
+from datetime import date, datetime, timedelta, timezone
+from decimal import Decimal, InvalidOperation
+from itertools import pairwise
+from pathlib import Path
+from typing import Any
+
+from .fetch_result import (
+    FETCH_FAILED_NETWORK,
+    FETCH_FAILED_STRUCTURE,
+    FETCH_NORMAL_EMPTY,
+    FETCH_NOT_CONFIGURED,
+    FETCH_SUCCESS,
+    FetchAttempt,
+    FetchMetadata,
+    FetchResult,
+)
+from .routing_observation import record_fetch_observation, utc_now_iso
+
+POLICY_VERSION = 'R2.1'
+SCHEMA_VERSION = 'historical-opening-evidence/1'
+SHANGHAI = timezone(timedelta(hours=8), 'Asia/Shanghai')
+SERVER = ('110.41.147.114', 7709)
+# This is a security-category certification scope, not a date/verdict lookup.
+# The four target ETFs and two halt controls were protocol/price certified in
+# the frozen 44-request sample. Uncertified securities fail closed.
+CERTIFIED_SECURITIES = {
+    '510300': (1, 'ETF', Decimal('0.001')), '159915': (0, 'ETF', Decimal('0.001')),
+    '518880': (1, 'ETF', Decimal('0.001')), '511010': (1, 'ETF', Decimal('0.001')),
+    '513100': (1, 'ETF', Decimal('0.001')), '159509': (0, 'ETF', Decimal('0.001')),
+    '688432': (1, 'STOCK', Decimal('0.01')), '000002': (0, 'STOCK', Decimal('0.01')),
+}
+
+
+def _hash(value: Any) -> str:
+    if isinstance(value,bytes):
+        return hashlib.sha256(value).hexdigest()
+    if not isinstance(value,(dict,list,tuple,str,int,float,bool,type(None))):
+        value={'object_type':type(value).__name__}
+    return hashlib.sha256(json.dumps(value, sort_keys=True, ensure_ascii=False,
+        separators=(',', ':'), allow_nan=False).encode('utf-8')).hexdigest()
+
+
+def _instant(value: str) -> datetime:
+    result = datetime.fromisoformat(value)
+    if result.utcoffset() is None:
+        raise ValueError('effective timestamps require an explicit timezone')
+    return result
+
+
+def _sse_date(value: Any) -> date:
+    if not isinstance(value,str) or not re.fullmatch(r'[0-9]{8}',value):
+        raise ValueError('SSE date must be exactly eight digits')
+    return date.fromisoformat(f'{value[:4]}-{value[4:6]}-{value[6:8]}')
+
+
+@dataclass(frozen=True)
+class OfficialOpeningEvent:
+    """Certified effective interval with original-source identity, not a verdict."""
+    instrument: str
+    market: str
+    effective_start: str
+    effective_end: str | None
+    source_url: str
+    raw_sha256: str
+    certification_basis: str
+    retrieved_at: str
+    source_kind: str = 'official'
+    secondary_market: bool = True
+    offline_cache: bool = False
+    raw_fields: dict[str, Any] = field(default_factory=dict)
+    information_available_at: str | None = None
+    information_basis: str = 'UNKNOWN'
+
+    def __post_init__(self):
+        if not re.fullmatch(r'\d{6}', self.instrument) or self.market not in {'SSE','SZSE'}:
+            raise ValueError('invalid official event security/market')
+        start = _instant(self.effective_start)
+        if self.effective_end is not None and _instant(self.effective_end) <= start:
+            raise ValueError('invalid official interval')
+        if not re.fullmatch('[0-9a-f]{64}', self.raw_sha256) or not self.source_url or not self.certification_basis:
+            raise ValueError('official interval requires original bytes identity and certification')
+        _instant(self.retrieved_at)
+        if self.information_available_at is not None:
+            _instant(self.information_available_at)
+            if self.information_basis == 'UNKNOWN':
+                raise ValueError('availability needs a verified basis')
+
+
+def _known_events() -> list[OfficialOpeningEvent]:
+    asset = Path(__file__).with_name('opening_known_events.json')
+    return [OfficialOpeningEvent(**r) for r in json.loads(asset.read_text(encoding='utf-8'))]
+
+
+def _observe(attempts, provider, capability, call, observations, request):
+    started, clock = utc_now_iso(), time.monotonic()
+    try:
+        value = call()
+        status = FETCH_SUCCESS if value else FETCH_NORMAL_EMPTY
+        error = None
+    except ImportError as exc:
+        value, status, error = None, FETCH_NOT_CONFIGURED, type(exc).__name__
+    except (ValueError, TypeError, KeyError, InvalidOperation) as exc:
+        value, status, error = None, FETCH_FAILED_STRUCTURE, type(exc).__name__
+    except Exception as exc:  # noqa: BLE001 - vendor boundary records unknown transport errors.
+        value, status, error = None, FETCH_FAILED_NETWORK, type(exc).__name__
+    record_fetch_observation(attempts, provider=provider, capability_id=capability,
+        status=status, started_at=started, elapsed_ms=max(0,int((time.monotonic()-clock)*1000)),
+        record_count=len(value) if isinstance(value,(list,dict)) else None,
+        error_type=error, message=error)
+    observations.append({'request':request, 'status':status, 'retrieved_at':utc_now_iso(),
+                         'parsed_response_sha256':_hash(value), 'error_type':error})
+    return value, status
+
+
+def _number(value, *, tick: Decimal | None = None) -> Decimal:
+    if isinstance(value, bool):
+        raise ValueError('boolean is not price/volume')  # noqa: TRY004 - public malformed-payload contract.
+    n = Decimal(str(value))
+    if not n.is_finite() or n < 0:
+        raise ValueError('invalid numeric value')
+    if tick is not None:
+        # Parser float artifacts are tolerated only to 1e-9 yuan, never a
+        # price ratio heuristic or a second normalization.
+        rounded = (n / tick).quantize(Decimal(1)) * tick
+        if n <= 0 or abs(rounded-n)>Decimal('0.000000001'):
+            raise ValueError('price violates certified security tick')
+        n = rounded
+    elif n != n.to_integral_value():
+        raise ValueError('volume must be integral lots')
+    return n
+
+
+def _decimal_text(n):
+    return format(n.normalize(), 'f')
+
+
+class TdxOpeningReader:
+    """Single-host, no retry, finite 800-row paging of the certified commands."""
+    def __init__(self, *, client_factory: Callable | None = None,
+                 versions: tuple[str,str] | None = None,
+                 page_offsets: Sequence[int] = tuple(range(0,7200,800))):
+        if not page_offsets or len(page_offsets)>9 or any(type(x) is not int or x<0 or x%800 for x in page_offsets):
+            raise ValueError('TDX paging must be bounded to nine 800-row pages')
+        self.client_factory, self.versions = client_factory, versions
+        self.page_offsets = tuple(page_offsets)
+
+    def read(self, code, day, attempts):
+        observations=[]
+        result={'instrument':code, 'session_date':day, 'source':'mootdx/tdxpy',
+                'server':{'host':SERVER[0],'port':SERVER[1]}, 'timeout_seconds':4,
+                'auto_retry':False, 'heartbeat':False, 'server_discovery':False,
+                'command':'0x0fb5', 'crosscheck_command':'0x0fb4',
+                'time_granularity':'minute', 'price_unit':'CNY/security',
+                'volume_unit':'TDX lots (not an executable quota)', 'observations':observations,
+                'qualified':False, 'opening_volume_lots':0, 'normalization_count':0}
+        scope=CERTIFIED_SECURITIES.get(code)
+        if scope is None:
+            result['reason']='uncertified_security_category';return result
+        try:
+            versions=self.versions or (importlib.metadata.version('mootdx'),importlib.metadata.version('tdxpy'))
+        except importlib.metadata.PackageNotFoundError:
+            versions=('unavailable','unavailable')
+        result['versions']={'mootdx':versions[0],'tdxpy':versions[1]}
+        if versions!=('0.11.7','0.2.7'):
+            result['reason']='uncertified_source_version';return result
+        market, category, tick=scope
+        result.update(market_id=market, category=category, tick_size=str(tick),
+            category_certification='frozen 2026-10-10 44-request protocol and price sample',
+            normalization_rule=('tdxpy_0.2.7_0x0fb5_certified_etf_divide_10' if category=='ETF'
+                                else 'tdxpy_0.2.7_0x0fb5_certified_stock_identity'))
+        client=None
+        try:
+            def connect():
+                factory=self.client_factory
+                if factory is None:
+                    from mootdx.quotes import Quotes
+                    factory=Quotes.factory
+                return factory(market='std',server=SERVER,bestip=False,timeout=4,
+                    heartbeat=False,auto_retry=False,raise_exception=True)
+            client,status=_observe(attempts,'mootdx','mootdx:historical_opening_activity',
+                connect,observations,{'operation':'connect','server':list(SERVER)})
+            if status!=FETCH_SUCCESS:
+                result['reason']='tdx_connection_unavailable';return result
+            rawdate=int(day.replace('-',''))
+            params={'market':market,'code':code,'date':rawdate}
+            minutes,status=_observe(attempts,'mootdx','mootdx:historical_opening_activity',
+                lambda:client.client.get_history_minute_time_data(**params),observations,
+                {'command':'0x0fb4',**params})
+            if status not in {FETCH_SUCCESS,FETCH_NORMAL_EMPTY} or not isinstance(minutes,list):
+                result['reason']='minute_crosscheck_unavailable';return result
+            pages=[]; complete=False
+            for start in self.page_offsets:
+                request={'command':'0x0fb5',**params,'start':start,'count':800}
+                rows,status=_observe(attempts,'mootdx','mootdx:historical_opening_activity',
+                    lambda start=start:client.client.get_history_transaction_data(market,code,start,800,rawdate),
+                    observations,request)
+                if status not in {FETCH_SUCCESS,FETCH_NORMAL_EMPTY} or not isinstance(rows,list):
+                    result['reason']='transaction_request_unavailable';return result
+                if len(rows)>800:
+                    raise ValueError('transaction page exceeds requested size')
+                normalized=[]
+                for row in rows:
+                    if not isinstance(row,dict) or not re.fullmatch(r'(?:09|10|11|13|14|15):[0-5][0-9]',str(row.get('time',''))):
+                        raise ValueError('uncertified transaction time')
+                    raw=_number(row['price'],tick=tick*10 if category=='ETF' else tick)
+                    price=_number(raw/10 if category=='ETF' else raw,tick=tick)
+                    volume=int(_number(row['vol']))
+                    normalized.append({'time':row['time'],'raw_price':str(row['price']),
+                        'normalized_price':_decimal_text(price),'volume_lots':volume})
+                if any(a['time']>b['time'] for a,b in pairwise(normalized)):
+                    raise ValueError('transaction times are not chronological')
+                pages.append((start,normalized))
+                if len(rows)<800 or (normalized and normalized[0]['time']<'09:30'):
+                    complete=True;break
+            allrows=[r for _,page in sorted(pages,reverse=True) for r in page]
+            opening=[r for r in allrows if r['time']=='09:30']
+            auction=[r for r in allrows if r['time']=='09:25']
+            result.update(normalized_opening_rows=opening, auction_rows=auction,
+                normalization_count=1, opening_volume_lots=sum(r['volume_lots'] for r in opening),
+                bounded_page_count=len(pages), opening_crosscheck_complete=complete,
+                minute_first=minutes[0] if minutes else None)
+            if not opening or not minutes or not complete or result['opening_volume_lots']<=0:
+                result['reason']='no_qualified_0930_transaction_activity';return result
+            minute_price=_number(minutes[0]['price'],tick=tick)
+            minute_volume=int(_number(minutes[0]['vol']))
+            if (sum(r['volume_lots'] for r in auction)+result['opening_volume_lots']!=minute_volume
+                    or Decimal(opening[-1]['normalized_price'])!=minute_price):
+                result['reason']='minute_transaction_crosscheck_mismatch';return result
+            result.update(qualified=True, reason='certified_positive_0930_activity',
+                last_opening_price=opening[-1]['normalized_price'])
+        except (ValueError,KeyError,TypeError,InvalidOperation) as exc:
+            result['reason']='invalid_tdx_payload'
+            record_fetch_observation(attempts,provider='mootdx',capability_id='mootdx:historical_opening_activity',
+                status=FETCH_FAILED_STRUCTURE,started_at=utc_now_iso(),elapsed_ms=0,error_type=type(exc).__name__)
+        finally:
+            if client is not None:
+                try: client.close()
+                except Exception:  # noqa: BLE001, S110 - cleanup must preserve the observed vendor result.
+                    pass
+        return result
+
+
+class OfficialOpeningReader:
+    """Current bounded official event query; empty is query success, not normality."""
+    def __init__(self, *, session=None, page_size=25, max_pages=4):
+        if not 1<=page_size<=50 or not 1<=max_pages<=4:
+            raise ValueError('official query bounds exceeded')
+        self.session=session;self.page_size=page_size;self.max_pages=max_pages
+
+    def _response(self, method, url, arguments, attempts, observations, provider):
+        session=self.session
+        if session is None:
+            import requests
+            session=requests.Session();session.trust_env=False
+            self.session=session
+        raw=[]
+        def request():
+            response=getattr(session,method)(url,timeout=(4,8),allow_redirects=False,**arguments)
+            response.raise_for_status()
+            raw.append(response.content)
+            if getattr(response,'status_code',200)!=200:
+                raise ValueError('official response is not HTTP 200')
+            return response.content
+        value,status=_observe(attempts,provider,f'{provider}:historical_opening_events',
+            request,observations,{'method':method.upper(),'url':url,**arguments})
+        if raw:
+            observations[-1].update(raw_sha256=hashlib.sha256(raw[0]).hexdigest(),raw_bytes=len(raw[0]))
+        return value,status
+
+    def read(self, code, day, market, category, attempts):
+        provider=market.lower();observations=[];events=[];rawrows=[]
+        result={'instrument':code,'market':market,'query_range':[day,day],
+            'range_kind':'effective interval' if market=='SSE' else 'announcement publication date',
+            'historical_global_completeness_claim':False,'status':'unknown',
+            'pagination_complete':False,'observations':observations,'events':events,
+            'all_returned_rows_considered':False,'raw_rows':rawrows}
+        try:
+            total=None
+            for page in range(1,self.max_pages+1):
+                if market=='SSE':
+                    fund=category=='ETF'
+                    url='https://query.sse.com.cn/sseQuery/commonSoaQuery.do' if fund else 'https://query.sse.com.cn/commonSoaQuery.do'
+                    params={'isPagination':'true','pageHelp.pageSize':self.page_size,'pageHelp.pageNo':page,
+                        'pageHelp.beginPage':page,'pageHelp.cacheSize':1,'pageHelp.endPage':page,
+                        'sqlId':'SSE_PL_JYTS_TFPXX_JJ' if fund else 'GW_PL_JYTS_TFPXX'}
+                    params.update({'secCode':code,'stopReason':'','order':'startStopDate|desc,secCode|asc',
+                        'startDate':day.replace('-',''),'endDate':day.replace('-','')} if fund else
+                        {'productCode':code,'keyWords':'','startStopDate':day.replace('-',''),'endStopDate':day.replace('-','')})
+                    args={'params':params,'headers':{'Referer':f'https://www.sse.com.cn/disclosure/dealinstruc/suspension/{"fund" if fund else "stock"}/'}}
+                    body,status=self._response('get',url,args,attempts,observations,provider)
+                elif category=='ETF':
+                    url='https://www.szse.cn/api/disc/announcement/annList'
+                    args={'json':{'stock':[code],'channelCode':['fundinfoNotice_disc'],'seDate':[day,day],
+                        'pageSize':self.page_size,'pageNum':page}}
+                    body,status=self._response('post',url,args,attempts,observations,provider)
+                else:
+                    url='https://www.szse.cn/api/search/content'
+                    epoch=int(datetime.combine(date.fromisoformat(day),datetime.min.time(),SHANGHAI).timestamp()*1000)
+                    args={'data':{'keyword':code,'range':'title','channelCode[]':'tempsuspension_news',
+                        'time':epoch,'endTime':epoch,'scope':1,'currentPage':page,'pageSize':self.page_size}}
+                    body,status=self._response('post',url,args,attempts,observations,provider)
+                if status not in {FETCH_SUCCESS,FETCH_NORMAL_EMPTY}:
+                    result.update(status=status,reason='official_request_unavailable');return result
+                payload=json.loads(body.decode('utf-8-sig'))
+                if not isinstance(payload,dict) or payload.get('success') is False or payload.get('code') not in (None,0,'0','200',200):
+                    raise ValueError('official query error body')
+                if market=='SSE':
+                    rows=payload['result'];ph=payload['pageHelp'];count=ph['total'];pages=ph['pageCount']
+                    if ph['pageNo']!=page or ph['pageSize']!=self.page_size or ph.get('data',rows)!=rows:
+                        raise ValueError('official page identity mismatch')
+                    if pages!=(count+self.page_size-1)//self.page_size:
+                        raise ValueError('official page count inconsistent')
+                else:
+                    rows=payload['data'];count=payload.get('announceCount',payload.get('totalSize'))
+                    pages=(count+self.page_size-1)//self.page_size if type(count) is int else None
+                if type(count) is not int or count<0 or not isinstance(rows,list) or len(rows)>self.page_size:
+                    raise ValueError('official structure/count invalid')
+                if total is not None and total!=count:
+                    raise ValueError('official pagination changed total')
+                total=count
+                if len(rows)!=min(self.page_size,max(0,total-(page-1)*self.page_size)):
+                    raise ValueError('official partial page')
+                rawrows.extend(rows)
+                for row in rows:
+                    if not isinstance(row,dict): raise ValueError('invalid event row')  # noqa: TRY004 - public malformed-payload contract.
+                    sha=observations[-1]['raw_sha256']
+                    got=self._sse_event(row,code,day,category,url,sha) if market=='SSE' else self._szse_event(row,code,day,category,attempts,observations)
+                    if got is not None:events.append(got)
+                if page>=pages:
+                    result.update(status=FETCH_SUCCESS if rows or rawrows else FETCH_NORMAL_EMPTY,
+                        pagination_complete=True,total=total,page_count=page,
+                        all_returned_rows_considered=True,reason='current_bounded_query_complete')
+                    return result
+            raise ValueError('official_pagination_cap_partial')
+        except ImportError as exc:
+            status=FETCH_NOT_CONFIGURED;error=type(exc).__name__
+        except (ValueError,TypeError,KeyError) as exc:
+            status=FETCH_FAILED_STRUCTURE;error=type(exc).__name__
+        record_fetch_observation(attempts,provider=provider,capability_id=f'{provider}:historical_opening_events',
+            status=status,started_at=utc_now_iso(),elapsed_ms=0,error_type=error)
+        result.update(status=status,reason='official_structure_meaning_or_time_unverified')
+        return result
+
+    def _sse_event(self,row,code,day,category,url,sha):
+        if row.get('secCode' if category=='ETF' else 'productCode')!=code:
+            raise ValueError('official returned wrong security')
+        start=_sse_date(row.get('startStopDate'))
+        last_stop=_sse_date(row.get('endStopDate'))
+        if last_stop<start:
+            raise ValueError('SSE interval end precedes start')
+        if category=='ETF' and (start!=date.fromisoformat(day) or last_stop!=date.fromisoformat(day)):
+            raise ValueError('single-session fund dates invalid or do not match requested session')
+        if category=='ETF':
+            if row.get('dateSource') in {'1','3'} and row.get('startStopType') in {'SG','SH','SGSH'}:
+                return None
+            if row.get('dateSource')!='2' or row.get('startStopType')!='LSTP' or row.get('stopTime')!='915':
+                raise ValueError('uncertified secondary-market fund event meaning/time')
+            end=f'{start.isoformat()}T10:30:00+08:00';at=f'{start.isoformat()}T09:15:00+08:00'
+        else:
+            if row.get('type')!='LXTP' or row.get('controlType')!='TR':
+                raise ValueError('uncertified secondary-market stock event')
+            at=f'{start.isoformat()}T09:30:00+08:00';end=None
+        if start>date.fromisoformat(day):raise ValueError('official returned future interval outside query')
+        return OfficialOpeningEvent(code,'SSE',at,end,url,sha,
+            'SSE front-end dateSource=2/LSTP/915 = 09:15-10:30' if category=='ETF' else
+            'SSE LXTP/TR continuous halt; endStopDate is last stop day, not resume time',
+            utc_now_iso(),raw_fields=dict(row))
+
+    def _szse_event(self,row,code,day,category,attempts,observations):
+        if category!='ETF':
+            # Only bounded empty stock queries currently certified. An actual
+            # nonempty result must not be reduced to title-based normality.
+            raise ValueError('stock announcement body interval not certified')
+        if code not in row.get('secCode',[]) or str(row.get('publishTime',''))[:10]!=day:
+            raise ValueError('announcement security/date mismatch')
+        title=row.get('title','')
+        if not any(x in title for x in ('停牌','复牌','暂停','恢复','终止上市')):
+            if any(x in title for x in ('中期报告','年度报告','季度报告','资料概要','一级交易商','非公开发行')):
+                return None
+            raise ValueError('announcement secondary-market meaning unverified')
+        if '二级市场' not in title or '停复牌' not in title:
+            raise ValueError('announcement requires certified secondary-market meaning')
+        path=row.get('attachPath','')
+        if not path.startswith('/disc/') or not path.upper().endswith('.PDF'):
+            raise ValueError('official attachment locator invalid')
+        url='https://disc.static.szse.cn'+path
+        body,status=self._response('get',url,{},attempts,observations,'szse')
+        if status!=FETCH_SUCCESS or not body.startswith(b'%PDF-'):
+            raise ValueError('essential official attachment unavailable or HTML')
+        from pypdf import PdfReader
+        try:
+            text=''.join(p.extract_text() or '' for p in PdfReader(io.BytesIO(body)).pages)
+        except Exception as exc:
+            # Exceptions are confined to the optional PDF parser boundary;
+            # malformed PDF internals are source structure failures.
+            raise ValueError('official PDF structure invalid') from exc
+        compact=re.sub(r'\s+','',text)
+        d=date.fromisoformat(day)
+        stamp=rf'{d.year}年0?{d.month}月0?{d.day}日'
+        if code not in compact or not re.search(stamp+'.{0,100}(?:开市起|开市时起|开市起至|开市开始)',compact):
+            raise ValueError('attachment security/date/open halt unverified')
+        if not re.search(r'10[:：]30.{0,24}(?:起复牌|复牌|恢复交易)',compact):
+            raise ValueError('attachment resume time unverified')
+        return OfficialOpeningEvent(code,'SZSE',f'{day}T09:30:00+08:00',f'{day}T10:30:00+08:00',
+            url,hashlib.sha256(body).hexdigest(),'official PDF explicit open halt and 10:30 resume',
+            utc_now_iso(),raw_fields={'announcement':row,'body_text':text})
+
+
+def fetch_historical_opening_evidence(ticker: str, session_date: str, *,
+        known_events: Sequence[OfficialOpeningEvent] = (),
+        tdx_reader: TdxOpeningReader | None = None,
+        official_reader: OfficialOpeningReader | None = None) -> FetchResult[dict]:
+    """Fetch minute-level execution constraints under Owner-approved R2.1.
+
+    Consumers must inspect ``opening_status``. Metadata success describes
+    retrieval, and can coexist with UNKNOWN execution eligibility.
+    Certified known intervals supplement, never replace, the current query.
+    No preopen historical information availability is inferred.
+    """
+    attempts: list[FetchAttempt]=[]
+    code=str(ticker).strip()
+    scope=CERTIFIED_SECURITIES.get(code)
+    market='SSE' if (scope and scope[0]==1) or code.startswith(('5','6')) else 'SZSE'
+    data={'instrument':code,'market':market,'session_date':session_date,
+        'purpose':'historical_opening_execution_constraint','schema_version':SCHEMA_VERSION,
+        'policy_version':POLICY_VERSION,'opening_status':'UNKNOWN','reason':'invalid_or_unsupported_input',
+        'source_conflict':False,'official_block_at_target':False,'information_available_at':None,
+        'information_basis':'UNKNOWN','time_granularity':'minute','official_events':[],
+        'limitations':['[09:30,09:31) activity does not prove strict 09:30 order fill, full-day normality, or preopen PIT.',
+            'TDX prices are evidence crosschecks only; volumes are not fill quotas.',
+            'Current bounded official query does not claim all historical events or revisions are complete.']}
+    valid=False
+    try:
+        day=date.fromisoformat(session_date)
+        valid=re.fullmatch(r'\d{6}',code) is not None and day>=date(2015,12,18) and day<=datetime.now(SHANGHAI).date()
+        target=datetime.combine(day,datetime.min.time(),SHANGHAI).replace(hour=9,minute=30)
+        end=target+timedelta(minutes=1)
+        data.update(target_execution_at=target.isoformat(),execution_effect_window={'start':target.isoformat(),'end':end.isoformat()})
+    except (ValueError,TypeError):
+        valid=False
+    if valid:
+        tdx=(tdx_reader or TdxOpeningReader()).read(code,session_date,attempts)
+        official=(official_reader or OfficialOpeningReader()).read(code,session_date,market,scope[1] if scope else 'UNKNOWN',attempts)
+        data.update(tdx_activity=tdx,official_query={k:v for k,v in official.items() if k!='events'})
+        identity_error=any(not isinstance(e,OfficialOpeningEvent) or e.instrument!=code or e.market!=market
+                           for e in known_events)
+        if identity_error:
+            record_fetch_observation(attempts,provider='known_official',capability_id='known_official:historical_opening_events',
+                status=FETCH_FAILED_STRUCTURE,started_at=utc_now_iso(),elapsed_ms=0,
+                error_type='KnownEvidenceIdentityMismatch')
+        packaged_events=_known_events()
+        # Only objects loaded from the controlled asset carry authenticated
+        # date-only resume evidence. Caller fields/verification flags do not.
+        resume_days={id(e):date.fromisoformat(e.raw_fields['resume_date']) for e in packaged_events
+                     if e.effective_end is None and 'resume_date' in e.raw_fields}
+        events=[e for e in (*packaged_events,*([] if identity_error else known_events),*official['events'])
+                if e.instrument==code and e.market==market]
+        # Resolve only matching certified intervals, never the last-stop date.
+        resolved=[]
+        for event in events:
+            if event.effective_end is None:
+                last_stop=event.raw_fields.get('endStopDate')
+                try:
+                    last_stop_day=_sse_date(last_stop) if last_stop is not None else None
+                except ValueError:
+                    # An unverified user-supplied date cannot close an interval.
+                    last_stop_day=None
+                matching=[e for e in events if e.effective_start==event.effective_start and e.effective_end is not None
+                    and last_stop_day is not None and last_stop_day<_instant(e.effective_end).date()]
+                if matching:
+                    resolved.extend(matching);continue
+            resolved.append(event)
+        # Resolution changes applicability, not the original evidence facts.
+        data['official_events']=list({_hash(asdict(e)):asdict(e) for e in events}.values())
+        unique={}
+        for event in resolved:
+            unique.setdefault(_hash(asdict(event)),event)
+        blocking=[];boundaries=[];resume_clock_unknown=False
+        for event in unique.values():
+            if not event.secondary_market:continue
+            start=_instant(event.effective_start);stop=_instant(event.effective_end) if event.effective_end else None
+            resume_day=resume_days.get(id(event))
+            if resume_day is not None and day>=resume_day:
+                # The date bounds this halt after the resume day; on that day
+                # the opening clock remains unknown. Never synthesize an end.
+                resume_clock_unknown=resume_clock_unknown or day==resume_day
+                continue
+            if start<=target and (stop is None or target<stop):blocking.append((start,stop))
+            if target<start<end or (stop is not None and target<stop<end):boundaries.append((start,stop))
+        blocked=bool(blocking);data['official_block_at_target']=blocked
+        full_block=any(stop is None or stop>=end for _,stop in blocking)
+        if identity_error:
+            data['reason']='known_evidence_identity_mismatch'
+        elif blocked and full_block and tdx['qualified']:
+            data.update(source_conflict=True,reason='source_conflict')
+        elif official['status'] not in {FETCH_SUCCESS,FETCH_NORMAL_EMPTY} or not official['pagination_complete']:
+            data['reason']=official.get('reason','current_official_query_unknown')
+        elif blocked:
+            data.update(opening_status='BLOCKED_CONFIRMED',reason='certified_official_block_at_target')
+        elif boundaries:
+            data['reason']='boundary_inside_activity_window'
+        elif resume_clock_unknown:
+            data['reason']='authenticated_resume_date_clock_unknown'
+        elif tdx['qualified']:
+            data.update(opening_status='OPEN_ACTIVITY_CONFIRMED',reason='certified_0930_activity_current_query_no_known_block')
+        else:
+            data['reason']=tdx.get('reason','tdx_activity_unknown')
+    providers=list(dict.fromkeys(a.provider for a in attempts if a.status in {FETCH_SUCCESS,FETCH_NORMAL_EMPTY}))
+    data['retrieved_at']=utc_now_iso()
+    data['evidence_hash']=_hash(data)
+    metadata=FetchMetadata(capability='historical_opening_evidence',final_provider=None,
+        retrieved_at=data['retrieved_at'],data_as_of=session_date,partial=data['opening_status']=='UNKNOWN',
+        limitations=data['limitations'],attempts=attempts,providers_used=providers)
+    return FetchResult(data=data,metadata=metadata)
+
+
+__all__=['OfficialOpeningEvent', 'OfficialOpeningReader', 'TdxOpeningReader', 'fetch_historical_opening_evidence']

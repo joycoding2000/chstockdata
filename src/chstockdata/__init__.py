@@ -166,6 +166,7 @@ from .daily_bars import (
 from .suspension import fetch_suspension_info
 from .delisting import fetch_delisting_status
 from .tradability import fetch_tradability
+from .opening_evidence import fetch_historical_opening_evidence, OfficialOpeningEvent
 
 __version__ = "0.4.2"
 
@@ -238,4 +239,5 @@ __all__ = [
     "fetch_delisting_status",
     # derived tradability (calendar + suspension, additive)
     "fetch_tradability",
+    "fetch_historical_opening_evidence", "OfficialOpeningEvent",
 ]
