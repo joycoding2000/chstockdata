@@ -30,7 +30,7 @@ df = get_stock_data("600519", 365)    # daily OHLCV, vipdoc/mootdx/Sina chain
 get_realtime_snapshot("600519")       # realtime quote, Tencent -> mootdx -> Sina
 ```
 
-## Structured API（v0.4.1 release candidate）
+## Structured API (v0.4.2)
 
 The structured surface is additive and returns `FetchResult` objects. The
 quote route keeps its provider functions injectable; `quote_fetchers` below is
@@ -88,8 +88,36 @@ hot rank / popularity rank / concept hits, insider transactions, shareholder
 pledge / buyback, corporate actions, earnings forecast, research reports, news
 wires, policy news, macro indicators, trading calendar, delisting / suspension
 info, and more. See `chstockdata/__init__.py` for the full export list. The
-candidate package version is `0.4.1`; `0.3.0` is the prior consumer
-compatibility baseline. This release candidate has not been published.
+current published version is `0.4.2`
+([PyPI](https://pypi.org/project/chstockdata/0.4.2/) /
+[GitHub Release](https://github.com/joycoding2000/chstockdata/releases/tag/v0.4.2)).
+The structured API is additive: it does not deprecate the legacy API.
+`0.3.0` remains the formal compatibility baseline for existing consumers
+that have not yet migrated; migration is not assumed.
+
+### Historical capability boundaries
+
+Suspension data is a current-day snapshot of the Eastmoney latest-event
+list, not a historical as-of database. Historical and future dates fail
+closed (`failed_structure`, limitation `historical_suspension_unavailable`):
+an empty or non-matching latest-event response — including a cached one —
+never proves that a security was tradable on a past date.
+`fetch_tradability` returns `tradable=True` only on an explicit suspension
+negative (`suspended=False` under a success / normal-empty status); missing
+or unusable suspension evidence stays `tradable=None`
+(`suspension_unknown`). A complete historical point-in-time suspension
+database is not provided in this release.
+
+`fetch_historical_opening_evidence` (policy `R2.1`) is a bounded opening
+execution evidence capability exported in v0.4.2. Consumers — for example
+SIOS, which uses it only in its explicitly selected `HISTORICAL_OPENING_R21`
+mode — opt in deliberately. It reports positive trading activity in the
+Asia/Shanghai `[09:30:00, 09:31:00)` window together with certified official
+halt events. It does not guarantee that a specific order filled at exactly
+09:30:00, and it says nothing about order queue position or individual fill
+probability. It does not replace complete historical PIT suspension coverage:
+certified official vetoes and source conflicts still force `UNKNOWN` or
+blocked results, and missing evidence stays fail-closed.
 
 ## Data sources
 
