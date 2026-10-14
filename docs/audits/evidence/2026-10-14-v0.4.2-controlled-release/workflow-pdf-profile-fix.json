@@ -1,0 +1,12 @@
+[
+  {
+    "path": ".github/workflows/ci.yml",
+    "before_sha256": "8c912d878ac533528f4515d787ef65fa159f5041276e4b083824461ea3e05729",
+    "after_sha256": "b871bce8c9020fa92212bc3fbdbb2b93124135d59ac75d9642b69da7e14351e2"
+  },
+  {
+    "path": ".github/workflows/publish.yml",
+    "before_sha256": "8842e25ff2fc8fcd8c31019616102880ac62eb1fdd16a2e081abca44c273f277",
+    "after_sha256": "27facfe1ee712f89d2b1baafc980dbb950fc5e437d25399902c2037744164040"
+  }
+]

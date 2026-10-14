@@ -1,0 +1,14 @@
+{
+  "GATE_L": "PASS",
+  "GATE_P": "PASS",
+  "RELEASE_COMMIT_SHA": "17af23fe8183f740150dc01dd877473afe3911b7",
+  "REMOTE_MAIN_SHA": "17af23fe8183f740150dc01dd877473afe3911b7",
+  "checked_at": "2026-10-14T03:59:56.997950+00:00",
+  "pypi_before_tag": 404,
+  "release_before_tag": 404,
+  "TAG_CREATED": true,
+  "TAG_PUSHED": true,
+  "TAG_OBJECT_SHA": "fd79e4a22f2e6aff2d7fc831721c09761063ba87",
+  "TAG_TARGET_SHA": "17af23fe8183f740150dc01dd877473afe3911b7",
+  "remote_tag_refs": "fd79e4a22f2e6aff2d7fc831721c09761063ba87\trefs/tags/v0.4.2\n17af23fe8183f740150dc01dd877473afe3911b7\trefs/tags/v0.4.2^{}"
+}
