@@ -1,0 +1,6 @@
+recursive-include tests/fixtures *
+include scripts/check_rh1_static.py scripts/check_release_version.py
+include docs/audits/evidence/2026-10-10-v0.4.2-tdx-historical-execution/tdx_history_responses.jsonl
+include docs/audits/evidence/2026-10-10-v0.4.2-tdx-historical-execution/tdx_opening_page_responses.jsonl
+include docs/audits/evidence/2026-10-10-v0.4.2-tdx-historical-execution/tdx_opening_page_followup_responses.jsonl
+include docs/audits/evidence/2026-10-10-v0.4.2-tdx-historical-execution/tdx_opening_page_final_responses.jsonl
