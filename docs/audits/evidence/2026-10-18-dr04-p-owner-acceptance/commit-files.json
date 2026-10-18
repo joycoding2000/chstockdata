@@ -1,0 +1,489 @@
+{
+  "base_sha": "0dc85e3e43588c5781771486a3c6f80c4be7714f",
+  "owner_acceptance": "PASS",
+  "file_count": 69,
+  "staging": "Explicit whitelist only. Existing README/CRLF-test LF blobs use normal core.autocrlf handling; remaining files use command-scoped core.autocrlf=false to preserve tested bytes and fixture hashes. No Git configuration file is changed.",
+  "excluded": "All unrelated Owner files, investigation scripts, temporary snapshots, prior failed attempts and other unlisted files; no cleanup.",
+  "files": [
+    {
+      "path": "README.md",
+      "bytes": 12346,
+      "sha256": "9abc85984770553c915bdb9e24c1d2f705e7d2e7c902f1bd9330d7e8dbdec066",
+      "git_blob": "9847d04bd188cdf1a0bf90c69159f8ef88ed3f94",
+      "storage": "existing LF blob / CRLF working-tree convention"
+    },
+    {
+      "path": "docs/audits/2026-10-18-dr04-p-owner-acceptance.md",
+      "bytes": 4765,
+      "sha256": "59fcad0ade71f1e5d9caeb9c9886d949de29f59db60140a46e553c186ab8e885",
+      "git_blob": "b7a9f4f394da43f4237e9a80dd2775723fdc5b85",
+      "storage": "byte-exact"
+    },
+    {
+      "path": "docs/audits/2026-10-18-dr04-p-regression-fix-r2.md",
+      "bytes": 5153,
+      "sha256": "1d70b5b59799619c134b0571fadbf4a1d8dc73267141020310370f30e43c6474",
+      "git_blob": "08ef09aa6772ce1199ffe449d4209380a79807ed",
+      "storage": "byte-exact"
+    },
+    {
+      "path": "docs/audits/2026-10-18-dr04-p-type-identity-fix.md",
+      "bytes": 5937,
+      "sha256": "26a8fe8c4067f7aa27470adb311b97531d303bc0b7048a4632d801a76b54f980",
+      "git_blob": "59ba5e8febe916886f90dc85a5b89e3a40edc185",
+      "storage": "byte-exact"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-18-dr04-p-owner-acceptance/commit-files.json",
+      "identity": "manifest itself; no self-referential hash"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-18-dr04-p-owner-acceptance/final-check.json",
+      "bytes": 4913,
+      "sha256": "b4a64ceb27aba1a47defef54b01f86418a47f898f3254e3fd93a96317455bb0b",
+      "git_blob": "fd7ec99bbd4269a67f343452258143da165ace1b",
+      "storage": "byte-exact"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-18-dr04-p-owner-acceptance/focused-command.json",
+      "bytes": 561,
+      "sha256": "5de56a2c5e04950531b6a2c69e08ebd5407a36374162d90cba5f4cff2ff93d36",
+      "git_blob": "b92d77bdcc46b252d52986e34925c0a624c33fd4",
+      "storage": "byte-exact"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-18-dr04-p-owner-acceptance/focused.stdout.txt",
+      "bytes": 116,
+      "sha256": "a5542e5139ce785b2b58adceb3aca0f6f0e43b21e341ad5c2b2192d98c90e5b6",
+      "git_blob": "97059dd766b9cb9a18203e72472e9bf8cdb885a6",
+      "storage": "byte-exact"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-18-dr04-p-owner-acceptance/focused.xml",
+      "bytes": 1438,
+      "sha256": "6409a8a446392633f185c5810f90fa0abfe65299b84210a5aa41172d04ff7371",
+      "git_blob": "d2214c2a31349d78c1bb5edf9fbea8081d927582",
+      "storage": "byte-exact"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-18-dr04-p-owner-acceptance/ruff-command.json",
+      "bytes": 275,
+      "sha256": "826597583de6db21d6b60e4262f9c9494a1f0547f066c40521e4ae038907c73f",
+      "git_blob": "6654fe6df831038cdf94921b0ff5dc49e865d798",
+      "storage": "byte-exact"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-18-dr04-p-owner-acceptance/ruff.stdout.txt",
+      "bytes": 19,
+      "sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+      "git_blob": "1f5f344d054fae10f39140fb7199c99321d9190a",
+      "storage": "byte-exact"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-18-dr04-p-regression-fix-r2/assertion-execution.json",
+      "bytes": 829,
+      "sha256": "e8cee3a19940978d5a0e429f42f9735e85e1d15085cf4de0b0588a2a2461e07d",
+      "git_blob": "b813c30ad1c95cf1c2638379b11ae67f6c693723",
+      "storage": "byte-exact"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-18-dr04-p-regression-fix-r2/focused.stdout.txt",
+      "bytes": 778,
+      "sha256": "d841a7ed221999c6f1d4147fc5a5d2ed22a9c2069e552c8419434477ec31ea50",
+      "git_blob": "38667a91a4c3a7e4cc83996b6a157dfd0bd2b1db",
+      "storage": "byte-exact"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-18-dr04-p-regression-fix-r2/focused.xml",
+      "bytes": 508,
+      "sha256": "78f16c4011def5e65212f6a08251d2dfb89ea22c664ae9a9daa2366b4936201b",
+      "git_blob": "40a90b112001104a0e319e244db9ef23e2f75f7f",
+      "storage": "byte-exact"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-18-dr04-p-regression-fix-r2/regression-command.json",
+      "bytes": 843,
+      "sha256": "fe1b338bcc54765a414e0e72dd6d1f64fe8d54c6e539683b62e84488710bd9b1",
+      "git_blob": "8d43f1712428dcdb3e2b6a6a99d5721e42411429",
+      "storage": "byte-exact"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-18-dr04-p-regression-fix-r2/regression.stdout.txt",
+      "bytes": 183,
+      "sha256": "a710e264625621d2e0455986abcff1d376b8edbf16b08119691b1eae41893800",
+      "git_blob": "0fc3253c0959a0b62681f4fb09bff6565536517f",
+      "storage": "byte-exact"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-18-dr04-p-regression-fix-r2/regression.xml",
+      "bytes": 18315,
+      "sha256": "81af0ebf727efd8d5fc2319513d88b4b361acc5b939b045c9e5a014905ab76cf",
+      "git_blob": "f97f70869e920f8d3795ba7077f358be829009d3",
+      "storage": "byte-exact"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-18-dr04-p-regression-fix-r2/summary.json",
+      "bytes": 1742,
+      "sha256": "c94a79e3e46a6482ecb0bc9ec936a7cc8dc876dd487734a87fd4f6eabe94715a",
+      "git_blob": "1259c60d5df985f536597aed616619f851956560",
+      "storage": "byte-exact"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-18-dr04-p-regression-fix-r2/test-fix.diff",
+      "bytes": 1305,
+      "sha256": "e9a85b33e8896c5053f6e144df5288def738a53e963083302f27ab460c6e0426",
+      "git_blob": "459cf13c410283da62321860b022c95525cf141c",
+      "storage": "byte-exact"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-18-dr04-p-type-identity-fix/focused-command.json",
+      "bytes": 516,
+      "sha256": "8e5c447efa259c4feddf173bab3493e53615ddfc86a982bd3555f6fc54451067",
+      "git_blob": "7c3bd202a8e8f585d76d88d3fdfd58165e290be9",
+      "storage": "byte-exact"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-18-dr04-p-type-identity-fix/focused.stdout.txt",
+      "bytes": 115,
+      "sha256": "9a8cdc5db5ea35c11f41c996a56e4a83f37890ffe205f0530c65f4bcb33ad070",
+      "git_blob": "d109eb9fddf2ab70420f23149590a83f6307524a",
+      "storage": "byte-exact"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-18-dr04-p-type-identity-fix/focused.xml",
+      "bytes": 1180,
+      "sha256": "7f7cbda779b7fc0032797a440ecd7f670a0dc2387cd7d0d0ee6f79e406b219cf",
+      "git_blob": "397115661bf61afcddb1c019bd80fa98a2326bf4",
+      "storage": "byte-exact"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-18-dr04-p-type-identity-fix/full-command.json",
+      "bytes": 837,
+      "sha256": "db0117ae3da686d7b9454ac20f0b12caee9b4e479167d4b1fe32ad1f85e1c10e",
+      "git_blob": "bf992d60b8382be30557d93d9729dc0da271a783",
+      "storage": "byte-exact"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-18-dr04-p-type-identity-fix/full.stdout.txt",
+      "bytes": 183,
+      "sha256": "0717c652cc6eae7c0dab649c563fa98e8c7cb3c9b647eaa094743a82bc2a48a5",
+      "git_blob": "e6efcd65a35a42235d06bd78646b977d4aaadfa0",
+      "storage": "byte-exact"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-18-dr04-p-type-identity-fix/full.xml",
+      "bytes": 19244,
+      "sha256": "d4a5820f0f85e3a4695e55eb69700391303f23799907e1498dcb5be58cf1dde8",
+      "git_blob": "14db76e31f7e8bf7aed0585e6169d55b8e1054e8",
+      "storage": "byte-exact"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-18-dr04-p-type-identity-fix/module.diff",
+      "bytes": 3063,
+      "sha256": "45a8f16f7ef86e8eb7cbebb848e9eac404ca3dca13ba708330f8d73ac5d092f3",
+      "git_blob": "4e35019e30f26346ba3d37c629589f6b24cc3c18",
+      "storage": "byte-exact"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-18-dr04-p-type-identity-fix/red-command.json",
+      "bytes": 508,
+      "sha256": "d1a574ec704c5a1272b37e22b22f4c6be75f114e41a4a48e4c5a4f1fdfc08e92",
+      "git_blob": "7aad01c59bdbd829a2eb685ddd33756b7aedfa93",
+      "storage": "byte-exact"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-18-dr04-p-type-identity-fix/red.stdout.txt",
+      "bytes": 3311,
+      "sha256": "8cafc162841009c2f017435f58e253f4f56b52dbdf4cb706458ae69aeed38cb1",
+      "git_blob": "f34fc2392aca56762808d07787319c7a51ffea8c",
+      "storage": "byte-exact"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-18-dr04-p-type-identity-fix/red.xml",
+      "bytes": 4544,
+      "sha256": "10766302ad2718ece74fbec10da98c78873a774ea2cb471a4bc68236acefc96a",
+      "git_blob": "3d3cff1855f86e277eed9ba01ca9604e9932dcea",
+      "storage": "byte-exact"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-18-dr04-p-type-identity-fix/summary.json",
+      "bytes": 1954,
+      "sha256": "216076607871baba926b3f9eef840bf44b0f1db6268269f2881432dc72ecb4e3",
+      "git_blob": "3d686b2df7dd0c9d7355934649b435a5f812a5b4",
+      "storage": "byte-exact"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-18-dr04-p-type-identity-fix/tests.diff",
+      "bytes": 4692,
+      "sha256": "a134adf5ab4e32ae14b9493e1b1958f1033572c8e60566a2f5b71a98b83bcfd0",
+      "git_blob": "fc86469ce6cdd7cb1e5b56e1dae0b941fa000e03",
+      "storage": "byte-exact"
+    },
+    {
+      "path": "docs/dr04-p-daily-fund-flow.md",
+      "bytes": 5736,
+      "sha256": "3af3a6434c162a42c3a86e3579836d186976952133033ce0759b53d398c84da8",
+      "git_blob": "4a8f9d6dab42322110c812e46cfddfaea10bfc85",
+      "storage": "byte-exact"
+    },
+    {
+      "path": "src/chstockdata/__init__.py",
+      "bytes": 9462,
+      "sha256": "e137402d5fb21e187dc88b181a04db699ed4effa8c7e452ce0e0da40e6093dc9",
+      "git_blob": "9a4cc3ff3041b899b5fce952144deac931fceeba",
+      "storage": "byte-exact"
+    },
+    {
+      "path": "src/chstockdata/daily_fund_flow.py",
+      "bytes": 23661,
+      "sha256": "8b4b4e9e9debd5354d72fe8967d5906138413bd52a2a5faa30afc006a173f5e7",
+      "git_blob": "ab389898fbfe43da96b466f047cb571fd47a2d11",
+      "storage": "byte-exact"
+    },
+    {
+      "path": "tests/fixtures/daily_fund_flow/002-sh600000-p1.bin",
+      "bytes": 5772,
+      "sha256": "6f807d76b37bc1309adbd4ba66342c82eed9fe070befdaaebace4d591875c417",
+      "git_blob": "8e555e1424632cc15511d137ca6b38bd455f7bef",
+      "storage": "byte-exact"
+    },
+    {
+      "path": "tests/fixtures/daily_fund_flow/010-sz300750-p1.bin",
+      "bytes": 5878,
+      "sha256": "40797b8c114514e952497480d47310e9b33b72822a701aca0ce51cf170d0f153",
+      "git_blob": "f56f04f0df05425b82098bc6dd8344f42964dc35",
+      "storage": "byte-exact"
+    },
+    {
+      "path": "tests/fixtures/daily_fund_flow/014-sh688981-p1.bin",
+      "bytes": 5879,
+      "sha256": "b757684734e146c2a2e237078f0f282714f35a35039b9f64f619dfbc4436db1a",
+      "git_blob": "719fb204f739eb83aa50f8c5bb2b020a402d755c",
+      "storage": "byte-exact"
+    },
+    {
+      "path": "tests/fixtures/daily_fund_flow/017-sh688432-p1.bin",
+      "bytes": 5790,
+      "sha256": "722491dbeb6587e4ac766bb20c6919e2b2dbe327feb27ad41e47948dc6bfd3d2",
+      "git_blob": "56981f20b017c11950a5b2ece60c2d596d10a248",
+      "storage": "byte-exact"
+    },
+    {
+      "path": "tests/fixtures/daily_fund_flow/018-sz000004-p1.bin",
+      "bytes": 4736,
+      "sha256": "4bab15528cb7ca4489841e5ff9e2ca246efd232902a197d9b85ef16c5297a89e",
+      "git_blob": "6adc0fd01af0589b5b744d94d9f766eb555ed398",
+      "storage": "byte-exact"
+    },
+    {
+      "path": "tests/fixtures/daily_fund_flow/019-sz000005-p1.bin",
+      "bytes": 4711,
+      "sha256": "00c69898dc1ae9332279756283070f2eef1868ee1eb95eea7d9ca5d9d1be756f",
+      "git_blob": "f3e90c290954bfe3d94786e68407fef2edf15213",
+      "storage": "byte-exact"
+    },
+    {
+      "path": "tests/fixtures/daily_fund_flow/020-sz300750-p2.bin",
+      "bytes": 5873,
+      "sha256": "d79d6da578a9608d3cf497a1b4b2da77e8528401e126fe9e734dde016e580417",
+      "git_blob": "b427affd729af0fe6830adf2a926dc498d8cce64",
+      "storage": "byte-exact"
+    },
+    {
+      "path": "tests/fixtures/daily_fund_flow/021-sz300750-p3.bin",
+      "bytes": 5857,
+      "sha256": "a3ae2ac93865ef3b02b39106f015e4c10a3e4bf3d99fb2790a3561af29e81717",
+      "git_blob": "a2ef4f54e24dc04fd93170b9860863c4431767d7",
+      "storage": "byte-exact"
+    },
+    {
+      "path": "tests/fixtures/daily_fund_flow/022-sz300750-p4.bin",
+      "bytes": 5872,
+      "sha256": "a0866894e5ba8ea491d25d73c218078f1de86b50c89c7e19b805049d56055b10",
+      "git_blob": "a960716e4c4ca0729d93cfa06b1c81a96efb2ed5",
+      "storage": "byte-exact"
+    },
+    {
+      "path": "tests/fixtures/daily_fund_flow/023-sz300750-p5.bin",
+      "bytes": 5895,
+      "sha256": "e7a0c3f8dc6becd8615849b22fe0baa739fd147f7c07456c23ef42f7d15c59b2",
+      "git_blob": "a7ac697ec4614f51fb9c8fc99e980ba51a2d9397",
+      "storage": "byte-exact"
+    },
+    {
+      "path": "tests/fixtures/daily_fund_flow/024-sz300750-p6.bin",
+      "bytes": 5917,
+      "sha256": "7832df8970936b64d5fe1c087df2a36a96f2973321dbe91f02a9cee70e883255",
+      "git_blob": "3a395277fca7e6a1a83f3afb13ac902d05f85412",
+      "storage": "byte-exact"
+    },
+    {
+      "path": "tests/fixtures/daily_fund_flow/025-sz300750-p7.bin",
+      "bytes": 5876,
+      "sha256": "72ea22e89a42a40fa0302f5f5c03e72bbd78f49b415f55cdff0236ef9d03063e",
+      "git_blob": "845646a885ae96ff6707c16eab336c1cf06b2a37",
+      "storage": "byte-exact"
+    },
+    {
+      "path": "tests/fixtures/daily_fund_flow/026-sz300750-p8.bin",
+      "bytes": 5869,
+      "sha256": "9682658891c452a2e5d9881cd8c3620c1396725825d5528497fe009aa20a45d7",
+      "git_blob": "00e699727f6d1f7bc862fe475dce368dc3fa065c",
+      "storage": "byte-exact"
+    },
+    {
+      "path": "tests/fixtures/daily_fund_flow/027-sz300750-p9.bin",
+      "bytes": 5936,
+      "sha256": "aa44f69be6919648ccf1911e464fcb7ba36edb58bcae4f9142051b11c6ceb6f0",
+      "git_blob": "155c9c021ccea3513e54a573536e5c165799e164",
+      "storage": "byte-exact"
+    },
+    {
+      "path": "tests/fixtures/daily_fund_flow/028-sz300750-p10.bin",
+      "bytes": 5910,
+      "sha256": "3bc9e294b316e067e23b08d28bc46c8bf200602e7525d56fc1b1a5d33cccb28c",
+      "git_blob": "1f2a9d975655459eeb018217eeec7a9b39f7cd4f",
+      "storage": "byte-exact"
+    },
+    {
+      "path": "tests/fixtures/daily_fund_flow/029-sz300750-p11.bin",
+      "bytes": 5892,
+      "sha256": "2ba1bdf646c6a7de6fc413ee017688790902e039f9a28021f0b8425c4bebcaeb",
+      "git_blob": "c5627574afb1257d4c2a0eb469ec262af30772b0",
+      "storage": "byte-exact"
+    },
+    {
+      "path": "tests/fixtures/daily_fund_flow/030-sz300750-p12.bin",
+      "bytes": 5868,
+      "sha256": "61ec589ca5483275fc5a61102b90104144389a1b298c36f2807a0b62ea5d36c5",
+      "git_blob": "b8f8b7384ae2fdb50ae9754e910f9162e968399c",
+      "storage": "byte-exact"
+    },
+    {
+      "path": "tests/fixtures/daily_fund_flow/031-sz300750-p13.bin",
+      "bytes": 5905,
+      "sha256": "f703b51f1c6c86256f86874b28668eab355ca7c1757ded14e147d4f2e1dc7ef3",
+      "git_blob": "6cfac5f74de1dc3671ad916160e4ff083232d5fc",
+      "storage": "byte-exact"
+    },
+    {
+      "path": "tests/fixtures/daily_fund_flow/032-sh688981-p2.bin",
+      "bytes": 5888,
+      "sha256": "dac4cc441d168563f3bf4dbe4735b65ba6a1afa772fbe95b43e17c94e9bc5bb9",
+      "git_blob": "dd05a08f31457b22ea6beaeaa9b5a17912fa9967",
+      "storage": "byte-exact"
+    },
+    {
+      "path": "tests/fixtures/daily_fund_flow/033-sh688981-p3.bin",
+      "bytes": 5865,
+      "sha256": "4d41492610d321335188b0fb3e92b383bda51bf025a7a85aded66c0559be35aa",
+      "git_blob": "a4eadd4ba0adb18682e2ba96da8b50d7798f6c42",
+      "storage": "byte-exact"
+    },
+    {
+      "path": "tests/fixtures/daily_fund_flow/034-sh688981-p4.bin",
+      "bytes": 5886,
+      "sha256": "656dd920732ba02781bc6c3f4aa8addac8b2e72b00b20d15b5ed865825b45c78",
+      "git_blob": "0ad6e8a84bc164d73e750ca52a7b20d6a1952b40",
+      "storage": "byte-exact"
+    },
+    {
+      "path": "tests/fixtures/daily_fund_flow/035-sh688981-p5.bin",
+      "bytes": 5923,
+      "sha256": "1eb8e1fd9a96b02a28c37ffa7618dab5ea1ed8e8a3f5206823922687c0566d18",
+      "git_blob": "b33f71641766f62d3a2839cf46d800a13d43c49d",
+      "storage": "byte-exact"
+    },
+    {
+      "path": "tests/fixtures/daily_fund_flow/036-sh688981-p6.bin",
+      "bytes": 5872,
+      "sha256": "d4ba6017c0c1c6c0963724316797e5ccdb80198487a619ddc572aca2668da687",
+      "git_blob": "b6172f4319680a40195e25884c974a33aaabd949",
+      "storage": "byte-exact"
+    },
+    {
+      "path": "tests/fixtures/daily_fund_flow/037-sh688981-p7.bin",
+      "bytes": 5867,
+      "sha256": "d7e6b4e04bfe02021a936457d323e42e368ccce1082ac987b1673ef51ca73303",
+      "git_blob": "e1eadf3a40bd8e15b5b36a85652754b0ea2e62f5",
+      "storage": "byte-exact"
+    },
+    {
+      "path": "tests/fixtures/daily_fund_flow/038-sh688981-p8.bin",
+      "bytes": 5888,
+      "sha256": "64d0a9c46c3aac3bbb8bcb143a3eb3b36e38f3c0feeb26bee437e2f7dc4d06b3",
+      "git_blob": "f44a47a44444468123ba26f5f26445767d57077f",
+      "storage": "byte-exact"
+    },
+    {
+      "path": "tests/fixtures/daily_fund_flow/039-sh688981-p9.bin",
+      "bytes": 5913,
+      "sha256": "88e25c9315327e5f419ff5eb64a3a43059a330b4b06cf1fd359dcd766a7ca431",
+      "git_blob": "29e1f2c4b0e83538404d2ad8d6409b8aea094520",
+      "storage": "byte-exact"
+    },
+    {
+      "path": "tests/fixtures/daily_fund_flow/040-sh688981-p10.bin",
+      "bytes": 5889,
+      "sha256": "bff1ab88a9d3491a8a9c18affc5d4257214cb96f493008fbed76754c4c6a2baa",
+      "git_blob": "04f3c73fe8b544ed72a2fcc2f185697d200fc917",
+      "storage": "byte-exact"
+    },
+    {
+      "path": "tests/fixtures/daily_fund_flow/041-sh688981-p11.bin",
+      "bytes": 5838,
+      "sha256": "ff8069ce960c32d457c3847e9e60d06e922daf84c880a460eb98f70d47272a24",
+      "git_blob": "aee8585d27e649943b9284113442b706b1ff98c6",
+      "storage": "byte-exact"
+    },
+    {
+      "path": "tests/fixtures/daily_fund_flow/042-sh688981-p12.bin",
+      "bytes": 5909,
+      "sha256": "921c97212bc1786cefd1adc5b237274c43a95deb067dd72945c0817fa3942dcd",
+      "git_blob": "ccaa33a4ba61930b442cd5c86249156aff167999",
+      "storage": "byte-exact"
+    },
+    {
+      "path": "tests/fixtures/daily_fund_flow/043-sh688981-p13.bin",
+      "bytes": 5888,
+      "sha256": "591318829460ad9717b6097b6326d7230ba4e3b0ce50d80f8515f25c1ad78da0",
+      "git_blob": "c6a1c4dacb32e832ae99d9a7d20ac27dfa9ffad3",
+      "storage": "byte-exact"
+    },
+    {
+      "path": "tests/fixtures/daily_fund_flow/README.md",
+      "bytes": 1239,
+      "sha256": "1ee63e3af239b0b0e21d42964156588e69f3d3c1014d95ee1e53afe9d9b6354a",
+      "git_blob": "819300aa8912bcb29f21bea36dacef10785e2fbd",
+      "storage": "byte-exact"
+    },
+    {
+      "path": "tests/fixtures/daily_fund_flow/calendar.json",
+      "bytes": 4892,
+      "sha256": "e1d23576ebbb8ac60e79cc9f321330c844bad4e2e43305fb48389bf602ff86cf",
+      "git_blob": "dfa28821e3e0f5163949979e649b6bf4ee5d78d8",
+      "storage": "byte-exact"
+    },
+    {
+      "path": "tests/fixtures/daily_fund_flow/manifest.json",
+      "bytes": 24717,
+      "sha256": "bbfd60d59ea28b23a3f8b99d0aa47dd81e6059b0b2fd14ea4db080e345e1e80c",
+      "git_blob": "53afca0fe92817780af41afab08ab46e337ff019",
+      "storage": "byte-exact"
+    },
+    {
+      "path": "tests/test_daily_fund_flow.py",
+      "bytes": 22745,
+      "sha256": "ce20e2c8bc09fa6164e2070ad5dc3c131c415a5dc2cf1d27efe489a9b5e73b63",
+      "git_blob": "1b7178c60b3802988f6e4fd3f473dfd5e832030f",
+      "storage": "byte-exact"
+    },
+    {
+      "path": "tests/test_rh1_git_line_endings.py",
+      "bytes": 2608,
+      "sha256": "f447074ddf64505b3b5c2c6e63b368bfc564f2e9e0d50cb6cfc7aa12ca480cf7",
+      "git_blob": "e63eb1750306e46ea5a060dc0f9dee6f68d56dbd",
+      "storage": "existing LF blob / CRLF working-tree convention"
+    }
+  ]
+}

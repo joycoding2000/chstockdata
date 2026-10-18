@@ -85,6 +85,12 @@ from .a_stock import (
 
 # ── Reversed-ported upstream endpoints (v0.2.0) ─────────────────────────────
 from .board_flow import get_board_fund_flow
+from .daily_fund_flow import (
+    DailyFundFlowResult,
+    FundFlowBudget,
+    FundFlowCalendar,
+    get_sina_daily_fund_flow,
+)
 from .chips import chip_distribution, get_chip_distribution
 from .etf_options import (
     get_etf_option_chain,
@@ -195,6 +201,7 @@ __all__ = [
     "get_corporate_buyback",
     # money flow / microstructure
     "get_fund_flow", "get_dragon_tiger_board", "get_block_trades",
+    "get_sina_daily_fund_flow", "DailyFundFlowResult", "FundFlowBudget", "FundFlowCalendar",
     "get_northbound_flow", "get_market_breadth", "get_margin_trading",
     "get_valuation_history", "get_industry_comparison", "get_concept_blocks",
     "get_daily_dragon_tiger", "get_board_fund_flow",

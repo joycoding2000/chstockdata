@@ -1,0 +1,51 @@
+{
+  "head": "0dc85e3e43588c5781771486a3c6f80c4be7714f",
+  "red_failed": 6,
+  "red_positive_controls_passed": 2,
+  "new_regressions_passed": 8,
+  "original_regressions_passed": 134,
+  "combined_passed": 142,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "P01_P12": {
+    "P01": 1,
+    "P02": 1,
+    "P03": 1,
+    "P04": 2,
+    "P05": 9,
+    "P06": 2,
+    "P07": 1,
+    "P08": 5,
+    "P09": 10,
+    "P10": 7,
+    "P11": 1,
+    "P12": 1
+  },
+  "original_module_cases_passed": 45,
+  "protected_sha256_unchanged": {
+    "D:\\Dev\\Projects\\chstockdata\\README.md": true,
+    "D:\\Dev\\Projects\\chstockdata\\src\\chstockdata\\__init__.py": true,
+    "D:\\Dev\\Projects\\chstockdata\\src\\chstockdata\\a_stock.py": true,
+    "D:\\Dev\\Projects\\chstockdata\\src\\chstockdata\\fetch_result.py": true,
+    "D:\\Dev\\Projects\\chstockdata\\tests\\test_rh1_git_line_endings.py": true,
+    "D:\\Dev\\Projects\\chstockdata\\scripts\\check_rh1_static.py": true,
+    "D:\\Dev\\Projects\\chstockdata\\pyproject.toml": true,
+    "D:\\Dev\\Projects\\chstockdata\\docs\\dr04-p-daily-fund-flow.md": true,
+    "D:\\Dev\\Projects\\chstockdata\\.git\\config": true,
+    "C:\\Users\\Administrator\\.gitconfig": true,
+    "C:\\Program Files\\Git\\etc\\gitconfig": true,
+    "D:\\Dev\\Projects\\mishi-radar\\outputs\\dr04-minimum-consumer-contract-2026-10-17\\dr04-minimum-consumer-contract-owner-review.md": true
+  },
+  "existing_tests_unchanged": true,
+  "HTTP_and_budget_AST_unchanged": true,
+  "public_signature_and_raw_format_unchanged": true,
+  "prior_tracked_diff_unchanged": true,
+  "staging_empty": true,
+  "current_sha256": {
+    "src/chstockdata/daily_fund_flow.py": "8b4b4e9e9debd5354d72fe8967d5906138413bd52a2a5faa30afc006a173f5e7",
+    "tests/test_daily_fund_flow.py": "ce20e2c8bc09fa6164e2070ad5dc3c131c415a5dc2cf1d27efe489a9b5e73b63"
+  },
+  "verdict": "PASS_CANDIDATE",
+  "owner_acceptance": "NOT_GRANTED"
+}

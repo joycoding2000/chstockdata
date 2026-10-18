@@ -1,0 +1,44 @@
+FFFF..FF                                                                 [100%]
+================================== FAILURES ===================================
+______________ test_type_identity_numeric_object_conflict[False] ______________
+tests\test_daily_fund_flow.py:396: in test_type_identity_numeric_object_conflict
+    assert len(row['variants']) == 2 and row['duplicate_count'] == 0
+E   AssertionError: assert (1 == 2)
+E    +  where 1 = len([{'status': 'NONZERO', 'reason': None, 'amount': '1', 'field_present': True, ...}])
+______________ test_type_identity_numeric_object_conflict[True] _______________
+tests\test_daily_fund_flow.py:396: in test_type_identity_numeric_object_conflict
+    assert len(row['variants']) == 2 and row['duplicate_count'] == 0
+E   AssertionError: assert (1 == 2)
+E    +  where 1 = len([{'status': 'INVALID_VALUE', 'reason': 'INVALID_TYPE', 'amount': None, 'field_present': True, ...}])
+__________________ test_type_identity_all_json_types[False] ___________________
+tests\test_daily_fund_flow.py:415: in test_type_identity_all_json_types
+    assert len(row['variants']) == 6 and row['duplicate_count'] == 0
+E   AssertionError: assert (5 == 6)
+E    +  where 5 = len([{'status': 'NONZERO', 'reason': None, 'amount': '1', 'field_present': True, ...}, {'status': 'NONZERO', 'reason': Non...'field_present': True, ...}, {'status': 'MISSING_VALUE', 'reason': 'NULL', 'amount': None, 'field_present': True, ...}])
+___________________ test_type_identity_all_json_types[True] ___________________
+tests\test_daily_fund_flow.py:415: in test_type_identity_all_json_types
+    assert len(row['variants']) == 6 and row['duplicate_count'] == 0
+E   AssertionError: assert (5 == 6)
+E    +  where 5 = len([{'status': 'MISSING_VALUE', 'reason': 'NULL', 'amount': None, 'field_present': True, ...}, {'status': 'INVALID_VALUE'...': None, 'field_present': True, ...}, {'status': 'NONZERO', 'reason': None, 'amount': '1', 'field_present': True, ...}])
+___________________ test_type_identity_anchor_change[False] ___________________
+tests\test_daily_fund_flow.py:455: in test_type_identity_anchor_change
+    assert r.pagination['stop_reason'] == 'ANCHOR_DRIFT' and r.status == 'PARTIAL'
+E   AssertionError: assert ('REACHED_START' == 'ANCHOR_DRIFT'
+E     
+E     - ANCHOR_DRIFT
+E     + REACHED_START)
+___________________ test_type_identity_anchor_change[True] ____________________
+tests\test_daily_fund_flow.py:455: in test_type_identity_anchor_change
+    assert r.pagination['stop_reason'] == 'ANCHOR_DRIFT' and r.status == 'PARTIAL'
+E   AssertionError: assert ('REACHED_START' == 'ANCHOR_DRIFT'
+E     
+E     - ANCHOR_DRIFT
+E     + REACHED_START)
+=========================== short test summary info ===========================
+FAILED tests/test_daily_fund_flow.py::test_type_identity_numeric_object_conflict[False]
+FAILED tests/test_daily_fund_flow.py::test_type_identity_numeric_object_conflict[True]
+FAILED tests/test_daily_fund_flow.py::test_type_identity_all_json_types[False]
+FAILED tests/test_daily_fund_flow.py::test_type_identity_all_json_types[True]
+FAILED tests/test_daily_fund_flow.py::test_type_identity_anchor_change[False]
+FAILED tests/test_daily_fund_flow.py::test_type_identity_anchor_change[True]
+6 failed, 2 passed, 45 deselected in 2.89s

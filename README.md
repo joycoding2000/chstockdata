@@ -30,6 +30,12 @@ df = get_stock_data("600519", 365)    # daily OHLCV, vipdoc/mootdx/Sina chain
 get_realtime_snapshot("600519")       # realtime quote, Tencent -> mootdx -> Sina
 ```
 
+The unreleased DR04-P addition provides the public API
+`get_sina_daily_fund_flow` for lossless Sina daily `r0_net` observations.
+See the [consumer contract and usage](docs/dr04-p-daily-fund-flow.md).
+DR04-P has [Owner Acceptance](docs/audits/2026-10-18-dr04-p-owner-acceptance.md)
+and is not part of the published v0.4.2 package.
+
 ## Structured API (v0.4.2)
 
 The structured surface is additive and returns `FetchResult` objects. The

@@ -1,0 +1,87 @@
+--- before/tests.py
++++ after/tests.py
+@@ -379,3 +379,84 @@
+         assert len(body) == request['bytes']
+         assert hashlib.sha256(body).hexdigest() == request['sha256']
+     assert hashlib.sha256((FIXTURES / 'calendar.json').read_bytes()).hexdigest() == MANIFEST['calendar_sha256']
++
++
++def identity_day(monkeypatch, values):
++    rows = [{'opendate': '2026-10-16', 'r0_net': value} for value in values]
++    transport(monkeypatch, {1: synthetic(rows)})
++    return cs.get_sina_daily_fund_flow('SH', '600000', start_date='2026-10-16',
++                                      end_date='2026-10-16', calendar=calendar())
++
++
++@pytest.mark.parametrize('reverse', [False, True])
++def test_type_identity_numeric_object_conflict(monkeypatch, reverse):
++    values = [1, {'json_number': '1'}]
++    r = identity_day(monkeypatch, values[::-1] if reverse else values)
++    row = r.records[0]
++    assert len(row['variants']) == 2 and row['duplicate_count'] == 0
++    by_type = {v['raw_type']: v for v in row['variants']}
++    assert by_type['number']['status'] == 'NONZERO'
++    assert by_type['object']['status'] == 'INVALID_VALUE'
++    assert by_type['object']['reason'] == 'INVALID_TYPE'
++    assert by_type['object']['raw_value'] == {'json_number': '1'}
++    assert row['status'] == 'DUPLICATE_CONFLICT' and row['amount'] is None
++    assert r.status == 'PARTIAL' and r.coverage['counts']['DUPLICATE_CONFLICT'] == 1
++    assert r.coverage['numeric_complete_count'] == r.coverage['semantic_usable_count'] == 0
++    assert r.coverage['denominator'] == sum(r.coverage['counts'].values()) == 1
++    assert r.coverage['uncovered_dates'] == ['2026-10-16']
++    assert {v['references'][0]['row_index'] for v in row['variants']} == {0, 1}
++
++
++@pytest.mark.parametrize('reverse', [False, True])
++def test_type_identity_all_json_types(monkeypatch, reverse):
++    values = [1, '1', {'json_number': '1'}, ['number', '1'], True, None]
++    r = identity_day(monkeypatch, values[::-1] if reverse else values)
++    row = r.records[0]
++    assert len(row['variants']) == 6 and row['duplicate_count'] == 0
++    assert {v['raw_type'] for v in row['variants']} == {
++        'number', 'string', 'object', 'array', 'boolean', 'null',
++    }
++    assert row['status'] == 'DUPLICATE_CONFLICT' and row['amount'] is None
++    assert r.status == 'PARTIAL'
++    assert r.coverage['numeric_complete_count'] == r.coverage['semantic_usable_count'] == 0
++    json.dumps(r.to_dict(), allow_nan=False)
++
++
++def test_type_identity_numeric_string_preserves_both(monkeypatch):
++    r = identity_day(monkeypatch, [1, '1'])
++    row = r.records[0]
++    assert r.status == 'COMPLETE' and row['amount'] == '1'
++    assert len(row['variants']) == 2 and row['duplicate_count'] == 0
++    assert {v['raw_type'] for v in row['variants']} == {'number', 'string'}
++    assert r.coverage['numeric_complete_count'] == r.coverage['semantic_usable_count'] == 1
++
++
++def test_type_identity_equal_numeric_record_deduplicates(monkeypatch):
++    r = identity_day(monkeypatch, [1, 1])
++    row = r.records[0]
++    assert r.status == 'COMPLETE' and row['amount'] == '1'
++    assert len(row['variants']) == 1 and row['duplicate_count'] == 1
++    assert len(row['variants'][0]['references']) == 2
++    assert r.coverage['numeric_complete_count'] == r.coverage['semantic_usable_count'] == 1
++
++
++@pytest.mark.parametrize('reverse', [False, True])
++def test_type_identity_anchor_change(monkeypatch, reverse):
++    pages = real_pages('sz300750')
++    first, anchor = json.loads(pages[1]), json.loads(pages[1])
++    values = [1, {'json_number': '1'}]
++    if reverse:
++        values.reverse()
++    for rows, value in zip((first, anchor), values):
++        next(row for row in rows if row['opendate'] == '2026-09-15')['r0_net'] = value
++    calls = transport(monkeypatch, {}, sequence=[synthetic(first), pages[2], synthetic(anchor)])
++    r = cs.get_sina_daily_fund_flow('SZ', '300750', target_date='2026-09-15', calendar=calendar())
++    row = r.records[-1]
++    assert r.pagination['stop_reason'] == 'ANCHOR_DRIFT' and r.status == 'PARTIAL'
++    assert r.pagination['consistency'] == 'UNKNOWN' and len(calls) == 3
++    assert row['status'] == 'DUPLICATE_CONFLICT' and row['amount'] is None
++    assert len(row['variants']) == 2
++    assert {v['raw_type'] for v in row['variants']} == {'number', 'object'}
++    assert {v['references'][0]['response_index'] for v in row['variants']} == {0, 2}
++    assert r.coverage['numeric_complete_count'] == r.coverage['semantic_usable_count'] == 4
++    assert r.coverage['denominator'] == sum(r.coverage['counts'].values()) == 5

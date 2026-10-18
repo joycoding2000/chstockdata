@@ -1,0 +1,16 @@
+{
+  "command": [
+    "D:\\Dev\\Projects\\chstockdata\\.venv\\Scripts\\python.exe",
+    "-m",
+    "pytest",
+    "tests/test_daily_fund_flow.py",
+    "-q",
+    "--tb=short",
+    "--basetemp=D:\\Dev\\Projects\\chstockdata\\.pytest_cache\\dr04-p-type-identity-6aa3c16b90e6\\focused",
+    "--junitxml=D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-18-dr04-p-type-identity-fix\\focused.xml",
+    "-k",
+    "type_identity"
+  ],
+  "cwd": "D:\\Dev\\Projects\\chstockdata",
+  "exit_code": 0
+}

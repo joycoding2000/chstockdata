@@ -1,0 +1,71 @@
+--- before/module.py
++++ after/module.py
+@@ -126,6 +126,23 @@
+     if isinstance(value, list):
+         return [_raw(v) for v in value]
+     return value
++
++
++def _raw_identity(value: Any) -> tuple[Any, ...]:
++    """Tag every parsed JSON node so source objects cannot impersonate tokens."""
++    if isinstance(value, _JsonNumber):
++        return ('number', str(value))
++    if value is None:
++        return ('null',)
++    if isinstance(value, bool):
++        return ('boolean', value)
++    if isinstance(value, str):
++        return ('string', value)
++    if isinstance(value, list):
++        return ('array', tuple(_raw_identity(item) for item in value))
++    if isinstance(value, dict):
++        return ('object', tuple((key, _raw_identity(value[key])) for key in sorted(value)))
++    raise TypeError('unsupported parsed JSON type')
+ 
+ 
+ def _decimal_key(amount: str) -> str:
+@@ -278,6 +295,7 @@
+     started = time.monotonic()
+     attempts, responses, anomalies = [], [], []
+     grouped: dict[str, list[dict[str, Any]]] = {}
++    record_identities: dict[str, dict[tuple[Any, ...], dict[str, Any]]] = {}
+     page_keys = set()
+     pages_fetched, raw_rows = 0, 0
+     stop, consistency = 'CALENDAR_UNKNOWN', 'UNKNOWN'
+@@ -359,12 +377,16 @@
+                               'reference': reference})
+             return None, False
+         variants = grouped.setdefault(business_date, [])
+-        same = next((v for v in variants if v['raw_record'] == value['raw_record']), None)
++        identities = record_identities.setdefault(business_date, {})
++        identity = _raw_identity(row)
++        same = identities.get(identity)
+         if same is not None:
+             if record_identical:
+                 same['references'].append(reference)
+         else:
+-            variants.append({**value, 'references': [reference]})
++            variant = {**value, 'references': [reference]}
++            variants.append(variant)
++            identities[identity] = variant
+         meanings = {(v['status'], _decimal_key(v['amount']) if v['amount'] is not None else v['reason'])
+                     for v in variants}
+         return business_date, len(meanings) > 1
+@@ -384,7 +406,7 @@
+             if not rows:
+                 stop, scan_complete = 'EMPTY_PAGE', bool(grouped)
+                 break
+-            key = _hash(_raw(rows))
++            key = _hash(_raw_identity(rows))
+             if first_key is None:
+                 first_key = key
+             repeated = key in page_keys
+@@ -433,7 +455,7 @@
+                 anchor = fetch(1, 'anchor_check')
+                 if anchor is None:
+                     scan_complete = False
+-                elif _hash(_raw(anchor)) != first_key:
++                elif _hash(_raw_identity(anchor)) != first_key:
+                     # The recheck is evidence too: changed same-day values must
+                     # invalidate the canonical amount, not only the whole query.
+                     for index, row in enumerate(anchor):

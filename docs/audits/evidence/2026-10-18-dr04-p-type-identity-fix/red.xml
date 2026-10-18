@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="6" skipped="0" tests="8" time="2.886" timestamp="2026-10-18T15:39:51.749334+08:00" hostname="CHINAMI-4QO1VLN"><testcase classname="tests.test_daily_fund_flow" name="test_type_identity_numeric_object_conflict[False]" time="0.003"><failure message="AssertionError: assert (1 == 2)&#10; +  where 1 = len([{'status': 'NONZERO', 'reason': None, 'amount': '1', 'field_present': True, ...}])">tests\test_daily_fund_flow.py:396: in test_type_identity_numeric_object_conflict
+    assert len(row['variants']) == 2 and row['duplicate_count'] == 0
+E   AssertionError: assert (1 == 2)
+E    +  where 1 = len([{'status': 'NONZERO', 'reason': None, 'amount': '1', 'field_present': True, ...}])</failure></testcase><testcase classname="tests.test_daily_fund_flow" name="test_type_identity_numeric_object_conflict[True]" time="0.002"><failure message="AssertionError: assert (1 == 2)&#10; +  where 1 = len([{'status': 'INVALID_VALUE', 'reason': 'INVALID_TYPE', 'amount': None, 'field_present': True, ...}])">tests\test_daily_fund_flow.py:396: in test_type_identity_numeric_object_conflict
+    assert len(row['variants']) == 2 and row['duplicate_count'] == 0
+E   AssertionError: assert (1 == 2)
+E    +  where 1 = len([{'status': 'INVALID_VALUE', 'reason': 'INVALID_TYPE', 'amount': None, 'field_present': True, ...}])</failure></testcase><testcase classname="tests.test_daily_fund_flow" name="test_type_identity_all_json_types[False]" time="0.002"><failure message="AssertionError: assert (5 == 6)&#10; +  where 5 = len([{'status': 'NONZERO', 'reason': None, 'amount': '1', 'field_present': True, ...}, {'status': 'NONZERO', 'reason': Non...'field_present': True, ...}, {'status': 'MISSING_VALUE', 'reason': 'NULL', 'amount': None, 'field_present': True, ...}])">tests\test_daily_fund_flow.py:415: in test_type_identity_all_json_types
+    assert len(row['variants']) == 6 and row['duplicate_count'] == 0
+E   AssertionError: assert (5 == 6)
+E    +  where 5 = len([{'status': 'NONZERO', 'reason': None, 'amount': '1', 'field_present': True, ...}, {'status': 'NONZERO', 'reason': Non...'field_present': True, ...}, {'status': 'MISSING_VALUE', 'reason': 'NULL', 'amount': None, 'field_present': True, ...}])</failure></testcase><testcase classname="tests.test_daily_fund_flow" name="test_type_identity_all_json_types[True]" time="0.002"><failure message="AssertionError: assert (5 == 6)&#10; +  where 5 = len([{'status': 'MISSING_VALUE', 'reason': 'NULL', 'amount': None, 'field_present': True, ...}, {'status': 'INVALID_VALUE'...': None, 'field_present': True, ...}, {'status': 'NONZERO', 'reason': None, 'amount': '1', 'field_present': True, ...}])">tests\test_daily_fund_flow.py:415: in test_type_identity_all_json_types
+    assert len(row['variants']) == 6 and row['duplicate_count'] == 0
+E   AssertionError: assert (5 == 6)
+E    +  where 5 = len([{'status': 'MISSING_VALUE', 'reason': 'NULL', 'amount': None, 'field_present': True, ...}, {'status': 'INVALID_VALUE'...': None, 'field_present': True, ...}, {'status': 'NONZERO', 'reason': None, 'amount': '1', 'field_present': True, ...}])</failure></testcase><testcase classname="tests.test_daily_fund_flow" name="test_type_identity_numeric_string_preserves_both" time="0.002" /><testcase classname="tests.test_daily_fund_flow" name="test_type_identity_equal_numeric_record_deduplicates" time="0.002" /><testcase classname="tests.test_daily_fund_flow" name="test_type_identity_anchor_change[False]" time="0.007"><failure message="AssertionError: assert ('REACHED_START' == 'ANCHOR_DRIFT'&#10;  &#10;  - ANCHOR_DRIFT&#10;  + REACHED_START)">tests\test_daily_fund_flow.py:455: in test_type_identity_anchor_change
+    assert r.pagination['stop_reason'] == 'ANCHOR_DRIFT' and r.status == 'PARTIAL'
+E   AssertionError: assert ('REACHED_START' == 'ANCHOR_DRIFT'
+E     
+E     - ANCHOR_DRIFT
+E     + REACHED_START)</failure></testcase><testcase classname="tests.test_daily_fund_flow" name="test_type_identity_anchor_change[True]" time="0.007"><failure message="AssertionError: assert ('REACHED_START' == 'ANCHOR_DRIFT'&#10;  &#10;  - ANCHOR_DRIFT&#10;  + REACHED_START)">tests\test_daily_fund_flow.py:455: in test_type_identity_anchor_change
+    assert r.pagination['stop_reason'] == 'ANCHOR_DRIFT' and r.status == 'PARTIAL'
+E   AssertionError: assert ('REACHED_START' == 'ANCHOR_DRIFT'
+E     
+E     - ANCHOR_DRIFT
+E     + REACHED_START)</failure></testcase></testsuite></testsuites>

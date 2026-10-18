@@ -1,0 +1,526 @@
+"""DR04-P: bounded, lossless Sina daily r0_net observations (no persistent cache)."""
+
+from __future__ import annotations
+
+import base64
+import hashlib
+import json
+import math
+import re
+import time
+import uuid
+from collections import Counter
+from dataclasses import asdict, dataclass
+from datetime import date, datetime, timedelta, timezone
+from decimal import Decimal, InvalidOperation
+from typing import Any
+
+import requests
+
+SINA_DAILY_FUND_FLOW_ENDPOINT = (
+    'https://vip.stock.finance.sina.com.cn/quotes_service/api/json_v2.php/'
+    'MoneyFlow.ssl_qsfx_zjlrqs'
+)
+_CONTRACT_VERSION = 'DR04-P/1'
+_STATUSES = (
+    'NONZERO', 'RAW_ZERO', 'MISSING_DATE', 'MISSING_FIELD', 'MISSING_VALUE',
+    'INVALID_VALUE', 'DUPLICATE_CONFLICT', 'REQUEST_UNRESOLVED',
+)
+_DECIMAL = re.compile(r'[+-]?(?:[0-9]+(?:\.[0-9]*)?|\.[0-9]+)(?:[eE][+-]?[0-9]+)?\Z')
+
+
+@dataclass(frozen=True)
+class FundFlowCalendar:
+    """Caller-supplied complete market calendar and its qualification evidence.
+
+    ``qualified`` is an explicit caller assertion, not certification by this
+    library. Coverage includes holidays; ``completed_through`` is the last
+    completed business-date cutoff. No security applicability is inferred.
+    """
+
+    trading_days: tuple[str, ...]
+    source: str
+    version: str
+    covered_start: str
+    covered_end: str
+    completed_through: str
+    qualified: bool = False
+
+
+@dataclass(frozen=True)
+class FundFlowBudget:
+    """All attempts, including retries and the page-one recheck, consume requests."""
+
+    max_pages: int = 32
+    max_requests: int = 40
+    max_seconds: float = 60.0
+    retries: int = 1
+    timeout: float = 10.0
+
+
+@dataclass(frozen=True)
+class DailyFundFlowResult:
+    """JSON-safe observation; amounts are decimal strings, never binary floats."""
+
+    exchange: str
+    ticker: str
+    mode: str
+    start_date: str | None
+    end_date: str
+    target_dates: tuple[str, ...]
+    calendar: dict[str, Any]
+    records: tuple[dict[str, Any], ...]
+    extra_records: tuple[dict[str, Any], ...]
+    anomalies: tuple[dict[str, Any], ...]
+    attempts: tuple[dict[str, Any], ...]
+    responses: tuple[dict[str, Any], ...]
+    coverage: dict[str, Any]
+    pagination: dict[str, Any]
+    budget: dict[str, Any]
+    status: str
+    freshness: str
+    source_max_date: str | None
+    observation_id: str
+    started_at: str
+    fetched_at: str
+    value_sha256: str
+    source_times: dict[str, Any]
+    previous_observation: dict[str, Any] | None
+    source: str = 'sina'
+    endpoint: str = SINA_DAILY_FUND_FLOW_ENDPOINT
+    field: str = 'r0_net'
+    currency: str = 'CNY'
+    unit: str = '元'
+    contract_version: str = _CONTRACT_VERSION
+    security_applicability: str = 'UNKNOWN'
+
+    def to_dict(self) -> dict[str, Any]:
+        """Return an independent JSON-serializable copy, including response evidence."""
+        return asdict(self)
+
+
+class _JsonNumber(str):
+    """Retain the literal JSON number token without a float intermediate."""
+
+
+def _utc_now() -> datetime:
+    return datetime.now(timezone.utc)
+
+
+def _day(value: str) -> str:
+    if not isinstance(value, str) or not re.fullmatch(r'[0-9]{4}-[0-9]{2}-[0-9]{2}', value):
+        raise ValueError('dates must be strict YYYY-MM-DD strings')
+    return date.fromisoformat(value).isoformat()
+
+
+def _hash(value: Any) -> str:
+    return hashlib.sha256(json.dumps(value, sort_keys=True, ensure_ascii=False,
+                                     separators=(',', ':')).encode('utf-8')).hexdigest()
+
+
+def _raw(value: Any) -> Any:
+    if isinstance(value, _JsonNumber):
+        return {'json_number': str(value)}
+    if isinstance(value, dict):
+        return {k: _raw(v) for k, v in value.items()}
+    if isinstance(value, list):
+        return [_raw(v) for v in value]
+    return value
+
+
+def _raw_identity(value: Any) -> tuple[Any, ...]:
+    """Tag every parsed JSON node so source objects cannot impersonate tokens."""
+    if isinstance(value, _JsonNumber):
+        return ('number', str(value))
+    if value is None:
+        return ('null',)
+    if isinstance(value, bool):
+        return ('boolean', value)
+    if isinstance(value, str):
+        return ('string', value)
+    if isinstance(value, list):
+        return ('array', tuple(_raw_identity(item) for item in value))
+    if isinstance(value, dict):
+        return ('object', tuple((key, _raw_identity(value[key])) for key in sorted(value)))
+    raise TypeError('unsupported parsed JSON type')
+
+
+def _decimal_key(amount: str) -> str:
+    number = Decimal(amount)
+    if number.is_zero():
+        return '0'
+    sign, digits, exponent = number.as_tuple()
+    digits = list(digits)
+    while digits[-1] == 0:
+        digits.pop()
+        exponent += 1
+    return f'{sign}:{"".join(map(str, digits))}e{exponent}'
+
+
+def _value(row: dict[str, Any]) -> dict[str, Any]:
+    present = 'r0_net' in row
+    value = row.get('r0_net')
+    raw_type = ('missing' if not present else 'number' if isinstance(value, _JsonNumber)
+                else 'null' if value is None else 'boolean' if isinstance(value, bool)
+                else 'string' if isinstance(value, str) else 'array' if isinstance(value, list)
+                else 'object')
+    status, reason, amount = 'INVALID_VALUE', 'INVALID_TYPE', None
+    if not present:
+        status, reason = 'MISSING_FIELD', 'FIELD_ABSENT'
+    elif value is None or value == '':
+        status, reason = 'MISSING_VALUE', 'NULL' if value is None else 'EMPTY_STRING'
+    elif isinstance(value, str):
+        try:
+            number = Decimal(value)
+        except InvalidOperation:
+            reason = 'NOT_DECIMAL'
+        else:
+            if not number.is_finite():
+                reason = 'NOT_FINITE'
+            elif not _DECIMAL.fullmatch(value):
+                reason = 'NOT_DECIMAL'
+            else:
+                amount = str(number)
+                status, reason = ('RAW_ZERO' if number.is_zero() else 'NONZERO'), None
+    return {'status': status, 'reason': reason, 'amount': amount,
+            'field_present': present, 'raw_type': raw_type,
+            'raw_value': str(value) if isinstance(value, _JsonNumber) else value,
+            'raw_record': _raw(row)}
+
+
+def _unique_object(pairs):
+    result = {}
+    for key, value in pairs:
+        if key in result:
+            raise ValueError('duplicate JSON object key')
+        result[key] = value
+    return result
+
+
+def _parse(body: bytes) -> list:
+    # Source fixtures are ASCII/GBK; JSON encoding is not inferred from .text.
+    try:
+        text = body.decode('utf-8-sig')
+    except UnicodeDecodeError:
+        text = body.decode('gb18030')
+    payload = json.loads(text, parse_int=_JsonNumber, parse_float=_JsonNumber,
+                         parse_constant=_JsonNumber, object_pairs_hook=_unique_object)
+    if not isinstance(payload, list):
+        raise TypeError('source response is not a JSON array')
+    return payload
+
+
+def _targets(calendar: FundFlowCalendar | None, mode: str, start: str | None,
+             end: str) -> tuple[tuple[str, ...], dict[str, Any], str | None]:
+    if calendar is None:
+        return (), {'status': 'UNKNOWN', 'reason': 'CALENDAR_ABSENT'}, start
+    info = asdict(calendar)
+    days = tuple(_day(d) for d in calendar.trading_days)
+    low, high, completed = map(_day, (calendar.covered_start, calendar.covered_end,
+                                    calendar.completed_through))
+    if days != tuple(sorted(set(days))) or low > high or any(d < low or d > high for d in days):
+        raise ValueError('calendar must contain sorted unique days within its coverage')
+    info['identity_sha256'] = _hash(info)
+    if (calendar.qualified is not True or not calendar.source or not calendar.version
+            or not low <= end <= high or end > completed or (start is not None and start < low)):
+        return (), {**info, 'status': 'UNKNOWN', 'reason': 'CALENDAR_UNQUALIFIED_OR_OUTSIDE_COVERAGE'}, start
+    if mode == 'recent_five':
+        targets = tuple(d for d in days if d <= end)[-5:]
+        if len(targets) != 5 or targets[-1] != end:
+            return (), {**info, 'status': 'UNKNOWN', 'reason': 'FIVE_COMPLETED_DAYS_UNPROVEN'}, start
+        start = targets[0]
+    else:
+        targets = tuple(d for d in days if start <= d <= end)
+    return targets, {**info, 'status': 'QUALIFIED'}, start
+
+
+def get_sina_daily_fund_flow(
+    exchange: str,
+    ticker: str,
+    *,
+    target_date: str | None = None,
+    start_date: str | None = None,
+    end_date: str | None = None,
+    calendar: FundFlowCalendar | None = None,
+    budget: FundFlowBudget | None = None,
+    allow_requests: bool = True,
+    previous_observation: DailyFundFlowResult | None = None,
+) -> DailyFundFlowResult:
+    """Observe one explicit security's Sina daily r0_net values, in CNY yuan.
+
+    Supply either ``target_date`` (five completed market days) or an inclusive
+    ``start_date``/``end_date`` pair, and a qualified caller-supplied calendar.
+    Invalid input raises ValueError before HTTP. Missing calendar returns
+    UNKNOWN. Source errors return partial/unresolved results with evidence.
+
+    Previous observations are evidence only, never replacement current values.
+    No persistence, TDX fallback, source finality or historical PIT is implied.
+    """
+    if exchange not in {'SH', 'SZ', 'BJ'} or not isinstance(ticker, str) or not re.fullmatch(r'[0-9]{6}', ticker):
+        raise ValueError('exchange must be SH/SZ/BJ and ticker six ASCII digits; no market inference')
+    if target_date is not None:
+        if start_date is not None or end_date is not None:
+            raise ValueError('target_date and history range are mutually exclusive')
+        mode, end = 'recent_five', _day(target_date)
+        start = None
+    else:
+        mode, start, end = 'history', _day(start_date), _day(end_date)
+        if start > end:
+            raise ValueError('start_date must not be after end_date')
+    if end > _utc_now().astimezone(timezone(timedelta(hours=8))).date().isoformat():
+        raise ValueError('target business dates must not be in the future')
+    budget = budget if budget is not None else FundFlowBudget()
+    for name in ('max_pages', 'max_requests', 'retries'):
+        value = getattr(budget, name)
+        if isinstance(value, bool) or not isinstance(value, int) or value < 0:
+            raise ValueError(f'{name} must be a nonnegative integer')
+    for name in ('max_seconds', 'timeout'):
+        value = getattr(budget, name)
+        if isinstance(value, bool) or not isinstance(value, (int, float)) or not math.isfinite(value) or value < 0:
+            raise ValueError(f'{name} must be finite and nonnegative')
+    if budget.timeout == 0:
+        raise ValueError('timeout must be positive')
+    targets, calendar_info, start = _targets(calendar, mode, start, end)
+    previous = None
+    if previous_observation is not None:
+        old = previous_observation
+        if ((old.exchange, old.ticker, old.mode, old.start_date, old.end_date, old.target_dates,
+             old.source, old.field, old.endpoint, old.contract_version, old.calendar)
+                != (exchange, ticker, mode, start, end, targets, 'sina', 'r0_net',
+                    SINA_DAILY_FUND_FLOW_ENDPOINT, _CONTRACT_VERSION, calendar_info)):
+            raise ValueError('previous observation identity/calendar/contract does not match this request')
+        previous = old.to_dict()
+
+    started_at = _utc_now().isoformat()
+    started = time.monotonic()
+    attempts, responses, anomalies = [], [], []
+    grouped: dict[str, list[dict[str, Any]]] = {}
+    record_identities: dict[str, dict[tuple[Any, ...], dict[str, Any]]] = {}
+    page_keys = set()
+    pages_fetched, raw_rows = 0, 0
+    stop, consistency = 'CALENDAR_UNKNOWN', 'UNKNOWN'
+    scan_complete = False
+
+    def fetch(page: int, purpose: str = 'data') -> list | None:
+        nonlocal stop
+        for retry in range(budget.retries + 1):
+            remaining = budget.max_seconds - (time.monotonic() - started)
+            if remaining <= 0:
+                stop = 'WALL_CLOCK_BUDGET'
+                return None
+            if len(attempts) >= budget.max_requests:
+                stop = 'REQUEST_BUDGET'
+                return None
+            began = time.monotonic()
+            attempt = {'page': page, 'num': 20, 'sort': 'opendate', 'asc': 0,
+                       'purpose': purpose, 'retry': retry > 0,
+                       'started_at': _utc_now().isoformat(), 'status': 'NETWORK_ERROR',
+                       'http_status': None, 'response_index': None}
+            response = None
+            try:
+                response = requests.get(
+                    SINA_DAILY_FUND_FLOW_ENDPOINT,
+                    params={'page': page, 'num': 20, 'sort': 'opendate', 'asc': 0,
+                            'daima': exchange.lower() + ticker},
+                    headers={'User-Agent': 'chstockdata/DR04-P',
+                             'Referer': 'https://vip.stock.finance.sina.com.cn/moneyflow/'},
+                    timeout=min(budget.timeout, remaining), allow_redirects=False,
+                )
+                status = response.status_code
+                attempt['http_status'] = status
+                body = response.content
+                attempt['response_index'] = len(responses)
+                responses.append({'page': page, 'purpose': purpose, 'num': 20,
+                                  'http_status': status, 'sha256': hashlib.sha256(body).hexdigest(),
+                                  'body_base64': base64.b64encode(body).decode('ascii'),
+                                  'fetched_at': _utc_now().isoformat(),
+                                  'row_count': None, 'date_min': None, 'date_max': None})
+                attempt['status'] = ('FORBIDDEN' if status == 403 else 'RATE_LIMITED' if status == 429
+                                     else 'HTTP_ERROR' if status != 200 else 'SUCCESS')
+            except (requests.RequestException, OSError) as exc:
+                attempt['error_type'] = type(exc).__name__
+            attempt['completed_at'] = _utc_now().isoformat()
+            attempt['elapsed_seconds'] = max(0.0, time.monotonic() - began)
+            attempts.append(attempt)
+            if time.monotonic() - started >= budget.max_seconds:
+                stop = 'WALL_CLOCK_BUDGET'
+                attempt['status'] = stop
+                return None
+            if attempt['status'] == 'SUCCESS':
+                try:
+                    rows = _parse(body)
+                except (TypeError, ValueError, UnicodeError, RecursionError):
+                    attempt['status'] = stop = 'PARSE_ERROR'
+                    return None
+                responses[-1]['row_count'] = len(rows)
+                if len(rows) > 20:
+                    attempt['status'] = stop = 'PARSE_ERROR'
+                    return None
+                return rows
+            retryable = attempt['status'] == 'NETWORK_ERROR' or (
+                attempt['http_status'] is not None and 500 <= attempt['http_status'] < 600)
+            if not retryable or retry == budget.retries:
+                stop = attempt['status']
+                return None
+        return None  # pragma: no cover
+
+    def observe_row(row, reference, *, record_identical=True):
+        if not isinstance(row, dict):
+            anomalies.append({'status': 'INVALID_ROW', 'amount': None,
+                              'raw_record': _raw(row), 'reference': reference})
+            return None, False
+        value = _value(row)
+        try:
+            business_date = _day(row.get('opendate'))
+        except (ValueError, TypeError):
+            anomalies.append({**value, 'status': 'INVALID_DATE', 'amount': None,
+                              'reference': reference})
+            return None, False
+        variants = grouped.setdefault(business_date, [])
+        identities = record_identities.setdefault(business_date, {})
+        identity = _raw_identity(row)
+        same = identities.get(identity)
+        if same is not None:
+            if record_identical:
+                same['references'].append(reference)
+        else:
+            variant = {**value, 'references': [reference]}
+            variants.append(variant)
+            identities[identity] = variant
+        meanings = {(v['status'], _decimal_key(v['amount']) if v['amount'] is not None else v['reason'])
+                    for v in variants}
+        return business_date, len(meanings) > 1
+
+    first_key, previous_min = None, None
+    if calendar_info['status'] == 'QUALIFIED' and not targets:
+        stop, scan_complete, consistency = 'NO_TARGET_DAYS', True, 'NOT_REQUIRED'
+    elif calendar_info['status'] == 'QUALIFIED' and not allow_requests:
+        stop = 'REQUESTS_DISABLED'
+    elif calendar_info['status'] == 'QUALIFIED':
+        for page in range(1, budget.max_pages + 1):
+            rows = fetch(page)
+            if rows is None:
+                break
+            pages_fetched += 1
+            raw_rows += len(rows)
+            if not rows:
+                stop, scan_complete = 'EMPTY_PAGE', bool(grouped)
+                break
+            key = _hash(_raw_identity(rows))
+            if first_key is None:
+                first_key = key
+            repeated = key in page_keys
+            page_keys.add(key)
+            dates, conflict, bad_date = [], False, False
+            for row_index, row in enumerate(rows):
+                reference = {'page': page, 'row_index': row_index,
+                             'response_index': attempts[-1]['response_index'],
+                             'fetched_at': responses[-1]['fetched_at']}
+                business_date, row_conflict = observe_row(row, reference)
+                if business_date is None:
+                    bad_date = True
+                else:
+                    dates.append(business_date)
+                conflict |= row_conflict
+            evidence = responses[-1]
+            evidence['date_min'] = min(dates) if dates else None
+            evidence['date_max'] = max(dates) if dates else None
+            if repeated:
+                stop = 'REPEATED_PAGE'
+                break
+            if conflict:
+                stop = 'DUPLICATE_CONFLICT'
+                break
+            if bad_date:
+                stop = 'INVALID_DATE_OR_ROW'
+                break
+            if dates != sorted(dates, reverse=True) or (previous_min is not None and max(dates) > previous_min):
+                stop = 'ANCHOR_DRIFT'
+                break
+            if previous_min is not None and min(dates) >= previous_min:
+                stop = 'NO_PAGE_PROGRESS'
+                break
+            previous_min = min(dates)
+            if previous_min <= start:
+                stop, scan_complete = 'REACHED_START', True
+                break
+            if len(rows) < 20:
+                stop, scan_complete = 'SHORT_PAGE', True
+                break
+        else:
+            stop = 'PAGE_BUDGET'
+        if scan_complete:
+            if pages_fetched > 1:
+                terminal = stop
+                anchor = fetch(1, 'anchor_check')
+                if anchor is None:
+                    scan_complete = False
+                elif _hash(_raw_identity(anchor)) != first_key:
+                    # The recheck is evidence too: changed same-day values must
+                    # invalidate the canonical amount, not only the whole query.
+                    for index, row in enumerate(anchor):
+                        observe_row(row, {'page': 1, 'row_index': index,
+                                         'response_index': attempts[-1]['response_index'],
+                                         'fetched_at': responses[-1]['fetched_at']},
+                                    record_identical=False)
+                    stop, scan_complete = 'ANCHOR_DRIFT', False
+                else:
+                    stop, consistency = terminal, 'OBSERVED_STABLE'
+            else:
+                consistency = 'SINGLE_PAGE'
+
+    if attempts and time.monotonic() - started >= budget.max_seconds:
+        stop, scan_complete, consistency = 'WALL_CLOCK_BUDGET', False, 'UNKNOWN'
+
+    canonical = {}
+    for business_date, variants in grouped.items():
+        meanings = {(v['status'], _decimal_key(v['amount']) if v['amount'] is not None else v['reason'])
+                    for v in variants}
+        conflict = len(meanings) > 1
+        status = 'DUPLICATE_CONFLICT' if conflict else variants[0]['status']
+        canonical[business_date] = {
+            'business_date': business_date, 'status': status,
+            'amount': None if conflict else variants[0]['amount'],
+            'zero_semantics': 'UNKNOWN' if status == 'RAW_ZERO' else 'NOT_APPLICABLE',
+            'variants': variants, 'duplicate_count': sum(len(v['references']) - 1 for v in variants),
+        }
+    records = tuple(canonical.get(d, {'business_date': d,
+                    'status': 'MISSING_DATE' if scan_complete else 'REQUEST_UNRESOLVED',
+                    'amount': None, 'variants': [], 'duplicate_count': 0,
+                    'zero_semantics': 'NOT_APPLICABLE'}) for d in targets)
+    extras = tuple(canonical[d] for d in sorted(canonical) if d not in targets)
+    counts = Counter(row['status'] for row in records)
+    numeric = counts['NONZERO'] + counts['RAW_ZERO']
+    qualified = calendar_info['status'] == 'QUALIFIED'
+    coverage = {
+        'security_denominator': 1, 'denominator': len(targets) if qualified else None,
+        'counts': {s: counts[s] for s in _STATUSES},
+        'numeric_complete_count': numeric, 'semantic_usable_count': counts['NONZERO'],
+        'returned_target_dates': sum(bool(r['variants']) for r in records),
+        'source_row_count': raw_rows, 'source_unique_dates': len(canonical),
+        'extra_unique_dates': len(extras), 'anomaly_count': len(anomalies),
+        'uncovered_dates': [r['business_date'] for r in records if r['amount'] is None],
+        'target_first': targets[0] if targets else None, 'target_last': targets[-1] if targets else None,
+    }
+    latest = max(canonical) if canonical else None
+    freshness = ('UNKNOWN' if not qualified or not targets or latest is None else
+                 'STALE' if latest < targets[-1] else 'DATES_PRESENT'
+                 if all(r['variants'] for r in records) else 'TARGET_GAPS' if scan_complete else 'UNKNOWN')
+    status = ('UNKNOWN' if not qualified else 'COMPLETE'
+              if scan_complete and not anomalies and numeric == len(targets) else 'PARTIAL')
+    values = [(r['business_date'], r['status'],
+               _decimal_key(r['amount']) if r['amount'] is not None else None) for r in records]
+    return DailyFundFlowResult(
+        exchange=exchange, ticker=ticker, mode=mode, start_date=start, end_date=end,
+        target_dates=targets, calendar=calendar_info, records=records, extra_records=extras,
+        anomalies=tuple(anomalies), attempts=tuple(attempts), responses=tuple(responses),
+        coverage=coverage, pagination={'pages_fetched': pages_fetched, 'requests_made': len(attempts),
+                                      'stop_reason': stop, 'consistency': consistency,
+                                      'snapshot_guarantee': 'UNKNOWN', 'scan_complete': scan_complete},
+        budget=asdict(budget), status=status, freshness=freshness, source_max_date=latest,
+        observation_id=str(uuid.uuid4()), started_at=started_at, fetched_at=_utc_now().isoformat(),
+        value_sha256=_hash(values), source_times={
+            'source_data_time': None, 'first_known_at': None, 'source_revision_at': None,
+            'revision_status': 'UNKNOWN', 'finality': 'UNKNOWN', 'unknown_reason': 'NO_SOURCE_EVIDENCE',
+        }, previous_observation=previous,
+    )

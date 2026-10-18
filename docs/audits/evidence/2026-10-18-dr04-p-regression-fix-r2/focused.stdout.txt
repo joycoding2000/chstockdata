@@ -1,0 +1,13 @@
+============================= test session starts =============================
+platform win32 -- Python 3.14.5, pytest-9.1.1, pluggy-1.6.0 -- D:\Dev\Projects\chstockdata\.venv\Scripts\python.exe
+cachedir: .pytest_cache
+rootdir: D:\Dev\Projects\chstockdata
+configfile: pyproject.toml
+plugins: anyio-4.14.2, langsmith-0.10.9
+collecting ... collected 2 items
+
+tests/test_rh1_git_line_endings.py::test_crlf_preserves_added_line_discrimination[False] PASSED [ 50%]
+tests/test_rh1_git_line_endings.py::test_crlf_preserves_added_line_discrimination[True] PASSED [100%]
+
+- generated xml file: D:\Dev\Projects\chstockdata\docs\audits\evidence\2026-10-18-dr04-p-regression-fix-r2\focused.xml -
+============================== 2 passed in 3.60s ==============================

@@ -1,0 +1,12 @@
+{
+  "command": [
+    "D:\\Dev\\Projects\\chstockdata\\.venv\\Scripts\\python.exe",
+    "-m",
+    "ruff",
+    "check",
+    "src/chstockdata/daily_fund_flow.py",
+    "tests/test_daily_fund_flow.py"
+  ],
+  "cwd": "D:\\Dev\\Projects\\chstockdata",
+  "exit_code": 0
+}

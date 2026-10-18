@@ -18,7 +18,7 @@ def _gate_module():
 
 
 @pytest.mark.parametrize('modify_existing', [False, True])
-def test_crlf_preserves_added_line_discrimination(tmp_path, modify_existing):
+def test_crlf_preserves_added_line_discrimination(tmp_path, modify_existing, monkeypatch):
     def git(*args):
         return subprocess.check_output(
             ['git', '-c', f'safe.directory={tmp_path.as_posix()}',
@@ -40,6 +40,15 @@ def test_crlf_preserves_added_line_discrimination(tmp_path, modify_existing):
     gate = _gate_module()
     gate.ROOT = tmp_path
     gate.BASELINE_SHA = baseline
+    original_run = gate._run
+
+    def run_with_repo_trust(*args):
+        if args[0] == 'git':
+            return original_run('git', '-c', f'safe.directory={tmp_path.as_posix()}', *args[1:])
+        return original_run(*args)
+
+    # Match the fixture helper's trust scope without changing Git configuration.
+    monkeypatch.setattr(gate, '_run', run_with_repo_trust)
     ranges = gate._added_line_ranges()
     assert not gate._is_added_line(
         {'filename': str(source), 'location': {'row': 1}}, ranges

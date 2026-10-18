@@ -1,0 +1,22 @@
+{
+  "command": [
+    "D:\\Dev\\Projects\\chstockdata\\.venv\\Scripts\\python.exe",
+    "-m",
+    "pytest",
+    "tests/test_daily_fund_flow.py",
+    "tests/test_astock_tdx_fallback.py",
+    "tests/test_astock_interface_fix.py",
+    "tests/test_astock_silent_failure_sentinel.py",
+    "tests/test_fetch_result_core.py",
+    "tests/test_trading_calendar_structured.py",
+    "tests/test_config_and_warmup_regression.py",
+    "tests/test_release_version.py",
+    "tests/test_rh1_git_line_endings.py",
+    "-q",
+    "--tb=short",
+    "--basetemp=D:\\Dev\\Projects\\chstockdata\\.pytest_cache\\dr04-p-type-identity-6aa3c16b90e6\\full",
+    "--junitxml=D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-18-dr04-p-type-identity-fix\\full.xml"
+  ],
+  "cwd": "D:\\Dev\\Projects\\chstockdata",
+  "exit_code": 0
+}
