@@ -1,0 +1,21 @@
+{
+  "command": [
+    "D:\\Dev\\Projects\\chstockdata\\build\\w0-v043\\dev\\Scripts\\python.exe",
+    "-m",
+    "pip",
+    "install",
+    "--index-url",
+    "https://pypi.org/simple",
+    "C:\\Users\\Administrator\\.codex\\worktrees\\w0-v043-release\\chstockdata[dev,mootdx,opening-pdf]",
+    "build",
+    "twine"
+  ],
+  "cwd": "C:\\Users\\Administrator\\.codex\\worktrees\\w0-v043-release\\chstockdata",
+  "started_at_utc": "2026-10-19T11:23:00.255419+00:00",
+  "seconds": 89.42,
+  "exit_code": 0,
+  "logs": {
+    "stdout": "0ad9e35a92caea24402978230e6db2f7ce9b7ee99a9a7bfe62718feb8f2ceeaa",
+    "stderr": "39b1a6a2bb5f164fb7b7b7a83bbf360f2df8a48f7e335195081e0e1ebe98e358"
+  }
+}

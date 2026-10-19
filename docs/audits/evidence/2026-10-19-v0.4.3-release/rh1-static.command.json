@@ -1,0 +1,15 @@
+{
+  "command": [
+    "D:\\Dev\\Projects\\chstockdata\\build\\w0-v043\\dev\\Scripts\\python.exe",
+    "scripts/check_rh1_static.py"
+  ],
+  "cwd": "C:\\Users\\Administrator\\.codex\\worktrees\\w0-v043-release\\chstockdata",
+  "started_at_utc": "2026-10-19T11:26:45.196729+00:00",
+  "seconds": 2.094,
+  "exit_code": 0,
+  "environment_overrides": {},
+  "logs": {
+    "stdout": "f8fd7a12a790c7ecde3e4da37c347274b925f168afb77cecf693aa455f61884f",
+    "stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

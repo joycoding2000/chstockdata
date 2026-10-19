@@ -1,0 +1,20 @@
+{
+  "command": [
+    "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\chstockdata-w0-v043-9g5bzj9z\\sdist\\Scripts\\python.exe",
+    "-m",
+    "pip",
+    "install",
+    "--index-url",
+    "https://pypi.org/simple",
+    "C:\\Users\\Administrator\\.codex\\worktrees\\w0-v043-release\\chstockdata\\dist\\chstockdata-0.4.3.tar.gz"
+  ],
+  "cwd": "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\chstockdata-w0-v043-9g5bzj9z",
+  "started_at_utc": "2026-10-19T11:28:02.113805+00:00",
+  "seconds": 40.137,
+  "exit_code": 0,
+  "environment_overrides": {},
+  "logs": {
+    "stdout": "a901b7030dbc3d3ac780e0bdfc6419b104be78f6b48bf59b9654be83d9b06dbb",
+    "stderr": "c6c85cd61c27c1febc60b94895e498a3d7611683c3775bb08942cb80a6246f8a"
+  }
+}

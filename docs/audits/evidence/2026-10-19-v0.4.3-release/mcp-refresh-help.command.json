@@ -1,0 +1,15 @@
+{
+  "command": [
+    "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\chstockdata-w0-v043-9g5bzj9z\\mcp\\Scripts\\chstockdata-refresh-vipdoc.exe",
+    "--help"
+  ],
+  "cwd": "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\chstockdata-w0-v043-9g5bzj9z",
+  "started_at_utc": "2026-10-19T11:30:12.732924+00:00",
+  "seconds": 1.47,
+  "exit_code": 0,
+  "environment_overrides": {},
+  "logs": {
+    "stdout": "ab345bcce5def90c96eede8d88d28ea469d4b83a374c5957b24d168eeb674d1e",
+    "stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

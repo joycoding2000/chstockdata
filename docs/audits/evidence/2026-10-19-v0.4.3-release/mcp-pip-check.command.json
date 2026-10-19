@@ -1,0 +1,17 @@
+{
+  "command": [
+    "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\chstockdata-w0-v043-9g5bzj9z\\mcp\\Scripts\\python.exe",
+    "-m",
+    "pip",
+    "check"
+  ],
+  "cwd": "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\chstockdata-w0-v043-9g5bzj9z",
+  "started_at_utc": "2026-10-19T11:30:05.495185+00:00",
+  "seconds": 1.453,
+  "exit_code": 0,
+  "environment_overrides": {},
+  "logs": {
+    "stdout": "672aec65a45bed50e70229c70934a7eebf0462595c459b83023027645d57cccf",
+    "stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "command": [
+    "D:\\Dev\\Projects\\chstockdata\\build\\w0-v043\\dev\\Scripts\\python.exe",
+    "scripts/check_release_version.py",
+    "--tag",
+    "v0.4.3",
+    "--project-root",
+    "C:\\Users\\Administrator\\.codex\\worktrees\\w0-v043-release\\chstockdata",
+    "--project-only"
+  ],
+  "cwd": "C:\\Users\\Administrator\\.codex\\worktrees\\w0-v043-release\\chstockdata",
+  "started_at_utc": "2026-10-19T11:26:47.756224+00:00",
+  "seconds": 0.176,
+  "exit_code": 0,
+  "environment_overrides": {},
+  "logs": {
+    "stdout": "198135aff77c6327c3671810f9e7a3cd929d7e3b188008a0d44e7305de5d88f4",
+    "stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

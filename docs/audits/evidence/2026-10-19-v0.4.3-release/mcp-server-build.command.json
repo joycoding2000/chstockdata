@@ -1,0 +1,17 @@
+{
+  "command": [
+    "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\chstockdata-w0-v043-9g5bzj9z\\mcp\\Scripts\\python.exe",
+    "-I",
+    "-c",
+    "from chstockdata.mcp_server import build_server; assert build_server() is not None; print('MCP server build: PASS')"
+  ],
+  "cwd": "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\chstockdata-w0-v043-9g5bzj9z",
+  "started_at_utc": "2026-10-19T11:30:14.213803+00:00",
+  "seconds": 2.801,
+  "exit_code": 0,
+  "environment_overrides": {},
+  "logs": {
+    "stdout": "0608d41a802ffe5f62d639aa4ba72935b5cd717c157765ebf1a536192ee2298c",
+    "stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

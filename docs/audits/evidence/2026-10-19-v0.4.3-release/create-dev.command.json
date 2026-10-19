@@ -1,0 +1,16 @@
+{
+  "command": [
+    "D:\\Dev\\Projects\\chstockdata\\.venv\\Scripts\\python.exe",
+    "-m",
+    "venv",
+    "D:\\Dev\\Projects\\chstockdata\\build\\w0-v043\\dev"
+  ],
+  "cwd": "C:\\Users\\Administrator\\.codex\\worktrees\\w0-v043-release\\chstockdata",
+  "started_at_utc": "2026-10-19T11:22:51.860469+00:00",
+  "seconds": 8.256,
+  "exit_code": 0,
+  "logs": {
+    "stdout": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

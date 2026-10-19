@@ -174,7 +174,7 @@ from .delisting import fetch_delisting_status
 from .tradability import fetch_tradability
 from .opening_evidence import fetch_historical_opening_evidence, OfficialOpeningEvent
 
-__version__ = "0.4.2"
+__version__ = "0.4.3"
 
 __all__ = [
     # config

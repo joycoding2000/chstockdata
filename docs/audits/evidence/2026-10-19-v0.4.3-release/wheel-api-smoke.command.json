@@ -1,0 +1,22 @@
+{
+  "command": [
+    "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\chstockdata-w0-v043-9g5bzj9z\\wheel\\Scripts\\python.exe",
+    "-I",
+    "C:\\Users\\Administrator\\.codex\\worktrees\\w0-v043-release\\chstockdata\\docs\\audits\\evidence\\2026-10-19-v0.4.3-release\\artifact-smoke.py",
+    "--source-root",
+    "C:\\Users\\Administrator\\.codex\\worktrees\\w0-v043-release\\chstockdata",
+    "--original-root",
+    "D:\\Dev\\Projects\\chstockdata",
+    "--fixture-root",
+    "C:\\Users\\Administrator\\.codex\\worktrees\\w0-v043-release\\chstockdata\\tests\\fixtures\\daily_fund_flow"
+  ],
+  "cwd": "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\chstockdata-w0-v043-9g5bzj9z",
+  "started_at_utc": "2026-10-19T11:27:50.524648+00:00",
+  "seconds": 1.332,
+  "exit_code": 0,
+  "environment_overrides": {},
+  "logs": {
+    "stdout": "331106aea66511194967e17a07421a4556716fe44373ef468b9eb5901819d812",
+    "stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

@@ -295,8 +295,8 @@ def test_legacy_renderer_keeps_existing_envelope_fields(monkeypatch, tmp_path):
     assert "未覆盖" in bse["coverage_note"]
 
 
-def test_structured_payload_is_minimal_and_version_stays_042():
-    assert chstockdata.__version__ == "0.4.2"
+def test_structured_payload_is_minimal_and_version_is_043():
+    assert chstockdata.__version__ == "0.4.3"
     assert set(
         {
             "ticker",

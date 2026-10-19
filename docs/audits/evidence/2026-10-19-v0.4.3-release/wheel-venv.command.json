@@ -1,0 +1,17 @@
+{
+  "command": [
+    "D:\\Dev\\Projects\\chstockdata\\build\\w0-v043\\dev\\Scripts\\python.exe",
+    "-m",
+    "venv",
+    "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\chstockdata-w0-v043-9g5bzj9z\\wheel"
+  ],
+  "cwd": "C:\\Users\\Administrator\\.codex\\worktrees\\w0-v043-release\\chstockdata",
+  "started_at_utc": "2026-10-19T11:27:04.829197+00:00",
+  "seconds": 7.462,
+  "exit_code": 0,
+  "environment_overrides": {},
+  "logs": {
+    "stdout": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr": "f7acfbd59a60e190cd4192ec111ee436aa872de8bf4102c6df7a19034d5bece7"
+  }
+}

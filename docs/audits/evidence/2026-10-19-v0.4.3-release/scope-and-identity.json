@@ -1,0 +1,224 @@
+{
+  "verdict": "PASS",
+  "base_sha": "9543d03310b25be9963227a2a226366de04276ec",
+  "authorized_files": [
+    ".gitattributes",
+    "README.md",
+    "docs/audits/2026-10-19-v0.4.3-preflight.md",
+    "docs/releases/v0.4.3.md",
+    "pyproject.toml",
+    "src/chstockdata/__init__.py",
+    "tests/test_delisting_structured.py",
+    "tests/test_fund_corporate_actions.py"
+  ],
+  "evidence_prefix": "docs/audits/evidence/2026-10-19-v0.4.3-release/",
+  "changed_tracked_files": [
+    "README.md",
+    "pyproject.toml",
+    "src/chstockdata/__init__.py",
+    "tests/test_delisting_structured.py",
+    "tests/test_fund_corporate_actions.py"
+  ],
+  "protected_file_count": 157,
+  "identities": {
+    "docs/dr04-p-daily-fund-flow.md": {
+      "accepted_git_blob_sha256": "3af3a6434c162a42c3a86e3579836d186976952133033ce0759b53d398c84da8",
+      "candidate_canonical_sha256": "3af3a6434c162a42c3a86e3579836d186976952133033ce0759b53d398c84da8",
+      "working_file_sha256": "77f5478e2a3f0fa59a0ee8bdfa1a7fe8f7a4d4740e49cccc52cd7c13145e2e71"
+    },
+    "src/chstockdata/a_stock.py": {
+      "accepted_git_blob_sha256": "3eb18bfa41a76e8263d870fe849941ef1d5c71d4c21948274f53ac0f6f06d89a",
+      "candidate_canonical_sha256": "00ef82ae7a241d622d1576dfaae7290f0b0fc6bfd26be0f3350623542deccf91",
+      "working_file_sha256": "3eb18bfa41a76e8263d870fe849941ef1d5c71d4c21948274f53ac0f6f06d89a"
+    },
+    "src/chstockdata/daily_fund_flow.py": {
+      "accepted_git_blob_sha256": "8b4b4e9e9debd5354d72fe8967d5906138413bd52a2a5faa30afc006a173f5e7",
+      "candidate_canonical_sha256": "8b4b4e9e9debd5354d72fe8967d5906138413bd52a2a5faa30afc006a173f5e7",
+      "working_file_sha256": "477c9307a00a2bfe087c72c46047e44e1334562b84127f89840d9d4e2deada0a"
+    },
+    "src/chstockdata/fetch_result.py": {
+      "accepted_git_blob_sha256": "91a40d5376868f081d793bb989b0050fe852e64e79fcd8505817c1219c4242e5",
+      "candidate_canonical_sha256": "91a40d5376868f081d793bb989b0050fe852e64e79fcd8505817c1219c4242e5",
+      "working_file_sha256": "0b3dadefa8c21b6bbf698af5ea90845f5102c4e14fa64fbdb4c1c08dbe9d6a1b"
+    },
+    "src/chstockdata/vipdoc_history.py": {
+      "accepted_git_blob_sha256": "712cbfc69228aaa580f47a9874958f3a8a1896ea0610828148aeb5b8a94e9dc8",
+      "candidate_canonical_sha256": "712cbfc69228aaa580f47a9874958f3a8a1896ea0610828148aeb5b8a94e9dc8",
+      "working_file_sha256": "1b005366c1a3045310b6a9f71fecf47ed0bc5639dae5748c53f6e4df058e9874"
+    },
+    "tests/fixtures/daily_fund_flow/002-sh600000-p1.bin": {
+      "accepted_git_blob_sha256": "6f807d76b37bc1309adbd4ba66342c82eed9fe070befdaaebace4d591875c417",
+      "candidate_canonical_sha256": "6f807d76b37bc1309adbd4ba66342c82eed9fe070befdaaebace4d591875c417",
+      "working_file_sha256": "6f807d76b37bc1309adbd4ba66342c82eed9fe070befdaaebace4d591875c417"
+    },
+    "tests/fixtures/daily_fund_flow/010-sz300750-p1.bin": {
+      "accepted_git_blob_sha256": "40797b8c114514e952497480d47310e9b33b72822a701aca0ce51cf170d0f153",
+      "candidate_canonical_sha256": "40797b8c114514e952497480d47310e9b33b72822a701aca0ce51cf170d0f153",
+      "working_file_sha256": "40797b8c114514e952497480d47310e9b33b72822a701aca0ce51cf170d0f153"
+    },
+    "tests/fixtures/daily_fund_flow/014-sh688981-p1.bin": {
+      "accepted_git_blob_sha256": "b757684734e146c2a2e237078f0f282714f35a35039b9f64f619dfbc4436db1a",
+      "candidate_canonical_sha256": "b757684734e146c2a2e237078f0f282714f35a35039b9f64f619dfbc4436db1a",
+      "working_file_sha256": "b757684734e146c2a2e237078f0f282714f35a35039b9f64f619dfbc4436db1a"
+    },
+    "tests/fixtures/daily_fund_flow/017-sh688432-p1.bin": {
+      "accepted_git_blob_sha256": "722491dbeb6587e4ac766bb20c6919e2b2dbe327feb27ad41e47948dc6bfd3d2",
+      "candidate_canonical_sha256": "722491dbeb6587e4ac766bb20c6919e2b2dbe327feb27ad41e47948dc6bfd3d2",
+      "working_file_sha256": "722491dbeb6587e4ac766bb20c6919e2b2dbe327feb27ad41e47948dc6bfd3d2"
+    },
+    "tests/fixtures/daily_fund_flow/018-sz000004-p1.bin": {
+      "accepted_git_blob_sha256": "4bab15528cb7ca4489841e5ff9e2ca246efd232902a197d9b85ef16c5297a89e",
+      "candidate_canonical_sha256": "4bab15528cb7ca4489841e5ff9e2ca246efd232902a197d9b85ef16c5297a89e",
+      "working_file_sha256": "4bab15528cb7ca4489841e5ff9e2ca246efd232902a197d9b85ef16c5297a89e"
+    },
+    "tests/fixtures/daily_fund_flow/019-sz000005-p1.bin": {
+      "accepted_git_blob_sha256": "00c69898dc1ae9332279756283070f2eef1868ee1eb95eea7d9ca5d9d1be756f",
+      "candidate_canonical_sha256": "00c69898dc1ae9332279756283070f2eef1868ee1eb95eea7d9ca5d9d1be756f",
+      "working_file_sha256": "00c69898dc1ae9332279756283070f2eef1868ee1eb95eea7d9ca5d9d1be756f"
+    },
+    "tests/fixtures/daily_fund_flow/020-sz300750-p2.bin": {
+      "accepted_git_blob_sha256": "d79d6da578a9608d3cf497a1b4b2da77e8528401e126fe9e734dde016e580417",
+      "candidate_canonical_sha256": "d79d6da578a9608d3cf497a1b4b2da77e8528401e126fe9e734dde016e580417",
+      "working_file_sha256": "d79d6da578a9608d3cf497a1b4b2da77e8528401e126fe9e734dde016e580417"
+    },
+    "tests/fixtures/daily_fund_flow/021-sz300750-p3.bin": {
+      "accepted_git_blob_sha256": "a3ae2ac93865ef3b02b39106f015e4c10a3e4bf3d99fb2790a3561af29e81717",
+      "candidate_canonical_sha256": "a3ae2ac93865ef3b02b39106f015e4c10a3e4bf3d99fb2790a3561af29e81717",
+      "working_file_sha256": "a3ae2ac93865ef3b02b39106f015e4c10a3e4bf3d99fb2790a3561af29e81717"
+    },
+    "tests/fixtures/daily_fund_flow/022-sz300750-p4.bin": {
+      "accepted_git_blob_sha256": "a0866894e5ba8ea491d25d73c218078f1de86b50c89c7e19b805049d56055b10",
+      "candidate_canonical_sha256": "a0866894e5ba8ea491d25d73c218078f1de86b50c89c7e19b805049d56055b10",
+      "working_file_sha256": "a0866894e5ba8ea491d25d73c218078f1de86b50c89c7e19b805049d56055b10"
+    },
+    "tests/fixtures/daily_fund_flow/023-sz300750-p5.bin": {
+      "accepted_git_blob_sha256": "e7a0c3f8dc6becd8615849b22fe0baa739fd147f7c07456c23ef42f7d15c59b2",
+      "candidate_canonical_sha256": "e7a0c3f8dc6becd8615849b22fe0baa739fd147f7c07456c23ef42f7d15c59b2",
+      "working_file_sha256": "e7a0c3f8dc6becd8615849b22fe0baa739fd147f7c07456c23ef42f7d15c59b2"
+    },
+    "tests/fixtures/daily_fund_flow/024-sz300750-p6.bin": {
+      "accepted_git_blob_sha256": "7832df8970936b64d5fe1c087df2a36a96f2973321dbe91f02a9cee70e883255",
+      "candidate_canonical_sha256": "7832df8970936b64d5fe1c087df2a36a96f2973321dbe91f02a9cee70e883255",
+      "working_file_sha256": "7832df8970936b64d5fe1c087df2a36a96f2973321dbe91f02a9cee70e883255"
+    },
+    "tests/fixtures/daily_fund_flow/025-sz300750-p7.bin": {
+      "accepted_git_blob_sha256": "72ea22e89a42a40fa0302f5f5c03e72bbd78f49b415f55cdff0236ef9d03063e",
+      "candidate_canonical_sha256": "72ea22e89a42a40fa0302f5f5c03e72bbd78f49b415f55cdff0236ef9d03063e",
+      "working_file_sha256": "72ea22e89a42a40fa0302f5f5c03e72bbd78f49b415f55cdff0236ef9d03063e"
+    },
+    "tests/fixtures/daily_fund_flow/026-sz300750-p8.bin": {
+      "accepted_git_blob_sha256": "9682658891c452a2e5d9881cd8c3620c1396725825d5528497fe009aa20a45d7",
+      "candidate_canonical_sha256": "9682658891c452a2e5d9881cd8c3620c1396725825d5528497fe009aa20a45d7",
+      "working_file_sha256": "9682658891c452a2e5d9881cd8c3620c1396725825d5528497fe009aa20a45d7"
+    },
+    "tests/fixtures/daily_fund_flow/027-sz300750-p9.bin": {
+      "accepted_git_blob_sha256": "aa44f69be6919648ccf1911e464fcb7ba36edb58bcae4f9142051b11c6ceb6f0",
+      "candidate_canonical_sha256": "aa44f69be6919648ccf1911e464fcb7ba36edb58bcae4f9142051b11c6ceb6f0",
+      "working_file_sha256": "aa44f69be6919648ccf1911e464fcb7ba36edb58bcae4f9142051b11c6ceb6f0"
+    },
+    "tests/fixtures/daily_fund_flow/028-sz300750-p10.bin": {
+      "accepted_git_blob_sha256": "3bc9e294b316e067e23b08d28bc46c8bf200602e7525d56fc1b1a5d33cccb28c",
+      "candidate_canonical_sha256": "3bc9e294b316e067e23b08d28bc46c8bf200602e7525d56fc1b1a5d33cccb28c",
+      "working_file_sha256": "3bc9e294b316e067e23b08d28bc46c8bf200602e7525d56fc1b1a5d33cccb28c"
+    },
+    "tests/fixtures/daily_fund_flow/029-sz300750-p11.bin": {
+      "accepted_git_blob_sha256": "2ba1bdf646c6a7de6fc413ee017688790902e039f9a28021f0b8425c4bebcaeb",
+      "candidate_canonical_sha256": "2ba1bdf646c6a7de6fc413ee017688790902e039f9a28021f0b8425c4bebcaeb",
+      "working_file_sha256": "2ba1bdf646c6a7de6fc413ee017688790902e039f9a28021f0b8425c4bebcaeb"
+    },
+    "tests/fixtures/daily_fund_flow/030-sz300750-p12.bin": {
+      "accepted_git_blob_sha256": "61ec589ca5483275fc5a61102b90104144389a1b298c36f2807a0b62ea5d36c5",
+      "candidate_canonical_sha256": "61ec589ca5483275fc5a61102b90104144389a1b298c36f2807a0b62ea5d36c5",
+      "working_file_sha256": "61ec589ca5483275fc5a61102b90104144389a1b298c36f2807a0b62ea5d36c5"
+    },
+    "tests/fixtures/daily_fund_flow/031-sz300750-p13.bin": {
+      "accepted_git_blob_sha256": "f703b51f1c6c86256f86874b28668eab355ca7c1757ded14e147d4f2e1dc7ef3",
+      "candidate_canonical_sha256": "f703b51f1c6c86256f86874b28668eab355ca7c1757ded14e147d4f2e1dc7ef3",
+      "working_file_sha256": "f703b51f1c6c86256f86874b28668eab355ca7c1757ded14e147d4f2e1dc7ef3"
+    },
+    "tests/fixtures/daily_fund_flow/032-sh688981-p2.bin": {
+      "accepted_git_blob_sha256": "dac4cc441d168563f3bf4dbe4735b65ba6a1afa772fbe95b43e17c94e9bc5bb9",
+      "candidate_canonical_sha256": "dac4cc441d168563f3bf4dbe4735b65ba6a1afa772fbe95b43e17c94e9bc5bb9",
+      "working_file_sha256": "dac4cc441d168563f3bf4dbe4735b65ba6a1afa772fbe95b43e17c94e9bc5bb9"
+    },
+    "tests/fixtures/daily_fund_flow/033-sh688981-p3.bin": {
+      "accepted_git_blob_sha256": "4d41492610d321335188b0fb3e92b383bda51bf025a7a85aded66c0559be35aa",
+      "candidate_canonical_sha256": "4d41492610d321335188b0fb3e92b383bda51bf025a7a85aded66c0559be35aa",
+      "working_file_sha256": "4d41492610d321335188b0fb3e92b383bda51bf025a7a85aded66c0559be35aa"
+    },
+    "tests/fixtures/daily_fund_flow/034-sh688981-p4.bin": {
+      "accepted_git_blob_sha256": "656dd920732ba02781bc6c3f4aa8addac8b2e72b00b20d15b5ed865825b45c78",
+      "candidate_canonical_sha256": "656dd920732ba02781bc6c3f4aa8addac8b2e72b00b20d15b5ed865825b45c78",
+      "working_file_sha256": "656dd920732ba02781bc6c3f4aa8addac8b2e72b00b20d15b5ed865825b45c78"
+    },
+    "tests/fixtures/daily_fund_flow/035-sh688981-p5.bin": {
+      "accepted_git_blob_sha256": "1eb8e1fd9a96b02a28c37ffa7618dab5ea1ed8e8a3f5206823922687c0566d18",
+      "candidate_canonical_sha256": "1eb8e1fd9a96b02a28c37ffa7618dab5ea1ed8e8a3f5206823922687c0566d18",
+      "working_file_sha256": "1eb8e1fd9a96b02a28c37ffa7618dab5ea1ed8e8a3f5206823922687c0566d18"
+    },
+    "tests/fixtures/daily_fund_flow/036-sh688981-p6.bin": {
+      "accepted_git_blob_sha256": "d4ba6017c0c1c6c0963724316797e5ccdb80198487a619ddc572aca2668da687",
+      "candidate_canonical_sha256": "d4ba6017c0c1c6c0963724316797e5ccdb80198487a619ddc572aca2668da687",
+      "working_file_sha256": "d4ba6017c0c1c6c0963724316797e5ccdb80198487a619ddc572aca2668da687"
+    },
+    "tests/fixtures/daily_fund_flow/037-sh688981-p7.bin": {
+      "accepted_git_blob_sha256": "d7e6b4e04bfe02021a936457d323e42e368ccce1082ac987b1673ef51ca73303",
+      "candidate_canonical_sha256": "d7e6b4e04bfe02021a936457d323e42e368ccce1082ac987b1673ef51ca73303",
+      "working_file_sha256": "d7e6b4e04bfe02021a936457d323e42e368ccce1082ac987b1673ef51ca73303"
+    },
+    "tests/fixtures/daily_fund_flow/038-sh688981-p8.bin": {
+      "accepted_git_blob_sha256": "64d0a9c46c3aac3bbb8bcb143a3eb3b36e38f3c0feeb26bee437e2f7dc4d06b3",
+      "candidate_canonical_sha256": "64d0a9c46c3aac3bbb8bcb143a3eb3b36e38f3c0feeb26bee437e2f7dc4d06b3",
+      "working_file_sha256": "64d0a9c46c3aac3bbb8bcb143a3eb3b36e38f3c0feeb26bee437e2f7dc4d06b3"
+    },
+    "tests/fixtures/daily_fund_flow/039-sh688981-p9.bin": {
+      "accepted_git_blob_sha256": "88e25c9315327e5f419ff5eb64a3a43059a330b4b06cf1fd359dcd766a7ca431",
+      "candidate_canonical_sha256": "88e25c9315327e5f419ff5eb64a3a43059a330b4b06cf1fd359dcd766a7ca431",
+      "working_file_sha256": "88e25c9315327e5f419ff5eb64a3a43059a330b4b06cf1fd359dcd766a7ca431"
+    },
+    "tests/fixtures/daily_fund_flow/040-sh688981-p10.bin": {
+      "accepted_git_blob_sha256": "bff1ab88a9d3491a8a9c18affc5d4257214cb96f493008fbed76754c4c6a2baa",
+      "candidate_canonical_sha256": "bff1ab88a9d3491a8a9c18affc5d4257214cb96f493008fbed76754c4c6a2baa",
+      "working_file_sha256": "bff1ab88a9d3491a8a9c18affc5d4257214cb96f493008fbed76754c4c6a2baa"
+    },
+    "tests/fixtures/daily_fund_flow/041-sh688981-p11.bin": {
+      "accepted_git_blob_sha256": "ff8069ce960c32d457c3847e9e60d06e922daf84c880a460eb98f70d47272a24",
+      "candidate_canonical_sha256": "ff8069ce960c32d457c3847e9e60d06e922daf84c880a460eb98f70d47272a24",
+      "working_file_sha256": "ff8069ce960c32d457c3847e9e60d06e922daf84c880a460eb98f70d47272a24"
+    },
+    "tests/fixtures/daily_fund_flow/042-sh688981-p12.bin": {
+      "accepted_git_blob_sha256": "921c97212bc1786cefd1adc5b237274c43a95deb067dd72945c0817fa3942dcd",
+      "candidate_canonical_sha256": "921c97212bc1786cefd1adc5b237274c43a95deb067dd72945c0817fa3942dcd",
+      "working_file_sha256": "921c97212bc1786cefd1adc5b237274c43a95deb067dd72945c0817fa3942dcd"
+    },
+    "tests/fixtures/daily_fund_flow/043-sh688981-p13.bin": {
+      "accepted_git_blob_sha256": "591318829460ad9717b6097b6326d7230ba4e3b0ce50d80f8515f25c1ad78da0",
+      "candidate_canonical_sha256": "591318829460ad9717b6097b6326d7230ba4e3b0ce50d80f8515f25c1ad78da0",
+      "working_file_sha256": "591318829460ad9717b6097b6326d7230ba4e3b0ce50d80f8515f25c1ad78da0"
+    },
+    "tests/fixtures/daily_fund_flow/README.md": {
+      "accepted_git_blob_sha256": "1ee63e3af239b0b0e21d42964156588e69f3d3c1014d95ee1e53afe9d9b6354a",
+      "candidate_canonical_sha256": "1ee63e3af239b0b0e21d42964156588e69f3d3c1014d95ee1e53afe9d9b6354a",
+      "working_file_sha256": "e3f00654c52da66db5f3d2125f4de61e5a592955c428c4b18afd26a29d16134d"
+    },
+    "tests/fixtures/daily_fund_flow/calendar.json": {
+      "accepted_git_blob_sha256": "e1d23576ebbb8ac60e79cc9f321330c844bad4e2e43305fb48389bf602ff86cf",
+      "candidate_canonical_sha256": "324bfd78233f307c9ac1f02e539fc929ebab6395c2819a3969989903a6f1a244",
+      "working_file_sha256": "e1d23576ebbb8ac60e79cc9f321330c844bad4e2e43305fb48389bf602ff86cf"
+    },
+    "tests/fixtures/daily_fund_flow/manifest.json": {
+      "accepted_git_blob_sha256": "bbfd60d59ea28b23a3f8b99d0aa47dd81e6059b0b2fd14ea4db080e345e1e80c",
+      "candidate_canonical_sha256": "38315e4d9e9110fef5bbd64e7d4257da68ca912320e6876afac54c56fcc1198e",
+      "working_file_sha256": "bbfd60d59ea28b23a3f8b99d0aa47dd81e6059b0b2fd14ea4db080e345e1e80c"
+    },
+    "tests/test_daily_fund_flow.py": {
+      "accepted_git_blob_sha256": "ce20e2c8bc09fa6164e2070ad5dc3c131c415a5dc2cf1d27efe489a9b5e73b63",
+      "candidate_canonical_sha256": "ce20e2c8bc09fa6164e2070ad5dc3c131c415a5dc2cf1d27efe489a9b5e73b63",
+      "working_file_sha256": "4346d0f6c94cfe94e9f7343b1143adc33cf855f223f161cb25031e89724d928a"
+    }
+  },
+  "external_contract_sha256": "1c7c37b1514032ef08d9714fe8cfa4f722c0f730af1e58608dbc6b45eaffeba1",
+  "dependency_constraints_unchanged": true,
+  "business_and_price_assertions_unchanged": true,
+  "accepted_dr04_p_tests_unchanged": true
+}

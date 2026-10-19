@@ -1,0 +1,7 @@
+# Preserve frozen raw evidence bytes used by the release gate and sdist.
+docs/audits/evidence/2026-10-10-v0.4.2-tdx-historical-execution/tdx_history_responses.jsonl -text
+docs/audits/evidence/2026-10-10-v0.4.2-tdx-historical-execution/tdx_opening_page_responses.jsonl -text
+docs/audits/evidence/2026-10-10-v0.4.2-tdx-historical-execution/tdx_opening_page_followup_responses.jsonl -text
+docs/audits/evidence/2026-10-10-v0.4.2-tdx-historical-execution/tdx_opening_page_final_responses.jsonl -text
+/docs/audits/evidence/2026-10-19-v0.4.3-release/** -text
+/docs/audits/evidence/2026-10-19-v0.4.3-post-release/** -text

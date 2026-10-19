@@ -1,0 +1,245 @@
+{
+  "jsonl_bytes": [
+    {
+      "path": "docs/audits/evidence/2026-10-10-v0.4.2-tdx-historical-execution/tdx_history_responses.jsonl",
+      "blob_sha256": "2644ce583796b412d18c5b4730356e2df95691085dbf0080dfa728ecac08a228",
+      "checkout_sha256": "2eb9efad0bf7b3e8692a40771ff76a4da6cc1083306948251e0c1d19f2c7f12a",
+      "blob_crlf": 0,
+      "checkout_crlf": 24,
+      "only_checkout_crlf_conversion": true
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-10-v0.4.2-tdx-historical-execution/tdx_opening_page_responses.jsonl",
+      "blob_sha256": "03c727b674a5233d873e90da234879c60dc0b222f548c2ec3e5f97298d347dbd",
+      "checkout_sha256": "ddbd0ef06645d566a3cdb246ce41863cae80d40eee900f11a0909cb50536df90",
+      "blob_crlf": 0,
+      "checkout_crlf": 9,
+      "only_checkout_crlf_conversion": true
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-10-v0.4.2-tdx-historical-execution/tdx_opening_page_followup_responses.jsonl",
+      "blob_sha256": "9989c8a427a4a82fb921fef127b50d7f52a111c9feb033d833ed7842f5aa0ccf",
+      "checkout_sha256": "959a641a9ae625ee1794707fbc61960792b496277c8348e8a9736afe18f3b5ab",
+      "blob_crlf": 0,
+      "checkout_crlf": 7,
+      "only_checkout_crlf_conversion": true
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-10-v0.4.2-tdx-historical-execution/tdx_opening_page_final_responses.jsonl",
+      "blob_sha256": "5875d32c619d59f18f3bf5f448f1bc8d5f027fc6ce012409e6ab7fb5659a3a34",
+      "checkout_sha256": "95858dd02d4f5065d6afbd130202955cefa36867f70990fc90e3aa5dfa8a4fbc",
+      "blob_crlf": 0,
+      "checkout_crlf": 4,
+      "only_checkout_crlf_conversion": true
+    }
+  ],
+  "summary": {
+    "tests": 852,
+    "failed": 50,
+    "skipped": [
+      "tests.test_mcp_server::test_build_server_accepts_supported_mcp_api"
+    ]
+  },
+  "failures": [
+    {
+      "case": "tests.test_delisting_structured::test_structured_payload_is_minimal_and_version_stays_042",
+      "message": "AssertionError: assert '0.4.3' == '0.4.2'\n  \n  - 0.4.2\n  ?     ^\n  + 0.4.3\n  ?     ^"
+    },
+    {
+      "case": "tests.test_fund_corporate_actions::test_release_version_is_042",
+      "message": "AssertionError: assert '0.4.3' == '0.4.2'\n  \n  - 0.4.2\n  ?     ^\n  + 0.4.3\n  ?     ^"
+    },
+    {
+      "case": "tests.test_historical_opening_evidence::test_four_real_etf_opening_composition[510300-4.576-352580]",
+      "message": "AssertionError: assert '2eb9efad0bf7...c1d19f2c7f12a' == '2644ce583796...728ecac08a228'\n  \n  - 2644ce583796b412d18c5b4730356e2df95691085dbf0080dfa728ecac08a228\n  + 2eb9efad0bf7b3e8692a40771ff76a4da6cc1083306948251e0c1d19f2c7f12a"
+    },
+    {
+      "case": "tests.test_historical_opening_evidence::test_four_real_etf_opening_composition[159915-3.339-557149]",
+      "message": "AssertionError: assert '2eb9efad0bf7...c1d19f2c7f12a' == '2644ce583796...728ecac08a228'\n  \n  - 2644ce583796b412d18c5b4730356e2df95691085dbf0080dfa728ecac08a228\n  + 2eb9efad0bf7b3e8692a40771ff76a4da6cc1083306948251e0c1d19f2c7f12a"
+    },
+    {
+      "case": "tests.test_historical_opening_evidence::test_four_real_etf_opening_composition[518880-8.91-106411]",
+      "message": "AssertionError: assert '2eb9efad0bf7...c1d19f2c7f12a' == '2644ce583796...728ecac08a228'\n  \n  - 2644ce583796b412d18c5b4730356e2df95691085dbf0080dfa728ecac08a228\n  + 2eb9efad0bf7b3e8692a40771ff76a4da6cc1083306948251e0c1d19f2c7f12a"
+    },
+    {
+      "case": "tests.test_historical_opening_evidence::test_four_real_etf_opening_composition[511010-141.177-289]",
+      "message": "AssertionError: assert '2eb9efad0bf7...c1d19f2c7f12a' == '2644ce583796...728ecac08a228'\n  \n  - 2644ce583796b412d18c5b4730356e2df95691085dbf0080dfa728ecac08a228\n  + 2eb9efad0bf7b3e8692a40771ff76a4da6cc1083306948251e0c1d19f2c7f12a"
+    },
+    {
+      "case": "tests.test_historical_opening_evidence::test_stock_prices_preserved_and_later_halt_does_not_veto_open[688432-2026-09-14-40.9]",
+      "message": "AssertionError: assert '2eb9efad0bf7...c1d19f2c7f12a' == '2644ce583796...728ecac08a228'\n  \n  - 2644ce583796b412d18c5b4730356e2df95691085dbf0080dfa728ecac08a228\n  + 2eb9efad0bf7b3e8692a40771ff76a4da6cc1083306948251e0c1d19f2c7f12a"
+    },
+    {
+      "case": "tests.test_historical_opening_evidence::test_stock_prices_preserved_and_later_halt_does_not_veto_open[000002-2015-12-18-22.4]",
+      "message": "AssertionError: assert '2eb9efad0bf7...c1d19f2c7f12a' == '2644ce583796...728ecac08a228'\n  \n  - 2644ce583796b412d18c5b4730356e2df95691085dbf0080dfa728ecac08a228\n  + 2eb9efad0bf7b3e8692a40771ff76a4da6cc1083306948251e0c1d19f2c7f12a"
+    },
+    {
+      "case": "tests.test_historical_opening_evidence::test_bounded_real_history[2016-12-30]",
+      "message": "AssertionError: assert '2eb9efad0bf7...c1d19f2c7f12a' == '2644ce583796...728ecac08a228'\n  \n  - 2644ce583796b412d18c5b4730356e2df95691085dbf0080dfa728ecac08a228\n  + 2eb9efad0bf7b3e8692a40771ff76a4da6cc1083306948251e0c1d19f2c7f12a"
+    },
+    {
+      "case": "tests.test_historical_opening_evidence::test_bounded_real_history[2022-12-30]",
+      "message": "AssertionError: assert '2eb9efad0bf7...c1d19f2c7f12a' == '2644ce583796...728ecac08a228'\n  \n  - 2644ce583796b412d18c5b4730356e2df95691085dbf0080dfa728ecac08a228\n  + 2eb9efad0bf7b3e8692a40771ff76a4da6cc1083306948251e0c1d19f2c7f12a"
+    },
+    {
+      "case": "tests.test_historical_opening_evidence::test_known_full_window_block_plus_positive_activity_is_conflict",
+      "message": "AssertionError: assert '2eb9efad0bf7...c1d19f2c7f12a' == '2644ce583796...728ecac08a228'\n  \n  - 2644ce583796b412d18c5b4730356e2df95691085dbf0080dfa728ecac08a228\n  + 2eb9efad0bf7b3e8692a40771ff76a4da6cc1083306948251e0c1d19f2c7f12a"
+    },
+    {
+      "case": "tests.test_historical_opening_evidence::test_resume_inside_minute_blocks_target_without_retry",
+      "message": "AssertionError: assert '2eb9efad0bf7...c1d19f2c7f12a' == '2644ce583796...728ecac08a228'\n  \n  - 2644ce583796b412d18c5b4730356e2df95691085dbf0080dfa728ecac08a228\n  + 2eb9efad0bf7b3e8692a40771ff76a4da6cc1083306948251e0c1d19f2c7f12a"
+    },
+    {
+      "case": "tests.test_historical_opening_evidence::test_halt_start_inside_minute_cannot_order_activity",
+      "message": "AssertionError: assert '2eb9efad0bf7...c1d19f2c7f12a' == '2644ce583796...728ecac08a228'\n  \n  - 2644ce583796b412d18c5b4730356e2df95691085dbf0080dfa728ecac08a228\n  + 2eb9efad0bf7b3e8692a40771ff76a4da6cc1083306948251e0c1d19f2c7f12a"
+    },
+    {
+      "case": "tests.test_historical_opening_evidence::test_ongoing_unconfirmed_end_vetoes_empty_official",
+      "message": "AssertionError: assert '2eb9efad0bf7...c1d19f2c7f12a' == '2644ce583796...728ecac08a228'\n  \n  - 2644ce583796b412d18c5b4730356e2df95691085dbf0080dfa728ecac08a228\n  + 2eb9efad0bf7b3e8692a40771ff76a4da6cc1083306948251e0c1d19f2c7f12a"
+    },
+    {
+      "case": "tests.test_historical_opening_evidence::test_current_official_failure_and_partial_do_not_allow_open[bad0]",
+      "message": "AssertionError: assert '2eb9efad0bf7...c1d19f2c7f12a' == '2644ce583796...728ecac08a228'\n  \n  - 2644ce583796b412d18c5b4730356e2df95691085dbf0080dfa728ecac08a228\n  + 2eb9efad0bf7b3e8692a40771ff76a4da6cc1083306948251e0c1d19f2c7f12a"
+    },
+    {
+      "case": "tests.test_historical_opening_evidence::test_current_official_failure_and_partial_do_not_allow_open[<html>not json</html>]",
+      "message": "AssertionError: assert '2eb9efad0bf7...c1d19f2c7f12a' == '2644ce583796...728ecac08a228'\n  \n  - 2644ce583796b412d18c5b4730356e2df95691085dbf0080dfa728ecac08a228\n  + 2eb9efad0bf7b3e8692a40771ff76a4da6cc1083306948251e0c1d19f2c7f12a"
+    },
+    {
+      "case": "tests.test_historical_opening_evidence::test_current_official_failure_and_partial_do_not_allow_open[bad2]",
+      "message": "AssertionError: assert '2eb9efad0bf7...c1d19f2c7f12a' == '2644ce583796...728ecac08a228'\n  \n  - 2644ce583796b412d18c5b4730356e2df95691085dbf0080dfa728ecac08a228\n  + 2eb9efad0bf7b3e8692a40771ff76a4da6cc1083306948251e0c1d19f2c7f12a"
+    },
+    {
+      "case": "tests.test_historical_opening_evidence::test_no_qualified_activity_unknown[auction_only]",
+      "message": "AssertionError: assert '2eb9efad0bf7...c1d19f2c7f12a' == '2644ce583796...728ecac08a228'\n  \n  - 2644ce583796b412d18c5b4730356e2df95691085dbf0080dfa728ecac08a228\n  + 2eb9efad0bf7b3e8692a40771ff76a4da6cc1083306948251e0c1d19f2c7f12a"
+    },
+    {
+      "case": "tests.test_historical_opening_evidence::test_no_qualified_activity_unknown[zero]",
+      "message": "AssertionError: assert '2eb9efad0bf7...c1d19f2c7f12a' == '2644ce583796...728ecac08a228'\n  \n  - 2644ce583796b412d18c5b4730356e2df95691085dbf0080dfa728ecac08a228\n  + 2eb9efad0bf7b3e8692a40771ff76a4da6cc1083306948251e0c1d19f2c7f12a"
+    },
+    {
+      "case": "tests.test_historical_opening_evidence::test_no_qualified_activity_unknown[minute_only]",
+      "message": "AssertionError: assert '2eb9efad0bf7...c1d19f2c7f12a' == '2644ce583796...728ecac08a228'\n  \n  - 2644ce583796b412d18c5b4730356e2df95691085dbf0080dfa728ecac08a228\n  + 2eb9efad0bf7b3e8692a40771ff76a4da6cc1083306948251e0c1d19f2c7f12a"
+    },
+    {
+      "case": "tests.test_historical_opening_evidence::test_no_qualified_activity_unknown[bad_price]",
+      "message": "AssertionError: assert '2eb9efad0bf7...c1d19f2c7f12a' == '2644ce583796...728ecac08a228'\n  \n  - 2644ce583796b412d18c5b4730356e2df95691085dbf0080dfa728ecac08a228\n  + 2eb9efad0bf7b3e8692a40771ff76a4da6cc1083306948251e0c1d19f2c7f12a"
+    },
+    {
+      "case": "tests.test_historical_opening_evidence::test_no_qualified_activity_unknown[bad_time]",
+      "message": "AssertionError: assert '2eb9efad0bf7...c1d19f2c7f12a' == '2644ce583796...728ecac08a228'\n  \n  - 2644ce583796b412d18c5b4730356e2df95691085dbf0080dfa728ecac08a228\n  + 2eb9efad0bf7b3e8692a40771ff76a4da6cc1083306948251e0c1d19f2c7f12a"
+    },
+    {
+      "case": "tests.test_historical_opening_evidence::test_no_qualified_activity_unknown[double_normalized]",
+      "message": "AssertionError: assert '2eb9efad0bf7...c1d19f2c7f12a' == '2644ce583796...728ecac08a228'\n  \n  - 2644ce583796b412d18c5b4730356e2df95691085dbf0080dfa728ecac08a228\n  + 2eb9efad0bf7b3e8692a40771ff76a4da6cc1083306948251e0c1d19f2c7f12a"
+    },
+    {
+      "case": "tests.test_historical_opening_evidence::test_unknown_version_rejected",
+      "message": "AssertionError: assert '2eb9efad0bf7...c1d19f2c7f12a' == '2644ce583796...728ecac08a228'\n  \n  - 2644ce583796b412d18c5b4730356e2df95691085dbf0080dfa728ecac08a228\n  + 2eb9efad0bf7b3e8692a40771ff76a4da6cc1083306948251e0c1d19f2c7f12a"
+    },
+    {
+      "case": "tests.test_historical_opening_evidence::test_real_sse_interval_and_resume_evidence_participate",
+      "message": "AssertionError: assert '2eb9efad0bf7...c1d19f2c7f12a' == '2644ce583796...728ecac08a228'\n  \n  - 2644ce583796b412d18c5b4730356e2df95691085dbf0080dfa728ecac08a228\n  + 2eb9efad0bf7b3e8692a40771ff76a4da6cc1083306948251e0c1d19f2c7f12a"
+    },
+    {
+      "case": "tests.test_historical_opening_evidence::test_known_000002_continuous_halt_empty_tdx_not_normal",
+      "message": "AssertionError: assert '2eb9efad0bf7...c1d19f2c7f12a' == '2644ce583796...728ecac08a228'\n  \n  - 2644ce583796b412d18c5b4730356e2df95691085dbf0080dfa728ecac08a228\n  + 2eb9efad0bf7b3e8692a40771ff76a4da6cc1083306948251e0c1d19f2c7f12a"
+    },
+    {
+      "case": "tests.test_historical_opening_evidence::test_sse_fund_halt_control_actual_field_contract",
+      "message": "AssertionError: assert '2eb9efad0bf7...c1d19f2c7f12a' == '2644ce583796...728ecac08a228'\n  \n  - 2644ce583796b412d18c5b4730356e2df95691085dbf0080dfa728ecac08a228\n  + 2eb9efad0bf7b3e8692a40771ff76a4da6cc1083306948251e0c1d19f2c7f12a"
+    },
+    {
+      "case": "tests.test_historical_opening_evidence::test_szse_fund_halt_real_attachment_and_all_rows_considered",
+      "message": "AssertionError: assert '2eb9efad0bf7...c1d19f2c7f12a' == '2644ce583796...728ecac08a228'\n  \n  - 2644ce583796b412d18c5b4730356e2df95691085dbf0080dfa728ecac08a228\n  + 2eb9efad0bf7b3e8692a40771ff76a4da6cc1083306948251e0c1d19f2c7f12a"
+    },
+    {
+      "case": "tests.test_historical_opening_evidence::test_szse_unknown_event_meaning_and_bad_attachment_are_unknown",
+      "message": "AssertionError: assert '2eb9efad0bf7...c1d19f2c7f12a' == '2644ce583796...728ecac08a228'\n  \n  - 2644ce583796b412d18c5b4730356e2df95691085dbf0080dfa728ecac08a228\n  + 2eb9efad0bf7b3e8692a40771ff76a4da6cc1083306948251e0c1d19f2c7f12a"
+    },
+    {
+      "case": "tests.test_historical_opening_evidence::test_sse_wrong_code_and_unknown_secondary_time_unknown",
+      "message": "AssertionError: assert '2eb9efad0bf7...c1d19f2c7f12a' == '2644ce583796...728ecac08a228'\n  \n  - 2644ce583796b412d18c5b4730356e2df95691085dbf0080dfa728ecac08a228\n  + 2eb9efad0bf7b3e8692a40771ff76a4da6cc1083306948251e0c1d19f2c7f12a"
+    },
+    {
+      "case": "tests.test_historical_opening_evidence::test_complete_current_pagination_and_partial_cap",
+      "message": "AssertionError: assert '2eb9efad0bf7...c1d19f2c7f12a' == '2644ce583796...728ecac08a228'\n  \n  - 2644ce583796b412d18c5b4730356e2df95691085dbf0080dfa728ecac08a228\n  + 2eb9efad0bf7b3e8692a40771ff76a4da6cc1083306948251e0c1d19f2c7f12a"
+    },
+    {
+      "case": "tests.test_historical_opening_evidence::test_current_last_stop_day_cannot_be_erased_by_cached_resume",
+      "message": "AssertionError: assert '2eb9efad0bf7...c1d19f2c7f12a' == '2644ce583796...728ecac08a228'\n  \n  - 2644ce583796b412d18c5b4730356e2df95691085dbf0080dfa728ecac08a228\n  + 2eb9efad0bf7b3e8692a40771ff76a4da6cc1083306948251e0c1d19f2c7f12a"
+    },
+    {
+      "case": "tests.test_historical_opening_evidence::test_mismatched_known_security_is_typed_unknown_not_silently_ignored",
+      "message": "AssertionError: assert '2eb9efad0bf7...c1d19f2c7f12a' == '2644ce583796...728ecac08a228'\n  \n  - 2644ce583796b412d18c5b4730356e2df95691085dbf0080dfa728ecac08a228\n  + 2eb9efad0bf7b3e8692a40771ff76a4da6cc1083306948251e0c1d19f2c7f12a"
+    },
+    {
+      "case": "tests.test_historical_opening_evidence::test_pdf_magic_with_corrupt_pdf_is_typed_unknown",
+      "message": "AssertionError: assert '2eb9efad0bf7...c1d19f2c7f12a' == '2644ce583796...728ecac08a228'\n  \n  - 2644ce583796b412d18c5b4730356e2df95691085dbf0080dfa728ecac08a228\n  + 2eb9efad0bf7b3e8692a40771ff76a4da6cc1083306948251e0c1d19f2c7f12a"
+    },
+    {
+      "case": "tests.test_historical_opening_evidence::test_last_stop_day_is_blocked_through_open_not_midnight_resume",
+      "message": "AssertionError: assert '2eb9efad0bf7...c1d19f2c7f12a' == '2644ce583796...728ecac08a228'\n  \n  - 2644ce583796b412d18c5b4730356e2df95691085dbf0080dfa728ecac08a228\n  + 2eb9efad0bf7b3e8692a40771ff76a4da6cc1083306948251e0c1d19f2c7f12a"
+    },
+    {
+      "case": "tests.test_historical_opening_evidence::test_known_stock_resume_date_does_not_infer_unverified_clock",
+      "message": "AssertionError: assert '2eb9efad0bf7...c1d19f2c7f12a' == '2644ce583796...728ecac08a228'\n  \n  - 2644ce583796b412d18c5b4730356e2df95691085dbf0080dfa728ecac08a228\n  + 2eb9efad0bf7b3e8692a40771ff76a4da6cc1083306948251e0c1d19f2c7f12a"
+    },
+    {
+      "case": "tests.test_historical_opening_evidence::test_known_sse_etf_halt_survives_legitimate_empty_current_query",
+      "message": "AssertionError: assert '2eb9efad0bf7...c1d19f2c7f12a' == '2644ce583796...728ecac08a228'\n  \n  - 2644ce583796b412d18c5b4730356e2df95691085dbf0080dfa728ecac08a228\n  + 2eb9efad0bf7b3e8692a40771ff76a4da6cc1083306948251e0c1d19f2c7f12a"
+    },
+    {
+      "case": "tests.test_historical_opening_evidence::test_optional_pdf_parser_absent_is_typed_unknown",
+      "message": "AssertionError: assert '2eb9efad0bf7...c1d19f2c7f12a' == '2644ce583796...728ecac08a228'\n  \n  - 2644ce583796b412d18c5b4730356e2df95691085dbf0080dfa728ecac08a228\n  + 2eb9efad0bf7b3e8692a40771ff76a4da6cc1083306948251e0c1d19f2c7f12a"
+    },
+    {
+      "case": "tests.test_historical_opening_evidence::test_sse_single_session_etf_rule_rejects_stale_or_cross_day_interval[20260910]",
+      "message": "AssertionError: assert '2eb9efad0bf7...c1d19f2c7f12a' == '2644ce583796...728ecac08a228'\n  \n  - 2644ce583796b412d18c5b4730356e2df95691085dbf0080dfa728ecac08a228\n  + 2eb9efad0bf7b3e8692a40771ff76a4da6cc1083306948251e0c1d19f2c7f12a"
+    },
+    {
+      "case": "tests.test_historical_opening_evidence::test_sse_single_session_etf_rule_rejects_stale_or_cross_day_interval[20260911]",
+      "message": "AssertionError: assert '2eb9efad0bf7...c1d19f2c7f12a' == '2644ce583796...728ecac08a228'\n  \n  - 2644ce583796b412d18c5b4730356e2df95691085dbf0080dfa728ecac08a228\n  + 2eb9efad0bf7b3e8692a40771ff76a4da6cc1083306948251e0c1d19f2c7f12a"
+    },
+    {
+      "case": "tests.test_historical_opening_evidence::test_sse_nonsecondary_row_still_requires_valid_current_session_identity[20260910]",
+      "message": "AssertionError: assert '2eb9efad0bf7...c1d19f2c7f12a' == '2644ce583796...728ecac08a228'\n  \n  - 2644ce583796b412d18c5b4730356e2df95691085dbf0080dfa728ecac08a228\n  + 2eb9efad0bf7b3e8692a40771ff76a4da6cc1083306948251e0c1d19f2c7f12a"
+    },
+    {
+      "case": "tests.test_historical_opening_evidence::test_sse_nonsecondary_row_still_requires_valid_current_session_identity[20260911junk]",
+      "message": "AssertionError: assert '2eb9efad0bf7...c1d19f2c7f12a' == '2644ce583796...728ecac08a228'\n  \n  - 2644ce583796b412d18c5b4730356e2df95691085dbf0080dfa728ecac08a228\n  + 2eb9efad0bf7b3e8692a40771ff76a4da6cc1083306948251e0c1d19f2c7f12a"
+    },
+    {
+      "case": "tests.test_historical_opening_evidence::test_sse_nonsecondary_row_still_requires_valid_current_session_identity[2026-09-11]",
+      "message": "AssertionError: assert '2eb9efad0bf7...c1d19f2c7f12a' == '2644ce583796...728ecac08a228'\n  \n  - 2644ce583796b412d18c5b4730356e2df95691085dbf0080dfa728ecac08a228\n  + 2eb9efad0bf7b3e8692a40771ff76a4da6cc1083306948251e0c1d19f2c7f12a"
+    },
+    {
+      "case": "tests.test_historical_opening_evidence::test_sse_stock_interval_dates_require_strict_format_validity_and_order[startStopDate-20260831junk]",
+      "message": "AssertionError: assert '2eb9efad0bf7...c1d19f2c7f12a' == '2644ce583796...728ecac08a228'\n  \n  - 2644ce583796b412d18c5b4730356e2df95691085dbf0080dfa728ecac08a228\n  + 2eb9efad0bf7b3e8692a40771ff76a4da6cc1083306948251e0c1d19f2c7f12a"
+    },
+    {
+      "case": "tests.test_historical_opening_evidence::test_sse_stock_interval_dates_require_strict_format_validity_and_order[endStopDate-20260911junk]",
+      "message": "AssertionError: assert '2eb9efad0bf7...c1d19f2c7f12a' == '2644ce583796...728ecac08a228'\n  \n  - 2644ce583796b412d18c5b4730356e2df95691085dbf0080dfa728ecac08a228\n  + 2eb9efad0bf7b3e8692a40771ff76a4da6cc1083306948251e0c1d19f2c7f12a"
+    },
+    {
+      "case": "tests.test_historical_opening_evidence::test_sse_stock_interval_dates_require_strict_format_validity_and_order[startStopDate-20260912]",
+      "message": "AssertionError: assert '2eb9efad0bf7...c1d19f2c7f12a' == '2644ce583796...728ecac08a228'\n  \n  - 2644ce583796b412d18c5b4730356e2df95691085dbf0080dfa728ecac08a228\n  + 2eb9efad0bf7b3e8692a40771ff76a4da6cc1083306948251e0c1d19f2c7f12a"
+    },
+    {
+      "case": "tests.test_historical_opening_evidence::test_sse_stock_interval_dates_require_strict_format_validity_and_order[endStopDate-20260830]",
+      "message": "AssertionError: assert '2eb9efad0bf7...c1d19f2c7f12a' == '2644ce583796...728ecac08a228'\n  \n  - 2644ce583796b412d18c5b4730356e2df95691085dbf0080dfa728ecac08a228\n  + 2eb9efad0bf7b3e8692a40771ff76a4da6cc1083306948251e0c1d19f2c7f12a"
+    },
+    {
+      "case": "tests.test_historical_opening_evidence::test_sse_stock_interval_dates_require_strict_format_validity_and_order[startStopDate-20260230]",
+      "message": "AssertionError: assert '2eb9efad0bf7...c1d19f2c7f12a' == '2644ce583796...728ecac08a228'\n  \n  - 2644ce583796b412d18c5b4730356e2df95691085dbf0080dfa728ecac08a228\n  + 2eb9efad0bf7b3e8692a40771ff76a4da6cc1083306948251e0c1d19f2c7f12a"
+    },
+    {
+      "case": "tests.test_historical_opening_evidence::test_sse_stock_interval_dates_require_strict_format_validity_and_order[endStopDate-20260931]",
+      "message": "AssertionError: assert '2eb9efad0bf7...c1d19f2c7f12a' == '2644ce583796...728ecac08a228'\n  \n  - 2644ce583796b412d18c5b4730356e2df95691085dbf0080dfa728ecac08a228\n  + 2eb9efad0bf7b3e8692a40771ff76a4da6cc1083306948251e0c1d19f2c7f12a"
+    },
+    {
+      "case": "tests.test_historical_opening_evidence::test_valid_stock_continuous_interval_allows_start_before_query_and_blocks_last_day",
+      "message": "AssertionError: assert '2eb9efad0bf7...c1d19f2c7f12a' == '2644ce583796...728ecac08a228'\n  \n  - 2644ce583796b412d18c5b4730356e2df95691085dbf0080dfa728ecac08a228\n  + 2eb9efad0bf7b3e8692a40771ff76a4da6cc1083306948251e0c1d19f2c7f12a"
+    }
+  ]
+}

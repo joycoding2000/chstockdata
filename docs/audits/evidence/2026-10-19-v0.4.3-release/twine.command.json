@@ -1,0 +1,19 @@
+{
+  "command": [
+    "D:\\Dev\\Projects\\chstockdata\\build\\w0-v043\\dev\\Scripts\\python.exe",
+    "-m",
+    "twine",
+    "check",
+    "C:\\Users\\Administrator\\.codex\\worktrees\\w0-v043-release\\chstockdata\\dist\\chstockdata-0.4.3-py3-none-any.whl",
+    "C:\\Users\\Administrator\\.codex\\worktrees\\w0-v043-release\\chstockdata\\dist\\chstockdata-0.4.3.tar.gz"
+  ],
+  "cwd": "C:\\Users\\Administrator\\.codex\\worktrees\\w0-v043-release\\chstockdata",
+  "started_at_utc": "2026-10-19T11:27:03.838847+00:00",
+  "seconds": 0.95,
+  "exit_code": 0,
+  "environment_overrides": {},
+  "logs": {
+    "stdout": "9202f466cdd8551025616f8da2884076da40895ec323338e325ebc8f8d5c0626",
+    "stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

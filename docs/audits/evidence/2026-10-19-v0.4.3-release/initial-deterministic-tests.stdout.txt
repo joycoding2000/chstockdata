@@ -1,0 +1,1700 @@
+........................................................................ [  8%]
+........................................................................ [ 16%]
+........................................................................ [ 25%]
+........................................................................ [ 33%]
+........................................................................ [ 42%]
+..............................F......................................... [ 50%]
+........................................................................ [ 59%]
+..........FFFFFFFFFFFFFFFFFFFFFFF.FFFFFFFFFFFFFF.FFFFFFFFFFFF........... [ 67%]
+..............................s......................................... [ 76%]
+........................................................................ [ 84%]
+........................................................................ [ 92%]
+............................................................             [100%]
+================================== FAILURES ===================================
+__________ test_structured_payload_is_minimal_and_version_stays_042 ___________
+
+    def test_structured_payload_is_minimal_and_version_stays_042():
+>       assert chstockdata.__version__ == "0.4.2"
+E       AssertionError: assert '0.4.3' == '0.4.2'
+E         
+E         - 0.4.2
+E         ?     ^
+E         + 0.4.3
+E         ?     ^
+
+tests\test_delisting_structured.py:299: AssertionError
+_________________________ test_release_version_is_042 _________________________
+
+    def test_release_version_is_042():
+>       assert chstockdata.__version__ == "0.4.2"
+E       AssertionError: assert '0.4.3' == '0.4.2'
+E         
+E         - 0.4.2
+E         ?     ^
+E         + 0.4.3
+E         ?     ^
+
+tests\test_fund_corporate_actions.py:156: AssertionError
+_________ test_four_real_etf_opening_composition[510300-4.576-352580] _________
+
+code = '510300', price = '4.576', volume = 352580
+
+    @pytest.mark.parametrize('code,price,volume', [('510300', '4.576',352580), ('159915','3.339',557149),
+                                                 ('518880','8.91',106411), ('511010','141.177',289)])
+    def test_four_real_etf_opening_composition(code, price, volume):
+>       result = fetch(code)
+                 ^^^^^^^^^^^
+
+tests\test_historical_opening_evidence.py:107: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_historical_opening_evidence.py:98: in fetch
+    tdx, official = readers(code, day, kwargs.pop('official', None), kwargs.pop('mutate', None),
+tests\test_historical_opening_evidence.py:85: in readers
+    rs = records(code, day)
+         ^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+code = '510300', day = '2026-09-11'
+
+    def records(code, day):
+        found = []
+        for name, sha in SHAS.items():
+            raw = (TDX / name).read_bytes()
+>           assert hashlib.sha256(raw).hexdigest() == sha
+E           AssertionError: assert '2eb9efad0bf7...c1d19f2c7f12a' == '2644ce583796...728ecac08a228'
+E             
+E             - 2644ce583796b412d18c5b4730356e2df95691085dbf0080dfa728ecac08a228
+E             + 2eb9efad0bf7b3e8692a40771ff76a4da6cc1083306948251e0c1d19f2c7f12a
+
+tests\test_historical_opening_evidence.py:33: AssertionError
+_________ test_four_real_etf_opening_composition[159915-3.339-557149] _________
+
+code = '159915', price = '3.339', volume = 557149
+
+    @pytest.mark.parametrize('code,price,volume', [('510300', '4.576',352580), ('159915','3.339',557149),
+                                                 ('518880','8.91',106411), ('511010','141.177',289)])
+    def test_four_real_etf_opening_composition(code, price, volume):
+>       result = fetch(code)
+                 ^^^^^^^^^^^
+
+tests\test_historical_opening_evidence.py:107: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_historical_opening_evidence.py:98: in fetch
+    tdx, official = readers(code, day, kwargs.pop('official', None), kwargs.pop('mutate', None),
+tests\test_historical_opening_evidence.py:85: in readers
+    rs = records(code, day)
+         ^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+code = '159915', day = '2026-09-11'
+
+    def records(code, day):
+        found = []
+        for name, sha in SHAS.items():
+            raw = (TDX / name).read_bytes()
+>           assert hashlib.sha256(raw).hexdigest() == sha
+E           AssertionError: assert '2eb9efad0bf7...c1d19f2c7f12a' == '2644ce583796...728ecac08a228'
+E             
+E             - 2644ce583796b412d18c5b4730356e2df95691085dbf0080dfa728ecac08a228
+E             + 2eb9efad0bf7b3e8692a40771ff76a4da6cc1083306948251e0c1d19f2c7f12a
+
+tests\test_historical_opening_evidence.py:33: AssertionError
+_________ test_four_real_etf_opening_composition[518880-8.91-106411] __________
+
+code = '518880', price = '8.91', volume = 106411
+
+    @pytest.mark.parametrize('code,price,volume', [('510300', '4.576',352580), ('159915','3.339',557149),
+                                                 ('518880','8.91',106411), ('511010','141.177',289)])
+    def test_four_real_etf_opening_composition(code, price, volume):
+>       result = fetch(code)
+                 ^^^^^^^^^^^
+
+tests\test_historical_opening_evidence.py:107: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_historical_opening_evidence.py:98: in fetch
+    tdx, official = readers(code, day, kwargs.pop('official', None), kwargs.pop('mutate', None),
+tests\test_historical_opening_evidence.py:85: in readers
+    rs = records(code, day)
+         ^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+code = '518880', day = '2026-09-11'
+
+    def records(code, day):
+        found = []
+        for name, sha in SHAS.items():
+            raw = (TDX / name).read_bytes()
+>           assert hashlib.sha256(raw).hexdigest() == sha
+E           AssertionError: assert '2eb9efad0bf7...c1d19f2c7f12a' == '2644ce583796...728ecac08a228'
+E             
+E             - 2644ce583796b412d18c5b4730356e2df95691085dbf0080dfa728ecac08a228
+E             + 2eb9efad0bf7b3e8692a40771ff76a4da6cc1083306948251e0c1d19f2c7f12a
+
+tests\test_historical_opening_evidence.py:33: AssertionError
+_________ test_four_real_etf_opening_composition[511010-141.177-289] __________
+
+code = '511010', price = '141.177', volume = 289
+
+    @pytest.mark.parametrize('code,price,volume', [('510300', '4.576',352580), ('159915','3.339',557149),
+                                                 ('518880','8.91',106411), ('511010','141.177',289)])
+    def test_four_real_etf_opening_composition(code, price, volume):
+>       result = fetch(code)
+                 ^^^^^^^^^^^
+
+tests\test_historical_opening_evidence.py:107: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_historical_opening_evidence.py:98: in fetch
+    tdx, official = readers(code, day, kwargs.pop('official', None), kwargs.pop('mutate', None),
+tests\test_historical_opening_evidence.py:85: in readers
+    rs = records(code, day)
+         ^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+code = '511010', day = '2026-09-11'
+
+    def records(code, day):
+        found = []
+        for name, sha in SHAS.items():
+            raw = (TDX / name).read_bytes()
+>           assert hashlib.sha256(raw).hexdigest() == sha
+E           AssertionError: assert '2eb9efad0bf7...c1d19f2c7f12a' == '2644ce583796...728ecac08a228'
+E             
+E             - 2644ce583796b412d18c5b4730356e2df95691085dbf0080dfa728ecac08a228
+E             + 2eb9efad0bf7b3e8692a40771ff76a4da6cc1083306948251e0c1d19f2c7f12a
+
+tests\test_historical_opening_evidence.py:33: AssertionError
+_ test_stock_prices_preserved_and_later_halt_does_not_veto_open[688432-2026-09-14-40.9] _
+
+code = '688432', day = '2026-09-14', price = '40.9'
+
+    @pytest.mark.parametrize('code,day,price', [('688432','2026-09-14','40.9'), ('000002','2015-12-18','22.4')])
+    def test_stock_prices_preserved_and_later_halt_does_not_veto_open(code, day, price):
+>       result = fetch(code,day)
+                 ^^^^^^^^^^^^^^^
+
+tests\test_historical_opening_evidence.py:125: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_historical_opening_evidence.py:98: in fetch
+    tdx, official = readers(code, day, kwargs.pop('official', None), kwargs.pop('mutate', None),
+tests\test_historical_opening_evidence.py:85: in readers
+    rs = records(code, day)
+         ^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+code = '688432', day = '2026-09-14'
+
+    def records(code, day):
+        found = []
+        for name, sha in SHAS.items():
+            raw = (TDX / name).read_bytes()
+>           assert hashlib.sha256(raw).hexdigest() == sha
+E           AssertionError: assert '2eb9efad0bf7...c1d19f2c7f12a' == '2644ce583796...728ecac08a228'
+E             
+E             - 2644ce583796b412d18c5b4730356e2df95691085dbf0080dfa728ecac08a228
+E             + 2eb9efad0bf7b3e8692a40771ff76a4da6cc1083306948251e0c1d19f2c7f12a
+
+tests\test_historical_opening_evidence.py:33: AssertionError
+_ test_stock_prices_preserved_and_later_halt_does_not_veto_open[000002-2015-12-18-22.4] _
+
+code = '000002', day = '2015-12-18', price = '22.4'
+
+    @pytest.mark.parametrize('code,day,price', [('688432','2026-09-14','40.9'), ('000002','2015-12-18','22.4')])
+    def test_stock_prices_preserved_and_later_halt_does_not_veto_open(code, day, price):
+>       result = fetch(code,day)
+                 ^^^^^^^^^^^^^^^
+
+tests\test_historical_opening_evidence.py:125: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_historical_opening_evidence.py:98: in fetch
+    tdx, official = readers(code, day, kwargs.pop('official', None), kwargs.pop('mutate', None),
+tests\test_historical_opening_evidence.py:85: in readers
+    rs = records(code, day)
+         ^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+code = '000002', day = '2015-12-18'
+
+    def records(code, day):
+        found = []
+        for name, sha in SHAS.items():
+            raw = (TDX / name).read_bytes()
+>           assert hashlib.sha256(raw).hexdigest() == sha
+E           AssertionError: assert '2eb9efad0bf7...c1d19f2c7f12a' == '2644ce583796...728ecac08a228'
+E             
+E             - 2644ce583796b412d18c5b4730356e2df95691085dbf0080dfa728ecac08a228
+E             + 2eb9efad0bf7b3e8692a40771ff76a4da6cc1083306948251e0c1d19f2c7f12a
+
+tests\test_historical_opening_evidence.py:33: AssertionError
+____________________ test_bounded_real_history[2016-12-30] ____________________
+
+day = '2016-12-30'
+
+    @pytest.mark.parametrize('day', ['2016-12-30','2022-12-30'])
+    def test_bounded_real_history(day):
+>       assert fetch(day=day).data['opening_status'] == 'OPEN_ACTIVITY_CONFIRMED'
+               ^^^^^^^^^^^^^^
+
+tests\test_historical_opening_evidence.py:134: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_historical_opening_evidence.py:98: in fetch
+    tdx, official = readers(code, day, kwargs.pop('official', None), kwargs.pop('mutate', None),
+tests\test_historical_opening_evidence.py:85: in readers
+    rs = records(code, day)
+         ^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+code = '510300', day = '2016-12-30'
+
+    def records(code, day):
+        found = []
+        for name, sha in SHAS.items():
+            raw = (TDX / name).read_bytes()
+>           assert hashlib.sha256(raw).hexdigest() == sha
+E           AssertionError: assert '2eb9efad0bf7...c1d19f2c7f12a' == '2644ce583796...728ecac08a228'
+E             
+E             - 2644ce583796b412d18c5b4730356e2df95691085dbf0080dfa728ecac08a228
+E             + 2eb9efad0bf7b3e8692a40771ff76a4da6cc1083306948251e0c1d19f2c7f12a
+
+tests\test_historical_opening_evidence.py:33: AssertionError
+____________________ test_bounded_real_history[2022-12-30] ____________________
+
+day = '2022-12-30'
+
+    @pytest.mark.parametrize('day', ['2016-12-30','2022-12-30'])
+    def test_bounded_real_history(day):
+>       assert fetch(day=day).data['opening_status'] == 'OPEN_ACTIVITY_CONFIRMED'
+               ^^^^^^^^^^^^^^
+
+tests\test_historical_opening_evidence.py:134: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_historical_opening_evidence.py:98: in fetch
+    tdx, official = readers(code, day, kwargs.pop('official', None), kwargs.pop('mutate', None),
+tests\test_historical_opening_evidence.py:85: in readers
+    rs = records(code, day)
+         ^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+code = '510300', day = '2022-12-30'
+
+    def records(code, day):
+        found = []
+        for name, sha in SHAS.items():
+            raw = (TDX / name).read_bytes()
+>           assert hashlib.sha256(raw).hexdigest() == sha
+E           AssertionError: assert '2eb9efad0bf7...c1d19f2c7f12a' == '2644ce583796...728ecac08a228'
+E             
+E             - 2644ce583796b412d18c5b4730356e2df95691085dbf0080dfa728ecac08a228
+E             + 2eb9efad0bf7b3e8692a40771ff76a4da6cc1083306948251e0c1d19f2c7f12a
+
+tests\test_historical_opening_evidence.py:33: AssertionError
+_______ test_known_full_window_block_plus_positive_activity_is_conflict _______
+
+    def test_known_full_window_block_plus_positive_activity_is_conflict():
+>       data = fetch(known_events=[event()]).data
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_historical_opening_evidence.py:145: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_historical_opening_evidence.py:98: in fetch
+    tdx, official = readers(code, day, kwargs.pop('official', None), kwargs.pop('mutate', None),
+tests\test_historical_opening_evidence.py:85: in readers
+    rs = records(code, day)
+         ^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+code = '510300', day = '2026-09-11'
+
+    def records(code, day):
+        found = []
+        for name, sha in SHAS.items():
+            raw = (TDX / name).read_bytes()
+>           assert hashlib.sha256(raw).hexdigest() == sha
+E           AssertionError: assert '2eb9efad0bf7...c1d19f2c7f12a' == '2644ce583796...728ecac08a228'
+E             
+E             - 2644ce583796b412d18c5b4730356e2df95691085dbf0080dfa728ecac08a228
+E             + 2eb9efad0bf7b3e8692a40771ff76a4da6cc1083306948251e0c1d19f2c7f12a
+
+tests\test_historical_opening_evidence.py:33: AssertionError
+____________ test_resume_inside_minute_blocks_target_without_retry ____________
+
+    def test_resume_inside_minute_blocks_target_without_retry():
+>       data = fetch(known_events=[event(end='2026-09-11T09:30:30+08:00')]).data
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_historical_opening_evidence.py:151: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_historical_opening_evidence.py:98: in fetch
+    tdx, official = readers(code, day, kwargs.pop('official', None), kwargs.pop('mutate', None),
+tests\test_historical_opening_evidence.py:85: in readers
+    rs = records(code, day)
+         ^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+code = '510300', day = '2026-09-11'
+
+    def records(code, day):
+        found = []
+        for name, sha in SHAS.items():
+            raw = (TDX / name).read_bytes()
+>           assert hashlib.sha256(raw).hexdigest() == sha
+E           AssertionError: assert '2eb9efad0bf7...c1d19f2c7f12a' == '2644ce583796...728ecac08a228'
+E             
+E             - 2644ce583796b412d18c5b4730356e2df95691085dbf0080dfa728ecac08a228
+E             + 2eb9efad0bf7b3e8692a40771ff76a4da6cc1083306948251e0c1d19f2c7f12a
+
+tests\test_historical_opening_evidence.py:33: AssertionError
+_____________ test_halt_start_inside_minute_cannot_order_activity _____________
+
+    def test_halt_start_inside_minute_cannot_order_activity():
+>       data = fetch(known_events=[event(start='2026-09-11T09:30:30+08:00')]).data
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_historical_opening_evidence.py:157: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_historical_opening_evidence.py:98: in fetch
+    tdx, official = readers(code, day, kwargs.pop('official', None), kwargs.pop('mutate', None),
+tests\test_historical_opening_evidence.py:85: in readers
+    rs = records(code, day)
+         ^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+code = '510300', day = '2026-09-11'
+
+    def records(code, day):
+        found = []
+        for name, sha in SHAS.items():
+            raw = (TDX / name).read_bytes()
+>           assert hashlib.sha256(raw).hexdigest() == sha
+E           AssertionError: assert '2eb9efad0bf7...c1d19f2c7f12a' == '2644ce583796...728ecac08a228'
+E             
+E             - 2644ce583796b412d18c5b4730356e2df95691085dbf0080dfa728ecac08a228
+E             + 2eb9efad0bf7b3e8692a40771ff76a4da6cc1083306948251e0c1d19f2c7f12a
+
+tests\test_historical_opening_evidence.py:33: AssertionError
+_____________ test_ongoing_unconfirmed_end_vetoes_empty_official ______________
+
+    def test_ongoing_unconfirmed_end_vetoes_empty_official():
+>       data = fetch(known_events=[event(end=None)]).data
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_historical_opening_evidence.py:163: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_historical_opening_evidence.py:98: in fetch
+    tdx, official = readers(code, day, kwargs.pop('official', None), kwargs.pop('mutate', None),
+tests\test_historical_opening_evidence.py:85: in readers
+    rs = records(code, day)
+         ^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+code = '510300', day = '2026-09-11'
+
+    def records(code, day):
+        found = []
+        for name, sha in SHAS.items():
+            raw = (TDX / name).read_bytes()
+>           assert hashlib.sha256(raw).hexdigest() == sha
+E           AssertionError: assert '2eb9efad0bf7...c1d19f2c7f12a' == '2644ce583796...728ecac08a228'
+E             
+E             - 2644ce583796b412d18c5b4730356e2df95691085dbf0080dfa728ecac08a228
+E             + 2eb9efad0bf7b3e8692a40771ff76a4da6cc1083306948251e0c1d19f2c7f12a
+
+tests\test_historical_opening_evidence.py:33: AssertionError
+______ test_current_official_failure_and_partial_do_not_allow_open[bad0] ______
+
+bad = ConnectionError()
+
+    @pytest.mark.parametrize('bad', [ConnectionError(), b'<html>not json</html>',
+        {'result':[], 'pageHelp':{'pageNo':1,'pageCount':2,'pageSize':25,'total':1,'data':[]}}])
+    def test_current_official_failure_and_partial_do_not_allow_open(bad):
+>       result = fetch(official=[bad])
+                 ^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_historical_opening_evidence.py:171: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_historical_opening_evidence.py:98: in fetch
+    tdx, official = readers(code, day, kwargs.pop('official', None), kwargs.pop('mutate', None),
+tests\test_historical_opening_evidence.py:85: in readers
+    rs = records(code, day)
+         ^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+code = '510300', day = '2026-09-11'
+
+    def records(code, day):
+        found = []
+        for name, sha in SHAS.items():
+            raw = (TDX / name).read_bytes()
+>           assert hashlib.sha256(raw).hexdigest() == sha
+E           AssertionError: assert '2eb9efad0bf7...c1d19f2c7f12a' == '2644ce583796...728ecac08a228'
+E             
+E             - 2644ce583796b412d18c5b4730356e2df95691085dbf0080dfa728ecac08a228
+E             + 2eb9efad0bf7b3e8692a40771ff76a4da6cc1083306948251e0c1d19f2c7f12a
+
+tests\test_historical_opening_evidence.py:33: AssertionError
+_ test_current_official_failure_and_partial_do_not_allow_open[<html>not json</html>] _
+
+bad = b'<html>not json</html>'
+
+    @pytest.mark.parametrize('bad', [ConnectionError(), b'<html>not json</html>',
+        {'result':[], 'pageHelp':{'pageNo':1,'pageCount':2,'pageSize':25,'total':1,'data':[]}}])
+    def test_current_official_failure_and_partial_do_not_allow_open(bad):
+>       result = fetch(official=[bad])
+                 ^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_historical_opening_evidence.py:171: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_historical_opening_evidence.py:98: in fetch
+    tdx, official = readers(code, day, kwargs.pop('official', None), kwargs.pop('mutate', None),
+tests\test_historical_opening_evidence.py:85: in readers
+    rs = records(code, day)
+         ^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+code = '510300', day = '2026-09-11'
+
+    def records(code, day):
+        found = []
+        for name, sha in SHAS.items():
+            raw = (TDX / name).read_bytes()
+>           assert hashlib.sha256(raw).hexdigest() == sha
+E           AssertionError: assert '2eb9efad0bf7...c1d19f2c7f12a' == '2644ce583796...728ecac08a228'
+E             
+E             - 2644ce583796b412d18c5b4730356e2df95691085dbf0080dfa728ecac08a228
+E             + 2eb9efad0bf7b3e8692a40771ff76a4da6cc1083306948251e0c1d19f2c7f12a
+
+tests\test_historical_opening_evidence.py:33: AssertionError
+______ test_current_official_failure_and_partial_do_not_allow_open[bad2] ______
+
+bad = {'result': [], 'pageHelp': {'pageNo': 1, 'pageCount': 2, 'pageSize': 25, 'total': 1, ...}}
+
+    @pytest.mark.parametrize('bad', [ConnectionError(), b'<html>not json</html>',
+        {'result':[], 'pageHelp':{'pageNo':1,'pageCount':2,'pageSize':25,'total':1,'data':[]}}])
+    def test_current_official_failure_and_partial_do_not_allow_open(bad):
+>       result = fetch(official=[bad])
+                 ^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_historical_opening_evidence.py:171: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_historical_opening_evidence.py:98: in fetch
+    tdx, official = readers(code, day, kwargs.pop('official', None), kwargs.pop('mutate', None),
+tests\test_historical_opening_evidence.py:85: in readers
+    rs = records(code, day)
+         ^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+code = '510300', day = '2026-09-11'
+
+    def records(code, day):
+        found = []
+        for name, sha in SHAS.items():
+            raw = (TDX / name).read_bytes()
+>           assert hashlib.sha256(raw).hexdigest() == sha
+E           AssertionError: assert '2eb9efad0bf7...c1d19f2c7f12a' == '2644ce583796...728ecac08a228'
+E             
+E             - 2644ce583796b412d18c5b4730356e2df95691085dbf0080dfa728ecac08a228
+E             + 2eb9efad0bf7b3e8692a40771ff76a4da6cc1083306948251e0c1d19f2c7f12a
+
+tests\test_historical_opening_evidence.py:33: AssertionError
+______________ test_no_qualified_activity_unknown[auction_only] _______________
+
+mode = 'auction_only'
+
+    @pytest.mark.parametrize('mode', ['auction_only','zero','minute_only','bad_price','bad_time','double_normalized'])
+    def test_no_qualified_activity_unknown(mode):
+        def mutate(rs):
+            for r in rs:
+                if r['command'].endswith('fb5'):
+                    if mode=='auction_only': r['rows']=[x for x in r['rows'] if x['time']=='09:25']
+                    if mode=='minute_only': r['rows']=[]
+                    if mode=='zero':
+                        for x in r['rows']: x['vol']=0
+                    if mode=='bad_price':
+                        for x in r['rows']: x['price']=-1
+                    if mode=='bad_time':
+                        for x in r['rows']: x['time']='09:30:01'
+                    if mode=='double_normalized':
+                        for x in r['rows']: x['price']=x['price']/10
+>       assert fetch(mutate=mutate).data['opening_status'] == 'UNKNOWN'
+               ^^^^^^^^^^^^^^^^^^^^
+
+tests\test_historical_opening_evidence.py:192: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_historical_opening_evidence.py:98: in fetch
+    tdx, official = readers(code, day, kwargs.pop('official', None), kwargs.pop('mutate', None),
+tests\test_historical_opening_evidence.py:85: in readers
+    rs = records(code, day)
+         ^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+code = '510300', day = '2026-09-11'
+
+    def records(code, day):
+        found = []
+        for name, sha in SHAS.items():
+            raw = (TDX / name).read_bytes()
+>           assert hashlib.sha256(raw).hexdigest() == sha
+E           AssertionError: assert '2eb9efad0bf7...c1d19f2c7f12a' == '2644ce583796...728ecac08a228'
+E             
+E             - 2644ce583796b412d18c5b4730356e2df95691085dbf0080dfa728ecac08a228
+E             + 2eb9efad0bf7b3e8692a40771ff76a4da6cc1083306948251e0c1d19f2c7f12a
+
+tests\test_historical_opening_evidence.py:33: AssertionError
+__________________ test_no_qualified_activity_unknown[zero] ___________________
+
+mode = 'zero'
+
+    @pytest.mark.parametrize('mode', ['auction_only','zero','minute_only','bad_price','bad_time','double_normalized'])
+    def test_no_qualified_activity_unknown(mode):
+        def mutate(rs):
+            for r in rs:
+                if r['command'].endswith('fb5'):
+                    if mode=='auction_only': r['rows']=[x for x in r['rows'] if x['time']=='09:25']
+                    if mode=='minute_only': r['rows']=[]
+                    if mode=='zero':
+                        for x in r['rows']: x['vol']=0
+                    if mode=='bad_price':
+                        for x in r['rows']: x['price']=-1
+                    if mode=='bad_time':
+                        for x in r['rows']: x['time']='09:30:01'
+                    if mode=='double_normalized':
+                        for x in r['rows']: x['price']=x['price']/10
+>       assert fetch(mutate=mutate).data['opening_status'] == 'UNKNOWN'
+               ^^^^^^^^^^^^^^^^^^^^
+
+tests\test_historical_opening_evidence.py:192: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_historical_opening_evidence.py:98: in fetch
+    tdx, official = readers(code, day, kwargs.pop('official', None), kwargs.pop('mutate', None),
+tests\test_historical_opening_evidence.py:85: in readers
+    rs = records(code, day)
+         ^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+code = '510300', day = '2026-09-11'
+
+    def records(code, day):
+        found = []
+        for name, sha in SHAS.items():
+            raw = (TDX / name).read_bytes()
+>           assert hashlib.sha256(raw).hexdigest() == sha
+E           AssertionError: assert '2eb9efad0bf7...c1d19f2c7f12a' == '2644ce583796...728ecac08a228'
+E             
+E             - 2644ce583796b412d18c5b4730356e2df95691085dbf0080dfa728ecac08a228
+E             + 2eb9efad0bf7b3e8692a40771ff76a4da6cc1083306948251e0c1d19f2c7f12a
+
+tests\test_historical_opening_evidence.py:33: AssertionError
+_______________ test_no_qualified_activity_unknown[minute_only] _______________
+
+mode = 'minute_only'
+
+    @pytest.mark.parametrize('mode', ['auction_only','zero','minute_only','bad_price','bad_time','double_normalized'])
+    def test_no_qualified_activity_unknown(mode):
+        def mutate(rs):
+            for r in rs:
+                if r['command'].endswith('fb5'):
+                    if mode=='auction_only': r['rows']=[x for x in r['rows'] if x['time']=='09:25']
+                    if mode=='minute_only': r['rows']=[]
+                    if mode=='zero':
+                        for x in r['rows']: x['vol']=0
+                    if mode=='bad_price':
+                        for x in r['rows']: x['price']=-1
+                    if mode=='bad_time':
+                        for x in r['rows']: x['time']='09:30:01'
+                    if mode=='double_normalized':
+                        for x in r['rows']: x['price']=x['price']/10
+>       assert fetch(mutate=mutate).data['opening_status'] == 'UNKNOWN'
+               ^^^^^^^^^^^^^^^^^^^^
+
+tests\test_historical_opening_evidence.py:192: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_historical_opening_evidence.py:98: in fetch
+    tdx, official = readers(code, day, kwargs.pop('official', None), kwargs.pop('mutate', None),
+tests\test_historical_opening_evidence.py:85: in readers
+    rs = records(code, day)
+         ^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+code = '510300', day = '2026-09-11'
+
+    def records(code, day):
+        found = []
+        for name, sha in SHAS.items():
+            raw = (TDX / name).read_bytes()
+>           assert hashlib.sha256(raw).hexdigest() == sha
+E           AssertionError: assert '2eb9efad0bf7...c1d19f2c7f12a' == '2644ce583796...728ecac08a228'
+E             
+E             - 2644ce583796b412d18c5b4730356e2df95691085dbf0080dfa728ecac08a228
+E             + 2eb9efad0bf7b3e8692a40771ff76a4da6cc1083306948251e0c1d19f2c7f12a
+
+tests\test_historical_opening_evidence.py:33: AssertionError
+________________ test_no_qualified_activity_unknown[bad_price] ________________
+
+mode = 'bad_price'
+
+    @pytest.mark.parametrize('mode', ['auction_only','zero','minute_only','bad_price','bad_time','double_normalized'])
+    def test_no_qualified_activity_unknown(mode):
+        def mutate(rs):
+            for r in rs:
+                if r['command'].endswith('fb5'):
+                    if mode=='auction_only': r['rows']=[x for x in r['rows'] if x['time']=='09:25']
+                    if mode=='minute_only': r['rows']=[]
+                    if mode=='zero':
+                        for x in r['rows']: x['vol']=0
+                    if mode=='bad_price':
+                        for x in r['rows']: x['price']=-1
+                    if mode=='bad_time':
+                        for x in r['rows']: x['time']='09:30:01'
+                    if mode=='double_normalized':
+                        for x in r['rows']: x['price']=x['price']/10
+>       assert fetch(mutate=mutate).data['opening_status'] == 'UNKNOWN'
+               ^^^^^^^^^^^^^^^^^^^^
+
+tests\test_historical_opening_evidence.py:192: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_historical_opening_evidence.py:98: in fetch
+    tdx, official = readers(code, day, kwargs.pop('official', None), kwargs.pop('mutate', None),
+tests\test_historical_opening_evidence.py:85: in readers
+    rs = records(code, day)
+         ^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+code = '510300', day = '2026-09-11'
+
+    def records(code, day):
+        found = []
+        for name, sha in SHAS.items():
+            raw = (TDX / name).read_bytes()
+>           assert hashlib.sha256(raw).hexdigest() == sha
+E           AssertionError: assert '2eb9efad0bf7...c1d19f2c7f12a' == '2644ce583796...728ecac08a228'
+E             
+E             - 2644ce583796b412d18c5b4730356e2df95691085dbf0080dfa728ecac08a228
+E             + 2eb9efad0bf7b3e8692a40771ff76a4da6cc1083306948251e0c1d19f2c7f12a
+
+tests\test_historical_opening_evidence.py:33: AssertionError
+________________ test_no_qualified_activity_unknown[bad_time] _________________
+
+mode = 'bad_time'
+
+    @pytest.mark.parametrize('mode', ['auction_only','zero','minute_only','bad_price','bad_time','double_normalized'])
+    def test_no_qualified_activity_unknown(mode):
+        def mutate(rs):
+            for r in rs:
+                if r['command'].endswith('fb5'):
+                    if mode=='auction_only': r['rows']=[x for x in r['rows'] if x['time']=='09:25']
+                    if mode=='minute_only': r['rows']=[]
+                    if mode=='zero':
+                        for x in r['rows']: x['vol']=0
+                    if mode=='bad_price':
+                        for x in r['rows']: x['price']=-1
+                    if mode=='bad_time':
+                        for x in r['rows']: x['time']='09:30:01'
+                    if mode=='double_normalized':
+                        for x in r['rows']: x['price']=x['price']/10
+>       assert fetch(mutate=mutate).data['opening_status'] == 'UNKNOWN'
+               ^^^^^^^^^^^^^^^^^^^^
+
+tests\test_historical_opening_evidence.py:192: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_historical_opening_evidence.py:98: in fetch
+    tdx, official = readers(code, day, kwargs.pop('official', None), kwargs.pop('mutate', None),
+tests\test_historical_opening_evidence.py:85: in readers
+    rs = records(code, day)
+         ^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+code = '510300', day = '2026-09-11'
+
+    def records(code, day):
+        found = []
+        for name, sha in SHAS.items():
+            raw = (TDX / name).read_bytes()
+>           assert hashlib.sha256(raw).hexdigest() == sha
+E           AssertionError: assert '2eb9efad0bf7...c1d19f2c7f12a' == '2644ce583796...728ecac08a228'
+E             
+E             - 2644ce583796b412d18c5b4730356e2df95691085dbf0080dfa728ecac08a228
+E             + 2eb9efad0bf7b3e8692a40771ff76a4da6cc1083306948251e0c1d19f2c7f12a
+
+tests\test_historical_opening_evidence.py:33: AssertionError
+____________ test_no_qualified_activity_unknown[double_normalized] ____________
+
+mode = 'double_normalized'
+
+    @pytest.mark.parametrize('mode', ['auction_only','zero','minute_only','bad_price','bad_time','double_normalized'])
+    def test_no_qualified_activity_unknown(mode):
+        def mutate(rs):
+            for r in rs:
+                if r['command'].endswith('fb5'):
+                    if mode=='auction_only': r['rows']=[x for x in r['rows'] if x['time']=='09:25']
+                    if mode=='minute_only': r['rows']=[]
+                    if mode=='zero':
+                        for x in r['rows']: x['vol']=0
+                    if mode=='bad_price':
+                        for x in r['rows']: x['price']=-1
+                    if mode=='bad_time':
+                        for x in r['rows']: x['time']='09:30:01'
+                    if mode=='double_normalized':
+                        for x in r['rows']: x['price']=x['price']/10
+>       assert fetch(mutate=mutate).data['opening_status'] == 'UNKNOWN'
+               ^^^^^^^^^^^^^^^^^^^^
+
+tests\test_historical_opening_evidence.py:192: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_historical_opening_evidence.py:98: in fetch
+    tdx, official = readers(code, day, kwargs.pop('official', None), kwargs.pop('mutate', None),
+tests\test_historical_opening_evidence.py:85: in readers
+    rs = records(code, day)
+         ^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+code = '510300', day = '2026-09-11'
+
+    def records(code, day):
+        found = []
+        for name, sha in SHAS.items():
+            raw = (TDX / name).read_bytes()
+>           assert hashlib.sha256(raw).hexdigest() == sha
+E           AssertionError: assert '2eb9efad0bf7...c1d19f2c7f12a' == '2644ce583796...728ecac08a228'
+E             
+E             - 2644ce583796b412d18c5b4730356e2df95691085dbf0080dfa728ecac08a228
+E             + 2eb9efad0bf7b3e8692a40771ff76a4da6cc1083306948251e0c1d19f2c7f12a
+
+tests\test_historical_opening_evidence.py:33: AssertionError
+________________________ test_unknown_version_rejected ________________________
+
+    def test_unknown_version_rejected():
+>       assert fetch(versions=('0.12.0','0.2.7')).data['opening_status']=='UNKNOWN'
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_historical_opening_evidence.py:196: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_historical_opening_evidence.py:98: in fetch
+    tdx, official = readers(code, day, kwargs.pop('official', None), kwargs.pop('mutate', None),
+tests\test_historical_opening_evidence.py:85: in readers
+    rs = records(code, day)
+         ^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+code = '510300', day = '2026-09-11'
+
+    def records(code, day):
+        found = []
+        for name, sha in SHAS.items():
+            raw = (TDX / name).read_bytes()
+>           assert hashlib.sha256(raw).hexdigest() == sha
+E           AssertionError: assert '2eb9efad0bf7...c1d19f2c7f12a' == '2644ce583796...728ecac08a228'
+E             
+E             - 2644ce583796b412d18c5b4730356e2df95691085dbf0080dfa728ecac08a228
+E             + 2eb9efad0bf7b3e8692a40771ff76a4da6cc1083306948251e0c1d19f2c7f12a
+
+tests\test_historical_opening_evidence.py:33: AssertionError
+___________ test_real_sse_interval_and_resume_evidence_participate ____________
+
+    def test_real_sse_interval_and_resume_evidence_participate():
+        payload=(OFFICIAL/'sse_688432_interval.bin').read_bytes()
+        assert hashlib.sha256(payload).hexdigest()=='33147724bcee2f692e3de7a637c2490017a86c1399183c7f8ccf1f7fe017d924'
+>       r=fetch('688432','2026-08-31',official=[payload])
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_historical_opening_evidence.py:212: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_historical_opening_evidence.py:98: in fetch
+    tdx, official = readers(code, day, kwargs.pop('official', None), kwargs.pop('mutate', None),
+tests\test_historical_opening_evidence.py:85: in readers
+    rs = records(code, day)
+         ^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+code = '688432', day = '2026-08-31'
+
+    def records(code, day):
+        found = []
+        for name, sha in SHAS.items():
+            raw = (TDX / name).read_bytes()
+>           assert hashlib.sha256(raw).hexdigest() == sha
+E           AssertionError: assert '2eb9efad0bf7...c1d19f2c7f12a' == '2644ce583796...728ecac08a228'
+E             
+E             - 2644ce583796b412d18c5b4730356e2df95691085dbf0080dfa728ecac08a228
+E             + 2eb9efad0bf7b3e8692a40771ff76a4da6cc1083306948251e0c1d19f2c7f12a
+
+tests\test_historical_opening_evidence.py:33: AssertionError
+___________ test_known_000002_continuous_halt_empty_tdx_not_normal ____________
+
+    def test_known_000002_continuous_halt_empty_tdx_not_normal():
+>       r=fetch('000002','2016-01-04')
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_historical_opening_evidence.py:219: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_historical_opening_evidence.py:98: in fetch
+    tdx, official = readers(code, day, kwargs.pop('official', None), kwargs.pop('mutate', None),
+tests\test_historical_opening_evidence.py:85: in readers
+    rs = records(code, day)
+         ^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+code = '000002', day = '2016-01-04'
+
+    def records(code, day):
+        found = []
+        for name, sha in SHAS.items():
+            raw = (TDX / name).read_bytes()
+>           assert hashlib.sha256(raw).hexdigest() == sha
+E           AssertionError: assert '2eb9efad0bf7...c1d19f2c7f12a' == '2644ce583796...728ecac08a228'
+E             
+E             - 2644ce583796b412d18c5b4730356e2df95691085dbf0080dfa728ecac08a228
+E             + 2eb9efad0bf7b3e8692a40771ff76a4da6cc1083306948251e0c1d19f2c7f12a
+
+tests\test_historical_opening_evidence.py:33: AssertionError
+______________ test_sse_fund_halt_control_actual_field_contract _______________
+
+    def test_sse_fund_halt_control_actual_field_contract():
+        row={'endStopType':'LSTP','startStopReason':'根据基金管理人申请','endStopDate':'20260911',
+             'endType':'','secCode':'513100','startType':'null','startStopDate':'20260911',
+             'startStopType':'LSTP','dateSource':'2','stopTime':'915'}
+        payload={'result':[row],'pageHelp':{'pageNo':1,'pageCount':1,'pageSize':25,'total':1,'data':[row]}}
+>       r=fetch('513100', official=[payload])
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_historical_opening_evidence.py:228: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_historical_opening_evidence.py:98: in fetch
+    tdx, official = readers(code, day, kwargs.pop('official', None), kwargs.pop('mutate', None),
+tests\test_historical_opening_evidence.py:85: in readers
+    rs = records(code, day)
+         ^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+code = '513100', day = '2026-09-11'
+
+    def records(code, day):
+        found = []
+        for name, sha in SHAS.items():
+            raw = (TDX / name).read_bytes()
+>           assert hashlib.sha256(raw).hexdigest() == sha
+E           AssertionError: assert '2eb9efad0bf7...c1d19f2c7f12a' == '2644ce583796...728ecac08a228'
+E             
+E             - 2644ce583796b412d18c5b4730356e2df95691085dbf0080dfa728ecac08a228
+E             + 2eb9efad0bf7b3e8692a40771ff76a4da6cc1083306948251e0c1d19f2c7f12a
+
+tests\test_historical_opening_evidence.py:33: AssertionError
+_________ test_szse_fund_halt_real_attachment_and_all_rows_considered _________
+
+    def test_szse_fund_halt_real_attachment_and_all_rows_considered():
+        # Actual list bytes + actual official attachment replay, not a provider verdict mock.
+        payload=json.loads((OFFICIAL/'szse_159509_announcements_control.bin').read_bytes())
+        payload['data']=payload['data'][:1];payload['announceCount']=1
+        pdf=ROOT/'tests/fixtures/opening/159509-20260911.pdf'
+        assert pdf.exists(), 'certified PDF raw fixture missing'
+        assert hashlib.sha256(pdf.read_bytes()).hexdigest()=='18cf4d821cd8f4de15d515ce0ceef828be5aff3beea30128d4b2049d39647fcd'
+>       r=fetch('159509',official=[payload,pdf.read_bytes()])
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_historical_opening_evidence.py:239: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_historical_opening_evidence.py:98: in fetch
+    tdx, official = readers(code, day, kwargs.pop('official', None), kwargs.pop('mutate', None),
+tests\test_historical_opening_evidence.py:85: in readers
+    rs = records(code, day)
+         ^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+code = '159509', day = '2026-09-11'
+
+    def records(code, day):
+        found = []
+        for name, sha in SHAS.items():
+            raw = (TDX / name).read_bytes()
+>           assert hashlib.sha256(raw).hexdigest() == sha
+E           AssertionError: assert '2eb9efad0bf7...c1d19f2c7f12a' == '2644ce583796...728ecac08a228'
+E             
+E             - 2644ce583796b412d18c5b4730356e2df95691085dbf0080dfa728ecac08a228
+E             + 2eb9efad0bf7b3e8692a40771ff76a4da6cc1083306948251e0c1d19f2c7f12a
+
+tests\test_historical_opening_evidence.py:33: AssertionError
+_______ test_szse_unknown_event_meaning_and_bad_attachment_are_unknown ________
+
+    def test_szse_unknown_event_meaning_and_bad_attachment_are_unknown():
+        payload=json.loads((OFFICIAL/'szse_159509_announcements_control.bin').read_bytes())
+        payload['data']=payload['data'][:1];payload['announceCount']=1
+>       assert fetch('159509',official=[payload,b'<html>blocked</html>']).data['opening_status']=='UNKNOWN'
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_historical_opening_evidence.py:246: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_historical_opening_evidence.py:98: in fetch
+    tdx, official = readers(code, day, kwargs.pop('official', None), kwargs.pop('mutate', None),
+tests\test_historical_opening_evidence.py:85: in readers
+    rs = records(code, day)
+         ^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+code = '159509', day = '2026-09-11'
+
+    def records(code, day):
+        found = []
+        for name, sha in SHAS.items():
+            raw = (TDX / name).read_bytes()
+>           assert hashlib.sha256(raw).hexdigest() == sha
+E           AssertionError: assert '2eb9efad0bf7...c1d19f2c7f12a' == '2644ce583796...728ecac08a228'
+E             
+E             - 2644ce583796b412d18c5b4730356e2df95691085dbf0080dfa728ecac08a228
+E             + 2eb9efad0bf7b3e8692a40771ff76a4da6cc1083306948251e0c1d19f2c7f12a
+
+tests\test_historical_opening_evidence.py:33: AssertionError
+___________ test_sse_wrong_code_and_unknown_secondary_time_unknown ____________
+
+    def test_sse_wrong_code_and_unknown_secondary_time_unknown():
+        row={'secCode':'999999','startStopDate':'20260911','endStopDate':'20260911',
+             'dateSource':'2','startStopType':'LSTP','stopTime':'999'}
+        payload={'result':[row],'pageHelp':{'pageNo':1,'pageCount':1,'pageSize':25,'total':1,'data':[row]}}
+>       assert fetch(official=[payload]).data['opening_status']=='UNKNOWN'
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_historical_opening_evidence.py:253: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_historical_opening_evidence.py:98: in fetch
+    tdx, official = readers(code, day, kwargs.pop('official', None), kwargs.pop('mutate', None),
+tests\test_historical_opening_evidence.py:85: in readers
+    rs = records(code, day)
+         ^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+code = '510300', day = '2026-09-11'
+
+    def records(code, day):
+        found = []
+        for name, sha in SHAS.items():
+            raw = (TDX / name).read_bytes()
+>           assert hashlib.sha256(raw).hexdigest() == sha
+E           AssertionError: assert '2eb9efad0bf7...c1d19f2c7f12a' == '2644ce583796...728ecac08a228'
+E             
+E             - 2644ce583796b412d18c5b4730356e2df95691085dbf0080dfa728ecac08a228
+E             + 2eb9efad0bf7b3e8692a40771ff76a4da6cc1083306948251e0c1d19f2c7f12a
+
+tests\test_historical_opening_evidence.py:33: AssertionError
+______________ test_complete_current_pagination_and_partial_cap _______________
+
+    def test_complete_current_pagination_and_partial_cap():
+        m=api()
+        row={'secCode':'510300','startStopDate':'20260911','endStopDate':'20260911',
+             'dateSource':'3','startStopType':'SG','stopTime':''}
+        pages=[{'result':[row], 'pageHelp':{'pageNo':i,'pageCount':2,'pageSize':1,'total':2,'data':[row]}} for i in (1,2)]
+        http=ReplayHttp(pages)
+>       tdx,_=readers('510300','2026-09-11')
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_historical_opening_evidence.py:264: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_historical_opening_evidence.py:85: in readers
+    rs = records(code, day)
+         ^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+code = '510300', day = '2026-09-11'
+
+    def records(code, day):
+        found = []
+        for name, sha in SHAS.items():
+            raw = (TDX / name).read_bytes()
+>           assert hashlib.sha256(raw).hexdigest() == sha
+E           AssertionError: assert '2eb9efad0bf7...c1d19f2c7f12a' == '2644ce583796...728ecac08a228'
+E             
+E             - 2644ce583796b412d18c5b4730356e2df95691085dbf0080dfa728ecac08a228
+E             + 2eb9efad0bf7b3e8692a40771ff76a4da6cc1083306948251e0c1d19f2c7f12a
+
+tests\test_historical_opening_evidence.py:33: AssertionError
+________ test_current_last_stop_day_cannot_be_erased_by_cached_resume _________
+
+    def test_current_last_stop_day_cannot_be_erased_by_cached_resume():
+        payload=json.loads((OFFICIAL/'sse_688432_interval.bin').read_bytes())
+        payload['result'][0]['endStopDate']='20260914'
+        payload['pageHelp']['data'][0]['endStopDate']='20260914'
+>       r=fetch('688432','2026-09-14',official=[payload])
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_historical_opening_evidence.py:279: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_historical_opening_evidence.py:98: in fetch
+    tdx, official = readers(code, day, kwargs.pop('official', None), kwargs.pop('mutate', None),
+tests\test_historical_opening_evidence.py:85: in readers
+    rs = records(code, day)
+         ^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+code = '688432', day = '2026-09-14'
+
+    def records(code, day):
+        found = []
+        for name, sha in SHAS.items():
+            raw = (TDX / name).read_bytes()
+>           assert hashlib.sha256(raw).hexdigest() == sha
+E           AssertionError: assert '2eb9efad0bf7...c1d19f2c7f12a' == '2644ce583796...728ecac08a228'
+E             
+E             - 2644ce583796b412d18c5b4730356e2df95691085dbf0080dfa728ecac08a228
+E             + 2eb9efad0bf7b3e8692a40771ff76a4da6cc1083306948251e0c1d19f2c7f12a
+
+tests\test_historical_opening_evidence.py:33: AssertionError
+____ test_mismatched_known_security_is_typed_unknown_not_silently_ignored _____
+
+    def test_mismatched_known_security_is_typed_unknown_not_silently_ignored():
+        known=api().OfficialOpeningEvent(instrument='159915',market='SZSE',
+            effective_start='2026-09-11T09:30:00+08:00',effective_end=None,
+            source_url='https://www.szse.cn/disclosure/example',raw_sha256='b'*64,
+            certification_basis='explicit interval',retrieved_at='2026-10-09T13:00:00+00:00')
+>       r=fetch(known_events=[known])
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_historical_opening_evidence.py:289: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_historical_opening_evidence.py:98: in fetch
+    tdx, official = readers(code, day, kwargs.pop('official', None), kwargs.pop('mutate', None),
+tests\test_historical_opening_evidence.py:85: in readers
+    rs = records(code, day)
+         ^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+code = '510300', day = '2026-09-11'
+
+    def records(code, day):
+        found = []
+        for name, sha in SHAS.items():
+            raw = (TDX / name).read_bytes()
+>           assert hashlib.sha256(raw).hexdigest() == sha
+E           AssertionError: assert '2eb9efad0bf7...c1d19f2c7f12a' == '2644ce583796...728ecac08a228'
+E             
+E             - 2644ce583796b412d18c5b4730356e2df95691085dbf0080dfa728ecac08a228
+E             + 2eb9efad0bf7b3e8692a40771ff76a4da6cc1083306948251e0c1d19f2c7f12a
+
+tests\test_historical_opening_evidence.py:33: AssertionError
+______________ test_pdf_magic_with_corrupt_pdf_is_typed_unknown _______________
+
+    def test_pdf_magic_with_corrupt_pdf_is_typed_unknown():
+        payload=json.loads((OFFICIAL/'szse_159509_announcements_control.bin').read_bytes())
+        payload['data']=payload['data'][:1];payload['announceCount']=1
+>       r=fetch('159509',official=[payload,b'%PDF-1.7\ncorrupt'])
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_historical_opening_evidence.py:298: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_historical_opening_evidence.py:98: in fetch
+    tdx, official = readers(code, day, kwargs.pop('official', None), kwargs.pop('mutate', None),
+tests\test_historical_opening_evidence.py:85: in readers
+    rs = records(code, day)
+         ^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+code = '159509', day = '2026-09-11'
+
+    def records(code, day):
+        found = []
+        for name, sha in SHAS.items():
+            raw = (TDX / name).read_bytes()
+>           assert hashlib.sha256(raw).hexdigest() == sha
+E           AssertionError: assert '2eb9efad0bf7...c1d19f2c7f12a' == '2644ce583796...728ecac08a228'
+E             
+E             - 2644ce583796b412d18c5b4730356e2df95691085dbf0080dfa728ecac08a228
+E             + 2eb9efad0bf7b3e8692a40771ff76a4da6cc1083306948251e0c1d19f2c7f12a
+
+tests\test_historical_opening_evidence.py:33: AssertionError
+_______ test_last_stop_day_is_blocked_through_open_not_midnight_resume ________
+
+    def test_last_stop_day_is_blocked_through_open_not_midnight_resume():
+        payload=(OFFICIAL/'sse_688432_interval.bin').read_bytes()
+        # No TDX 9/11 fixture exists; use a real zero-volume continuous-halt sample
+        # for the transport only, with the request identity rebound explicitly.
+>       m=api();rs=records('688432','2026-08-31')
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_historical_opening_evidence.py:307: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+code = '688432', day = '2026-08-31'
+
+    def records(code, day):
+        found = []
+        for name, sha in SHAS.items():
+            raw = (TDX / name).read_bytes()
+>           assert hashlib.sha256(raw).hexdigest() == sha
+E           AssertionError: assert '2eb9efad0bf7...c1d19f2c7f12a' == '2644ce583796...728ecac08a228'
+E             
+E             - 2644ce583796b412d18c5b4730356e2df95691085dbf0080dfa728ecac08a228
+E             + 2eb9efad0bf7b3e8692a40771ff76a4da6cc1083306948251e0c1d19f2c7f12a
+
+tests\test_historical_opening_evidence.py:33: AssertionError
+________ test_known_stock_resume_date_does_not_infer_unverified_clock _________
+
+    def test_known_stock_resume_date_does_not_infer_unverified_clock():
+>       data=fetch('000002','2016-01-04').data
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_historical_opening_evidence.py:317: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_historical_opening_evidence.py:98: in fetch
+    tdx, official = readers(code, day, kwargs.pop('official', None), kwargs.pop('mutate', None),
+tests\test_historical_opening_evidence.py:85: in readers
+    rs = records(code, day)
+         ^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+code = '000002', day = '2016-01-04'
+
+    def records(code, day):
+        found = []
+        for name, sha in SHAS.items():
+            raw = (TDX / name).read_bytes()
+>           assert hashlib.sha256(raw).hexdigest() == sha
+E           AssertionError: assert '2eb9efad0bf7...c1d19f2c7f12a' == '2644ce583796...728ecac08a228'
+E             
+E             - 2644ce583796b412d18c5b4730356e2df95691085dbf0080dfa728ecac08a228
+E             + 2eb9efad0bf7b3e8692a40771ff76a4da6cc1083306948251e0c1d19f2c7f12a
+
+tests\test_historical_opening_evidence.py:33: AssertionError
+_______ test_known_sse_etf_halt_survives_legitimate_empty_current_query _______
+
+    def test_known_sse_etf_halt_survives_legitimate_empty_current_query():
+>       data=fetch('513100').data
+             ^^^^^^^^^^^^^^^
+
+tests\test_historical_opening_evidence.py:323: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_historical_opening_evidence.py:98: in fetch
+    tdx, official = readers(code, day, kwargs.pop('official', None), kwargs.pop('mutate', None),
+tests\test_historical_opening_evidence.py:85: in readers
+    rs = records(code, day)
+         ^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+code = '513100', day = '2026-09-11'
+
+    def records(code, day):
+        found = []
+        for name, sha in SHAS.items():
+            raw = (TDX / name).read_bytes()
+>           assert hashlib.sha256(raw).hexdigest() == sha
+E           AssertionError: assert '2eb9efad0bf7...c1d19f2c7f12a' == '2644ce583796...728ecac08a228'
+E             
+E             - 2644ce583796b412d18c5b4730356e2df95691085dbf0080dfa728ecac08a228
+E             + 2eb9efad0bf7b3e8692a40771ff76a4da6cc1083306948251e0c1d19f2c7f12a
+
+tests\test_historical_opening_evidence.py:33: AssertionError
+______________ test_optional_pdf_parser_absent_is_typed_unknown _______________
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x000001A6D988BBD0>
+
+    def test_optional_pdf_parser_absent_is_typed_unknown(monkeypatch):
+        import builtins
+        original=builtins.__import__
+        def without_pdf(name,*args,**kwargs):
+            if name=='pypdf': raise ImportError('optional parser absent')
+            return original(name,*args,**kwargs)
+        monkeypatch.setattr(builtins,'__import__',without_pdf)
+        payload=json.loads((OFFICIAL/'szse_159509_announcements_control.bin').read_bytes())
+        payload['data']=payload['data'][:1];payload['announceCount']=1
+>       data=fetch('159509',official=[payload,(OFFICIAL/'159509-20260911.pdf').read_bytes()])
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_historical_opening_evidence.py:338: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_historical_opening_evidence.py:98: in fetch
+    tdx, official = readers(code, day, kwargs.pop('official', None), kwargs.pop('mutate', None),
+tests\test_historical_opening_evidence.py:85: in readers
+    rs = records(code, day)
+         ^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+code = '159509', day = '2026-09-11'
+
+    def records(code, day):
+        found = []
+        for name, sha in SHAS.items():
+            raw = (TDX / name).read_bytes()
+>           assert hashlib.sha256(raw).hexdigest() == sha
+E           AssertionError: assert '2eb9efad0bf7...c1d19f2c7f12a' == '2644ce583796...728ecac08a228'
+E             
+E             - 2644ce583796b412d18c5b4730356e2df95691085dbf0080dfa728ecac08a228
+E             + 2eb9efad0bf7b3e8692a40771ff76a4da6cc1083306948251e0c1d19f2c7f12a
+
+tests\test_historical_opening_evidence.py:33: AssertionError
+_ test_sse_single_session_etf_rule_rejects_stale_or_cross_day_interval[20260910] _
+
+end_date = '20260910'
+
+    @pytest.mark.parametrize('end_date',['20260910','20260911'])
+    def test_sse_single_session_etf_rule_rejects_stale_or_cross_day_interval(end_date):
+        # Synthetic identity/date fault using the actual SSE LSTP/915 field contract.
+        row={'secCode':'510300','startStopDate':'20260910','endStopDate':end_date,
+             'dateSource':'2','startStopType':'LSTP','stopTime':'915'}
+        payload={'result':[row],'pageHelp':{'pageNo':1,'pageCount':1,'pageSize':25,'total':1,'data':[row]}}
+>       r=fetch(official=[payload])
+          ^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_historical_opening_evidence.py:358: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_historical_opening_evidence.py:98: in fetch
+    tdx, official = readers(code, day, kwargs.pop('official', None), kwargs.pop('mutate', None),
+tests\test_historical_opening_evidence.py:85: in readers
+    rs = records(code, day)
+         ^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+code = '510300', day = '2026-09-11'
+
+    def records(code, day):
+        found = []
+        for name, sha in SHAS.items():
+            raw = (TDX / name).read_bytes()
+>           assert hashlib.sha256(raw).hexdigest() == sha
+E           AssertionError: assert '2eb9efad0bf7...c1d19f2c7f12a' == '2644ce583796...728ecac08a228'
+E             
+E             - 2644ce583796b412d18c5b4730356e2df95691085dbf0080dfa728ecac08a228
+E             + 2eb9efad0bf7b3e8692a40771ff76a4da6cc1083306948251e0c1d19f2c7f12a
+
+tests\test_historical_opening_evidence.py:33: AssertionError
+_ test_sse_single_session_etf_rule_rejects_stale_or_cross_day_interval[20260911] _
+
+end_date = '20260911'
+
+    @pytest.mark.parametrize('end_date',['20260910','20260911'])
+    def test_sse_single_session_etf_rule_rejects_stale_or_cross_day_interval(end_date):
+        # Synthetic identity/date fault using the actual SSE LSTP/915 field contract.
+        row={'secCode':'510300','startStopDate':'20260910','endStopDate':end_date,
+             'dateSource':'2','startStopType':'LSTP','stopTime':'915'}
+        payload={'result':[row],'pageHelp':{'pageNo':1,'pageCount':1,'pageSize':25,'total':1,'data':[row]}}
+>       r=fetch(official=[payload])
+          ^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_historical_opening_evidence.py:358: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_historical_opening_evidence.py:98: in fetch
+    tdx, official = readers(code, day, kwargs.pop('official', None), kwargs.pop('mutate', None),
+tests\test_historical_opening_evidence.py:85: in readers
+    rs = records(code, day)
+         ^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+code = '510300', day = '2026-09-11'
+
+    def records(code, day):
+        found = []
+        for name, sha in SHAS.items():
+            raw = (TDX / name).read_bytes()
+>           assert hashlib.sha256(raw).hexdigest() == sha
+E           AssertionError: assert '2eb9efad0bf7...c1d19f2c7f12a' == '2644ce583796...728ecac08a228'
+E             
+E             - 2644ce583796b412d18c5b4730356e2df95691085dbf0080dfa728ecac08a228
+E             + 2eb9efad0bf7b3e8692a40771ff76a4da6cc1083306948251e0c1d19f2c7f12a
+
+tests\test_historical_opening_evidence.py:33: AssertionError
+_ test_sse_nonsecondary_row_still_requires_valid_current_session_identity[20260910] _
+
+bad_date = '20260910'
+
+    @pytest.mark.parametrize('bad_date',['20260910','20260911junk','2026-09-11'])
+    def test_sse_nonsecondary_row_still_requires_valid_current_session_identity(bad_date):
+        row={'secCode':'510300','startStopDate':bad_date,'endStopDate':bad_date,
+             'dateSource':'3','startStopType':'SG','stopTime':''}
+        payload={'result':[row],'pageHelp':{'pageNo':1,'pageCount':1,'pageSize':25,'total':1,'data':[row]}}
+>       r=fetch(official=[payload])
+          ^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_historical_opening_evidence.py:368: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_historical_opening_evidence.py:98: in fetch
+    tdx, official = readers(code, day, kwargs.pop('official', None), kwargs.pop('mutate', None),
+tests\test_historical_opening_evidence.py:85: in readers
+    rs = records(code, day)
+         ^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+code = '510300', day = '2026-09-11'
+
+    def records(code, day):
+        found = []
+        for name, sha in SHAS.items():
+            raw = (TDX / name).read_bytes()
+>           assert hashlib.sha256(raw).hexdigest() == sha
+E           AssertionError: assert '2eb9efad0bf7...c1d19f2c7f12a' == '2644ce583796...728ecac08a228'
+E             
+E             - 2644ce583796b412d18c5b4730356e2df95691085dbf0080dfa728ecac08a228
+E             + 2eb9efad0bf7b3e8692a40771ff76a4da6cc1083306948251e0c1d19f2c7f12a
+
+tests\test_historical_opening_evidence.py:33: AssertionError
+_ test_sse_nonsecondary_row_still_requires_valid_current_session_identity[20260911junk] _
+
+bad_date = '20260911junk'
+
+    @pytest.mark.parametrize('bad_date',['20260910','20260911junk','2026-09-11'])
+    def test_sse_nonsecondary_row_still_requires_valid_current_session_identity(bad_date):
+        row={'secCode':'510300','startStopDate':bad_date,'endStopDate':bad_date,
+             'dateSource':'3','startStopType':'SG','stopTime':''}
+        payload={'result':[row],'pageHelp':{'pageNo':1,'pageCount':1,'pageSize':25,'total':1,'data':[row]}}
+>       r=fetch(official=[payload])
+          ^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_historical_opening_evidence.py:368: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_historical_opening_evidence.py:98: in fetch
+    tdx, official = readers(code, day, kwargs.pop('official', None), kwargs.pop('mutate', None),
+tests\test_historical_opening_evidence.py:85: in readers
+    rs = records(code, day)
+         ^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+code = '510300', day = '2026-09-11'
+
+    def records(code, day):
+        found = []
+        for name, sha in SHAS.items():
+            raw = (TDX / name).read_bytes()
+>           assert hashlib.sha256(raw).hexdigest() == sha
+E           AssertionError: assert '2eb9efad0bf7...c1d19f2c7f12a' == '2644ce583796...728ecac08a228'
+E             
+E             - 2644ce583796b412d18c5b4730356e2df95691085dbf0080dfa728ecac08a228
+E             + 2eb9efad0bf7b3e8692a40771ff76a4da6cc1083306948251e0c1d19f2c7f12a
+
+tests\test_historical_opening_evidence.py:33: AssertionError
+_ test_sse_nonsecondary_row_still_requires_valid_current_session_identity[2026-09-11] _
+
+bad_date = '2026-09-11'
+
+    @pytest.mark.parametrize('bad_date',['20260910','20260911junk','2026-09-11'])
+    def test_sse_nonsecondary_row_still_requires_valid_current_session_identity(bad_date):
+        row={'secCode':'510300','startStopDate':bad_date,'endStopDate':bad_date,
+             'dateSource':'3','startStopType':'SG','stopTime':''}
+        payload={'result':[row],'pageHelp':{'pageNo':1,'pageCount':1,'pageSize':25,'total':1,'data':[row]}}
+>       r=fetch(official=[payload])
+          ^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_historical_opening_evidence.py:368: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_historical_opening_evidence.py:98: in fetch
+    tdx, official = readers(code, day, kwargs.pop('official', None), kwargs.pop('mutate', None),
+tests\test_historical_opening_evidence.py:85: in readers
+    rs = records(code, day)
+         ^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+code = '510300', day = '2026-09-11'
+
+    def records(code, day):
+        found = []
+        for name, sha in SHAS.items():
+            raw = (TDX / name).read_bytes()
+>           assert hashlib.sha256(raw).hexdigest() == sha
+E           AssertionError: assert '2eb9efad0bf7...c1d19f2c7f12a' == '2644ce583796...728ecac08a228'
+E             
+E             - 2644ce583796b412d18c5b4730356e2df95691085dbf0080dfa728ecac08a228
+E             + 2eb9efad0bf7b3e8692a40771ff76a4da6cc1083306948251e0c1d19f2c7f12a
+
+tests\test_historical_opening_evidence.py:33: AssertionError
+_ test_sse_stock_interval_dates_require_strict_format_validity_and_order[startStopDate-20260831junk] _
+
+field = 'startStopDate', bad_date = '20260831junk'
+
+    @pytest.mark.parametrize('field,bad_date',[
+        ('startStopDate','20260831junk'), ('endStopDate','20260911junk'),
+        ('startStopDate','20260912'), ('endStopDate','20260830'),
+        ('startStopDate','20260230'), ('endStopDate','20260931'),
+    ])
+    def test_sse_stock_interval_dates_require_strict_format_validity_and_order(field,bad_date):
+        payload=json.loads((OFFICIAL/'sse_688432_interval.bin').read_bytes())
+        payload['result'][0][field]=bad_date
+        payload['pageHelp']['data'][0][field]=bad_date
+>       r=fetch('688432','2026-09-14',official=[payload])
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_historical_opening_evidence.py:382: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_historical_opening_evidence.py:98: in fetch
+    tdx, official = readers(code, day, kwargs.pop('official', None), kwargs.pop('mutate', None),
+tests\test_historical_opening_evidence.py:85: in readers
+    rs = records(code, day)
+         ^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+code = '688432', day = '2026-09-14'
+
+    def records(code, day):
+        found = []
+        for name, sha in SHAS.items():
+            raw = (TDX / name).read_bytes()
+>           assert hashlib.sha256(raw).hexdigest() == sha
+E           AssertionError: assert '2eb9efad0bf7...c1d19f2c7f12a' == '2644ce583796...728ecac08a228'
+E             
+E             - 2644ce583796b412d18c5b4730356e2df95691085dbf0080dfa728ecac08a228
+E             + 2eb9efad0bf7b3e8692a40771ff76a4da6cc1083306948251e0c1d19f2c7f12a
+
+tests\test_historical_opening_evidence.py:33: AssertionError
+_ test_sse_stock_interval_dates_require_strict_format_validity_and_order[endStopDate-20260911junk] _
+
+field = 'endStopDate', bad_date = '20260911junk'
+
+    @pytest.mark.parametrize('field,bad_date',[
+        ('startStopDate','20260831junk'), ('endStopDate','20260911junk'),
+        ('startStopDate','20260912'), ('endStopDate','20260830'),
+        ('startStopDate','20260230'), ('endStopDate','20260931'),
+    ])
+    def test_sse_stock_interval_dates_require_strict_format_validity_and_order(field,bad_date):
+        payload=json.loads((OFFICIAL/'sse_688432_interval.bin').read_bytes())
+        payload['result'][0][field]=bad_date
+        payload['pageHelp']['data'][0][field]=bad_date
+>       r=fetch('688432','2026-09-14',official=[payload])
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_historical_opening_evidence.py:382: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_historical_opening_evidence.py:98: in fetch
+    tdx, official = readers(code, day, kwargs.pop('official', None), kwargs.pop('mutate', None),
+tests\test_historical_opening_evidence.py:85: in readers
+    rs = records(code, day)
+         ^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+code = '688432', day = '2026-09-14'
+
+    def records(code, day):
+        found = []
+        for name, sha in SHAS.items():
+            raw = (TDX / name).read_bytes()
+>           assert hashlib.sha256(raw).hexdigest() == sha
+E           AssertionError: assert '2eb9efad0bf7...c1d19f2c7f12a' == '2644ce583796...728ecac08a228'
+E             
+E             - 2644ce583796b412d18c5b4730356e2df95691085dbf0080dfa728ecac08a228
+E             + 2eb9efad0bf7b3e8692a40771ff76a4da6cc1083306948251e0c1d19f2c7f12a
+
+tests\test_historical_opening_evidence.py:33: AssertionError
+_ test_sse_stock_interval_dates_require_strict_format_validity_and_order[startStopDate-20260912] _
+
+field = 'startStopDate', bad_date = '20260912'
+
+    @pytest.mark.parametrize('field,bad_date',[
+        ('startStopDate','20260831junk'), ('endStopDate','20260911junk'),
+        ('startStopDate','20260912'), ('endStopDate','20260830'),
+        ('startStopDate','20260230'), ('endStopDate','20260931'),
+    ])
+    def test_sse_stock_interval_dates_require_strict_format_validity_and_order(field,bad_date):
+        payload=json.loads((OFFICIAL/'sse_688432_interval.bin').read_bytes())
+        payload['result'][0][field]=bad_date
+        payload['pageHelp']['data'][0][field]=bad_date
+>       r=fetch('688432','2026-09-14',official=[payload])
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_historical_opening_evidence.py:382: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_historical_opening_evidence.py:98: in fetch
+    tdx, official = readers(code, day, kwargs.pop('official', None), kwargs.pop('mutate', None),
+tests\test_historical_opening_evidence.py:85: in readers
+    rs = records(code, day)
+         ^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+code = '688432', day = '2026-09-14'
+
+    def records(code, day):
+        found = []
+        for name, sha in SHAS.items():
+            raw = (TDX / name).read_bytes()
+>           assert hashlib.sha256(raw).hexdigest() == sha
+E           AssertionError: assert '2eb9efad0bf7...c1d19f2c7f12a' == '2644ce583796...728ecac08a228'
+E             
+E             - 2644ce583796b412d18c5b4730356e2df95691085dbf0080dfa728ecac08a228
+E             + 2eb9efad0bf7b3e8692a40771ff76a4da6cc1083306948251e0c1d19f2c7f12a
+
+tests\test_historical_opening_evidence.py:33: AssertionError
+_ test_sse_stock_interval_dates_require_strict_format_validity_and_order[endStopDate-20260830] _
+
+field = 'endStopDate', bad_date = '20260830'
+
+    @pytest.mark.parametrize('field,bad_date',[
+        ('startStopDate','20260831junk'), ('endStopDate','20260911junk'),
+        ('startStopDate','20260912'), ('endStopDate','20260830'),
+        ('startStopDate','20260230'), ('endStopDate','20260931'),
+    ])
+    def test_sse_stock_interval_dates_require_strict_format_validity_and_order(field,bad_date):
+        payload=json.loads((OFFICIAL/'sse_688432_interval.bin').read_bytes())
+        payload['result'][0][field]=bad_date
+        payload['pageHelp']['data'][0][field]=bad_date
+>       r=fetch('688432','2026-09-14',official=[payload])
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_historical_opening_evidence.py:382: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_historical_opening_evidence.py:98: in fetch
+    tdx, official = readers(code, day, kwargs.pop('official', None), kwargs.pop('mutate', None),
+tests\test_historical_opening_evidence.py:85: in readers
+    rs = records(code, day)
+         ^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+code = '688432', day = '2026-09-14'
+
+    def records(code, day):
+        found = []
+        for name, sha in SHAS.items():
+            raw = (TDX / name).read_bytes()
+>           assert hashlib.sha256(raw).hexdigest() == sha
+E           AssertionError: assert '2eb9efad0bf7...c1d19f2c7f12a' == '2644ce583796...728ecac08a228'
+E             
+E             - 2644ce583796b412d18c5b4730356e2df95691085dbf0080dfa728ecac08a228
+E             + 2eb9efad0bf7b3e8692a40771ff76a4da6cc1083306948251e0c1d19f2c7f12a
+
+tests\test_historical_opening_evidence.py:33: AssertionError
+_ test_sse_stock_interval_dates_require_strict_format_validity_and_order[startStopDate-20260230] _
+
+field = 'startStopDate', bad_date = '20260230'
+
+    @pytest.mark.parametrize('field,bad_date',[
+        ('startStopDate','20260831junk'), ('endStopDate','20260911junk'),
+        ('startStopDate','20260912'), ('endStopDate','20260830'),
+        ('startStopDate','20260230'), ('endStopDate','20260931'),
+    ])
+    def test_sse_stock_interval_dates_require_strict_format_validity_and_order(field,bad_date):
+        payload=json.loads((OFFICIAL/'sse_688432_interval.bin').read_bytes())
+        payload['result'][0][field]=bad_date
+        payload['pageHelp']['data'][0][field]=bad_date
+>       r=fetch('688432','2026-09-14',official=[payload])
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_historical_opening_evidence.py:382: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_historical_opening_evidence.py:98: in fetch
+    tdx, official = readers(code, day, kwargs.pop('official', None), kwargs.pop('mutate', None),
+tests\test_historical_opening_evidence.py:85: in readers
+    rs = records(code, day)
+         ^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+code = '688432', day = '2026-09-14'
+
+    def records(code, day):
+        found = []
+        for name, sha in SHAS.items():
+            raw = (TDX / name).read_bytes()
+>           assert hashlib.sha256(raw).hexdigest() == sha
+E           AssertionError: assert '2eb9efad0bf7...c1d19f2c7f12a' == '2644ce583796...728ecac08a228'
+E             
+E             - 2644ce583796b412d18c5b4730356e2df95691085dbf0080dfa728ecac08a228
+E             + 2eb9efad0bf7b3e8692a40771ff76a4da6cc1083306948251e0c1d19f2c7f12a
+
+tests\test_historical_opening_evidence.py:33: AssertionError
+_ test_sse_stock_interval_dates_require_strict_format_validity_and_order[endStopDate-20260931] _
+
+field = 'endStopDate', bad_date = '20260931'
+
+    @pytest.mark.parametrize('field,bad_date',[
+        ('startStopDate','20260831junk'), ('endStopDate','20260911junk'),
+        ('startStopDate','20260912'), ('endStopDate','20260830'),
+        ('startStopDate','20260230'), ('endStopDate','20260931'),
+    ])
+    def test_sse_stock_interval_dates_require_strict_format_validity_and_order(field,bad_date):
+        payload=json.loads((OFFICIAL/'sse_688432_interval.bin').read_bytes())
+        payload['result'][0][field]=bad_date
+        payload['pageHelp']['data'][0][field]=bad_date
+>       r=fetch('688432','2026-09-14',official=[payload])
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_historical_opening_evidence.py:382: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_historical_opening_evidence.py:98: in fetch
+    tdx, official = readers(code, day, kwargs.pop('official', None), kwargs.pop('mutate', None),
+tests\test_historical_opening_evidence.py:85: in readers
+    rs = records(code, day)
+         ^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+code = '688432', day = '2026-09-14'
+
+    def records(code, day):
+        found = []
+        for name, sha in SHAS.items():
+            raw = (TDX / name).read_bytes()
+>           assert hashlib.sha256(raw).hexdigest() == sha
+E           AssertionError: assert '2eb9efad0bf7...c1d19f2c7f12a' == '2644ce583796...728ecac08a228'
+E             
+E             - 2644ce583796b412d18c5b4730356e2df95691085dbf0080dfa728ecac08a228
+E             + 2eb9efad0bf7b3e8692a40771ff76a4da6cc1083306948251e0c1d19f2c7f12a
+
+tests\test_historical_opening_evidence.py:33: AssertionError
+_ test_valid_stock_continuous_interval_allows_start_before_query_and_blocks_last_day _
+
+    def test_valid_stock_continuous_interval_allows_start_before_query_and_blocks_last_day():
+        payload=json.loads((OFFICIAL/'sse_688432_interval.bin').read_bytes())
+        payload['result'][0]['endStopDate']='20260914'
+        payload['pageHelp']['data'][0]['endStopDate']='20260914'
+>       r=fetch('688432','2026-09-14',official=[payload])
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_historical_opening_evidence.py:391: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_historical_opening_evidence.py:98: in fetch
+    tdx, official = readers(code, day, kwargs.pop('official', None), kwargs.pop('mutate', None),
+tests\test_historical_opening_evidence.py:85: in readers
+    rs = records(code, day)
+         ^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+code = '688432', day = '2026-09-14'
+
+    def records(code, day):
+        found = []
+        for name, sha in SHAS.items():
+            raw = (TDX / name).read_bytes()
+>           assert hashlib.sha256(raw).hexdigest() == sha
+E           AssertionError: assert '2eb9efad0bf7...c1d19f2c7f12a' == '2644ce583796...728ecac08a228'
+E             
+E             - 2644ce583796b412d18c5b4730356e2df95691085dbf0080dfa728ecac08a228
+E             + 2eb9efad0bf7b3e8692a40771ff76a4da6cc1083306948251e0c1d19f2c7f12a
+
+tests\test_historical_opening_evidence.py:33: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/test_delisting_structured.py::test_structured_payload_is_minimal_and_version_stays_042
+FAILED tests/test_fund_corporate_actions.py::test_release_version_is_042 - As...
+FAILED tests/test_historical_opening_evidence.py::test_four_real_etf_opening_composition[510300-4.576-352580]
+FAILED tests/test_historical_opening_evidence.py::test_four_real_etf_opening_composition[159915-3.339-557149]
+FAILED tests/test_historical_opening_evidence.py::test_four_real_etf_opening_composition[518880-8.91-106411]
+FAILED tests/test_historical_opening_evidence.py::test_four_real_etf_opening_composition[511010-141.177-289]
+FAILED tests/test_historical_opening_evidence.py::test_stock_prices_preserved_and_later_halt_does_not_veto_open[688432-2026-09-14-40.9]
+FAILED tests/test_historical_opening_evidence.py::test_stock_prices_preserved_and_later_halt_does_not_veto_open[000002-2015-12-18-22.4]
+FAILED tests/test_historical_opening_evidence.py::test_bounded_real_history[2016-12-30]
+FAILED tests/test_historical_opening_evidence.py::test_bounded_real_history[2022-12-30]
+FAILED tests/test_historical_opening_evidence.py::test_known_full_window_block_plus_positive_activity_is_conflict
+FAILED tests/test_historical_opening_evidence.py::test_resume_inside_minute_blocks_target_without_retry
+FAILED tests/test_historical_opening_evidence.py::test_halt_start_inside_minute_cannot_order_activity
+FAILED tests/test_historical_opening_evidence.py::test_ongoing_unconfirmed_end_vetoes_empty_official
+FAILED tests/test_historical_opening_evidence.py::test_current_official_failure_and_partial_do_not_allow_open[bad0]
+FAILED tests/test_historical_opening_evidence.py::test_current_official_failure_and_partial_do_not_allow_open[<html>not json</html>]
+FAILED tests/test_historical_opening_evidence.py::test_current_official_failure_and_partial_do_not_allow_open[bad2]
+FAILED tests/test_historical_opening_evidence.py::test_no_qualified_activity_unknown[auction_only]
+FAILED tests/test_historical_opening_evidence.py::test_no_qualified_activity_unknown[zero]
+FAILED tests/test_historical_opening_evidence.py::test_no_qualified_activity_unknown[minute_only]
+FAILED tests/test_historical_opening_evidence.py::test_no_qualified_activity_unknown[bad_price]
+FAILED tests/test_historical_opening_evidence.py::test_no_qualified_activity_unknown[bad_time]
+FAILED tests/test_historical_opening_evidence.py::test_no_qualified_activity_unknown[double_normalized]
+FAILED tests/test_historical_opening_evidence.py::test_unknown_version_rejected
+FAILED tests/test_historical_opening_evidence.py::test_real_sse_interval_and_resume_evidence_participate
+FAILED tests/test_historical_opening_evidence.py::test_known_000002_continuous_halt_empty_tdx_not_normal
+FAILED tests/test_historical_opening_evidence.py::test_sse_fund_halt_control_actual_field_contract
+FAILED tests/test_historical_opening_evidence.py::test_szse_fund_halt_real_attachment_and_all_rows_considered
+FAILED tests/test_historical_opening_evidence.py::test_szse_unknown_event_meaning_and_bad_attachment_are_unknown
+FAILED tests/test_historical_opening_evidence.py::test_sse_wrong_code_and_unknown_secondary_time_unknown
+FAILED tests/test_historical_opening_evidence.py::test_complete_current_pagination_and_partial_cap
+FAILED tests/test_historical_opening_evidence.py::test_current_last_stop_day_cannot_be_erased_by_cached_resume
+FAILED tests/test_historical_opening_evidence.py::test_mismatched_known_security_is_typed_unknown_not_silently_ignored
+FAILED tests/test_historical_opening_evidence.py::test_pdf_magic_with_corrupt_pdf_is_typed_unknown
+FAILED tests/test_historical_opening_evidence.py::test_last_stop_day_is_blocked_through_open_not_midnight_resume
+FAILED tests/test_historical_opening_evidence.py::test_known_stock_resume_date_does_not_infer_unverified_clock
+FAILED tests/test_historical_opening_evidence.py::test_known_sse_etf_halt_survives_legitimate_empty_current_query
+FAILED tests/test_historical_opening_evidence.py::test_optional_pdf_parser_absent_is_typed_unknown
+FAILED tests/test_historical_opening_evidence.py::test_sse_single_session_etf_rule_rejects_stale_or_cross_day_interval[20260910]
+FAILED tests/test_historical_opening_evidence.py::test_sse_single_session_etf_rule_rejects_stale_or_cross_day_interval[20260911]
+FAILED tests/test_historical_opening_evidence.py::test_sse_nonsecondary_row_still_requires_valid_current_session_identity[20260910]
+FAILED tests/test_historical_opening_evidence.py::test_sse_nonsecondary_row_still_requires_valid_current_session_identity[20260911junk]
+FAILED tests/test_historical_opening_evidence.py::test_sse_nonsecondary_row_still_requires_valid_current_session_identity[2026-09-11]
+FAILED tests/test_historical_opening_evidence.py::test_sse_stock_interval_dates_require_strict_format_validity_and_order[startStopDate-20260831junk]
+FAILED tests/test_historical_opening_evidence.py::test_sse_stock_interval_dates_require_strict_format_validity_and_order[endStopDate-20260911junk]
+FAILED tests/test_historical_opening_evidence.py::test_sse_stock_interval_dates_require_strict_format_validity_and_order[startStopDate-20260912]
+FAILED tests/test_historical_opening_evidence.py::test_sse_stock_interval_dates_require_strict_format_validity_and_order[endStopDate-20260830]
+FAILED tests/test_historical_opening_evidence.py::test_sse_stock_interval_dates_require_strict_format_validity_and_order[startStopDate-20260230]
+FAILED tests/test_historical_opening_evidence.py::test_sse_stock_interval_dates_require_strict_format_validity_and_order[endStopDate-20260931]
+FAILED tests/test_historical_opening_evidence.py::test_valid_stock_continuous_interval_allows_start_before_query_and_blocks_last_day
+50 failed, 801 passed, 1 skipped, 15 deselected in 19.53s

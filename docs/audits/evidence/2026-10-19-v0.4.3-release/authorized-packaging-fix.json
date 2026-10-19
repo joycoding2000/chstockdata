@@ -1,0 +1,15 @@
+{
+  "classification": "CONFIRMED_DEFECT",
+  "authorization": "BOUNDED_PACKAGING_FIX_AUTHORIZED",
+  "initial_result": "50 failed, 801 passed, 1 skipped, 15 deselected",
+  "old_version_assertions": 2,
+  "checkout_hash_failures": 48,
+  "raw_files_restored_from_unchanged_git_blobs": [
+    "docs/audits/evidence/2026-10-10-v0.4.2-tdx-historical-execution/tdx_history_responses.jsonl",
+    "docs/audits/evidence/2026-10-10-v0.4.2-tdx-historical-execution/tdx_opening_page_responses.jsonl",
+    "docs/audits/evidence/2026-10-10-v0.4.2-tdx-historical-execution/tdx_opening_page_followup_responses.jsonl",
+    "docs/audits/evidence/2026-10-10-v0.4.2-tdx-historical-execution/tdx_opening_page_final_responses.jsonl"
+  ],
+  "business_assertions_relaxed": false,
+  "dr04_p_implementation_tests_fixtures_contract_changed": false
+}

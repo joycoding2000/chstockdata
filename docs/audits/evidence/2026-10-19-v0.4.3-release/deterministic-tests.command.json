@@ -1,0 +1,23 @@
+{
+  "command": [
+    "D:\\Dev\\Projects\\chstockdata\\build\\w0-v043\\dev\\Scripts\\python.exe",
+    "-m",
+    "pytest",
+    "tests/",
+    "-q",
+    "--no-header",
+    "--basetemp=C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\chstockdata-w0-v043-9g5bzj9z\\pytest",
+    "--junitxml=C:\\Users\\Administrator\\.codex\\worktrees\\w0-v043-release\\chstockdata\\docs\\audits\\evidence\\2026-10-19-v0.4.3-release\\deterministic-tests.xml"
+  ],
+  "cwd": "C:\\Users\\Administrator\\.codex\\worktrees\\w0-v043-release\\chstockdata",
+  "started_at_utc": "2026-10-19T11:26:29.042694+00:00",
+  "seconds": 16.132,
+  "exit_code": 0,
+  "environment_overrides": {
+    "PYTHONPATH": "C:\\Users\\Administrator\\.codex\\worktrees\\w0-v043-release\\chstockdata\\src"
+  },
+  "logs": {
+    "stdout": "4b05aa865f5783eb7ea476c3d779df372fe3d1bae239a6798f98d31b088206d6",
+    "stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

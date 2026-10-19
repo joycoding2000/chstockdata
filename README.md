@@ -30,11 +30,16 @@ df = get_stock_data("600519", 365)    # daily OHLCV, vipdoc/mootdx/Sina chain
 get_realtime_snapshot("600519")       # realtime quote, Tencent -> mootdx -> Sina
 ```
 
-The unreleased DR04-P addition provides the public API
-`get_sina_daily_fund_flow` for lossless Sina daily `r0_net` observations.
-See the [consumer contract and usage](docs/dr04-p-daily-fund-flow.md).
-DR04-P has [Owner Acceptance](docs/audits/2026-10-18-dr04-p-owner-acceptance.md)
-and is not part of the published v0.4.2 package.
+Version 0.4.3 adds the Owner-accepted DR04-P public API
+`get_sina_daily_fund_flow` and the public `FundFlowCalendar`, `FundFlowBudget`
+and `DailyFundFlowResult` types for lossless Sina daily `r0_net` observations.
+Install with `python -m pip install chstockdata==0.4.3`.
+See the [consumer contract and usage](docs/dr04-p-daily-fund-flow.md) and
+[v0.4.3 release notes](docs/releases/v0.4.3.md).
+Consumers supply a qualified trading calendar and explicit request budget.
+Numeric completeness does not establish zero-value semantics, source finality,
+historical PIT, full-market coverage or strategy qualification; DR04-M remains
+outside this release.
 
 ## Structured API (v0.4.2)
 
@@ -94,9 +99,9 @@ hot rank / popularity rank / concept hits, insider transactions, shareholder
 pledge / buyback, corporate actions, earnings forecast, research reports, news
 wires, policy news, macro indicators, trading calendar, delisting / suspension
 info, and more. See `chstockdata/__init__.py` for the full export list. The
-current published version is `0.4.2`
-([PyPI](https://pypi.org/project/chstockdata/0.4.2/) /
-[GitHub Release](https://github.com/joycoding2000/chstockdata/releases/tag/v0.4.2)).
+current release version is `0.4.3`
+([PyPI](https://pypi.org/project/chstockdata/0.4.3/) /
+[GitHub Release](https://github.com/joycoding2000/chstockdata/releases/tag/v0.4.3)).
 The structured API is additive: it does not deprecate the legacy API.
 `0.3.0` remains the formal compatibility baseline for existing consumers
 that have not yet migrated; migration is not assumed.
