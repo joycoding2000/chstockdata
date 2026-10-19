@@ -1,0 +1,1033 @@
+{
+  "version": "1",
+  "pip_version": "26.1.1",
+  "install": [
+    {
+      "download_info": {
+        "url": "https://files.pythonhosted.org/packages/e5/ff/3729f5103df4fed265c9c5925fa6f4bb808bd2ab25f4d5eab027526a766a/chstockdata-0.4.3-py3-none-any.whl",
+        "archive_info": {
+          "hashes": {
+            "sha256": "f554dadbc88ac55427acef0ae33330a2a473c0f417dcaec46f38f6078cea9c9a"
+          },
+          "hash": "sha256=f554dadbc88ac55427acef0ae33330a2a473c0f417dcaec46f38f6078cea9c9a"
+        }
+      },
+      "is_direct": false,
+      "is_yanked": false,
+      "requested": true,
+      "metadata": {
+        "metadata_version": "2.4",
+        "name": "chstockdata",
+        "version": "0.4.3",
+        "dynamic": [
+          "license-file"
+        ],
+        "summary": "Free China A-share market data toolkit: direct HTTP/TCP vendors (Tencent, mootdx/TDX, Eastmoney, Sina, THS, CLS, SSE/SZSE), no API keys, no mandatory third-party market-data SDK in the core path; optional mootdx/baostock integrations",
+        "description": "# chstockdata\n\nFree China A-share market data toolkit — direct HTTP/TCP access to public\nquote vendors, **no API keys, no mandatory third-party market-data SDK in\nthe core path** (akshare-free by design). Optional integrations are\navailable for specific capabilities: `[mootdx]` unlocks the TCP K-line\nprimary source, `[baostock]` historical turnover for CYQ chips.\nBattle-tested in production by\n[TradingAgents-astock](https://github.com/joycoding2000/TradingAgents-astock).\n\n```bash\npip install chstockdata          # core package (base dependencies)\npip install \"chstockdata[mootdx]\"    # + mootdx TCP K-line source (optional)\npip install \"chstockdata[baostock]\"  # + historical turnover for CYQ chips (optional)\npip install \"chstockdata[mcp]\"       # + MCP server entry point (optional)\n```\n\nThe optional profiles are supported independently. The MCP extra currently\nstays on the MCP 1.x API because the MCP 2.x server API is not compatible with\nthis entry point. Within that supported range, `mootdx` pins `httpx==0.25.2`\nwhile MCP 1.x requires `httpx>=0.27.1`; a clean resolver therefore rejects\n`chstockdata[mootdx,mcp]`. Keep those two profiles in separate environments\nuntil the upstream constraints converge.\n\n```python\nfrom chstockdata import get_stock_data, get_realtime_snapshot, resolve_ticker\n\nresolve_ticker(\"贵州茅台\")            # -> \"600519\" (Chinese name -> 6-digit code)\ndf = get_stock_data(\"600519\", 365)    # daily OHLCV, vipdoc/mootdx/Sina chain\nget_realtime_snapshot(\"600519\")       # realtime quote, Tencent -> mootdx -> Sina\n```\n\nVersion 0.4.3 adds the Owner-accepted DR04-P public API\n`get_sina_daily_fund_flow` and the public `FundFlowCalendar`, `FundFlowBudget`\nand `DailyFundFlowResult` types for lossless Sina daily `r0_net` observations.\nInstall with `python -m pip install chstockdata==0.4.3`.\nSee the [consumer contract and usage](docs/dr04-p-daily-fund-flow.md) and\n[v0.4.3 release notes](docs/releases/v0.4.3.md).\nConsumers supply a qualified trading calendar and explicit request budget.\nNumeric completeness does not establish zero-value semantics, source finality,\nhistorical PIT, full-market coverage or strategy qualification; DR04-M remains\noutside this release.\n\n## Structured API (v0.4.2)\n\nThe structured surface is additive and returns `FetchResult` objects. The\nquote route keeps its provider functions injectable; `quote_fetchers` below is\na mapping whose values accept the existing `fetcher(codes, fallback_from=...)`\nshape, and `to_finite_number` is the caller's numeric coercion helper.\n\n```python\nfrom chstockdata import (\n    fetch_realtime_quotes,\n    fetch_daily_bars,\n    fetch_trading_calendar,\n    fetch_suspension_info,\n    fetch_delisting_status,\n    fetch_tradability,\n)\n\nquotes = fetch_realtime_quotes(\n    [\"600519\"], quote_fetchers, quote_number=to_finite_number\n)\nbars = fetch_daily_bars(\"600519\", \"2026-01-01\", \"2026-09-22\")\ncalendar = fetch_trading_calendar(today=\"2026-09-22\")\nsuspension = fetch_suspension_info(\"600519\", \"2026-09-22\")\ndelisting = fetch_delisting_status(\"600519\")\ntradability = fetch_tradability(\"600519\", \"2026-09-22\")\n```\n\nConsumer-facing status guide:\n\n| Field | Meaning |\n|---|---|\n| `metadata.final_status` | Attempt-derived provider/routing conclusion. |\n| `metadata.request_status` | Request-level result consumers should branch on. |\n| `metadata.outcome_status` | Optional engine-declared request override; otherwise `None`. |\n| `metadata.providers_used` | Providers that actually contributed the returned payload. |\n| `metadata.limitations` | Coverage, staleness, partial-data, or validation caveats. |\n\nCache-only results intentionally have `attempts=[]` and\n`final_status=\"skipped\"`, while `request_status` may be\n`\"success\"` or `\"normal_empty\"`. Do not mechanically treat\n`succeeded=False` or `final_status=\"skipped\"` as unusable cache data; use\n`request_status` for the request decision. A `tradable=True` result only means\nthe currently covered calendar, delisting-date, and suspension facts support\nthat verdict; it does not promise complete IPO or listing-lifecycle\neligibility.\n\nThe public surface combines legacy callables, structured result types,\nconstants, and compatibility exports; `__all__` is not a count of functions.\nIt covers K-lines, realtime quotes, fundamentals / three financial\nstatements, valuation history, margin trading, dragon-tiger board (per-stock\nseats and whole-market daily), lockup expiry, northbound flow, fund flow, board\nfund flow, industry comparison, concept blocks, block trades, market breadth,\nlimit-up / failed-board / limit-down / previous-day limit-up pools, CYQ chip\ndistribution, ETF option chains (T-quote + greeks + IV), investor Q&A (互动易),\nhot rank / popularity rank / concept hits, insider transactions, shareholder\npledge / buyback, corporate actions, earnings forecast, research reports, news\nwires, policy news, macro indicators, trading calendar, delisting / suspension\ninfo, and more. See `chstockdata/__init__.py` for the full export list. The\ncurrent release version is `0.4.3`\n([PyPI](https://pypi.org/project/chstockdata/0.4.3/) /\n[GitHub Release](https://github.com/joycoding2000/chstockdata/releases/tag/v0.4.3)).\nThe structured API is additive: it does not deprecate the legacy API.\n`0.3.0` remains the formal compatibility baseline for existing consumers\nthat have not yet migrated; migration is not assumed.\n\n### Historical capability boundaries\n\nSuspension data is a current-day snapshot of the Eastmoney latest-event\nlist, not a historical as-of database. Historical and future dates fail\nclosed (`failed_structure`, limitation `historical_suspension_unavailable`):\nan empty or non-matching latest-event response — including a cached one —\nnever proves that a security was tradable on a past date.\n`fetch_tradability` returns `tradable=True` only on an explicit suspension\nnegative (`suspended=False` under a success / normal-empty status); missing\nor unusable suspension evidence stays `tradable=None`\n(`suspension_unknown`). A complete historical point-in-time suspension\ndatabase is not provided in this release.\n\n`fetch_historical_opening_evidence` (policy `R2.1`) is a bounded opening\nexecution evidence capability exported in v0.4.2. Consumers — for example\nSIOS, which uses it only in its explicitly selected `HISTORICAL_OPENING_R21`\nmode — opt in deliberately. It reports positive trading activity in the\nAsia/Shanghai `[09:30:00, 09:31:00)` window together with certified official\nhalt events. It does not guarantee that a specific order filled at exactly\n09:30:00, and it says nothing about order queue position or individual fill\nprobability. It does not replace complete historical PIT suspension coverage:\ncertified official vetoes and source conflicts still force `UNKNOWN` or\nblocked results, and missing evidence stays fail-closed.\n\n## Data sources\n\n| Source | Protocol | Data |\n|---|---|---|\n| mootdx | TCP 7709 | OHLCV K-lines, realtime snapshots, financial snapshots, F10 text |\n| TDX official after-market archive | HTTP (`data.tdx.com.cn/vipdoc`) | Full SH/SZ/BJ daily-bar archive → local vipdoc tree (primary history source) |\n| Tencent Finance | HTTP (`qt.gtimg.cn`) | Realtime quotes (primary), PE/PB/market cap/turnover |\n| easy-tdx (isolated process) | TCP 7709 | L1 fund-flow reconstruction, TDX industry/concept board rankings |\n| Eastmoney datacenter / F10 / emappdata / bkzj | HTTP | Dragon-tiger (per-stock + market-wide), lockup, holders, concept blocks, news, announcements, limit-up pools (push2ex), board fund flow, popularity rank, concept hits |\n| Sina Finance | HTTP | Realtime fallback, K-line fallback, daily fund flow, financial statements, ETF option contracts / T-quote / greeks + IV |\n| baostock (optional extra) | TCP | Historical daily turnover + ST/suspension flags for CYQ chip distribution (no Beijing exchange) |\n| 同花顺 10jqka | HTTP | Consensus EPS, hot stocks, limit-up reasons, hot rank |\n| 财联社 cls.cn | HTTP | Global news wire |\n| SSE / SZSE official | HTTP | Northbound daily turnover (trusted), delisting list |\n| 巨潮 cninfo | HTTP | Investor Q&A (互动易) |\n\nAll Eastmoney requests go through a module-level serial throttle\n(`EM_MIN_INTERVAL`, default 1.0s) with jitter and a shared keep-alive session\n— do not bypass it, do not fan out concurrent full-market scans. `push2` /\n`push2his` are deliberately not used (see `tests/test_astock_push2_source_scan.py`).\n\n## Hardening carried over from production\n\nThis package is not a scraper starter kit; it is an extraction of a data layer\nthat survived months of live A-share analysis runs:\n\n- **Realtime fallback chain** Tencent → mootdx → Sina, with zombie-quote\n  detection (zero-amount + price == prev-close) so suspended/legacy tickers\n  cannot silently poison valuations.\n- **mootdx canary server selection**: TCP reachability is not enough — every\n  candidate must serve one real K-line bar before adoption; dead pools get an\n  exponential-backoff negative cache (5min → 6h, immediate 6h outside trading\n  hours).\n- **Local vipdoc history layer**: after the official TDX archive is refreshed\n  (via `chstockdata-refresh-vipdoc`), historical daily bars are read from disk\n  with zero network and never trigger full server-pool probing.\n- **Point-in-time filtering** for historical analyses (financial records are\n  clipped to the analysis date).\n- **Known pitfall fixes verified against live data**: Tencent total/float\n  market-cap fields swapped, static-PE wrong slot, BJ-exchange 920-prefix\n  routing, Eastmoney lockup column renames, block-trade premium-ratio unit\n  (decimal → percent), northbound SSE holiday `result:[null]` handling, and\n  more — each guarded by regression tests ported from the incidents.\n\n## Configuration\n\nZero-config works out of the box. Optional overrides, in priority order:\n\n```python\nfrom chstockdata import configure\nconfigure(cache_dir=\"...\", vipdoc_dir=\"...\", vipdoc_enabled=True,\n          vipdoc_max_staleness_days=5, northbound_store_path=\"...\")\n```\n\nEnvironment variables (both prefixes accepted): `CHSTOCKDATA_CACHE_DIR`,\n`CHSTOCKDATA_VIPDOC_HISTORY_DIR`, ... or the legacy\n`TRADINGAGENTS_VIPDOC_HISTORY_*` / `TRADINGAGENTS_DATA_CACHE_DIR` names.\nTuning knobs: `EM_MIN_INTERVAL` (Eastmoney throttle seconds),\n`TDX_MIN_INTERVAL`, `TDX_TOOL_PROBE_BUDGET_SECONDS`,\n`EASY_TDX_PYTHON` (path to an isolated venv python with `easy-tdx==1.20.6`).\n\n## MCP server (for AI agents)\n\n```bash\npip install \"chstockdata[mcp]\"\nchstockdata-mcp\n```\n\nThen register in any MCP client (Claude Code, etc.):\n\n```json\n{ \"mcpServers\": { \"chstockdata\": { \"command\": \"chstockdata-mcp\" } } }\n```\n\n## Risk & usage notes\n\n- All endpoints are **public, unofficial interfaces** of the respective\n  vendors. Rate-limit thresholds cited anywhere in the docs are community\n  observations, **not vendor guarantees**; endpoints can break or change at\n  any time without notice.\n- Built-in throttling must be kept as-is. For heavy or commercial workloads\n  use official paid feeds (Eastmoney Choice, exchange data services).\n- Data is provided for research/educational purposes, as-is, with no\n  warranty of accuracy or fitness for trading decisions.\n\n## Relationship to upstream projects\n\nExtracted from [TradingAgents-astock](https://github.com/joycoding2000/TradingAgents-astock)\n(Apache-2.0, itself a fork of [TauricResearch/TradingAgents](https://github.com/TauricResearch/TradingAgents)).\nStarting with 0.2.0, selected upstream-unique endpoints of\n[a-stock-data](https://github.com/simonlin1212/a-stock-data) (Apache-2.0) were\nreverse-ported: ETF options (contracts / T-quote / greeks + IV), limit-up pools\n(including the previous-day pool and THS limit-up reasons), CYQ chip\ndistribution, market-wide dragon-tiger board, board fund flow, investor Q&A\n(互动易), hot rank / popularity rank / concept hits, and the upstream ticker\nrouting fix (market identifier conflicts fail loud; `5x` ETFs route to\nShanghai).\n\nThis package is still **not** a full superset of a-stock-data. Deliberately not\nincluded: intraday anomaly pools (product hard boundary in the source project),\nShenwan industry history, minute/tick order flow, and any `push2`/`push2his`\ndependency (board fund flow uses the non-push2 `bkzj` endpoint with a reduced\nfield set — no four-tier breakdown). See MIGRATION.md and\n`docs/planned-upstream-ports.md`.\n\n## License\n\nApache-2.0 — see [LICENSE](LICENSE) and [NOTICE](NOTICE).\n",
+        "description_content_type": "text/markdown",
+        "keywords": [
+          "a-share",
+          "china",
+          "stock",
+          "market-data",
+          "quant",
+          "quantitative-finance"
+        ],
+        "author": "joycoding2000",
+        "license": "Apache License\n                           Version 2.0, January 2004\n                        http://www.apache.org/licenses/\n\n   TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION\n\n   1. Definitions.\n\n      \"License\" shall mean the terms and conditions for use, reproduction,\n      and distribution as defined by Sections 1 through 9 of this document.\n\n      \"Licensor\" shall mean the copyright owner or entity authorized by\n      the copyright owner that is granting the License.\n\n      \"Legal Entity\" shall mean the union of the acting entity and all\n      other entities that control, are controlled by, or are under common\n      control with that entity. For the purposes of this definition,\n      \"control\" means (i) the power, direct or indirect, to cause the\n      direction or management of such entity, whether by contract or\n      otherwise, or (ii) ownership of fifty percent (50%) or more of the\n      outstanding shares, or (iii) beneficial ownership of such entity.\n\n      \"You\" (or \"Your\") shall mean an individual or Legal Entity\n      exercising permissions granted by this License.\n\n      \"Source\" form shall mean the preferred form for making modifications,\n      including but not limited to software source code, documentation\n      source, and configuration files.\n\n      \"Object\" form shall mean any form resulting from mechanical\n      transformation or translation of a Source form, including but\n      not limited to compiled object code, generated documentation,\n      and conversions to other media types.\n\n      \"Work\" shall mean the work of authorship, whether in Source or\n      Object form, made available under the License, as indicated by a\n      copyright notice that is included in or attached to the work\n      (an example is provided in the Appendix below).\n\n      \"Derivative Works\" shall mean any work, whether in Source or Object\n      form, that is based on (or derived from) the Work and for which the\n      editorial revisions, annotations, elaborations, or other modifications\n      represent, as a whole, an original work of authorship. For the purposes\n      of this License, Derivative Works shall not include works that remain\n      separable from, or merely link (or bind by name) to the interfaces of,\n      the Work and Derivative Works thereof.\n\n      \"Contribution\" shall mean any work of authorship, including\n      the original version of the Work and any modifications or additions\n      to that Work or Derivative Works thereof, that is intentionally\n      submitted to Licensor for inclusion in the Work by the copyright owner\n      or by an individual or Legal Entity authorized to submit on behalf of\n      the copyright owner. For the purposes of this definition, \"submitted\"\n      means any form of electronic, verbal, or written communication sent\n      to the Licensor or its representatives, including but not limited to\n      communication on electronic mailing lists, source code control systems,\n      and issue tracking systems that are managed by, or on behalf of, the\n      Licensor for the purpose of discussing and improving the Work, but\n      excluding communication that is conspicuously marked or otherwise\n      designated in writing by the copyright owner as \"Not a Contribution.\"\n\n      \"Contributor\" shall mean Licensor and any individual or Legal Entity\n      on behalf of whom a Contribution has been received by Licensor and\n      subsequently incorporated within the Work.\n\n   2. Grant of Copyright License. Subject to the terms and conditions of\n      this License, each Contributor hereby grants to You a perpetual,\n      worldwide, non-exclusive, no-charge, royalty-free, irrevocable\n      copyright license to reproduce, prepare Derivative Works of,\n      publicly display, publicly perform, sublicense, and distribute the\n      Work and such Derivative Works in Source or Object form.\n\n   3. Grant of Patent License. Subject to the terms and conditions of\n      this License, each Contributor hereby grants to You a perpetual,\n      worldwide, non-exclusive, no-charge, royalty-free, irrevocable\n      (except as stated in this section) patent license to make, have made,\n      use, offer to sell, sell, import, and otherwise transfer the Work,\n      where such license applies only to those patent claims licensable\n      by such Contributor that are necessarily infringed by their\n      Contribution(s) alone or by combination of their Contribution(s)\n      with the Work to which such Contribution(s) was submitted. If You\n      institute patent litigation against any entity (including a\n      cross-claim or counterclaim in a lawsuit) alleging that the Work\n      or a Contribution incorporated within the Work constitutes direct\n      or contributory patent infringement, then any patent licenses\n      granted to You under this License for that Work shall terminate\n      as of the date such litigation is filed.\n\n   4. Redistribution. You may reproduce and distribute copies of the\n      Work or Derivative Works thereof in any medium, with or without\n      modifications, and in Source or Object form, provided that You\n      meet the following conditions:\n\n      (a) You must give any other recipients of the Work or\n          Derivative Works a copy of this License; and\n\n      (b) You must cause any modified files to carry prominent notices\n          stating that You changed the files; and\n\n      (c) You must retain, in the Source form of any Derivative Works\n          that You distribute, all copyright, patent, trademark, and\n          attribution notices from the Source form of the Work,\n          excluding those notices that do not pertain to any part of\n          the Derivative Works; and\n\n      (d) If the Work includes a \"NOTICE\" text file as part of its\n          distribution, then any Derivative Works that You distribute must\n          include a readable copy of the attribution notices contained\n          within such NOTICE file, excluding those notices that do not\n          pertain to any part of the Derivative Works, in at least one\n          of the following places: within a NOTICE text file distributed\n          as part of the Derivative Works; within the Source form or\n          documentation, if provided along with the Derivative Works; or,\n          within a display generated by the Derivative Works, if and\n          wherever such third-party notices normally appear. The contents\n          of the NOTICE file are for informational purposes only and\n          do not modify the License. You may add Your own attribution\n          notices within Derivative Works that You distribute, alongside\n          or as an addendum to the NOTICE text from the Work, provided\n          that such additional attribution notices cannot be construed\n          as modifying the License.\n\n      You may add Your own copyright statement to Your modifications and\n      may provide additional or different license terms and conditions\n      for use, reproduction, or distribution of Your modifications, or\n      for any such Derivative Works as a whole, provided Your use,\n      reproduction, and distribution of the Work otherwise complies with\n      the conditions stated in this License.\n\n   5. Submission of Contributions. Unless You explicitly state otherwise,\n      any Contribution intentionally submitted for inclusion in the Work\n      by You to the Licensor shall be under the terms and conditions of\n      this License, without any additional terms or conditions.\n      Notwithstanding the above, nothing herein shall supersede or modify\n      the terms of any separate license agreement you may have executed\n      with Licensor regarding such Contributions.\n\n   6. Trademarks. This License does not grant permission to use the trade\n      names, trademarks, service marks, or product names of the Licensor,\n      except as required for reasonable and customary use in describing the\n      origin of the Work and reproducing the content of the NOTICE file.\n\n   7. Disclaimer of Warranty. Unless required by applicable law or\n      agreed to in writing, Licensor provides the Work (and each\n      Contributor provides its Contributions) on an \"AS IS\" BASIS,\n      WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or\n      implied, including, without limitation, any warranties or conditions\n      of TITLE, NON-INFRINGEMENT, MERCHANTABILITY, or FITNESS FOR A\n      PARTICULAR PURPOSE. You are solely responsible for determining the\n      appropriateness of using or redistributing the Work and assume any\n      risks associated with Your exercise of permissions under this License.\n\n   8. Limitation of Liability. In no event and under no legal theory,\n      whether in tort (including negligence), contract, or otherwise,\n      unless required by applicable law (such as deliberate and grossly\n      negligent acts) or agreed to in writing, shall any Contributor be\n      liable to You for damages, including any direct, indirect, special,\n      incidental, or consequential damages of any character arising as a\n      result of this License or out of the use or inability to use the\n      Work (including but not limited to damages for loss of goodwill,\n      work stoppage, computer failure or malfunction, or any and all\n      other commercial damages or losses), even if such Contributor\n      has been advised of the possibility of such damages.\n\n   9. Accepting Warranty or Additional Liability. While redistributing\n      the Work or Derivative Works thereof, You may choose to offer,\n      and charge a fee for, acceptance of support, warranty, indemnity,\n      or other liability obligations and/or rights consistent with this\n      License. However, in accepting such obligations, You may act only\n      on Your own behalf and on Your sole responsibility, not on behalf\n      of any other Contributor, and only if You agree to indemnify,\n      defend, and hold each Contributor harmless for any liability\n      incurred by, or claims asserted against, such Contributor by reason\n      of your accepting any such warranty or additional liability.\n\n   END OF TERMS AND CONDITIONS\n\n   APPENDIX: How to apply the Apache License to your work.\n\n      To apply the Apache License to your work, attach the following\n      boilerplate notice, with the fields enclosed by brackets \"[]\"\n      replaced with your own identifying information. (Don't include\n      the brackets!)  The text should be enclosed in the appropriate\n      comment syntax for the file format. We also recommend that a\n      file or class name and description of purpose be included on the\n      same \"printed page\" as the copyright notice for easier\n      identification within third-party archives.\n\n   Copyright [yyyy] [name of copyright owner]\n\n   Licensed under the Apache License, Version 2.0 (the \"License\");\n   you may not use this file except in compliance with the License.\n   You may obtain a copy of the License at\n\n       http://www.apache.org/licenses/LICENSE-2.0\n\n   Unless required by applicable law or agreed to in writing, software\n   distributed under the License is distributed on an \"AS IS\" BASIS,\n   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n   See the License for the specific language governing permissions and\n   limitations under the License.\n",
+        "license_file": [
+          "LICENSE",
+          "NOTICE"
+        ],
+        "classifier": [
+          "Development Status :: 4 - Beta",
+          "Intended Audience :: Developers",
+          "Intended Audience :: Financial and Insurance Industry",
+          "License :: OSI Approved :: Apache Software License",
+          "Operating System :: OS Independent",
+          "Programming Language :: Python :: 3",
+          "Programming Language :: Python :: 3.10",
+          "Programming Language :: Python :: 3.11",
+          "Programming Language :: Python :: 3.12",
+          "Programming Language :: Python :: 3.13",
+          "Topic :: Office/Business :: Financial :: Investment"
+        ],
+        "requires_dist": [
+          "pandas>=2.3.0",
+          "numpy>=1.26.0",
+          "requests>=2.32.4",
+          "python-dateutil>=2.9.0",
+          "typing-extensions>=4.14.0",
+          "lxml>=4.9.0",
+          "stockstats>=0.6.5",
+          "mootdx>=0.10.0; extra == \"mootdx\"",
+          "pypdf>=6.0; extra == \"opening-pdf\"",
+          "baostock>=0.8.9; extra == \"baostock\"",
+          "mcp<2,>=1.0; extra == \"mcp\"",
+          "pytest>=8.0; extra == \"dev\"",
+          "ruff<0.17,>=0.16.6; extra == \"dev\""
+        ],
+        "requires_python": ">=3.10",
+        "project_url": [
+          "Homepage, https://github.com/joycoding2000/chstockdata",
+          "Issues, https://github.com/joycoding2000/chstockdata/issues"
+        ],
+        "provides_extra": [
+          "mootdx",
+          "opening-pdf",
+          "baostock",
+          "mcp",
+          "dev"
+        ]
+      }
+    },
+    {
+      "download_info": {
+        "url": "https://files.pythonhosted.org/packages/0f/bc/5811cc73cac05e324e05ba9b0924e1a163a317a167ede8a9c748b11db30a/lxml-6.1.3-cp314-cp314-win_amd64.whl",
+        "archive_info": {
+          "hashes": {
+            "sha256": "66299564c046bc7e0cc5de5106601eae907e9fa5904cd68a323380a8502f7861"
+          },
+          "hash": "sha256=66299564c046bc7e0cc5de5106601eae907e9fa5904cd68a323380a8502f7861"
+        }
+      },
+      "is_direct": false,
+      "is_yanked": false,
+      "requested": false,
+      "metadata": {
+        "metadata_version": "2.4",
+        "name": "lxml",
+        "version": "6.1.3",
+        "dynamic": [
+          "author",
+          "author-email",
+          "classifier",
+          "description",
+          "home-page",
+          "license",
+          "license-file",
+          "maintainer",
+          "maintainer-email",
+          "project-url",
+          "provides-extra",
+          "requires-python",
+          "summary"
+        ],
+        "summary": "Powerful and Pythonic XML processing library combining libxml2/libxslt with the ElementTree API.",
+        "description": "lxml is a Pythonic, mature binding for the libxml2 and libxslt libraries.\nIt provides safe and convenient access to these libraries using the\nElementTree API.\n\nIt extends the ElementTree API significantly to offer support for XPath,\nRelaxNG, XML Schema, XSLT, C14N and much more.\n\nTo contact the project, go to the `project home page <https://lxml.de/>`_\nor see our bug tracker at https://launchpad.net/lxml\n\nIn case you want to use the current in-development version of lxml,\nyou can get it from the github repository at\nhttps://github.com/lxml/lxml .  Note that this requires Cython to\nbuild the sources, see the build instructions on the project home page.\n\n\nAfter an official release of a new stable series, bug fixes may become available at\nhttps://github.com/lxml/lxml/tree/lxml-6.1 .\nRunning ``pip install https://github.com/lxml/lxml/archive/refs/heads/lxml-6.1.tar.gz``\nwill install the unreleased branch state as soon as a maintenance branch has been established.\nNote that this requires Cython to be installed at an appropriate version for the build.\n\n6.1.3 (2026-09-02)\n==================\n\nBugs fixed\n----------\n\n* LP#2165901: External parameter entity parsing was allowed by default\n  (with ``resolve_entities=\"internal\"``).\n  Issue found by Tomer Fichman.\n\n\n",
+        "home_page": "https://lxml.de/",
+        "author": "lxml dev team",
+        "author_email": "lxml@lxml.de",
+        "maintainer": "lxml dev team",
+        "maintainer_email": "lxml@lxml.de",
+        "license": "BSD-3-Clause",
+        "license_file": [
+          "LICENSE.txt",
+          "LICENSES.txt"
+        ],
+        "classifier": [
+          "Development Status :: 5 - Production/Stable",
+          "Intended Audience :: Developers",
+          "Intended Audience :: Information Technology",
+          "Programming Language :: Cython",
+          "Programming Language :: Python :: 3",
+          "Programming Language :: Python :: 3.8",
+          "Programming Language :: Python :: 3.9",
+          "Programming Language :: Python :: 3.10",
+          "Programming Language :: Python :: 3.11",
+          "Programming Language :: Python :: 3.12",
+          "Programming Language :: Python :: 3.13",
+          "Programming Language :: Python :: 3.14",
+          "Programming Language :: Python :: 3.15",
+          "Programming Language :: C",
+          "Operating System :: OS Independent",
+          "Topic :: Text Processing :: Markup :: HTML",
+          "Topic :: Text Processing :: Markup :: XML",
+          "Topic :: Software Development :: Libraries :: Python Modules"
+        ],
+        "requires_dist": [
+          "cssselect>=0.7; extra == \"cssselect\"",
+          "html5lib; extra == \"html5\"",
+          "BeautifulSoup4; extra == \"htmlsoup\"",
+          "lxml_html_clean; extra == \"html-clean\""
+        ],
+        "requires_python": ">=3.8",
+        "project_url": [
+          "Source, https://github.com/lxml/lxml",
+          "Bug Tracker, https://bugs.launchpad.net/lxml"
+        ],
+        "provides_extra": [
+          "source",
+          "cssselect",
+          "html5",
+          "htmlsoup",
+          "html-clean"
+        ]
+      }
+    },
+    {
+      "download_info": {
+        "url": "https://files.pythonhosted.org/packages/52/9a/e1e512ebc948d5b9dd33b08736760f0ebbed2848fd4eda1f553088a6dcee/numpy-2.5.4-cp314-cp314-win_amd64.whl",
+        "archive_info": {
+          "hashes": {
+            "sha256": "2ca144f15135b6212a5c47b1e2aeca6e412f102f95a2d5d88d8aec77eb255de3"
+          },
+          "hash": "sha256=2ca144f15135b6212a5c47b1e2aeca6e412f102f95a2d5d88d8aec77eb255de3"
+        }
+      },
+      "is_direct": false,
+      "is_yanked": false,
+      "requested": false,
+      "metadata": {
+        "metadata_version": "2.4",
+        "name": "numpy",
+        "version": "2.5.4",
+        "summary": "Fundamental package for array computing in Python",
+        "description": "<h1 align=\"center\">\n<img src=\"https://raw.githubusercontent.com/numpy/numpy/main/branding/logo/primary/numpylogo.svg\" width=\"300\">\n</h1><br>\n\n\n[![Powered by NumFOCUS](https://img.shields.io/badge/powered%20by-NumFOCUS-orange.svg?style=flat&colorA=E1523D&colorB=007D8A)](\nhttps://numfocus.org)\n[![PyPI Downloads](https://img.shields.io/pypi/dm/numpy.svg?label=PyPI%20downloads)](\nhttps://pypi.org/project/numpy/)\n[![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/numpy.svg?label=Conda%20downloads)](\nhttps://anaconda.org/conda-forge/numpy)\n[![Stack Overflow](https://img.shields.io/badge/stackoverflow-Ask%20questions-blue.svg)](\nhttps://stackoverflow.com/questions/tagged/numpy)\n[![Nature Paper](https://img.shields.io/badge/DOI-10.1038%2Fs41586--020--2649--2-blue)](\nhttps://doi.org/10.1038/s41586-020-2649-2)\n[![LFX Health Score](https://insights.linuxfoundation.org/api/badge/health-score?project=numpy)](https://insights.linuxfoundation.org/project/numpy)\n[![OpenSSF Scorecard](https://api.securityscorecards.dev/projects/github.com/numpy/numpy/badge)](https://securityscorecards.dev/viewer/?uri=github.com/numpy/numpy)\n[![Typing](https://img.shields.io/pypi/types/numpy)](https://pypi.org/project/numpy/)\n\n\nNumPy is the fundamental package for scientific computing with Python.\n\n- **Website:** https://numpy.org\n- **Documentation:** https://numpy.org/doc\n- **Mailing list:** https://mail.python.org/mailman/listinfo/numpy-discussion\n- **Source code:** https://github.com/numpy/numpy\n- **Contributing:** https://numpy.org/devdocs/dev/index.html\n- **Bug reports:** https://github.com/numpy/numpy/issues\n- **Report a security vulnerability:** https://github.com/numpy/numpy/security/policy (via Tidelift)\n\nIt provides:\n\n- a powerful N-dimensional array object\n- sophisticated (broadcasting) functions\n- tools for integrating C/C++ and Fortran code\n- useful linear algebra, Fourier transform, and random number capabilities\n\nTesting:\n\nNumPy requires `pytest` and `hypothesis`.  Tests can then be run after installation with:\n\n    python -c \"import numpy, sys; sys.exit(numpy.test() is False)\"\n\nCode of Conduct\n----------------------\n\nNumPy is a community-driven open source project developed by a diverse group of\n[contributors](https://numpy.org/teams/). The NumPy leadership has made a strong\ncommitment to creating an open, inclusive, and positive community. Please read the\n[NumPy Code of Conduct](https://numpy.org/code-of-conduct/) for guidance on how to interact\nwith others in a way that makes our community thrive.\n\nCall for Contributions\n----------------------\n\nThe NumPy project welcomes your expertise and enthusiasm!\n\nSmall improvements or fixes are always appreciated. If you are considering larger contributions\nto the source code, please contact us through the [mailing\nlist](https://mail.python.org/mailman/listinfo/numpy-discussion) first.\n\nWriting code isn’t the only way to contribute to NumPy. You can also:\n- review pull requests\n- help us stay on top of new and old issues\n- develop tutorials, presentations, and other educational materials\n- maintain and improve [our website](https://github.com/numpy/numpy.org)\n- develop graphic design for our brand assets and promotional materials\n- translate website content\n- help with outreach and onboard new contributors\n- write grant proposals and help with other fundraising efforts\n\nFor more information about the ways you can contribute to NumPy, visit [our website](https://numpy.org/contribute/). \nIf you’re unsure where to start or how your skills fit in, reach out! You can\nask on the mailing list or here, on GitHub, by opening a new issue or leaving a\ncomment on a relevant issue that is already open.\n\nOur preferred channels of communication are all public, but if you’d like to\nspeak to us in private first, contact our community coordinators at\nnumpy-team@googlegroups.com or on Slack (write numpy-team@googlegroups.com for\nan invitation).\n\nWe also have a biweekly community call, details of which are announced on the\nmailing list. You are very welcome to join.\n\nIf you are new to contributing to open source, [this\nguide](https://opensource.guide/how-to-contribute/) helps explain why, what,\nand how to successfully get involved.\n",
+        "description_content_type": "text/markdown",
+        "author": "Travis E. Oliphant et al.",
+        "maintainer_email": "NumPy Developers <numpy-discussion@python.org>",
+        "license_expression": "BSD-3-Clause AND 0BSD AND MIT AND Zlib AND CC0-1.0",
+        "license_file": [
+          "LICENSE.txt",
+          "numpy/_core/include/numpy/libdivide/LICENSE.txt",
+          "numpy/_core/src/common/pythoncapi-compat/COPYING",
+          "numpy/_core/src/highway/LICENSE",
+          "numpy/_core/src/multiarray/dragon4_LICENSE.txt",
+          "numpy/_core/src/npysort/x86-simd-sort/LICENSE.md",
+          "numpy/_core/src/umath/svml/LICENSE",
+          "numpy/fft/pocketfft/LICENSE.md",
+          "numpy/linalg/lapack_lite/LICENSE.txt",
+          "numpy/ma/LICENSE",
+          "numpy/random/LICENSE.md",
+          "numpy/random/src/distributions/LICENSE.md",
+          "numpy/random/src/mt19937/LICENSE.md",
+          "numpy/random/src/pcg64/LICENSE.md",
+          "numpy/random/src/philox/LICENSE.md",
+          "numpy/random/src/sfc64/LICENSE.md",
+          "numpy/random/src/splitmix64/LICENSE.md"
+        ],
+        "classifier": [
+          "Development Status :: 5 - Production/Stable",
+          "Intended Audience :: Science/Research",
+          "Intended Audience :: Developers",
+          "Programming Language :: C",
+          "Programming Language :: Python",
+          "Programming Language :: Python :: 3",
+          "Programming Language :: Python :: 3.12",
+          "Programming Language :: Python :: 3.13",
+          "Programming Language :: Python :: 3.14",
+          "Programming Language :: Python :: 3.15",
+          "Programming Language :: Python :: 3 :: Only",
+          "Programming Language :: Python :: Implementation :: CPython",
+          "Topic :: Software Development",
+          "Topic :: Scientific/Engineering",
+          "Typing :: Typed",
+          "Operating System :: Microsoft :: Windows",
+          "Operating System :: POSIX",
+          "Operating System :: Unix",
+          "Operating System :: MacOS"
+        ],
+        "requires_python": ">=3.12",
+        "project_url": [
+          "homepage, https://numpy.org",
+          "documentation, https://numpy.org/doc/",
+          "source, https://github.com/numpy/numpy",
+          "download, https://pypi.org/project/numpy/#files",
+          "tracker, https://github.com/numpy/numpy/issues",
+          "release notes, https://numpy.org/doc/stable/release"
+        ]
+      }
+    },
+    {
+      "download_info": {
+        "url": "https://files.pythonhosted.org/packages/b7/e9/f43410fada510b43fec09993c08f552086c3d247d3ee801a678f3cb10ea5/pandas-3.0.6-cp314-cp314-win_amd64.whl",
+        "archive_info": {
+          "hashes": {
+            "sha256": "77ccbe5057aece6fc172b9b77f19c04335af6882bc2e10c8f3ee4e6bfb3da553"
+          },
+          "hash": "sha256=77ccbe5057aece6fc172b9b77f19c04335af6882bc2e10c8f3ee4e6bfb3da553"
+        }
+      },
+      "is_direct": false,
+      "is_yanked": false,
+      "requested": false,
+      "metadata": {
+        "metadata_version": "2.1",
+        "name": "pandas",
+        "version": "3.0.6",
+        "summary": "Powerful data structures for data analysis, time series, and statistics",
+        "description": "<picture align=\"center\">\n  <source media=\"(prefers-color-scheme: dark)\" srcset=\"https://pandas.pydata.org/static/img/pandas_white.svg\">\n  <img alt=\"Pandas Logo\" src=\"https://pandas.pydata.org/static/img/pandas.svg\">\n</picture>\n\n-----------------\n\n# pandas: A Powerful Python Data Analysis Toolkit\n\n| | |\n| --- | --- |\n| Testing | [![CI - Test](https://github.com/pandas-dev/pandas/actions/workflows/unit-tests.yml/badge.svg)](https://github.com/pandas-dev/pandas/actions/workflows/unit-tests.yml) [![Coverage](https://codecov.io/github/pandas-dev/pandas/coverage.svg?branch=main)](https://codecov.io/gh/pandas-dev/pandas) |\n| Package | [![PyPI Latest Release](https://img.shields.io/pypi/v/pandas.svg)](https://pypi.org/project/pandas/) [![PyPI Downloads](https://img.shields.io/pypi/dm/pandas.svg?label=PyPI%20downloads)](https://pypi.org/project/pandas/) [![Conda Latest Release](https://anaconda.org/conda-forge/pandas/badges/version.svg)](https://anaconda.org/conda-forge/pandas) [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/pandas.svg?label=Conda%20downloads)](https://anaconda.org/conda-forge/pandas) |\n| Meta | [![Powered by NumFOCUS](https://img.shields.io/badge/powered%20by-NumFOCUS-orange.svg?style=flat&colorA=E1523D&colorB=007D8A)](https://numfocus.org) [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3509134.svg)](https://doi.org/10.5281/zenodo.3509134) [![License - BSD 3-Clause](https://img.shields.io/pypi/l/pandas.svg)](https://github.com/pandas-dev/pandas/blob/main/LICENSE) [![Slack](https://img.shields.io/badge/join_Slack-information-brightgreen.svg?logo=slack)](https://pandas.pydata.org/docs/dev/development/community.html?highlight=slack#community-slack) [![LFX Health Score](https://insights.linuxfoundation.org/api/badge/health-score?project=pandas-dev-pandas)](https://insights.linuxfoundation.org/project/pandas-dev-pandas) |\n\n\n## What is it?\n\n**pandas** is a Python package that provides fast, flexible, and expressive data\nstructures designed to make working with \"relational\" or \"labeled\" data both\neasy and intuitive. It aims to be the fundamental high-level building block for\ndoing practical, **real-world** data analysis in Python. Additionally, it has\nthe broader goal of becoming **the most powerful and flexible open-source data\nanalysis/manipulation tool available in any language**. It is already well on\nits way towards this goal.\n\n## Table of Contents\n\n- [Main Features](#main-features)\n- [Where to get it](#where-to-get-it)\n- [Dependencies](#dependencies)\n- [Installation from sources](#installation-from-sources)\n- [License](#license)\n- [Documentation](#documentation)\n- [Background](#background)\n- [Getting Help](#getting-help)\n- [Discussion and Development](#discussion-and-development)\n- [Contributing to pandas](#contributing-to-pandas)\n\n## Main Features\nHere are just a few of the things that pandas does well:\n\n  - Easy handling of [**missing data**][missing-data] (represented as\n    `NaN`, `NA`, or `NaT`) in floating point as well as non-floating point data\n  - Size mutability: columns can be [**inserted and\n    deleted**][insertion-deletion] from DataFrame and higher dimensional\n    objects\n  - Automatic and explicit [**data alignment**][alignment]: objects can\n    be explicitly aligned to a set of labels, or the user can simply\n    ignore the labels and let `Series`, `DataFrame`, etc. automatically\n    align the data for you in computations\n  - Powerful, flexible [**group by**][groupby] functionality to perform\n    split-apply-combine operations on data sets, for both aggregating\n    and transforming data\n  - Make it [**easy to convert**][conversion] ragged,\n    differently-indexed data in other Python and NumPy data structures\n    into DataFrame objects\n  - Intelligent label-based [**slicing**][slicing], [**fancy\n    indexing**][fancy-indexing], and [**subsetting**][subsetting] of\n    large data sets\n  - Intuitive [**merging**][merging] and [**joining**][joining] data\n    sets\n  - Flexible [**reshaping**][reshape] and [**pivoting**][pivot-table] of\n    data sets\n  - [**Hierarchical**][mi] labeling of axes (possible to have multiple\n    labels per tick)\n  - Robust I/O tools for loading data from [**flat files**][flat-files]\n    (CSV and delimited), [**Excel files**][excel], [**databases**][db],\n    and saving/loading data from the ultrafast [**HDF5 format**][hdfstore]\n  - [**Time series**][timeseries]-specific functionality: date range\n    generation and frequency conversion, moving window statistics,\n    date shifting and lagging\n\n\n   [missing-data]: https://pandas.pydata.org/pandas-docs/stable/user_guide/missing_data.html\n   [insertion-deletion]: https://pandas.pydata.org/pandas-docs/stable/user_guide/dsintro.html#column-selection-addition-deletion\n   [alignment]: https://pandas.pydata.org/pandas-docs/stable/user_guide/dsintro.html?highlight=alignment#intro-to-data-structures\n   [groupby]: https://pandas.pydata.org/pandas-docs/stable/user_guide/groupby.html#group-by-split-apply-combine\n   [conversion]: https://pandas.pydata.org/pandas-docs/stable/user_guide/dsintro.html#dataframe\n   [slicing]: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#slicing-ranges\n   [fancy-indexing]: https://pandas.pydata.org/pandas-docs/stable/user_guide/advanced.html#advanced\n   [subsetting]: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#boolean-indexing\n   [merging]: https://pandas.pydata.org/pandas-docs/stable/user_guide/merging.html#database-style-dataframe-or-named-series-joining-merging\n   [joining]: https://pandas.pydata.org/pandas-docs/stable/user_guide/merging.html#joining-on-index\n   [reshape]: https://pandas.pydata.org/pandas-docs/stable/user_guide/reshaping.html\n   [pivot-table]: https://pandas.pydata.org/pandas-docs/stable/user_guide/reshaping.html\n   [mi]: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#hierarchical-indexing-multiindex\n   [flat-files]: https://pandas.pydata.org/pandas-docs/stable/user_guide/io.html#csv-text-files\n   [excel]: https://pandas.pydata.org/pandas-docs/stable/user_guide/io.html#excel-files\n   [db]: https://pandas.pydata.org/pandas-docs/stable/user_guide/io.html#sql-queries\n   [hdfstore]: https://pandas.pydata.org/pandas-docs/stable/user_guide/io.html#hdf5-pytables\n   [timeseries]: https://pandas.pydata.org/pandas-docs/stable/user_guide/timeseries.html#time-series-date-functionality\n\n## Where to get it\nThe source code is currently hosted on GitHub at:\nhttps://github.com/pandas-dev/pandas\n\nBinary installers for the latest released version are available at the [Python\nPackage Index (PyPI)](https://pypi.org/project/pandas) and on [Conda](https://anaconda.org/conda-forge/pandas).\n\n```sh\n# conda\nconda install -c conda-forge pandas\n```\n\n```sh\n# or PyPI\npip install pandas\n```\n\nThe list of changes to pandas between each release can be found\n[here](https://pandas.pydata.org/pandas-docs/stable/whatsnew/index.html). For full\ndetails, see the commit logs at https://github.com/pandas-dev/pandas.\n\n## Dependencies\n- [NumPy - Adds support for large, multi-dimensional arrays, matrices and high-level mathematical functions to operate on these arrays](https://www.numpy.org)\n- [python-dateutil - Provides powerful extensions to the standard datetime module](https://dateutil.readthedocs.io/en/stable/index.html)\n- [tzdata - Provides an IANA time zone database](https://tzdata.readthedocs.io/en/latest/) (Only required on Windows/Emscripten)\n\nSee the [full installation instructions](https://pandas.pydata.org/pandas-docs/stable/install.html#dependencies) for minimum supported versions of required, recommended and optional dependencies.\n\n## Installation from sources\nTo install pandas from source you need [Cython](https://cython.org/) in addition to the normal\ndependencies above. Cython can be installed from PyPI:\n\n```sh\npip install cython\n```\n\nIn the `pandas` directory (same one where you found this file after\ncloning the git repo), execute:\n\n```sh\npip install .\n```\n\nor for installing in [development mode](https://pip.pypa.io/en/latest/cli/pip_install/#install-editable):\n\n\n```sh\npython -m pip install -ve . --no-build-isolation --config-settings editable-verbose=true\n```\n\nSee the full instructions for [installing from source](https://pandas.pydata.org/docs/dev/development/contributing_environment.html).\n\n## License\n[BSD 3](LICENSE)\n\n## Documentation\nThe official documentation is hosted on [PyData.org](https://pandas.pydata.org/pandas-docs/stable/).\n\n## Background\nWork on ``pandas`` started at [AQR](https://www.aqr.com/) (a quantitative hedge fund) in 2008 and\nhas been under active development since then.\n\n## Getting Help\n\nFor usage questions, the best place to go to is [Stack Overflow](https://stackoverflow.com/questions/tagged/pandas).\nFurther, general questions and discussions can also take place on the [pydata mailing list](https://groups.google.com/forum/?fromgroups#!forum/pydata).\n\n## Discussion and Development\nMost development discussions take place on GitHub in this repo, via the [GitHub issue tracker](https://github.com/pandas-dev/pandas/issues).\n\nFurther, the [pandas-dev mailing list](https://mail.python.org/mailman/listinfo/pandas-dev) can also be used for specialized discussions or design issues, and a [Slack channel](https://pandas.pydata.org/docs/dev/development/community.html?highlight=slack#community-slack) is available for quick development related questions.\n\nThere are also frequent [community meetings](https://pandas.pydata.org/docs/dev/development/community.html#community-meeting) for project maintainers open to the community as well as monthly [new contributor meetings](https://pandas.pydata.org/docs/dev/development/community.html#new-contributor-meeting) to help support new contributors.\n\nAdditional information on the communication channels can be found on the [contributor community](https://pandas.pydata.org/docs/development/community.html) page.\n\n## Contributing to pandas\n\n[![Open Source Helpers](https://www.codetriage.com/pandas-dev/pandas/badges/users.svg)](https://www.codetriage.com/pandas-dev/pandas)\n\nAll contributions, bug reports, bug fixes, documentation improvements, enhancements, and ideas are welcome.\n\nA detailed overview on how to contribute can be found in the **[contributing guide](https://pandas.pydata.org/docs/dev/development/contributing.html)**.\n\nIf you are simply looking to start working with the pandas codebase, navigate to the [GitHub \"issues\" tab](https://github.com/pandas-dev/pandas/issues) and start looking through interesting issues. There are a number of issues listed under [Docs](https://github.com/pandas-dev/pandas/issues?q=is%3Aissue%20state%3Aopen%20label%3ADocs%20sort%3Aupdated-desc) and [good first issue](https://github.com/pandas-dev/pandas/issues?q=is%3Aissue%20state%3Aopen%20label%3A%22good%20first%20issue%22%20sort%3Aupdated-desc) where you could start out.\n\nYou can also triage issues which may include reproducing bug reports, or asking for vital information such as version numbers or reproduction instructions. If you would like to start triaging issues, one easy way to get started is to [subscribe to pandas on CodeTriage](https://www.codetriage.com/pandas-dev/pandas).\n\nOr maybe through using pandas you have an idea of your own or are looking for something in the documentation and thinking ‘this can be improved’... you can do something about it!\n\nFeel free to ask questions on the [mailing list](https://groups.google.com/forum/?fromgroups#!forum/pydata) or on [Slack](https://pandas.pydata.org/docs/dev/development/community.html?highlight=slack#community-slack).\n\nAs contributors and maintainers to this project, you are expected to abide by pandas' code of conduct. More information can be found at: [Contributor Code of Conduct](https://github.com/pandas-dev/.github/blob/master/CODE_OF_CONDUCT.md)\n\n<hr>\n\n[Go to Top](#table-of-contents)\n",
+        "description_content_type": "text/markdown",
+        "author_email": "The Pandas Development Team <pandas-dev@python.org>",
+        "license": "BSD 3-Clause License\n\n Copyright (c) 2008-2011, AQR Capital Management, LLC, Lambda Foundry, Inc. and PyData Development Team\n All rights reserved.\n\n Copyright (c) 2011-2026, Open source contributors.\n\n Redistribution and use in source and binary forms, with or without\n modification, are permitted provided that the following conditions are met:\n\n * Redistributions of source code must retain the above copyright notice, this\n   list of conditions and the following disclaimer.\n\n * Redistributions in binary form must reproduce the above copyright notice,\n   this list of conditions and the following disclaimer in the documentation\n   and/or other materials provided with the distribution.\n\n * Neither the name of the copyright holder nor the names of its\n   contributors may be used to endorse or promote products derived from\n   this software without specific prior written permission.\n\n THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS \"AS IS\"\n AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE\n IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE\n DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE\n FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL\n DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR\n SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER\n CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,\n OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE\n OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.\n",
+        "classifier": [
+          "Development Status :: 5 - Production/Stable",
+          "Environment :: Console",
+          "Intended Audience :: Science/Research",
+          "License :: OSI Approved :: BSD License",
+          "Operating System :: OS Independent",
+          "Programming Language :: Cython",
+          "Programming Language :: Python",
+          "Programming Language :: Python :: 3",
+          "Programming Language :: Python :: 3 :: Only",
+          "Programming Language :: Python :: 3.11",
+          "Programming Language :: Python :: 3.12",
+          "Programming Language :: Python :: 3.13",
+          "Programming Language :: Python :: 3.14",
+          "Programming Language :: Python :: 3.15",
+          "Topic :: Scientific/Engineering"
+        ],
+        "requires_dist": [
+          "numpy>=1.26.0; python_version < \"3.14\"",
+          "numpy>=2.3.3; python_version >= \"3.14\"",
+          "python-dateutil>=2.8.2",
+          "tzdata; sys_platform == \"win32\"",
+          "tzdata; sys_platform == \"emscripten\"",
+          "hypothesis>=6.116.0; extra == \"test\"",
+          "pytest<9.1,>=8.3.4; extra == \"test\"",
+          "pytest-xdist>=3.6.1; extra == \"test\"",
+          "pyarrow>=13.0.0; extra == \"pyarrow\"",
+          "bottleneck>=1.4.2; extra == \"performance\"",
+          "numba>=0.60.0; extra == \"performance\"",
+          "numexpr>=2.10.2; extra == \"performance\"",
+          "scipy>=1.14.1; extra == \"computation\"",
+          "xarray>=2024.10.0; extra == \"computation\"",
+          "fsspec>=2024.10.0; extra == \"fss\"",
+          "s3fs>=2024.10.0; extra == \"aws\"",
+          "gcsfs>=2024.10.0; extra == \"gcp\"",
+          "odfpy>=1.4.1; extra == \"excel\"",
+          "openpyxl>=3.1.5; extra == \"excel\"",
+          "python-calamine>=0.3.0; extra == \"excel\"",
+          "pyxlsb>=1.0.10; extra == \"excel\"",
+          "xlrd>=2.0.1; extra == \"excel\"",
+          "xlsxwriter>=3.2.0; extra == \"excel\"",
+          "pyarrow>=13.0.0; extra == \"parquet\"",
+          "pyarrow>=13.0.0; extra == \"feather\"",
+          "pyiceberg>=0.8.1; extra == \"iceberg\"",
+          "tables>=3.10.1; extra == \"hdf5\"",
+          "pyreadstat>=1.2.8; extra == \"spss\"",
+          "SQLAlchemy>=2.0.36; extra == \"postgresql\"",
+          "psycopg2>=2.9.10; extra == \"postgresql\"",
+          "adbc-driver-postgresql>=1.2.0; extra == \"postgresql\"",
+          "SQLAlchemy>=2.0.36; extra == \"mysql\"",
+          "pymysql>=1.1.1; extra == \"mysql\"",
+          "SQLAlchemy>=2.0.36; extra == \"sql-other\"",
+          "adbc-driver-postgresql>=1.2.0; extra == \"sql-other\"",
+          "adbc-driver-sqlite>=1.2.0; extra == \"sql-other\"",
+          "beautifulsoup4>=4.12.3; extra == \"html\"",
+          "html5lib>=1.1; extra == \"html\"",
+          "lxml>=5.3.0; extra == \"html\"",
+          "lxml>=5.3.0; extra == \"xml\"",
+          "matplotlib>=3.9.3; extra == \"plot\"",
+          "jinja2>=3.1.5; extra == \"output-formatting\"",
+          "tabulate>=0.9.0; extra == \"output-formatting\"",
+          "PyQt5>=5.15.9; extra == \"clipboard\"",
+          "qtpy>=2.4.2; extra == \"clipboard\"",
+          "zstandard>=0.23.0; extra == \"compression\"",
+          "pytz>=2020.1; extra == \"timezone\"",
+          "adbc-driver-postgresql>=1.2.0; extra == \"all\"",
+          "adbc-driver-sqlite>=1.2.0; extra == \"all\"",
+          "beautifulsoup4>=4.12.3; extra == \"all\"",
+          "bottleneck>=1.4.2; extra == \"all\"",
+          "fastparquet>=2024.11.0; extra == \"all\"",
+          "fsspec>=2024.10.0; extra == \"all\"",
+          "gcsfs>=2024.10.0; extra == \"all\"",
+          "html5lib>=1.1; extra == \"all\"",
+          "hypothesis>=6.116.0; extra == \"all\"",
+          "jinja2>=3.1.5; extra == \"all\"",
+          "lxml>=5.3.0; extra == \"all\"",
+          "matplotlib>=3.9.3; extra == \"all\"",
+          "numba>=0.60.0; extra == \"all\"",
+          "numexpr>=2.10.2; extra == \"all\"",
+          "odfpy>=1.4.1; extra == \"all\"",
+          "openpyxl>=3.1.5; extra == \"all\"",
+          "psycopg2>=2.9.10; extra == \"all\"",
+          "pyarrow>=13.0.0; extra == \"all\"",
+          "pyiceberg>=0.8.1; extra == \"all\"",
+          "pymysql>=1.1.1; extra == \"all\"",
+          "PyQt5>=5.15.9; extra == \"all\"",
+          "pyreadstat>=1.2.8; extra == \"all\"",
+          "pytest>=8.3.4; extra == \"all\"",
+          "pytest-xdist>=3.6.1; extra == \"all\"",
+          "python-calamine>=0.3.0; extra == \"all\"",
+          "pytz>=2020.1; extra == \"all\"",
+          "pyxlsb>=1.0.10; extra == \"all\"",
+          "qtpy>=2.4.2; extra == \"all\"",
+          "scipy>=1.14.1; extra == \"all\"",
+          "s3fs>=2024.10.0; extra == \"all\"",
+          "SQLAlchemy>=2.0.36; extra == \"all\"",
+          "tables>=3.10.1; extra == \"all\"",
+          "tabulate>=0.9.0; extra == \"all\"",
+          "xarray>=2024.10.0; extra == \"all\"",
+          "xlrd>=2.0.1; extra == \"all\"",
+          "xlsxwriter>=3.2.0; extra == \"all\"",
+          "zstandard>=0.23.0; extra == \"all\""
+        ],
+        "requires_python": ">=3.11",
+        "project_url": [
+          "homepage, https://pandas.pydata.org",
+          "documentation, https://pandas.pydata.org/docs/",
+          "repository, https://github.com/pandas-dev/pandas"
+        ],
+        "provides_extra": [
+          "test",
+          "pyarrow",
+          "performance",
+          "computation",
+          "fss",
+          "aws",
+          "gcp",
+          "excel",
+          "parquet",
+          "feather",
+          "iceberg",
+          "hdf5",
+          "spss",
+          "postgresql",
+          "mysql",
+          "sql-other",
+          "html",
+          "xml",
+          "plot",
+          "output-formatting",
+          "clipboard",
+          "compression",
+          "timezone",
+          "all"
+        ]
+      }
+    },
+    {
+      "download_info": {
+        "url": "https://files.pythonhosted.org/packages/ec/57/56b9bcc3c9c6a792fcbaf139543cee77261f3651ca9da0c93f5c1221264b/python_dateutil-2.9.0.post0-py2.py3-none-any.whl",
+        "archive_info": {
+          "hashes": {
+            "sha256": "a8b2bc7bffae282281c8140a97d3aa9c14da0b136dfe83f850eea9a5f7470427"
+          },
+          "hash": "sha256=a8b2bc7bffae282281c8140a97d3aa9c14da0b136dfe83f850eea9a5f7470427"
+        }
+      },
+      "is_direct": false,
+      "is_yanked": false,
+      "requested": false,
+      "metadata": {
+        "metadata_version": "2.1",
+        "name": "python-dateutil",
+        "version": "2.9.0.post0",
+        "summary": "Extensions to the standard Python datetime module",
+        "description": "dateutil - powerful extensions to datetime\n==========================================\n\n|pypi| |support| |licence|\n\n|gitter| |readthedocs|\n\n|travis| |appveyor| |pipelines| |coverage|\n\n.. |pypi| image:: https://img.shields.io/pypi/v/python-dateutil.svg?style=flat-square\n    :target: https://pypi.org/project/python-dateutil/\n    :alt: pypi version\n\n.. |support| image:: https://img.shields.io/pypi/pyversions/python-dateutil.svg?style=flat-square\n    :target: https://pypi.org/project/python-dateutil/\n    :alt: supported Python version\n\n.. |travis| image:: https://img.shields.io/travis/dateutil/dateutil/master.svg?style=flat-square&label=Travis%20Build\n    :target: https://travis-ci.org/dateutil/dateutil\n    :alt: travis build status\n\n.. |appveyor| image:: https://img.shields.io/appveyor/ci/dateutil/dateutil/master.svg?style=flat-square&logo=appveyor\n    :target: https://ci.appveyor.com/project/dateutil/dateutil\n    :alt: appveyor build status\n\n.. |pipelines| image:: https://dev.azure.com/pythondateutilazure/dateutil/_apis/build/status/dateutil.dateutil?branchName=master\n    :target: https://dev.azure.com/pythondateutilazure/dateutil/_build/latest?definitionId=1&branchName=master\n    :alt: azure pipelines build status\n\n.. |coverage| image:: https://codecov.io/gh/dateutil/dateutil/branch/master/graphs/badge.svg?branch=master\n    :target: https://codecov.io/gh/dateutil/dateutil?branch=master\n    :alt: Code coverage\n\n.. |gitter| image:: https://badges.gitter.im/dateutil/dateutil.svg\n   :alt: Join the chat at https://gitter.im/dateutil/dateutil\n   :target: https://gitter.im/dateutil/dateutil\n\n.. |licence| image:: https://img.shields.io/pypi/l/python-dateutil.svg?style=flat-square\n    :target: https://pypi.org/project/python-dateutil/\n    :alt: licence\n\n.. |readthedocs| image:: https://img.shields.io/readthedocs/dateutil/latest.svg?style=flat-square&label=Read%20the%20Docs\n   :alt: Read the documentation at https://dateutil.readthedocs.io/en/latest/\n   :target: https://dateutil.readthedocs.io/en/latest/\n\nThe `dateutil` module provides powerful extensions to\nthe standard `datetime` module, available in Python.\n\nInstallation\n============\n`dateutil` can be installed from PyPI using `pip` (note that the package name is\ndifferent from the importable name)::\n\n    pip install python-dateutil\n\nDownload\n========\ndateutil is available on PyPI\nhttps://pypi.org/project/python-dateutil/\n\nThe documentation is hosted at:\nhttps://dateutil.readthedocs.io/en/stable/\n\nCode\n====\nThe code and issue tracker are hosted on GitHub:\nhttps://github.com/dateutil/dateutil/\n\nFeatures\n========\n\n* Computing of relative deltas (next month, next year,\n  next Monday, last week of month, etc);\n* Computing of relative deltas between two given\n  date and/or datetime objects;\n* Computing of dates based on very flexible recurrence rules,\n  using a superset of the `iCalendar <https://www.ietf.org/rfc/rfc2445.txt>`_\n  specification. Parsing of RFC strings is supported as well.\n* Generic parsing of dates in almost any string format;\n* Timezone (tzinfo) implementations for tzfile(5) format\n  files (/etc/localtime, /usr/share/zoneinfo, etc), TZ\n  environment string (in all known formats), iCalendar\n  format files, given ranges (with help from relative deltas),\n  local machine timezone, fixed offset timezone, UTC timezone,\n  and Windows registry-based time zones.\n* Internal up-to-date world timezone information based on\n  Olson's database.\n* Computing of Easter Sunday dates for any given year,\n  using Western, Orthodox or Julian algorithms;\n* A comprehensive test suite.\n\nQuick example\n=============\nHere's a snapshot, just to give an idea about the power of the\npackage. For more examples, look at the documentation.\n\nSuppose you want to know how much time is left, in\nyears/months/days/etc, before the next easter happening on a\nyear with a Friday 13th in August, and you want to get today's\ndate out of the \"date\" unix system command. Here is the code:\n\n.. code-block:: python3\n\n    >>> from dateutil.relativedelta import *\n    >>> from dateutil.easter import *\n    >>> from dateutil.rrule import *\n    >>> from dateutil.parser import *\n    >>> from datetime import *\n    >>> now = parse(\"Sat Oct 11 17:13:46 UTC 2003\")\n    >>> today = now.date()\n    >>> year = rrule(YEARLY,dtstart=now,bymonth=8,bymonthday=13,byweekday=FR)[0].year\n    >>> rdelta = relativedelta(easter(year), today)\n    >>> print(\"Today is: %s\" % today)\n    Today is: 2003-10-11\n    >>> print(\"Year with next Aug 13th on a Friday is: %s\" % year)\n    Year with next Aug 13th on a Friday is: 2004\n    >>> print(\"How far is the Easter of that year: %s\" % rdelta)\n    How far is the Easter of that year: relativedelta(months=+6)\n    >>> print(\"And the Easter of that year is: %s\" % (today+rdelta))\n    And the Easter of that year is: 2004-04-11\n\nBeing exactly 6 months ahead was **really** a coincidence :)\n\nContributing\n============\n\nWe welcome many types of contributions - bug reports, pull requests (code, infrastructure or documentation fixes). For more information about how to contribute to the project, see the ``CONTRIBUTING.md`` file in the repository.\n\n\nAuthor\n======\nThe dateutil module was written by Gustavo Niemeyer <gustavo@niemeyer.net>\nin 2003.\n\nIt is maintained by:\n\n* Gustavo Niemeyer <gustavo@niemeyer.net> 2003-2011\n* Tomi Pieviläinen <tomi.pievilainen@iki.fi> 2012-2014\n* Yaron de Leeuw <me@jarondl.net> 2014-2016\n* Paul Ganssle <paul@ganssle.io> 2015-\n\nStarting with version 2.4.1 and running until 2.8.2, all source and binary\ndistributions will be signed by a PGP key that has, at the very least, been\nsigned by the key which made the previous release. A table of release signing\nkeys can be found below:\n\n===========  ============================\nReleases     Signing key fingerprint\n===========  ============================\n2.4.1-2.8.2  `6B49 ACBA DCF6 BD1C A206 67AB CD54 FCE3 D964 BEFB`_\n===========  ============================\n\nNew releases *may* have signed tags, but binary and source distributions\nuploaded to PyPI will no longer have GPG signatures attached.\n\nContact\n=======\nOur mailing list is available at `dateutil@python.org <https://mail.python.org/mailman/listinfo/dateutil>`_. As it is hosted by the PSF, it is subject to the `PSF code of\nconduct <https://www.python.org/psf/conduct/>`_.\n\nLicense\n=======\n\nAll contributions after December 1, 2017 released under dual license - either `Apache 2.0 License <https://www.apache.org/licenses/LICENSE-2.0>`_ or the `BSD 3-Clause License <https://opensource.org/licenses/BSD-3-Clause>`_. Contributions before December 1, 2017 - except those those explicitly relicensed - are released only under the BSD 3-Clause License.\n\n\n.. _6B49 ACBA DCF6 BD1C A206 67AB CD54 FCE3 D964 BEFB:\n   https://pgp.mit.edu/pks/lookup?op=vindex&search=0xCD54FCE3D964BEFB\n",
+        "description_content_type": "text/x-rst",
+        "home_page": "https://github.com/dateutil/dateutil",
+        "author": "Gustavo Niemeyer",
+        "author_email": "gustavo@niemeyer.net",
+        "maintainer": "Paul Ganssle",
+        "maintainer_email": "dateutil@python.org",
+        "license": "Dual License",
+        "license_file": [
+          "LICENSE"
+        ],
+        "classifier": [
+          "Development Status :: 5 - Production/Stable",
+          "Intended Audience :: Developers",
+          "License :: OSI Approved :: BSD License",
+          "License :: OSI Approved :: Apache Software License",
+          "Programming Language :: Python",
+          "Programming Language :: Python :: 2",
+          "Programming Language :: Python :: 2.7",
+          "Programming Language :: Python :: 3",
+          "Programming Language :: Python :: 3.3",
+          "Programming Language :: Python :: 3.4",
+          "Programming Language :: Python :: 3.5",
+          "Programming Language :: Python :: 3.6",
+          "Programming Language :: Python :: 3.7",
+          "Programming Language :: Python :: 3.8",
+          "Programming Language :: Python :: 3.9",
+          "Programming Language :: Python :: 3.10",
+          "Programming Language :: Python :: 3.11",
+          "Programming Language :: Python :: 3.12",
+          "Topic :: Software Development :: Libraries"
+        ],
+        "requires_dist": [
+          "six >=1.5"
+        ],
+        "requires_python": "!=3.0.*,!=3.1.*,!=3.2.*,>=2.7",
+        "project_url": [
+          "Documentation, https://dateutil.readthedocs.io/en/stable/",
+          "Source, https://github.com/dateutil/dateutil"
+        ]
+      }
+    },
+    {
+      "download_info": {
+        "url": "https://files.pythonhosted.org/packages/a0/f4/c67b0b3f1b9245e8d266f0f112c500d50e5b4e83cb6f3b71b6528104182a/requests-2.34.2-py3-none-any.whl",
+        "archive_info": {
+          "hashes": {
+            "sha256": "2a0d60c172f83ac6ab31e4554906c0f3b3588d37b5cb939b1c061f4907e278e0"
+          },
+          "hash": "sha256=2a0d60c172f83ac6ab31e4554906c0f3b3588d37b5cb939b1c061f4907e278e0"
+        }
+      },
+      "is_direct": false,
+      "is_yanked": false,
+      "requested": false,
+      "metadata": {
+        "metadata_version": "2.4",
+        "name": "requests",
+        "version": "2.34.2",
+        "dynamic": [
+          "license-file"
+        ],
+        "summary": "Python HTTP for Humans.",
+        "description": "# Requests\n\n[![Version](https://img.shields.io/pypi/v/requests.svg?maxAge=86400)](https://pypi.org/project/requests/)\n[![Supported Versions](https://img.shields.io/pypi/pyversions/requests.svg)](https://pypi.org/project/requests)\n[![Downloads](https://static.pepy.tech/badge/requests/month)](https://pepy.tech/project/requests)\n[![Contributors](https://img.shields.io/github/contributors/psf/requests.svg)](https://github.com/psf/requests/graphs/contributors)\n[![Documentation](https://readthedocs.org/projects/requests/badge/?version=latest)](https://requests.readthedocs.io)\n\n**Requests** is a simple, yet elegant, HTTP library.\n\n```python\n>>> import requests\n>>> r = requests.get('https://httpbin.org/basic-auth/user/pass', auth=('user', 'pass'))\n>>> r.status_code\n200\n>>> r.headers['content-type']\n'application/json; charset=utf8'\n>>> r.encoding\n'utf-8'\n>>> r.text\n'{\"authenticated\": true, ...'\n>>> r.json()\n{'authenticated': True, ...}\n```\n\nRequests allows you to send HTTP/1.1 requests extremely easily. There’s no need to manually add query strings to your URLs, or to form-encode your `PUT` & `POST` data — but nowadays, just use the `json` method!\n\nRequests is one of the most downloaded Python packages today, pulling in around `300M downloads / week` — according to GitHub, Requests is currently [depended upon](https://github.com/psf/requests/network/dependents?package_id=UGFja2FnZS01NzA4OTExNg%3D%3D) by `4,000,000+` repositories.\n\n## Installing Requests and Supported Versions\n\nRequests is available on PyPI:\n\n```console\n$ python -m pip install requests\n```\n\nRequests officially supports Python 3.10+.\n\n## Supported Features & Best–Practices\n\nRequests is ready for the demands of building robust and reliable HTTP–speaking applications, for the needs of today.\n\n- Keep-Alive & Connection Pooling\n- International Domains and URLs\n- Sessions with Cookie Persistence\n- Browser-style TLS/SSL Verification\n- Basic & Digest Authentication\n- Familiar `dict`–like Cookies\n- Automatic Content Decompression and Decoding\n- Multi-part File Uploads\n- SOCKS Proxy Support\n- Connection Timeouts\n- Streaming Downloads\n- Automatic honoring of `.netrc`\n- Chunked HTTP Requests\n\n## Cloning the repository\n\nWhen cloning the Requests repository, you may need to add the `-c\nfetch.fsck.badTimezone=ignore` flag to avoid an error about a bad commit timestamp (see\n[this issue](https://github.com/psf/requests/issues/2690) for more background):\n\n```shell\ngit clone -c fetch.fsck.badTimezone=ignore https://github.com/psf/requests.git\n```\n\nYou can also apply this setting to your global Git config:\n\n```shell\ngit config --global fetch.fsck.badTimezone ignore\n```\n\n---\n\n[![Kenneth Reitz](https://raw.githubusercontent.com/psf/requests/main/ext/kr.png)](https://kennethreitz.org) [![Python Software Foundation](https://raw.githubusercontent.com/psf/requests/main/ext/psf.png)](https://www.python.org/psf)\n",
+        "description_content_type": "text/markdown",
+        "author_email": "Kenneth Reitz <me@kennethreitz.org>",
+        "maintainer_email": "Ian Stapleton Cordasco <graffatcolmingov@gmail.com>, Nate Prewitt <nate.prewitt@gmail.com>",
+        "license": "Apache-2.0",
+        "license_file": [
+          "LICENSE",
+          "NOTICE"
+        ],
+        "classifier": [
+          "Development Status :: 5 - Production/Stable",
+          "Environment :: Web Environment",
+          "Intended Audience :: Developers",
+          "License :: OSI Approved :: Apache Software License",
+          "Natural Language :: English",
+          "Operating System :: OS Independent",
+          "Programming Language :: Python",
+          "Programming Language :: Python :: 3",
+          "Programming Language :: Python :: 3.10",
+          "Programming Language :: Python :: 3.11",
+          "Programming Language :: Python :: 3.12",
+          "Programming Language :: Python :: 3.13",
+          "Programming Language :: Python :: 3.14",
+          "Programming Language :: Python :: 3.15",
+          "Programming Language :: Python :: 3 :: Only",
+          "Programming Language :: Python :: Implementation :: CPython",
+          "Programming Language :: Python :: Implementation :: PyPy",
+          "Programming Language :: Python :: Free Threading :: 2 - Beta",
+          "Topic :: Internet :: WWW/HTTP",
+          "Topic :: Software Development :: Libraries"
+        ],
+        "requires_dist": [
+          "charset_normalizer<4,>=2",
+          "idna<4,>=2.5",
+          "urllib3<3,>=1.26",
+          "certifi>=2023.5.7",
+          "PySocks!=1.5.7,>=1.5.6; extra == \"socks\"",
+          "chardet<8,>=3.0.2; extra == \"use-chardet-on-py3\""
+        ],
+        "requires_python": ">=3.10",
+        "project_url": [
+          "Documentation, https://requests.readthedocs.io",
+          "Source, https://github.com/psf/requests"
+        ],
+        "provides_extra": [
+          "security",
+          "socks",
+          "use-chardet-on-py3"
+        ]
+      }
+    },
+    {
+      "download_info": {
+        "url": "https://files.pythonhosted.org/packages/d1/78/5ed86f743d4bc350db307e7636419a0a5ee1d91806d30c7f667bd5c80dae/charset_normalizer-3.5.2-cp314-cp314-win_amd64.whl",
+        "archive_info": {
+          "hashes": {
+            "sha256": "e4e81e09c1578b8df602e3db08b0b3ea0a6947ad612f52bf8dc5ea8d47691f0c"
+          },
+          "hash": "sha256=e4e81e09c1578b8df602e3db08b0b3ea0a6947ad612f52bf8dc5ea8d47691f0c"
+        }
+      },
+      "is_direct": false,
+      "is_yanked": false,
+      "requested": false,
+      "metadata": {
+        "metadata_version": "2.4",
+        "name": "charset-normalizer",
+        "version": "3.5.2",
+        "dynamic": [
+          "license-file"
+        ],
+        "summary": "The Real First Universal Charset Detector. Open, modern and actively maintained alternative to Chardet.",
+        "description": "<h1 align=\"center\">Charset Detection, for Everyone 👋</h1>\n\n<p align=\"center\">\n  <sup>The Real First Universal Charset Detector</sup><br>\n  <a href=\"https://pypi.org/project/charset-normalizer\">\n    <img src=\"https://img.shields.io/pypi/pyversions/charset_normalizer.svg?orange=blue\" />\n  </a>\n  <a href=\"https://pepy.tech/project/charset-normalizer/\">\n    <img alt=\"Download Count Total\" src=\"https://static.pepy.tech/badge/charset-normalizer/month\" />\n  </a>\n  <a href=\"https://bestpractices.coreinfrastructure.org/projects/7297\">\n    <img src=\"https://bestpractices.coreinfrastructure.org/projects/7297/badge\">\n  </a>\n</p>\n<p align=\"center\">\n  <sup><i>Featured Packages</i></sup><br>\n  <a href=\"https://github.com/jawah/niquests\">\n   <img alt=\"Static Badge\" src=\"https://img.shields.io/badge/Niquests-Most_Advanced_HTTP_Client-cyan\">\n  </a>\n  <a href=\"https://github.com/jawah/wassima\">\n   <img alt=\"Static Badge\" src=\"https://img.shields.io/badge/Wassima-Certifi_Replacement-cyan\">\n  </a>\n</p>\n<p align=\"center\">\n  <sup><i>In other language (unofficial port - by the community)</i></sup><br>\n  <a href=\"https://github.com/nickspring/charset-normalizer-rs\">\n   <img alt=\"Static Badge\" src=\"https://img.shields.io/badge/Rust-red\">\n  </a>\n</p>\n\n> A library that helps you read text from an unknown charset encoding.<br /> Motivated by `chardet`,\n> I'm trying to resolve the issue by taking a new approach.\n> All IANA character set names for which the Python core library provides codecs are supported.\n> You can also register your own set of codecs, and yes, it would work as-is.\n\nThis project offers you an alternative to **Universal Charset Encoding Detector**, also known as **Chardet**.\n\n| Feature                                          | [Chardet](https://github.com/chardet/chardet) |                                       Charset Normalizer                                        | [cChardet](https://github.com/PyYoshi/cChardet) |\n|--------------------------------------------------|:---------------------------------------------:|:-----------------------------------------------------------------------------------------------:|:-----------------------------------------------:|\n| `Fast`                                           |                       ✅                       |                                                ✅                                                |                        ✅                        |\n| `Fast on large content (uncapped)`               |                       ❌                       |                                                ✅                                                |                        ❌                        |\n| `Universal`[^1]                                  |                       ❌                       |                                                ✅                                                |                        ❌                        |\n| `Reliable` **without** distinguishable standards |                       ✅                       |                                                ✅                                                |                        ✅                        |\n| `Reliable` **with** distinguishable standards    |                       ✅                       |                                                ✅                                                |                        ✅                        |\n| `License`                                        |           _0BSD_[^2]<br>_disputed_            |                                               MIT                                               |            MPL-1.1<br>_restrictive_             |\n| `Native Python`                                  |                       ✅                       |                                                ✅                                                |                        ❌                        |\n| `Detect spoken language`                         |                       ✅                       |                                                ✅                                                |                       N/A                       |\n| `UnicodeDecodeError Safety`                      |                       ❌                       |                                                ✅                                                |                        ❌                        |\n| `Whl Size`                                       |                   ~1200 kB                    |                                             ~250 kB                                             |                     ~200 kB                     |\n| `Supported Encoding`                             |                      99                       | [99](https://charset-normalizer.readthedocs.io/en/latest/user/support.html#supported-encodings) |                       40                        |\n| `Can register custom encoding`                   |                       ❌                       |                                                ✅                                                |                        ❌                        |\n\n<p align=\"center\">\n<img src=\"https://i.imgflip.com/373iay.gif\" alt=\"Reading Normalized Text\" width=\"226\"/><img src=\"https://media.tenor.com/images/c0180f70732a18b4965448d33adba3d0/tenor.gif\" alt=\"Cat Reading Text\" width=\"200\"/>\n</p>\n\n[^1]: They are clearly using specific code for a specific encoding even if covering most of them.\n[^2]: Chardet 7 replaced the historical LGPL-licensed implementation with an AI-assisted rewrite, initially distributed under MIT and later under 0BSD. The original author [contests](https://github.com/chardet/chardet/issues/327) that the rewrite was sufficiently independent to permit relicensing, while Chardet's maintainer maintains that it is a new, non-derivative implementation. A separate [discussion](https://github.com/chardet/chardet/issues/334) raises questions about copyright ownership and licensing of substantially AI-generated code. Neither unresolved question is presented here as settled law. The concern is broader than whether ideas, APIs, or observable behavior are copyrightable. Independent implementations are essential to open-source competition. The ethical question is whether a maintainer with extensive access to a reciprocal project's source, architecture, tests, behavior, community, and reputation can use an LLM to recreate the same product under the same package identity, then treat the generated implementation as a provenance reset that extinguishes the project's reciprocal licensing obligations and contributor expectations. Responsible AI use in open source requires more than producing text that differs from the historical source: it requires transparent provenance, respect for project lineage, meaningful attribution, accountable human review, and consideration for the social agreement under which earlier contributors participated. If automated rewriting becomes an accepted way to retain a project's name, users, and accumulated reputation while discarding its reciprocal license, it risks weakening the trust and incentives on which FOSS depends. Early Chardet 7.x development and evaluation also incorporated files originating from charset-normalizer's test corpus. Results measured on data that influenced implementation or model development are not independent validation. Charset-normalizer has been MIT-licensed since inception and originates from a continuous human-designed, encoding-agnostic project history. AI assistance may be used, but every proposed change remains subject to maintainer review, adjustment, testing, and accountability; AI is an engineering aid, not a mechanism for erasing provenance or project lineage. An attentive eye will see that some aspects lead by us are magically found in Chardet.\n\n## ⚡ Performance\n\nThis package offer similar performances in general against Chardet. Expect 10X faster with large contents when you uncap Chardet max_bytes default assumption.\n\n| Package            | Accuracy |  Mean per file (ms)   |\n|--------------------|:--------:|:---------------------:|\n| Chardet            |   99 %   | 0.4 ms[^4] 0.6 ms[^5] |\n| charset-normalizer |   98 %   |        0.4 ms         |\n| cchardet[^3]       |   94 %   |        0.6 ms         |\n\n_Well, sub-ms detectors made them extremely discrete in the overall runtime.\nCompetitors can still win individual measurements, especially capped Chardet on\nsmall-file median latency. But when performance, accuracy, binary handling, validation\nstrength, portability, and maintainability are considered together, charset-normalizer\nis the stronger package._\n\n| Package            |   99th percentile    | 95th percentile | 50th percentile |\n|--------------------|:--------------------:|:---------------:|:---------------:|\n| Chardet            | 2.5 ms[^4] 4.2ms[^5] |      1 ms       |     0.2 ms      |\n| charset-normalizer |        2.7 ms        |     1.5 ms      |     0.2 ms      |\n| cchardet           |        2.7 ms        |      2 ms       |     0.3 ms      |\n\n_updated as of August 2026 using CPython 3.12, Charset-Normalizer 3.5.1, and Chardet 7.5 inside a (libc Debian) container. The host CPU is a 13th gen Intel mobile CPU. We'll no longer update regularly those since the sub-ms changes aren't meaningful to anyone anymore._\n\n> Stats are generated using 477 files using default parameters. More details on used files, see GHA workflows.\n> And yes, these results might change at any time. The dataset can be updated to include more files.\n> The actual delays heavily depends on your CPU capabilities. The factors should remain the same.\n> Chardet claims on his documentation to have a greater accuracy than us based on the dataset they trained Chardet on(...)\n> Whereas charset-normalizer don't train on anything, our solution is based on a completely different algorithm, still heuristic\n> through, it does not need weights across every encoding tables.\n\n[^3]: cchardet main repository/package was discontinued. we're relying on a known fork namely faust-cchardet. the idea remained the same: uchardet bindings.\n[^4]: Chardet does not feed the complete body but rather a limited part of it, because the algorithm doesn't scale properly with larger samples. Feeding the whole content slow things to 0.8 ms (from the 0.5ms avg). While we do not skip content in order for us to guarantee a usable result each and every time. We attempted to feed a 272 MiB UTF-8 (Reddit archive on comments/posts) file in Chardet uncapped and waited 3.4s while Charset-Normalizer took 0.3s, this is a 10-fold speedup.\n[^5]: Uncapped max_bytes (no truncating of content)\n\n## ✨ Installation\n\nUsing pip:\n\n```sh\npip install charset-normalizer -U\n```\n\n## 🚀 Basic Usage\n\n### CLI\nThis package comes with a CLI.\n\n```\nusage: normalizer [-h] [-v] [-a] [-n] [-m] [-r] [-f] [-t THRESHOLD]\n                  file [file ...]\n\nThe Real First Universal Charset Detector. Discover originating encoding used\non text file. Normalize text to unicode.\n\npositional arguments:\n  files                 File(s) to be analysed\n\noptional arguments:\n  -h, --help            show this help message and exit\n  -v, --verbose         Display complementary information about file if any.\n                        Stdout will contain logs about the detection process.\n  -a, --with-alternative\n                        Output complementary possibilities if any. Top-level\n                        JSON WILL be a list.\n  -n, --normalize       Permit to normalize input file. If not set, program\n                        does not write anything.\n  -m, --minimal         Only output the charset detected to STDOUT. Disabling\n                        JSON output.\n  -r, --replace         Replace file when trying to normalize it instead of\n                        creating a new one.\n  -f, --force           Replace file without asking if you are sure, use this\n                        flag with caution.\n  -t THRESHOLD, --threshold THRESHOLD\n                        Define a custom maximum amount of chaos allowed in\n                        decoded content. 0. <= chaos <= 1.\n  --version             Show version information and exit.\n```\n\n```bash\nnormalizer ./data/sample.1.fr.srt\n```\n\nor\n\n```bash\npython -m charset_normalizer ./data/sample.1.fr.srt\n```\n\n🎉 Since version 1.4.0 the CLI produce easily usable stdout result in JSON format.\n\n```json\n{\n    \"path\": \"/home/default/projects/charset_normalizer/data/sample.1.fr.srt\",\n    \"encoding\": \"cp1252\",\n    \"encoding_aliases\": [\n        \"1252\",\n        \"windows_1252\"\n    ],\n    \"alternative_encodings\": [\n        \"cp1254\",\n        \"cp1256\",\n        \"cp1258\",\n        \"iso8859_14\",\n        \"iso8859_15\",\n        \"iso8859_16\",\n        \"iso8859_3\",\n        \"iso8859_9\",\n        \"latin_1\",\n        \"mbcs\"\n    ],\n    \"language\": \"French\",\n    \"alphabets\": [\n        \"Basic Latin\",\n        \"Latin-1 Supplement\"\n    ],\n    \"has_sig_or_bom\": false,\n    \"chaos\": 0.149,\n    \"coherence\": 97.152,\n    \"unicode_path\": null,\n    \"is_preferred\": true\n}\n```\n\n### Python\n*Just print out normalized text*\n```python\nfrom charset_normalizer import from_path\n\nresults = from_path('./my_subtitle.srt')\n\nprint(str(results.best()))\n```\n\n*Upgrade your code without effort*\n```python\nfrom charset_normalizer import detect\n```\n\nThe above code will behave the same as **chardet**. We ensure that we offer the best (reasonable) BC result possible.\n\nSee the docs for advanced usage : [readthedocs.io](https://charset-normalizer.readthedocs.io/en/latest/)\n\n## 😇 Why\n\nWhen I started using Chardet, I noticed that it was not suited to my expectations, and I wanted to propose a\nreliable alternative using a completely different method. Also! I never back down on a good challenge!\n\nI **don't care** about the **originating charset** encoding, because **two different tables** can\nproduce **two identical rendered string.**\nWhat I want is to get readable text, the best I can.\n\nIn a way, **I'm brute forcing text decoding.** How cool is that ? 😎\n\nDon't confuse package **ftfy** with charset-normalizer or chardet. ftfy goal is to repair Unicode string whereas charset-normalizer to convert raw file in unknown encoding to unicode.\n\n## 🍰 How\n\n  - Discard all charset encoding table that could not fit the binary content.\n  - Measure noise, or the mess once opened (by chunks) with a corresponding charset encoding.\n  - Extract matches with the lowest mess detected.\n  - Additionally, we measure coherence / probe for a language.\n\n**Wait a minute**, what is noise/mess and coherence according to **YOU ?**\n\n*Noise :* I opened hundred of text files, **written by humans**, with the wrong encoding table. **I observed**, then\n**I established** some ground rules about **what is obvious** when **it seems like** a mess (aka. defining noise in rendered text).\n I know that my interpretation of what is noise is probably incomplete, feel free to contribute in order to\n improve or rewrite it.\n\n*Coherence :* For each language there is on earth, we have computed ranked letter appearance occurrences (the best we can). So I thought\nthat intel is worth something here. So I use those records against decoded text to check if I can detect intelligent design.\n\n## ⚡ Known limitations\n\n  - Language detection is unreliable when text contains two or more languages sharing identical letters. (eg. HTML (english tags) + Turkish content (Sharing Latin characters))\n  - Every charset detector heavily depends on sufficient content. In common cases, do not bother run detection on very tiny content.\n\n## ⚠️ About Python EOLs\n\n**If you are running:**\n\n- Python >=2.7,<3.5: Unsupported\n- Python 3.5: charset-normalizer < 2.1\n- Python 3.6: charset-normalizer < 3.1\n\nUpgrade your Python interpreter as soon as possible.\n\n## 👤 Contributing\n\nContributions, issues and feature requests are very much welcome.<br />\nFeel free to check [issues page](https://github.com/ousret/charset_normalizer/issues) if you want to contribute.\n\n## 📝 License\n\nCopyright © [Ahmed TAHRI @Ousret](https://github.com/Ousret).<br />\nThis project is [MIT](https://github.com/Ousret/charset_normalizer/blob/master/LICENSE) licensed.\n\nCharacters frequencies used in this project © 2012 [Denny Vrandečić](http://simia.net/letters/)\n\n## 💼 For Enterprise\n\nProfessional support for charset-normalizer is available as part of the [Tidelift\nSubscription][1]. Tidelift gives software development teams a single source for\npurchasing and maintaining their software, with professional grade assurances\nfrom the experts who know it best, while seamlessly integrating with existing\ntools.\n\n[1]: https://tidelift.com/subscription/pkg/pypi-charset-normalizer?utm_source=pypi-charset-normalizer&utm_medium=readme\n\n[![OpenSSF Best Practices](https://www.bestpractices.dev/projects/7297/badge)](https://www.bestpractices.dev/projects/7297)\n\n# Changelog\nAll notable changes to charset-normalizer will be documented in this file. This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).\nThe format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).\n\n## [3.5.2](https://github.com/Ousret/charset_normalizer/compare/3.5.1...3.5.2) (2026-09-29)\n\n### Changed\n\n- Raised the Cython upper bound to `<3.4` for native builds. The bound remains `<3.3` for\n  `abi3` builds to preserve compatibility with the Python 3.7 Limited API.\n\n### Fixed\n\n- Valid UTF-8 Chinese JSON incorrectly detected as PTCP154 due to excessive noise penalties\n  for uncommon CJK characters. (#796)\n- Supported encodings without aliases failing name resolution or being ignored in charset\n  declarations. (#800)\n\n## [3.5.1](https://github.com/Ousret/charset_normalizer/compare/3.5.0...3.5.1) (2026-08-15)\n\n### Changed\n- Raised upper bound of setuptools to v84 (#794)\n- Cache performance access optimization for our CharInfo struct (prebuilt only).\n\n### Fixed\n- No longer decoding large content when the noise detector output give a high entropy.\n  Only impacted large content input >1M bytes.\n\n## [3.5.0](https://github.com/Ousret/charset_normalizer/compare/3.4.9...3.5.0) (2026-08-12)\n\n### Added\n- Explicit support for Python 3.15\n\n### Fixed\n- Comparing a CharsetMatch to a non-alias encoding strings (#773)\n- Return 0.0 CharsetMatch.multi_byte_usage for empty payloads instead of crashing (#774)\n- A file with both a charset declaration and BOM/SIG did not verify first the BOM/SIG charset.\n- iso2022* cases misdetected due to a flaw in our multibyte chunking logic.\n\n### Changed\n- Replaced the optional mypyc build with Cython extensions while retaining the\n  pure Python fallback. The previous engine (mypyc) started to hit rough limit around\n  the optimization of our noise/coherence detector while Cython allows us to\n  steer the engine toward the right generated optimized sources.\n  This change SHOULD not impact bundler (e.g. Pyinstaller) as the module are\n  immediately discoverable (i.e. not hidden import like mypyc did).\n  Moreover, a long wished distribution is the abi3 wheels, this will allow us\n  to no longer rush each year when a new Python interpreter is released.\n  We still distribute the interpreter specific wheels for faster performance.\n- Applied micro-optimization on several utils.\n- CharsetMatches no longer sort on each match insertion.\n\n### Misc\n- Removed an old performance optimization attempt in apy.py (success_fast_tracked+payload_result_cache).\n\n## [3.4.9](https://github.com/Ousret/charset_normalizer/compare/3.4.8...3.4.9) (2026-07-07)\n\n### Fixed\n- Regression in our fallback path leading to a decode error. (#771)\n  We've yanked 3.4.8 as a result of that bug.\n\n## [3.4.8](https://github.com/Ousret/charset_normalizer/compare/3.4.7...3.4.8) (2026-07-06)\n\n### Fixed\n- Wall import time due to cascade codec imports for our multibyte first sort of iana supported codecs (#742)\n- Unnecessary json import at runtime (#753)\n- Inverse capitalization not seen by noise detector (#731)\n\n### Changed\n- No longer holding a global cache for our noise / coherence measurements. Relax RSS memory usage.\n- Micro-optimizations in our noise / coherence measurements.\n- No longer using regex search by default for our preemptive charset mark algorithm.\n- Raised upperbound of setuptools to v83.\n- Raised upperbound of mypy(c) to v2.1.\n\n### Removed\n- Redundant UTF7 BOM marker (#730)\n\n## [3.4.7](https://github.com/Ousret/charset_normalizer/compare/3.4.6...3.4.7) (2026-04-02)\n\n### Changed\n- Pre-built optimized version using mypy[c] v1.20.\n- Relax `setuptools` constraint to `setuptools>=68,<82.1`.\n\n### Fixed\n- Correctly remove SIG remnant in utf-7 decoded string. (#718) (#716)\n\n## [3.4.6](https://github.com/Ousret/charset_normalizer/compare/3.4.5...3.4.6) (2026-03-15)\n\n### Changed\n- Flattened the logic in `charset_normalizer.md` for higher performance. Removed `eligible(..)` and `feed(...)`\n  in favor of `feed_info(...)`.\n- Raised upper bound for mypy[c] to 1.20, for our optimized version.\n- Updated `UNICODE_RANGES_COMBINED` using Unicode blocks v17.\n\n### Fixed\n- Edge case where noise difference between two candidates can be almost insignificant. (#672)\n- CLI `--normalize` writing to wrong path when passing multiple files in. (#702)\n\n### Misc\n- Freethreaded pre-built wheels now shipped in PyPI starting with 3.14t. (#616)\n\n## [3.4.5](https://github.com/Ousret/charset_normalizer/compare/3.4.4...3.4.5) (2026-03-06)\n\n### Changed\n- Update `setuptools` constraint to `setuptools>=68,<=82`.\n- Raised upper bound of mypyc for the optional pre-built extension to v1.19.1\n\n### Fixed\n- Add explicit link to lib math in our optimized build. (#692)\n- Logger level not restored correctly for empty byte sequences. (#701)\n- TypeError when passing bytearray to from_bytes. (#703)\n\n### Misc\n- Applied safe micro-optimizations in both our noise detector and language detector.\n- Rewrote the `query_yes_no` function (inside CLI) to avoid using ambiguous licensed code.\n- Added `cd.py` submodule into mypyc optional compilation to reduce further the performance impact.\n\n## [3.4.4](https://github.com/Ousret/charset_normalizer/compare/3.4.2...3.4.4) (2025-10-13)\n\n### Changed\n- Bound `setuptools` to a specific constraint `setuptools>=68,<=81`.\n- Raised upper bound of mypyc for the optional pre-built extension to v1.18.2\n\n### Removed\n- `setuptools-scm` as a build dependency.\n\n### Misc\n- Enforced hashes in `dev-requirements.txt` and created `ci-requirements.txt` for security purposes.\n- Additional pre-built wheels for riscv64, s390x, and armv7l architectures.\n- Restore ` multiple.intoto.jsonl` in GitHub releases in addition to individual attestation file per wheel.\n\n## [3.4.3](https://github.com/Ousret/charset_normalizer/compare/3.4.2...3.4.3) (2025-08-09)\n\n### Changed\n- mypy(c) is no longer a required dependency at build time if `CHARSET_NORMALIZER_USE_MYPYC` isn't set to `1`. (#595) (#583)\n- automatically lower confidence on small bytes samples that are not Unicode in `detect` output legacy function. (#391)\n\n### Added\n- Custom build backend to overcome inability to mark mypy as an optional dependency in the build phase.\n- Support for Python 3.14\n\n### Fixed\n- sdist archive contained useless directories.\n- automatically fallback on valid UTF-16 or UTF-32 even if the md says it's noisy. (#633)\n\n### Misc\n- SBOM are automatically published to the relevant GitHub release to comply with regulatory changes.\n  Each published wheel comes with its SBOM. We choose CycloneDX as the format.\n- Prebuilt optimized wheel are no longer distributed by default for CPython 3.7 due to a change in cibuildwheel.\n\n## [3.4.2](https://github.com/Ousret/charset_normalizer/compare/3.4.1...3.4.2) (2025-05-02)\n\n### Fixed\n- Addressed the DeprecationWarning in our CLI regarding `argparse.FileType` by backporting the target class into the package. (#591)\n- Improved the overall reliability of the detector with CJK Ideographs. (#605) (#587)\n\n### Changed\n- Optional mypyc compilation upgraded to version 1.15 for Python >= 3.8\n\n## [3.4.1](https://github.com/Ousret/charset_normalizer/compare/3.4.0...3.4.1) (2024-12-24)\n\n### Changed\n- Project metadata are now stored using `pyproject.toml` instead of `setup.cfg` using setuptools as the build backend.\n- Enforce annotation delayed loading for a simpler and consistent types in the project.\n- Optional mypyc compilation upgraded to version 1.14 for Python >= 3.8\n\n### Added\n- pre-commit configuration.\n- noxfile.\n\n### Removed\n- `build-requirements.txt` as per using `pyproject.toml` native build configuration.\n- `bin/integration.py` and `bin/serve.py` in favor of downstream integration test (see noxfile).\n- `setup.cfg` in favor of `pyproject.toml` metadata configuration.\n- Unused `utils.range_scan` function.\n\n### Fixed\n- Converting content to Unicode bytes may insert `utf_8` instead of preferred `utf-8`. (#572)\n- Deprecation warning \"'count' is passed as positional argument\" when converting to Unicode bytes on Python 3.13+\n\n## [3.4.0](https://github.com/Ousret/charset_normalizer/compare/3.3.2...3.4.0) (2024-10-08)\n\n### Added\n- Argument `--no-preemptive` in the CLI to prevent the detector to search for hints.\n- Support for Python 3.13 (#512)\n\n### Fixed\n- Relax the TypeError exception thrown when trying to compare a CharsetMatch with anything else than a CharsetMatch.\n- Improved the general reliability of the detector based on user feedbacks. (#520) (#509) (#498) (#407) (#537)\n- Declared charset in content (preemptive detection) not changed when converting to utf-8 bytes. (#381)\n\n## [3.3.2](https://github.com/Ousret/charset_normalizer/compare/3.3.1...3.3.2) (2023-10-31)\n\n### Fixed\n- Unintentional memory usage regression when using large payload that match several encoding (#376)\n- Regression on some detection case showcased in the documentation (#371)\n\n### Added\n- Noise (md) probe that identify malformed arabic representation due to the presence of letters in isolated form (credit to my wife)\n\n## [3.3.1](https://github.com/Ousret/charset_normalizer/compare/3.3.0...3.3.1) (2023-10-22)\n\n### Changed\n- Optional mypyc compilation upgraded to version 1.6.1 for Python >= 3.8\n- Improved the general detection reliability based on reports from the community\n\n## [3.3.0](https://github.com/Ousret/charset_normalizer/compare/3.2.0...3.3.0) (2023-09-30)\n\n### Added\n- Allow to execute the CLI (e.g. normalizer) through `python -m charset_normalizer.cli` or `python -m charset_normalizer`\n- Support for 9 forgotten encoding that are supported by Python but unlisted in `encoding.aliases` as they have no alias (#323)\n\n### Removed\n- (internal) Redundant utils.is_ascii function and unused function is_private_use_only\n- (internal) charset_normalizer.assets is moved inside charset_normalizer.constant\n\n### Changed\n- (internal) Unicode code blocks in constants are updated using the latest v15.0.0 definition to improve detection\n- Optional mypyc compilation upgraded to version 1.5.1 for Python >= 3.8\n\n### Fixed\n- Unable to properly sort CharsetMatch when both chaos/noise and coherence were close due to an unreachable condition in \\_\\_lt\\_\\_ (#350)\n\n## [3.2.0](https://github.com/Ousret/charset_normalizer/compare/3.1.0...3.2.0) (2023-06-07)\n\n### Changed\n- Typehint for function `from_path` no longer enforce `PathLike` as its first argument\n- Minor improvement over the global detection reliability\n\n### Added\n- Introduce function `is_binary` that relies on main capabilities, and optimized to detect binaries\n- Propagate `enable_fallback` argument throughout `from_bytes`, `from_path`, and `from_fp` that allow a deeper control over the detection (default True)\n- Explicit support for Python 3.12\n\n### Fixed\n- Edge case detection failure where a file would contain 'very-long' camel cased word (Issue #289)\n\n## [3.1.0](https://github.com/Ousret/charset_normalizer/compare/3.0.1...3.1.0) (2023-03-06)\n\n### Added\n- Argument `should_rename_legacy` for legacy function `detect` and disregard any new arguments without errors (PR #262)\n\n### Removed\n- Support for Python 3.6 (PR #260)\n\n### Changed\n- Optional speedup provided by mypy/c 1.0.1\n\n## [3.0.1](https://github.com/Ousret/charset_normalizer/compare/3.0.0...3.0.1) (2022-11-18)\n\n### Fixed\n- Multi-bytes cutter/chunk generator did not always cut correctly (PR #233)\n\n### Changed\n- Speedup provided by mypy/c 0.990 on Python >= 3.7\n\n## [3.0.0](https://github.com/Ousret/charset_normalizer/compare/2.1.1...3.0.0) (2022-10-20)\n\n### Added\n- Extend the capability of explain=True when cp_isolation contains at most two entries (min one), will log in details of the Mess-detector results\n- Support for alternative language frequency set in charset_normalizer.assets.FREQUENCIES\n- Add parameter `language_threshold` in `from_bytes`, `from_path` and `from_fp` to adjust the minimum expected coherence ratio\n- `normalizer --version` now specify if current version provide extra speedup (meaning mypyc compilation whl)\n\n### Changed\n- Build with static metadata using 'build' frontend\n- Make the language detection stricter\n- Optional: Module `md.py` can be compiled using Mypyc to provide an extra speedup up to 4x faster than v2.1\n\n### Fixed\n- CLI with opt --normalize fail when using full path for files\n- TooManyAccentuatedPlugin induce false positive on the mess detection when too few alpha character have been fed to it\n- Sphinx warnings when generating the documentation\n\n### Removed\n- Coherence detector no longer return 'Simple English' instead return 'English'\n- Coherence detector no longer return 'Classical Chinese' instead return 'Chinese'\n- Breaking: Method `first()` and `best()` from CharsetMatch\n- UTF-7 will no longer appear as \"detected\" without a recognized SIG/mark (is unreliable/conflict with ASCII)\n- Breaking: Class aliases CharsetDetector, CharsetDoctor, CharsetNormalizerMatch and CharsetNormalizerMatches\n- Breaking: Top-level function `normalize`\n- Breaking: Properties `chaos_secondary_pass`, `coherence_non_latin` and `w_counter` from CharsetMatch\n- Support for the backport `unicodedata2`\n\n## [3.0.0rc1](https://github.com/Ousret/charset_normalizer/compare/3.0.0b2...3.0.0rc1) (2022-10-18)\n\n### Added\n- Extend the capability of explain=True when cp_isolation contains at most two entries (min one), will log in details of the Mess-detector results\n- Support for alternative language frequency set in charset_normalizer.assets.FREQUENCIES\n- Add parameter `language_threshold` in `from_bytes`, `from_path` and `from_fp` to adjust the minimum expected coherence ratio\n\n### Changed\n- Build with static metadata using 'build' frontend\n- Make the language detection stricter\n\n### Fixed\n- CLI with opt --normalize fail when using full path for files\n- TooManyAccentuatedPlugin induce false positive on the mess detection when too few alpha character have been fed to it\n\n### Removed\n- Coherence detector no longer return 'Simple English' instead return 'English'\n- Coherence detector no longer return 'Classical Chinese' instead return 'Chinese'\n\n## [3.0.0b2](https://github.com/Ousret/charset_normalizer/compare/3.0.0b1...3.0.0b2) (2022-08-21)\n\n### Added\n- `normalizer --version` now specify if current version provide extra speedup (meaning mypyc compilation whl)\n\n### Removed\n- Breaking: Method `first()` and `best()` from CharsetMatch\n- UTF-7 will no longer appear as \"detected\" without a recognized SIG/mark (is unreliable/conflict with ASCII)\n\n### Fixed\n- Sphinx warnings when generating the documentation\n\n## [3.0.0b1](https://github.com/Ousret/charset_normalizer/compare/2.1.0...3.0.0b1) (2022-08-15)\n\n### Changed\n- Optional: Module `md.py` can be compiled using Mypyc to provide an extra speedup up to 4x faster than v2.1\n\n### Removed\n- Breaking: Class aliases CharsetDetector, CharsetDoctor, CharsetNormalizerMatch and CharsetNormalizerMatches\n- Breaking: Top-level function `normalize`\n- Breaking: Properties `chaos_secondary_pass`, `coherence_non_latin` and `w_counter` from CharsetMatch\n- Support for the backport `unicodedata2`\n\n## [2.1.1](https://github.com/Ousret/charset_normalizer/compare/2.1.0...2.1.1) (2022-08-19)\n\n### Deprecated\n- Function `normalize` scheduled for removal in 3.0\n\n### Changed\n- Removed useless call to decode in fn is_unprintable (#206)\n\n### Fixed\n- Third-party library (i18n xgettext) crashing not recognizing utf_8 (PEP 263) with underscore from [@aleksandernovikov](https://github.com/aleksandernovikov) (#204)\n\n## [2.1.0](https://github.com/Ousret/charset_normalizer/compare/2.0.12...2.1.0) (2022-06-19)\n\n### Added\n- Output the Unicode table version when running the CLI with `--version` (PR #194)\n\n### Changed\n- Reuse decoded buffer for single byte character sets from [@nijel](https://github.com/nijel) (PR #175)\n- Fixing some performance bottlenecks from [@deedy5](https://github.com/deedy5) (PR #183)\n\n### Fixed\n- Workaround potential bug in cpython with Zero Width No-Break Space located in Arabic Presentation Forms-B, Unicode 1.1 not acknowledged as space (PR #175)\n- CLI default threshold aligned with the API threshold from [@oleksandr-kuzmenko](https://github.com/oleksandr-kuzmenko) (PR #181)\n\n### Removed\n- Support for Python 3.5 (PR #192)\n\n### Deprecated\n- Use of backport unicodedata from `unicodedata2` as Python is quickly catching up, scheduled for removal in 3.0 (PR #194)\n\n## [2.0.12](https://github.com/Ousret/charset_normalizer/compare/2.0.11...2.0.12) (2022-02-12)\n\n### Fixed\n- ASCII miss-detection on rare cases (PR #170)\n\n## [2.0.11](https://github.com/Ousret/charset_normalizer/compare/2.0.10...2.0.11) (2022-01-30)\n\n### Added\n- Explicit support for Python 3.11 (PR #164)\n\n### Changed\n- The logging behavior have been completely reviewed, now using only TRACE and DEBUG levels (PR #163 #165)\n\n## [2.0.10](https://github.com/Ousret/charset_normalizer/compare/2.0.9...2.0.10) (2022-01-04)\n\n### Fixed\n- Fallback match entries might lead to UnicodeDecodeError for large bytes sequence (PR #154)\n\n### Changed\n- Skipping the language-detection (CD) on ASCII (PR #155)\n\n## [2.0.9](https://github.com/Ousret/charset_normalizer/compare/2.0.8...2.0.9) (2021-12-03)\n\n### Changed\n- Moderating the logging impact (since 2.0.8) for specific environments (PR #147)\n\n### Fixed\n- Wrong logging level applied when setting kwarg `explain` to True (PR #146)\n\n## [2.0.8](https://github.com/Ousret/charset_normalizer/compare/2.0.7...2.0.8) (2021-11-24)\n### Changed\n- Improvement over Vietnamese detection (PR #126)\n- MD improvement on trailing data and long foreign (non-pure latin) data (PR #124)\n- Efficiency improvements in cd/alphabet_languages from [@adbar](https://github.com/adbar) (PR #122)\n- call sum() without an intermediary list following PEP 289 recommendations from [@adbar](https://github.com/adbar) (PR #129)\n- Code style as refactored by Sourcery-AI (PR #131)\n- Minor adjustment on the MD around european words (PR #133)\n- Remove and replace SRTs from assets / tests (PR #139)\n- Initialize the library logger with a `NullHandler` by default from [@nmaynes](https://github.com/nmaynes) (PR #135)\n- Setting kwarg `explain` to True will add provisionally (bounded to function lifespan) a specific stream handler (PR #135)\n\n### Fixed\n- Fix large (misleading) sequence giving UnicodeDecodeError (PR #137)\n- Avoid using too insignificant chunk (PR #137)\n\n### Added\n- Add and expose function `set_logging_handler` to configure a specific StreamHandler from [@nmaynes](https://github.com/nmaynes) (PR #135)\n- Add `CHANGELOG.md` entries, format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) (PR #141)\n\n## [2.0.7](https://github.com/Ousret/charset_normalizer/compare/2.0.6...2.0.7) (2021-10-11)\n### Added\n- Add support for Kazakh (Cyrillic) language detection (PR #109)\n\n### Changed\n- Further, improve inferring the language from a given single-byte code page (PR #112)\n- Vainly trying to leverage PEP263 when PEP3120 is not supported (PR #116)\n- Refactoring for potential performance improvements in loops from [@adbar](https://github.com/adbar) (PR #113)\n- Various detection improvement (MD+CD) (PR #117)\n\n### Removed\n- Remove redundant logging entry about detected language(s) (PR #115)\n\n### Fixed\n- Fix a minor inconsistency between Python 3.5 and other versions regarding language detection (PR #117 #102)\n\n## [2.0.6](https://github.com/Ousret/charset_normalizer/compare/2.0.5...2.0.6) (2021-09-18)\n### Fixed\n- Unforeseen regression with the loss of the backward-compatibility with some older minor of Python 3.5.x (PR #100)\n- Fix CLI crash when using --minimal output in certain cases (PR #103)\n\n### Changed\n- Minor improvement to the detection efficiency (less than 1%) (PR #106 #101)\n\n## [2.0.5](https://github.com/Ousret/charset_normalizer/compare/2.0.4...2.0.5) (2021-09-14)\n### Changed\n- The project now comply with: flake8, mypy, isort and black to ensure a better overall quality (PR #81)\n- The BC-support with v1.x was improved, the old staticmethods are restored (PR #82)\n- The Unicode detection is slightly improved (PR #93)\n- Add syntax sugar \\_\\_bool\\_\\_ for results CharsetMatches list-container (PR #91)\n\n### Removed\n- The project no longer raise warning on tiny content given for detection, will be simply logged as warning instead (PR #92)\n\n### Fixed\n- In some rare case, the chunks extractor could cut in the middle of a multi-byte character and could mislead the mess detection (PR #95)\n- Some rare 'space' characters could trip up the UnprintablePlugin/Mess detection (PR #96)\n- The MANIFEST.in was not exhaustive (PR #78)\n\n## [2.0.4](https://github.com/Ousret/charset_normalizer/compare/2.0.3...2.0.4) (2021-07-30)\n### Fixed\n- The CLI no longer raise an unexpected exception when no encoding has been found (PR #70)\n- Fix accessing the 'alphabets' property when the payload contains surrogate characters (PR #68)\n- The logger could mislead (explain=True) on detected languages and the impact of one MBCS match (PR #72)\n- Submatch factoring could be wrong in rare edge cases (PR #72)\n- Multiple files given to the CLI were ignored when publishing results to STDOUT. (After the first path) (PR #72)\n- Fix line endings from CRLF to LF for certain project files (PR #67)\n\n### Changed\n- Adjust the MD to lower the sensitivity, thus improving the global detection reliability (PR #69 #76)\n- Allow fallback on specified encoding if any (PR #71)\n\n## [2.0.3](https://github.com/Ousret/charset_normalizer/compare/2.0.2...2.0.3) (2021-07-16)\n### Changed\n- Part of the detection mechanism has been improved to be less sensitive, resulting in more accurate detection results. Especially ASCII. (PR #63)\n- According to the community wishes, the detection will fall back on ASCII or UTF-8 in a last-resort case. (PR #64)\n\n## [2.0.2](https://github.com/Ousret/charset_normalizer/compare/2.0.1...2.0.2) (2021-07-15)\n### Fixed\n- Empty/Too small JSON payload miss-detection fixed. Report from [@tseaver](https://github.com/tseaver) (PR #59)\n\n### Changed\n- Don't inject unicodedata2 into sys.modules from [@akx](https://github.com/akx) (PR #57)\n\n## [2.0.1](https://github.com/Ousret/charset_normalizer/compare/2.0.0...2.0.1) (2021-07-13)\n### Fixed\n- Make it work where there isn't a filesystem available, dropping assets frequencies.json. Report from [@sethmlarson](https://github.com/sethmlarson). (PR #55)\n- Using explain=False permanently disable the verbose output in the current runtime (PR #47)\n- One log entry (language target preemptive) was not show in logs when using explain=True (PR #47)\n- Fix undesired exception (ValueError) on getitem of instance CharsetMatches (PR #52)\n\n### Changed\n- Public function normalize default args values were not aligned with from_bytes (PR #53)\n\n### Added\n- You may now use charset aliases in cp_isolation and cp_exclusion arguments (PR #47)\n\n## [2.0.0](https://github.com/Ousret/charset_normalizer/compare/1.4.1...2.0.0) (2021-07-02)\n### Changed\n- 4x to 5 times faster than the previous 1.4.0 release. At least 2x faster than Chardet.\n- Accent has been made on UTF-8 detection, should perform rather instantaneous.\n- The backward compatibility with Chardet has been greatly improved. The legacy detect function returns an identical charset name whenever possible.\n- The detection mechanism has been slightly improved, now Turkish content is detected correctly (most of the time)\n- The program has been rewritten to ease the readability and maintainability. (+Using static typing)+\n- utf_7 detection has been reinstated.\n\n### Removed\n- This package no longer require anything when used with Python 3.5 (Dropped cached_property)\n- Removed support for these languages: Catalan, Esperanto, Kazakh, Baque, Volapük, Azeri, Galician, Nynorsk, Macedonian, and Serbocroatian.\n- The exception hook on UnicodeDecodeError has been removed.\n\n### Deprecated\n- Methods coherence_non_latin, w_counter, chaos_secondary_pass of the class CharsetMatch are now deprecated and scheduled for removal in v3.0\n\n### Fixed\n- The CLI output used the relative path of the file(s). Should be absolute.\n\n## [1.4.1](https://github.com/Ousret/charset_normalizer/compare/1.4.0...1.4.1) (2021-05-28)\n### Fixed\n- Logger configuration/usage no longer conflict with others (PR #44)\n\n## [1.4.0](https://github.com/Ousret/charset_normalizer/compare/1.3.9...1.4.0) (2021-05-21)\n### Removed\n- Using standard logging instead of using the package loguru.\n- Dropping nose test framework in favor of the maintained pytest.\n- Choose to not use dragonmapper package to help with gibberish Chinese/CJK text.\n- Require cached_property only for Python 3.5 due to constraint. Dropping for every other interpreter version.\n- Stop support for UTF-7 that does not contain a SIG.\n- Dropping PrettyTable, replaced with pure JSON output in CLI.\n\n### Fixed\n- BOM marker in a CharsetNormalizerMatch instance could be False in rare cases even if obviously present. Due to the sub-match factoring process.\n- Not searching properly for the BOM when trying utf32/16 parent codec.\n\n### Changed\n- Improving the package final size by compressing frequencies.json.\n- Huge improvement over the larges payload.\n\n### Added\n- CLI now produces JSON consumable output.\n- Return ASCII if given sequences fit. Given reasonable confidence.\n\n## [1.3.9](https://github.com/Ousret/charset_normalizer/compare/1.3.8...1.3.9) (2021-05-13)\n\n### Fixed\n- In some very rare cases, you may end up getting encode/decode errors due to a bad bytes payload (PR #40)\n\n## [1.3.8](https://github.com/Ousret/charset_normalizer/compare/1.3.7...1.3.8) (2021-05-12)\n\n### Fixed\n- Empty given payload for detection may cause an exception if trying to access the `alphabets` property. (PR #39)\n\n## [1.3.7](https://github.com/Ousret/charset_normalizer/compare/1.3.6...1.3.7) (2021-05-12)\n\n### Fixed\n- The legacy detect function should return UTF-8-SIG if sig is present in the payload. (PR #38)\n\n## [1.3.6](https://github.com/Ousret/charset_normalizer/compare/1.3.5...1.3.6) (2021-02-09)\n\n### Changed\n- Amend the previous release to allow prettytable 2.0 (PR #35)\n\n## [1.3.5](https://github.com/Ousret/charset_normalizer/compare/1.3.4...1.3.5) (2021-02-08)\n\n### Fixed\n- Fix error while using the package with a python pre-release interpreter (PR #33)\n\n### Changed\n- Dependencies refactoring, constraints revised.\n\n### Added\n- Add python 3.9 and 3.10 to the supported interpreters\n\nMIT License\n\nCopyright (c) 2025 TAHRI Ahmed R.\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the \"Software\"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the Software is\nfurnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all\ncopies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\nSOFTWARE.\n",
+        "description_content_type": "text/markdown",
+        "keywords": [
+          "encoding",
+          "charset",
+          "charset-detector",
+          "detector",
+          "normalization",
+          "unicode",
+          "chardet",
+          "detect"
+        ],
+        "author_email": "\"Ahmed R. TAHRI\" <tahri.ahmed@proton.me>",
+        "maintainer_email": "\"Ahmed R. TAHRI\" <tahri.ahmed@proton.me>",
+        "license": "MIT",
+        "license_file": [
+          "LICENSE"
+        ],
+        "classifier": [
+          "Development Status :: 5 - Production/Stable",
+          "Intended Audience :: Developers",
+          "Operating System :: OS Independent",
+          "Programming Language :: Python",
+          "Programming Language :: Python :: 3",
+          "Programming Language :: Python :: 3.7",
+          "Programming Language :: Python :: 3.8",
+          "Programming Language :: Python :: 3.9",
+          "Programming Language :: Python :: 3.10",
+          "Programming Language :: Python :: 3.11",
+          "Programming Language :: Python :: 3.12",
+          "Programming Language :: Python :: 3.13",
+          "Programming Language :: Python :: 3.14",
+          "Programming Language :: Python :: 3.15",
+          "Programming Language :: Python :: 3 :: Only",
+          "Programming Language :: Python :: Implementation :: CPython",
+          "Programming Language :: Python :: Implementation :: PyPy",
+          "Programming Language :: Python :: Free Threading :: 4 - Resilient",
+          "Environment :: WebAssembly",
+          "Environment :: WebAssembly :: Emscripten",
+          "Topic :: Text Processing :: Linguistic",
+          "Topic :: Utilities",
+          "Typing :: Typed"
+        ],
+        "requires_python": ">=3.7",
+        "project_url": [
+          "Changelog, https://github.com/jawah/charset_normalizer/blob/master/CHANGELOG.md",
+          "Documentation, https://charset-normalizer.readthedocs.io/",
+          "Code, https://github.com/jawah/charset_normalizer",
+          "Issue tracker, https://github.com/jawah/charset_normalizer/issues"
+        ],
+        "provides_extra": [
+          "unicode-backport"
+        ]
+      }
+    },
+    {
+      "download_info": {
+        "url": "https://files.pythonhosted.org/packages/58/a2/bb081bab032533a855d44de1d56f8e8426114ff1ba5d1f07a438a0a654f8/idna-3.20-py3-none-any.whl",
+        "archive_info": {
+          "hashes": {
+            "sha256": "ab7ae7122974553370f0bdb919e1a960b2cd1bc1ef0276416d896db81c14582c"
+          },
+          "hash": "sha256=ab7ae7122974553370f0bdb919e1a960b2cd1bc1ef0276416d896db81c14582c"
+        }
+      },
+      "is_direct": false,
+      "is_yanked": false,
+      "requested": false,
+      "metadata": {
+        "metadata_version": "2.5",
+        "name": "idna",
+        "version": "3.20",
+        "summary": "Internationalized Domain Names in Applications (IDNA)",
+        "description": "# Internationalized Domain Names in Applications (IDNA)\n\nSupport for [Internationalized Domain Names in Applications\n(IDNA)](https://tools.ietf.org/html/rfc5891) and [Unicode IDNA\nCompatibility Processing](https://unicode.org/reports/tr46/). It\nsupersedes the standard library's `encodings.idna`, which only\nimplements the 2003 specification, offering broader script coverage and\nlimiting domains with known security vulnerabilities.\n\n## Usage\n\nPackage may be installed from [PyPI](https://pypi.org/project/idna/) via\nthe typical methods (e.g. `python3 -m pip install idna`)\n\nFor typical usage, the `encode` and `decode` functions will take a\ndomain name argument and perform a conversion to ASCII-compatible encoding\n(known as A-labels), or to Unicode strings (known as U-labels)\nrespectively.\n\n```pycon\n>>> import idna\n>>> idna.encode('ドメイン.テスト')\nb'xn--eckwd4c7c.xn--zckzah'\n>>> print(idna.decode('xn--eckwd4c7c.xn--zckzah'))\nドメイン.テスト\n```\n\nConversions can be applied at a per-label basis using the `ulabel` or\n`alabel` functions for specialized use cases.\n\n\n### Compatibility Mapping (UTS #46)\n\nThis library provides support for [Unicode IDNA Compatibility\nProcessing](https://unicode.org/reports/tr46/) which normalizes input from\ndifferent potential ways a user may input a domain prior to performing the IDNA\nconversion operations. This functionality, known as a\n[mapping](https://tools.ietf.org/html/rfc5895), is considered by the\nspecification to be a local user-interface issue distinct from IDNA\nconversion functionality.\n\nFor example, \"Königsgäßchen\" is not a permissible label as capital letters\nare not allowed. UTS #46 will convert this into lower case prior to applying\nthe IDNA conversion.\n\n```pycon\n>>> import idna\n>>> idna.encode('Königsgäßchen')\n...\nidna.core.InvalidCodepoint: Codepoint U+004B at position 1 of 'Königsgäßchen' not allowed\n>>> idna.encode('Königsgäßchen', uts46=True)\nb'xn--knigsgchen-b4a3dun'\n>>> idna.decode('xn--knigsgchen-b4a3dun')\n'königsgäßchen'\n```\n\nWhen performing a decode operation for display purposes, `decode()`\naccepts a `display=True` argument that leaves any `xn--` label that\nfails to decode unchanged. This is useful for user interface display\nwhere a domain is in use, the A-label form can be presented when it\nis not a valid IDN.\n\n\n## Exceptions\n\nAll errors raised during conversion derive from the `idna.IDNAError`\nbase class. The more specific exceptions are:\n\n* `idna.IDNABidiError` — raised when a label contains an illegal\n  combination of left-to-right and right-to-left characters.\n* `idna.InvalidCodepoint` — raised when a label contains a codepoint\n  that is INVALID for IDNA.\n* `idna.InvalidCodepointContext` — raised when a CONTEXTO or CONTEXTJ\n  codepoint appears in a position whose contextual requirements are\n  not satisfied.\n\nExceptions carry machine-readable attributes so that applications do\nnot need to parse the message: `code` is a short, stable identifier\nfor the rule that failed (such as `disallowed_codepoint` or\n`label_too_long`); and, when the failure can be attributed to a\nparticular character, `text` (the label or domain being validated),\n`codepoint` (the offending codepoint as an integer) and `position`\nare set. \n\n\n## Command-line tool\n\nThe package supports command-line usage to convert domain names\nbetween their Unicode and ASCII-compatible forms. It can be run either\nas a module (`python3 -m idna`) or, once installed (such as with `uv\ntool` or `pipx`), via the `idna` script:\n\n```bash\n$ uv tool install idna\n$ idna xn--e1afmkfd.xn--p1ai\nпример.рф\n$ idna пример.рф\nxn--e1afmkfd.xn--p1ai\n```\n\nMode can be specified with `-e`/`--encode` or `-d`/`--decode`, otherwise\nit will be chosen automatically based on the first input. Multiple\ndomains can be supplied either as arguments or through standard input.\nUTS #46 mapping is applied by default, which lets the tool accept\ninputs that aren't strictly valid IDNA 2008 by normalising them first,\npass `--strict` to disable UTS #46.\n\nConversion failures are reported on stderr together with the\noffending input; processing continues with the remaining domains and\nthe tool exits with a non-zero status if any conversion failed.\n\n\n## Additional Notes\n\n* **Python version support**. This library supports Python 3.9 and higher.\n  As this library serves as a low-level toolkit for a variety of\n  applications, we strive to support all versions of Python that are\n  not beyond end-of-life. Free-threaded Python is also supported,\n  as the library holds no mutable global state the functions can be\n  called concurrently from multiple threads.\n\n* **Unicode version**. The IDNA and UTS #46 lookup tables are generated\n  from a specific Unicode release. Some Unicode data depends on the\n  running Python's `unicodedata` module, so on an older Python a\n  character new to Unicode may be rejected as unknown even if this\n  library knows about it.\n\n* **Emoji**. It is an occasional request to support emoji domains in\n  this library. Encoding of symbols like emoji is expressly prohibited by\n  the IDNA technical standard, and emoji domains are broadly phased\n  out across the domain industry due to associated security risks.\n\n* **Regenerating lookup tables**. The IDNA and UTS #46 functionality\n  relies upon pre-calculated lookup tables, generated using the\n  `idna-data` script in [`tools/`](tools/README.md).\n\n",
+        "description_content_type": "text/markdown",
+        "author_email": "Kim Davies <kim+pypi@gumleaf.org>",
+        "license_expression": "BSD-3-Clause",
+        "license_file": [
+          "LICENSE.md"
+        ],
+        "classifier": [
+          "Development Status :: 5 - Production/Stable",
+          "Intended Audience :: Developers",
+          "Intended Audience :: System Administrators",
+          "Operating System :: OS Independent",
+          "Programming Language :: Python",
+          "Programming Language :: Python :: 3",
+          "Programming Language :: Python :: 3 :: Only",
+          "Programming Language :: Python :: 3.9",
+          "Programming Language :: Python :: 3.10",
+          "Programming Language :: Python :: 3.11",
+          "Programming Language :: Python :: 3.12",
+          "Programming Language :: Python :: 3.13",
+          "Programming Language :: Python :: 3.14",
+          "Programming Language :: Python :: 3.15",
+          "Programming Language :: Python :: Implementation :: CPython",
+          "Programming Language :: Python :: Implementation :: PyPy",
+          "Topic :: Internet :: Name Service (DNS)",
+          "Topic :: Software Development :: Libraries :: Python Modules",
+          "Topic :: Utilities"
+        ],
+        "requires_dist": [
+          "ruff >= 0.16.0 ; extra == \"all\"",
+          "mypy >= 1.11.2 ; extra == \"all\"",
+          "ty >= 0.0.37 ; extra == \"all\"",
+          "pytest >= 8.3.2 ; extra == \"all\"",
+          "hypothesis >= 6.141.1 ; extra == \"all\"",
+          "coverage >= 7.10.0 ; extra == \"all\""
+        ],
+        "requires_python": ">=3.9",
+        "project_url": [
+          "Changelog, https://github.com/kjd/idna/blob/master/HISTORY.md",
+          "Issue tracker, https://github.com/kjd/idna/issues",
+          "Source, https://github.com/kjd/idna"
+        ],
+        "provides_extra": [
+          "all"
+        ]
+      }
+    },
+    {
+      "download_info": {
+        "url": "https://files.pythonhosted.org/packages/92/9d/c4e665119135114480843e7ab388fa94d8480650450e6f8e26b70d323a4c/urllib3-2.8.0-py3-none-any.whl",
+        "archive_info": {
+          "hashes": {
+            "sha256": "0cf3cae568d36aa9576b28dfb35f11328f1cb974ca7647d9475ebb86c75ac6e3"
+          },
+          "hash": "sha256=0cf3cae568d36aa9576b28dfb35f11328f1cb974ca7647d9475ebb86c75ac6e3"
+        }
+      },
+      "is_direct": false,
+      "is_yanked": false,
+      "requested": false,
+      "metadata": {
+        "metadata_version": "2.5",
+        "name": "urllib3",
+        "version": "2.8.0",
+        "summary": "HTTP library with thread-safe connection pooling, file post, and more.",
+        "description": "<h1 align=\"center\">\n\n![urllib3](https://github.com/urllib3/urllib3/raw/main/docs/_static/banner_github.svg)\n\n</h1>\n\n<p align=\"center\">\n  <a href=\"https://pypi.org/project/urllib3\"><img alt=\"PyPI Version\" src=\"https://img.shields.io/pypi/v/urllib3.svg?maxAge=86400\" /></a>\n  <a href=\"https://pypi.org/project/urllib3\"><img alt=\"Python Versions\" src=\"https://img.shields.io/pypi/pyversions/urllib3.svg?maxAge=86400\" /></a>\n  <a href=\"https://discord.gg/urllib3\"><img alt=\"Join our Discord\" src=\"https://img.shields.io/discord/756342717725933608?color=%237289da&label=discord\" /></a>\n  <a href=\"https://github.com/urllib3/urllib3/actions?query=workflow%3ACI\"><img alt=\"Coverage Status\" src=\"https://img.shields.io/badge/coverage-100%25-success\" /></a>\n  <a href=\"https://github.com/urllib3/urllib3/actions/workflows/ci.yml?query=branch%3Amain\"><img alt=\"Build Status on GitHub\" src=\"https://github.com/urllib3/urllib3/actions/workflows/ci.yml/badge.svg?branch:main&workflow:CI\" /></a>\n  <a href=\"https://urllib3.readthedocs.io\"><img alt=\"Documentation Status\" src=\"https://readthedocs.org/projects/urllib3/badge/?version=latest\" /></a><br>\n  <a href=\"https://deps.dev/pypi/urllib3\"><img alt=\"OpenSSF Scorecard\" src=\"https://api.securityscorecards.dev/projects/github.com/urllib3/urllib3/badge\" /></a>\n  <a href=\"https://slsa.dev\"><img alt=\"SLSA 3\" src=\"https://slsa.dev/images/gh-badge-level3.svg\" /></a>\n  <a href=\"https://bestpractices.coreinfrastructure.org/projects/6227\"><img alt=\"CII Best Practices\" src=\"https://bestpractices.coreinfrastructure.org/projects/6227/badge\" /></a>\n</p>\n\nurllib3 is a powerful, *user-friendly* HTTP client for Python.\nurllib3 brings many critical features that are missing from the Python\nstandard libraries:\n\n- Thread safety.\n- Connection pooling.\n- Client-side SSL/TLS verification.\n- File uploads with multipart encoding.\n- Helpers for retrying requests and dealing with HTTP redirects.\n- Support for gzip, deflate, brotli, and zstd encoding.\n- Proxy support for HTTP and SOCKS.\n- 100% test coverage.\n\n... and many more features, but most importantly: Our maintainers have a 15+\nyear track record of maintaining urllib3 with the highest code standards and\nattention to security and safety.\n\n[Much of the Python ecosystem already uses urllib3](https://urllib3.readthedocs.io/en/stable/#who-uses)\nand you should too.\n\n\n## Installing\n\nurllib3 can be installed with [pip](https://pip.pypa.io):\n\n```bash\n$ python -m pip install urllib3\n```\n\nAlternatively, you can grab the latest source code from [GitHub](https://github.com/urllib3/urllib3):\n\n```bash\n$ git clone https://github.com/urllib3/urllib3.git\n$ cd urllib3\n$ pip install .\n```\n\n## Getting Started\n\nurllib3 is easy to use:\n\n```python3\n>>> import urllib3\n>>> resp = urllib3.request(\"GET\", \"http://httpbin.org/robots.txt\")\n>>> resp.status\n200\n>>> resp.data\nb\"User-agent: *\\nDisallow: /deny\\n\"\n```\n\nurllib3 has usage and reference documentation at [urllib3.readthedocs.io](https://urllib3.readthedocs.io).\n\n\n## Community\n\nurllib3 has a [community Discord channel](https://discord.gg/urllib3) for asking questions and\ncollaborating with other contributors. Drop by and say hello 👋\n\n\n## Contributing\n\nurllib3 welcomes contributions. Please read our\n[contributing documentation](https://urllib3.readthedocs.io/en/latest/contributing.html)\nbefore starting work.\n\nCheck for existing pull requests addressing the same issue, and share feedback\nand suggestions in the existing pull request and issue. Duplicate pull\nrequests, including alternative solutions, will be rejected without review\nunless a maintainer has approved opening an alternative pull request in\nadvance.\n\n\n## Security Disclosures\n\nTo report a security vulnerability, please use the\n[Tidelift security contact](https://tidelift.com/security).\nTidelift will coordinate the fix and disclosure with maintainers.\n\nSee the repository\n[Security Policy](https://urllib3.readthedocs.io/en/latest/security.html)\nfor more details.\n\n\n## Maintainers\n\nMeet our maintainers since 2008:\n\n- Current Lead: [@illia-v](https://github.com/illia-v) (Illia Volochii)\n- [@sethmlarson](https://github.com/sethmlarson) (Seth M. Larson)\n- [@pquentin](https://github.com/pquentin) (Quentin Pradet)\n- [@theacodes](https://github.com/theacodes) (Thea Flowers)\n- [@haikuginger](https://github.com/haikuginger) (Jess Shapiro)\n- [@lukasa](https://github.com/lukasa) (Cory Benfield)\n- [@sigmavirus24](https://github.com/sigmavirus24) (Ian Stapleton Cordasco)\n- [@shazow](https://github.com/shazow) (Andrey Petrov)\n\n👋\n\n\n## Sponsorship\n\nIf your company benefits from this library, please consider [sponsoring its\ndevelopment](https://urllib3.readthedocs.io/en/latest/sponsors.html).\n\n\n## For Enterprise\n\nProfessional support for urllib3 is available as part of the [Tidelift\nSubscription][1]. Tidelift gives software development teams a single source for\npurchasing and maintaining their software, with professional grade assurances\nfrom the experts who know it best, while seamlessly integrating with existing\ntools.\n\n[1]: https://tidelift.com/subscription/pkg/pypi-urllib3?utm_source=pypi-urllib3&utm_medium=referral&utm_campaign=readme\n",
+        "description_content_type": "text/markdown",
+        "keywords": [
+          "filepost",
+          "http",
+          "httplib",
+          "https",
+          "pooling",
+          "ssl",
+          "threadsafe",
+          "urllib"
+        ],
+        "author_email": "Andrey Petrov <andrey.petrov@shazow.net>",
+        "maintainer_email": "Seth Michael Larson <sethmichaellarson@gmail.com>, Quentin Pradet <quentin@pradet.me>, Illia Volochii <illia.volochii@gmail.com>",
+        "license_expression": "MIT",
+        "license_file": [
+          "LICENSE.txt"
+        ],
+        "classifier": [
+          "Environment :: Web Environment",
+          "Intended Audience :: Developers",
+          "Operating System :: OS Independent",
+          "Programming Language :: Python",
+          "Programming Language :: Python :: 3",
+          "Programming Language :: Python :: 3 :: Only",
+          "Programming Language :: Python :: 3.10",
+          "Programming Language :: Python :: 3.11",
+          "Programming Language :: Python :: 3.12",
+          "Programming Language :: Python :: 3.13",
+          "Programming Language :: Python :: 3.14",
+          "Programming Language :: Python :: 3.15",
+          "Programming Language :: Python :: Free Threading :: 2 - Beta",
+          "Programming Language :: Python :: Implementation :: CPython",
+          "Programming Language :: Python :: Implementation :: PyPy",
+          "Topic :: Internet :: WWW/HTTP",
+          "Topic :: Software Development :: Libraries"
+        ],
+        "requires_dist": [
+          "brotli>=1.2.0; (platform_python_implementation == 'CPython') and extra == 'brotli'",
+          "brotlicffi>=1.2.0.0; (platform_python_implementation != 'CPython') and extra == 'brotli'",
+          "h2<5,>=4; extra == 'h2'",
+          "pysocks!=1.5.7,<2.0,>=1.5.6; extra == 'socks'",
+          "backports-zstd>=1.0.0; (python_version < '3.14') and extra == 'zstd'"
+        ],
+        "requires_python": ">=3.10",
+        "project_url": [
+          "Changelog, https://github.com/urllib3/urllib3/blob/main/CHANGES.rst",
+          "Documentation, https://urllib3.readthedocs.io",
+          "Code, https://github.com/urllib3/urllib3",
+          "Issue tracker, https://github.com/urllib3/urllib3/issues",
+          "Security policy, https://urllib3.readthedocs.io/en/latest/security.html"
+        ],
+        "provides_extra": [
+          "brotli",
+          "h2",
+          "socks",
+          "zstd"
+        ]
+      }
+    },
+    {
+      "download_info": {
+        "url": "https://files.pythonhosted.org/packages/08/ba/95dd616042484f7c83a06974388b37b837732740ee70bc5dc715b5fcd55a/certifi-2026.10.18-py3-none-any.whl",
+        "archive_info": {
+          "hashes": {
+            "sha256": "73191c47aaa79da394e8fee2dbc2ec827432cab56311122c9e47abf79e390f62"
+          },
+          "hash": "sha256=73191c47aaa79da394e8fee2dbc2ec827432cab56311122c9e47abf79e390f62"
+        }
+      },
+      "is_direct": false,
+      "is_yanked": false,
+      "requested": false,
+      "metadata": {
+        "metadata_version": "2.4",
+        "name": "certifi",
+        "version": "2026.10.18",
+        "dynamic": [
+          "author",
+          "author-email",
+          "classifier",
+          "description",
+          "home-page",
+          "license",
+          "license-file",
+          "project-url",
+          "requires-python",
+          "summary"
+        ],
+        "summary": "Python package for providing Mozilla's CA Bundle.",
+        "description": "Certifi: Python SSL Certificates\n================================\n\nCertifi provides Mozilla's carefully curated collection of Root Certificates for\nvalidating the trustworthiness of SSL certificates while verifying the identity\nof TLS hosts. It has been extracted from the `Requests`_ project.\n\nInstallation\n------------\n\n``certifi`` is available on PyPI. Simply install it with ``pip``::\n\n    $ pip install certifi\n\nUsage\n-----\n\nTo reference the installed certificate authority (CA) bundle, you can use the\nbuilt-in function::\n\n    >>> import certifi\n\n    >>> certifi.where()\n    '/usr/local/lib/python3.7/site-packages/certifi/cacert.pem'\n\nOr from the command line::\n\n    $ python -m certifi\n    /usr/local/lib/python3.7/site-packages/certifi/cacert.pem\n\nEnjoy!\n\n.. _`Requests`: https://requests.readthedocs.io/en/latest/\n\nAddition/Removal of Certificates\n--------------------------------\n\nCertifi does not support any addition/removal or other modification of the\nCA trust store content. This project is intended to provide a reliable and\nhighly portable root of trust to python deployments. Look to upstream projects\nfor methods to use alternate trust.\n",
+        "home_page": "https://github.com/certifi/python-certifi",
+        "author": "Kenneth Reitz",
+        "author_email": "me@kennethreitz.com",
+        "license": "MPL-2.0",
+        "license_file": [
+          "LICENSE"
+        ],
+        "classifier": [
+          "Development Status :: 5 - Production/Stable",
+          "Intended Audience :: Developers",
+          "License :: OSI Approved :: Mozilla Public License 2.0 (MPL 2.0)",
+          "Natural Language :: English",
+          "Programming Language :: Python",
+          "Programming Language :: Python :: 3",
+          "Programming Language :: Python :: 3 :: Only",
+          "Programming Language :: Python :: 3.7",
+          "Programming Language :: Python :: 3.8",
+          "Programming Language :: Python :: 3.9",
+          "Programming Language :: Python :: 3.10",
+          "Programming Language :: Python :: 3.11",
+          "Programming Language :: Python :: 3.12",
+          "Programming Language :: Python :: 3.13",
+          "Programming Language :: Python :: 3.14",
+          "Programming Language :: Python :: 3.15"
+        ],
+        "requires_python": ">=3.7",
+        "project_url": [
+          "Source, https://github.com/certifi/python-certifi"
+        ]
+      }
+    },
+    {
+      "download_info": {
+        "url": "https://files.pythonhosted.org/packages/b7/ce/149a00dd41f10bc29e5921b496af8b574d8413afcd5e30dfa0ed46c2cc5e/six-1.17.0-py2.py3-none-any.whl",
+        "archive_info": {
+          "hashes": {
+            "sha256": "4721f391ed90541fddacab5acf947aa0d3dc7d27b2e1e8eda2be8970586c3274"
+          },
+          "hash": "sha256=4721f391ed90541fddacab5acf947aa0d3dc7d27b2e1e8eda2be8970586c3274"
+        }
+      },
+      "is_direct": false,
+      "is_yanked": false,
+      "requested": false,
+      "metadata": {
+        "metadata_version": "2.1",
+        "name": "six",
+        "version": "1.17.0",
+        "summary": "Python 2 and 3 compatibility utilities",
+        "description": ".. image:: https://img.shields.io/pypi/v/six.svg\n   :target: https://pypi.org/project/six/\n   :alt: six on PyPI\n\n.. image:: https://readthedocs.org/projects/six/badge/?version=latest\n   :target: https://six.readthedocs.io/\n   :alt: six's documentation on Read the Docs\n\n.. image:: https://img.shields.io/badge/license-MIT-green.svg\n   :target: https://github.com/benjaminp/six/blob/master/LICENSE\n   :alt: MIT License badge\n\nSix is a Python 2 and 3 compatibility library.  It provides utility functions\nfor smoothing over the differences between the Python versions with the goal of\nwriting Python code that is compatible on both Python versions.  See the\ndocumentation for more information on what is provided.\n\nSix supports Python 2.7 and 3.3+.  It is contained in only one Python\nfile, so it can be easily copied into your project. (The copyright and license\nnotice must be retained.)\n\nOnline documentation is at https://six.readthedocs.io/.\n\nBugs can be reported to https://github.com/benjaminp/six.  The code can also\nbe found there.\n",
+        "home_page": "https://github.com/benjaminp/six",
+        "author": "Benjamin Peterson",
+        "author_email": "benjamin@python.org",
+        "license": "MIT",
+        "license_file": [
+          "LICENSE"
+        ],
+        "classifier": [
+          "Development Status :: 5 - Production/Stable",
+          "Programming Language :: Python :: 2",
+          "Programming Language :: Python :: 3",
+          "Intended Audience :: Developers",
+          "License :: OSI Approved :: MIT License",
+          "Topic :: Software Development :: Libraries",
+          "Topic :: Utilities"
+        ],
+        "requires_python": ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*"
+      }
+    },
+    {
+      "download_info": {
+        "url": "https://files.pythonhosted.org/packages/da/17/a1e4d0782604b09fa39283fd130cafcd03596932e9dd5f9b5e62c525abfb/stockstats-0.6.9-py3-none-any.whl",
+        "archive_info": {
+          "hashes": {
+            "sha256": "f5d236d676297f85a18b4437608462206a303e5c0f6c2677fc53271f04d37752"
+          },
+          "hash": "sha256=f5d236d676297f85a18b4437608462206a303e5c0f6c2677fc53271f04d37752"
+        }
+      },
+      "is_direct": false,
+      "is_yanked": false,
+      "requested": false,
+      "metadata": {
+        "metadata_version": "2.4",
+        "name": "stockstats",
+        "version": "0.6.9",
+        "dynamic": [
+          "license-file"
+        ],
+        "summary": "DataFrame with inline stock statistics support.",
+        "description": "# Stock Statistics/Indicators Calculation Helper\n\n[![build & test](https://github.com/jealous/stockstats/actions/workflows/build-test.yml/badge.svg)](https://github.com/jealous/stockstats/actions/workflows/build-test.yml)\n[![codecov](https://codecov.io/gh/jealous/stockstats/branch/master/graph/badge.svg?token=IFMD1pVJ7T)](https://codecov.io/gh/jealous/stockstats)\n[![pypi](https://img.shields.io/pypi/v/stockstats.svg)](https://pypi.python.org/pypi/stockstats)\n\n## Introduction\n\nSupply a wrapper `StockDataFrame` for `pandas.DataFrame` with inline stock\nstatistics/indicators support.\n\nSupported statistics/indicators are:\n\n**Moving Averages**: SMA, EMA, SMMA, TEMA, LRMA, KAMA, VWMA, DMA\n\n**Momentum**: RSI, StochRSI, MACD, PPO, KDJ, ROC, CMO, KST, Coppock, AO, BOP, CTI, Inertia, PSL\n\n**Trend**: Supertrend, Aroon, Ichimoku, CR, DMI (+DI/-DI/ADX/ADXR), TRIX, WT\n\n**Volatility**: Bollinger Bands, ATR, TR, CCI, WR, CHOP, KER, Z-Score, MAD, PGO\n\n**Volume**: VR, MFI, PVO, VWMA\n\n**Oscillators**: QQE, RVGI, ERI, FTR\n\n**Utilities**: delta, shift, log return, cross/cross-up/cross-down, comparisons (le/ge/lt/gt/eq/ne), count, max/min in range, permutation\n\n## Installation\n\n```pip install stockstats```\n\n## Compatibility\n\nRequires Python 3.9+. CI tests against Python 3.10, 3.11, 3.12, and 3.13.\n\n## License\n\n[BSD-3-Clause License](./LICENSE.txt)\n\n## Quick Start\n\n### Load and wrap data\n\n`StockDataFrame` works as a wrapper for `pandas.DataFrame`. Initialize it\nwith `wrap` or `StockDataFrame.retype`.\n\n``` python\nimport pandas as pd\nfrom stockstats import wrap\n\n# from CSV\ndf = wrap(pd.read_csv('stock.csv'))\n\n# from yfinance (disable multi-level index for compatibility)\nimport yfinance as yf\ndf = wrap(yf.download('AAPL', multi_level_index=False))\n```\n\nYour data should contain these columns (case-insensitive):\n\n* `close`: the close price of the period\n* `high`: the highest price of the interval\n* `low`: the lowest price of the interval\n* `volume`: the volume of stocks traded during the interval\n* `date`: timestamp of the record, optional (used as index by default)\n\nYou can specify the index column name in `wrap` or `retype`. Use `unwrap`\nto convert back to a plain `pandas.DataFrame`.\n\n### Access indicators\n\nIndicators are calculated on first access. Delete a column to force\nre-evaluation.\n\n``` python\n# indicators with default windows\nrsi = df['rsi']           # 14-period RSI (default)\nrsi6 = df['rsi_6']        # 6-period RSI\n\n# moving averages on any column\nsma = df['close_20_sma']  # 20-period SMA of close\nema = df['high_10_ema']   # 10-period EMA of high\n```\n\n### Multi-line indicators\n\nSome indicators generate multiple columns at once.\n\n``` python\n# MACD generates three columns at once\ndf.get('macd')\nprint(df[['macd', 'macds', 'macdh']].tail())\n\n# Bollinger Bands\ndf.get('boll')\nprint(df[['boll', 'boll_ub', 'boll_lb']].tail())\n```\n\n### Signal detection\n\n``` python\n# cross-over detection\ngolden_cross = df['close_10_sma_xu_close_50_sma']  # 10 SMA crosses above 50 SMA\n\n# comparison operators\noverbought = df['rsi_ge_70']  # True when RSI >= 70\n```\n\n### Initialize all indicators with shortcuts\n\nSome indicators, such as KDJ, BOLL, MFI, have shortcuts. Use `df.init_all()`\nto initialize all these indicators.\n\nThis operation generates lots of columns. Please use it with caution.\n\n## Tutorial\n\n### Column naming patterns\n\nUse pattern `<column>_<window>_<indicator>` for full control:\n\n* `high_5_sma` - 5 periods simple moving average of the high price\n* `close_10_ema` - 10 periods exponential moving average of the close\n* `high_-1_d` - 1 period delta of the high price (minus means looking backward)\n\nUse pattern `<indicator>_<window>` when only the window varies:\n\n* `rsi_6` - 6 periods RSI\n* `cci_10` - 10 periods CCI\n* `atr_13` - 13 periods ATR\n\nSome indicators have default windows. Check their documentation for details.\n\n### Configurable parameters\n\nSome statistics have configurable parameters. They are class-level fields. Changes\nare global and won't affect existing results. Remove existing columns so that they\nwill be re-evaluated the next time you access them.\n\n## Statistics/Indicators\n\n### Summary\n\n| Name | Access Pattern | Default Window | Description |\n|------|---------------|----------------|-------------|\n| SMA | `close_20_sma` | - | Simple Moving Average |\n| EMA | `close_20_ema` | - | Exponential Moving Average |\n| SMMA | `close_7_smma` | - | Smoothed Moving Average |\n| TEMA | `tema` | 5 | Triple Exponential Moving Average |\n| LRMA | `close_10_lrma` | - | Linear Regression Moving Average |\n| KAMA | `close_2_kama` | 10, 5, 34 | Kaufman's Adaptive Moving Average |\n| VWMA | `vwma` | 14 | Volume Weighted Moving Average |\n| DMA | `dma` | 10, 50 | Difference of Moving Average |\n| RSI | `rsi` | 14 | Relative Strength Index |\n| StochRSI | `stochrsi` | 14 | Stochastic RSI |\n| MACD | `macd` | 12, 26, 9 | Moving Average Convergence Divergence |\n| PPO | `ppo` | 12, 26, 9 | Percentage Price Oscillator |\n| KDJ | `kdjk` | 9 | Stochastic Oscillator |\n| ROC | `close_10_roc` | - | Rate of Change |\n| CMO | `cmo` | 14 | Chande Momentum Oscillator |\n| KST | `kst` | - | Know Sure Thing |\n| Coppock | `coppock` | 10, 11, 14 | Coppock Curve |\n| AO | `ao` | 5, 34 | Awesome Oscillator |\n| BOP | `bop` | - | Balance of Power |\n| CTI | `cti` | 12 | Correlation Trend Indicator |\n| Inertia | `inertia` | 20, 14 | Inertia Indicator |\n| PSL | `psl` | 12 | Psychological Line |\n| Supertrend | `supertrend` | 14 | Supertrend indicator |\n| Aroon | `aroon` | 25 | Aroon Oscillator |\n| Ichimoku | `ichimoku` | 9, 26, 52 | Ichimoku Cloud |\n| CR | `cr` | 26 | Energy Index |\n| DMI | `pdi`, `ndi`, `adx` | 14 | Directional Movement Index |\n| TRIX | `trix` | 12 | Triple Exponential Average |\n| WT | `wt1`, `wt2` | 10, 21 | Wave Trend |\n| Bollinger | `boll` | 20 | Bollinger Bands |\n| ATR | `atr` | 14 | Average True Range |\n| TR | `tr` | - | True Range |\n| CCI | `cci` | 14 | Commodity Channel Index |\n| WR | `wr` | 14 | Williams %R |\n| CHOP | `chop` | 14 | Choppiness Index |\n| KER | `ker` | 10 | Kaufman's Efficiency Ratio |\n| Z-Score | `close_75_z` | - | Z-Score |\n| MAD | `close_10_mad` | - | Mean Absolute Deviation |\n| PGO | `pgo` | 14 | Pretty Good Oscillator |\n| VR | `vr` | 26 | Volume Variation Index |\n| MFI | `mfi` | 14 | Money Flow Index |\n| PVO | `pvo` | 12, 26, 9 | Percentage Volume Oscillator |\n| QQE | `qqe` | 14, 5 | Quantitative Qualitative Estimation |\n| RVGI | `rvgi` | 14 | Relative Vigor Index |\n| ERI | `eribull`, `eribear` | 13 | Elder-Ray Index |\n| FTR | `ftr` | 9 | Gaussian Fisher Transform |\n\n---\n\n### Moving Averages\n\n#### [Simple Moving Average](https://www.investopedia.com/terms/m/mean.asp)\n\nFollow the pattern `<columnName>_<window>_sma` to retrieve a simple moving average.\n\n#### [Exponential Moving Average](https://www.investopedia.com/terms/e/ema.asp)\n\nFollow the pattern `<columnName>_<window>_ema` to retrieve an exponential moving average.\n\n#### SMMA - Smoothed Moving Average\n\nIt requires column and window.\n\nFor example, use `df['close_7_smma']` to retrieve the 7 periods smoothed moving\naverage of the close price.\n\n#### [TEMA - Triple Exponential Moving Average](https://www.forextraders.com/forex-education/forex-technical-analysis/triple-exponential-moving-average-the-tema-indicator/)\n\nTEMA is another implementation for the triple exponential moving average.\n\n```\nTEMA = (3 x EMA) - (3 x EMA of EMA) + (EMA of EMA of EMA)\n```\n\nIt takes two parameters, column and window. By default, the column is `close`,\nthe window is 5.\n\nUse `set_dft_window('tema', n)` to change the default window.\n\nExamples:\n\n* `df['tema']` stands for 5 periods TEMA for the close price.\n* `df['middle_10_tema']` stands for the 10 periods TEMA for the typical price.\n\n#### [LRMA - Linear Regression Moving Average](https://www.daytrading.com/moving-linear-regression)\n\nLinear regression works by taking various data points in a sample and\nproviding a \"best fit\" line to match the general trend in the data.\n\nImplementation reference:\n\nhttps://github.com/twopirllc/pandas-ta/blob/main/pandas_ta/overlap/linreg.py\n\nExamples:\n* `df['close_10_lrma']` linear regression of close price with window size 10\n\n#### [KAMA - Kaufman's Adaptive Moving Average](https://school.stockcharts.com/doku.php?id=technical_indicators:kaufman_s_adaptive_moving_average)\n\nKaufman's Adaptive Moving Average is designed to account for market noise or\nvolatility.\n\nIt has 2 optional parameters and 2 required parameters:\n* fast - optional, the parameter for fast EMA smoothing, default to 5\n* slow - optional, the parameter for slow EMA smoothing, default to 34\n* column - required, the column to calculate\n* window - required, rolling window size\n\nThe default value for window, fast and slow can be configured with\n`set_dft_window('kama', (10, 5, 34))`\n\nExamples:\n* `df['close_10,2,30_kama']` retrieves 10 periods KAMA of the close\n  price with `fast = 2` and `slow = 30`\n* `df['close_2_kama']` retrieves 2 periods KAMA of the close price\n  with default fast and slow\n\n#### [VWMA - Volume Weighted Moving Average](https://www.investopedia.com/articles/trading/11/trading-with-vwap-mvwap.asp)\n\nIt's the moving average weighted by volume.\n\nIt has a parameter for window size. The default window is 14. Change it with\n`set_dft_window('vwma', n)`.\n\nExamples:\n* `df['vwma']` retrieves the 14 periods VWMA\n* `df['vwma_6']` retrieves the 6 periods VWMA\n\n#### DMA - Difference of Moving Average\n\n`df['dma']` retrieves the difference of 10 periods SMA of the close price and\nthe 50 periods SMA of the close price.\n\n#### [Moving Standard Deviation](https://www.investopedia.com/terms/s/standarddeviation.asp)\n\nFollow the pattern `<columnName>_<window>_mstd` to retrieve the moving STD.\n\n#### [Moving Variance](https://www.investopedia.com/terms/v/variance.asp)\n\nFollow the pattern `<columnName>_<window>_mvar` to retrieve the moving VAR.\n\n---\n\n### Momentum\n\n#### [RSI - Relative Strength Index](https://en.wikipedia.org/wiki/Relative_strength_index)\n\nRSI charts the current and historical strength or weakness of a stock. It takes\na window parameter.\n\nThe default window is 14. Use `set_dft_window('rsi', n)` to tune it.\n\nExamples:\n\n* `df['rsi']`: retrieve the RSI of 14 periods\n* `df['rsi_6']`: retrieve the RSI of 6 periods\n\n#### [Stochastic RSI](https://www.investopedia.com/terms/s/stochrsi.asp)\n\nStochastic RSI gives traders an idea of whether the current RSI value is\noverbought or oversold. It takes a window parameter.\n\nThe default window is 14. Use `set_dft_window('stochrsi', n)` to tune it.\n\nExamples:\n\n* `df['stochrsi']`: retrieve the Stochastic RSI of 14 periods\n* `df['stochrsi_6']`: retrieve the Stochastic RSI of 6 periods\n\n#### [MACD - Moving Average Convergence Divergence](https://en.wikipedia.org/wiki/MACD)\n\nWe use the close price to calculate the MACD lines.\n* `df['macd']` is the difference between two exponential moving averages.\n* `df['macds']` is the signal line.\n* `df['macdh']` is the histogram line.\n\nThe period of short, long EMA and signal line can be tuned with\n`set_dft_window('macd', (short, long, signal))`. The default\nwindows are 12 and 26 and 9.\n\nNote: In July 2017 the code for MACDH was changed to drop an extra 2x multiplier\non the final value to align with calculation methods used in tools like\ncryptowatch, tradingview, etc.\n\n#### [PPO - Percentage Price Oscillator](https://stockcharts.com/school/doku.php?id=chart_school:technical_indicators:price_oscillators_ppo)\n\nThe Percentage Price Oscillator includes three lines.\n\n* `df['ppo']` derives from the difference of 2 exponential moving average.\n* `df['ppos']` is the signal line.\n* `df['ppoh']` is the histogram line.\n\nThe period of short, long EMA and signal line can be tuned with\n`set_dft_window('ppo', (short, long, signal))`. The default\nwindows are 12 and 26 and 9.\n\n#### [KDJ Indicator](https://en.wikipedia.org/wiki/Stochastic_oscillator)\n\nThe stochastic oscillator is a momentum indicator that uses support and\nresistance levels.\n\nIt includes three lines:\n* `df['kdjk']` - K series\n* `df['kdjd']` - D series\n* `df['kdjj']` - J series\n\nThe default window is 9. Use `set_dft_window('kdjk', n)` to change it.\nUse `df['kdjk_6']` to retrieve the K series of 6 periods.\n\nKDJ also has two configurable parameters named `StockDataFrame.KDJ_PARAM`.\nThe default value is `(2.0/3.0, 1.0/3.0)`\n\n#### [ROC - Rate of Change](https://www.investopedia.com/terms/p/pricerateofchange.asp)\n\nThe Price Rate of Change (ROC) is a momentum-based technical indicator\nthat measures the percentage change in price between the current price\nand the price a certain number of periods ago.\n\nFormula:\n\nROC = (PriceP - PricePn) / PricePn * 100\n\nWhere:\n* PriceP: the price of the current period\n* PricePn: the price of the n periods ago\n\nYou need a column name and a period to calculate ROC.\n\nExamples:\n* `df['close_10_roc']`: the ROC of the close price in 10 periods\n* `df['high_5_roc']`: the ROC of the high price in 5 periods\n\n#### [CMO - Chande Momentum Oscillator](https://www.investopedia.com/terms/c/chandemomentumoscillator.asp)\n\nThe Chande Momentum Oscillator (CMO) is a technical momentum\nindicator developed by Tushar Chande.\n\nThe formula calculates the difference between the sum of recent\ngains and the sum of recent losses and then divides the result\nby the sum of all price movements over the same period.\n\nThe default window is 14.\n\nFormula:\n```\nCMO = 100 * ((sH - sL) / (sH + sL))\n```\n\nwhere:\n* sH=the sum of higher closes over N periods\n* sL=the sum of lower closes of N periods\n\nExamples:\n* `df['cmo']` returns the CMO with a window of 14\n* `df['cmo_5']` returns the CMO with a window of 5\n\n#### [KST - Know Sure Thing](https://www.investopedia.com/terms/k/know-sure-thing-kst.asp)\n\nThe Know Sure Thing (KST) is a momentum oscillator developed by\nMartin Pring to make rate-of-change readings easier for traders\nto interpret.\n\nFormula:\n* KST=(RCMA1x1)+(RCMA2x2)+(RCMA3x3)+(RCMA4x4)\n\nWhere:\n* RCMA1=10-period SMA of 10-period ROC\n* RCMA2=10-period SMA of 15-period ROC\n* RCMA3=10-period SMA of 20-period ROC\n* RCMA4=15-period SMA of 30-period ROC\n\nExample:\n* `df['kst']` retrieves the KST.\n\n#### [Coppock Curve](https://stockcharts.com/school/doku.php?id=chart_school:technical_indicators:coppock_curve)\n\nCoppock Curve is a momentum indicator that signals\nlong-term trend reversals.\n\nFormula:\n\nCoppock Curve = 10-period WMA of (14-period RoC + 11-period RoC)\nWMA = Weighted Moving Average\nRoC = Rate-of-Change\n\nExamples:\n* `df['coppock']` returns the Coppock Curve with default windows\n* `df['coppock_5,10,15']` returns the Coppock Curve with WMA window 5,\n  fast window 10, slow window 15.\n\n#### [Awesome Oscillator](https://www.ifcm.co.uk/ntx-indicators/awesome-oscillator)\n\nThe AO indicator is a good indicator for measuring the market dynamics,\nit reflects specific changes in the driving force of the market, which\nhelps to identify the strength of the trend, including the points of\nits formation and reversal.\n\nAwesome Oscillator Formula\n\n* MEDIAN PRICE = (HIGH+LOW)/2\n* AO = SMA(MEDIAN PRICE, 5)-SMA(MEDIAN PRICE, 34)\n\nExamples:\n* `df['ao']` returns the Awesome Oscillator with default windows (5, 34)\n* `df['ao_3,10']` returns the Awesome Oscillator with a window of 3 and 10\n\n#### [Balance of Power](https://school.stockcharts.com/doku.php?id=technical_indicators:balance_of_power)\n\nBalance of Power (BOP) measures the strength of the bulls vs. bears.\n\nFormula:\n```\nBOP = (close - open) / (high - low)\n```\n\nExample:\n* `df['bop']` returns the Balance of Power\n\n#### [Correlation Trend Indicator](https://tlc.thinkorswim.com/center/reference/Tech-Indicators/studies-library/C-D/CorrelationTrendIndicator)\n\nCorrelation Trend Indicator is a study that estimates\nthe current direction and strength of a trend.\n\nImplementation is based on the following code:\n\nhttps://github.com/twopirllc/pandas-ta/blob/main/pandas_ta/momentum/cti.py\n\nExamples:\n* `df['cti']` returns the CTI of close price with window 12\n* `df['high_5_cti']` returns the CTI of high price with window 5\n\n#### [Inertia Indicator](https://theforexgeek.com/inertia-indicator/)\n\nIn financial markets, the concept of inertia was given by Donald Dorsey\nin the 1995 issue of Technical Analysis of Stocks and Commodities\nthrough the Inertia Indicator. The Inertia Indicator is moment-based\nand is an extension of Dorsey's Relative Volatility Index (RVI).\n\nFormula:\n* inertia = n periods linear regression of RVGI\n\nExamples:\n* `df['inertia']` retrieves the inertia of 20 periods linear regression of 14 periods RVGI\n* `df['inertia_10']` retrieves the inertia of 10 periods linear regression of 14 periods RVGI\n\n#### [Psychological Line (PSL)](https://library.tradingtechnologies.com/trade/chrt-ti-psychological-line.html)\n\nThe Psychological Line indicator is the ratio of the number of\nrising periods over the total number of periods.\n\nFormula:\n* PSL = (Number of Rising Periods) / (Total Number of Periods) * 100\n\nExample:\n* `df['psl']` retrieves the PSL with default window 12.\n* `df['psl_10']` retrieves the PSL with window 10.\n* `df['high_12_psl']` retrieves the PSL of high price with window 12.\n\n---\n\n### Trend\n\n#### [Supertrend](https://economictimes.indiatimes.com/markets/stocks/news/how-to-use-supertrend-indicator-to-find-buying-and-selling-opportunities-in-market/articleshow/54492970.cms)\n\nSupertrend indicates the current trend.\nWe use the [algorithm described here](https://medium.com/codex/step-by-step-implementation-of-the-supertrend-indicator-in-python-656aa678c111).\nIt includes 3 lines:\n* `df['supertrend']` is the trend line.\n* `df['supertrend_ub']` is the upper band of the trend\n* `df['supertrend_lb']` is the lower band of the trend\n\nIt has 2 parameters:\n* `StockDataFrame.SUPERTREND_MUL` is the multiplier of the band, default to 3.\n* the default window size is 14. Change it with `set_dft_window('supertrend', n)`\n\n#### [Aroon Oscillator](https://www.investopedia.com/terms/a/aroonoscillator.asp)\n\nThe Aroon Oscillator measures the strength of a trend and\nthe likelihood that it will continue.\n\nThe default window is 25.\n\n* Aroon Oscillator = Aroon Up - Aroon Down\n* Aroon Up = 100 * (n - periods since n-period high) / n\n* Aroon Down = 100 * (n - periods since n-period low) / n\n* n = window size\n\nExamples:\n* `df['aroon']` returns Aroon oscillator with a window of 25\n* `df['aroon_14']` returns Aroon oscillator with a window of 14\n\n#### [Ichimoku Cloud](https://www.investopedia.com/terms/i/ichimoku-cloud.asp)\n\nThe Ichimoku Cloud is a collection of technical indicators\nthat show support and resistance levels, as well as momentum\nand trend direction.\n\nIn this implementation, we only calculate the delta between\nlead A and lead B (which is the width of the cloud).\n\nIt contains three windows:\n* window for the conversion line, default to 9\n* window for the baseline and the shifts, default to 26\n* window for the leading line, default to 52\n\nFormula:\n* conversion line = (PH9 + PL9) / 2\n* baseline = (PH26 + PL26) / 2\n* leading span A = (conversion line + baseline) / 2\n* leading span B = (PH52 + PL52) / 2\n* result = leading span A - leading span B\n\nWhere:\n* PH = Period High\n* PL = Period Low\n\nExamples:\n* `df['ichimoku']` returns the ichimoku cloud width with default windows\n* `df['ichimoku_7,22,44']` returns the ichimoku cloud width with window sizes\n  7, 22, 44\n\n#### [CR - Energy Index](https://support.futunn.com/en/topic167/?lang=en-us)\n\nThe Energy Index (Intermediate Willingness Index)\nuses the relationship between the highest price, the lowest price and\nyesterday's middle price to reflect the market's willingness to buy\nand sell.\n\nIt contains 4 lines:\n* `df['cr']` - the CR line\n* `df['cr-ma1']` - `StockDataFrame.CR_MA[0]` periods of the CR moving average,\n  the default window is 5\n* `df['cr-ma2']` - `StockDataFrame.CR_MA[1]` periods of the CR moving average,\n  the default window is 10\n* `df['cr-ma3']` - `StockDataFrame.CR_MA[2]` periods of the CR moving average,\n  the default window is 20\n\n#### [DMI - Directional Movement Index](https://www.investopedia.com/terms/d/dmi.asp)\n\nThe directional movement index (DMI)\nidentifies in which direction the price of an asset is moving.\n\nIt has several lines:\n\n* `df['pdi']` is the positive directional movement line (+DI)\n* `df['ndi']` is the negative directional movement line (-DI)\n* `df['dx']` is the directional index (DX)\n* `df['adx']` is the average directional index (ADX)\n* `df['adxr']` is an EMA for ADX\n\nIt has several parameters.\n\n* default window for +DI is 14, change it with `set_dft_window('pdi', n)`\n* default window for -DI is 14, change it with `set_dft_window('ndi', n)`\n* `StockDataFrame.DX_SMMA` - window for DX, default to 14\n* `StockDataFrame.ADX_EMA` - window for ADX, default to 6\n* `StockDataFrame.ADXR_EMA` - window for ADXR, default to 6\n\n#### [TRIX - Triple Exponential Average](https://www.investopedia.com/articles/technical/02/092402.asp)\n\nThe triple exponential average is used to identify oversold and overbought\nmarkets.\n\nThe algorithm is:\n\n```\nTRIX = (TripleEMA - LastTripleEMA) * 100 / LastTripleEMA\nTripleEMA = EMA of EMA of EMA\nLastTripleEMA = TripleEMA of the last period\n```\n\nIt requires column and window. By default, the column is `close`,\nthe window is 12.\n\nUse `set_dft_window('trix', n)` to change the default window.\n\nExamples:\n\n* `df['trix']` stands for 12 periods Trix for the close price.\n* `df['middle_10_trix']` stands for the 10 periods Trix for the typical price.\n\n#### [WT - Wave Trend](https://medium.com/@samuel.mcculloch/lets-take-a-look-at-wavetrend-with-crosses-lazybear-s-indicator-2ece1737f72f)\n\nRetrieve the LazyBear's Wave Trend with `df['wt1']` and `df['wt2']`.\n\nWave trend uses two parameters. You can tune them with\n`set_dft_window('wt', (10, 21))`.\n\n---\n\n### Volatility\n\n#### [Bollinger Bands](https://en.wikipedia.org/wiki/Bollinger_Bands)\n\nThe Bollinger bands includes three lines:\n* `df['boll']` is the baseline\n* `df['boll_ub']` is the upper band\n* `df['boll_lb']` is the lower band\n\nThe default window of boll is 20.\nYou can also supply your window with `df['boll_10']`. It will also\ngenerate the `boll_ub_10` and `boll_lb_10` column.\n\nThe default period of the Bollinger Band can be changed with\n`set_dft_window('boll', n)`. The width of the bands can be tuned with\n`StockDataFrame.BOLL_STD_TIMES`. The default value is 2.\n\n#### TR - True Range of Trading\n\nTR is a measure of the volatility of a High-Low-Close series. It is used for\ncalculating the ATR.\n\n#### [ATR - Average True Range](https://en.wikipedia.org/wiki/Average_true_range)\n\nThe Average True Range is an\nN-period smoothed moving average (SMMA) of the true range value.\nDefault to 14 periods.\n\nUsers can modify the default window with `set_dft_window('atr', n)`.\n\nExample:\n\n* `df['atr']` retrieves the 14 periods ATR.\n* `df['atr_5']` retrieves the 5 periods ATR.\n\n#### [CCI - Commodity Channel Index](https://www.investopedia.com/terms/c/commoditychannelindex.asp)\n\nCCI stands for Commodity Channel Index.\n\nIt requires a window parameter. The default window is 14. Use\n`set_dft_window('cci', n)` to change it.\n\nExamples:\n\n* `df['cci']` retrieves the default 14 periods CCI.\n* `df['cci_6']` retrieves the 6 periods CCI.\n\n#### [WR - Williams Overbought/Oversold Index](https://www.investopedia.com/terms/w/williamsr.asp)\n\nWilliams Overbought/Oversold index\nis a type of momentum indicator that moves between 0 and -100 and measures\noverbought and oversold levels.\n\nIt takes a window parameter. The default window is 14. Use `set_dft_window('wr', n)`\nto change the default window.\n\nExamples:\n\n* `df['wr']` retrieves the 14 periods WR.\n* `df['wr_6']` retrieves the 6 periods WR.\n\n#### [CHOP - Choppiness Index](https://www.tradingview.com/education/choppinessindex/)\n\nThe Choppiness Index determines if the market is choppy.\n\nIt has a parameter for window size. The default window is 14. Change it with\n`set_dft_window('chop', n)`.\n\nExamples:\n* `df['chop']` retrieves the 14 periods CHOP\n* `df['chop_6']` retrieves the 6 periods CHOP\n\n#### [KER - Kaufman's Efficiency Ratio](https://strategyquant.com/codebase/kaufmans-efficiency-ratio-ker/)\n\nThe Efficiency Ratio (ER) is calculated by\ndividing the price change over a period by the\nabsolute sum of the price movements that occurred\nto achieve that change.\n\nThe resulting ratio ranges between 0 and 1 with\nhigher values representing a more efficient or\ntrending market.\n\nThe default column is close.\n\nThe default window is 10.\n\nFormula:\n* window_change = ABS(close - close[n])\n* last_change = ABS(close-close[1])\n* volatility = moving sum of last_change in n\n* KER = window_change / volatility\n\nExamples:\n* `df['ker']` retrieves the 10 periods KER of the close price\n* `df['high_5_ker']` retrieves 5 periods KER of the high price\n\n#### [Z-Score](https://www.investopedia.com/terms/z/zscore.asp)\n\nZ-score is a statistical measurement that describes a value's relationship to\nthe mean of a group of values.\n\nThere is no default column name or window for Z-Score.\n\nThe statistical formula for a value's z-score is calculated using\nthe following formula:\n\n```\nz = ( x - mu ) / sigma\n```\n\nWhere:\n\n* `z` = Z-score\n* `x` = the value being evaluated\n* `mu` = the mean\n* `sigma` = the standard deviation\n\nExamples:\n* `df['close_75_z']` returns the Z-Score of close price with a window of 75\n\n#### [MAD - Mean Absolute Deviation](https://www.khanacademy.org/math/statistics-probability/summarizing-quantitative-data/other-measures-of-spread/a/mean-absolute-deviation-mad-review)\n\nThe mean absolute deviation of a dataset is the average\ndistance between each data point and the mean. It gives\nus an idea about the variability in a dataset.\n\nFormula:\n1. Calculate the mean.\n2. Calculate how far away each data point is from the\n   mean using positive distances. These are called\n   absolute deviations.\n3. Add those deviations together.\n4. Divide the sum by the number of data points.\n\nExample:\n* `df['close_10_mad']`: the MAD of the close price in 10 periods\n\n#### [Pretty Good Oscillator (PGO)](https://library.tradingtechnologies.com/trade/chrt-ti-pretty-good-oscillator.html)\n\nThe Pretty Good Oscillator indicator by Mark Johnson measures the\ndistance of the current close from its N-day simple moving average,\nexpressed in terms of an average true range over a similar period.\n\nFormula:\n* PGO = (Close - SMA) / (EMA of TR)\n\nExample:\n* `df['pgo']` retrieves the PGO with default window 14.\n* `df['pgo_10']` retrieves the PGO with window 10.\n\n---\n\n### Volume\n\n#### [VR - Volume Variation Index](https://help.eaglesmarkets.com/hc/en-us/articles/900002867026-Summary-of-volume-variation-index)\n\nIt is the strength index of the trading volume.\n\nIt has a default window of 26. Change it with `set_dft_window('vr', n)`.\n\nExamples:\n* `df['vr']` retrieves the 26 periods VR.\n* `df['vr_6']` retrieves the 6 periods VR.\n\n#### [MFI - Money Flow Index](https://www.investopedia.com/terms/m/mfi.asp)\n\nThe Money Flow Index\nidentifies overbought or oversold signals in an asset.\n\nIt has a parameter for window size. The default window is 14. Change it with\n`set_dft_window('mfi', n)`.\n\nExamples:\n* `df['mfi']` retrieves the 14 periods MFI\n* `df['mfi_6']` retrieves the 6 periods MFI\n\n#### [Percentage Volume Oscillator (PVO)](https://school.stockcharts.com/doku.php?id=chart_school:technical_indicators:percentage_volume_oscillator_pvo)\n\nThe Percentage Volume Oscillator (PVO) is a momentum oscillator for volume.\nThe PVO measures the difference between two volume-based moving averages as\na percentage of the larger moving average.\n\nFormula:\n\n* Percentage Volume Oscillator (PVO):\n  ((12-day EMA of Volume - 26-day EMA of Volume)/26-day EMA of Volume) x 100\n* Signal Line: 9-day EMA of PVO\n* PVO Histogram: PVO - Signal Line\n\nExample:\n* `df['pvo']` derives from the difference of 2 exponential moving average.\n* `df['pvos']` is the signal line.\n* `df['pvoh']` is the histogram line.\n\nThe period of short, long EMA and signal line can be tuned with\n`set_dft_window('pvo', (short, long, signal))`. The default\nwindows are 12 and 26 and 9.\n\n---\n\n### Oscillators\n\n#### [QQE - Quantitative Qualitative Estimation](https://www.tradingview.com/script/0vn4HZ7O-Quantitative-Qualitative-Estimation-QQE/)\n\nThe Qualitative Quantitative Estimation (QQE) indicator works like a smoother\nversion of the popular Relative Strength Index (RSI) indicator. QQE expands\non RSI by adding two volatility based trailing stop lines. These trailing\nstop lines are composed of a fast and a slow moving Average True Range (ATR).\nThese ATR lines are smoothed making this indicator less susceptible to short\nterm volatility.\n\nImplementation reference:\nhttps://github.com/twopirllc/pandas-ta/blob/main/pandas_ta/momentum/qqe.py\n\nExample:\n* `df['qqe']` retrieves the QQE with RSI window 14, MA window 5.\n* `df['qqel']` retrieves the QQE long\n* `df['qqes']` retrieves the QQE short\n* `df['qqe_10,4']` retrieves the QQE with RSI window 10, MA window 4\n* `df['qqel_10,4']` retrieves the QQE long with customized windows.\n  Initialized by retrieving `df['qqe_10,4']`\n* `df['qqes_10,4']` retrieves the QQE short with customized windows\n  Initialized by retrieving `df['qqe_10,4']`\n\nThe period of short, long EMA and signal line can be tuned with\n`set_dft_window('qqe', (rsi, rsi_ma))`. The default windows are 14 and 5.\n\n#### [RVGI - Relative Vigor Index](https://www.investopedia.com/terms/r/relative_vigor_index.asp)\n\nThe Relative Vigor Index (RVI) is a momentum indicator\nused in technical analysis that measures the strength\nof a trend by comparing a security's closing price to\nits trading range while smoothing the results using a\nsimple moving average (SMA).\n\nFormula:\n\n* NUMERATOR= (a+(2xb)+(2xc)+d) / 6\n* DENOMINATOR= (e+(2xf)+(2xg)+h) / 6\n* RVI= SMA-N of DENOMINATOR / SMA-N of NUMERATOR\n* Signal Line = (RVI+(2xi)+(2xj)+k) / 6\n\nwhere:\n\n* a=Close-Open\n* b=Close-Open One Bar Prior to a\n* c=Close-Open One Bar Prior to b\n* d=Close-Open One Bar Prior to c\n* e=High-Low of Bar a\n* f=High-Low of Bar b\n* g=High-Low of Bar c\n* h=High-Low of Bar d\n* i=RVI Value One Bar Prior\n* j=RVI Value One Bar Prior to i\n* k=RVI Value One Bar Prior to j\n* N=Minutes/Hours/Days/Weeks/Months\n\nExamples:\n* `df['rvgi']` retrieves the RVGI line of window 14\n* `df['rvgis']` retrieves the RVGI signal line of window 14\n* `df['rvgi_5']` retrieves the RVGI line of window 5\n* `df['rvgis_5']` retrieves the RVGI signal line of window 5\n\n#### [ERI - Elder-Ray Index](https://admiralmarkets.com/education/articles/forex-indicators/bears-and-bulls-power-indicator)\n\nThe Elder-Ray Index contains the bull and the bear power.\nBoth are calculated based on the EMA of the close price.\n\nThe default window is 13.\n\nFormula:\n* Bulls Power = High - EMA\n* Bears Power = Low - EMA\n* EMA is exponential moving average of close of N periods\n\nExamples:\n* `df['eribull']` retrieves the 13 periods bull power\n* `df['eribear']` retrieves the 13 periods bear power\n* `df['eribull_5']` retrieves the 5 periods bull power\n* `df['eribear_5']` retrieves the 5 periods bear power\n\n#### [FTR - Gaussian Fisher Transform Price Reversals](https://www.tradingview.com/script/ajZT2tZo-Gaussian-Fisher-Transform-Price-Reversals-FTR/)\n\nThe Gaussian Fisher Transform Price Reversals indicator, dubbed\nFTR for short, is a stat based price reversal detection indicator\ninspired by and based on the work of the electrical engineer\nnow private trader John F. Ehlers.\n\nImplementation reference:\n\nhttps://github.com/twopirllc/pandas-ta/blob/084dbe1c4b76082f383fa3029270ea9ac35e4dc7/pandas_ta/momentum/fisher.py#L9\n\nFormula:\n* Fisher Transform = 0.5 * ln((1 + X) / (1 - X))\n* X is a series whose values are between -1 to 1\n\nExamples:\n* `df['ftr']` returns the FTR with window 9\n* `df['ftr_20']` returns the FTR with window 20\n\n---\n\n### Utilities\n\n#### Delta of Periods\n\nUsing pattern `<column>_<window>_d` to retrieve the delta between different periods.\n\nYou can also use `<column>_delta` as a shortcut to `<column>_-1_d`\n\nExamples:\n* `df['close_-1_d']` retrieves the close price delta between current and prev. period.\n* `df['close_delta']` is the same as `df['close_-1_d']`\n* `df['high_2_d']` retrieves the high price delta between current and 2 days later\n\n#### Shift Periods\n\nShift the column backward or forward. It takes 2 parameters:\n\n* the name of the column to shift\n* periods to shift, can be negative\n\nWe fill the head and tail with the nearest data.\n\nSee the example below:\n\n``` python\nIn [15]: df[['close', 'close_-1_s', 'close_2_s']]\nOut[15]:\n          close  close_-1_s  close_2_s\ndate\n20040817  11.20       11.20      10.53\n20040818  10.29       11.20      10.55\n20040819  10.53       10.29      10.10\n20040820  10.55       10.53      10.25\n...         ...         ...        ...\n20160812  39.10       38.70      39.66\n20160815  39.58       39.10      40.45\n20160816  39.66       39.58      40.45\n20160817  40.45       39.66      40.45\n\n[2813 rows x 3 columns]\n```\n\n#### [Log Return of the Close](https://en.wikipedia.org/wiki/Rate_of_return)\n\nLogarithmic return = ln( close / last close)\n\nFrom wiki:\n\n> For example, if a stock is priced at 3.570 USD per share at the close on\n> one day, and at 3.575 USD per share at the close the next day, then the\n> logarithmic return is: ln(3.575/3.570) = 0.0014, or 0.14%.\n\nUse `df['log-ret']` to access this column.\n\n#### Cross Upwards and Cross Downwards\n\nUse the pattern `<A>_xu_<B>` to check when A crosses up B.\n\nUse the pattern `<A>_xd_<B>` to check when A crosses down B.\n\nUse the pattern `<A>_x_<B>` to check when A crosses B.\n\nExamples:\n* `kdjk_x_kdjd` returns a series that marks the cross of KDJK and KDJD\n* `kdjk_xu_kdjd` returns a series that marks where KDJK crosses up KDJD\n* `kdjk_xd_kdjd` returns a series that marks where KDJD crosses down KDJD\n\n#### Comparisons\n\nUse patterns `<A>_le_<B>`, `<A>_ge_<B>`, `<A>_lt_<B>`, `<A>_gt_<B>`,\n`<A>_eq_<B>`, `<A>_ne_<B>` for comparing two columns.\n\n#### Count of Non-Zero Value\n\nCount non-zero values of a specific range. It requires a column and a window.\n\nExamples:\n\n* Count how many typical prices are larger than close in the past 10 periods\n\n``` python\nIn [22]: tp = df['middle']\n\nIn [23]: df['res'] = df['middle'] > df['close']\n\nIn [24]: df[['middle', 'close', 'res', 'res_10_c']]\nOut[24]:\n             middle  close    res  res_10_c\ndate\n20040817  11.480000  11.20   True       1.0\n20040818  10.493333  10.29   True       2.0\n20040819  10.493333  10.53  False       2.0\n20040820  10.486667  10.55  False       2.0\n20040823  10.163333  10.10   True       3.0\n...             ...    ...    ...       ...\n20160811  38.703333  38.70   True       5.0\n20160812  38.916667  39.10  False       5.0\n20160815  39.250000  39.58  False       4.0\n20160816  39.840000  39.66   True       5.0\n20160817  40.053333  40.45  False       5.0\n\n[2813 rows x 4 columns]\n```\n\n* Count ups in the past 10 periods\n\n``` python\nIn [26]: df['ups'], df['downs'] = df['change'] > 0, df['change'] < 0\n\nIn [27]: df[['ups', 'ups_10_c', 'downs', 'downs_10_c']]\nOut[27]:\n            ups  ups_10_c  downs  downs_10_c\ndate\n20040817  False       0.0  False         0.0\n20040818  False       0.0   True         1.0\n20040819   True       1.0  False         1.0\n20040820   True       2.0  False         1.0\n20040823  False       2.0   True         2.0\n...         ...       ...    ...         ...\n20160811  False       3.0   True         7.0\n20160812   True       3.0  False         7.0\n20160815   True       4.0  False         6.0\n20160816   True       5.0  False         5.0\n20160817   True       5.0  False         5.0\n\n[2813 rows x 4 columns]\n```\n\n#### Max and Min of the Periods\n\nRetrieve the max/min value of specified periods. They require column and\nwindow.\nNote the window does NOT simply stand for the rolling window.\n\nExamples:\n\n* `close_-3,2_max` stands for the max of 2 periods later and 3 periods ago\n* `close_-2~0_min` stands for the min of 2 periods ago till now\n\n#### RSV - Raw Stochastic Value\n\nRSV is essential for calculating KDJ. It takes a window parameter.\nUse `df['rsv']` or `df['rsv_6']` to access it.\n\n#### [Typical Price](https://en.wikipedia.org/wiki/Typical_price)\n\nIt's the average of `high`, `low` and `close`.\nUse `df['middle']` to access this value.\n\nWhen `amount` is available, `middle = amount / volume`\nThis should be more accurate because amount represents the total cash flow.\n\n## Issues\n\nWe use [Github Issues](https://github.com/jealous/stockstats/issues) to track\nthe issues or bugs.\n",
+        "description_content_type": "text/markdown",
+        "keywords": [
+          "stock",
+          "statistics",
+          "indicator"
+        ],
+        "author_email": "Cedric Zhuang <jealous@163.com>",
+        "license_expression": "BSD-3-Clause",
+        "license_file": [
+          "LICENSE.txt"
+        ],
+        "classifier": [
+          "Programming Language :: Python",
+          "Programming Language :: Python :: 3.9",
+          "Programming Language :: Python :: 3.10",
+          "Programming Language :: Python :: 3.11",
+          "Programming Language :: Python :: Implementation :: CPython",
+          "Natural Language :: English",
+          "Intended Audience :: Developers",
+          "Intended Audience :: Financial and Insurance Industry",
+          "Operating System :: OS Independent",
+          "Development Status :: 4 - Beta",
+          "Topic :: Utilities"
+        ],
+        "requires_dist": [
+          "numpy>=1.16.6",
+          "pandas>=0.24.2"
+        ],
+        "requires_python": ">=3.9",
+        "project_url": [
+          "Homepage, https://github.com/jealous/stockstats"
+        ]
+      }
+    },
+    {
+      "download_info": {
+        "url": "https://files.pythonhosted.org/packages/49/d3/b8441a820a491ddfc024b0b0cf0393375b75ea13866d9c66727e54c2fc80/typing_extensions-4.16.0-py3-none-any.whl",
+        "archive_info": {
+          "hashes": {
+            "sha256": "481caa481374e813c1b176ada14e97f1f67a4539ce9cfeb3f350d78d6370c2e8"
+          },
+          "hash": "sha256=481caa481374e813c1b176ada14e97f1f67a4539ce9cfeb3f350d78d6370c2e8"
+        }
+      },
+      "is_direct": false,
+      "is_yanked": false,
+      "requested": false,
+      "metadata": {
+        "metadata_version": "2.4",
+        "name": "typing_extensions",
+        "version": "4.16.0",
+        "summary": "Backported and Experimental Type Hints for Python 3.9+",
+        "description": "# Typing Extensions\n\n[![Chat at https://gitter.im/python/typing](https://badges.gitter.im/python/typing.svg)](https://gitter.im/python/typing)\n\n[Documentation](https://typing-extensions.readthedocs.io/en/latest/#) –\n[PyPI](https://pypi.org/project/typing-extensions/)\n\n## Overview\n\nThe `typing_extensions` module serves two related purposes:\n\n- Enable use of new type system features on older Python versions. For example,\n  `typing.TypeGuard` is new in Python 3.10, but `typing_extensions` allows\n  users on previous Python versions to use it too.\n- Enable experimentation with new type system PEPs before they are accepted and\n  added to the `typing` module.\n\n`typing_extensions` is treated specially by static type checkers such as\nmypy and pyright. Objects defined in `typing_extensions` are treated the same\nway as equivalent forms in `typing`.\n\n`typing_extensions` uses\n[Semantic Versioning](https://semver.org/). The\nmajor version will be incremented only for backwards-incompatible changes.\nTherefore, it's safe to depend\non `typing_extensions` like this: `typing_extensions ~=x.y`,\nwhere `x.y` is the first version that includes all features you need.\n[This](https://packaging.python.org/en/latest/specifications/version-specifiers/#compatible-release)\nis equivalent to `typing_extensions >=x.y, <(x+1)`. Do not depend on `~= x.y.z`\nunless you really know what you're doing; that defeats the purpose of\nsemantic versioning.\n\n## Included items\n\nSee [the documentation](https://typing-extensions.readthedocs.io/en/latest/#) for a\ncomplete listing of module contents.\n\n## Contributing\n\nSee [CONTRIBUTING.md](https://github.com/python/typing_extensions/blob/main/CONTRIBUTING.md)\nfor how to contribute to `typing_extensions`.\n\n",
+        "description_content_type": "text/markdown",
+        "keywords": [
+          "annotations",
+          "backport",
+          "checker",
+          "checking",
+          "function",
+          "hinting",
+          "hints",
+          "type",
+          "typechecking",
+          "typehinting",
+          "typehints",
+          "typing"
+        ],
+        "author_email": "\"Guido van Rossum, Jukka Lehtosalo, Łukasz Langa, Michael Lee\" <levkivskyi@gmail.com>",
+        "license_expression": "PSF-2.0",
+        "license_file": [
+          "LICENSE"
+        ],
+        "classifier": [
+          "Development Status :: 5 - Production/Stable",
+          "Environment :: Console",
+          "Intended Audience :: Developers",
+          "Operating System :: OS Independent",
+          "Programming Language :: Python :: 3",
+          "Programming Language :: Python :: 3 :: Only",
+          "Programming Language :: Python :: 3.9",
+          "Programming Language :: Python :: 3.10",
+          "Programming Language :: Python :: 3.11",
+          "Programming Language :: Python :: 3.12",
+          "Programming Language :: Python :: 3.13",
+          "Programming Language :: Python :: 3.14",
+          "Programming Language :: Python :: 3.15",
+          "Topic :: Software Development"
+        ],
+        "requires_python": ">=3.9",
+        "project_url": [
+          "Bug Tracker, https://github.com/python/typing_extensions/issues",
+          "Changes, https://github.com/python/typing_extensions/blob/main/CHANGELOG.md",
+          "Documentation, https://typing-extensions.readthedocs.io/",
+          "Home, https://github.com/python/typing_extensions",
+          "Q & A, https://github.com/python/typing/discussions",
+          "Repository, https://github.com/python/typing_extensions"
+        ]
+      }
+    },
+    {
+      "download_info": {
+        "url": "https://files.pythonhosted.org/packages/94/21/1e5995a1c920cce14e4bffae20c665ec10e7ed03ab25e006cd741092b718/tzdata-2026.5-py2.py3-none-any.whl",
+        "archive_info": {
+          "hashes": {
+            "sha256": "b683bd1b6659ddcd810ff02ad09ba821d4bf1065072805063eb35c49617905ac"
+          },
+          "hash": "sha256=b683bd1b6659ddcd810ff02ad09ba821d4bf1065072805063eb35c49617905ac"
+        }
+      },
+      "is_direct": false,
+      "is_yanked": false,
+      "requested": false,
+      "metadata": {
+        "metadata_version": "2.4",
+        "name": "tzdata",
+        "version": "2026.5",
+        "dynamic": [
+          "license-file"
+        ],
+        "summary": "Provider of IANA time zone data",
+        "description": "tzdata: Python package providing IANA time zone data\n====================================================\n\nThis is a Python package containing ``zic``-compiled binaries for the IANA time\nzone database. It is intended to be a fallback for systems that do not have\nsystem time zone data installed (or don't have it installed in a standard\nlocation), as a part of `PEP 615 <https://www.python.org/dev/peps/pep-0615/>`_.\n\nThis repository generates a ``pip``-installable package, published on PyPI as\n`tzdata <https://pypi.org/project/tzdata>`_.\n\nFor more information, see `the documentation <https://tzdata.python.org>`_.\n",
+        "description_content_type": "text/x-rst",
+        "home_page": "https://github.com/python/tzdata",
+        "author": "Python Software Foundation",
+        "author_email": "datetime-sig@python.org",
+        "license": "Apache-2.0",
+        "license_file": [
+          "LICENSE",
+          "licenses/LICENSE_APACHE"
+        ],
+        "classifier": [
+          "Development Status :: 5 - Production/Stable",
+          "Intended Audience :: Developers",
+          "Programming Language :: Python :: 2",
+          "Programming Language :: Python :: 3"
+        ],
+        "requires_python": ">=2",
+        "project_url": [
+          "Bug Reports, https://github.com/python/tzdata/issues",
+          "Source, https://github.com/python/tzdata",
+          "Documentation, https://tzdata.python.org"
+        ]
+      }
+    }
+  ],
+  "environment": {
+    "implementation_name": "cpython",
+    "implementation_version": "3.14.5",
+    "os_name": "nt",
+    "platform_machine": "AMD64",
+    "platform_release": "11",
+    "platform_system": "Windows",
+    "platform_version": "10.0.26300",
+    "python_full_version": "3.14.5",
+    "platform_python_implementation": "CPython",
+    "python_version": "3.14",
+    "sys_platform": "win32"
+  }
+}

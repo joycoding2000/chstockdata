@@ -1,0 +1,22 @@
+{
+  "version": "0.4.3",
+  "json_endpoint": "https://pypi.org/pypi/chstockdata/0.4.3/json",
+  "files": [
+    {
+      "filename": "chstockdata-0.4.3-py3-none-any.whl",
+      "packagetype": "bdist_wheel",
+      "url": "https://files.pythonhosted.org/packages/e5/ff/3729f5103df4fed265c9c5925fa6f4bb808bd2ab25f4d5eab027526a766a/chstockdata-0.4.3-py3-none-any.whl",
+      "sha256": "f554dadbc88ac55427acef0ae33330a2a473c0f417dcaec46f38f6078cea9c9a",
+      "bytes": 298718,
+      "uploaded_at": "2026-10-19T11:36:23.361445Z"
+    },
+    {
+      "filename": "chstockdata-0.4.3.tar.gz",
+      "packagetype": "sdist",
+      "url": "https://files.pythonhosted.org/packages/f5/cc/fefd937419840e3a621d74cb57178d0976ccd18e734bbba8b7c026fa12d0/chstockdata-0.4.3.tar.gz",
+      "sha256": "98cbe14d1fdd8e55f132c1e8220b75493b0f03117da62e2993cb56fb6815042d",
+      "bytes": 684232,
+      "uploaded_at": "2026-10-19T11:36:24.816352Z"
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "command": [
+    "gh",
+    "run",
+    "download",
+    "39245580102",
+    "--repo",
+    "joycoding2000/chstockdata",
+    "--name",
+    "dist",
+    "--dir",
+    "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\chstockdata-v043-pypi-s88pdvte\\actions-artifacts"
+  ],
+  "cwd": "C:\\Users\\Administrator\\.codex\\worktrees\\w0-v043-release\\chstockdata",
+  "started_at_utc": "2026-10-19T11:37:21.016773+00:00",
+  "seconds": 3.283,
+  "exit_code": 0,
+  "environment_overrides": {},
+  "logs": {
+    "stdout": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

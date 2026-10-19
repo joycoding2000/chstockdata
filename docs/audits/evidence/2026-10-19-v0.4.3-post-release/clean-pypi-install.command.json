@@ -1,0 +1,23 @@
+{
+  "command": [
+    "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\chstockdata-v043-pypi-s88pdvte\\clean\\Scripts\\python.exe",
+    "-m",
+    "pip",
+    "install",
+    "--no-cache-dir",
+    "--index-url",
+    "https://pypi.org/simple",
+    "--report",
+    "D:\\Dev\\Projects\\chstockdata\\build\\w0-v043\\post-release-evidence\\pypi-install-report.json",
+    "chstockdata==0.4.3"
+  ],
+  "cwd": "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\chstockdata-v043-pypi-s88pdvte",
+  "started_at_utc": "2026-10-19T11:37:38.867097+00:00",
+  "seconds": 38.8,
+  "exit_code": 0,
+  "environment_overrides": {},
+  "logs": {
+    "stdout": "bb365149e54cdaa200b559b6b94a35b3630a1813e39251c97cc9346e2ef32e56",
+    "stderr": "4ae683879680ea98481a964c59e2d29336c9e4451e0fef519b0d96097b3f724a"
+  }
+}

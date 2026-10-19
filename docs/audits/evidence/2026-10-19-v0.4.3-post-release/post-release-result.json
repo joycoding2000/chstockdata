@@ -1,0 +1,39 @@
+{
+  "W0_FINAL_VERDICT": "RELEASE_COMPLETE",
+  "release_sha": "30cc7c50e3971fe79bfd903a412b2b76a0338caa",
+  "tag_object_sha": "08f9eb11e1dd1181cb50d754c4d973196a4fe4b5",
+  "tag_target_sha": "30cc7c50e3971fe79bfd903a412b2b76a0338caa",
+  "run_id": 39245580102,
+  "run_url": "https://github.com/joycoding2000/chstockdata/actions/runs/39245580102",
+  "GITHUB_ACTIONS_BUILD": "SUCCESS",
+  "PYPI_UPLOAD": "SUCCESS",
+  "PYPI_VERSION": "0.4.3",
+  "pypi_files": [
+    {
+      "filename": "chstockdata-0.4.3-py3-none-any.whl",
+      "packagetype": "bdist_wheel",
+      "url": "https://files.pythonhosted.org/packages/e5/ff/3729f5103df4fed265c9c5925fa6f4bb808bd2ab25f4d5eab027526a766a/chstockdata-0.4.3-py3-none-any.whl",
+      "sha256": "f554dadbc88ac55427acef0ae33330a2a473c0f417dcaec46f38f6078cea9c9a",
+      "bytes": 298718,
+      "uploaded_at": "2026-10-19T11:36:23.361445Z"
+    },
+    {
+      "filename": "chstockdata-0.4.3.tar.gz",
+      "packagetype": "sdist",
+      "url": "https://files.pythonhosted.org/packages/f5/cc/fefd937419840e3a621d74cb57178d0976ccd18e734bbba8b7c026fa12d0/chstockdata-0.4.3.tar.gz",
+      "sha256": "98cbe14d1fdd8e55f132c1e8220b75493b0f03117da62e2993cb56fb6815042d",
+      "bytes": 684232,
+      "uploaded_at": "2026-10-19T11:36:24.816352Z"
+    }
+  ],
+  "github_release_url": "https://github.com/joycoding2000/chstockdata/releases/tag/v0.4.3",
+  "CLEAN_PYPI_INSTALL": "PASS",
+  "PUBLIC_API_SMOKE": "PASS",
+  "official_actions_artifacts_match_pypi": true,
+  "published_source_matches_release_tag": true,
+  "live_market_source_requests": 0,
+  "CONSUMER_HANDOFF": "python -m pip install chstockdata==0.4.3",
+  "DR04_M_STATUS": "NOT_AUTHORIZED",
+  "MISHI_QUALIFICATION": "NOT_PASSED",
+  "SIOS_INPUT_GATES": "UNCHANGED"
+}

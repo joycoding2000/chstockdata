@@ -1,0 +1,21 @@
+{
+  "command": [
+    "gh",
+    "run",
+    "view",
+    "39245580102",
+    "--repo",
+    "joycoding2000/chstockdata",
+    "--json",
+    "status,conclusion,jobs,headSha,headBranch,url,event,workflowName"
+  ],
+  "cwd": "C:\\Users\\Administrator\\.codex\\worktrees\\w0-v043-release\\chstockdata",
+  "started_at_utc": "2026-10-19T11:37:09.414833+00:00",
+  "seconds": 1.671,
+  "exit_code": 0,
+  "environment_overrides": {},
+  "logs": {
+    "stdout": "ae7386af780f690e3e883d1da2c6ddb2724c266cc881538aff45c234cb0f89dc",
+    "stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

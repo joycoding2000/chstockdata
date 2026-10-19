@@ -1,0 +1,25 @@
+{
+  "command": [
+    "git",
+    "add",
+    "--",
+    ".gitattributes",
+    "README.md",
+    "docs/audits/2026-10-19-v0.4.3-preflight.md",
+    "docs/releases/v0.4.3.md",
+    "pyproject.toml",
+    "src/chstockdata/__init__.py",
+    "tests/test_delisting_structured.py",
+    "tests/test_fund_corporate_actions.py",
+    "docs/audits/evidence/2026-10-19-v0.4.3-release/"
+  ],
+  "cwd": "C:\\Users\\Administrator\\.codex\\worktrees\\w0-v043-release\\chstockdata",
+  "started_at_utc": "2026-10-19T11:32:11.525230+00:00",
+  "seconds": 0.047,
+  "exit_code": 0,
+  "environment_overrides": {},
+  "logs": {
+    "stdout": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

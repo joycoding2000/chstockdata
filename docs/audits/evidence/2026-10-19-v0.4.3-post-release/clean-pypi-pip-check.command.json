@@ -1,0 +1,17 @@
+{
+  "command": [
+    "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\chstockdata-v043-pypi-s88pdvte\\clean\\Scripts\\python.exe",
+    "-m",
+    "pip",
+    "check"
+  ],
+  "cwd": "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\chstockdata-v043-pypi-s88pdvte",
+  "started_at_utc": "2026-10-19T11:38:17.837678+00:00",
+  "seconds": 0.957,
+  "exit_code": 0,
+  "environment_overrides": {},
+  "logs": {
+    "stdout": "672aec65a45bed50e70229c70934a7eebf0462595c459b83023027645d57cccf",
+    "stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

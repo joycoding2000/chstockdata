@@ -1,0 +1,20 @@
+{
+  "command": [
+    "git",
+    "add",
+    "--",
+    "docs/audits/evidence/2026-10-10-v0.4.2-tdx-historical-execution/tdx_history_responses.jsonl",
+    "docs/audits/evidence/2026-10-10-v0.4.2-tdx-historical-execution/tdx_opening_page_responses.jsonl",
+    "docs/audits/evidence/2026-10-10-v0.4.2-tdx-historical-execution/tdx_opening_page_followup_responses.jsonl",
+    "docs/audits/evidence/2026-10-10-v0.4.2-tdx-historical-execution/tdx_opening_page_final_responses.jsonl"
+  ],
+  "cwd": "C:\\Users\\Administrator\\.codex\\worktrees\\w0-v043-release\\chstockdata",
+  "started_at_utc": "2026-10-19T11:33:52.346422+00:00",
+  "seconds": 0.057,
+  "exit_code": 0,
+  "environment_overrides": {},
+  "logs": {
+    "stdout": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}
