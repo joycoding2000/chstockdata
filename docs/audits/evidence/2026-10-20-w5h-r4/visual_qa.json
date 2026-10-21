@@ -1,0 +1,19 @@
+{
+  "rendered_files": "see render_log.json",
+  "reviewed_images": [
+    "renders/correction-contact.png",
+    "renders/revision-summary-006.jpg",
+    "renders/original-cash-106.jpg",
+    "renders/revision-cash-116.jpg",
+    "renders/correction-scan-06.jpg"
+  ],
+  "observations": [
+    "2018 report p6 visibly separates 2017 adjusted/unadjusted columns; negative restated OCF is in adjusted column",
+    "original report p106 says consolidated cash flow 2017 Jan-Dec, yuan; p108 is a different mother-company statement",
+    "2018 report p116 is continuation of consolidated statement before mother-company heading, 2017 is prior-year right column",
+    "correction audit PDF is image-only and not machine-extracted into replay values; signature/report identity visually reviewed",
+    "scanned correction audit PDF p6 (printed p5) has revised weighted ROE 7.68%, matching 2018 annual report p7; old Sina notice mirror 7.20% is a separate source discrepancy, not proof that the two official PDFs disagree",
+    "Poppler Symbol/ArialUnicode fallback warnings preserved; target Chinese labels, decimal figures and minus signs readable in reviewed images"
+  ],
+  "unreviewed_pages_not_claimed_verified": true
+}

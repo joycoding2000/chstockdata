@@ -1,0 +1,1955 @@
+{
+  "parser_source": "D:\\Dev\\Projects\\easy_tdx\\src\\easy_tdx\\offline\\gbbq.py",
+  "parser_sha256": "cf40f39e27ce10ec078cac8ccc79eca6b42e213ecc01505ac30fb47135788052",
+  "execution": "pure parser via AST, relative exception import replaced; no package init",
+  "files": [
+    {
+      "path": "C:\\new_hxzq_hc\\T0002\\hq_cache\\gbbq",
+      "bytes": 5458152,
+      "sha256": "98489fd049ef8fa985a9294808306aaa3a06b7b9ec49875d13ec5c716204ac74",
+      "declared_records": 188212,
+      "29_byte_layout_matches": true,
+      "decoded_records": 188212,
+      "fixed_securities": {
+        "600518": {
+          "count": 50,
+          "first_date": 20010525,
+          "last_date": 20250709,
+          "records": [
+            {
+              "market": 1,
+              "code": "600518",
+              "datetime": 20010525,
+              "category": 1,
+              "hongli_panqianliutong": 2.0,
+              "peigujia_qianzongguben": 0.0,
+              "songgu_qianzongguben": 0.0,
+              "peigu_houzongguben": 0.0
+            },
+            {
+              "market": 1,
+              "code": "600518",
+              "datetime": 20020703,
+              "category": 1,
+              "hongli_panqianliutong": 2.0,
+              "peigujia_qianzongguben": 0.0,
+              "songgu_qianzongguben": 0.0,
+              "peigu_houzongguben": 0.0
+            },
+            {
+              "market": 1,
+              "code": "600518",
+              "datetime": 20030610,
+              "category": 1,
+              "hongli_panqianliutong": 2.5,
+              "peigujia_qianzongguben": 0.0,
+              "songgu_qianzongguben": 0.0,
+              "peigu_houzongguben": 0.0
+            },
+            {
+              "market": 1,
+              "code": "600518",
+              "datetime": 20040520,
+              "category": 1,
+              "hongli_panqianliutong": 0.25,
+              "peigujia_qianzongguben": 0.0,
+              "songgu_qianzongguben": 5.0,
+              "peigu_houzongguben": 0.0
+            },
+            {
+              "market": 1,
+              "code": "600518",
+              "datetime": 20040521,
+              "category": 2,
+              "hongli_panqianliutong": 1800.0,
+              "peigujia_qianzongguben": 7080.0,
+              "songgu_qianzongguben": 2700.0,
+              "peigu_houzongguben": 10620.0
+            },
+            {
+              "market": 1,
+              "code": "600518",
+              "datetime": 20050526,
+              "category": 1,
+              "hongli_panqianliutong": 1.5,
+              "peigujia_qianzongguben": 0.0,
+              "songgu_qianzongguben": 0.0,
+              "peigu_houzongguben": 0.0
+            },
+            {
+              "market": 1,
+              "code": "600518",
+              "datetime": 20051025,
+              "category": 1,
+              "hongli_panqianliutong": 0.0,
+              "peigujia_qianzongguben": 0.0,
+              "songgu_qianzongguben": 2.5,
+              "peigu_houzongguben": 0.0
+            },
+            {
+              "market": 1,
+              "code": "600518",
+              "datetime": 20051025,
+              "category": 5,
+              "hongli_panqianliutong": 2700.0,
+              "peigujia_qianzongguben": 10620.0,
+              "songgu_qianzongguben": 3375.0,
+              "peigu_houzongguben": 10620.0
+            },
+            {
+              "market": 1,
+              "code": "600518",
+              "datetime": 20060518,
+              "category": 1,
+              "hongli_panqianliutong": 0.25,
+              "peigujia_qianzongguben": 0.0,
+              "songgu_qianzongguben": 5.0,
+              "peigu_houzongguben": 0.0
+            },
+            {
+              "market": 1,
+              "code": "600518",
+              "datetime": 20060519,
+              "category": 2,
+              "hongli_panqianliutong": 3375.0,
+              "peigujia_qianzongguben": 10620.0,
+              "songgu_qianzongguben": 5062.5,
+              "peigu_houzongguben": 15930.0
+            },
+            {
+              "market": 1,
+              "code": "600518",
+              "datetime": 20060711,
+              "category": 6,
+              "hongli_panqianliutong": 0.0,
+              "peigujia_qianzongguben": 8.399999618530273,
+              "songgu_qianzongguben": 6000.0,
+              "peigu_houzongguben": 0.0
+            },
+            {
+              "market": 1,
+              "code": "600518",
+              "datetime": 20060811,
+              "category": 5,
+              "hongli_panqianliutong": 5062.5,
+              "peigujia_qianzongguben": 15930.0,
+              "songgu_qianzongguben": 9012.5,
+              "peigu_houzongguben": 21930.0
+            },
+            {
+              "market": 1,
+              "code": "600518",
+              "datetime": 20060811,
+              "category": 8,
+              "hongli_panqianliutong": 9012.5,
+              "peigujia_qianzongguben": 21930.0,
+              "songgu_qianzongguben": 11062.5,
+              "peigu_houzongguben": 21930.0
+            },
+            {
+              "market": 1,
+              "code": "600518",
+              "datetime": 20061025,
+              "category": 5,
+              "hongli_panqianliutong": 11062.5,
+              "peigujia_qianzongguben": 21930.0,
+              "songgu_qianzongguben": 14246.5595703125,
+              "peigu_houzongguben": 21930.0
+            },
+            {
+              "market": 1,
+              "code": "600518",
+              "datetime": 20070508,
+              "category": 1,
+              "hongli_panqianliutong": 0.3499999940395355,
+              "peigujia_qianzongguben": 0.0,
+              "songgu_qianzongguben": 10.0,
+              "peigu_houzongguben": 0.0
+            },
+            {
+              "market": 1,
+              "code": "600518",
+              "datetime": 20070509,
+              "category": 5,
+              "hongli_panqianliutong": 14246.5595703125,
+              "peigujia_qianzongguben": 21930.0,
+              "songgu_qianzongguben": 28493.109375,
+              "peigu_houzongguben": 43860.0
+            },
+            {
+              "market": 1,
+              "code": "600518",
+              "datetime": 20070917,
+              "category": 5,
+              "hongli_panqianliutong": 28493.109375,
+              "peigujia_qianzongguben": 43860.0,
+              "songgu_qianzongguben": 35593.109375,
+              "peigu_houzongguben": 50960.0
+            },
+            {
+              "market": 1,
+              "code": "600518",
+              "datetime": 20071025,
+              "category": 5,
+              "hongli_panqianliutong": 35593.11328125,
+              "peigujia_qianzongguben": 50960.0,
+              "songgu_qianzongguben": 37186.11328125,
+              "peigu_houzongguben": 50960.0
+            },
+            {
+              "market": 1,
+              "code": "600518",
+              "datetime": 20080304,
+              "category": 1,
+              "hongli_panqianliutong": 0.11999999731779099,
+              "peigujia_qianzongguben": 0.0,
+              "songgu_qianzongguben": 5.0,
+              "peigu_houzongguben": 0.0
+            },
+            {
+              "market": 1,
+              "code": "600518",
+              "datetime": 20080305,
+              "category": 5,
+              "hongli_panqianliutong": 37186.11328125,
+              "peigujia_qianzongguben": 50960.0,
+              "songgu_qianzongguben": 55779.16796875,
+              "peigu_houzongguben": 76440.0
+            },
+            {
+              "market": 1,
+              "code": "600518",
+              "datetime": 20081027,
+              "category": 5,
+              "hongli_panqianliutong": 55779.16796875,
+              "peigujia_qianzongguben": 76440.0,
+              "songgu_qianzongguben": 76440.0,
+              "peigu_houzongguben": 76440.0
+            },
+            {
+              "market": 1,
+              "code": "600518",
+              "datetime": 20090422,
+              "category": 1,
+              "hongli_panqianliutong": 0.6000000238418579,
+              "peigujia_qianzongguben": 0.0,
+              "songgu_qianzongguben": 10.0,
+              "peigu_houzongguben": 0.0
+            },
+            {
+              "market": 1,
+              "code": "600518",
+              "datetime": 20090423,
+              "category": 2,
+              "hongli_panqianliutong": 76440.0,
+              "peigujia_qianzongguben": 76440.0,
+              "songgu_qianzongguben": 152880.0,
+              "peigu_houzongguben": 152880.0
+            },
+            {
+              "market": 1,
+              "code": "600518",
+              "datetime": 20090525,
+              "category": 5,
+              "hongli_panqianliutong": 152880.0,
+              "peigujia_qianzongguben": 152880.0,
+              "songgu_qianzongguben": 169437.0,
+              "peigu_houzongguben": 169437.0
+            },
+            {
+              "market": 1,
+              "code": "600518",
+              "datetime": 20100524,
+              "category": 1,
+              "hongli_panqianliutong": 0.3499999940395355,
+              "peigujia_qianzongguben": 0.0,
+              "songgu_qianzongguben": 0.0,
+              "peigu_houzongguben": 0.0
+            },
+            {
+              "market": 1,
+              "code": "600518",
+              "datetime": 20110106,
+              "category": 1,
+              "hongli_panqianliutong": 0.0,
+              "peigujia_qianzongguben": 6.880000114440918,
+              "songgu_qianzongguben": 0.0,
+              "peigu_houzongguben": 3.0
+            },
+            {
+              "market": 1,
+              "code": "600518",
+              "datetime": 20110106,
+              "category": 5,
+              "hongli_panqianliutong": 169437.0,
+              "peigujia_qianzongguben": 169437.0,
+              "songgu_qianzongguben": 169437.0,
+              "peigu_houzongguben": 219871.453125
+            },
+            {
+              "market": 1,
+              "code": "600518",
+              "datetime": 20110112,
+              "category": 5,
+              "hongli_panqianliutong": 169437.0,
+              "peigujia_qianzongguben": 219871.453125,
+              "songgu_qianzongguben": 219871.453125,
+              "peigu_houzongguben": 219871.453125
+            },
+            {
+              "market": 1,
+              "code": "600518",
+              "datetime": 20110525,
+              "category": 1,
+              "hongli_panqianliutong": 0.5,
+              "peigujia_qianzongguben": 0.0,
+              "songgu_qianzongguben": 0.0,
+              "peigu_houzongguben": 0.0
+            },
+            {
+              "market": 1,
+              "code": "600518",
+              "datetime": 20120529,
+              "category": 1,
+              "hongli_panqianliutong": 0.5,
+              "peigujia_qianzongguben": 0.0,
+              "songgu_qianzongguben": 0.0,
+              "peigu_houzongguben": 0.0
+            },
+            {
+              "market": 1,
+              "code": "600518",
+              "datetime": 20130726,
+              "category": 1,
+              "hongli_panqianliutong": 2.0,
+              "peigujia_qianzongguben": 0.0,
+              "songgu_qianzongguben": 0.0,
+              "peigu_houzongguben": 0.0
+            },
+            {
+              "market": 1,
+              "code": "600518",
+              "datetime": 20140722,
+              "category": 1,
+              "hongli_panqianliutong": 2.5999999046325684,
+              "peigujia_qianzongguben": 0.0,
+              "songgu_qianzongguben": 0.0,
+              "peigu_houzongguben": 0.0
+            },
+            {
+              "market": 1,
+              "code": "600518",
+              "datetime": 20150616,
+              "category": 1,
+              "hongli_panqianliutong": 3.200000047683716,
+              "peigujia_qianzongguben": 0.0,
+              "songgu_qianzongguben": 10.0,
+              "peigu_houzongguben": 0.0
+            },
+            {
+              "market": 1,
+              "code": "600518",
+              "datetime": 20150617,
+              "category": 2,
+              "hongli_panqianliutong": 219871.453125,
+              "peigujia_qianzongguben": 219871.453125,
+              "songgu_qianzongguben": 439742.90625,
+              "peigu_houzongguben": 439742.90625
+            },
+            {
+              "market": 1,
+              "code": "600518",
+              "datetime": 20160426,
+              "category": 5,
+              "hongli_panqianliutong": 439742.90625,
+              "peigujia_qianzongguben": 439742.90625,
+              "songgu_qianzongguben": 439742.90625,
+              "peigu_houzongguben": 441711.90625
+            },
+            {
+              "market": 1,
+              "code": "600518",
+              "datetime": 20160531,
+              "category": 1,
+              "hongli_panqianliutong": 1.899999976158142,
+              "peigujia_qianzongguben": 0.0,
+              "songgu_qianzongguben": 0.0,
+              "peigu_houzongguben": 0.0
+            },
+            {
+              "market": 1,
+              "code": "600518",
+              "datetime": 20160627,
+              "category": 5,
+              "hongli_panqianliutong": 439742.90625,
+              "peigujia_qianzongguben": 441711.90625,
+              "songgu_qianzongguben": 439742.90625,
+              "peigu_houzongguben": 494722.375
+            },
+            {
+              "market": 1,
+              "code": "600518",
+              "datetime": 20170609,
+              "category": 5,
+              "hongli_panqianliutong": 439742.90625,
+              "peigujia_qianzongguben": 494722.375,
+              "songgu_qianzongguben": 439742.90625,
+              "peigu_houzongguben": 494674.375
+            },
+            {
+              "market": 1,
+              "code": "600518",
+              "datetime": 20170629,
+              "category": 1,
+              "hongli_panqianliutong": 2.049999952316284,
+              "peigujia_qianzongguben": 0.0,
+              "songgu_qianzongguben": 0.0,
+              "peigu_houzongguben": 0.0
+            },
+            {
+              "market": 1,
+              "code": "600518",
+              "datetime": 20170801,
+              "category": 5,
+              "hongli_panqianliutong": 439742.90625,
+              "peigujia_qianzongguben": 494674.375,
+              "songgu_qianzongguben": 440319.1875,
+              "peigu_houzongguben": 494674.375
+            },
+            {
+              "market": 1,
+              "code": "600518",
+              "datetime": 20171222,
+              "category": 5,
+              "hongli_panqianliutong": 440319.1875,
+              "peigujia_qianzongguben": 494674.375,
+              "songgu_qianzongguben": 440319.1875,
+              "peigu_houzongguben": 497425.375
+            },
+            {
+              "market": 1,
+              "code": "600518",
+              "datetime": 20180629,
+              "category": 5,
+              "hongli_panqianliutong": 440319.1875,
+              "peigujia_qianzongguben": 497425.375,
+              "songgu_qianzongguben": 440319.1875,
+              "peigu_houzongguben": 497386.15625
+            },
+            {
+              "market": 1,
+              "code": "600518",
+              "datetime": 20180713,
+              "category": 1,
+              "hongli_panqianliutong": 2.3499999046325684,
+              "peigujia_qianzongguben": 0.0,
+              "songgu_qianzongguben": 0.0,
+              "peigu_houzongguben": 0.0
+            },
+            {
+              "market": 1,
+              "code": "600518",
+              "datetime": 20190415,
+              "category": 5,
+              "hongli_panqianliutong": 440319.1875,
+              "peigujia_qianzongguben": 497386.15625,
+              "songgu_qianzongguben": 440878.6875,
+              "peigu_houzongguben": 497386.15625
+            },
+            {
+              "market": 1,
+              "code": "600518",
+              "datetime": 20190828,
+              "category": 1,
+              "hongli_panqianliutong": 0.23999999463558197,
+              "peigujia_qianzongguben": 0.0,
+              "songgu_qianzongguben": 0.0,
+              "peigu_houzongguben": 0.0
+            },
+            {
+              "market": 1,
+              "code": "600518",
+              "datetime": 20211215,
+              "category": 1,
+              "hongli_panqianliutong": 0.0,
+              "peigujia_qianzongguben": 0.0,
+              "songgu_qianzongguben": 5.800000190734863,
+              "peigu_houzongguben": 0.0
+            },
+            {
+              "market": 1,
+              "code": "600518",
+              "datetime": 20211216,
+              "category": 9,
+              "hongli_panqianliutong": 440878.6875,
+              "peigujia_qianzongguben": 497386.15625,
+              "songgu_qianzongguben": 1329879.25,
+              "peigu_houzongguben": 1386386.625
+            },
+            {
+              "market": 1,
+              "code": "600518",
+              "datetime": 20220222,
+              "category": 5,
+              "hongli_panqianliutong": 1329879.25,
+              "peigujia_qianzongguben": 1386386.625,
+              "songgu_qianzongguben": 1361292.75,
+              "peigu_houzongguben": 1386386.625
+            },
+            {
+              "market": 1,
+              "code": "600518",
+              "datetime": 20250508,
+              "category": 5,
+              "hongli_panqianliutong": 1361292.75,
+              "peigujia_qianzongguben": 1386386.625,
+              "songgu_qianzongguben": 1382235.25,
+              "peigu_houzongguben": 1386386.625
+            },
+            {
+              "market": 1,
+              "code": "600518",
+              "datetime": 20250709,
+              "category": 5,
+              "hongli_panqianliutong": 1382235.25,
+              "peigujia_qianzongguben": 1386386.625,
+              "songgu_qianzongguben": 1382235.25,
+              "peigu_houzongguben": 1382889.625
+            }
+          ]
+        },
+        "600519": {
+          "count": 45,
+          "first_date": 20020725,
+          "last_date": 20260626,
+          "records": [
+            {
+              "market": 1,
+              "code": "600519",
+              "datetime": 20020725,
+              "category": 1,
+              "hongli_panqianliutong": 6.0,
+              "peigujia_qianzongguben": 0.0,
+              "songgu_qianzongguben": 1.0,
+              "peigu_houzongguben": 0.0
+            },
+            {
+              "market": 1,
+              "code": "600519",
+              "datetime": 20020726,
+              "category": 2,
+              "hongli_panqianliutong": 7150.0,
+              "peigujia_qianzongguben": 25000.0,
+              "songgu_qianzongguben": 7865.0,
+              "peigu_houzongguben": 27500.0
+            },
+            {
+              "market": 1,
+              "code": "600519",
+              "datetime": 20030714,
+              "category": 1,
+              "hongli_panqianliutong": 2.0,
+              "peigujia_qianzongguben": 0.0,
+              "songgu_qianzongguben": 1.0,
+              "peigu_houzongguben": 0.0
+            },
+            {
+              "market": 1,
+              "code": "600519",
+              "datetime": 20030715,
+              "category": 2,
+              "hongli_panqianliutong": 7865.0,
+              "peigujia_qianzongguben": 27500.0,
+              "songgu_qianzongguben": 8651.5,
+              "peigu_houzongguben": 30250.0
+            },
+            {
+              "market": 1,
+              "code": "600519",
+              "datetime": 20040701,
+              "category": 1,
+              "hongli_panqianliutong": 3.0,
+              "peigujia_qianzongguben": 0.0,
+              "songgu_qianzongguben": 3.0,
+              "peigu_houzongguben": 0.0
+            },
+            {
+              "market": 1,
+              "code": "600519",
+              "datetime": 20040702,
+              "category": 2,
+              "hongli_panqianliutong": 8651.5,
+              "peigujia_qianzongguben": 30250.0,
+              "songgu_qianzongguben": 11246.9501953125,
+              "peigu_houzongguben": 39325.0
+            },
+            {
+              "market": 1,
+              "code": "600519",
+              "datetime": 20050805,
+              "category": 1,
+              "hongli_panqianliutong": 5.0,
+              "peigujia_qianzongguben": 0.0,
+              "songgu_qianzongguben": 2.0,
+              "peigu_houzongguben": 0.0
+            },
+            {
+              "market": 1,
+              "code": "600519",
+              "datetime": 20050808,
+              "category": 2,
+              "hongli_panqianliutong": 11246.9501953125,
+              "peigujia_qianzongguben": 39325.0,
+              "songgu_qianzongguben": 13496.33984375,
+              "peigu_houzongguben": 47190.0
+            },
+            {
+              "market": 1,
+              "code": "600519",
+              "datetime": 20060519,
+              "category": 1,
+              "hongli_panqianliutong": 3.0,
+              "peigujia_qianzongguben": 0.0,
+              "songgu_qianzongguben": 10.0,
+              "peigu_houzongguben": 0.0
+            },
+            {
+              "market": 1,
+              "code": "600519",
+              "datetime": 20060519,
+              "category": 9,
+              "hongli_panqianliutong": 13496.33984375,
+              "peigujia_qianzongguben": 47190.0,
+              "songgu_qianzongguben": 26992.6796875,
+              "peigu_houzongguben": 94380.0
+            },
+            {
+              "market": 1,
+              "code": "600519",
+              "datetime": 20060524,
+              "category": 1,
+              "hongli_panqianliutong": 5.909999847412109,
+              "peigujia_qianzongguben": 0.0,
+              "songgu_qianzongguben": 1.2000000476837158,
+              "peigu_houzongguben": 0.0
+            },
+            {
+              "market": 1,
+              "code": "600519",
+              "datetime": 20060525,
+              "category": 5,
+              "hongli_panqianliutong": 26992.6796875,
+              "peigujia_qianzongguben": 94380.0,
+              "songgu_qianzongguben": 30231.80078125,
+              "peigu_houzongguben": 94380.0
+            },
+            {
+              "market": 1,
+              "code": "600519",
+              "datetime": 20060525,
+              "category": 14,
+              "hongli_panqianliutong": 30.299999237060547,
+              "peigujia_qianzongguben": 0.0,
+              "songgu_qianzongguben": 16.0,
+              "peigu_houzongguben": 0.0
+            },
+            {
+              "market": 1,
+              "code": "600519",
+              "datetime": 20070525,
+              "category": 5,
+              "hongli_panqianliutong": 30231.80078125,
+              "peigujia_qianzongguben": 94380.0,
+              "songgu_qianzongguben": 40793.09765625,
+              "peigu_houzongguben": 94380.0
+            },
+            {
+              "market": 1,
+              "code": "600519",
+              "datetime": 20070713,
+              "category": 1,
+              "hongli_panqianliutong": 7.0,
+              "peigujia_qianzongguben": 0.0,
+              "songgu_qianzongguben": 0.0,
+              "peigu_houzongguben": 0.0
+            },
+            {
+              "market": 1,
+              "code": "600519",
+              "datetime": 20080526,
+              "category": 5,
+              "hongli_panqianliutong": 40793.09765625,
+              "peigujia_qianzongguben": 94380.0,
+              "songgu_qianzongguben": 45512.09765625,
+              "peigu_houzongguben": 94380.0
+            },
+            {
+              "market": 1,
+              "code": "600519",
+              "datetime": 20080616,
+              "category": 1,
+              "hongli_panqianliutong": 8.359999656677246,
+              "peigujia_qianzongguben": 0.0,
+              "songgu_qianzongguben": 0.0,
+              "peigu_houzongguben": 0.0
+            },
+            {
+              "market": 1,
+              "code": "600519",
+              "datetime": 20090525,
+              "category": 3,
+              "hongli_panqianliutong": 45512.09765625,
+              "peigujia_qianzongguben": 94380.0,
+              "songgu_qianzongguben": 94380.0,
+              "peigu_houzongguben": 94380.0
+            },
+            {
+              "market": 1,
+              "code": "600519",
+              "datetime": 20090701,
+              "category": 1,
+              "hongli_panqianliutong": 11.5600004196167,
+              "peigujia_qianzongguben": 0.0,
+              "songgu_qianzongguben": 0.0,
+              "peigu_houzongguben": 0.0
+            },
+            {
+              "market": 1,
+              "code": "600519",
+              "datetime": 20100705,
+              "category": 1,
+              "hongli_panqianliutong": 11.850000381469727,
+              "peigujia_qianzongguben": 0.0,
+              "songgu_qianzongguben": 0.0,
+              "peigu_houzongguben": 0.0
+            },
+            {
+              "market": 1,
+              "code": "600519",
+              "datetime": 20110701,
+              "category": 1,
+              "hongli_panqianliutong": 23.0,
+              "peigujia_qianzongguben": 0.0,
+              "songgu_qianzongguben": 1.0,
+              "peigu_houzongguben": 0.0
+            },
+            {
+              "market": 1,
+              "code": "600519",
+              "datetime": 20110704,
+              "category": 2,
+              "hongli_panqianliutong": 94380.0,
+              "peigujia_qianzongguben": 94380.0,
+              "songgu_qianzongguben": 103818.0,
+              "peigu_houzongguben": 103818.0
+            },
+            {
+              "market": 1,
+              "code": "600519",
+              "datetime": 20120705,
+              "category": 1,
+              "hongli_panqianliutong": 39.970001220703125,
+              "peigujia_qianzongguben": 0.0,
+              "songgu_qianzongguben": 0.0,
+              "peigu_houzongguben": 0.0
+            },
+            {
+              "market": 1,
+              "code": "600519",
+              "datetime": 20130607,
+              "category": 1,
+              "hongli_panqianliutong": 64.19000244140625,
+              "peigujia_qianzongguben": 0.0,
+              "songgu_qianzongguben": 0.0,
+              "peigu_houzongguben": 0.0
+            },
+            {
+              "market": 1,
+              "code": "600519",
+              "datetime": 20140625,
+              "category": 1,
+              "hongli_panqianliutong": 43.7400016784668,
+              "peigujia_qianzongguben": 0.0,
+              "songgu_qianzongguben": 1.0,
+              "peigu_houzongguben": 0.0
+            },
+            {
+              "market": 1,
+              "code": "600519",
+              "datetime": 20140626,
+              "category": 2,
+              "hongli_panqianliutong": 103818.0,
+              "peigujia_qianzongguben": 103818.0,
+              "songgu_qianzongguben": 114199.796875,
+              "peigu_houzongguben": 114199.796875
+            },
+            {
+              "market": 1,
+              "code": "600519",
+              "datetime": 20150717,
+              "category": 1,
+              "hongli_panqianliutong": 43.7400016784668,
+              "peigujia_qianzongguben": 0.0,
+              "songgu_qianzongguben": 1.0,
+              "peigu_houzongguben": 0.0
+            },
+            {
+              "market": 1,
+              "code": "600519",
+              "datetime": 20150720,
+              "category": 2,
+              "hongli_panqianliutong": 114199.796875,
+              "peigujia_qianzongguben": 114199.796875,
+              "songgu_qianzongguben": 125619.78125,
+              "peigu_houzongguben": 125619.78125
+            },
+            {
+              "market": 1,
+              "code": "600519",
+              "datetime": 20160701,
+              "category": 1,
+              "hongli_panqianliutong": 61.709999084472656,
+              "peigujia_qianzongguben": 0.0,
+              "songgu_qianzongguben": 0.0,
+              "peigu_houzongguben": 0.0
+            },
+            {
+              "market": 1,
+              "code": "600519",
+              "datetime": 20170707,
+              "category": 1,
+              "hongli_panqianliutong": 67.87000274658203,
+              "peigujia_qianzongguben": 0.0,
+              "songgu_qianzongguben": 0.0,
+              "peigu_houzongguben": 0.0
+            },
+            {
+              "market": 1,
+              "code": "600519",
+              "datetime": 20180615,
+              "category": 1,
+              "hongli_panqianliutong": 109.98999786376953,
+              "peigujia_qianzongguben": 0.0,
+              "songgu_qianzongguben": 0.0,
+              "peigu_houzongguben": 0.0
+            },
+            {
+              "market": 1,
+              "code": "600519",
+              "datetime": 20190628,
+              "category": 1,
+              "hongli_panqianliutong": 145.38999938964844,
+              "peigujia_qianzongguben": 0.0,
+              "songgu_qianzongguben": 0.0,
+              "peigu_houzongguben": 0.0
+            },
+            {
+              "market": 1,
+              "code": "600519",
+              "datetime": 20200624,
+              "category": 1,
+              "hongli_panqianliutong": 170.25,
+              "peigujia_qianzongguben": 0.0,
+              "songgu_qianzongguben": 0.0,
+              "peigu_houzongguben": 0.0
+            },
+            {
+              "market": 1,
+              "code": "600519",
+              "datetime": 20210625,
+              "category": 1,
+              "hongli_panqianliutong": 192.92999267578125,
+              "peigujia_qianzongguben": 0.0,
+              "songgu_qianzongguben": 0.0,
+              "peigu_houzongguben": 0.0
+            },
+            {
+              "market": 1,
+              "code": "600519",
+              "datetime": 20220630,
+              "category": 1,
+              "hongli_panqianliutong": 216.75,
+              "peigujia_qianzongguben": 0.0,
+              "songgu_qianzongguben": 0.0,
+              "peigu_houzongguben": 0.0
+            },
+            {
+              "market": 1,
+              "code": "600519",
+              "datetime": 20221227,
+              "category": 1,
+              "hongli_panqianliutong": 219.10000610351562,
+              "peigujia_qianzongguben": 0.0,
+              "songgu_qianzongguben": 0.0,
+              "peigu_houzongguben": 0.0
+            },
+            {
+              "market": 1,
+              "code": "600519",
+              "datetime": 20230630,
+              "category": 1,
+              "hongli_panqianliutong": 259.1099853515625,
+              "peigujia_qianzongguben": 0.0,
+              "songgu_qianzongguben": 0.0,
+              "peigu_houzongguben": 0.0
+            },
+            {
+              "market": 1,
+              "code": "600519",
+              "datetime": 20231220,
+              "category": 1,
+              "hongli_panqianliutong": 191.05999755859375,
+              "peigujia_qianzongguben": 0.0,
+              "songgu_qianzongguben": 0.0,
+              "peigu_houzongguben": 0.0
+            },
+            {
+              "market": 1,
+              "code": "600519",
+              "datetime": 20240619,
+              "category": 1,
+              "hongli_panqianliutong": 308.760009765625,
+              "peigujia_qianzongguben": 0.0,
+              "songgu_qianzongguben": 0.0,
+              "peigu_houzongguben": 0.0
+            },
+            {
+              "market": 1,
+              "code": "600519",
+              "datetime": 20241220,
+              "category": 1,
+              "hongli_panqianliutong": 238.82000732421875,
+              "peigujia_qianzongguben": 0.0,
+              "songgu_qianzongguben": 0.0,
+              "peigu_houzongguben": 0.0
+            },
+            {
+              "market": 1,
+              "code": "600519",
+              "datetime": 20250626,
+              "category": 1,
+              "hongli_panqianliutong": 276.7300109863281,
+              "peigujia_qianzongguben": 0.0,
+              "songgu_qianzongguben": 0.0,
+              "peigu_houzongguben": 0.0
+            },
+            {
+              "market": 1,
+              "code": "600519",
+              "datetime": 20250901,
+              "category": 5,
+              "hongli_panqianliutong": 125619.78125,
+              "peigujia_qianzongguben": 125619.78125,
+              "songgu_qianzongguben": 125227.0234375,
+              "peigu_houzongguben": 125227.0234375
+            },
+            {
+              "market": 1,
+              "code": "600519",
+              "datetime": 20251219,
+              "category": 1,
+              "hongli_panqianliutong": 239.57000732421875,
+              "peigujia_qianzongguben": 0.0,
+              "songgu_qianzongguben": 0.0,
+              "peigu_houzongguben": 0.0
+            },
+            {
+              "market": 1,
+              "code": "600519",
+              "datetime": 20260528,
+              "category": 5,
+              "hongli_panqianliutong": 125227.0234375,
+              "peigujia_qianzongguben": 125227.0234375,
+              "songgu_qianzongguben": 125008.15625,
+              "peigu_houzongguben": 125008.15625
+            },
+            {
+              "market": 1,
+              "code": "600519",
+              "datetime": 20260626,
+              "category": 1,
+              "hongli_panqianliutong": 280.2423095703125,
+              "peigujia_qianzongguben": 0.0,
+              "songgu_qianzongguben": 0.0,
+              "peigu_houzongguben": 0.0
+            }
+          ]
+        }
+      }
+    },
+    {
+      "path": "C:\\zd_zxzq_gm\\T0002\\hq_cache\\gbbq",
+      "bytes": 5473261,
+      "sha256": "6a7f908d96bd4790fd082e33ab167a01ae3236c4b18eb3e82f248c5f7bc1f175",
+      "declared_records": 188733,
+      "29_byte_layout_matches": true,
+      "decoded_records": 188733,
+      "fixed_securities": {
+        "600518": {
+          "count": 50,
+          "first_date": 20010525,
+          "last_date": 20250709,
+          "records": [
+            {
+              "market": 1,
+              "code": "600518",
+              "datetime": 20010525,
+              "category": 1,
+              "hongli_panqianliutong": 2.0,
+              "peigujia_qianzongguben": 0.0,
+              "songgu_qianzongguben": 0.0,
+              "peigu_houzongguben": 0.0
+            },
+            {
+              "market": 1,
+              "code": "600518",
+              "datetime": 20020703,
+              "category": 1,
+              "hongli_panqianliutong": 2.0,
+              "peigujia_qianzongguben": 0.0,
+              "songgu_qianzongguben": 0.0,
+              "peigu_houzongguben": 0.0
+            },
+            {
+              "market": 1,
+              "code": "600518",
+              "datetime": 20030610,
+              "category": 1,
+              "hongli_panqianliutong": 2.5,
+              "peigujia_qianzongguben": 0.0,
+              "songgu_qianzongguben": 0.0,
+              "peigu_houzongguben": 0.0
+            },
+            {
+              "market": 1,
+              "code": "600518",
+              "datetime": 20040520,
+              "category": 1,
+              "hongli_panqianliutong": 0.25,
+              "peigujia_qianzongguben": 0.0,
+              "songgu_qianzongguben": 5.0,
+              "peigu_houzongguben": 0.0
+            },
+            {
+              "market": 1,
+              "code": "600518",
+              "datetime": 20040521,
+              "category": 2,
+              "hongli_panqianliutong": 1800.0,
+              "peigujia_qianzongguben": 7080.0,
+              "songgu_qianzongguben": 2700.0,
+              "peigu_houzongguben": 10620.0
+            },
+            {
+              "market": 1,
+              "code": "600518",
+              "datetime": 20050526,
+              "category": 1,
+              "hongli_panqianliutong": 1.5,
+              "peigujia_qianzongguben": 0.0,
+              "songgu_qianzongguben": 0.0,
+              "peigu_houzongguben": 0.0
+            },
+            {
+              "market": 1,
+              "code": "600518",
+              "datetime": 20051025,
+              "category": 1,
+              "hongli_panqianliutong": 0.0,
+              "peigujia_qianzongguben": 0.0,
+              "songgu_qianzongguben": 2.5,
+              "peigu_houzongguben": 0.0
+            },
+            {
+              "market": 1,
+              "code": "600518",
+              "datetime": 20051025,
+              "category": 5,
+              "hongli_panqianliutong": 2700.0,
+              "peigujia_qianzongguben": 10620.0,
+              "songgu_qianzongguben": 3375.0,
+              "peigu_houzongguben": 10620.0
+            },
+            {
+              "market": 1,
+              "code": "600518",
+              "datetime": 20060518,
+              "category": 1,
+              "hongli_panqianliutong": 0.25,
+              "peigujia_qianzongguben": 0.0,
+              "songgu_qianzongguben": 5.0,
+              "peigu_houzongguben": 0.0
+            },
+            {
+              "market": 1,
+              "code": "600518",
+              "datetime": 20060519,
+              "category": 2,
+              "hongli_panqianliutong": 3375.0,
+              "peigujia_qianzongguben": 10620.0,
+              "songgu_qianzongguben": 5062.5,
+              "peigu_houzongguben": 15930.0
+            },
+            {
+              "market": 1,
+              "code": "600518",
+              "datetime": 20060711,
+              "category": 6,
+              "hongli_panqianliutong": 0.0,
+              "peigujia_qianzongguben": 8.399999618530273,
+              "songgu_qianzongguben": 6000.0,
+              "peigu_houzongguben": 0.0
+            },
+            {
+              "market": 1,
+              "code": "600518",
+              "datetime": 20060811,
+              "category": 5,
+              "hongli_panqianliutong": 5062.5,
+              "peigujia_qianzongguben": 15930.0,
+              "songgu_qianzongguben": 9012.5,
+              "peigu_houzongguben": 21930.0
+            },
+            {
+              "market": 1,
+              "code": "600518",
+              "datetime": 20060811,
+              "category": 8,
+              "hongli_panqianliutong": 9012.5,
+              "peigujia_qianzongguben": 21930.0,
+              "songgu_qianzongguben": 11062.5,
+              "peigu_houzongguben": 21930.0
+            },
+            {
+              "market": 1,
+              "code": "600518",
+              "datetime": 20061025,
+              "category": 5,
+              "hongli_panqianliutong": 11062.5,
+              "peigujia_qianzongguben": 21930.0,
+              "songgu_qianzongguben": 14246.5595703125,
+              "peigu_houzongguben": 21930.0
+            },
+            {
+              "market": 1,
+              "code": "600518",
+              "datetime": 20070508,
+              "category": 1,
+              "hongli_panqianliutong": 0.3499999940395355,
+              "peigujia_qianzongguben": 0.0,
+              "songgu_qianzongguben": 10.0,
+              "peigu_houzongguben": 0.0
+            },
+            {
+              "market": 1,
+              "code": "600518",
+              "datetime": 20070509,
+              "category": 5,
+              "hongli_panqianliutong": 14246.5595703125,
+              "peigujia_qianzongguben": 21930.0,
+              "songgu_qianzongguben": 28493.109375,
+              "peigu_houzongguben": 43860.0
+            },
+            {
+              "market": 1,
+              "code": "600518",
+              "datetime": 20070917,
+              "category": 5,
+              "hongli_panqianliutong": 28493.109375,
+              "peigujia_qianzongguben": 43860.0,
+              "songgu_qianzongguben": 35593.109375,
+              "peigu_houzongguben": 50960.0
+            },
+            {
+              "market": 1,
+              "code": "600518",
+              "datetime": 20071025,
+              "category": 5,
+              "hongli_panqianliutong": 35593.11328125,
+              "peigujia_qianzongguben": 50960.0,
+              "songgu_qianzongguben": 37186.11328125,
+              "peigu_houzongguben": 50960.0
+            },
+            {
+              "market": 1,
+              "code": "600518",
+              "datetime": 20080304,
+              "category": 1,
+              "hongli_panqianliutong": 0.11999999731779099,
+              "peigujia_qianzongguben": 0.0,
+              "songgu_qianzongguben": 5.0,
+              "peigu_houzongguben": 0.0
+            },
+            {
+              "market": 1,
+              "code": "600518",
+              "datetime": 20080305,
+              "category": 5,
+              "hongli_panqianliutong": 37186.11328125,
+              "peigujia_qianzongguben": 50960.0,
+              "songgu_qianzongguben": 55779.16796875,
+              "peigu_houzongguben": 76440.0
+            },
+            {
+              "market": 1,
+              "code": "600518",
+              "datetime": 20081027,
+              "category": 5,
+              "hongli_panqianliutong": 55779.16796875,
+              "peigujia_qianzongguben": 76440.0,
+              "songgu_qianzongguben": 76440.0,
+              "peigu_houzongguben": 76440.0
+            },
+            {
+              "market": 1,
+              "code": "600518",
+              "datetime": 20090422,
+              "category": 1,
+              "hongli_panqianliutong": 0.6000000238418579,
+              "peigujia_qianzongguben": 0.0,
+              "songgu_qianzongguben": 10.0,
+              "peigu_houzongguben": 0.0
+            },
+            {
+              "market": 1,
+              "code": "600518",
+              "datetime": 20090423,
+              "category": 2,
+              "hongli_panqianliutong": 76440.0,
+              "peigujia_qianzongguben": 76440.0,
+              "songgu_qianzongguben": 152880.0,
+              "peigu_houzongguben": 152880.0
+            },
+            {
+              "market": 1,
+              "code": "600518",
+              "datetime": 20090525,
+              "category": 5,
+              "hongli_panqianliutong": 152880.0,
+              "peigujia_qianzongguben": 152880.0,
+              "songgu_qianzongguben": 169437.0,
+              "peigu_houzongguben": 169437.0
+            },
+            {
+              "market": 1,
+              "code": "600518",
+              "datetime": 20100524,
+              "category": 1,
+              "hongli_panqianliutong": 0.3499999940395355,
+              "peigujia_qianzongguben": 0.0,
+              "songgu_qianzongguben": 0.0,
+              "peigu_houzongguben": 0.0
+            },
+            {
+              "market": 1,
+              "code": "600518",
+              "datetime": 20110106,
+              "category": 1,
+              "hongli_panqianliutong": 0.0,
+              "peigujia_qianzongguben": 6.880000114440918,
+              "songgu_qianzongguben": 0.0,
+              "peigu_houzongguben": 3.0
+            },
+            {
+              "market": 1,
+              "code": "600518",
+              "datetime": 20110106,
+              "category": 5,
+              "hongli_panqianliutong": 169437.0,
+              "peigujia_qianzongguben": 169437.0,
+              "songgu_qianzongguben": 169437.0,
+              "peigu_houzongguben": 219871.453125
+            },
+            {
+              "market": 1,
+              "code": "600518",
+              "datetime": 20110112,
+              "category": 5,
+              "hongli_panqianliutong": 169437.0,
+              "peigujia_qianzongguben": 219871.453125,
+              "songgu_qianzongguben": 219871.453125,
+              "peigu_houzongguben": 219871.453125
+            },
+            {
+              "market": 1,
+              "code": "600518",
+              "datetime": 20110525,
+              "category": 1,
+              "hongli_panqianliutong": 0.5,
+              "peigujia_qianzongguben": 0.0,
+              "songgu_qianzongguben": 0.0,
+              "peigu_houzongguben": 0.0
+            },
+            {
+              "market": 1,
+              "code": "600518",
+              "datetime": 20120529,
+              "category": 1,
+              "hongli_panqianliutong": 0.5,
+              "peigujia_qianzongguben": 0.0,
+              "songgu_qianzongguben": 0.0,
+              "peigu_houzongguben": 0.0
+            },
+            {
+              "market": 1,
+              "code": "600518",
+              "datetime": 20130726,
+              "category": 1,
+              "hongli_panqianliutong": 2.0,
+              "peigujia_qianzongguben": 0.0,
+              "songgu_qianzongguben": 0.0,
+              "peigu_houzongguben": 0.0
+            },
+            {
+              "market": 1,
+              "code": "600518",
+              "datetime": 20140722,
+              "category": 1,
+              "hongli_panqianliutong": 2.5999999046325684,
+              "peigujia_qianzongguben": 0.0,
+              "songgu_qianzongguben": 0.0,
+              "peigu_houzongguben": 0.0
+            },
+            {
+              "market": 1,
+              "code": "600518",
+              "datetime": 20150616,
+              "category": 1,
+              "hongli_panqianliutong": 3.200000047683716,
+              "peigujia_qianzongguben": 0.0,
+              "songgu_qianzongguben": 10.0,
+              "peigu_houzongguben": 0.0
+            },
+            {
+              "market": 1,
+              "code": "600518",
+              "datetime": 20150617,
+              "category": 2,
+              "hongli_panqianliutong": 219871.453125,
+              "peigujia_qianzongguben": 219871.453125,
+              "songgu_qianzongguben": 439742.90625,
+              "peigu_houzongguben": 439742.90625
+            },
+            {
+              "market": 1,
+              "code": "600518",
+              "datetime": 20160426,
+              "category": 5,
+              "hongli_panqianliutong": 439742.90625,
+              "peigujia_qianzongguben": 439742.90625,
+              "songgu_qianzongguben": 439742.90625,
+              "peigu_houzongguben": 441711.90625
+            },
+            {
+              "market": 1,
+              "code": "600518",
+              "datetime": 20160531,
+              "category": 1,
+              "hongli_panqianliutong": 1.899999976158142,
+              "peigujia_qianzongguben": 0.0,
+              "songgu_qianzongguben": 0.0,
+              "peigu_houzongguben": 0.0
+            },
+            {
+              "market": 1,
+              "code": "600518",
+              "datetime": 20160627,
+              "category": 5,
+              "hongli_panqianliutong": 439742.90625,
+              "peigujia_qianzongguben": 441711.90625,
+              "songgu_qianzongguben": 439742.90625,
+              "peigu_houzongguben": 494722.375
+            },
+            {
+              "market": 1,
+              "code": "600518",
+              "datetime": 20170609,
+              "category": 5,
+              "hongli_panqianliutong": 439742.90625,
+              "peigujia_qianzongguben": 494722.375,
+              "songgu_qianzongguben": 439742.90625,
+              "peigu_houzongguben": 494674.375
+            },
+            {
+              "market": 1,
+              "code": "600518",
+              "datetime": 20170629,
+              "category": 1,
+              "hongli_panqianliutong": 2.049999952316284,
+              "peigujia_qianzongguben": 0.0,
+              "songgu_qianzongguben": 0.0,
+              "peigu_houzongguben": 0.0
+            },
+            {
+              "market": 1,
+              "code": "600518",
+              "datetime": 20170801,
+              "category": 5,
+              "hongli_panqianliutong": 439742.90625,
+              "peigujia_qianzongguben": 494674.375,
+              "songgu_qianzongguben": 440319.1875,
+              "peigu_houzongguben": 494674.375
+            },
+            {
+              "market": 1,
+              "code": "600518",
+              "datetime": 20171222,
+              "category": 5,
+              "hongli_panqianliutong": 440319.1875,
+              "peigujia_qianzongguben": 494674.375,
+              "songgu_qianzongguben": 440319.1875,
+              "peigu_houzongguben": 497425.375
+            },
+            {
+              "market": 1,
+              "code": "600518",
+              "datetime": 20180629,
+              "category": 5,
+              "hongli_panqianliutong": 440319.1875,
+              "peigujia_qianzongguben": 497425.375,
+              "songgu_qianzongguben": 440319.1875,
+              "peigu_houzongguben": 497386.15625
+            },
+            {
+              "market": 1,
+              "code": "600518",
+              "datetime": 20180713,
+              "category": 1,
+              "hongli_panqianliutong": 2.3499999046325684,
+              "peigujia_qianzongguben": 0.0,
+              "songgu_qianzongguben": 0.0,
+              "peigu_houzongguben": 0.0
+            },
+            {
+              "market": 1,
+              "code": "600518",
+              "datetime": 20190415,
+              "category": 5,
+              "hongli_panqianliutong": 440319.1875,
+              "peigujia_qianzongguben": 497386.15625,
+              "songgu_qianzongguben": 440878.6875,
+              "peigu_houzongguben": 497386.15625
+            },
+            {
+              "market": 1,
+              "code": "600518",
+              "datetime": 20190828,
+              "category": 1,
+              "hongli_panqianliutong": 0.23999999463558197,
+              "peigujia_qianzongguben": 0.0,
+              "songgu_qianzongguben": 0.0,
+              "peigu_houzongguben": 0.0
+            },
+            {
+              "market": 1,
+              "code": "600518",
+              "datetime": 20211215,
+              "category": 1,
+              "hongli_panqianliutong": 0.0,
+              "peigujia_qianzongguben": 0.0,
+              "songgu_qianzongguben": 5.800000190734863,
+              "peigu_houzongguben": 0.0
+            },
+            {
+              "market": 1,
+              "code": "600518",
+              "datetime": 20211216,
+              "category": 9,
+              "hongli_panqianliutong": 440878.6875,
+              "peigujia_qianzongguben": 497386.15625,
+              "songgu_qianzongguben": 1329879.25,
+              "peigu_houzongguben": 1386386.625
+            },
+            {
+              "market": 1,
+              "code": "600518",
+              "datetime": 20220222,
+              "category": 5,
+              "hongli_panqianliutong": 1329879.25,
+              "peigujia_qianzongguben": 1386386.625,
+              "songgu_qianzongguben": 1361292.75,
+              "peigu_houzongguben": 1386386.625
+            },
+            {
+              "market": 1,
+              "code": "600518",
+              "datetime": 20250508,
+              "category": 5,
+              "hongli_panqianliutong": 1361292.75,
+              "peigujia_qianzongguben": 1386386.625,
+              "songgu_qianzongguben": 1382235.25,
+              "peigu_houzongguben": 1386386.625
+            },
+            {
+              "market": 1,
+              "code": "600518",
+              "datetime": 20250709,
+              "category": 5,
+              "hongli_panqianliutong": 1382235.25,
+              "peigujia_qianzongguben": 1386386.625,
+              "songgu_qianzongguben": 1382235.25,
+              "peigu_houzongguben": 1382889.625
+            }
+          ]
+        },
+        "600519": {
+          "count": 45,
+          "first_date": 20020725,
+          "last_date": 20260626,
+          "records": [
+            {
+              "market": 1,
+              "code": "600519",
+              "datetime": 20020725,
+              "category": 1,
+              "hongli_panqianliutong": 6.0,
+              "peigujia_qianzongguben": 0.0,
+              "songgu_qianzongguben": 1.0,
+              "peigu_houzongguben": 0.0
+            },
+            {
+              "market": 1,
+              "code": "600519",
+              "datetime": 20020726,
+              "category": 2,
+              "hongli_panqianliutong": 7150.0,
+              "peigujia_qianzongguben": 25000.0,
+              "songgu_qianzongguben": 7865.0,
+              "peigu_houzongguben": 27500.0
+            },
+            {
+              "market": 1,
+              "code": "600519",
+              "datetime": 20030714,
+              "category": 1,
+              "hongli_panqianliutong": 2.0,
+              "peigujia_qianzongguben": 0.0,
+              "songgu_qianzongguben": 1.0,
+              "peigu_houzongguben": 0.0
+            },
+            {
+              "market": 1,
+              "code": "600519",
+              "datetime": 20030715,
+              "category": 2,
+              "hongli_panqianliutong": 7865.0,
+              "peigujia_qianzongguben": 27500.0,
+              "songgu_qianzongguben": 8651.5,
+              "peigu_houzongguben": 30250.0
+            },
+            {
+              "market": 1,
+              "code": "600519",
+              "datetime": 20040701,
+              "category": 1,
+              "hongli_panqianliutong": 3.0,
+              "peigujia_qianzongguben": 0.0,
+              "songgu_qianzongguben": 3.0,
+              "peigu_houzongguben": 0.0
+            },
+            {
+              "market": 1,
+              "code": "600519",
+              "datetime": 20040702,
+              "category": 2,
+              "hongli_panqianliutong": 8651.5,
+              "peigujia_qianzongguben": 30250.0,
+              "songgu_qianzongguben": 11246.9501953125,
+              "peigu_houzongguben": 39325.0
+            },
+            {
+              "market": 1,
+              "code": "600519",
+              "datetime": 20050805,
+              "category": 1,
+              "hongli_panqianliutong": 5.0,
+              "peigujia_qianzongguben": 0.0,
+              "songgu_qianzongguben": 2.0,
+              "peigu_houzongguben": 0.0
+            },
+            {
+              "market": 1,
+              "code": "600519",
+              "datetime": 20050808,
+              "category": 2,
+              "hongli_panqianliutong": 11246.9501953125,
+              "peigujia_qianzongguben": 39325.0,
+              "songgu_qianzongguben": 13496.33984375,
+              "peigu_houzongguben": 47190.0
+            },
+            {
+              "market": 1,
+              "code": "600519",
+              "datetime": 20060519,
+              "category": 1,
+              "hongli_panqianliutong": 3.0,
+              "peigujia_qianzongguben": 0.0,
+              "songgu_qianzongguben": 10.0,
+              "peigu_houzongguben": 0.0
+            },
+            {
+              "market": 1,
+              "code": "600519",
+              "datetime": 20060519,
+              "category": 9,
+              "hongli_panqianliutong": 13496.33984375,
+              "peigujia_qianzongguben": 47190.0,
+              "songgu_qianzongguben": 26992.6796875,
+              "peigu_houzongguben": 94380.0
+            },
+            {
+              "market": 1,
+              "code": "600519",
+              "datetime": 20060524,
+              "category": 1,
+              "hongli_panqianliutong": 5.909999847412109,
+              "peigujia_qianzongguben": 0.0,
+              "songgu_qianzongguben": 1.2000000476837158,
+              "peigu_houzongguben": 0.0
+            },
+            {
+              "market": 1,
+              "code": "600519",
+              "datetime": 20060525,
+              "category": 5,
+              "hongli_panqianliutong": 26992.6796875,
+              "peigujia_qianzongguben": 94380.0,
+              "songgu_qianzongguben": 30231.80078125,
+              "peigu_houzongguben": 94380.0
+            },
+            {
+              "market": 1,
+              "code": "600519",
+              "datetime": 20060525,
+              "category": 14,
+              "hongli_panqianliutong": 30.299999237060547,
+              "peigujia_qianzongguben": 0.0,
+              "songgu_qianzongguben": 16.0,
+              "peigu_houzongguben": 0.0
+            },
+            {
+              "market": 1,
+              "code": "600519",
+              "datetime": 20070525,
+              "category": 5,
+              "hongli_panqianliutong": 30231.80078125,
+              "peigujia_qianzongguben": 94380.0,
+              "songgu_qianzongguben": 40793.09765625,
+              "peigu_houzongguben": 94380.0
+            },
+            {
+              "market": 1,
+              "code": "600519",
+              "datetime": 20070713,
+              "category": 1,
+              "hongli_panqianliutong": 7.0,
+              "peigujia_qianzongguben": 0.0,
+              "songgu_qianzongguben": 0.0,
+              "peigu_houzongguben": 0.0
+            },
+            {
+              "market": 1,
+              "code": "600519",
+              "datetime": 20080526,
+              "category": 5,
+              "hongli_panqianliutong": 40793.09765625,
+              "peigujia_qianzongguben": 94380.0,
+              "songgu_qianzongguben": 45512.09765625,
+              "peigu_houzongguben": 94380.0
+            },
+            {
+              "market": 1,
+              "code": "600519",
+              "datetime": 20080616,
+              "category": 1,
+              "hongli_panqianliutong": 8.359999656677246,
+              "peigujia_qianzongguben": 0.0,
+              "songgu_qianzongguben": 0.0,
+              "peigu_houzongguben": 0.0
+            },
+            {
+              "market": 1,
+              "code": "600519",
+              "datetime": 20090525,
+              "category": 3,
+              "hongli_panqianliutong": 45512.09765625,
+              "peigujia_qianzongguben": 94380.0,
+              "songgu_qianzongguben": 94380.0,
+              "peigu_houzongguben": 94380.0
+            },
+            {
+              "market": 1,
+              "code": "600519",
+              "datetime": 20090701,
+              "category": 1,
+              "hongli_panqianliutong": 11.5600004196167,
+              "peigujia_qianzongguben": 0.0,
+              "songgu_qianzongguben": 0.0,
+              "peigu_houzongguben": 0.0
+            },
+            {
+              "market": 1,
+              "code": "600519",
+              "datetime": 20100705,
+              "category": 1,
+              "hongli_panqianliutong": 11.850000381469727,
+              "peigujia_qianzongguben": 0.0,
+              "songgu_qianzongguben": 0.0,
+              "peigu_houzongguben": 0.0
+            },
+            {
+              "market": 1,
+              "code": "600519",
+              "datetime": 20110701,
+              "category": 1,
+              "hongli_panqianliutong": 23.0,
+              "peigujia_qianzongguben": 0.0,
+              "songgu_qianzongguben": 1.0,
+              "peigu_houzongguben": 0.0
+            },
+            {
+              "market": 1,
+              "code": "600519",
+              "datetime": 20110704,
+              "category": 2,
+              "hongli_panqianliutong": 94380.0,
+              "peigujia_qianzongguben": 94380.0,
+              "songgu_qianzongguben": 103818.0,
+              "peigu_houzongguben": 103818.0
+            },
+            {
+              "market": 1,
+              "code": "600519",
+              "datetime": 20120705,
+              "category": 1,
+              "hongli_panqianliutong": 39.970001220703125,
+              "peigujia_qianzongguben": 0.0,
+              "songgu_qianzongguben": 0.0,
+              "peigu_houzongguben": 0.0
+            },
+            {
+              "market": 1,
+              "code": "600519",
+              "datetime": 20130607,
+              "category": 1,
+              "hongli_panqianliutong": 64.19000244140625,
+              "peigujia_qianzongguben": 0.0,
+              "songgu_qianzongguben": 0.0,
+              "peigu_houzongguben": 0.0
+            },
+            {
+              "market": 1,
+              "code": "600519",
+              "datetime": 20140625,
+              "category": 1,
+              "hongli_panqianliutong": 43.7400016784668,
+              "peigujia_qianzongguben": 0.0,
+              "songgu_qianzongguben": 1.0,
+              "peigu_houzongguben": 0.0
+            },
+            {
+              "market": 1,
+              "code": "600519",
+              "datetime": 20140626,
+              "category": 2,
+              "hongli_panqianliutong": 103818.0,
+              "peigujia_qianzongguben": 103818.0,
+              "songgu_qianzongguben": 114199.796875,
+              "peigu_houzongguben": 114199.796875
+            },
+            {
+              "market": 1,
+              "code": "600519",
+              "datetime": 20150717,
+              "category": 1,
+              "hongli_panqianliutong": 43.7400016784668,
+              "peigujia_qianzongguben": 0.0,
+              "songgu_qianzongguben": 1.0,
+              "peigu_houzongguben": 0.0
+            },
+            {
+              "market": 1,
+              "code": "600519",
+              "datetime": 20150720,
+              "category": 2,
+              "hongli_panqianliutong": 114199.796875,
+              "peigujia_qianzongguben": 114199.796875,
+              "songgu_qianzongguben": 125619.78125,
+              "peigu_houzongguben": 125619.78125
+            },
+            {
+              "market": 1,
+              "code": "600519",
+              "datetime": 20160701,
+              "category": 1,
+              "hongli_panqianliutong": 61.709999084472656,
+              "peigujia_qianzongguben": 0.0,
+              "songgu_qianzongguben": 0.0,
+              "peigu_houzongguben": 0.0
+            },
+            {
+              "market": 1,
+              "code": "600519",
+              "datetime": 20170707,
+              "category": 1,
+              "hongli_panqianliutong": 67.87000274658203,
+              "peigujia_qianzongguben": 0.0,
+              "songgu_qianzongguben": 0.0,
+              "peigu_houzongguben": 0.0
+            },
+            {
+              "market": 1,
+              "code": "600519",
+              "datetime": 20180615,
+              "category": 1,
+              "hongli_panqianliutong": 109.98999786376953,
+              "peigujia_qianzongguben": 0.0,
+              "songgu_qianzongguben": 0.0,
+              "peigu_houzongguben": 0.0
+            },
+            {
+              "market": 1,
+              "code": "600519",
+              "datetime": 20190628,
+              "category": 1,
+              "hongli_panqianliutong": 145.38999938964844,
+              "peigujia_qianzongguben": 0.0,
+              "songgu_qianzongguben": 0.0,
+              "peigu_houzongguben": 0.0
+            },
+            {
+              "market": 1,
+              "code": "600519",
+              "datetime": 20200624,
+              "category": 1,
+              "hongli_panqianliutong": 170.25,
+              "peigujia_qianzongguben": 0.0,
+              "songgu_qianzongguben": 0.0,
+              "peigu_houzongguben": 0.0
+            },
+            {
+              "market": 1,
+              "code": "600519",
+              "datetime": 20210625,
+              "category": 1,
+              "hongli_panqianliutong": 192.92999267578125,
+              "peigujia_qianzongguben": 0.0,
+              "songgu_qianzongguben": 0.0,
+              "peigu_houzongguben": 0.0
+            },
+            {
+              "market": 1,
+              "code": "600519",
+              "datetime": 20220630,
+              "category": 1,
+              "hongli_panqianliutong": 216.75,
+              "peigujia_qianzongguben": 0.0,
+              "songgu_qianzongguben": 0.0,
+              "peigu_houzongguben": 0.0
+            },
+            {
+              "market": 1,
+              "code": "600519",
+              "datetime": 20221227,
+              "category": 1,
+              "hongli_panqianliutong": 219.10000610351562,
+              "peigujia_qianzongguben": 0.0,
+              "songgu_qianzongguben": 0.0,
+              "peigu_houzongguben": 0.0
+            },
+            {
+              "market": 1,
+              "code": "600519",
+              "datetime": 20230630,
+              "category": 1,
+              "hongli_panqianliutong": 259.1099853515625,
+              "peigujia_qianzongguben": 0.0,
+              "songgu_qianzongguben": 0.0,
+              "peigu_houzongguben": 0.0
+            },
+            {
+              "market": 1,
+              "code": "600519",
+              "datetime": 20231220,
+              "category": 1,
+              "hongli_panqianliutong": 191.05999755859375,
+              "peigujia_qianzongguben": 0.0,
+              "songgu_qianzongguben": 0.0,
+              "peigu_houzongguben": 0.0
+            },
+            {
+              "market": 1,
+              "code": "600519",
+              "datetime": 20240619,
+              "category": 1,
+              "hongli_panqianliutong": 308.760009765625,
+              "peigujia_qianzongguben": 0.0,
+              "songgu_qianzongguben": 0.0,
+              "peigu_houzongguben": 0.0
+            },
+            {
+              "market": 1,
+              "code": "600519",
+              "datetime": 20241220,
+              "category": 1,
+              "hongli_panqianliutong": 238.82000732421875,
+              "peigujia_qianzongguben": 0.0,
+              "songgu_qianzongguben": 0.0,
+              "peigu_houzongguben": 0.0
+            },
+            {
+              "market": 1,
+              "code": "600519",
+              "datetime": 20250626,
+              "category": 1,
+              "hongli_panqianliutong": 276.7300109863281,
+              "peigujia_qianzongguben": 0.0,
+              "songgu_qianzongguben": 0.0,
+              "peigu_houzongguben": 0.0
+            },
+            {
+              "market": 1,
+              "code": "600519",
+              "datetime": 20250901,
+              "category": 5,
+              "hongli_panqianliutong": 125619.78125,
+              "peigujia_qianzongguben": 125619.78125,
+              "songgu_qianzongguben": 125227.0234375,
+              "peigu_houzongguben": 125227.0234375
+            },
+            {
+              "market": 1,
+              "code": "600519",
+              "datetime": 20251219,
+              "category": 1,
+              "hongli_panqianliutong": 239.57000732421875,
+              "peigujia_qianzongguben": 0.0,
+              "songgu_qianzongguben": 0.0,
+              "peigu_houzongguben": 0.0
+            },
+            {
+              "market": 1,
+              "code": "600519",
+              "datetime": 20260528,
+              "category": 5,
+              "hongli_panqianliutong": 125227.0234375,
+              "peigujia_qianzongguben": 125227.0234375,
+              "songgu_qianzongguben": 125008.15625,
+              "peigu_houzongguben": 125008.15625
+            },
+            {
+              "market": 1,
+              "code": "600519",
+              "datetime": 20260626,
+              "category": 1,
+              "hongli_panqianliutong": 280.2423095703125,
+              "peigujia_qianzongguben": 0.0,
+              "songgu_qianzongguben": 0.0,
+              "peigu_houzongguben": 0.0
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

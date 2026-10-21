@@ -1,0 +1,47 @@
+[
+  {
+    "file": "official_original_2017.pdf",
+    "range": [
+      6,
+      7
+    ],
+    "stdout": "",
+    "stderr": "Syntax Error: No display font for 'Symbol'\r\nSyntax Error: No display font for 'ArialUnicode'\r\n"
+  },
+  {
+    "file": "official_original_2017.pdf",
+    "range": [
+      106,
+      108
+    ],
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "file": "official_annual_2018.pdf",
+    "range": [
+      6,
+      6
+    ],
+    "stdout": "",
+    "stderr": "Syntax Error: No display font for 'Symbol'\r\nSyntax Error: No display font for 'ArialUnicode'\r\n"
+  },
+  {
+    "file": "official_annual_2018.pdf",
+    "range": [
+      115,
+      117
+    ],
+    "stdout": "",
+    "stderr": "Syntax Error: No display font for 'Symbol'\r\nSyntax Error: No display font for 'ArialUnicode'\r\n"
+  },
+  {
+    "file": "correction_audit_20190430.pdf",
+    "range": [
+      1,
+      11
+    ],
+    "stdout": "",
+    "stderr": ""
+  }
+]

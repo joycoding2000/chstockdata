@@ -1,0 +1,287 @@
+{
+  "comparisons": [
+    {
+      "code": "600519",
+      "table": "benefit",
+      "key": "parent_holder_net_profit",
+      "date": "2023-12-31",
+      "structured_value": "74734071550.7500",
+      "structured_single": "21857854486.6300",
+      "matched_official_columns": [
+        "current"
+      ],
+      "official_values": {
+        "current": "74734071550.75"
+      },
+      "has_disclosure_id_or_vintage": false
+    },
+    {
+      "code": "600519",
+      "table": "benefit",
+      "key": "parent_holder_net_profit",
+      "date": "2024-03-31",
+      "structured_value": "24065262374.1500",
+      "structured_single": "24065262374.1500",
+      "matched_official_columns": [
+        "current"
+      ],
+      "official_values": {
+        "current": "24065262374.15"
+      },
+      "has_disclosure_id_or_vintage": false
+    },
+    {
+      "code": "600519",
+      "table": "benefit",
+      "key": "parent_holder_net_profit",
+      "date": "2022-12-31",
+      "structured_value": "62717467870.1200",
+      "structured_single": "18317652286.5800",
+      "matched_official_columns": [
+        "adjusted"
+      ],
+      "official_values": {
+        "adjusted": "62717467870.12",
+        "unadjusted": "62716443738.27"
+      },
+      "has_disclosure_id_or_vintage": false
+    },
+    {
+      "code": "600519",
+      "table": "cash",
+      "key": "act_cash_flow_net",
+      "date": "2023-12-31",
+      "structured_value": "66593247721.0900",
+      "structured_single": "16591240702.4300",
+      "matched_official_columns": [
+        "current"
+      ],
+      "official_values": {
+        "current": "66593247721.09"
+      },
+      "has_disclosure_id_or_vintage": false
+    },
+    {
+      "code": "600519",
+      "table": "cash",
+      "key": "act_cash_flow_net",
+      "date": "2024-03-31",
+      "structured_value": "9187422415.0900",
+      "structured_single": "9187422415.0900",
+      "matched_official_columns": [
+        "current"
+      ],
+      "official_values": {
+        "current": "9187422415.09"
+      },
+      "has_disclosure_id_or_vintage": false
+    },
+    {
+      "code": "600519",
+      "table": "cash",
+      "key": "act_cash_flow_net",
+      "date": "2022-12-31",
+      "structured_value": "36698595830.0300",
+      "structured_single": "27293258821.2800",
+      "matched_official_columns": [
+        "adjusted",
+        "unadjusted"
+      ],
+      "official_values": {
+        "adjusted": "36698595830.03",
+        "unadjusted": "36698595830.03"
+      },
+      "has_disclosure_id_or_vintage": false
+    },
+    {
+      "code": "600519",
+      "table": "debt",
+      "key": "parent_holder_equity_total",
+      "date": "2023-12-31",
+      "structured_value": "215668571607.4300",
+      "structured_single": "",
+      "matched_official_columns": [
+        "current"
+      ],
+      "official_values": {
+        "current": "215668571607.43"
+      },
+      "has_disclosure_id_or_vintage": false
+    },
+    {
+      "code": "600519",
+      "table": "debt",
+      "key": "parent_holder_equity_total",
+      "date": "2024-03-31",
+      "structured_value": "239731785910.5500",
+      "structured_single": "",
+      "matched_official_columns": [
+        "current"
+      ],
+      "official_values": {
+        "current": "239731785910.55"
+      },
+      "has_disclosure_id_or_vintage": false
+    },
+    {
+      "code": "600519",
+      "table": "debt",
+      "key": "parent_holder_equity_total",
+      "date": "2022-12-31",
+      "structured_value": "197480041239.4600",
+      "structured_single": "",
+      "matched_official_columns": [
+        "adjusted"
+      ],
+      "official_values": {
+        "adjusted": "197480041239.46",
+        "unadjusted": "197506672396.00"
+      },
+      "has_disclosure_id_or_vintage": false
+    },
+    {
+      "code": "000961",
+      "table": "benefit",
+      "key": "parent_holder_net_profit",
+      "date": "2023-12-31",
+      "structured_value": "-5292700162.0100",
+      "structured_single": "-4091011082.2100",
+      "matched_official_columns": [
+        "current"
+      ],
+      "official_values": {
+        "current": "-5292700162.01"
+      },
+      "has_disclosure_id_or_vintage": false
+    },
+    {
+      "code": "000961",
+      "table": "benefit",
+      "key": "parent_holder_net_profit",
+      "date": "2024-03-31",
+      "structured_value": "-600799489.9000",
+      "structured_single": "-600799489.9000",
+      "matched_official_columns": [
+        "current"
+      ],
+      "official_values": {
+        "current": "-600799489.90"
+      },
+      "has_disclosure_id_or_vintage": false
+    },
+    {
+      "code": "000961",
+      "table": "benefit",
+      "key": "parent_holder_net_profit",
+      "date": "2022-12-31",
+      "structured_value": "-9183273202.9500",
+      "structured_single": "-7139338356.4200",
+      "matched_official_columns": [
+        "adjusted"
+      ],
+      "official_values": {
+        "unadjusted": "-9170618058.58",
+        "adjusted": "-9183273202.95"
+      },
+      "has_disclosure_id_or_vintage": false
+    },
+    {
+      "code": "000961",
+      "table": "cash",
+      "key": "act_cash_flow_net",
+      "date": "2023-12-31",
+      "structured_value": "127132640.5000",
+      "structured_single": "-140227810.4600",
+      "matched_official_columns": [
+        "current"
+      ],
+      "official_values": {
+        "current": "127132640.50"
+      },
+      "has_disclosure_id_or_vintage": false
+    },
+    {
+      "code": "000961",
+      "table": "cash",
+      "key": "act_cash_flow_net",
+      "date": "2024-03-31",
+      "structured_value": "23057532.8500",
+      "structured_single": "23057532.8500",
+      "matched_official_columns": [
+        "current"
+      ],
+      "official_values": {
+        "current": "23057532.85"
+      },
+      "has_disclosure_id_or_vintage": false
+    },
+    {
+      "code": "000961",
+      "table": "cash",
+      "key": "act_cash_flow_net",
+      "date": "2022-12-31",
+      "structured_value": "6253316303.1400",
+      "structured_single": "1669957091.1600",
+      "matched_official_columns": [
+        "unadjusted",
+        "adjusted"
+      ],
+      "official_values": {
+        "unadjusted": "6253316303.14",
+        "adjusted": "6253316303.14"
+      },
+      "has_disclosure_id_or_vintage": false
+    },
+    {
+      "code": "000961",
+      "table": "debt",
+      "key": "parent_holder_equity_total",
+      "date": "2023-12-31",
+      "structured_value": "9226697746.7300",
+      "structured_single": "",
+      "matched_official_columns": [
+        "current"
+      ],
+      "official_values": {
+        "current": "9226697746.73"
+      },
+      "has_disclosure_id_or_vintage": false
+    },
+    {
+      "code": "000961",
+      "table": "debt",
+      "key": "parent_holder_equity_total",
+      "date": "2024-03-31",
+      "structured_value": "8580724832.1000",
+      "structured_single": "",
+      "matched_official_columns": [
+        "current"
+      ],
+      "official_values": {
+        "current": "8580724832.10"
+      },
+      "has_disclosure_id_or_vintage": false
+    },
+    {
+      "code": "000961",
+      "table": "debt",
+      "key": "parent_holder_equity_total",
+      "date": "2022-12-31",
+      "structured_value": "14426074702.6100",
+      "structured_single": "",
+      "matched_official_columns": [
+        "adjusted"
+      ],
+      "official_values": {
+        "unadjusted": "14425941059.26",
+        "adjusted": "14426074702.61"
+      },
+      "has_disclosure_id_or_vintage": false
+    }
+  ],
+  "target_current_denominator": 12,
+  "current_value_matches": 12,
+  "base_checks": 6,
+  "machine_json_and_compare_wall_seconds": 0.03629999999975553,
+  "asof_qualification": "NOT_PASSED_CURRENT_STRUCTURED_ROWS_DO_NOT_ENCODE_OLD_VINTAGES"
+}

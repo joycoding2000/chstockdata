@@ -1,0 +1,156 @@
+{
+  "at_utc": "2026-10-21T04:09:26.027Z",
+  "cases": [
+    {
+      "code": "000961",
+      "new_files": 3,
+      "new_pages": 543,
+      "new_bytes": 16192192,
+      "new_download_HTTP_seconds": 1.871465699999817,
+      "new_machine_parse_seconds": 31.368527900000117,
+      "reused_files": 2,
+      "reused_pages": 288,
+      "reused_PDF_bytes": 8580668,
+      "reparse_old_PDF_seconds": "NOT_REPEATED",
+      "V1_saved_body_detection_seconds": 0.11757129999978133,
+      "agent_span": {
+        "case": "000961_versions",
+        "started_at": "2026-10-21T03:58:01.503Z",
+        "task": "Independently locate original/update core facts, inspect whole supplemental notice and changed pages",
+        "finished_at": "2026-10-21T03:59:31.918Z",
+        "observable_wall_seconds": 90.415
+      },
+      "HUMAN_REVIEW_TIME": "NOT_MEASURED"
+    },
+    {
+      "code": "000002",
+      "new_files": 1,
+      "new_pages": 2,
+      "new_bytes": 83408,
+      "new_download_HTTP_seconds": 0.10483290000001944,
+      "new_machine_parse_seconds": 0.039310999999997875,
+      "reused_files": 2,
+      "reused_pages": 338,
+      "reused_PDF_bytes": 11683063,
+      "reparse_old_PDF_seconds": "NOT_REPEATED",
+      "V1_saved_body_detection_seconds": 0.04441249999968022,
+      "agent_span": {
+        "case": "000002_correction",
+        "started_at": "2026-10-21T03:59:31.918Z",
+        "task": "Read both correction pages, distinguish other-issuer historical-report references from Vanke financial facts",
+        "finished_at": "2026-10-21T04:00:51.787Z",
+        "observable_wall_seconds": 79.869
+      },
+      "HUMAN_REVIEW_TIME": "NOT_MEASURED"
+    },
+    {
+      "code": "300750",
+      "new_files": 0,
+      "new_pages": 0,
+      "new_bytes": 0,
+      "new_download_HTTP_seconds": 0,
+      "new_machine_parse_seconds": 0,
+      "reused_files": 2,
+      "reused_pages": 243,
+      "reused_PDF_bytes": 6311673,
+      "reparse_old_PDF_seconds": "NOT_REPEATED",
+      "V1_saved_body_detection_seconds": 0.022494999999935317,
+      "agent_span": {
+        "case": "300750_eps_control",
+        "started_at": "2026-10-21T04:00:51.787Z",
+        "task": "Compare all three monetary comparatives against EPS-specific adjustment narrative using saved R5 pages",
+        "finished_at": "2026-10-21T04:02:45.879Z",
+        "observable_wall_seconds": 114.092
+      },
+      "HUMAN_REVIEW_TIME": "NOT_MEASURED"
+    }
+  ],
+  "new_files": 4,
+  "new_pages": 545,
+  "new_bytes": 16275600,
+  "new_parse_seconds": 31.407838900000115,
+  "http_wall_seconds": 1.9762985999998364,
+  "sleep_seconds": 8.998005000000001,
+  "direct_requests": 4,
+  "web_batches": 2,
+  "V1_metadata_seconds": 0.004132700000127443,
+  "V1_total_detection_seconds": 0.200128100000029,
+  "V2_seconds": 0.04362349999996695,
+  "agent_review_spans": [
+    {
+      "case": "000961_versions",
+      "started_at": "2026-10-21T03:58:01.503Z",
+      "task": "Independently locate original/update core facts, inspect whole supplemental notice and changed pages",
+      "finished_at": "2026-10-21T03:59:31.918Z",
+      "observable_wall_seconds": 90.415
+    },
+    {
+      "case": "000002_correction",
+      "started_at": "2026-10-21T03:59:31.918Z",
+      "task": "Read both correction pages, distinguish other-issuer historical-report references from Vanke financial facts",
+      "finished_at": "2026-10-21T04:00:51.787Z",
+      "observable_wall_seconds": 79.869
+    },
+    {
+      "case": "300750_eps_control",
+      "started_at": "2026-10-21T04:00:51.787Z",
+      "task": "Compare all three monetary comparatives against EPS-specific adjustment narrative using saved R5 pages",
+      "finished_at": "2026-10-21T04:02:45.879Z",
+      "observable_wall_seconds": 114.092
+    },
+    {
+      "case": "asof_completeness",
+      "started_at": "2026-10-21T04:02:45.879Z",
+      "task": "Separate positive anchored facts from unreviewed intervening reports; inspect availability and strict fail-closed cases",
+      "finished_at": "2026-10-21T04:08:01.372Z",
+      "observable_wall_seconds": 315.493
+    },
+    {
+      "case": "cross_case_validation",
+      "started_at": "2026-10-21T04:08:01.372Z",
+      "task": "Investigate failed unit validation, inspect five rendered pages, finalize source/route evidence; not a pure per-issuer operation",
+      "finished_at": "2026-10-21T04:09:01.821Z",
+      "observable_wall_seconds": 60.449
+    }
+  ],
+  "HUMAN_REVIEW_TIME": "NOT_MEASURED",
+  "real_replay_cases": 11,
+  "real_replay_slots": 33,
+  "real_replay_unknown": 15,
+  "not_population_missing_rate": true,
+  "scenario": {
+    "N_assumed": 5000,
+    "F_assumed": 8,
+    "files": 40000,
+    "pure_PDF_parse_hours_from_R5": 83.8453,
+    "source_total_history_gate": "NOT_QUALIFIED",
+    "review_sensitivity": [
+      {
+        "review_share_assumed_NOT_estimated": 0.01,
+        "files": 400,
+        "hours_if_5_min_each": 33.333333333333336,
+        "hours_if_15_min_each": 100
+      },
+      {
+        "review_share_assumed_NOT_estimated": 0.05,
+        "files": 2000,
+        "hours_if_5_min_each": 166.66666666666666,
+        "hours_if_15_min_each": 500
+      },
+      {
+        "review_share_assumed_NOT_estimated": 0.2,
+        "files": 8000,
+        "hours_if_5_min_each": 666.6666666666666,
+        "hours_if_15_min_each": 2000
+      },
+      {
+        "review_share_assumed_NOT_estimated": 1,
+        "files": 40000,
+        "hours_if_5_min_each": 3333.3333333333335,
+        "hours_if_15_min_each": 10000
+      }
+    ],
+    "accepted_human_hours_cap": "NOT_APPROVED",
+    "service_price_or_entitlement": "NOT_OBTAINED"
+  }
+}

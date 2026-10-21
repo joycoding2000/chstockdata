@@ -1,0 +1,52 @@
+{
+  "direct_request_attempts": 16,
+  "response_saved": 13,
+  "local_socket_permission_failures": 3,
+  "same_urls_repeated_reason": "only first three local socket denials were reissued once under read-only approved network access; no origin 4xx/5xx retry",
+  "automatic_retries": 0,
+  "web_batches": 3,
+  "web_budget": 8,
+  "web_calls": [
+    {
+      "batch": 1,
+      "purpose": "official disclosure and XBRL source discovery; no secondary facts adopted"
+    },
+    {
+      "batch": 2,
+      "purpose": "target-specific searches and official XBRL page / financial definition page; latter tool Internal Error"
+    },
+    {
+      "batch": 3,
+      "purpose": "official correction-audit PDF open and SSE XBRL page inspection"
+    }
+  ],
+  "xbrl_observations": {
+    "index_request_parameters_in_ledger": true,
+    "target_index_status": "NORMAL_EMPTY_FOR_TESTED_QUERY_NOT_GLOBAL_ABSENCE",
+    "current_official_cashflow_json": "REAL_SINGLE_2017_ROW_ORIGINAL_VALUES",
+    "raw_xml_instance_obtained": false,
+    "historical_revised_xbrl_instance_obtained": false,
+    "actual_schema_fields": {
+      "S2030_0010": "28766131827.76",
+      "S2030_0130": "943030295.93",
+      "S2030_0140": "29709162123.69",
+      "S2030_0150": "24324394786.49",
+      "S2030_0230": "924659143.7",
+      "S2030_0240": "27866367885.85",
+      "S2030_0250": "1842794237.84"
+    },
+    "vintage_id_or_first_available_at_in_result": false,
+    "asof_qualification": "NOT_PROVEN",
+    "why_stop": "fixed request budget used; official PDFs already support bounded selected-field reconstruction, no guessed XML URLs or infinite search"
+  },
+  "version_chain_check": {
+    "original_query_results": 3,
+    "correction_title_query_results": 3,
+    "annual_2018_query_results": 2,
+    "all_tested_index_responses_hasMore": false,
+    "not_an_exhaustive_all_title_or_fulltext_announcement_search": true,
+    "regulatory_letter_reviewed": "CNINFO:1206201352 / 2019-05-01 asks for further checking; does not supply replacement OCF or complete version chain",
+    "completeness": "UNKNOWN"
+  },
+  "source_access_claim": "Successful official public source responses establish this fixed-case access; no claim of permanent availability or full-universe throughput"
+}

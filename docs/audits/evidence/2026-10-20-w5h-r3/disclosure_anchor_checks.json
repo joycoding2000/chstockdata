@@ -1,0 +1,393 @@
+{
+  "saved_disclosures": {
+    "original_2017.html": {
+      "sha256": "f3bc0297c76a492b7ec0cb04a2eacb0f134c16ffa57fcd215d1632865835a626",
+      "values_present": {
+        "original_FN74": true,
+        "original_FN96": true,
+        "original_FN107": true,
+        "original_FN271": true,
+        "revision_FN74": false,
+        "revision_FN96": false,
+        "revision_FN107": false,
+        "revision_FN271": false
+      }
+    },
+    "correction_2019.html": {
+      "sha256": "32401bcbc41c30a95754300455a12f3e2e0e0668ac303d70b2db6573ffd9af90",
+      "values_present": {
+        "original_FN74": true,
+        "original_FN96": false,
+        "original_FN107": false,
+        "original_FN271": false,
+        "revision_FN74": true,
+        "revision_FN96": false,
+        "revision_FN107": false,
+        "revision_FN271": false
+      }
+    }
+  },
+  "2026q1_saved_ths_candidates": {
+    "benefit": {
+      "source_sha256": "bc8300fae2d0c8112c604cdbce139491d69f1640b75ae0208d1f73d4ccf9100f",
+      "date": "2026-03-31",
+      "candidates": {
+        "exchange_income": {
+          "value": "",
+          "single": "",
+          "yoy": "",
+          "mom": "",
+          "single_yoy": ""
+        },
+        "non_operating_expenses": {
+          "value": "788856.6900",
+          "single": "788856.6900",
+          "yoy": "-0.26703661",
+          "mom": "-0.98407067",
+          "single_yoy": "-0.26703661"
+        },
+        "net_exposure_hedge_income": {
+          "value": "",
+          "single": "",
+          "yoy": "",
+          "mom": "",
+          "single_yoy": ""
+        },
+        "minority_comprehensive_income": {
+          "value": "",
+          "single": "",
+          "yoy": "",
+          "mom": "",
+          "single_yoy": ""
+        },
+        "operating_income_total": {
+          "value": "1079786637.4400",
+          "single": "1079786637.4400",
+          "yoy": "-0.16894609",
+          "mom": "-0.16464723",
+          "single_yoy": "-0.16894609"
+        },
+        "asset_disposal_income": {
+          "value": "34099.9900",
+          "single": "34099.9900",
+          "yoy": "-0.86655174",
+          "mom": "1.02862438",
+          "single_yoy": "-0.86655174"
+        },
+        "invest_income": {
+          "value": "2175106.7800",
+          "single": "2175106.7800",
+          "yoy": "15.20793590",
+          "mom": "-0.96560353",
+          "single_yoy": "15.20793590"
+        },
+        "other_income": {
+          "value": "8839534.2900",
+          "single": "8839534.2900",
+          "yoy": "-0.11677251",
+          "mom": "-0.95022916",
+          "single_yoy": "-0.11677251"
+        },
+        "parent_other_comprehensive_income": {
+          "value": "-15805.9900",
+          "single": "-15805.9900",
+          "yoy": "",
+          "mom": "-0.39478196",
+          "single_yoy": ""
+        },
+        "operating_cost_total_special": {
+          "value": "",
+          "single": "",
+          "yoy": "",
+          "mom": "",
+          "single_yoy": ""
+        },
+        "operating_profit": {
+          "value": "-13331236.0900",
+          "single": "-13331236.0900",
+          "yoy": "-2.01837456",
+          "mom": "-5.06524999",
+          "single_yoy": "-2.01837456"
+        },
+        "associate_invest_income": {
+          "value": "",
+          "single": "",
+          "yoy": "",
+          "mom": "",
+          "single_yoy": ""
+        },
+        "non_operating_income": {
+          "value": "112842.3600",
+          "single": "112842.3600",
+          "yoy": "-0.83096200",
+          "mom": "-0.99807980",
+          "single_yoy": "-0.83096200"
+        },
+        "operating_income_total_special": {
+          "value": "",
+          "single": "",
+          "yoy": "",
+          "mom": "",
+          "single_yoy": ""
+        },
+        "parent_holder_net_profit": {
+          "value": "-16563882.3900",
+          "single": "-16563882.3900",
+          "yoy": "-2.94736719",
+          "mom": "-5.01380133",
+          "single_yoy": "-2.94736719"
+        },
+        "discontinued_operating_net_profit": {
+          "value": "",
+          "single": "",
+          "yoy": "",
+          "mom": "",
+          "single_yoy": ""
+        },
+        "minority_holder_income_loss": {
+          "value": "583184.5500",
+          "single": "583184.5500",
+          "yoy": "0.25988282",
+          "mom": "5.31440837",
+          "single_yoy": "0.25988282"
+        },
+        "charges_commissions_income": {
+          "value": "",
+          "single": "",
+          "yoy": "",
+          "mom": "",
+          "single_yoy": ""
+        },
+        "operating_costs": {
+          "value": "841450632.2100",
+          "single": "841450632.2100",
+          "yoy": "-0.20902781",
+          "mom": "-0.15727124",
+          "single_yoy": "-0.20902781"
+        },
+        "income_tax_expense": {
+          "value": "1973447.4200",
+          "single": "1973447.4200",
+          "yoy": "-0.46855035",
+          "mom": "-0.87003818",
+          "single_yoy": "-0.46855035"
+        },
+        "parent_common_profit_total": {
+          "value": "-16579688.3800",
+          "single": "-16579688.3800",
+          "yoy": "-2.94922546",
+          "mom": "-4.99487489",
+          "single_yoy": "-2.94922546"
+        },
+        "operating_income": {
+          "value": "1079786637.4400",
+          "single": "1079786637.4400",
+          "yoy": "-0.16894609",
+          "mom": "-0.16464723",
+          "single_yoy": "-0.16894609"
+        },
+        "operating_costs_total": {
+          "value": "1098903388.1400",
+          "single": "1098903388.1400",
+          "yoy": "-0.15796938",
+          "mom": "-0.17519991",
+          "single_yoy": "-0.15796938"
+        },
+        "interest_income": {
+          "value": "",
+          "single": "",
+          "yoy": "",
+          "mom": "",
+          "single_yoy": ""
+        },
+        "fair_changes_income": {
+          "value": "-4210.8300",
+          "single": "-4210.8300",
+          "yoy": "-2.52067256",
+          "mom": "-0.12105545",
+          "single_yoy": "-2.52067256"
+        },
+        "financial_interest_income": {
+          "value": "2443440.1600",
+          "single": "2443440.1600",
+          "yoy": "0.56745482",
+          "mom": "-0.50385025",
+          "single_yoy": "0.56745482"
+        }
+      }
+    },
+    "cash": {
+      "source_sha256": "a4b74022c33e4c4a262d78319225bf3c4d7864e124726ebc1a1f3402dbf9408c",
+      "date": "2026-03-31",
+      "candidates": {
+        "operating_activity_cash_outflow_special": {
+          "value": "",
+          "single": "",
+          "yoy": "",
+          "mom": "",
+          "single_yoy": ""
+        },
+        "related_operating_activity_receive_cash": {
+          "value": "16643475.2400",
+          "single": "16643475.2400",
+          "yoy": "-0.63247036",
+          "mom": "0.00643164",
+          "single_yoy": "-0.63247036"
+        },
+        "operating_receivable_decrease": {
+          "value": "",
+          "single": "",
+          "yoy": "",
+          "mom": "",
+          "single_yoy": ""
+        },
+        "pay_other_operating_activity_cash": {
+          "value": "82026611.5900",
+          "single": "82026611.5900",
+          "yoy": "-0.01776341",
+          "mom": "-0.07014304",
+          "single_yoy": "-0.01776341"
+        },
+        "operating_receivable_addition": {
+          "value": "",
+          "single": "",
+          "yoy": "",
+          "mom": "",
+          "single_yoy": ""
+        },
+        "deferred_income_tax_assets_addition": {
+          "value": "",
+          "single": "",
+          "yoy": "",
+          "mom": "",
+          "single_yoy": ""
+        },
+        "operating_activity_cash_inflow": {
+          "value": "",
+          "single": "",
+          "yoy": "",
+          "mom": "",
+          "single_yoy": ""
+        },
+        "received_invest_income_cash": {
+          "value": "",
+          "single": "",
+          "yoy": "",
+          "mom": "",
+          "single_yoy": ""
+        },
+        "deferred_income_tax_assets_decrease": {
+          "value": "",
+          "single": "",
+          "yoy": "",
+          "mom": "",
+          "single_yoy": ""
+        },
+        "indirect_operating_cash_flow_net_special": {
+          "value": "",
+          "single": "",
+          "yoy": "",
+          "mom": "",
+          "single_yoy": ""
+        },
+        "operating_cash_flow_net_special": {
+          "value": "",
+          "single": "",
+          "yoy": "",
+          "mom": "",
+          "single_yoy": ""
+        }
+      }
+    },
+    "debt": {
+      "source_sha256": "bb5b3701ea3add975b1ee9519112e456a379c2c5694df6216278f118a670e84b",
+      "date": "2026-03-31",
+      "candidates": {
+        "equity": {
+          "value": "13828896690.0000",
+          "single": "",
+          "yoy": "-0.00252238",
+          "mom": "",
+          "single_yoy": ""
+        },
+        "other_equity_tools": {
+          "value": "",
+          "single": "",
+          "yoy": "",
+          "mom": "",
+          "single_yoy": ""
+        },
+        "debt_and_equity_total": {
+          "value": "13307286217.1000",
+          "single": "",
+          "yoy": "-0.02964549",
+          "mom": "",
+          "single_yoy": ""
+        },
+        "long_term_equity_investment": {
+          "value": "",
+          "single": "",
+          "yoy": "",
+          "mom": "",
+          "single_yoy": ""
+        },
+        "parent_holder_equity_total": {
+          "value": "7273519463.3300",
+          "single": "",
+          "yoy": "0.01264141",
+          "mom": "",
+          "single_yoy": ""
+        },
+        "other_equity_tools_investment": {
+          "value": "1045458.5700",
+          "single": "",
+          "yoy": "-0.05948927",
+          "mom": "",
+          "single_yoy": ""
+        },
+        "other_comprehensive_income": {
+          "value": "-361053.6200",
+          "single": "-361053.6200",
+          "yoy": "-0.36587773",
+          "mom": "-30.86077409",
+          "single_yoy": "-0.36587773"
+        },
+        "non_current_debt_deferred_income": {
+          "value": "516200756.8800",
+          "single": "",
+          "yoy": "-0.05740687",
+          "mom": "",
+          "single_yoy": ""
+        },
+        "holder_equity_total": {
+          "value": "7309503902.0100",
+          "single": "",
+          "yoy": "0.01271526",
+          "mom": "",
+          "single_yoy": ""
+        },
+        "minority_equity": {
+          "value": "35984438.6800",
+          "single": "",
+          "yoy": "0.02786697",
+          "mom": "",
+          "single_yoy": ""
+        },
+        "current_debt_deferred_income": {
+          "value": "",
+          "single": "",
+          "yoy": "",
+          "mom": "",
+          "single_yoy": ""
+        },
+        "holder_equity_special_account": {
+          "value": "",
+          "single": "",
+          "yoy": "",
+          "mom": "",
+          "single_yoy": ""
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,140 @@
+{
+  "direct_requests": 37,
+  "direct_budget": 42,
+  "direct_failed": 0,
+  "automatic_retries": 0,
+  "manual_network_retries": 0,
+  "saved_network_bytes": 44350577,
+  "HTTP_wall_seconds": 9.091931200018735,
+  "throttle_sleep_seconds": 98.205094,
+  "request_span_wall_seconds": 212.895517,
+  "orchestration_gap_seconds_NOT_human_labor": 105.59849179998128,
+  "target_PDF_count": 10,
+  "target_PDF_bytes": 41359574,
+  "target_PDF_pages": 1439,
+  "target_download_HTTP_wall_seconds": 1.6050154999975348,
+  "additional_identity_PDF": {
+    "file": "000961_delisting_identity.pdf",
+    "url": "https://disc.static.szse.cn/disc/disk03/finalpage/2024-07-09/db94667a-0122-48f5-83e7-c70e0c62523f.PDF",
+    "host": "disc.static.szse.cn",
+    "method": "GET",
+    "form": null,
+    "started_at": "2026-10-20T14:34:38.587666+00:00",
+    "throttle_sleep_seconds": 0,
+    "http_status": 200,
+    "content_type": "application/pdf",
+    "status": "RESPONSE_SAVED",
+    "bytes": 185381,
+    "sha256": "68d8e35cf41c32ab07736045a52eb477980ab1522c29e6c3a60102cf9914776c",
+    "magic_hex": "255044462d312e35",
+    "finished_at": "2026-10-20T14:34:39.207646+00:00",
+    "http_wall_seconds": 0.6199994999988121,
+    "pdf_pages": 2
+  },
+  "machine_parse_wall_seconds": 75.46075849999761,
+  "machine_field_extraction_wall_seconds": 0.07554829999571666,
+  "machine_JSON_comparison_wall_seconds": 0.03629999999975553,
+  "structured_files": 6,
+  "structured_bytes": 2751344,
+  "structured_HTTP_wall_seconds": 3.287256499999785,
+  "matched_two_issuer_PDF_bytes": 12524930,
+  "matched_two_issuer_PDF_parse_seconds": 23.316568699992786,
+  "assisted_review_spans": [
+    {
+      "case": "600519",
+      "start_utc": "2026-10-20T14:35:18.078Z",
+      "task": "Locate and validate six FY2023/Q12024 minimal facts, comparative bases and revision notes",
+      "end_utc": "2026-10-20T14:35:38.605Z",
+      "observable_wall_seconds": 20.527
+    },
+    {
+      "case": "000002",
+      "start_utc": "2026-10-20T14:35:38.605Z",
+      "task": "Locate six current facts and revision/base context",
+      "end_utc": "2026-10-20T14:35:46.255Z",
+      "observable_wall_seconds": 7.65
+    },
+    {
+      "case": "300750",
+      "start_utc": "2026-10-20T14:35:46.255Z",
+      "task": "Locate six current facts and comparative/revision context",
+      "end_utc": "2026-10-20T14:36:04.433Z",
+      "observable_wall_seconds": 18.178
+    },
+    {
+      "case": "601398",
+      "start_utc": "2026-10-20T14:36:04.433Z",
+      "task": "Locate bank consolidated/parent facts, RMB-million units, special accounting and bases",
+      "end_utc": "2026-10-20T14:36:26.656Z",
+      "observable_wall_seconds": 22.223
+    },
+    {
+      "case": "000961",
+      "start_utc": "2026-10-20T14:36:26.656Z",
+      "task": "Verify delisted archive minimal fields and earlier updated-report identities",
+      "end_utc": "2026-10-20T14:36:57.135Z",
+      "observable_wall_seconds": 30.479
+    },
+    {
+      "case": "600518_control",
+      "start_utc": "2026-10-20T14:36:57.135Z",
+      "task": "Recheck prior official file identities and bounded revision counterexample; no new chain search",
+      "end_utc": "2026-10-20T14:38:33.070Z",
+      "observable_wall_seconds": 95.935
+    }
+  ],
+  "paid_human_effort_person_hours": "UNKNOWN_NOT_MEASURED",
+  "human_numeric_transcriptions": 0,
+  "page_label_column_plans_manually_chosen": 10,
+  "production_parser_setup_or_engineering_cost": "NOT_MEASURED_NOT_IMPLEMENTED",
+  "scaling_scenarios": [
+    {
+      "N_assumption_NOT_current_or_historical_pool_count": 5000,
+      "F_scenario_not_frozen_requirement": 6,
+      "original_files_excluding_corrections": 30000,
+      "GB_decimal_using_balanced_sample_mean": 124.078722,
+      "pages_using_balanced_sample_mean": 4317000.0,
+      "single_process_parse_hours_using_local_measurement": 62.88396541666467,
+      "serial_three_second_guard_hours_pdf_and_4_index_identity_calls_per_issuer": 41.665,
+      "all_PDF_human_1_min_per_doc_hours_ASSUMPTION": 500.0,
+      "all_PDF_human_5_min_per_doc_hours_ASSUMPTION": 2500.0
+    },
+    {
+      "N_assumption_NOT_current_or_historical_pool_count": 5000,
+      "F_scenario_not_frozen_requirement": 8,
+      "original_files_excluding_corrections": 40000,
+      "GB_decimal_using_balanced_sample_mean": 165.438296,
+      "pages_using_balanced_sample_mean": 5756000.0,
+      "single_process_parse_hours_using_local_measurement": 83.84528722221957,
+      "serial_three_second_guard_hours_pdf_and_4_index_identity_calls_per_issuer": 49.998333333333335,
+      "all_PDF_human_1_min_per_doc_hours_ASSUMPTION": 666.6666666666666,
+      "all_PDF_human_5_min_per_doc_hours_ASSUMPTION": 3333.3333333333335
+    },
+    {
+      "N_assumption_NOT_current_or_historical_pool_count": 5000,
+      "F_scenario_not_frozen_requirement": 10,
+      "original_files_excluding_corrections": 50000,
+      "GB_decimal_using_balanced_sample_mean": 206.79787,
+      "pages_using_balanced_sample_mean": 7195000.0,
+      "single_process_parse_hours_using_local_measurement": 104.80660902777446,
+      "serial_three_second_guard_hours_pdf_and_4_index_identity_calls_per_issuer": 58.33166666666666,
+      "all_PDF_human_1_min_per_doc_hours_ASSUMPTION": 833.3333333333334,
+      "all_PDF_human_5_min_per_doc_hours_ASSUMPTION": 4166.666666666667
+    }
+  ],
+  "hybrid_exception_sensitivity_for_40000_docs_10_minutes_per_exception_NOT_observed": [
+    {
+      "exception_fraction_assumed": 0.01,
+      "human_hours_scenario": 66.66666666666667
+    },
+    {
+      "exception_fraction_assumed": 0.05,
+      "human_hours_scenario": 333.3333333333333
+    },
+    {
+      "exception_fraction_assumed": 0.2,
+      "human_hours_scenario": 1333.3333333333333
+    }
+  ],
+  "scaling_limit": "No population success rate; balanced annual/Q1 workload is not actual 8-period mix, hence only order-of-magnitude. Current/historical N, actual exceptions, legal capacity, engineering, independent QA and daily PE not measured."
+}

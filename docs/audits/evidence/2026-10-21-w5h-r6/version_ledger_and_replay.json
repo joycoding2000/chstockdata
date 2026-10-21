@@ -1,0 +1,1067 @@
+{
+  "availability_rule": "R4_CANDIDATE_DATE_ONLY_NEXT_REAL_SESSION_CLOSE_NOT_OWNER_FROZEN",
+  "ledger": [
+    {
+      "security_id": "SZ:000961",
+      "financial_period": "2022-12-31",
+      "field_name": "NP",
+      "field_value": "-9170618058.58",
+      "unit": "CNY",
+      "disclosure_id": "1216561621",
+      "disclosure_date": "2023-04-25",
+      "version_identity": "FY2022_MONETARY_ORIGINAL",
+      "source_sha256": "4b102c9d697fc3bb96b61a4a1aaca82924bcf74224cc91006741dd1298db8271",
+      "available_from_candidate": "2023-04-26",
+      "availability_rule": "R4_CANDIDATE_DATE_ONLY_NEXT_REAL_SESSION_CLOSE_NOT_OWNER_FROZEN",
+      "quality_status": "SOURCE_VALUE_CONFIRMED_FIXED_SET_NOT_FULL_CHAIN_CERTIFICATION"
+    },
+    {
+      "security_id": "SZ:000961",
+      "financial_period": "2022-12-31",
+      "field_name": "OCF",
+      "field_value": "6253316303.14",
+      "unit": "CNY",
+      "disclosure_id": "1216561621",
+      "disclosure_date": "2023-04-25",
+      "version_identity": "FY2022_MONETARY_ORIGINAL",
+      "source_sha256": "4b102c9d697fc3bb96b61a4a1aaca82924bcf74224cc91006741dd1298db8271",
+      "available_from_candidate": "2023-04-26",
+      "availability_rule": "R4_CANDIDATE_DATE_ONLY_NEXT_REAL_SESSION_CLOSE_NOT_OWNER_FROZEN",
+      "quality_status": "SOURCE_VALUE_CONFIRMED_FIXED_SET_NOT_FULL_CHAIN_CERTIFICATION"
+    },
+    {
+      "security_id": "SZ:000961",
+      "financial_period": "2022-12-31",
+      "field_name": "EQ",
+      "field_value": "14425941059.26",
+      "unit": "CNY",
+      "disclosure_id": "1216561621",
+      "disclosure_date": "2023-04-25",
+      "version_identity": "FY2022_MONETARY_ORIGINAL",
+      "source_sha256": "4b102c9d697fc3bb96b61a4a1aaca82924bcf74224cc91006741dd1298db8271",
+      "available_from_candidate": "2023-04-26",
+      "availability_rule": "R4_CANDIDATE_DATE_ONLY_NEXT_REAL_SESSION_CLOSE_NOT_OWNER_FROZEN",
+      "quality_status": "SOURCE_VALUE_CONFIRMED_FIXED_SET_NOT_FULL_CHAIN_CERTIFICATION"
+    },
+    {
+      "security_id": "SZ:000961",
+      "financial_period": "2022-12-31",
+      "field_name": "NP",
+      "field_value": "-9183273202.95",
+      "unit": "CNY",
+      "disclosure_id": "1219747877",
+      "disclosure_date": "2024-04-23",
+      "version_identity": "FY2022_COMPARATIVE_ADJUSTED_IN_FY2023",
+      "source_sha256": "c67bafcbefa6125abd0edb8bb8a181cc0fdad4dbb05950a311d7556202089a34",
+      "available_from_candidate": "2024-04-24",
+      "availability_rule": "R4_CANDIDATE_DATE_ONLY_NEXT_REAL_SESSION_CLOSE_NOT_OWNER_FROZEN",
+      "quality_status": "SOURCE_VALUE_CONFIRMED_FIXED_SET_NOT_FULL_CHAIN_CERTIFICATION"
+    },
+    {
+      "security_id": "SZ:000961",
+      "financial_period": "2022-12-31",
+      "field_name": "OCF",
+      "field_value": "6253316303.14",
+      "unit": "CNY",
+      "disclosure_id": "1219747877",
+      "disclosure_date": "2024-04-23",
+      "version_identity": "FY2022_COMPARATIVE_ADJUSTED_IN_FY2023",
+      "source_sha256": "c67bafcbefa6125abd0edb8bb8a181cc0fdad4dbb05950a311d7556202089a34",
+      "available_from_candidate": "2024-04-24",
+      "availability_rule": "R4_CANDIDATE_DATE_ONLY_NEXT_REAL_SESSION_CLOSE_NOT_OWNER_FROZEN",
+      "quality_status": "SOURCE_VALUE_CONFIRMED_FIXED_SET_NOT_FULL_CHAIN_CERTIFICATION"
+    },
+    {
+      "security_id": "SZ:000961",
+      "financial_period": "2022-12-31",
+      "field_name": "EQ",
+      "field_value": "14426074702.61",
+      "unit": "CNY",
+      "disclosure_id": "1219747877",
+      "disclosure_date": "2024-04-23",
+      "version_identity": "FY2022_COMPARATIVE_ADJUSTED_IN_FY2023",
+      "source_sha256": "c67bafcbefa6125abd0edb8bb8a181cc0fdad4dbb05950a311d7556202089a34",
+      "available_from_candidate": "2024-04-24",
+      "availability_rule": "R4_CANDIDATE_DATE_ONLY_NEXT_REAL_SESSION_CLOSE_NOT_OWNER_FROZEN",
+      "quality_status": "SOURCE_VALUE_CONFIRMED_FIXED_SET_NOT_FULL_CHAIN_CERTIFICATION"
+    },
+    {
+      "security_id": "SZ:000002",
+      "financial_period": "2022-12-31",
+      "field_name": "NP",
+      "field_value": "22688551801.52",
+      "unit": "CNY",
+      "disclosure_id": "1219487237",
+      "disclosure_date": "2024-03-29",
+      "version_identity": "FY2022_COMPARATIVE_ADJUSTED_IN_FY2023",
+      "source_sha256": "511a089558610e86605841f39b98f67993bd444c1e23018a204e704706882d0d",
+      "available_from_candidate": "2024-04-01",
+      "availability_rule": "R4_CANDIDATE_DATE_ONLY_NEXT_REAL_SESSION_CLOSE_NOT_OWNER_FROZEN",
+      "quality_status": "SOURCE_VALUE_CONFIRMED_FIXED_SET_NOT_FULL_CHAIN_CERTIFICATION"
+    },
+    {
+      "security_id": "SZ:000002",
+      "financial_period": "2022-12-31",
+      "field_name": "OCF",
+      "field_value": "2750449478.44",
+      "unit": "CNY",
+      "disclosure_id": "1219487237",
+      "disclosure_date": "2024-03-29",
+      "version_identity": "FY2022_COMPARATIVE_ADJUSTED_IN_FY2023",
+      "source_sha256": "511a089558610e86605841f39b98f67993bd444c1e23018a204e704706882d0d",
+      "available_from_candidate": "2024-04-01",
+      "availability_rule": "R4_CANDIDATE_DATE_ONLY_NEXT_REAL_SESSION_CLOSE_NOT_OWNER_FROZEN",
+      "quality_status": "SOURCE_VALUE_CONFIRMED_FIXED_SET_NOT_FULL_CHAIN_CERTIFICATION"
+    },
+    {
+      "security_id": "SZ:000002",
+      "financial_period": "2022-12-31",
+      "field_name": "EQ",
+      "field_value": "243325374922.33",
+      "unit": "CNY",
+      "disclosure_id": "1219487237",
+      "disclosure_date": "2024-03-29",
+      "version_identity": "FY2022_COMPARATIVE_ADJUSTED_IN_FY2023",
+      "source_sha256": "511a089558610e86605841f39b98f67993bd444c1e23018a204e704706882d0d",
+      "available_from_candidate": "2024-04-01",
+      "availability_rule": "R4_CANDIDATE_DATE_ONLY_NEXT_REAL_SESSION_CLOSE_NOT_OWNER_FROZEN",
+      "quality_status": "SOURCE_VALUE_CONFIRMED_FIXED_SET_NOT_FULL_CHAIN_CERTIFICATION"
+    },
+    {
+      "security_id": "SZ:000002",
+      "financial_period": "2023-12-31",
+      "field_name": "NP",
+      "field_value": "12162684368.86",
+      "unit": "CNY",
+      "disclosure_id": "1219487237",
+      "disclosure_date": "2024-03-29",
+      "version_identity": "FY2023_REPORTED_CURRENT",
+      "source_sha256": "511a089558610e86605841f39b98f67993bd444c1e23018a204e704706882d0d",
+      "available_from_candidate": "2024-04-01",
+      "availability_rule": "R4_CANDIDATE_DATE_ONLY_NEXT_REAL_SESSION_CLOSE_NOT_OWNER_FROZEN",
+      "quality_status": "SOURCE_VALUE_CONFIRMED_FIXED_SET_NOT_FULL_CHAIN_CERTIFICATION"
+    },
+    {
+      "security_id": "SZ:000002",
+      "financial_period": "2023-12-31",
+      "field_name": "OCF",
+      "field_value": "3912323920.11",
+      "unit": "CNY",
+      "disclosure_id": "1219487237",
+      "disclosure_date": "2024-03-29",
+      "version_identity": "FY2023_REPORTED_CURRENT",
+      "source_sha256": "511a089558610e86605841f39b98f67993bd444c1e23018a204e704706882d0d",
+      "available_from_candidate": "2024-04-01",
+      "availability_rule": "R4_CANDIDATE_DATE_ONLY_NEXT_REAL_SESSION_CLOSE_NOT_OWNER_FROZEN",
+      "quality_status": "SOURCE_VALUE_CONFIRMED_FIXED_SET_NOT_FULL_CHAIN_CERTIFICATION"
+    },
+    {
+      "security_id": "SZ:000002",
+      "financial_period": "2023-12-31",
+      "field_name": "EQ",
+      "field_value": "250784613404.38",
+      "unit": "CNY",
+      "disclosure_id": "1219487237",
+      "disclosure_date": "2024-03-29",
+      "version_identity": "FY2023_REPORTED_CURRENT",
+      "source_sha256": "511a089558610e86605841f39b98f67993bd444c1e23018a204e704706882d0d",
+      "available_from_candidate": "2024-04-01",
+      "availability_rule": "R4_CANDIDATE_DATE_ONLY_NEXT_REAL_SESSION_CLOSE_NOT_OWNER_FROZEN",
+      "quality_status": "SOURCE_VALUE_CONFIRMED_FIXED_SET_NOT_FULL_CHAIN_CERTIFICATION"
+    },
+    {
+      "security_id": "SZ:300750",
+      "financial_period": "2022-12-31",
+      "field_name": "NP",
+      "field_value": "30729163500.00",
+      "unit": "CNY",
+      "disclosure_id": "1219313047",
+      "disclosure_date": "2024-03-16",
+      "version_identity": "FY2022_EQUAL_MONETARY_COMPARATIVES_EPS_ONLY_DIAGNOSTIC",
+      "source_sha256": "6081f0377617dddb82f900569d6458c278a7ab26697b34c87684188eac083471",
+      "available_from_candidate": "2024-03-18",
+      "availability_rule": "R4_CANDIDATE_DATE_ONLY_NEXT_REAL_SESSION_CLOSE_NOT_OWNER_FROZEN",
+      "quality_status": "SOURCE_VALUE_CONFIRMED_FIXED_SET_NOT_FULL_CHAIN_CERTIFICATION"
+    },
+    {
+      "security_id": "SZ:300750",
+      "financial_period": "2022-12-31",
+      "field_name": "OCF",
+      "field_value": "61208843300.00",
+      "unit": "CNY",
+      "disclosure_id": "1219313047",
+      "disclosure_date": "2024-03-16",
+      "version_identity": "FY2022_EQUAL_MONETARY_COMPARATIVES_EPS_ONLY_DIAGNOSTIC",
+      "source_sha256": "6081f0377617dddb82f900569d6458c278a7ab26697b34c87684188eac083471",
+      "available_from_candidate": "2024-03-18",
+      "availability_rule": "R4_CANDIDATE_DATE_ONLY_NEXT_REAL_SESSION_CLOSE_NOT_OWNER_FROZEN",
+      "quality_status": "SOURCE_VALUE_CONFIRMED_FIXED_SET_NOT_FULL_CHAIN_CERTIFICATION"
+    },
+    {
+      "security_id": "SZ:300750",
+      "financial_period": "2022-12-31",
+      "field_name": "EQ",
+      "field_value": "164481251600.00",
+      "unit": "CNY",
+      "disclosure_id": "1219313047",
+      "disclosure_date": "2024-03-16",
+      "version_identity": "FY2022_EQUAL_MONETARY_COMPARATIVES_EPS_ONLY_DIAGNOSTIC",
+      "source_sha256": "6081f0377617dddb82f900569d6458c278a7ab26697b34c87684188eac083471",
+      "available_from_candidate": "2024-03-18",
+      "availability_rule": "R4_CANDIDATE_DATE_ONLY_NEXT_REAL_SESSION_CLOSE_NOT_OWNER_FROZEN",
+      "quality_status": "SOURCE_VALUE_CONFIRMED_FIXED_SET_NOT_FULL_CHAIN_CERTIFICATION"
+    }
+  ],
+  "metadata_only_non_numeric_events": [
+    {
+      "id": "1217386817",
+      "date": "2023-07-26",
+      "replaces_financial_values": false
+    },
+    {
+      "id": "1217386818",
+      "date": "2023-07-26",
+      "replaces_financial_values": false
+    },
+    {
+      "id": "1221331382",
+      "date": "2024-09-30",
+      "replaces_financial_values": false
+    }
+  ],
+  "known_unreviewed_intervening_reports": [
+    {
+      "code": "000961",
+      "id": "1216696970",
+      "title": "2023年一季度报告",
+      "period": "2023-03-31",
+      "date": "2023-04-29",
+      "url": "https://static.cninfo.com.cn/finalpage/2023-04-29/1216696970.PDF",
+      "queried_kinds": [
+        "periodic"
+      ],
+      "title_only_B0": false,
+      "candidate_reasons": []
+    },
+    {
+      "code": "000961",
+      "id": "1217710575",
+      "title": "2023年半年度报告",
+      "period": "2023-06-30",
+      "date": "2023-08-31",
+      "url": "https://static.cninfo.com.cn/finalpage/2023-08-31/1217710575.PDF",
+      "queried_kinds": [
+        "periodic"
+      ],
+      "title_only_B0": false,
+      "candidate_reasons": []
+    },
+    {
+      "code": "000961",
+      "id": "1218204096",
+      "title": "2023年三季度报告",
+      "period": "2023-09-30",
+      "date": "2023-10-31",
+      "url": "https://static.cninfo.com.cn/finalpage/2023-10-31/1218204096.PDF",
+      "queried_kinds": [
+        "periodic"
+      ],
+      "title_only_B0": false,
+      "candidate_reasons": []
+    }
+  ],
+  "first_actual_adjustment_date": "UNKNOWN_NOT_ASSUMED_TO_BE_FY2023_REPORT_DATE",
+  "tests": [
+    {
+      "test": "before_original",
+      "decision_date": "2023-04-24",
+      "mode": "STRICT_KNOWN_GAP_GUARD",
+      "synthetic_conflict_guard_test": false,
+      "selected": [
+        {
+          "security_id": "SZ:000961",
+          "financial_period": "2022-12-31",
+          "field_name": "NP",
+          "field_value": null,
+          "unit": "CNY",
+          "disclosure_id": null,
+          "disclosure_date": null,
+          "version_identity": "UNKNOWN",
+          "source_sha256": null,
+          "decision_date": "2023-04-24",
+          "availability_rule": "R4_CANDIDATE_DATE_ONLY_NEXT_REAL_SESSION_CLOSE_NOT_OWNER_FROZEN",
+          "quality_status": "UNKNOWN_NO_ELIGIBLE_ORIGINAL",
+          "blocked_by_ids": []
+        },
+        {
+          "security_id": "SZ:000961",
+          "financial_period": "2022-12-31",
+          "field_name": "OCF",
+          "field_value": null,
+          "unit": "CNY",
+          "disclosure_id": null,
+          "disclosure_date": null,
+          "version_identity": "UNKNOWN",
+          "source_sha256": null,
+          "decision_date": "2023-04-24",
+          "availability_rule": "R4_CANDIDATE_DATE_ONLY_NEXT_REAL_SESSION_CLOSE_NOT_OWNER_FROZEN",
+          "quality_status": "UNKNOWN_NO_ELIGIBLE_ORIGINAL",
+          "blocked_by_ids": []
+        },
+        {
+          "security_id": "SZ:000961",
+          "financial_period": "2022-12-31",
+          "field_name": "EQ",
+          "field_value": null,
+          "unit": "CNY",
+          "disclosure_id": null,
+          "disclosure_date": null,
+          "version_identity": "UNKNOWN",
+          "source_sha256": null,
+          "decision_date": "2023-04-24",
+          "availability_rule": "R4_CANDIDATE_DATE_ONLY_NEXT_REAL_SESSION_CLOSE_NOT_OWNER_FROZEN",
+          "quality_status": "UNKNOWN_NO_ELIGIBLE_ORIGINAL",
+          "blocked_by_ids": []
+        }
+      ]
+    },
+    {
+      "test": "first_candidate_session_after_original",
+      "decision_date": "2023-04-26",
+      "mode": "STRICT_KNOWN_GAP_GUARD",
+      "synthetic_conflict_guard_test": false,
+      "selected": [
+        {
+          "security_id": "SZ:000961",
+          "financial_period": "2022-12-31",
+          "field_name": "NP",
+          "field_value": "-9170618058.58",
+          "unit": "CNY",
+          "disclosure_id": "1216561621",
+          "disclosure_date": "2023-04-25",
+          "version_identity": "FY2022_MONETARY_ORIGINAL",
+          "source_sha256": "4b102c9d697fc3bb96b61a4a1aaca82924bcf74224cc91006741dd1298db8271",
+          "available_from_candidate": "2023-04-26",
+          "availability_rule": "R4_CANDIDATE_DATE_ONLY_NEXT_REAL_SESSION_CLOSE_NOT_OWNER_FROZEN",
+          "quality_status": "SELECTED_FIXED_EVIDENCE_SET_ONLY",
+          "decision_date": "2023-04-26"
+        },
+        {
+          "security_id": "SZ:000961",
+          "financial_period": "2022-12-31",
+          "field_name": "OCF",
+          "field_value": "6253316303.14",
+          "unit": "CNY",
+          "disclosure_id": "1216561621",
+          "disclosure_date": "2023-04-25",
+          "version_identity": "FY2022_MONETARY_ORIGINAL",
+          "source_sha256": "4b102c9d697fc3bb96b61a4a1aaca82924bcf74224cc91006741dd1298db8271",
+          "available_from_candidate": "2023-04-26",
+          "availability_rule": "R4_CANDIDATE_DATE_ONLY_NEXT_REAL_SESSION_CLOSE_NOT_OWNER_FROZEN",
+          "quality_status": "SELECTED_FIXED_EVIDENCE_SET_ONLY",
+          "decision_date": "2023-04-26"
+        },
+        {
+          "security_id": "SZ:000961",
+          "financial_period": "2022-12-31",
+          "field_name": "EQ",
+          "field_value": "14425941059.26",
+          "unit": "CNY",
+          "disclosure_id": "1216561621",
+          "disclosure_date": "2023-04-25",
+          "version_identity": "FY2022_MONETARY_ORIGINAL",
+          "source_sha256": "4b102c9d697fc3bb96b61a4a1aaca82924bcf74224cc91006741dd1298db8271",
+          "available_from_candidate": "2023-04-26",
+          "availability_rule": "R4_CANDIDATE_DATE_ONLY_NEXT_REAL_SESSION_CLOSE_NOT_OWNER_FROZEN",
+          "quality_status": "SELECTED_FIXED_EVIDENCE_SET_ONLY",
+          "decision_date": "2023-04-26"
+        }
+      ]
+    },
+    {
+      "test": "before_nonfinancial_update_known_ledger_only",
+      "decision_date": "2023-07-25",
+      "mode": "KNOWN_LEDGER_ONLY_UPPER_BOUND_NOT_REAL_WORLD_PASS",
+      "synthetic_conflict_guard_test": false,
+      "selected": [
+        {
+          "security_id": "SZ:000961",
+          "financial_period": "2022-12-31",
+          "field_name": "NP",
+          "field_value": "-9170618058.58",
+          "unit": "CNY",
+          "disclosure_id": "1216561621",
+          "disclosure_date": "2023-04-25",
+          "version_identity": "FY2022_MONETARY_ORIGINAL",
+          "source_sha256": "4b102c9d697fc3bb96b61a4a1aaca82924bcf74224cc91006741dd1298db8271",
+          "available_from_candidate": "2023-04-26",
+          "availability_rule": "R4_CANDIDATE_DATE_ONLY_NEXT_REAL_SESSION_CLOSE_NOT_OWNER_FROZEN",
+          "quality_status": "SELECTED_FIXED_EVIDENCE_SET_ONLY",
+          "decision_date": "2023-07-25"
+        },
+        {
+          "security_id": "SZ:000961",
+          "financial_period": "2022-12-31",
+          "field_name": "OCF",
+          "field_value": "6253316303.14",
+          "unit": "CNY",
+          "disclosure_id": "1216561621",
+          "disclosure_date": "2023-04-25",
+          "version_identity": "FY2022_MONETARY_ORIGINAL",
+          "source_sha256": "4b102c9d697fc3bb96b61a4a1aaca82924bcf74224cc91006741dd1298db8271",
+          "available_from_candidate": "2023-04-26",
+          "availability_rule": "R4_CANDIDATE_DATE_ONLY_NEXT_REAL_SESSION_CLOSE_NOT_OWNER_FROZEN",
+          "quality_status": "SELECTED_FIXED_EVIDENCE_SET_ONLY",
+          "decision_date": "2023-07-25"
+        },
+        {
+          "security_id": "SZ:000961",
+          "financial_period": "2022-12-31",
+          "field_name": "EQ",
+          "field_value": "14425941059.26",
+          "unit": "CNY",
+          "disclosure_id": "1216561621",
+          "disclosure_date": "2023-04-25",
+          "version_identity": "FY2022_MONETARY_ORIGINAL",
+          "source_sha256": "4b102c9d697fc3bb96b61a4a1aaca82924bcf74224cc91006741dd1298db8271",
+          "available_from_candidate": "2023-04-26",
+          "availability_rule": "R4_CANDIDATE_DATE_ONLY_NEXT_REAL_SESSION_CLOSE_NOT_OWNER_FROZEN",
+          "quality_status": "SELECTED_FIXED_EVIDENCE_SET_ONLY",
+          "decision_date": "2023-07-25"
+        }
+      ]
+    },
+    {
+      "test": "after_nonfinancial_update_known_ledger_only",
+      "decision_date": "2023-07-27",
+      "mode": "KNOWN_LEDGER_ONLY_UPPER_BOUND_NOT_REAL_WORLD_PASS",
+      "synthetic_conflict_guard_test": false,
+      "selected": [
+        {
+          "security_id": "SZ:000961",
+          "financial_period": "2022-12-31",
+          "field_name": "NP",
+          "field_value": "-9170618058.58",
+          "unit": "CNY",
+          "disclosure_id": "1216561621",
+          "disclosure_date": "2023-04-25",
+          "version_identity": "FY2022_MONETARY_ORIGINAL",
+          "source_sha256": "4b102c9d697fc3bb96b61a4a1aaca82924bcf74224cc91006741dd1298db8271",
+          "available_from_candidate": "2023-04-26",
+          "availability_rule": "R4_CANDIDATE_DATE_ONLY_NEXT_REAL_SESSION_CLOSE_NOT_OWNER_FROZEN",
+          "quality_status": "SELECTED_FIXED_EVIDENCE_SET_ONLY",
+          "decision_date": "2023-07-27"
+        },
+        {
+          "security_id": "SZ:000961",
+          "financial_period": "2022-12-31",
+          "field_name": "OCF",
+          "field_value": "6253316303.14",
+          "unit": "CNY",
+          "disclosure_id": "1216561621",
+          "disclosure_date": "2023-04-25",
+          "version_identity": "FY2022_MONETARY_ORIGINAL",
+          "source_sha256": "4b102c9d697fc3bb96b61a4a1aaca82924bcf74224cc91006741dd1298db8271",
+          "available_from_candidate": "2023-04-26",
+          "availability_rule": "R4_CANDIDATE_DATE_ONLY_NEXT_REAL_SESSION_CLOSE_NOT_OWNER_FROZEN",
+          "quality_status": "SELECTED_FIXED_EVIDENCE_SET_ONLY",
+          "decision_date": "2023-07-27"
+        },
+        {
+          "security_id": "SZ:000961",
+          "financial_period": "2022-12-31",
+          "field_name": "EQ",
+          "field_value": "14425941059.26",
+          "unit": "CNY",
+          "disclosure_id": "1216561621",
+          "disclosure_date": "2023-04-25",
+          "version_identity": "FY2022_MONETARY_ORIGINAL",
+          "source_sha256": "4b102c9d697fc3bb96b61a4a1aaca82924bcf74224cc91006741dd1298db8271",
+          "available_from_candidate": "2023-04-26",
+          "availability_rule": "R4_CANDIDATE_DATE_ONLY_NEXT_REAL_SESSION_CLOSE_NOT_OWNER_FROZEN",
+          "quality_status": "SELECTED_FIXED_EVIDENCE_SET_ONLY",
+          "decision_date": "2023-07-27"
+        }
+      ]
+    },
+    {
+      "test": "after_nonfinancial_update_strict_gap",
+      "decision_date": "2023-07-27",
+      "mode": "STRICT_KNOWN_GAP_GUARD",
+      "synthetic_conflict_guard_test": false,
+      "selected": [
+        {
+          "security_id": "SZ:000961",
+          "financial_period": "2022-12-31",
+          "field_name": "NP",
+          "field_value": null,
+          "unit": "CNY",
+          "disclosure_id": null,
+          "disclosure_date": null,
+          "version_identity": "UNKNOWN",
+          "source_sha256": null,
+          "decision_date": "2023-07-27",
+          "availability_rule": "R4_CANDIDATE_DATE_ONLY_NEXT_REAL_SESSION_CLOSE_NOT_OWNER_FROZEN",
+          "quality_status": "UNKNOWN_UNREVIEWED_INTERVENING_REPORTS",
+          "blocked_by_ids": [
+            "1216696970"
+          ]
+        },
+        {
+          "security_id": "SZ:000961",
+          "financial_period": "2022-12-31",
+          "field_name": "OCF",
+          "field_value": null,
+          "unit": "CNY",
+          "disclosure_id": null,
+          "disclosure_date": null,
+          "version_identity": "UNKNOWN",
+          "source_sha256": null,
+          "decision_date": "2023-07-27",
+          "availability_rule": "R4_CANDIDATE_DATE_ONLY_NEXT_REAL_SESSION_CLOSE_NOT_OWNER_FROZEN",
+          "quality_status": "UNKNOWN_UNREVIEWED_INTERVENING_REPORTS",
+          "blocked_by_ids": [
+            "1216696970"
+          ]
+        },
+        {
+          "security_id": "SZ:000961",
+          "financial_period": "2022-12-31",
+          "field_name": "EQ",
+          "field_value": null,
+          "unit": "CNY",
+          "disclosure_id": null,
+          "disclosure_date": null,
+          "version_identity": "UNKNOWN",
+          "source_sha256": null,
+          "decision_date": "2023-07-27",
+          "availability_rule": "R4_CANDIDATE_DATE_ONLY_NEXT_REAL_SESSION_CLOSE_NOT_OWNER_FROZEN",
+          "quality_status": "UNKNOWN_UNREVIEWED_INTERVENING_REPORTS",
+          "blocked_by_ids": [
+            "1216696970"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "on_new_report_date_before_candidate_availability",
+      "decision_date": "2024-04-23",
+      "mode": "STRICT_KNOWN_GAP_GUARD",
+      "synthetic_conflict_guard_test": false,
+      "selected": [
+        {
+          "security_id": "SZ:000961",
+          "financial_period": "2022-12-31",
+          "field_name": "NP",
+          "field_value": null,
+          "unit": "CNY",
+          "disclosure_id": null,
+          "disclosure_date": null,
+          "version_identity": "UNKNOWN",
+          "source_sha256": null,
+          "decision_date": "2024-04-23",
+          "availability_rule": "R4_CANDIDATE_DATE_ONLY_NEXT_REAL_SESSION_CLOSE_NOT_OWNER_FROZEN",
+          "quality_status": "UNKNOWN_UNREVIEWED_INTERVENING_REPORTS",
+          "blocked_by_ids": [
+            "1216696970",
+            "1217710575",
+            "1218204096"
+          ]
+        },
+        {
+          "security_id": "SZ:000961",
+          "financial_period": "2022-12-31",
+          "field_name": "OCF",
+          "field_value": null,
+          "unit": "CNY",
+          "disclosure_id": null,
+          "disclosure_date": null,
+          "version_identity": "UNKNOWN",
+          "source_sha256": null,
+          "decision_date": "2024-04-23",
+          "availability_rule": "R4_CANDIDATE_DATE_ONLY_NEXT_REAL_SESSION_CLOSE_NOT_OWNER_FROZEN",
+          "quality_status": "UNKNOWN_UNREVIEWED_INTERVENING_REPORTS",
+          "blocked_by_ids": [
+            "1216696970",
+            "1217710575",
+            "1218204096"
+          ]
+        },
+        {
+          "security_id": "SZ:000961",
+          "financial_period": "2022-12-31",
+          "field_name": "EQ",
+          "field_value": null,
+          "unit": "CNY",
+          "disclosure_id": null,
+          "disclosure_date": null,
+          "version_identity": "UNKNOWN",
+          "source_sha256": null,
+          "decision_date": "2024-04-23",
+          "availability_rule": "R4_CANDIDATE_DATE_ONLY_NEXT_REAL_SESSION_CLOSE_NOT_OWNER_FROZEN",
+          "quality_status": "UNKNOWN_UNREVIEWED_INTERVENING_REPORTS",
+          "blocked_by_ids": [
+            "1216696970",
+            "1217710575",
+            "1218204096"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "after_confirmed_adjusted_comparative",
+      "decision_date": "2024-04-24",
+      "mode": "STRICT_KNOWN_GAP_GUARD",
+      "synthetic_conflict_guard_test": false,
+      "selected": [
+        {
+          "security_id": "SZ:000961",
+          "financial_period": "2022-12-31",
+          "field_name": "NP",
+          "field_value": "-9183273202.95",
+          "unit": "CNY",
+          "disclosure_id": "1219747877",
+          "disclosure_date": "2024-04-23",
+          "version_identity": "FY2022_COMPARATIVE_ADJUSTED_IN_FY2023",
+          "source_sha256": "c67bafcbefa6125abd0edb8bb8a181cc0fdad4dbb05950a311d7556202089a34",
+          "available_from_candidate": "2024-04-24",
+          "availability_rule": "R4_CANDIDATE_DATE_ONLY_NEXT_REAL_SESSION_CLOSE_NOT_OWNER_FROZEN",
+          "quality_status": "SELECTED_FIXED_EVIDENCE_SET_ONLY",
+          "decision_date": "2024-04-24"
+        },
+        {
+          "security_id": "SZ:000961",
+          "financial_period": "2022-12-31",
+          "field_name": "OCF",
+          "field_value": "6253316303.14",
+          "unit": "CNY",
+          "disclosure_id": "1219747877",
+          "disclosure_date": "2024-04-23",
+          "version_identity": "FY2022_COMPARATIVE_ADJUSTED_IN_FY2023",
+          "source_sha256": "c67bafcbefa6125abd0edb8bb8a181cc0fdad4dbb05950a311d7556202089a34",
+          "available_from_candidate": "2024-04-24",
+          "availability_rule": "R4_CANDIDATE_DATE_ONLY_NEXT_REAL_SESSION_CLOSE_NOT_OWNER_FROZEN",
+          "quality_status": "SELECTED_FIXED_EVIDENCE_SET_ONLY",
+          "decision_date": "2024-04-24"
+        },
+        {
+          "security_id": "SZ:000961",
+          "financial_period": "2022-12-31",
+          "field_name": "EQ",
+          "field_value": "14426074702.61",
+          "unit": "CNY",
+          "disclosure_id": "1219747877",
+          "disclosure_date": "2024-04-23",
+          "version_identity": "FY2022_COMPARATIVE_ADJUSTED_IN_FY2023",
+          "source_sha256": "c67bafcbefa6125abd0edb8bb8a181cc0fdad4dbb05950a311d7556202089a34",
+          "available_from_candidate": "2024-04-24",
+          "availability_rule": "R4_CANDIDATE_DATE_ONLY_NEXT_REAL_SESSION_CLOSE_NOT_OWNER_FROZEN",
+          "quality_status": "SELECTED_FIXED_EVIDENCE_SET_ONLY",
+          "decision_date": "2024-04-24"
+        }
+      ]
+    },
+    {
+      "test": "vanke_before_irrelevant_correction",
+      "decision_date": "2024-09-27",
+      "mode": "STRICT_KNOWN_GAP_GUARD",
+      "synthetic_conflict_guard_test": false,
+      "selected": [
+        {
+          "security_id": "SZ:000002",
+          "financial_period": "2023-12-31",
+          "field_name": "NP",
+          "field_value": "12162684368.86",
+          "unit": "CNY",
+          "disclosure_id": "1219487237",
+          "disclosure_date": "2024-03-29",
+          "version_identity": "FY2023_REPORTED_CURRENT",
+          "source_sha256": "511a089558610e86605841f39b98f67993bd444c1e23018a204e704706882d0d",
+          "available_from_candidate": "2024-04-01",
+          "availability_rule": "R4_CANDIDATE_DATE_ONLY_NEXT_REAL_SESSION_CLOSE_NOT_OWNER_FROZEN",
+          "quality_status": "SELECTED_FIXED_EVIDENCE_SET_ONLY",
+          "decision_date": "2024-09-27"
+        },
+        {
+          "security_id": "SZ:000002",
+          "financial_period": "2023-12-31",
+          "field_name": "OCF",
+          "field_value": "3912323920.11",
+          "unit": "CNY",
+          "disclosure_id": "1219487237",
+          "disclosure_date": "2024-03-29",
+          "version_identity": "FY2023_REPORTED_CURRENT",
+          "source_sha256": "511a089558610e86605841f39b98f67993bd444c1e23018a204e704706882d0d",
+          "available_from_candidate": "2024-04-01",
+          "availability_rule": "R4_CANDIDATE_DATE_ONLY_NEXT_REAL_SESSION_CLOSE_NOT_OWNER_FROZEN",
+          "quality_status": "SELECTED_FIXED_EVIDENCE_SET_ONLY",
+          "decision_date": "2024-09-27"
+        },
+        {
+          "security_id": "SZ:000002",
+          "financial_period": "2023-12-31",
+          "field_name": "EQ",
+          "field_value": "250784613404.38",
+          "unit": "CNY",
+          "disclosure_id": "1219487237",
+          "disclosure_date": "2024-03-29",
+          "version_identity": "FY2023_REPORTED_CURRENT",
+          "source_sha256": "511a089558610e86605841f39b98f67993bd444c1e23018a204e704706882d0d",
+          "available_from_candidate": "2024-04-01",
+          "availability_rule": "R4_CANDIDATE_DATE_ONLY_NEXT_REAL_SESSION_CLOSE_NOT_OWNER_FROZEN",
+          "quality_status": "SELECTED_FIXED_EVIDENCE_SET_ONLY",
+          "decision_date": "2024-09-27"
+        }
+      ]
+    },
+    {
+      "test": "vanke_after_irrelevant_correction",
+      "decision_date": "2024-10-08",
+      "mode": "STRICT_KNOWN_GAP_GUARD",
+      "synthetic_conflict_guard_test": false,
+      "selected": [
+        {
+          "security_id": "SZ:000002",
+          "financial_period": "2023-12-31",
+          "field_name": "NP",
+          "field_value": "12162684368.86",
+          "unit": "CNY",
+          "disclosure_id": "1219487237",
+          "disclosure_date": "2024-03-29",
+          "version_identity": "FY2023_REPORTED_CURRENT",
+          "source_sha256": "511a089558610e86605841f39b98f67993bd444c1e23018a204e704706882d0d",
+          "available_from_candidate": "2024-04-01",
+          "availability_rule": "R4_CANDIDATE_DATE_ONLY_NEXT_REAL_SESSION_CLOSE_NOT_OWNER_FROZEN",
+          "quality_status": "SELECTED_FIXED_EVIDENCE_SET_ONLY",
+          "decision_date": "2024-10-08"
+        },
+        {
+          "security_id": "SZ:000002",
+          "financial_period": "2023-12-31",
+          "field_name": "OCF",
+          "field_value": "3912323920.11",
+          "unit": "CNY",
+          "disclosure_id": "1219487237",
+          "disclosure_date": "2024-03-29",
+          "version_identity": "FY2023_REPORTED_CURRENT",
+          "source_sha256": "511a089558610e86605841f39b98f67993bd444c1e23018a204e704706882d0d",
+          "available_from_candidate": "2024-04-01",
+          "availability_rule": "R4_CANDIDATE_DATE_ONLY_NEXT_REAL_SESSION_CLOSE_NOT_OWNER_FROZEN",
+          "quality_status": "SELECTED_FIXED_EVIDENCE_SET_ONLY",
+          "decision_date": "2024-10-08"
+        },
+        {
+          "security_id": "SZ:000002",
+          "financial_period": "2023-12-31",
+          "field_name": "EQ",
+          "field_value": "250784613404.38",
+          "unit": "CNY",
+          "disclosure_id": "1219487237",
+          "disclosure_date": "2024-03-29",
+          "version_identity": "FY2023_REPORTED_CURRENT",
+          "source_sha256": "511a089558610e86605841f39b98f67993bd444c1e23018a204e704706882d0d",
+          "available_from_candidate": "2024-04-01",
+          "availability_rule": "R4_CANDIDATE_DATE_ONLY_NEXT_REAL_SESSION_CLOSE_NOT_OWNER_FROZEN",
+          "quality_status": "SELECTED_FIXED_EVIDENCE_SET_ONLY",
+          "decision_date": "2024-10-08"
+        }
+      ]
+    },
+    {
+      "test": "missing_vanke_original_never_backfill_from_comparative",
+      "decision_date": "2023-04-26",
+      "mode": "STRICT_KNOWN_GAP_GUARD",
+      "synthetic_conflict_guard_test": false,
+      "selected": [
+        {
+          "security_id": "SZ:000002",
+          "financial_period": "2022-12-31",
+          "field_name": "NP",
+          "field_value": null,
+          "unit": "CNY",
+          "disclosure_id": null,
+          "disclosure_date": null,
+          "version_identity": "UNKNOWN",
+          "source_sha256": null,
+          "decision_date": "2023-04-26",
+          "availability_rule": "R4_CANDIDATE_DATE_ONLY_NEXT_REAL_SESSION_CLOSE_NOT_OWNER_FROZEN",
+          "quality_status": "UNKNOWN_NO_ELIGIBLE_ORIGINAL",
+          "blocked_by_ids": []
+        },
+        {
+          "security_id": "SZ:000002",
+          "financial_period": "2022-12-31",
+          "field_name": "OCF",
+          "field_value": null,
+          "unit": "CNY",
+          "disclosure_id": null,
+          "disclosure_date": null,
+          "version_identity": "UNKNOWN",
+          "source_sha256": null,
+          "decision_date": "2023-04-26",
+          "availability_rule": "R4_CANDIDATE_DATE_ONLY_NEXT_REAL_SESSION_CLOSE_NOT_OWNER_FROZEN",
+          "quality_status": "UNKNOWN_NO_ELIGIBLE_ORIGINAL",
+          "blocked_by_ids": []
+        },
+        {
+          "security_id": "SZ:000002",
+          "financial_period": "2022-12-31",
+          "field_name": "EQ",
+          "field_value": null,
+          "unit": "CNY",
+          "disclosure_id": null,
+          "disclosure_date": null,
+          "version_identity": "UNKNOWN",
+          "source_sha256": null,
+          "decision_date": "2023-04-26",
+          "availability_rule": "R4_CANDIDATE_DATE_ONLY_NEXT_REAL_SESSION_CLOSE_NOT_OWNER_FROZEN",
+          "quality_status": "UNKNOWN_NO_ELIGIBLE_ORIGINAL",
+          "blocked_by_ids": []
+        }
+      ]
+    },
+    {
+      "test": "vanke_comparative_only_after_its_verified_disclosure",
+      "decision_date": "2024-04-01",
+      "mode": "STRICT_KNOWN_GAP_GUARD",
+      "synthetic_conflict_guard_test": false,
+      "selected": [
+        {
+          "security_id": "SZ:000002",
+          "financial_period": "2022-12-31",
+          "field_name": "NP",
+          "field_value": "22688551801.52",
+          "unit": "CNY",
+          "disclosure_id": "1219487237",
+          "disclosure_date": "2024-03-29",
+          "version_identity": "FY2022_COMPARATIVE_ADJUSTED_IN_FY2023",
+          "source_sha256": "511a089558610e86605841f39b98f67993bd444c1e23018a204e704706882d0d",
+          "available_from_candidate": "2024-04-01",
+          "availability_rule": "R4_CANDIDATE_DATE_ONLY_NEXT_REAL_SESSION_CLOSE_NOT_OWNER_FROZEN",
+          "quality_status": "SELECTED_FIXED_EVIDENCE_SET_ONLY",
+          "decision_date": "2024-04-01"
+        },
+        {
+          "security_id": "SZ:000002",
+          "financial_period": "2022-12-31",
+          "field_name": "OCF",
+          "field_value": "2750449478.44",
+          "unit": "CNY",
+          "disclosure_id": "1219487237",
+          "disclosure_date": "2024-03-29",
+          "version_identity": "FY2022_COMPARATIVE_ADJUSTED_IN_FY2023",
+          "source_sha256": "511a089558610e86605841f39b98f67993bd444c1e23018a204e704706882d0d",
+          "available_from_candidate": "2024-04-01",
+          "availability_rule": "R4_CANDIDATE_DATE_ONLY_NEXT_REAL_SESSION_CLOSE_NOT_OWNER_FROZEN",
+          "quality_status": "SELECTED_FIXED_EVIDENCE_SET_ONLY",
+          "decision_date": "2024-04-01"
+        },
+        {
+          "security_id": "SZ:000002",
+          "financial_period": "2022-12-31",
+          "field_name": "EQ",
+          "field_value": "243325374922.33",
+          "unit": "CNY",
+          "disclosure_id": "1219487237",
+          "disclosure_date": "2024-03-29",
+          "version_identity": "FY2022_COMPARATIVE_ADJUSTED_IN_FY2023",
+          "source_sha256": "511a089558610e86605841f39b98f67993bd444c1e23018a204e704706882d0d",
+          "available_from_candidate": "2024-04-01",
+          "availability_rule": "R4_CANDIDATE_DATE_ONLY_NEXT_REAL_SESSION_CLOSE_NOT_OWNER_FROZEN",
+          "quality_status": "SELECTED_FIXED_EVIDENCE_SET_ONLY",
+          "decision_date": "2024-04-01"
+        }
+      ]
+    },
+    {
+      "test": "EPS_control_before_document",
+      "decision_date": "2024-03-15",
+      "mode": "STRICT_KNOWN_GAP_GUARD",
+      "synthetic_conflict_guard_test": false,
+      "selected": [
+        {
+          "security_id": "SZ:300750",
+          "financial_period": "2022-12-31",
+          "field_name": "NP",
+          "field_value": null,
+          "unit": "CNY",
+          "disclosure_id": null,
+          "disclosure_date": null,
+          "version_identity": "UNKNOWN",
+          "source_sha256": null,
+          "decision_date": "2024-03-15",
+          "availability_rule": "R4_CANDIDATE_DATE_ONLY_NEXT_REAL_SESSION_CLOSE_NOT_OWNER_FROZEN",
+          "quality_status": "UNKNOWN_NO_ELIGIBLE_ORIGINAL",
+          "blocked_by_ids": []
+        },
+        {
+          "security_id": "SZ:300750",
+          "financial_period": "2022-12-31",
+          "field_name": "OCF",
+          "field_value": null,
+          "unit": "CNY",
+          "disclosure_id": null,
+          "disclosure_date": null,
+          "version_identity": "UNKNOWN",
+          "source_sha256": null,
+          "decision_date": "2024-03-15",
+          "availability_rule": "R4_CANDIDATE_DATE_ONLY_NEXT_REAL_SESSION_CLOSE_NOT_OWNER_FROZEN",
+          "quality_status": "UNKNOWN_NO_ELIGIBLE_ORIGINAL",
+          "blocked_by_ids": []
+        },
+        {
+          "security_id": "SZ:300750",
+          "financial_period": "2022-12-31",
+          "field_name": "EQ",
+          "field_value": null,
+          "unit": "CNY",
+          "disclosure_id": null,
+          "disclosure_date": null,
+          "version_identity": "UNKNOWN",
+          "source_sha256": null,
+          "decision_date": "2024-03-15",
+          "availability_rule": "R4_CANDIDATE_DATE_ONLY_NEXT_REAL_SESSION_CLOSE_NOT_OWNER_FROZEN",
+          "quality_status": "UNKNOWN_NO_ELIGIBLE_ORIGINAL",
+          "blocked_by_ids": []
+        }
+      ]
+    },
+    {
+      "test": "EPS_control_after_document",
+      "decision_date": "2024-03-18",
+      "mode": "STRICT_KNOWN_GAP_GUARD",
+      "synthetic_conflict_guard_test": false,
+      "selected": [
+        {
+          "security_id": "SZ:300750",
+          "financial_period": "2022-12-31",
+          "field_name": "NP",
+          "field_value": "30729163500.00",
+          "unit": "CNY",
+          "disclosure_id": "1219313047",
+          "disclosure_date": "2024-03-16",
+          "version_identity": "FY2022_EQUAL_MONETARY_COMPARATIVES_EPS_ONLY_DIAGNOSTIC",
+          "source_sha256": "6081f0377617dddb82f900569d6458c278a7ab26697b34c87684188eac083471",
+          "available_from_candidate": "2024-03-18",
+          "availability_rule": "R4_CANDIDATE_DATE_ONLY_NEXT_REAL_SESSION_CLOSE_NOT_OWNER_FROZEN",
+          "quality_status": "SELECTED_FIXED_EVIDENCE_SET_ONLY",
+          "decision_date": "2024-03-18"
+        },
+        {
+          "security_id": "SZ:300750",
+          "financial_period": "2022-12-31",
+          "field_name": "OCF",
+          "field_value": "61208843300.00",
+          "unit": "CNY",
+          "disclosure_id": "1219313047",
+          "disclosure_date": "2024-03-16",
+          "version_identity": "FY2022_EQUAL_MONETARY_COMPARATIVES_EPS_ONLY_DIAGNOSTIC",
+          "source_sha256": "6081f0377617dddb82f900569d6458c278a7ab26697b34c87684188eac083471",
+          "available_from_candidate": "2024-03-18",
+          "availability_rule": "R4_CANDIDATE_DATE_ONLY_NEXT_REAL_SESSION_CLOSE_NOT_OWNER_FROZEN",
+          "quality_status": "SELECTED_FIXED_EVIDENCE_SET_ONLY",
+          "decision_date": "2024-03-18"
+        },
+        {
+          "security_id": "SZ:300750",
+          "financial_period": "2022-12-31",
+          "field_name": "EQ",
+          "field_value": "164481251600.00",
+          "unit": "CNY",
+          "disclosure_id": "1219313047",
+          "disclosure_date": "2024-03-16",
+          "version_identity": "FY2022_EQUAL_MONETARY_COMPARATIVES_EPS_ONLY_DIAGNOSTIC",
+          "source_sha256": "6081f0377617dddb82f900569d6458c278a7ab26697b34c87684188eac083471",
+          "available_from_candidate": "2024-03-18",
+          "availability_rule": "R4_CANDIDATE_DATE_ONLY_NEXT_REAL_SESSION_CLOSE_NOT_OWNER_FROZEN",
+          "quality_status": "SELECTED_FIXED_EVIDENCE_SET_ONLY",
+          "decision_date": "2024-03-18"
+        }
+      ]
+    },
+    {
+      "test": "unresolved_conflict_fail_closed_TEST_ONLY",
+      "decision_date": "2024-04-24",
+      "mode": "STRICT_KNOWN_GAP_GUARD",
+      "synthetic_conflict_guard_test": true,
+      "selected": [
+        {
+          "security_id": "SZ:000961",
+          "financial_period": "2022-12-31",
+          "field_name": "NP",
+          "field_value": null,
+          "unit": "CNY",
+          "disclosure_id": null,
+          "disclosure_date": null,
+          "version_identity": "UNKNOWN",
+          "source_sha256": null,
+          "decision_date": "2024-04-24",
+          "availability_rule": "R4_CANDIDATE_DATE_ONLY_NEXT_REAL_SESSION_CLOSE_NOT_OWNER_FROZEN",
+          "quality_status": "UNKNOWN_SOURCE_CONFLICT_TEST",
+          "blocked_by_ids": []
+        },
+        {
+          "security_id": "SZ:000961",
+          "financial_period": "2022-12-31",
+          "field_name": "OCF",
+          "field_value": null,
+          "unit": "CNY",
+          "disclosure_id": null,
+          "disclosure_date": null,
+          "version_identity": "UNKNOWN",
+          "source_sha256": null,
+          "decision_date": "2024-04-24",
+          "availability_rule": "R4_CANDIDATE_DATE_ONLY_NEXT_REAL_SESSION_CLOSE_NOT_OWNER_FROZEN",
+          "quality_status": "UNKNOWN_SOURCE_CONFLICT_TEST",
+          "blocked_by_ids": []
+        },
+        {
+          "security_id": "SZ:000961",
+          "financial_period": "2022-12-31",
+          "field_name": "EQ",
+          "field_value": null,
+          "unit": "CNY",
+          "disclosure_id": null,
+          "disclosure_date": null,
+          "version_identity": "UNKNOWN",
+          "source_sha256": null,
+          "decision_date": "2024-04-24",
+          "availability_rule": "R4_CANDIDATE_DATE_ONLY_NEXT_REAL_SESSION_CLOSE_NOT_OWNER_FROZEN",
+          "quality_status": "UNKNOWN_SOURCE_CONFLICT_TEST",
+          "blocked_by_ids": []
+        }
+      ]
+    }
+  ],
+  "test_count": 14,
+  "diagnostic_assertions": "PASS_BOUNDED_WITH_EXPLICIT_UNKNOWN_AND_SYNTHETIC_CONFLICT_GUARD",
+  "current_structured_backfill_rejection": [
+    {
+      "field": "NP",
+      "current_structured": "-9183273202.9500",
+      "real_original": "-9170618058.58",
+      "differs": true,
+      "candidate_decision_date": "2023-04-26",
+      "structured_row_admitted_by_absence_of_alert": false
+    },
+    {
+      "field": "OCF",
+      "current_structured": "6253316303.1400",
+      "real_original": "6253316303.14",
+      "differs": false,
+      "candidate_decision_date": "2023-04-26",
+      "structured_row_admitted_by_absence_of_alert": false
+    },
+    {
+      "field": "EQ",
+      "current_structured": "14426074702.6100",
+      "real_original": "14425941059.26",
+      "differs": true,
+      "candidate_decision_date": "2023-04-26",
+      "structured_row_admitted_by_absence_of_alert": false
+    }
+  ],
+  "real_source_conflict_observed": false,
+  "unknown_revision_recall": "NOT_ESTABLISHED",
+  "full_history_gate": "NOT_PASSED"
+}

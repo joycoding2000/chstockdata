@@ -1,0 +1,1360 @@
+{
+  "drives": [
+    "C:/",
+    "D:/",
+    "F:/"
+  ],
+  "max_depth_per_seed": 6,
+  "max_directories": 22000,
+  "max_seconds": 90,
+  "visited": 22000,
+  "elapsed_seconds": 39.47432250000202,
+  "pending_directories": 28308,
+  "queue_exhausted": false,
+  "skipped_names": [
+    "$recycle.bin",
+    ".aws",
+    ".azure",
+    ".cache",
+    ".codegraph",
+    ".codex",
+    ".config",
+    ".git",
+    ".ssh",
+    ".venv",
+    ".vscode",
+    "__pycache__",
+    "appdata",
+    "node_modules",
+    "programdata",
+    "recovery",
+    "system volume information",
+    "windows",
+    "winsxs"
+  ],
+  "found": [
+    {
+      "kind": "vipdoc",
+      "path": "C:\\new_hxzq_hc\\vipdoc"
+    },
+    {
+      "kind": "vipdoc",
+      "path": "C:\\zd_zxzq_gm\\vipdoc"
+    },
+    {
+      "kind": "vipdoc",
+      "path": "D:\\Dev\\Projects\\chstockdata\\tests\\fixtures\\vipdoc"
+    },
+    {
+      "kind": "vipdoc",
+      "path": "D:\\Dev\\Projects\\chstockdata-frozen-v042\\tests\\fixtures\\vipdoc"
+    },
+    {
+      "kind": "vipdoc",
+      "path": "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.pytest_cache\\v042-baseline\\test_adjusted_and_non_daily_pa1\\vipdoc"
+    },
+    {
+      "kind": "vipdoc",
+      "path": "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.pytest_cache\\v042-baseline\\test_canonical_column_contract0\\vipdoc"
+    },
+    {
+      "kind": "vipdoc",
+      "path": "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.pytest_cache\\v042-baseline\\test_data_as_of_is_last_busine0\\vipdoc"
+    },
+    {
+      "kind": "vipdoc",
+      "path": "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.pytest_cache\\v042-baseline\\test_flag_off_keeps_existing_m1\\vipdoc"
+    },
+    {
+      "kind": "vipdoc",
+      "path": "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.pytest_cache\\v042-baseline\\test_get_close_on_date_matches0\\vipdoc"
+    },
+    {
+      "kind": "vipdoc",
+      "path": "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.pytest_cache\\v042-baseline\\test_pre_close_carried_from_vi0\\vipdoc"
+    },
+    {
+      "kind": "vipdoc",
+      "path": "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.pytest_cache\\v042-baseline\\test_refresh_failure_keeps_old0\\vipdoc"
+    },
+    {
+      "kind": "vipdoc",
+      "path": "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.pytest_cache\\v042-baseline\\test_refresh_falls_back_to_htt0\\vipdoc"
+    },
+    {
+      "kind": "vipdoc",
+      "path": "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.pytest_cache\\v042-baseline\\test_refresh_force_ignores_las0\\vipdoc"
+    },
+    {
+      "kind": "vipdoc",
+      "path": "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.pytest_cache\\v042-baseline\\test_refresh_installs_tree_and0\\vipdoc"
+    },
+    {
+      "kind": "vipdoc",
+      "path": "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.pytest_cache\\v042-baseline\\test_refresh_skips_when_source0\\vipdoc"
+    },
+    {
+      "kind": "vipdoc",
+      "path": "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.pytest_cache\\v042-baseline\\test_supplement_suffix_rule_fr0\\vipdoc"
+    },
+    {
+      "kind": "vipdoc",
+      "path": "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.pytest_cache\\v042-baseline\\test_vipdoc_hit_output_contrac0\\vipdoc"
+    },
+    {
+      "kind": "vipdoc",
+      "path": "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.pytest_cache\\v042-baseline\\test_vipdoc_pre_close_and_amou0\\vipdoc"
+    },
+    {
+      "kind": "vipdoc",
+      "path": "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.pytest_cache\\v042-baseline\\test_vipdoc_volume_and_price_p0\\vipdoc"
+    },
+    {
+      "kind": "vipdoc",
+      "path": "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.pytest_cache\\v042-offline-20261008\\test_adjusted_and_non_daily_pa1\\vipdoc"
+    },
+    {
+      "kind": "vipdoc",
+      "path": "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.pytest_cache\\v042-offline-20261008\\test_canonical_column_contract0\\vipdoc"
+    },
+    {
+      "kind": "vipdoc",
+      "path": "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.pytest_cache\\v042-offline-20261008\\test_data_as_of_is_last_busine0\\vipdoc"
+    },
+    {
+      "kind": "vipdoc",
+      "path": "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.pytest_cache\\v042-offline-20261008\\test_flag_off_keeps_existing_m1\\vipdoc"
+    },
+    {
+      "kind": "vipdoc",
+      "path": "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.pytest_cache\\v042-offline-20261008\\test_get_close_on_date_matches0\\vipdoc"
+    },
+    {
+      "kind": "vipdoc",
+      "path": "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.pytest_cache\\v042-offline-20261008\\test_pre_close_carried_from_vi0\\vipdoc"
+    },
+    {
+      "kind": "vipdoc",
+      "path": "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.pytest_cache\\v042-offline-20261008\\test_refresh_failure_keeps_old0\\vipdoc"
+    },
+    {
+      "kind": "vipdoc",
+      "path": "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.pytest_cache\\v042-offline-20261008\\test_refresh_falls_back_to_htt0\\vipdoc"
+    },
+    {
+      "kind": "vipdoc",
+      "path": "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.pytest_cache\\v042-offline-20261008\\test_refresh_force_ignores_las0\\vipdoc"
+    },
+    {
+      "kind": "vipdoc",
+      "path": "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.pytest_cache\\v042-offline-20261008\\test_refresh_installs_tree_and0\\vipdoc"
+    },
+    {
+      "kind": "vipdoc",
+      "path": "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.pytest_cache\\v042-offline-20261008\\test_refresh_skips_when_source0\\vipdoc"
+    },
+    {
+      "kind": "vipdoc",
+      "path": "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.pytest_cache\\v042-offline-20261008\\test_supplement_suffix_rule_fr0\\vipdoc"
+    },
+    {
+      "kind": "vipdoc",
+      "path": "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.pytest_cache\\v042-offline-20261008\\test_vipdoc_hit_output_contrac0\\vipdoc"
+    },
+    {
+      "kind": "vipdoc",
+      "path": "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.pytest_cache\\v042-offline-20261008\\test_vipdoc_pre_close_and_amou0\\vipdoc"
+    },
+    {
+      "kind": "vipdoc",
+      "path": "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.pytest_cache\\v042-offline-20261008\\test_vipdoc_volume_and_price_p0\\vipdoc"
+    },
+    {
+      "kind": "vipdoc",
+      "path": "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.pytest_cache\\v042-target\\test_adjusted_and_non_daily_pa1\\vipdoc"
+    },
+    {
+      "kind": "vipdoc",
+      "path": "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.pytest_cache\\v042-target\\test_canonical_column_contract0\\vipdoc"
+    },
+    {
+      "kind": "vipdoc",
+      "path": "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.pytest_cache\\v042-target\\test_data_as_of_is_last_busine0\\vipdoc"
+    },
+    {
+      "kind": "vipdoc",
+      "path": "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.pytest_cache\\v042-target\\test_flag_off_keeps_existing_m1\\vipdoc"
+    },
+    {
+      "kind": "vipdoc",
+      "path": "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.pytest_cache\\v042-target\\test_get_close_on_date_matches0\\vipdoc"
+    },
+    {
+      "kind": "vipdoc",
+      "path": "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.pytest_cache\\v042-target\\test_pre_close_carried_from_vi0\\vipdoc"
+    },
+    {
+      "kind": "vipdoc",
+      "path": "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.pytest_cache\\v042-target\\test_refresh_failure_keeps_old0\\vipdoc"
+    },
+    {
+      "kind": "vipdoc",
+      "path": "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.pytest_cache\\v042-target\\test_refresh_falls_back_to_htt0\\vipdoc"
+    },
+    {
+      "kind": "vipdoc",
+      "path": "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.pytest_cache\\v042-target\\test_refresh_force_ignores_las0\\vipdoc"
+    },
+    {
+      "kind": "vipdoc",
+      "path": "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.pytest_cache\\v042-target\\test_refresh_installs_tree_and0\\vipdoc"
+    },
+    {
+      "kind": "vipdoc",
+      "path": "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.pytest_cache\\v042-target\\test_refresh_skips_when_source0\\vipdoc"
+    },
+    {
+      "kind": "vipdoc",
+      "path": "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.pytest_cache\\v042-target\\test_supplement_suffix_rule_fr0\\vipdoc"
+    },
+    {
+      "kind": "vipdoc",
+      "path": "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.pytest_cache\\v042-target\\test_vipdoc_hit_output_contrac0\\vipdoc"
+    },
+    {
+      "kind": "vipdoc",
+      "path": "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.pytest_cache\\v042-target\\test_vipdoc_pre_close_and_amou0\\vipdoc"
+    },
+    {
+      "kind": "vipdoc",
+      "path": "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.pytest_cache\\v042-target\\test_vipdoc_volume_and_price_p0\\vipdoc"
+    },
+    {
+      "kind": "vipdoc",
+      "path": "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.pytest_cache\\v042-target-20261008\\test_adjusted_and_non_daily_pa1\\vipdoc"
+    },
+    {
+      "kind": "vipdoc",
+      "path": "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.pytest_cache\\v042-target-20261008\\test_canonical_column_contract0\\vipdoc"
+    },
+    {
+      "kind": "vipdoc",
+      "path": "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.pytest_cache\\v042-target-20261008\\test_data_as_of_is_last_busine0\\vipdoc"
+    },
+    {
+      "kind": "vipdoc",
+      "path": "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.pytest_cache\\v042-target-20261008\\test_flag_off_keeps_existing_m1\\vipdoc"
+    },
+    {
+      "kind": "vipdoc",
+      "path": "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.pytest_cache\\v042-target-20261008\\test_get_close_on_date_matches0\\vipdoc"
+    },
+    {
+      "kind": "vipdoc",
+      "path": "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.pytest_cache\\v042-target-20261008\\test_pre_close_carried_from_vi0\\vipdoc"
+    },
+    {
+      "kind": "vipdoc",
+      "path": "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.pytest_cache\\v042-target-20261008\\test_refresh_failure_keeps_old0\\vipdoc"
+    },
+    {
+      "kind": "vipdoc",
+      "path": "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.pytest_cache\\v042-target-20261008\\test_refresh_falls_back_to_htt0\\vipdoc"
+    },
+    {
+      "kind": "vipdoc",
+      "path": "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.pytest_cache\\v042-target-20261008\\test_refresh_force_ignores_las0\\vipdoc"
+    },
+    {
+      "kind": "vipdoc",
+      "path": "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.pytest_cache\\v042-target-20261008\\test_refresh_installs_tree_and0\\vipdoc"
+    },
+    {
+      "kind": "vipdoc",
+      "path": "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.pytest_cache\\v042-target-20261008\\test_refresh_skips_when_source0\\vipdoc"
+    },
+    {
+      "kind": "vipdoc",
+      "path": "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.pytest_cache\\v042-target-20261008\\test_supplement_suffix_rule_fr0\\vipdoc"
+    },
+    {
+      "kind": "vipdoc",
+      "path": "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.pytest_cache\\v042-target-20261008\\test_vipdoc_hit_output_contrac0\\vipdoc"
+    },
+    {
+      "kind": "vipdoc",
+      "path": "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.pytest_cache\\v042-target-20261008\\test_vipdoc_pre_close_and_amou0\\vipdoc"
+    },
+    {
+      "kind": "vipdoc",
+      "path": "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.pytest_cache\\v042-target-20261008\\test_vipdoc_volume_and_price_p0\\vipdoc"
+    },
+    {
+      "kind": "gpcw",
+      "path": "D:\\Dev\\Projects\\easy_tdx\\examples\\09_file_download\\downloads\\gpcw20260331.zip",
+      "bytes": 5034901,
+      "mtime_utc": "2026-08-25T10:04:51.738875+00:00",
+      "ctime_utc": "2026-08-25T10:04:51.736345+00:00"
+    }
+  ],
+  "day_directories": {
+    "C:\\zd_zxzq_gm\\vipdoc\\bj\\lday": {
+      "count": 326,
+      "samples": [
+        "bj810011.day",
+        "bj810014.day",
+        "bj899050.day"
+      ]
+    },
+    "C:\\zd_zxzq_gm\\vipdoc\\sh\\lday": {
+      "count": 4766,
+      "samples": [
+        "sh000001.day",
+        "sh000002.day",
+        "sh000003.day"
+      ]
+    },
+    "C:\\zd_zxzq_gm\\vipdoc\\sz\\lday": {
+      "count": 4272,
+      "samples": [
+        "sz000001.day",
+        "sz000002.day",
+        "sz000004.day"
+      ]
+    },
+    "D:\\Dev\\Projects\\chstockdata\\.rh3a2-vipdoc\\bj\\lday": {
+      "count": 611,
+      "samples": [
+        "bj430017.day",
+        "bj430047.day",
+        "bj430090.day"
+      ]
+    },
+    "D:\\Dev\\Projects\\chstockdata\\.rh3a2-vipdoc\\sh\\lday": {
+      "count": 5951,
+      "samples": [
+        "sh000001.day",
+        "sh000002.day",
+        "sh000003.day"
+      ]
+    },
+    "D:\\Dev\\Projects\\chstockdata\\.rh3a2-vipdoc\\sz\\lday": {
+      "count": 5864,
+      "samples": [
+        "sz000001.day",
+        "sz000002.day",
+        "sz000003.day"
+      ]
+    },
+    "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.pytest_cache\\v042-baseline\\test_parse_day_file_empty_file0": {
+      "count": 1,
+      "samples": [
+        "sh600519.day"
+      ]
+    },
+    "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.pytest_cache\\v042-baseline\\test_parse_day_file_golden_lay0": {
+      "count": 1,
+      "samples": [
+        "sh600519.day"
+      ]
+    },
+    "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.pytest_cache\\v042-baseline\\test_parse_day_file_sorts_and_0": {
+      "count": 1,
+      "samples": [
+        "sh600519.day"
+      ]
+    },
+    "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.pytest_cache\\v042-correction-20261008\\test_qualified_boundary_and_le0": {
+      "count": 1,
+      "samples": [
+        "sh600519.day"
+      ]
+    },
+    "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.pytest_cache\\v042-correction-20261008\\test_qualified_boundary_and_le1": {
+      "count": 1,
+      "samples": [
+        "sh688001.day"
+      ]
+    },
+    "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.pytest_cache\\v042-correction-20261008\\test_qualified_boundary_and_le10": {
+      "count": 1,
+      "samples": [
+        "bj430001.day"
+      ]
+    },
+    "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.pytest_cache\\v042-correction-20261008\\test_qualified_boundary_and_le11": {
+      "count": 1,
+      "samples": [
+        "bj830001.day"
+      ]
+    },
+    "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.pytest_cache\\v042-correction-20261008\\test_qualified_boundary_and_le12": {
+      "count": 1,
+      "samples": [
+        "sh580001.day"
+      ]
+    },
+    "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.pytest_cache\\v042-correction-20261008\\test_qualified_boundary_and_le13": {
+      "count": 1,
+      "samples": [
+        "sz180001.day"
+      ]
+    },
+    "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.pytest_cache\\v042-correction-20261008\\test_qualified_boundary_and_le14": {
+      "count": 1,
+      "samples": [
+        "sh000001.day"
+      ]
+    },
+    "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.pytest_cache\\v042-correction-20261008\\test_qualified_boundary_and_le15": {
+      "count": 1,
+      "samples": [
+        "sz399001.day"
+      ]
+    },
+    "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.pytest_cache\\v042-correction-20261008\\test_qualified_boundary_and_le16": {
+      "count": 1,
+      "samples": [
+        "sh900001.day"
+      ]
+    },
+    "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.pytest_cache\\v042-correction-20261008\\test_qualified_boundary_and_le17": {
+      "count": 1,
+      "samples": [
+        "sz200001.day"
+      ]
+    },
+    "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.pytest_cache\\v042-correction-20261008\\test_qualified_boundary_and_le18": {
+      "count": 1,
+      "samples": [
+        "sz510300.day"
+      ]
+    },
+    "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.pytest_cache\\v042-correction-20261008\\test_qualified_boundary_and_le19": {
+      "count": 1,
+      "samples": [
+        "sh159915.day"
+      ]
+    },
+    "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.pytest_cache\\v042-correction-20261008\\test_qualified_boundary_and_le2": {
+      "count": 1,
+      "samples": [
+        "sz000001.day"
+      ]
+    },
+    "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.pytest_cache\\v042-correction-20261008\\test_qualified_boundary_and_le20": {
+      "count": 1,
+      "samples": [
+        "bj510300.day"
+      ]
+    },
+    "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.pytest_cache\\v042-correction-20261008\\test_qualified_boundary_and_le21": {
+      "count": 1,
+      "samples": [
+        "xx510300.day"
+      ]
+    },
+    "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.pytest_cache\\v042-correction-20261008\\test_qualified_boundary_and_le22": {
+      "count": 1,
+      "samples": [
+        "510300.day"
+      ]
+    },
+    "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.pytest_cache\\v042-correction-20261008\\test_qualified_boundary_and_le23": {
+      "count": 1,
+      "samples": [
+        "sh51030.day"
+      ]
+    },
+    "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.pytest_cache\\v042-correction-20261008\\test_qualified_boundary_and_le24": {
+      "count": 1,
+      "samples": [
+        "sh5103000.day"
+      ]
+    },
+    "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.pytest_cache\\v042-correction-20261008\\test_qualified_boundary_and_le25": {
+      "count": 1,
+      "samples": [
+        "sh51abcd.day"
+      ]
+    },
+    "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.pytest_cache\\v042-correction-20261008\\test_qualified_boundary_and_le26": {
+      "count": 1,
+      "samples": [
+        "sh５１０３００.day"
+      ]
+    },
+    "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.pytest_cache\\v042-correction-20261008\\test_qualified_boundary_and_le27": {
+      "count": 1,
+      "samples": [
+        "sh510300.extra.day"
+      ]
+    },
+    "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.pytest_cache\\v042-correction-20261008\\test_qualified_boundary_and_le3": {
+      "count": 1,
+      "samples": [
+        "sz300001.day"
+      ]
+    },
+    "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.pytest_cache\\v042-correction-20261008\\test_qualified_boundary_and_le4": {
+      "count": 1,
+      "samples": [
+        "sh500001.day"
+      ]
+    },
+    "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.pytest_cache\\v042-correction-20261008\\test_qualified_boundary_and_le5": {
+      "count": 1,
+      "samples": [
+        "sh510300.day"
+      ]
+    },
+    "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.pytest_cache\\v042-correction-20261008\\test_qualified_boundary_and_le6": {
+      "count": 1,
+      "samples": [
+        "sz159915.day"
+      ]
+    },
+    "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.pytest_cache\\v042-correction-20261008\\test_qualified_boundary_and_le7": {
+      "count": 1,
+      "samples": [
+        "sz160001.day"
+      ]
+    },
+    "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.pytest_cache\\v042-correction-20261008\\test_qualified_boundary_and_le8": {
+      "count": 1,
+      "samples": [
+        "SH510300.day"
+      ]
+    },
+    "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.pytest_cache\\v042-correction-20261008\\test_qualified_boundary_and_le9": {
+      "count": 1,
+      "samples": [
+        "bj920185.day"
+      ]
+    },
+    "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.pytest_cache\\v042-offline-20261008\\test_parse_day_file_empty_file0": {
+      "count": 1,
+      "samples": [
+        "sh600519.day"
+      ]
+    },
+    "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.pytest_cache\\v042-offline-20261008\\test_parse_day_file_golden_lay0": {
+      "count": 1,
+      "samples": [
+        "sh600519.day"
+      ]
+    },
+    "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.pytest_cache\\v042-offline-20261008\\test_parse_day_file_sorts_and_0": {
+      "count": 1,
+      "samples": [
+        "sh600519.day"
+      ]
+    },
+    "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.pytest_cache\\v042-offline-20261008\\test_qualified_boundary_and_le0": {
+      "count": 1,
+      "samples": [
+        "sh600519.day"
+      ]
+    },
+    "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.pytest_cache\\v042-offline-20261008\\test_qualified_boundary_and_le1": {
+      "count": 1,
+      "samples": [
+        "sh688001.day"
+      ]
+    },
+    "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.pytest_cache\\v042-offline-20261008\\test_qualified_boundary_and_le10": {
+      "count": 1,
+      "samples": [
+        "bj430001.day"
+      ]
+    },
+    "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.pytest_cache\\v042-offline-20261008\\test_qualified_boundary_and_le11": {
+      "count": 1,
+      "samples": [
+        "bj830001.day"
+      ]
+    },
+    "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.pytest_cache\\v042-offline-20261008\\test_qualified_boundary_and_le12": {
+      "count": 1,
+      "samples": [
+        "sh580001.day"
+      ]
+    },
+    "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.pytest_cache\\v042-offline-20261008\\test_qualified_boundary_and_le13": {
+      "count": 1,
+      "samples": [
+        "sz180001.day"
+      ]
+    },
+    "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.pytest_cache\\v042-offline-20261008\\test_qualified_boundary_and_le14": {
+      "count": 1,
+      "samples": [
+        "sh000001.day"
+      ]
+    },
+    "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.pytest_cache\\v042-offline-20261008\\test_qualified_boundary_and_le15": {
+      "count": 1,
+      "samples": [
+        "sz399001.day"
+      ]
+    },
+    "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.pytest_cache\\v042-offline-20261008\\test_qualified_boundary_and_le16": {
+      "count": 1,
+      "samples": [
+        "sh900001.day"
+      ]
+    },
+    "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.pytest_cache\\v042-offline-20261008\\test_qualified_boundary_and_le17": {
+      "count": 1,
+      "samples": [
+        "sz200001.day"
+      ]
+    },
+    "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.pytest_cache\\v042-offline-20261008\\test_qualified_boundary_and_le18": {
+      "count": 1,
+      "samples": [
+        "sz510300.day"
+      ]
+    },
+    "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.pytest_cache\\v042-offline-20261008\\test_qualified_boundary_and_le19": {
+      "count": 1,
+      "samples": [
+        "sh159915.day"
+      ]
+    },
+    "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.pytest_cache\\v042-offline-20261008\\test_qualified_boundary_and_le2": {
+      "count": 1,
+      "samples": [
+        "sz000001.day"
+      ]
+    },
+    "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.pytest_cache\\v042-offline-20261008\\test_qualified_boundary_and_le20": {
+      "count": 1,
+      "samples": [
+        "bj510300.day"
+      ]
+    },
+    "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.pytest_cache\\v042-offline-20261008\\test_qualified_boundary_and_le21": {
+      "count": 1,
+      "samples": [
+        "xx510300.day"
+      ]
+    },
+    "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.pytest_cache\\v042-offline-20261008\\test_qualified_boundary_and_le22": {
+      "count": 1,
+      "samples": [
+        "510300.day"
+      ]
+    },
+    "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.pytest_cache\\v042-offline-20261008\\test_qualified_boundary_and_le23": {
+      "count": 1,
+      "samples": [
+        "sh51030.day"
+      ]
+    },
+    "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.pytest_cache\\v042-offline-20261008\\test_qualified_boundary_and_le24": {
+      "count": 1,
+      "samples": [
+        "sh5103000.day"
+      ]
+    },
+    "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.pytest_cache\\v042-offline-20261008\\test_qualified_boundary_and_le25": {
+      "count": 1,
+      "samples": [
+        "sh51abcd.day"
+      ]
+    },
+    "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.pytest_cache\\v042-offline-20261008\\test_qualified_boundary_and_le26": {
+      "count": 1,
+      "samples": [
+        "sh５１０３００.day"
+      ]
+    },
+    "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.pytest_cache\\v042-offline-20261008\\test_qualified_boundary_and_le27": {
+      "count": 1,
+      "samples": [
+        "sh510300.extra.day"
+      ]
+    },
+    "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.pytest_cache\\v042-offline-20261008\\test_qualified_boundary_and_le3": {
+      "count": 1,
+      "samples": [
+        "sz300001.day"
+      ]
+    },
+    "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.pytest_cache\\v042-offline-20261008\\test_qualified_boundary_and_le4": {
+      "count": 1,
+      "samples": [
+        "sh500001.day"
+      ]
+    },
+    "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.pytest_cache\\v042-offline-20261008\\test_qualified_boundary_and_le5": {
+      "count": 1,
+      "samples": [
+        "sh510300.day"
+      ]
+    },
+    "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.pytest_cache\\v042-offline-20261008\\test_qualified_boundary_and_le6": {
+      "count": 1,
+      "samples": [
+        "sz159915.day"
+      ]
+    },
+    "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.pytest_cache\\v042-offline-20261008\\test_qualified_boundary_and_le7": {
+      "count": 1,
+      "samples": [
+        "sz160001.day"
+      ]
+    },
+    "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.pytest_cache\\v042-offline-20261008\\test_qualified_boundary_and_le8": {
+      "count": 1,
+      "samples": [
+        "SH510300.day"
+      ]
+    },
+    "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.pytest_cache\\v042-offline-20261008\\test_qualified_boundary_and_le9": {
+      "count": 1,
+      "samples": [
+        "bj920185.day"
+      ]
+    },
+    "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.pytest_cache\\v042-target\\test_parse_day_file_empty_file0": {
+      "count": 1,
+      "samples": [
+        "sh600519.day"
+      ]
+    },
+    "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.pytest_cache\\v042-target\\test_parse_day_file_golden_lay0": {
+      "count": 1,
+      "samples": [
+        "sh600519.day"
+      ]
+    },
+    "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.pytest_cache\\v042-target\\test_parse_day_file_sorts_and_0": {
+      "count": 1,
+      "samples": [
+        "sh600519.day"
+      ]
+    },
+    "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.pytest_cache\\v042-target\\test_qualified_boundary_and_le0": {
+      "count": 1,
+      "samples": [
+        "sh600519.day"
+      ]
+    },
+    "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.pytest_cache\\v042-target\\test_qualified_boundary_and_le1": {
+      "count": 1,
+      "samples": [
+        "sh688001.day"
+      ]
+    },
+    "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.pytest_cache\\v042-target\\test_qualified_boundary_and_le10": {
+      "count": 1,
+      "samples": [
+        "bj430001.day"
+      ]
+    },
+    "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.pytest_cache\\v042-target\\test_qualified_boundary_and_le11": {
+      "count": 1,
+      "samples": [
+        "bj830001.day"
+      ]
+    },
+    "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.pytest_cache\\v042-target\\test_qualified_boundary_and_le12": {
+      "count": 1,
+      "samples": [
+        "sh580001.day"
+      ]
+    },
+    "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.pytest_cache\\v042-target\\test_qualified_boundary_and_le13": {
+      "count": 1,
+      "samples": [
+        "sz180001.day"
+      ]
+    },
+    "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.pytest_cache\\v042-target\\test_qualified_boundary_and_le14": {
+      "count": 1,
+      "samples": [
+        "sh000001.day"
+      ]
+    },
+    "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.pytest_cache\\v042-target\\test_qualified_boundary_and_le15": {
+      "count": 1,
+      "samples": [
+        "sz399001.day"
+      ]
+    },
+    "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.pytest_cache\\v042-target\\test_qualified_boundary_and_le16": {
+      "count": 1,
+      "samples": [
+        "sh900001.day"
+      ]
+    },
+    "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.pytest_cache\\v042-target\\test_qualified_boundary_and_le17": {
+      "count": 1,
+      "samples": [
+        "sz200001.day"
+      ]
+    },
+    "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.pytest_cache\\v042-target\\test_qualified_boundary_and_le18": {
+      "count": 1,
+      "samples": [
+        "sz510300.day"
+      ]
+    },
+    "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.pytest_cache\\v042-target\\test_qualified_boundary_and_le19": {
+      "count": 1,
+      "samples": [
+        "sh159915.day"
+      ]
+    },
+    "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.pytest_cache\\v042-target\\test_qualified_boundary_and_le2": {
+      "count": 1,
+      "samples": [
+        "sz000001.day"
+      ]
+    },
+    "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.pytest_cache\\v042-target\\test_qualified_boundary_and_le20": {
+      "count": 1,
+      "samples": [
+        "bj510300.day"
+      ]
+    },
+    "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.pytest_cache\\v042-target\\test_qualified_boundary_and_le21": {
+      "count": 1,
+      "samples": [
+        "xx510300.day"
+      ]
+    },
+    "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.pytest_cache\\v042-target\\test_qualified_boundary_and_le22": {
+      "count": 1,
+      "samples": [
+        "510300.day"
+      ]
+    },
+    "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.pytest_cache\\v042-target\\test_qualified_boundary_and_le23": {
+      "count": 1,
+      "samples": [
+        "sh51030.day"
+      ]
+    },
+    "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.pytest_cache\\v042-target\\test_qualified_boundary_and_le24": {
+      "count": 1,
+      "samples": [
+        "sh5103000.day"
+      ]
+    },
+    "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.pytest_cache\\v042-target\\test_qualified_boundary_and_le25": {
+      "count": 1,
+      "samples": [
+        "sh51abcd.day"
+      ]
+    },
+    "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.pytest_cache\\v042-target\\test_qualified_boundary_and_le26": {
+      "count": 1,
+      "samples": [
+        "sh５１０３００.day"
+      ]
+    },
+    "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.pytest_cache\\v042-target\\test_qualified_boundary_and_le27": {
+      "count": 1,
+      "samples": [
+        "sh510300.extra.day"
+      ]
+    },
+    "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.pytest_cache\\v042-target\\test_qualified_boundary_and_le3": {
+      "count": 1,
+      "samples": [
+        "sz300001.day"
+      ]
+    },
+    "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.pytest_cache\\v042-target\\test_qualified_boundary_and_le4": {
+      "count": 1,
+      "samples": [
+        "sh500001.day"
+      ]
+    },
+    "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.pytest_cache\\v042-target\\test_qualified_boundary_and_le5": {
+      "count": 1,
+      "samples": [
+        "sh510300.day"
+      ]
+    },
+    "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.pytest_cache\\v042-target\\test_qualified_boundary_and_le6": {
+      "count": 1,
+      "samples": [
+        "sz159915.day"
+      ]
+    },
+    "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.pytest_cache\\v042-target\\test_qualified_boundary_and_le7": {
+      "count": 1,
+      "samples": [
+        "sz160001.day"
+      ]
+    },
+    "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.pytest_cache\\v042-target\\test_qualified_boundary_and_le8": {
+      "count": 1,
+      "samples": [
+        "SH510300.day"
+      ]
+    },
+    "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.pytest_cache\\v042-target\\test_qualified_boundary_and_le9": {
+      "count": 1,
+      "samples": [
+        "bj920185.day"
+      ]
+    },
+    "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.pytest_cache\\v042-target-20261008\\test_parse_day_file_empty_file0": {
+      "count": 1,
+      "samples": [
+        "sh600519.day"
+      ]
+    },
+    "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.pytest_cache\\v042-target-20261008\\test_parse_day_file_golden_lay0": {
+      "count": 1,
+      "samples": [
+        "sh600519.day"
+      ]
+    },
+    "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.pytest_cache\\v042-target-20261008\\test_parse_day_file_sorts_and_0": {
+      "count": 1,
+      "samples": [
+        "sh600519.day"
+      ]
+    },
+    "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.pytest_cache\\v042-target-20261008\\test_qualified_boundary_and_le0": {
+      "count": 1,
+      "samples": [
+        "sh600519.day"
+      ]
+    },
+    "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.pytest_cache\\v042-target-20261008\\test_qualified_boundary_and_le1": {
+      "count": 1,
+      "samples": [
+        "sh688001.day"
+      ]
+    },
+    "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.pytest_cache\\v042-target-20261008\\test_qualified_boundary_and_le10": {
+      "count": 1,
+      "samples": [
+        "bj430001.day"
+      ]
+    },
+    "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.pytest_cache\\v042-target-20261008\\test_qualified_boundary_and_le11": {
+      "count": 1,
+      "samples": [
+        "bj830001.day"
+      ]
+    },
+    "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.pytest_cache\\v042-target-20261008\\test_qualified_boundary_and_le12": {
+      "count": 1,
+      "samples": [
+        "sh580001.day"
+      ]
+    },
+    "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.pytest_cache\\v042-target-20261008\\test_qualified_boundary_and_le13": {
+      "count": 1,
+      "samples": [
+        "sz180001.day"
+      ]
+    },
+    "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.pytest_cache\\v042-target-20261008\\test_qualified_boundary_and_le14": {
+      "count": 1,
+      "samples": [
+        "sh000001.day"
+      ]
+    },
+    "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.pytest_cache\\v042-target-20261008\\test_qualified_boundary_and_le15": {
+      "count": 1,
+      "samples": [
+        "sz399001.day"
+      ]
+    },
+    "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.pytest_cache\\v042-target-20261008\\test_qualified_boundary_and_le16": {
+      "count": 1,
+      "samples": [
+        "sh900001.day"
+      ]
+    },
+    "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.pytest_cache\\v042-target-20261008\\test_qualified_boundary_and_le17": {
+      "count": 1,
+      "samples": [
+        "sz200001.day"
+      ]
+    },
+    "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.pytest_cache\\v042-target-20261008\\test_qualified_boundary_and_le18": {
+      "count": 1,
+      "samples": [
+        "sz510300.day"
+      ]
+    },
+    "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.pytest_cache\\v042-target-20261008\\test_qualified_boundary_and_le19": {
+      "count": 1,
+      "samples": [
+        "sh159915.day"
+      ]
+    },
+    "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.pytest_cache\\v042-target-20261008\\test_qualified_boundary_and_le2": {
+      "count": 1,
+      "samples": [
+        "sz000001.day"
+      ]
+    },
+    "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.pytest_cache\\v042-target-20261008\\test_qualified_boundary_and_le20": {
+      "count": 1,
+      "samples": [
+        "bj510300.day"
+      ]
+    },
+    "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.pytest_cache\\v042-target-20261008\\test_qualified_boundary_and_le21": {
+      "count": 1,
+      "samples": [
+        "xx510300.day"
+      ]
+    },
+    "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.pytest_cache\\v042-target-20261008\\test_qualified_boundary_and_le22": {
+      "count": 1,
+      "samples": [
+        "510300.day"
+      ]
+    },
+    "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.pytest_cache\\v042-target-20261008\\test_qualified_boundary_and_le23": {
+      "count": 1,
+      "samples": [
+        "sh51030.day"
+      ]
+    },
+    "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.pytest_cache\\v042-target-20261008\\test_qualified_boundary_and_le24": {
+      "count": 1,
+      "samples": [
+        "sh5103000.day"
+      ]
+    },
+    "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.pytest_cache\\v042-target-20261008\\test_qualified_boundary_and_le25": {
+      "count": 1,
+      "samples": [
+        "sh51abcd.day"
+      ]
+    },
+    "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.pytest_cache\\v042-target-20261008\\test_qualified_boundary_and_le26": {
+      "count": 1,
+      "samples": [
+        "sh５１０３００.day"
+      ]
+    },
+    "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.pytest_cache\\v042-target-20261008\\test_qualified_boundary_and_le27": {
+      "count": 1,
+      "samples": [
+        "sh510300.extra.day"
+      ]
+    },
+    "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.pytest_cache\\v042-target-20261008\\test_qualified_boundary_and_le3": {
+      "count": 1,
+      "samples": [
+        "sz300001.day"
+      ]
+    },
+    "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.pytest_cache\\v042-target-20261008\\test_qualified_boundary_and_le4": {
+      "count": 1,
+      "samples": [
+        "sh500001.day"
+      ]
+    },
+    "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.pytest_cache\\v042-target-20261008\\test_qualified_boundary_and_le5": {
+      "count": 1,
+      "samples": [
+        "sh510300.day"
+      ]
+    },
+    "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.pytest_cache\\v042-target-20261008\\test_qualified_boundary_and_le6": {
+      "count": 1,
+      "samples": [
+        "sz159915.day"
+      ]
+    },
+    "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.pytest_cache\\v042-target-20261008\\test_qualified_boundary_and_le7": {
+      "count": 1,
+      "samples": [
+        "sz160001.day"
+      ]
+    },
+    "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.pytest_cache\\v042-target-20261008\\test_qualified_boundary_and_le8": {
+      "count": 1,
+      "samples": [
+        "SH510300.day"
+      ]
+    },
+    "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.pytest_cache\\v042-target-20261008\\test_qualified_boundary_and_le9": {
+      "count": 1,
+      "samples": [
+        "bj920185.day"
+      ]
+    },
+    "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.rh3a2-vipdoc\\bj\\lday": {
+      "count": 611,
+      "samples": [
+        "bj430017.day",
+        "bj430047.day",
+        "bj430090.day"
+      ]
+    },
+    "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.rh3a2-vipdoc\\sh\\lday": {
+      "count": 5951,
+      "samples": [
+        "sh000001.day",
+        "sh000002.day",
+        "sh000003.day"
+      ]
+    },
+    "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.rh3a2-vipdoc\\sz\\lday": {
+      "count": 5864,
+      "samples": [
+        "sz000001.day",
+        "sz000002.day",
+        "sz000003.day"
+      ]
+    }
+  },
+  "errors": [
+    {
+      "path": "C:\\Documents and Settings",
+      "error": "PermissionError"
+    },
+    {
+      "path": "F:\\found.000",
+      "error": "PermissionError"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\My Music",
+      "error": "PermissionError"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\My Pictures",
+      "error": "PermissionError"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Documents\\My Videos",
+      "error": "PermissionError"
+    },
+    {
+      "path": "C:\\OneDriveTemp\\S-1-5-21-701489968-3502970438-2090242251-500",
+      "error": "PermissionError"
+    },
+    {
+      "path": "C:\\Program Files\\WindowsApps",
+      "error": "PermissionError"
+    },
+    {
+      "path": "C:\\Users\\Administrator",
+      "error": "PermissionError"
+    },
+    {
+      "path": "C:\\Users\\Default User",
+      "error": "PermissionError"
+    },
+    {
+      "path": "C:\\Users\\yang lee",
+      "error": "PermissionError"
+    },
+    {
+      "path": "C:\\Program Files\\Windows NT\\附件",
+      "error": "PermissionError"
+    },
+    {
+      "path": "C:\\Users\\CodexSandboxOffline\\Application Data",
+      "error": "PermissionError"
+    },
+    {
+      "path": "C:\\Users\\CodexSandboxOffline\\Cookies",
+      "error": "PermissionError"
+    },
+    {
+      "path": "C:\\Users\\CodexSandboxOffline\\Local Settings",
+      "error": "PermissionError"
+    },
+    {
+      "path": "C:\\Users\\CodexSandboxOffline\\My Documents",
+      "error": "PermissionError"
+    },
+    {
+      "path": "C:\\Users\\CodexSandboxOffline\\NetHood",
+      "error": "PermissionError"
+    },
+    {
+      "path": "C:\\Users\\CodexSandboxOffline\\PrintHood",
+      "error": "PermissionError"
+    },
+    {
+      "path": "C:\\Users\\CodexSandboxOffline\\Recent",
+      "error": "PermissionError"
+    },
+    {
+      "path": "C:\\Users\\CodexSandboxOffline\\SendTo",
+      "error": "PermissionError"
+    },
+    {
+      "path": "C:\\Users\\CodexSandboxOffline\\Templates",
+      "error": "PermissionError"
+    },
+    {
+      "path": "C:\\Users\\CodexSandboxOffline\\「开始」菜单",
+      "error": "PermissionError"
+    },
+    {
+      "path": "C:\\Users\\Default\\Application Data",
+      "error": "PermissionError"
+    },
+    {
+      "path": "C:\\Users\\Default\\Cookies",
+      "error": "PermissionError"
+    },
+    {
+      "path": "C:\\Users\\Default\\Local Settings",
+      "error": "PermissionError"
+    },
+    {
+      "path": "C:\\Users\\Default\\My Documents",
+      "error": "PermissionError"
+    },
+    {
+      "path": "C:\\Users\\Default\\NetHood",
+      "error": "PermissionError"
+    },
+    {
+      "path": "C:\\Users\\Default\\PrintHood",
+      "error": "PermissionError"
+    },
+    {
+      "path": "C:\\Users\\Default\\Recent",
+      "error": "PermissionError"
+    },
+    {
+      "path": "C:\\Users\\Default\\SendTo",
+      "error": "PermissionError"
+    },
+    {
+      "path": "C:\\Users\\Default\\Templates",
+      "error": "PermissionError"
+    },
+    {
+      "path": "C:\\Users\\Default\\「开始」菜单",
+      "error": "PermissionError"
+    },
+    {
+      "path": "C:\\Program Files\\PostgreSQL\\17\\data",
+      "error": "PermissionError"
+    },
+    {
+      "path": "C:\\Program Files\\Windows Defender Advanced Threat Protection\\Classification\\Configuration",
+      "error": "PermissionError"
+    },
+    {
+      "path": "C:\\Users\\CodexSandboxOffline\\Documents\\My Music",
+      "error": "PermissionError"
+    },
+    {
+      "path": "C:\\Users\\CodexSandboxOffline\\Documents\\My Pictures",
+      "error": "PermissionError"
+    },
+    {
+      "path": "C:\\Users\\CodexSandboxOffline\\Documents\\My Videos",
+      "error": "PermissionError"
+    },
+    {
+      "path": "C:\\Users\\Default\\Documents\\My Music",
+      "error": "PermissionError"
+    },
+    {
+      "path": "C:\\Users\\Default\\Documents\\My Pictures",
+      "error": "PermissionError"
+    },
+    {
+      "path": "C:\\Users\\Default\\Documents\\My Videos",
+      "error": "PermissionError"
+    },
+    {
+      "path": "C:\\Users\\Public\\Documents\\My Music",
+      "error": "PermissionError"
+    },
+    {
+      "path": "C:\\Users\\Public\\Documents\\My Pictures",
+      "error": "PermissionError"
+    },
+    {
+      "path": "C:\\Users\\Public\\Documents\\My Videos",
+      "error": "PermissionError"
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\.pytest_cache",
+      "error": "PermissionError"
+    },
+    {
+      "path": "D:\\Dev\\Projects\\easy_tdx\\.pytest_cache",
+      "error": "PermissionError"
+    },
+    {
+      "path": "D:\\Dev\\Projects\\systematic-investing-os\\.pytest_cache",
+      "error": "PermissionError"
+    },
+    {
+      "path": "D:\\Dev\\Projects\\task32-base-audit\\.pytest_cache",
+      "error": "PermissionError"
+    },
+    {
+      "path": "D:\\Dev\\Projects\\TradeDoctor\\.pytest_cache",
+      "error": "PermissionError"
+    },
+    {
+      "path": "D:\\Dev\\Projects\\TradingAgents-astock-community\\.pytest_cache",
+      "error": "PermissionError"
+    },
+    {
+      "path": "D:\\Dev\\Projects\\TradingAgents-AStock-Private\\.gstack",
+      "error": "PermissionError"
+    },
+    {
+      "path": "D:\\Dev\\Projects\\TradingAgents-AStock-Private\\.pytest_cache",
+      "error": "PermissionError"
+    },
+    {
+      "path": "D:\\Dev\\Projects\\Vibe-Research\\.pytest_cache",
+      "error": "PermissionError"
+    },
+    {
+      "path": "D:\\Dev\\Projects\\Vibe-Trading\\.pytest_cache",
+      "error": "PermissionError"
+    },
+    {
+      "path": "D:\\Dev\\Projects\\.worktrees\\v0.4.0-phase3-task-3.1\\.pytest_cache",
+      "error": "PermissionError"
+    },
+    {
+      "path": "D:\\Dev\\Projects\\TradeDoctor\\backend\\.pytest_cache",
+      "error": "PermissionError"
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\build\\v042-unified\\green-tmp",
+      "error": "PermissionError"
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\build\\v042-unified\\package-tests-tmp",
+      "error": "PermissionError"
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\build\\v042-unified\\red-tmp",
+      "error": "PermissionError"
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\build\\v042-unified\\sios-etf-golden-smoke-tmp",
+      "error": "PermissionError"
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\build\\v042-unified\\sios-offline-tmp",
+      "error": "PermissionError"
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\build\\v042-unified\\ta-candidate-tmp",
+      "error": "PermissionError"
+    }
+  ]
+}

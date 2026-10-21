@@ -1,0 +1,14 @@
+{
+  "status": "PASS_BOUNDED_SELECTED_FOUR_FIELDS",
+  "T0_future_original_excluded": true,
+  "T1_future_restatement_excluded": true,
+  "T2_negative_revised_ocf_selected": true,
+  "stale_tdx_ocf_rejected": true,
+  "all_populated_values_from_official_pdf_direct_cells": true,
+  "no_today_structured_value_injected": true,
+  "no_post_T2_disclosure_injected": true,
+  "date_only_rule": "CANDIDATE_NOT_OWNER_FROZEN",
+  "version_chain_completeness": "UNKNOWN",
+  "full_s07_gate": "NOT_PASSED",
+  "network_requests": 0
+}

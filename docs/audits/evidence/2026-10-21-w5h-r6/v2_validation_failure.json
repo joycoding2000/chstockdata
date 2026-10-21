@@ -1,0 +1,31 @@
+{
+  "at_utc": "2026-10-21T04:06:15.292804+00:00",
+  "validation": "FAILED_AUTOMATED_QUALIFICATION",
+  "matches": 21,
+  "denominator": 24,
+  "mismatches": [
+    {
+      "source_id": "1219913619",
+      "field": "NP",
+      "extracted": "-3619675115200.00",
+      "independent_expected": "-361967511.52",
+      "match": false
+    },
+    {
+      "source_id": "1219913619",
+      "field": "OCF",
+      "extracted": "-94214194280100.00",
+      "independent_expected": "-9421419428.01",
+      "match": false
+    },
+    {
+      "source_id": "1219913619",
+      "field": "EQ",
+      "extracted": "2506332663163200.00",
+      "independent_expected": "250633266316.32",
+      "match": false
+    }
+  ],
+  "root_cause": "Exploratory two-page concatenation applied a following table RMB-wan header to a preceding RMB-yuan table. First V1 and V2 result files preserved. No V3 tuning, manual number patch or source mutation.",
+  "consequence": "Do not admit unvalidated V2 outputs. Replay uses separately verified source facts, not failed extraction."
+}

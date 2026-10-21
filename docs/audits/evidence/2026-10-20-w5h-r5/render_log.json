@@ -1,0 +1,62 @@
+[
+  {
+    "file": "600519_FY2023.pdf",
+    "page": 5,
+    "returncode": 0,
+    "wall_seconds": 0.15853919999790378,
+    "stderr": "Syntax Error: No display font for 'Symbol'\nSyntax Error: No display font for 'ArialUnicode'\n",
+    "images": [
+      "600519_FY2023_qa-005.jpg"
+    ]
+  },
+  {
+    "file": "000002_FY2023.pdf",
+    "page": 10,
+    "returncode": 0,
+    "wall_seconds": 0.13307829999394016,
+    "stderr": "Syntax Error: No display font for 'Symbol'\nSyntax Error: No display font for 'ArialUnicode'\n",
+    "images": [
+      "000002_FY2023_qa-010.jpg"
+    ]
+  },
+  {
+    "file": "300750_FY2023.pdf",
+    "page": 7,
+    "returncode": 0,
+    "wall_seconds": 0.1002814999956172,
+    "stderr": "Syntax Error: No display font for 'Symbol'\nSyntax Error: No display font for 'ArialUnicode'\n",
+    "images": [
+      "300750_FY2023_qa-007.jpg"
+    ]
+  },
+  {
+    "file": "601398_FY2023.pdf",
+    "page": 14,
+    "returncode": 0,
+    "wall_seconds": 0.1208803000045009,
+    "stderr": "Syntax Error: No display font for 'Symbol'\nSyntax Error: No display font for 'ArialUnicode'\n",
+    "images": [
+      "601398_FY2023_qa-014.jpg"
+    ]
+  },
+  {
+    "file": "000961_FY2023.pdf",
+    "page": 6,
+    "returncode": 0,
+    "wall_seconds": 0.1464826000010362,
+    "stderr": "Syntax Error: No display font for 'Symbol'\nSyntax Error: No display font for 'ArialUnicode'\n",
+    "images": [
+      "000961_FY2023_qa-006.jpg"
+    ]
+  },
+  {
+    "file": "000002_Q12024.pdf",
+    "page": 2,
+    "returncode": 0,
+    "wall_seconds": 0.0837281999993138,
+    "stderr": "Syntax Error: No display font for 'Symbol'\nSyntax Error: No display font for 'ArialUnicode'\n",
+    "images": [
+      "000002_Q12024_qa-02.jpg"
+    ]
+  }
+]

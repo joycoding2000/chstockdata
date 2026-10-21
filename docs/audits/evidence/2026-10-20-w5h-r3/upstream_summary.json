@@ -1,0 +1,90 @@
+{
+  "zxtzlyt/tdx_quant": {
+    "sha": "85a00f1b160638e6a0f6d7ce6d7382915b78039e",
+    "committed_at": "2026-09-29T17:00:43Z",
+    "default_branch": "main",
+    "archived": false,
+    "license": {
+      "key": "other",
+      "name": "Other",
+      "spdx_id": "NOASSERTION",
+      "url": null,
+      "node_id": "MDc6TGljZW5zZTA="
+    },
+    "files_saved": [
+      "docs/LOCAL_NOTES.md",
+      "tdx_local/gpcw.py",
+      "tdx_local/cw_fields.py",
+      "tdx_local/tq_client.py",
+      "tests/test_offline.py",
+      "tests/test_live.py",
+      "LICENSE",
+      "README.md"
+    ],
+    "paths_absent": [],
+    "tree_truncated": false
+  },
+  "wkingnet/stock-analysis": {
+    "sha": "814f1d4db3a7ecac0b21f61e6ea6214a9ea73742",
+    "committed_at": "2026-01-02T10:40:16Z",
+    "default_branch": "master",
+    "archived": false,
+    "license": {
+      "key": "mpl-2.0",
+      "name": "Mozilla Public License 2.0",
+      "spdx_id": "MPL-2.0",
+      "url": "https://api.github.com/licenses/mpl-2.0",
+      "node_id": "MDc6TGljZW5zZTE0"
+    },
+    "files_saved": [
+      "readTDX_cw.py",
+      "readTDX_lday.py",
+      "func_TDX.py",
+      "user_config.py",
+      "README.md",
+      "LICENSE"
+    ],
+    "paths_absent": [],
+    "tree_truncated": false
+  },
+  "mootdx/mootdx": {
+    "sha": "e99ae34382d970c68654c6d17c45512e728f130d",
+    "committed_at": "2024-07-16T09:09:05Z",
+    "default_branch": "master",
+    "archived": false,
+    "license": {
+      "key": "mit",
+      "name": "MIT License",
+      "spdx_id": "MIT",
+      "url": "https://api.github.com/licenses/mit",
+      "node_id": "MDc6TGljZW5zZTEz"
+    },
+    "files_saved": [
+      "mootdx/reader.py",
+      "mootdx/affair.py",
+      "LICENSE",
+      "pyproject.toml"
+    ],
+    "paths_absent": [],
+    "tree_truncated": false
+  },
+  "rainx/pytdx": {
+    "sha": "14b1ad3534593952d1d698ffa706f4f13a4ed156",
+    "committed_at": "2020-04-15T13:02:03Z",
+    "default_branch": "archive",
+    "archived": true,
+    "license": null,
+    "files_saved": [],
+    "paths_absent": [
+      "pytdx/reader/history_financial_reader.py",
+      "pytdx/crawler/history_financial_crawler.py",
+      "pytdx/hq.py",
+      "pytdx/parser/get_finance_info.py",
+      "LICENSE",
+      "setup.py"
+    ],
+    "tree_truncated": false,
+    "source_master_sha": "2857fdad08534533610bd2aeca387f760c4baa42",
+    "source_master_committed_at": "2020-03-02T19:31:06Z"
+  }
+}

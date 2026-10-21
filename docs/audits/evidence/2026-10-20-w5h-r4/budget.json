@@ -1,0 +1,15 @@
+{
+  "direct_requests": 16,
+  "web_batches": 8,
+  "single_body_bytes": 20000000,
+  "total_saved_network_bytes": 60000000,
+  "timeout_seconds": 15,
+  "same_host_after_finish_seconds": 3,
+  "automatic_retries": 0,
+  "redirects": false,
+  "fixed_security": "SH:600518",
+  "financial_period": "2017-01-01/2017-12-31",
+  "latest_allowed_disclosure_date": "2019-05-06",
+  "old_originals_redownload": "FORBIDDEN",
+  "xbrl_not_required_if_official_pdf_or_html_sufficient": true
+}

@@ -1,0 +1,18 @@
+{
+  "status": "FAILED_STOPPED_NO_RETRY",
+  "host": "120.76.152.87",
+  "port": 7709,
+  "endpoint_source": "installed mootdx 0.11.7 GP_HOSTS[0]",
+  "connection_attempts": 1,
+  "configured_timeout_seconds": 3,
+  "auto_retry": false,
+  "heartbeat": false,
+  "client_setup": false,
+  "protocol_calls_completed": 0,
+  "sample_obtained": false,
+  "raw_command_exit_code": 1,
+  "cleanup_error": "TdxConnectionError: disconnect err WinError 10057 (socket not connected)",
+  "connection_failure_reason": "UNKNOWN: initial error was masked by disconnect cleanup error before the original ledger could be saved",
+  "script_cleanup_fixed_after_attempt": true,
+  "network_reexecuted": false
+}

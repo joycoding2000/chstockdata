@@ -1,0 +1,94 @@
+{
+  "origin_path": "D:\\Dev\\Projects\\easy_tdx\\examples\\09_file_download\\downloads\\gpcw20260331.zip",
+  "bytes": 5034901,
+  "mtime_ns": 1787652291738875000,
+  "sha256": "470e1ca0fa309def0f55ae6681c08f576752d0b0e359f31cd67194568209e30d",
+  "md5": "47be0913f9574087abb6ed038e4ac2ff",
+  "magic_hex": "504b030414000808",
+  "zip_crc_verified": true,
+  "members": [
+    {
+      "name": "gpcw20260331.dat",
+      "bytes": 12948419,
+      "compressed_bytes": 5034755,
+      "crc32_hex": "a3e0f138"
+    }
+  ],
+  "dat_sha256": "0329efd487c2faabc611e483e25e663a8fdb3c2efd5d9fcdde9bfc121a1fd007",
+  "existing_dat_path": "D:\\Dev\\Projects\\easy_tdx\\examples\\09_file_download\\downloads\\gpcw20260331\\gpcw20260331.dat",
+  "existing_dat_matches_zip": true,
+  "parse": {
+    "header": [
+      1,
+      20260331,
+      5517,
+      720896,
+      2336,
+      0
+    ],
+    "report_date": 20260331,
+    "securities_count": 5517,
+    "fields_per_record": 584,
+    "all_index_offsets_in_bounds": true,
+    "fixed_securities": {
+      "600518": {
+        "index_position": 3270,
+        "market_flag_hex": "00",
+        "record_offset": 7699427,
+        "fn": {
+          "FN1": -0.0010000000474974513,
+          "FN4": 0.5260000228881836,
+          "FN6": -0.2280000001192093,
+          "FN64": 13828896768.0,
+          "FN72": 7309504000.0,
+          "FN74": 1079786624.0,
+          "FN95": -15980698.0,
+          "FN96": -16563882.0,
+          "FN107": -54755348.0,
+          "FN230": 1079786624.0,
+          "FN232": -16563882.0,
+          "FN234": -54755348.0,
+          "FN238": 13828896768.0,
+          "FN239": 13822352384.0,
+          "FN271": 7273519616.0,
+          "FN281": -0.23000000417232513,
+          "FN314": 260430.0
+        }
+      },
+      "600519": {
+        "index_position": 3271,
+        "market_flag_hex": "00",
+        "record_offset": 7701763,
+        "fn": {
+          "FN1": 21.760000228881836,
+          "FN4": 216.32229614257812,
+          "FN6": 10.057000160217285,
+          "FN64": 1252270208.0,
+          "FN72": 281135874048.0,
+          "FN74": 53909254144.0,
+          "FN95": 28153831424.0,
+          "FN96": 27242512384.0,
+          "FN107": 26909890560.0,
+          "FN230": 53909254144.0,
+          "FN232": 27242512384.0,
+          "FN234": 26909890560.0,
+          "FN238": 1252270208.0,
+          "FN239": 1252270208.0,
+          "FN271": 270894039040.0,
+          "FN281": 10.569999694824219,
+          "FN314": 260425.0
+        }
+      }
+    }
+  },
+  "installed_mootdx_parser_crosscheck": {
+    "600518": {
+      "report_matches": true,
+      "all_selected_float32_values_match": true
+    },
+    "600519": {
+      "report_matches": true,
+      "all_selected_float32_values_match": true
+    }
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "id": "R6_EXPLORATORY_V2",
+  "registered_at_utc": "2026-10-21T04:00:51.795Z",
+  "after_first_run": true,
+  "first_run_sha256": "41589ede09cd710bdc10a97631f0566bbe8d164f5e2d14207f7be018b8dedc91",
+  "not_a_new_unseen_validation": true,
+  "changes": [
+    "Add common EQ alias 归属于上市公司股东的股东权益 after observed v1 UNKNOWN",
+    "Read primary summary page plus immediately following physical page, retain actual label page; addresses split-page summaries without issuer/page/ID exceptions"
+  ],
+  "unchanged": "M1/M2/M3/B1; no notice auto-clear by missing numeric tokens; no absent-change inference; no numeric repair or per-issuer column overrides",
+  "fixed_denominator": "8 original periodic reports among 10 body files =24 current field slots; supplemental/correction notices are semantic triage, not 6 missing financial values",
+  "candidate_only": "Exact numeric token matches do not independently certify complete version chain, first availability or population robustness"
+}

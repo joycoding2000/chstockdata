@@ -1,0 +1,122 @@
+[
+  {
+    "file": "600519_FY2023.pdf",
+    "code": "600519",
+    "period": "FY2023",
+    "pages": 143,
+    "bytes": 3563819,
+    "characters": 160667,
+    "empty_text_pages": 0,
+    "machine_parse_wall_seconds": 7.2519533000013325,
+    "parser": "pypdf existing bundled runtime",
+    "status": "TEXT_LAYER_OBTAINED"
+  },
+  {
+    "file": "600519_Q12024.pdf",
+    "code": "600519",
+    "period": "Q12024",
+    "pages": 12,
+    "bytes": 380443,
+    "characters": 11114,
+    "empty_text_pages": 0,
+    "machine_parse_wall_seconds": 0.459685099995113,
+    "parser": "pypdf existing bundled runtime",
+    "status": "TEXT_LAYER_OBTAINED"
+  },
+  {
+    "file": "000002_FY2023.pdf",
+    "code": "000002",
+    "period": "FY2023",
+    "pages": 324,
+    "bytes": 10999883,
+    "characters": 446035,
+    "empty_text_pages": 0,
+    "machine_parse_wall_seconds": 21.748687899998913,
+    "parser": "pypdf existing bundled runtime",
+    "status": "TEXT_LAYER_OBTAINED"
+  },
+  {
+    "file": "000002_Q12024.pdf",
+    "code": "000002",
+    "period": "Q12024",
+    "pages": 14,
+    "bytes": 683180,
+    "characters": 15464,
+    "empty_text_pages": 0,
+    "machine_parse_wall_seconds": 0.6365302999984124,
+    "parser": "pypdf existing bundled runtime",
+    "status": "TEXT_LAYER_OBTAINED"
+  },
+  {
+    "file": "300750_FY2023.pdf",
+    "code": "300750",
+    "period": "FY2023",
+    "pages": 231,
+    "bytes": 5986207,
+    "characters": 241074,
+    "empty_text_pages": 0,
+    "machine_parse_wall_seconds": 11.935302700003376,
+    "parser": "pypdf existing bundled runtime",
+    "status": "TEXT_LAYER_OBTAINED"
+  },
+  {
+    "file": "300750_Q12024.pdf",
+    "code": "300750",
+    "period": "Q12024",
+    "pages": 12,
+    "bytes": 325466,
+    "characters": 12315,
+    "empty_text_pages": 0,
+    "machine_parse_wall_seconds": 0.7308419999972102,
+    "parser": "pypdf existing bundled runtime",
+    "status": "TEXT_LAYER_OBTAINED"
+  },
+  {
+    "file": "601398_FY2023.pdf",
+    "code": "601398",
+    "period": "FY2023",
+    "pages": 394,
+    "bytes": 9493877,
+    "characters": 434175,
+    "empty_text_pages": 0,
+    "machine_parse_wall_seconds": 15.915342100000998,
+    "parser": "pypdf existing bundled runtime",
+    "status": "TEXT_LAYER_OBTAINED"
+  },
+  {
+    "file": "601398_Q12024.pdf",
+    "code": "601398",
+    "period": "Q12024",
+    "pages": 21,
+    "bytes": 1346031,
+    "characters": 22620,
+    "empty_text_pages": 0,
+    "machine_parse_wall_seconds": 1.1774848000059137,
+    "parser": "pypdf existing bundled runtime",
+    "status": "TEXT_LAYER_OBTAINED"
+  },
+  {
+    "file": "000961_FY2023.pdf",
+    "code": "000961",
+    "period": "FY2023",
+    "pages": 280,
+    "bytes": 7939133,
+    "characters": 349749,
+    "empty_text_pages": 0,
+    "machine_parse_wall_seconds": 15.187709199999517,
+    "parser": "pypdf existing bundled runtime",
+    "status": "TEXT_LAYER_OBTAINED"
+  },
+  {
+    "file": "000961_Q12024.pdf",
+    "code": "000961",
+    "period": "Q12024",
+    "pages": 8,
+    "bytes": 641535,
+    "characters": 10957,
+    "empty_text_pages": 0,
+    "machine_parse_wall_seconds": 0.4172210999968229,
+    "parser": "pypdf existing bundled runtime",
+    "status": "TEXT_LAYER_OBTAINED"
+  }
+]

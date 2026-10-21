@@ -1,0 +1,19 @@
+{
+  "url": "http://down.tdx.com.cn:8001/tdxfin/gpcw20171231.zip",
+  "method": "GET",
+  "max_requests": 1,
+  "timeout_seconds": 15,
+  "max_bytes": 6000000,
+  "redirects": false,
+  "automatic_retries": 0,
+  "at_utc": "2026-10-20T06:53:57.233502+00:00",
+  "url_provenance": "reviewed stock-analysis readTDX_cw.py lines 32,45; filename in prior official gpcw.txt",
+  "http_status": 200,
+  "content_type": "application/zip",
+  "bytes": 4206396,
+  "sha256": "e393c139a78eef736e8fa25a9226ad73480c8393afdffdd1fbf5a33033065086",
+  "md5": "5face3f599d2f19db9e37fbb065c7523",
+  "magic_hex": "504b030414000808",
+  "zip_magic": true,
+  "status": "RESPONSE_REQUIRES_QUALIFICATION"
+}

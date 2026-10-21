@@ -1,0 +1,53 @@
+[
+  {
+    "id": "1216561621",
+    "physical_page": 6,
+    "returncode": 0,
+    "seconds": 0.780420999999933,
+    "stderr": "Syntax Error: No display font for 'Symbol'\nSyntax Error: No display font for 'ArialUnicode'\n",
+    "images": [
+      "1216561621_qa-006.jpg"
+    ]
+  },
+  {
+    "id": "1217386817",
+    "physical_page": 6,
+    "returncode": 0,
+    "seconds": 0.13809519999995246,
+    "stderr": "Syntax Error: No display font for 'Symbol'\nSyntax Error: No display font for 'ArialUnicode'\n",
+    "images": [
+      "1217386817_qa-006.jpg"
+    ]
+  },
+  {
+    "id": "1217386818",
+    "physical_page": 1,
+    "returncode": 0,
+    "seconds": 0.07628329999988637,
+    "stderr": "Syntax Error: No display font for 'Symbol'\nSyntax Error: No display font for 'ArialUnicode'\n",
+    "images": [
+      "1217386818_qa-1.jpg"
+    ]
+  },
+  {
+    "id": "1221331382",
+    "physical_page": 1,
+    "returncode": 0,
+    "seconds": 0.175939999999855,
+    "stderr": "Syntax Error: No display font for 'Symbol'\nSyntax Error: No display font for 'ArialUnicode'\n",
+    "images": [
+      "1221331382_qa-1.jpg"
+    ]
+  },
+  {
+    "id": "1221331382",
+    "physical_page": 2,
+    "returncode": 0,
+    "seconds": 0.06458869999983108,
+    "stderr": "Syntax Error: No display font for 'Symbol'\nSyntax Error: No display font for 'ArialUnicode'\n",
+    "images": [
+      "1221331382_qa-1.jpg",
+      "1221331382_qa-2.jpg"
+    ]
+  }
+]

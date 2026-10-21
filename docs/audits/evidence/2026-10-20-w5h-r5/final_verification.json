@@ -1,0 +1,78 @@
+{
+  "at_utc": "2026-10-21T03:44:22.652237+00:00",
+  "delivery_check": "PASS",
+  "verdict": "FEASIBLE_FOR_NEXT_SOURCE_QUALIFICATION",
+  "source_qualification_not_passed": true,
+  "direct_request_count": 37,
+  "source_min_same_host_gap_seconds": 3.000084,
+  "preregistration_unchanged_and_precedes_results": true,
+  "protected": [
+    {
+      "repository": "chstockdata",
+      "head": "69957a58bcfd258f011c9c80250b58704fe0d784",
+      "tracked_content_count": 688,
+      "tracked_unchanged": true,
+      "preexisting_untracked_names_preserved": true,
+      "new_untracked_paths": "ONLY_R5_ALLOWLIST"
+    },
+    {
+      "repository": "mishi-radar",
+      "head": "76012c0db977d21832378c473638c271d8c1a554",
+      "tracked_content_count": 272,
+      "tracked_unchanged": true,
+      "preexisting_untracked_names_preserved": true,
+      "new_untracked_paths": []
+    },
+    {
+      "repository": "systematic-investing-os",
+      "head": "f06e7d8e342133a02beb20a4b310580a633ba9cb",
+      "tracked_content_count": 251,
+      "tracked_unchanged": true,
+      "preexisting_untracked_names_preserved": true,
+      "new_untracked_paths": [
+        "research/etf-session-pressure-2026-10-20/daily-input-inspection.json",
+        "research/etf-session-pressure-2026-10-20/inspect_inputs.py"
+      ]
+    }
+  ],
+  "fresh_PDF_page_checks": [
+    {
+      "file": "600519_FY2023.pdf",
+      "physical_page": 5,
+      "fresh_text_matches": true
+    },
+    {
+      "file": "000002_FY2023.pdf",
+      "physical_page": 10,
+      "fresh_text_matches": true
+    },
+    {
+      "file": "300750_FY2023.pdf",
+      "physical_page": 7,
+      "fresh_text_matches": true
+    },
+    {
+      "file": "601398_FY2023.pdf",
+      "physical_page": 14,
+      "fresh_text_matches": true
+    },
+    {
+      "file": "000961_FY2023.pdf",
+      "physical_page": 6,
+      "fresh_text_matches": true
+    },
+    {
+      "file": "000002_Q12024.pdf",
+      "physical_page": 2,
+      "fresh_text_matches": true
+    }
+  ],
+  "old_control_sha_rechecked": 4,
+  "formula_freeze_or_backtest": false,
+  "offline_measurement_repairs": [
+    "issuer prefix / 年年度 vs 年度 / 一季度 title aliases",
+    "empty special OCF alias rejected; actual act_cash_flow_net from saved R2 parser adopted",
+    "Path import restored for render; no numeric transcription repairs or network retries"
+  ],
+  "S07": "NOT_PASSED"
+}

@@ -1,0 +1,131 @@
+{
+  "registered_at_utc": "2026-10-20T14:29:39.427Z",
+  "before_new_financial_results": true,
+  "target_information_window": [
+    "2024-01-01",
+    "2024-12-31"
+  ],
+  "role": "Closed historical one-calendar-year cost proxy; NOT the consumer release window or a qualification of recent 252 sessions",
+  "disclosure_discovery_window": [
+    "2023-01-01",
+    "2024-12-31"
+  ],
+  "prewarmup": "FY2022/Q1-Q3 2023/FY2023 and same-quarter bases may be necessary; index their existence, download only two preregistered report families per new issuer",
+  "new_download_targets": [
+    "2023年年度报告 full original Chinese",
+    "2024年第一季度报告 full Chinese"
+  ],
+  "full_year_period_inventory": [
+    "2022-12-31",
+    "2023-03-31",
+    "2023-06-30",
+    "2023-09-30",
+    "2023-12-31",
+    "2024-03-31",
+    "2024-06-30",
+    "2024-09-30"
+  ],
+  "samples": [
+    {
+      "code": "600519",
+      "market": "sse",
+      "name": "贵州茅台",
+      "category": [
+        "沪市普通非金融"
+      ],
+      "basis": "Known pre-2024 listed ordinary manufacturer; identity must be confirmed from official annual report"
+    },
+    {
+      "code": "000002",
+      "market": "szse",
+      "name": "万科A",
+      "category": [
+        "深市普通非金融"
+      ],
+      "basis": "Pre-2024 listed real estate issuer; no substitution after outcomes"
+    },
+    {
+      "code": "300750",
+      "market": "szse",
+      "name": "宁德时代",
+      "category": [
+        "创业板",
+        "深市非金融"
+      ],
+      "basis": "Pre-2024 ChiNext manufacturer; no substitution"
+    },
+    {
+      "code": "601398",
+      "market": "sse",
+      "name": "工商银行",
+      "category": [
+        "金融股",
+        "特殊报表口径"
+      ],
+      "basis": "Pre-2024 listed bank; test units and consolidated/parent accounting even if S07 exclusion is adopted"
+    },
+    {
+      "code": "000961",
+      "market": "szse",
+      "name": "中南建设/ST中南",
+      "category": [
+        "历史退市",
+        "深市非金融"
+      ],
+      "basis": "Official SZSE-hosted 2024-107 notice states 2024-07-11 delisting, official 2024-087 states suspension 2024-05-09; include before termination, no assumption of year-end survival",
+      "basis_url": "https://disc.static.szse.cn/disc/disk03/finalpage/2024-07-09/db94667a-0122-48f5-83e7-c70e0c62523f.PDF"
+    },
+    {
+      "code": "600518",
+      "market": "sse",
+      "name": "康美药业",
+      "category": [
+        "独立修订反例"
+      ],
+      "basis": "Reuse R4 original FY2017 and restatement in FY2018 + image-only correction audit. No new archive search/download; out-of-window positive revision control",
+      "control_period": "2017-12-31"
+    }
+  ],
+  "budget": {
+    "new_issuers": 5,
+    "total_securities": 6,
+    "direct_requests": 42,
+    "web_batches": 4,
+    "web_batches_already_used_for_sample_identity": 2,
+    "maximum_new_pdfs": 11,
+    "pdf_targets": 10,
+    "delisting_identity_pdf": 1,
+    "single_body_bytes": 25000000,
+    "total_network_bytes": 150000000,
+    "timeout_seconds": 20,
+    "same_host_after_finish_seconds": 3,
+    "automatic_retries": 0,
+    "automatic_redirects": 0,
+    "index_pages_per_query": 1,
+    "financial_report_queries_per_issuer": 1,
+    "correction_title_queries_per_issuer": 1,
+    "supplement_title_queries_per_issuer": 1,
+    "structured_table_queries": 6
+  },
+  "selection_rule": "No failed issuer replacement; choose exact Chinese full original title (exclude summary/English). If several, earliest official date within target publication year; retain all identities incl later updates, not choose by values.",
+  "period_limit": "Original downloads limited to FY2023 and Q1 2024 for all five; discovery denominators include 8 base/update periods, post-delisting obligations separated UNKNOWN/not automatically missing.",
+  "candidate_fields": [
+    "NP_parent YTD/FY",
+    "OCF consolidated YTD/FY",
+    "EQ_parent period-end + comparatives",
+    "period",
+    "announcement date",
+    "official id/hash",
+    "units",
+    "consolidated vs parent",
+    "YTD vs quarter",
+    "revision flag"
+  ],
+  "not_frozen": [
+    "PE/ROE method",
+    "date-only availability policy",
+    "precise consumer window"
+  ],
+  "stop": "Stop expansion on confirmed required-original/version/mixed-data/manual-no-alternative/access blocker; normal empty or untested reports do not prove universal impossibility",
+  "timing": "Actual HTTP wall seconds separate throttle sleep; pypdf machine perf_counter; assisted review wall spans recorded separately and not called paid human effort. Human person-hours UNKNOWN."
+}

@@ -1,0 +1,31 @@
+{
+  "files": [
+    {
+      "file": "D:/Dev/Projects/chstockdata/docs/audits/evidence/2026-10-20-w5h-r4/official_original_2017.pdf",
+      "bytes": 3886671,
+      "expected_sha256": "15b3b15df2dfd3310cc16e1e345e8950e8a9cb047bdad38d1263e2b55cfd2985",
+      "actual_sha256": "15b3b15df2dfd3310cc16e1e345e8950e8a9cb047bdad38d1263e2b55cfd2985"
+    },
+    {
+      "file": "D:/Dev/Projects/chstockdata/docs/audits/evidence/2026-10-20-w5h-r4/correction_audit_20190430.pdf",
+      "bytes": 4526309,
+      "expected_sha256": "ca22aa1858f56e2cd9181d15c88fde83312afb94701898a2de74c378c7c41bab",
+      "actual_sha256": "ca22aa1858f56e2cd9181d15c88fde83312afb94701898a2de74c378c7c41bab"
+    },
+    {
+      "file": "D:/Dev/Projects/chstockdata/docs/audits/evidence/2026-10-20-w5h-r4/official_annual_2018.pdf",
+      "bytes": 4252218,
+      "expected_sha256": "9f47aa0dc0a8838ffd21e600d7eca194052d91cf867d8e22a4ba56dee2b9f60a",
+      "actual_sha256": "9f47aa0dc0a8838ffd21e600d7eca194052d91cf867d8e22a4ba56dee2b9f60a"
+    },
+    {
+      "file": "D:/Dev/Projects/chstockdata/docs/audits/evidence/2026-10-20-w5h-r4/official_regulatory_letter_20190501.pdf",
+      "bytes": 95768,
+      "expected_sha256": "eb418f8ef428841839577bc82f2812167092b65c4bcaa928fe38c30faf099ed8",
+      "actual_sha256": "eb418f8ef428841839577bc82f2812167092b65c4bcaa928fe38c30faf099ed8"
+    }
+  ],
+  "all_match": true,
+  "network_requests": 0,
+  "reused_fourth_regulator_file_not_new_reconstruction": true
+}

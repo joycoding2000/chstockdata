@@ -1,0 +1,130 @@
+[
+  {
+    "url": "https://raw.githubusercontent.com/mootdx/mootdx/e99ae34382d970c68654c6d17c45512e728f130d/mootdx/financial/financial.py",
+    "file": "upstream/mootdx__mootdx/mootdx/financial/financial.py",
+    "at_utc": "2026-10-20T06:50:34.897914+00:00",
+    "http_status": 200,
+    "content_type": "text/plain; charset=utf-8",
+    "bytes": 6714,
+    "sha256": "b1c82ae471abe5629ed59dc1a477335b8080f3bb0a8f2d691433c0d249bc6e2b",
+    "status": "SAVED"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/mootdx/mootdx/e99ae34382d970c68654c6d17c45512e728f130d/mootdx/financial/base.py",
+    "file": "upstream/mootdx__mootdx/mootdx/financial/base.py",
+    "at_utc": "2026-10-20T06:50:35.658715+00:00",
+    "http_status": 200,
+    "content_type": "text/plain; charset=utf-8",
+    "bytes": 2717,
+    "sha256": "1575bf034bec8aeb8165d0c2107e323d05cef64fe296cfee21284deff6fed5d6",
+    "status": "SAVED"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/mootdx/mootdx/e99ae34382d970c68654c6d17c45512e728f130d/mootdx/financial/columns.py",
+    "file": "upstream/mootdx__mootdx/mootdx/financial/columns.py",
+    "at_utc": "2026-10-20T06:50:36.470962+00:00",
+    "http_status": 200,
+    "content_type": "text/plain; charset=utf-8",
+    "bytes": 17603,
+    "sha256": "27c0edc36d0e16730e4f94ea2db5b8db7435ca04c3864b767761dfce385bad60",
+    "status": "SAVED"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/mootdx/mootdx/e99ae34382d970c68654c6d17c45512e728f130d/mootdx/config.py",
+    "file": "upstream/mootdx__mootdx/mootdx/config.py",
+    "at_utc": "2026-10-20T06:50:37.190228+00:00",
+    "http_status": 200,
+    "content_type": "text/plain; charset=utf-8",
+    "bytes": 2212,
+    "sha256": "7732a562227c3679e0626180801e1593f082157d61a7f48973a55a8b9e6818eb",
+    "status": "SAVED"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/wkingnet/stock-analysis/814f1d4db3a7ecac0b21f61e6ea6214a9ea73742/func.py",
+    "file": "upstream/wkingnet__stock-analysis/func.py",
+    "at_utc": "2026-10-20T06:50:37.905181+00:00",
+    "http_status": 200,
+    "content_type": "text/plain; charset=utf-8",
+    "bytes": 40513,
+    "sha256": "d9e757c7b736382431484476383384ea1c3abde027be833eb13f15aca8548bbb",
+    "status": "SAVED"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/zxtzlyt/tdx_quant/85a00f1b160638e6a0f6d7ce6d7382915b78039e/docs/tdx-quant-docs/03-tqcenter-%E8%B4%A2%E5%8A%A1/get_financial_data.md",
+    "file": "upstream/zxtzlyt__tdx_quant/docs/tdx-quant-docs/03-tqcenter-财务/get_financial_data.md",
+    "at_utc": "2026-10-20T06:50:38.722583+00:00",
+    "http_status": 200,
+    "content_type": "text/plain; charset=utf-8",
+    "bytes": 29587,
+    "sha256": "2626f140843e935db4fb20def760b201d6c5def4ab473e4eed667d66ef66a3e1",
+    "status": "SAVED"
+  },
+  {
+    "url": "https://api.github.com/repos/rainx/pytdx/commits/master",
+    "file": "upstream/rainx__pytdx/master-head.json",
+    "at_utc": "2026-10-20T06:50:40.204265+00:00",
+    "http_status": 200,
+    "content_type": "application/json; charset=utf-8",
+    "bytes": 5476,
+    "sha256": "e91679ebcadbc0c38a2d41d6ec55a5d019fc99f0d11021c83f66894d15679cb9",
+    "status": "SAVED"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/rainx/pytdx/2857fdad08534533610bd2aeca387f760c4baa42/pytdx/reader/history_financial_reader.py",
+    "file": "upstream/rainx__pytdx/pytdx/reader/history_financial_reader.py",
+    "at_utc": "2026-10-20T06:50:40.974494+00:00",
+    "http_status": 200,
+    "content_type": "text/plain; charset=utf-8",
+    "bytes": 1059,
+    "sha256": "e6d3cf1822a8ba0998668846506f623f06f0ba84851600625084c174698a223d",
+    "status": "SAVED"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/rainx/pytdx/2857fdad08534533610bd2aeca387f760c4baa42/pytdx/crawler/history_financial_crawler.py",
+    "file": "upstream/rainx__pytdx/pytdx/crawler/history_financial_crawler.py",
+    "at_utc": "2026-10-20T06:50:41.703387+00:00",
+    "http_status": 200,
+    "content_type": "text/plain; charset=utf-8",
+    "bytes": 6527,
+    "sha256": "0659ad8eb8b359a2c2f4e14c4991c8a812e3e7b4fea160b0a8b5b96060b3a722",
+    "status": "SAVED"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/rainx/pytdx/2857fdad08534533610bd2aeca387f760c4baa42/pytdx/hq.py",
+    "file": "upstream/rainx__pytdx/pytdx/hq.py",
+    "at_utc": "2026-10-20T06:50:42.470790+00:00",
+    "http_status": 200,
+    "content_type": "text/plain; charset=utf-8",
+    "bytes": 10668,
+    "sha256": "4f78141457e4e3bc3dec5df453f738bb6b31f964e6d7dcb5dad4763fc16558cd",
+    "status": "SAVED"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/rainx/pytdx/2857fdad08534533610bd2aeca387f760c4baa42/pytdx/parser/get_finance_info.py",
+    "file": "upstream/rainx__pytdx/pytdx/parser/get_finance_info.py",
+    "at_utc": "2026-10-20T06:50:43.222637+00:00",
+    "http_status": 200,
+    "content_type": "text/plain; charset=utf-8",
+    "bytes": 5530,
+    "sha256": "91a881051b9fb4aaadb0c0d2d9581b10b2c8dddc83ead8a056361546a4f9aedf",
+    "status": "SAVED"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/rainx/pytdx/2857fdad08534533610bd2aeca387f760c4baa42/LICENSE",
+    "file": "upstream/rainx__pytdx/LICENSE",
+    "at_utc": "2026-10-20T06:50:43.990644+00:00",
+    "status": "FAILED",
+    "error": "HTTPError",
+    "detail": "HTTP Error 404: Not Found"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/rainx/pytdx/2857fdad08534533610bd2aeca387f760c4baa42/setup.py",
+    "file": "upstream/rainx__pytdx/setup.py",
+    "at_utc": "2026-10-20T06:50:44.717858+00:00",
+    "http_status": 200,
+    "content_type": "text/plain; charset=utf-8",
+    "bytes": 2028,
+    "sha256": "4e7c76dee2feb940d727531874b514cf43a48bd196614742314a45cc3a2f1475",
+    "status": "SAVED"
+  }
+]

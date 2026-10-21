@@ -1,0 +1,28 @@
+{
+  "batches": 4,
+  "budget": 4,
+  "details": [
+    {
+      "batch": 1,
+      "purpose": "preselection identity-only official delisting notices: 000005/000413; no financial results; neither is a tested financial sample"
+    },
+    {
+      "batch": 2,
+      "purpose": "preselection 000961 official delisting identity, fixed thereafter",
+      "official_url": "https://disc.static.szse.cn/disc/disk03/finalpage/2024-07-09/db94667a-0122-48f5-83e7-c70e0c62523f.PDF"
+    },
+    {
+      "batch": 3,
+      "purpose": "known Vanke correction notice",
+      "url": "https://static.cninfo.com.cn/finalpage/2024-09-30/1221331382.PDF",
+      "status": "WEB_TOOL_TIMEOUT_NO_PDF_BYTES_OBTAINED"
+    },
+    {
+      "batch": 4,
+      "purpose": "known Zhongnan FY2022 supplemental revision notice",
+      "url": "https://static.cninfo.com.cn/finalpage/2023-07-26/1217386818.PDF",
+      "status": "WEB_TOOL_URL_NOT_ACCESSIBLE_NO_PDF_BYTES_OBTAINED"
+    }
+  ],
+  "source_failure_inference": "Web tool failure does not prove origin unavailable; direct source 37 requests succeeded. No retries after these failures, no budget enlargement."
+}

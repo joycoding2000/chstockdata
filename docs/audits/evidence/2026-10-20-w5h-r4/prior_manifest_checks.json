@@ -1,0 +1,875 @@
+{
+  "files": [
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\2026-10-19-w5h-historical-financial-pit-feasibility.md",
+      "expected_sha256": "f771dfd4c28bf73ce6bbded8a493ad4163da44e5a455007b8b2bcc7deda2e7f5",
+      "actual_sha256": "f771dfd4c28bf73ce6bbded8a493ad4163da44e5a455007b8b2bcc7deda2e7f5",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-19-w5h\\analysis.json",
+      "expected_sha256": "7f4a231860c79ea405e1457f8cc2f7c922067944e986dabd01c94ebd477977f5",
+      "actual_sha256": "7f4a231860c79ea405e1457f8cc2f7c922067944e986dabd01c94ebd477977f5",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-19-w5h\\before.json",
+      "expected_sha256": "77253660aa72090fc9f26484526d3c56c84e069d13e2eb2c7d0ca38b33af69e7",
+      "actual_sha256": "77253660aa72090fc9f26484526d3c56c84e069d13e2eb2c7d0ca38b33af69e7",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-19-w5h\\code_inventory.json",
+      "expected_sha256": "678608aa2ae297c7ec7b00451e9248a6ffcf46dca0ddc873acd594c0965e9e03",
+      "actual_sha256": "678608aa2ae297c7ec7b00451e9248a6ffcf46dca0ddc873acd594c0965e9e03",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-19-w5h\\correction_2019.html",
+      "expected_sha256": "32401bcbc41c30a95754300455a12f3e2e0e0668ac303d70b2db6573ffd9af90",
+      "actual_sha256": "32401bcbc41c30a95754300455a12f3e2e0e0668ac303d70b2db6573ffd9af90",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-19-w5h\\correction_2019.txt",
+      "expected_sha256": "0353ada9166075db16201c4657e90f885ed526d4db51a5d0fef27bdc5db82ab2",
+      "actual_sha256": "0353ada9166075db16201c4657e90f885ed526d4db51a5d0fef27bdc5db82ab2",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-19-w5h\\eastmoney_600518_2020.json",
+      "expected_sha256": "780c380d9d26b6a4b607f98c100d4a84b4395f0c196813a3a76d6e2d135e1cc4",
+      "actual_sha256": "780c380d9d26b6a4b607f98c100d4a84b4395f0c196813a3a76d6e2d135e1cc4",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-19-w5h\\eastmoney_600518_2020_public_replay.json",
+      "expected_sha256": "7f8abc0fdbc2db97fb5814f9d04b3ecab5e39b16bca6bed0a5a6616739642c88",
+      "actual_sha256": "7f8abc0fdbc2db97fb5814f9d04b3ecab5e39b16bca6bed0a5a6616739642c88",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-19-w5h\\eastmoney_600518_2025.json",
+      "expected_sha256": "973c2a8d0ac4a01b058ef570f510909f93fa512a2ff9e75bf4a764f1cc81b81a",
+      "actual_sha256": "973c2a8d0ac4a01b058ef570f510909f93fa512a2ff9e75bf4a764f1cc81b81a",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-19-w5h\\eastmoney_600518_2025_public_replay.json",
+      "expected_sha256": "cb434b4f0a4154e7f963f4ff784bc58f019803877484a27e0566c7d9fd890372",
+      "actual_sha256": "cb434b4f0a4154e7f963f4ff784bc58f019803877484a27e0566c7d9fd890372",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-19-w5h\\eastmoney_600519_2025.json",
+      "expected_sha256": "cab28b33c788920a8e410f77ef55bb38674a6037d517b05404b5203a70f0c515",
+      "actual_sha256": "cab28b33c788920a8e410f77ef55bb38674a6037d517b05404b5203a70f0c515",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-19-w5h\\eastmoney_600519_2025_public_replay.json",
+      "expected_sha256": "175a36a2fc6cda5346d669a89db342b6968314686f49540c5ee01d63ccafd08f",
+      "actual_sha256": "175a36a2fc6cda5346d669a89db342b6968314686f49540c5ee01d63ccafd08f",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-19-w5h\\focused.junit.xml",
+      "expected_sha256": "98136f6313351aabd1f4858760a8e5589f9922f57f246108c5f3f7ad0c0c7876",
+      "actual_sha256": "98136f6313351aabd1f4858760a8e5589f9922f57f246108c5f3f7ad0c0c7876",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-19-w5h\\focused.stderr.txt",
+      "expected_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "actual_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-19-w5h\\focused.stdout.txt",
+      "expected_sha256": "bb90aff1a733e27a0c92020ddd9358a76ece3307b2b705653f696cd00b2cb04c",
+      "actual_sha256": "bb90aff1a733e27a0c92020ddd9358a76ece3307b2b705653f696cd00b2cb04c",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-19-w5h\\original_2017.html",
+      "expected_sha256": "f3bc0297c76a492b7ec0cb04a2eacb0f134c16ffa57fcd215d1632865835a626",
+      "actual_sha256": "f3bc0297c76a492b7ec0cb04a2eacb0f134c16ffa57fcd215d1632865835a626",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-19-w5h\\original_2017.txt",
+      "expected_sha256": "38e77c4d26d586d5a4d6b42321e1220092fd4d7d20428d94d23b2285de95a1ea",
+      "actual_sha256": "38e77c4d26d586d5a4d6b42321e1220092fd4d7d20428d94d23b2285de95a1ea",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-19-w5h\\probe_sources.py",
+      "expected_sha256": "7f5cea06bc08e91075a88467278af263759905431cbbf574c9f750800d7c56a4",
+      "actual_sha256": "7f5cea06bc08e91075a88467278af263759905431cbbf574c9f750800d7c56a4",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-19-w5h\\protection.stdout.txt",
+      "expected_sha256": "273673812b189ca95915a8f917edd9dc6d7d2e27034c37e790cf36f419315679",
+      "actual_sha256": "273673812b189ca95915a8f917edd9dc6d7d2e27034c37e790cf36f419315679",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-19-w5h\\public_llb_replay.txt",
+      "expected_sha256": "03078dd600e26d8075e41b1a455c451b3d3c97c1e5e20265de7a4e24bce0ebef",
+      "actual_sha256": "03078dd600e26d8075e41b1a455c451b3d3c97c1e5e20265de7a4e24bce0ebef",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-19-w5h\\public_lrb_replay.txt",
+      "expected_sha256": "e780167c4de9bfb78eaa3d854e00d32c4d74bc1fd983e9bb7602794535bbb73e",
+      "actual_sha256": "e780167c4de9bfb78eaa3d854e00d32c4d74bc1fd983e9bb7602794535bbb73e",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-19-w5h\\replay.stderr.txt",
+      "expected_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "actual_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-19-w5h\\replay.stdout.txt",
+      "expected_sha256": "e0f525ac274059862003ac1910e11b8fb716daf936fb62ebbbf60fcf821c53b6",
+      "actual_sha256": "e0f525ac274059862003ac1910e11b8fb716daf936fb62ebbbf60fcf821c53b6",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-19-w5h\\replay_evidence.py",
+      "expected_sha256": "fe01258929c13a4faf5f1ca8cefde9cc433f408ccf7f37e9260245aaddee27e3",
+      "actual_sha256": "fe01258929c13a4faf5f1ca8cefde9cc433f408ccf7f37e9260245aaddee27e3",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-19-w5h\\requests.json",
+      "expected_sha256": "3c858bc12b50d0f9fb8f7e4f32c6735ae3b3c2b944bd0da45288b35c7a93988e",
+      "actual_sha256": "3c858bc12b50d0f9fb8f7e4f32c6735ae3b3c2b944bd0da45288b35c7a93988e",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-19-w5h\\sina_600518_llb.json",
+      "expected_sha256": "023c5712e3ed875ec4c88a74c1585aee829f23fd614e58ad3b5ac9a9ab6d1345",
+      "actual_sha256": "023c5712e3ed875ec4c88a74c1585aee829f23fd614e58ad3b5ac9a9ab6d1345",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-19-w5h\\sina_600518_lrb.json",
+      "expected_sha256": "6cb84e68b918b274b994f69732c0c957430db58bad1d665477c31f549d612591",
+      "actual_sha256": "6cb84e68b918b274b994f69732c0c957430db58bad1d665477c31f549d612591",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-19-w5h\\verification.json",
+      "expected_sha256": "5d93ecde140c9ff9dad403c4e1b5bd5929594f5f430a89849c97eefb66045c53",
+      "actual_sha256": "5d93ecde140c9ff9dad403c4e1b5bd5929594f5f430a89849c97eefb66045c53",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-19-w5h\\verify_local.py",
+      "expected_sha256": "fe3c49f355b13ec8a9b26981aa9f0d19cd558b66673787fa47494347328c90d0",
+      "actual_sha256": "fe3c49f355b13ec8a9b26981aa9f0d19cd558b66673787fa47494347328c90d0",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-19-w5h\\web_evidence.json",
+      "expected_sha256": "4743e11f6028522bff7dc73e176eccb9171aac0a9b48e3618ef48f86d857e8b5",
+      "actual_sha256": "4743e11f6028522bff7dc73e176eccb9171aac0a9b48e3618ef48f86d857e8b5",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\2026-10-20-w5h-r2-alternative-source-qualification.md",
+      "expected_sha256": "6d110dd9ce9b1cc1038c85159dc5ec73f21ac2557b2b619c510bd2ce0a186e9e",
+      "actual_sha256": "6d110dd9ce9b1cc1038c85159dc5ec73f21ac2557b2b619c510bd2ce0a186e9e",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-20-w5h-r2\\analysis.json",
+      "expected_sha256": "5a10a5949ec86f9951708b3bc2a977c16f2d566d3c410ea0507f0e72f711072f",
+      "actual_sha256": "5a10a5949ec86f9951708b3bc2a977c16f2d566d3c410ea0507f0e72f711072f",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-20-w5h-r2\\analysis.stderr.txt",
+      "expected_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "actual_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-20-w5h-r2\\analysis.stdout.txt",
+      "expected_sha256": "8d3b510926abfeef88d5a48407be3d2593c5b61b97be5023f57201119fe70ba4",
+      "actual_sha256": "8d3b510926abfeef88d5a48407be3d2593c5b61b97be5023f57201119fe70ba4",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-20-w5h-r2\\analyze_evidence.py",
+      "expected_sha256": "761bf4439cade20e1724a74d1b02e3a09ae7fedf8f0366ce2f400413fcb670b3",
+      "actual_sha256": "761bf4439cade20e1724a74d1b02e3a09ae7fedf8f0366ce2f400413fcb670b3",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-20-w5h-r2\\audit_tools.py",
+      "expected_sha256": "698504ad4fbfa417abd0ef045bca0256757b3eb05dd1020ef44e3821ea12f726",
+      "actual_sha256": "698504ad4fbfa417abd0ef045bca0256757b3eb05dd1020ef44e3821ea12f726",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-20-w5h-r2\\baidu_600518_marketcap_all.raw",
+      "expected_sha256": "d970be59df198cee728cef63e9ed7d33a3bb97d045c8b2d13a1f95001fa19fd7",
+      "actual_sha256": "d970be59df198cee728cef63e9ed7d33a3bb97d045c8b2d13a1f95001fa19fd7",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-20-w5h-r2\\baidu_600518_static_all.raw",
+      "expected_sha256": "51d204f4f1b860ef6b3a069d5604d560adf9493ccb808f235ec33578f81c2ece",
+      "actual_sha256": "51d204f4f1b860ef6b3a069d5604d560adf9493ccb808f235ec33578f81c2ece",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-20-w5h-r2\\baidu_600518_ttm.raw",
+      "expected_sha256": "82e7512bb763ef84d4ff4c9f8998fbff4b461ee5416741db743d5e4584d2ec45",
+      "actual_sha256": "82e7512bb763ef84d4ff4c9f8998fbff4b461ee5416741db743d5e4584d2ec45",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-20-w5h-r2\\baidu_600518_ttm_1y.raw",
+      "expected_sha256": "bc671a00dd6b3cbcf6d608053def04fc9b548234d4f400e8821f51810ad58511",
+      "actual_sha256": "bc671a00dd6b3cbcf6d608053def04fc9b548234d4f400e8821f51810ad58511",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-20-w5h-r2\\baidu_600519_ttm_1y.raw",
+      "expected_sha256": "e4cf83047a28cf749dbc8ba746847b9c4d2f8bb00ef06e72dabf74613c2fb0fb",
+      "actual_sha256": "e4cf83047a28cf749dbc8ba746847b9c4d2f8bb00ef06e72dabf74613c2fb0fb",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-20-w5h-r2\\baidu_canonical_600518_ttm.raw",
+      "expected_sha256": "9e54f751f3783bff441388f826ae90721282127df92ba708d900b978305d9d01",
+      "actual_sha256": "9e54f751f3783bff441388f826ae90721282127df92ba708d900b978305d9d01",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-20-w5h-r2\\baidu_canonical_discovery.raw",
+      "expected_sha256": "82e7512bb763ef84d4ff4c9f8998fbff4b461ee5416741db743d5e4584d2ec45",
+      "actual_sha256": "82e7512bb763ef84d4ff4c9f8998fbff4b461ee5416741db743d5e4584d2ec45",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-20-w5h-r2\\baostock_current_menu.raw",
+      "expected_sha256": "e31cbae9fb5183792cbca3300d5b03046ec87d215daf1d1423a4bd0c83586cf8",
+      "actual_sha256": "e31cbae9fb5183792cbca3300d5b03046ec87d215daf1d1423a4bd0c83586cf8",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-20-w5h-r2\\baostock_doc_dataExplain.raw",
+      "expected_sha256": "bcea92bddcafbf3aaadbf0483a9631433b9efbcb1c84b22c2cf30e53cfa58751",
+      "actual_sha256": "bcea92bddcafbf3aaadbf0483a9631433b9efbcb1c84b22c2cf30e53cfa58751",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-20-w5h-r2\\baostock_doc_menu_post.raw",
+      "expected_sha256": "aaa1f04f22f23b18bda9e3d7cb267013d1dfccfdb9da72dbde5047e0427d8dd5",
+      "actual_sha256": "aaa1f04f22f23b18bda9e3d7cb267013d1dfccfdb9da72dbde5047e0427d8dd5",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-20-w5h-r2\\baostock_doc_modifyRecord.raw",
+      "expected_sha256": "3c6a08854e08356f7c3a7f05a153374c314e300845e21fc2dd516b3f6eca0912",
+      "actual_sha256": "3c6a08854e08356f7c3a7f05a153374c314e300845e21fc2dd516b3f6eca0912",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-20-w5h-r2\\baostock_doc_seasonBalance.raw",
+      "expected_sha256": "8b157300060ae0c33c6c3bcb747ecc6488f2c54a7e5a59f29eaeb5d165e63d63",
+      "actual_sha256": "8b157300060ae0c33c6c3bcb747ecc6488f2c54a7e5a59f29eaeb5d165e63d63",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-20-w5h-r2\\baostock_doc_seasonCashFlow.raw",
+      "expected_sha256": "fde08f2d70215d492d1f2a52cc92a49692c2853395d144e32951910f83f96cd0",
+      "actual_sha256": "fde08f2d70215d492d1f2a52cc92a49692c2853395d144e32951910f83f96cd0",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-20-w5h-r2\\baostock_doc_seasonProfit.raw",
+      "expected_sha256": "1d51b4abbd8db3f05934fc58b339a639978438f4cfaad5632d12240f20275afd",
+      "actual_sha256": "1d51b4abbd8db3f05934fc58b339a639978438f4cfaad5632d12240f20275afd",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-20-w5h-r2\\baostock_doc_valuationDaily.raw",
+      "expected_sha256": "c196b69f5375b9fb8659f7f924547a4c1072b8d587fe5ef9c3f07401f9155718",
+      "actual_sha256": "c196b69f5375b9fb8659f7f924547a4c1072b8d587fe5ef9c3f07401f9155718",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-20-w5h-r2\\before.json",
+      "expected_sha256": "d7539c7b92df7ed595fc42f22b83e8d0b5db422abc455053ef25abca5a695e8e",
+      "actual_sha256": "d7539c7b92df7ed595fc42f22b83e8d0b5db422abc455053ef25abca5a695e8e",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-20-w5h-r2\\finalize.py",
+      "expected_sha256": "bb81f2923647b5875e214cb2b2929586c34990db1ab3c39f73c8d1eb9f8107a6",
+      "actual_sha256": "bb81f2923647b5875e214cb2b2929586c34990db1ab3c39f73c8d1eb9f8107a6",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-20-w5h-r2\\local_inventory.json",
+      "expected_sha256": "b4bd24e88be7eaf87e9b3310c8713b56a0e1269064c22d1fad2cb21ffb619d01",
+      "actual_sha256": "b4bd24e88be7eaf87e9b3310c8713b56a0e1269064c22d1fad2cb21ffb619d01",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-20-w5h-r2\\requests.json",
+      "expected_sha256": "c571390524a91cac7303e8ef6a35d3012689d7844bcc1179d779089c3f4e54de",
+      "actual_sha256": "c571390524a91cac7303e8ef6a35d3012689d7844bcc1179d779089c3f4e54de",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-20-w5h-r2\\sina_600518_2019q3_original.raw",
+      "expected_sha256": "9da444cc0256ff844b19d48f7575b6af66e893ca439375475eb0ad427e108a7a",
+      "actual_sha256": "9da444cc0256ff844b19d48f7575b6af66e893ca439375475eb0ad427e108a7a",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-20-w5h-r2\\sina_600518_2019q3_original.txt",
+      "expected_sha256": "6894b62e5b7abff84de23ef23cf0dc7d33c9b48f0ca0d7c501beba042d2c2333",
+      "actual_sha256": "6894b62e5b7abff84de23ef23cf0dc7d33c9b48f0ca0d7c501beba042d2c2333",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-20-w5h-r2\\source_research.json",
+      "expected_sha256": "ec9e882775e30ee90f31ac05608e5e8cf974d865cccbaea5e481d3fc7603ebe2",
+      "actual_sha256": "ec9e882775e30ee90f31ac05608e5e8cf974d865cccbaea5e481d3fc7603ebe2",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-20-w5h-r2\\tdx_financial_catalog.raw",
+      "expected_sha256": "a98dbe95e06b6009794dc2bb3977784540ad1b33cff993846a8d1d98b571fb52",
+      "actual_sha256": "a98dbe95e06b6009794dc2bb3977784540ad1b33cff993846a8d1d98b571fb52",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-20-w5h-r2\\tdx_gpcw20171231.raw",
+      "expected_sha256": "5d6cac6ddbb7dbf13d4f1f1cb8fd06dc672876e94141d7567c908e040f0efa1a",
+      "actual_sha256": "5d6cac6ddbb7dbf13d4f1f1cb8fd06dc672876e94141d7567c908e040f0efa1a",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-20-w5h-r2\\tdx_official_stockfin.raw",
+      "expected_sha256": "167b3fef795008365064568967f96d39a7a3ad5a04c1fdf1b3e1ed7b4ddf0a14",
+      "actual_sha256": "167b3fef795008365064568967f96d39a7a3ad5a04c1fdf1b3e1ed7b4ddf0a14",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-20-w5h-r2\\ths_600518_benefit.raw",
+      "expected_sha256": "bc8300fae2d0c8112c604cdbce139491d69f1640b75ae0208d1f73d4ccf9100f",
+      "actual_sha256": "bc8300fae2d0c8112c604cdbce139491d69f1640b75ae0208d1f73d4ccf9100f",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-20-w5h-r2\\ths_600518_cash.raw",
+      "expected_sha256": "a4b74022c33e4c4a262d78319225bf3c4d7864e124726ebc1a1f3402dbf9408c",
+      "actual_sha256": "a4b74022c33e4c4a262d78319225bf3c4d7864e124726ebc1a1f3402dbf9408c",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-20-w5h-r2\\ths_600518_debt.raw",
+      "expected_sha256": "bb5b3701ea3add975b1ee9519112e456a379c2c5694df6216278f118a670e84b",
+      "actual_sha256": "bb5b3701ea3add975b1ee9519112e456a379c2c5694df6216278f118a670e84b",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-20-w5h-r2\\verification.json",
+      "expected_sha256": "b76c3cc97d7b7016cfaec6291fc4915c228b61b0930ebcddd95d414ee296c70f",
+      "actual_sha256": "b76c3cc97d7b7016cfaec6291fc4915c228b61b0930ebcddd95d414ee296c70f",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-20-w5h-r3\\before.json",
+      "expected_sha256": "752b4a518d00fd8b272e2b693cbcc8caef6ab62249839ea4de2fe37d06beb039",
+      "actual_sha256": "752b4a518d00fd8b272e2b693cbcc8caef6ab62249839ea4de2fe37d06beb039",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-20-w5h-r3\\client-shortcuts.json",
+      "expected_sha256": "422194816cc98a8547268ee7311a9e542e710fe7601378ba56c618b3e152ed4c",
+      "actual_sha256": "422194816cc98a8547268ee7311a9e542e710fe7601378ba56c618b3e152ed4c",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-20-w5h-r3\\client-state.json",
+      "expected_sha256": "2dd53dc13f35c79c4992c5f51f6cbb466dcd2462919c3648e1849475db0109d5",
+      "actual_sha256": "2dd53dc13f35c79c4992c5f51f6cbb466dcd2462919c3648e1849475db0109d5",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-20-w5h-r3\\corporate_action_sample.json",
+      "expected_sha256": "641c21b5583d463cc0ca390fad727da61890a1a6edc839758086e0a0b58be46b",
+      "actual_sha256": "641c21b5583d463cc0ca390fad727da61890a1a6edc839758086e0a0b58be46b",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-20-w5h-r3\\default_cache_inventory.json",
+      "expected_sha256": "0fc8f373de3d2dbc266f05086d132c286443e94b8e9b89f7385a5623f418661b",
+      "actual_sha256": "0fc8f373de3d2dbc266f05086d132c286443e94b8e9b89f7385a5623f418661b",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-20-w5h-r3\\disclosure_anchor_checks.json",
+      "expected_sha256": "d72510c36f9a3e29205e9e380ebb6985c3bd9633939d11fbd23833e570a9e9a8",
+      "actual_sha256": "d72510c36f9a3e29205e9e380ebb6985c3bd9633939d11fbd23833e570a9e9a8",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-20-w5h-r3\\discovery.json",
+      "expected_sha256": "f924ee748f301dce10c353b5dc17db3c190f737f370a5e16b59d924d55becd8d",
+      "actual_sha256": "f924ee748f301dce10c353b5dc17db3c190f737f370a5e16b59d924d55becd8d",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-20-w5h-r3\\fetch_fixed_http.py",
+      "expected_sha256": "60620e7b5e1a94793ad86c1e9ca7527f1ee9af1720d5d66ceb01425814bea954",
+      "actual_sha256": "60620e7b5e1a94793ad86c1e9ca7527f1ee9af1720d5d66ceb01425814bea954",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-20-w5h-r3\\final_verification.json",
+      "expected_sha256": "588030a6f3fa62b84290662d501465182df9ca97fb197c43b9f6128fd3a2edcf",
+      "actual_sha256": "588030a6f3fa62b84290662d501465182df9ca97fb197c43b9f6128fd3a2edcf",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-20-w5h-r3\\fixed_2017_qualification.json",
+      "expected_sha256": "38954bc16cc66c4fa5bc0eb410f867606a61b041673190eb34e48866d78584c0",
+      "actual_sha256": "38954bc16cc66c4fa5bc0eb410f867606a61b041673190eb34e48866d78584c0",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-20-w5h-r3\\github_requests.json",
+      "expected_sha256": "b76cdd611ade41e47a4226542637debdc7ef774591cef3dd003560ecd09f0d61",
+      "actual_sha256": "b76cdd611ade41e47a4226542637debdc7ef774591cef3dd003560ecd09f0d61",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-20-w5h-r3\\github_requests_final.json",
+      "expected_sha256": "2c0cfb3634ec8af30ab4766cebd97a92d1810290b8fd1b5a07a7450615875d20",
+      "actual_sha256": "2c0cfb3634ec8af30ab4766cebd97a92d1810290b8fd1b5a07a7450615875d20",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-20-w5h-r3\\github_requests_initial.json",
+      "expected_sha256": "e6caf7902549623f9d0d626d05a86ab40d6d17e68ca302a7689f750cdc3ea918",
+      "actual_sha256": "e6caf7902549623f9d0d626d05a86ab40d6d17e68ca302a7689f750cdc3ea918",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-20-w5h-r3\\github_requests_more.json",
+      "expected_sha256": "b76cdd611ade41e47a4226542637debdc7ef774591cef3dd003560ecd09f0d61",
+      "actual_sha256": "b76cdd611ade41e47a4226542637debdc7ef774591cef3dd003560ecd09f0d61",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-20-w5h-r3\\gp_probe.json",
+      "expected_sha256": "754aecb6c61532593d144bfdcf747e4ac478f113434ea3f1112f34238d34f459",
+      "actual_sha256": "754aecb6c61532593d144bfdcf747e4ac478f113434ea3f1112f34238d34f459",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-20-w5h-r3\\http_gpcw20171231.response",
+      "expected_sha256": "e393c139a78eef736e8fa25a9226ad73480c8393afdffdd1fbf5a33033065086",
+      "actual_sha256": "e393c139a78eef736e8fa25a9226ad73480c8393afdffdd1fbf5a33033065086",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-20-w5h-r3\\http_probe.json",
+      "expected_sha256": "16245b2eb51e78cb5e1acb9056334163a79c2a78096ec5908a8e2594746144df",
+      "actual_sha256": "16245b2eb51e78cb5e1acb9056334163a79c2a78096ec5908a8e2594746144df",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-20-w5h-r3\\inspect_default_cache.py",
+      "expected_sha256": "e45ef0034570275fb16da49f0532b641574e26bdf4ee0cc556197e0508eaab4e",
+      "actual_sha256": "e45ef0034570275fb16da49f0532b641574e26bdf4ee0cc556197e0508eaab4e",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-20-w5h-r3\\inspect_local.py",
+      "expected_sha256": "e64664c6ae004c952b732cbbb21c654ff8ccb33d5a4cff6f7f321a85b72e6269",
+      "actual_sha256": "e64664c6ae004c952b732cbbb21c654ff8ccb33d5a4cff6f7f321a85b72e6269",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-20-w5h-r3\\local_capabilities.json",
+      "expected_sha256": "6b7b39e90527d5b82170d8c6e0acb26ff11ed1fbbd32317ad058ae2306328092",
+      "actual_sha256": "6b7b39e90527d5b82170d8c6e0acb26ff11ed1fbbd32317ad058ae2306328092",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-20-w5h-r3\\local_financial_sample.json",
+      "expected_sha256": "9aac79a0c59cdeb8a3e18367e9ac0871198c85d5712dd1c093e79b0e1ce8fa78",
+      "actual_sha256": "9aac79a0c59cdeb8a3e18367e9ac0871198c85d5712dd1c093e79b0e1ce8fa78",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-20-w5h-r3\\local_inventory.json",
+      "expected_sha256": "36a962e607181544a8e50aab505848a9ed70bcc75e282416f455558691960cab",
+      "actual_sha256": "36a962e607181544a8e50aab505848a9ed70bcc75e282416f455558691960cab",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-20-w5h-r3\\parse_actions.py",
+      "expected_sha256": "60c59d22a9286925159dfb7ec7b618fd1b63882747b51f2b34d013fdc4420b64",
+      "actual_sha256": "60c59d22a9286925159dfb7ec7b618fd1b63882747b51f2b34d013fdc4420b64",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-20-w5h-r3\\parse_samples.py",
+      "expected_sha256": "883b94b9d119ca004e97efe70202ab1859b878ee2ea2d42a1ab0d295958fadbd",
+      "actual_sha256": "883b94b9d119ca004e97efe70202ab1859b878ee2ea2d42a1ab0d295958fadbd",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-20-w5h-r3\\probe_financial_file.py",
+      "expected_sha256": "73f0909782c0896ac111145e1538886cede777403408b950f0780243a3425249",
+      "actual_sha256": "73f0909782c0896ac111145e1538886cede777403408b950f0780243a3425249",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-20-w5h-r3\\qualify_fixed.py",
+      "expected_sha256": "742dc6e9690d15837a372bad28d15054f4070326f62429aa23e373f102b4aecd",
+      "actual_sha256": "742dc6e9690d15837a372bad28d15054f4070326f62429aa23e373f102b4aecd",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-20-w5h-r3\\research_more.py",
+      "expected_sha256": "3473b68ba842da7bd3394e542006a21d8860669d1ef87a9c284fc3ae35617fae",
+      "actual_sha256": "3473b68ba842da7bd3394e542006a21d8860669d1ef87a9c284fc3ae35617fae",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-20-w5h-r3\\research_sources.py",
+      "expected_sha256": "0cce34d17c14c9871eaf3e3809ee81f45dfaf6cfd7657333249d73b1e4ed29fd",
+      "actual_sha256": "0cce34d17c14c9871eaf3e3809ee81f45dfaf6cfd7657333249d73b1e4ed29fd",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-20-w5h-r3\\runtime_symbols.json",
+      "expected_sha256": "a6928b777e419930b726020d45cc208717ed2c300e1c6348fed4dfdc86987895",
+      "actual_sha256": "a6928b777e419930b726020d45cc208717ed2c300e1c6348fed4dfdc86987895",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-20-w5h-r3\\source_final.py",
+      "expected_sha256": "99a00e3308e4e2363a464ca4f42f316d1dbf355dee227bbd2b5aed7f0234a2ce",
+      "actual_sha256": "99a00e3308e4e2363a464ca4f42f316d1dbf355dee227bbd2b5aed7f0234a2ce",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-20-w5h-r3\\supplement.json",
+      "expected_sha256": "5d0c4c7fe41d8691806311e6d22fcd732294ac2feb23f3aa3d4a5bb3072bfd1b",
+      "actual_sha256": "5d0c4c7fe41d8691806311e6d22fcd732294ac2feb23f3aa3d4a5bb3072bfd1b",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-20-w5h-r3\\supplement_evidence.py",
+      "expected_sha256": "33b8893f1c67ce913cfb4b8095a251d1ef422ce232fbc52711c0e52b17398a1d",
+      "actual_sha256": "33b8893f1c67ce913cfb4b8095a251d1ef422ce232fbc52711c0e52b17398a1d",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-20-w5h-r3\\upstream\\mootdx__mootdx\\head.json",
+      "expected_sha256": "a240a94cf17c64772781b81ab6d541c6b765473ac98768551ed831d85dd196e0",
+      "actual_sha256": "a240a94cf17c64772781b81ab6d541c6b765473ac98768551ed831d85dd196e0",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-20-w5h-r3\\upstream\\mootdx__mootdx\\LICENSE",
+      "expected_sha256": "ee03a051e103766e566b0a3ac0532daa665bb063cf8f30de46fd7c7ac9d00ec6",
+      "actual_sha256": "ee03a051e103766e566b0a3ac0532daa665bb063cf8f30de46fd7c7ac9d00ec6",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-20-w5h-r3\\upstream\\mootdx__mootdx\\mootdx\\affair.py",
+      "expected_sha256": "c320ec2fcd71c465d5c6b04ce66b18b5fab0e88a36417aaa3b9f2acc1fe5f6b7",
+      "actual_sha256": "c320ec2fcd71c465d5c6b04ce66b18b5fab0e88a36417aaa3b9f2acc1fe5f6b7",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-20-w5h-r3\\upstream\\mootdx__mootdx\\mootdx\\config.py",
+      "expected_sha256": "7732a562227c3679e0626180801e1593f082157d61a7f48973a55a8b9e6818eb",
+      "actual_sha256": "7732a562227c3679e0626180801e1593f082157d61a7f48973a55a8b9e6818eb",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-20-w5h-r3\\upstream\\mootdx__mootdx\\mootdx\\financial\\base.py",
+      "expected_sha256": "1575bf034bec8aeb8165d0c2107e323d05cef64fe296cfee21284deff6fed5d6",
+      "actual_sha256": "1575bf034bec8aeb8165d0c2107e323d05cef64fe296cfee21284deff6fed5d6",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-20-w5h-r3\\upstream\\mootdx__mootdx\\mootdx\\financial\\columns.py",
+      "expected_sha256": "27c0edc36d0e16730e4f94ea2db5b8db7435ca04c3864b767761dfce385bad60",
+      "actual_sha256": "27c0edc36d0e16730e4f94ea2db5b8db7435ca04c3864b767761dfce385bad60",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-20-w5h-r3\\upstream\\mootdx__mootdx\\mootdx\\financial\\financial.py",
+      "expected_sha256": "b1c82ae471abe5629ed59dc1a477335b8080f3bb0a8f2d691433c0d249bc6e2b",
+      "actual_sha256": "b1c82ae471abe5629ed59dc1a477335b8080f3bb0a8f2d691433c0d249bc6e2b",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-20-w5h-r3\\upstream\\mootdx__mootdx\\mootdx\\reader.py",
+      "expected_sha256": "cf448e3826eedb3e1d14a075db27f38b77fac642230f43461551940fec06cda5",
+      "actual_sha256": "cf448e3826eedb3e1d14a075db27f38b77fac642230f43461551940fec06cda5",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-20-w5h-r3\\upstream\\mootdx__mootdx\\pyproject.toml",
+      "expected_sha256": "bd3b280f745a6608901c2f74bd658e6d2658fb61806195c6c9715c07cf996866",
+      "actual_sha256": "bd3b280f745a6608901c2f74bd658e6d2658fb61806195c6c9715c07cf996866",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-20-w5h-r3\\upstream\\mootdx__mootdx\\repo.json",
+      "expected_sha256": "f7249b3f7ad0a09181ca1e7bae5a5156270abd70e7deb40484790056a546e232",
+      "actual_sha256": "f7249b3f7ad0a09181ca1e7bae5a5156270abd70e7deb40484790056a546e232",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-20-w5h-r3\\upstream\\mootdx__mootdx\\tree.json",
+      "expected_sha256": "36e69bb5d37a9b7dbe8e44b482c314b1e7ca1b3548e52ec7c407363c8598ef55",
+      "actual_sha256": "36e69bb5d37a9b7dbe8e44b482c314b1e7ca1b3548e52ec7c407363c8598ef55",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-20-w5h-r3\\upstream\\rainx__pytdx\\head.json",
+      "expected_sha256": "281bfc454becb8c20efdc4464510d54b69c327ec782707c9e13f18c81d88a29e",
+      "actual_sha256": "281bfc454becb8c20efdc4464510d54b69c327ec782707c9e13f18c81d88a29e",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-20-w5h-r3\\upstream\\rainx__pytdx\\master-head.json",
+      "expected_sha256": "e91679ebcadbc0c38a2d41d6ec55a5d019fc99f0d11021c83f66894d15679cb9",
+      "actual_sha256": "e91679ebcadbc0c38a2d41d6ec55a5d019fc99f0d11021c83f66894d15679cb9",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-20-w5h-r3\\upstream\\rainx__pytdx\\master-tree.json",
+      "expected_sha256": "5335c67f8f7705aab16a1ef956e036df8d17d0280139396fa456f61fd461bb92",
+      "actual_sha256": "5335c67f8f7705aab16a1ef956e036df8d17d0280139396fa456f61fd461bb92",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-20-w5h-r3\\upstream\\rainx__pytdx\\pytdx\\crawler\\history_financial_crawler.py",
+      "expected_sha256": "0659ad8eb8b359a2c2f4e14c4991c8a812e3e7b4fea160b0a8b5b96060b3a722",
+      "actual_sha256": "0659ad8eb8b359a2c2f4e14c4991c8a812e3e7b4fea160b0a8b5b96060b3a722",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-20-w5h-r3\\upstream\\rainx__pytdx\\pytdx\\hq.py",
+      "expected_sha256": "4f78141457e4e3bc3dec5df453f738bb6b31f964e6d7dcb5dad4763fc16558cd",
+      "actual_sha256": "4f78141457e4e3bc3dec5df453f738bb6b31f964e6d7dcb5dad4763fc16558cd",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-20-w5h-r3\\upstream\\rainx__pytdx\\pytdx\\parser\\get_finance_info.py",
+      "expected_sha256": "91a881051b9fb4aaadb0c0d2d9581b10b2c8dddc83ead8a056361546a4f9aedf",
+      "actual_sha256": "91a881051b9fb4aaadb0c0d2d9581b10b2c8dddc83ead8a056361546a4f9aedf",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-20-w5h-r3\\upstream\\rainx__pytdx\\pytdx\\reader\\history_financial_reader.py",
+      "expected_sha256": "e6d3cf1822a8ba0998668846506f623f06f0ba84851600625084c174698a223d",
+      "actual_sha256": "e6d3cf1822a8ba0998668846506f623f06f0ba84851600625084c174698a223d",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-20-w5h-r3\\upstream\\rainx__pytdx\\repo.json",
+      "expected_sha256": "669f526b69d9fa0812dad427997a828b42532b65c984973e50614bd20833267e",
+      "actual_sha256": "669f526b69d9fa0812dad427997a828b42532b65c984973e50614bd20833267e",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-20-w5h-r3\\upstream\\rainx__pytdx\\setup.py",
+      "expected_sha256": "4e7c76dee2feb940d727531874b514cf43a48bd196614742314a45cc3a2f1475",
+      "actual_sha256": "4e7c76dee2feb940d727531874b514cf43a48bd196614742314a45cc3a2f1475",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-20-w5h-r3\\upstream\\rainx__pytdx\\tree.json",
+      "expected_sha256": "088148e8a782520113af9abda3d3f4901800a670b0b196bedb9ea6a8ca090f33",
+      "actual_sha256": "088148e8a782520113af9abda3d3f4901800a670b0b196bedb9ea6a8ca090f33",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-20-w5h-r3\\upstream\\wkingnet__stock-analysis\\func.py",
+      "expected_sha256": "d9e757c7b736382431484476383384ea1c3abde027be833eb13f15aca8548bbb",
+      "actual_sha256": "d9e757c7b736382431484476383384ea1c3abde027be833eb13f15aca8548bbb",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-20-w5h-r3\\upstream\\wkingnet__stock-analysis\\func_TDX.py",
+      "expected_sha256": "3b8ed491bb867905b41c25d317020bd80e5255b43011e996e3bf416af301376f",
+      "actual_sha256": "3b8ed491bb867905b41c25d317020bd80e5255b43011e996e3bf416af301376f",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-20-w5h-r3\\upstream\\wkingnet__stock-analysis\\head.json",
+      "expected_sha256": "2594d1e3ada584d0271cc5a4bcdb10db53158978a5678b8fd8f96586035f7a22",
+      "actual_sha256": "2594d1e3ada584d0271cc5a4bcdb10db53158978a5678b8fd8f96586035f7a22",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-20-w5h-r3\\upstream\\wkingnet__stock-analysis\\LICENSE",
+      "expected_sha256": "2684de17300e0a434686f1ec7f8af6045207a4b457a3fe04b2b9ce655e7c5d50",
+      "actual_sha256": "2684de17300e0a434686f1ec7f8af6045207a4b457a3fe04b2b9ce655e7c5d50",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-20-w5h-r3\\upstream\\wkingnet__stock-analysis\\README.md",
+      "expected_sha256": "f54ac5adc518bad509f851704203e517cf0644f3b112ec00e1855c870fde1aff",
+      "actual_sha256": "f54ac5adc518bad509f851704203e517cf0644f3b112ec00e1855c870fde1aff",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-20-w5h-r3\\upstream\\wkingnet__stock-analysis\\readTDX_cw.py",
+      "expected_sha256": "892c2bd9fcd02700750a1da51de9b0dd06d81cc603a1dc5dbe605b99d849955a",
+      "actual_sha256": "892c2bd9fcd02700750a1da51de9b0dd06d81cc603a1dc5dbe605b99d849955a",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-20-w5h-r3\\upstream\\wkingnet__stock-analysis\\readTDX_lday.py",
+      "expected_sha256": "38036c28688ca64053d90506f86dad2c28859b77d01503f9a2b6f97bb0d6093e",
+      "actual_sha256": "38036c28688ca64053d90506f86dad2c28859b77d01503f9a2b6f97bb0d6093e",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-20-w5h-r3\\upstream\\wkingnet__stock-analysis\\repo.json",
+      "expected_sha256": "d2472fa2f1c2fa2d15ff94f892b0076e6dee9c5342caf74a7bec820b038c5a06",
+      "actual_sha256": "d2472fa2f1c2fa2d15ff94f892b0076e6dee9c5342caf74a7bec820b038c5a06",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-20-w5h-r3\\upstream\\wkingnet__stock-analysis\\tree.json",
+      "expected_sha256": "5542c2f92a8461b88e255267a1064191627b182a64a97a1733a06c6e4655e11e",
+      "actual_sha256": "5542c2f92a8461b88e255267a1064191627b182a64a97a1733a06c6e4655e11e",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-20-w5h-r3\\upstream\\wkingnet__stock-analysis\\user_config.py",
+      "expected_sha256": "337861749be97a24408ecd6db75f2943b307b9abd43084aa74a265ed45727951",
+      "actual_sha256": "337861749be97a24408ecd6db75f2943b307b9abd43084aa74a265ed45727951",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-20-w5h-r3\\upstream\\wkingnet__stock-analysis\\util_docs\\专业财务文件字段含义对照表.txt",
+      "expected_sha256": "be9e903cb6e2de77300d5008e46d48cc4597b02656aede42e6272f4d7d823556",
+      "actual_sha256": "be9e903cb6e2de77300d5008e46d48cc4597b02656aede42e6272f4d7d823556",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-20-w5h-r3\\upstream\\zxtzlyt__tdx_quant\\docs\\LOCAL_NOTES.md",
+      "expected_sha256": "3905ca32545d70c9a1b6885cfccfd6eed5039ab6c0a91ee39a418f136e27155e",
+      "actual_sha256": "3905ca32545d70c9a1b6885cfccfd6eed5039ab6c0a91ee39a418f136e27155e",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-20-w5h-r3\\upstream\\zxtzlyt__tdx_quant\\docs\\tdx-quant-docs\\03-tqcenter-财务\\get_financial_data.md",
+      "expected_sha256": "2626f140843e935db4fb20def760b201d6c5def4ab473e4eed667d66ef66a3e1",
+      "actual_sha256": "2626f140843e935db4fb20def760b201d6c5def4ab473e4eed667d66ef66a3e1",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-20-w5h-r3\\upstream\\zxtzlyt__tdx_quant\\head.json",
+      "expected_sha256": "4495da607435f65e28c330d416f2620c6a49e220ccdb3561c6aee57cddd63351",
+      "actual_sha256": "4495da607435f65e28c330d416f2620c6a49e220ccdb3561c6aee57cddd63351",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-20-w5h-r3\\upstream\\zxtzlyt__tdx_quant\\LICENSE",
+      "expected_sha256": "64c206b0b6f5a86129ddb6aff0b23c902407a06cff77b14b1d3b74c8c198d06c",
+      "actual_sha256": "64c206b0b6f5a86129ddb6aff0b23c902407a06cff77b14b1d3b74c8c198d06c",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-20-w5h-r3\\upstream\\zxtzlyt__tdx_quant\\README.md",
+      "expected_sha256": "5b97d93cdbefb4485fa787bfb402e667ae2e48426c2cb2dc439742556b042a79",
+      "actual_sha256": "5b97d93cdbefb4485fa787bfb402e667ae2e48426c2cb2dc439742556b042a79",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-20-w5h-r3\\upstream\\zxtzlyt__tdx_quant\\repo.json",
+      "expected_sha256": "fd902c2e0d80a5b005c4d6ed79688ce7aedbabfd69aa87e5cd0a0a432a512042",
+      "actual_sha256": "fd902c2e0d80a5b005c4d6ed79688ce7aedbabfd69aa87e5cd0a0a432a512042",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-20-w5h-r3\\upstream\\zxtzlyt__tdx_quant\\tdx_local\\cw_fields.py",
+      "expected_sha256": "48f9a248d49ca66d85773ae01563e7103a29315142092dd1a01540347b68a760",
+      "actual_sha256": "48f9a248d49ca66d85773ae01563e7103a29315142092dd1a01540347b68a760",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-20-w5h-r3\\upstream\\zxtzlyt__tdx_quant\\tdx_local\\gpcw.py",
+      "expected_sha256": "9d9b5b608c55cb98b34136833c9ec71ef66390bed3f426d47c50d662955ab99f",
+      "actual_sha256": "9d9b5b608c55cb98b34136833c9ec71ef66390bed3f426d47c50d662955ab99f",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-20-w5h-r3\\upstream\\zxtzlyt__tdx_quant\\tdx_local\\tq_client.py",
+      "expected_sha256": "ed13c08d03c06ad7d09faf321fe9c5f67c3e0193fb532e84f65112a5fa419914",
+      "actual_sha256": "ed13c08d03c06ad7d09faf321fe9c5f67c3e0193fb532e84f65112a5fa419914",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-20-w5h-r3\\upstream\\zxtzlyt__tdx_quant\\tests\\test_live.py",
+      "expected_sha256": "40a1de6d4961614ef8fa4d550a4151c5e305adb0dda7826d6e518de312009745",
+      "actual_sha256": "40a1de6d4961614ef8fa4d550a4151c5e305adb0dda7826d6e518de312009745",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-20-w5h-r3\\upstream\\zxtzlyt__tdx_quant\\tests\\test_offline.py",
+      "expected_sha256": "95db76a988760ba7a077cf495c26ad95acb19ff6f4c961a5c12a58ecec003f0b",
+      "actual_sha256": "95db76a988760ba7a077cf495c26ad95acb19ff6f4c961a5c12a58ecec003f0b",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-20-w5h-r3\\upstream\\zxtzlyt__tdx_quant\\tree.json",
+      "expected_sha256": "437af094133553e9aac584b263be57f23d01e3d00ab2e7341e3cd4c295372061",
+      "actual_sha256": "437af094133553e9aac584b263be57f23d01e3d00ab2e7341e3cd4c295372061",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-20-w5h-r3\\upstream_summary.json",
+      "expected_sha256": "92c84eb0592b05d6f2cea4a0dc4b9289c682d384e1625672967da8e5b99cc2c4",
+      "actual_sha256": "92c84eb0592b05d6f2cea4a0dc4b9289c682d384e1625672967da8e5b99cc2c4",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-20-w5h-r3\\verify_anchors.py",
+      "expected_sha256": "be8850aa6696b29d796810a0e4f511681c666d880c5166c37665aa890f3c4113",
+      "actual_sha256": "be8850aa6696b29d796810a0e4f511681c666d880c5166c37665aa890f3c4113",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-20-w5h-r3\\verify_delivery.py",
+      "expected_sha256": "f4ac3c949676492e5aa4f095b814425f66537a5353e71e28562fd54eeefbb11e",
+      "actual_sha256": "f4ac3c949676492e5aa4f095b814425f66537a5353e71e28562fd54eeefbb11e",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\2026-10-20-w5h-r3-tdx-local-opensource-qualification.md",
+      "expected_sha256": "9542142187b8bc60f985e42538f5e3015de00e27bbf65bba916ac7431725c7a0",
+      "actual_sha256": "9542142187b8bc60f985e42538f5e3015de00e27bbf65bba916ac7431725c7a0",
+      "matches": true
+    }
+  ],
+  "all_match": true
+}

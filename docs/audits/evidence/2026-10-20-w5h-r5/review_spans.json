@@ -1,0 +1,47 @@
+{
+  "method": "Agent-assisted source location/column validation wall spans, includes model and tool latency; not measured human labor. No external human reviewer participated.",
+  "spans": [
+    {
+      "case": "600519",
+      "start_utc": "2026-10-20T14:35:18.078Z",
+      "task": "Locate and validate six FY2023/Q12024 minimal facts, comparative bases and revision notes",
+      "end_utc": "2026-10-20T14:35:38.605Z",
+      "observable_wall_seconds": 20.527
+    },
+    {
+      "case": "000002",
+      "start_utc": "2026-10-20T14:35:38.605Z",
+      "task": "Locate six current facts and revision/base context",
+      "end_utc": "2026-10-20T14:35:46.255Z",
+      "observable_wall_seconds": 7.65
+    },
+    {
+      "case": "300750",
+      "start_utc": "2026-10-20T14:35:46.255Z",
+      "task": "Locate six current facts and comparative/revision context",
+      "end_utc": "2026-10-20T14:36:04.433Z",
+      "observable_wall_seconds": 18.178
+    },
+    {
+      "case": "601398",
+      "start_utc": "2026-10-20T14:36:04.433Z",
+      "task": "Locate bank consolidated/parent facts, RMB-million units, special accounting and bases",
+      "end_utc": "2026-10-20T14:36:26.656Z",
+      "observable_wall_seconds": 22.223
+    },
+    {
+      "case": "000961",
+      "start_utc": "2026-10-20T14:36:26.656Z",
+      "task": "Verify delisted archive minimal fields and earlier updated-report identities",
+      "end_utc": "2026-10-20T14:36:57.135Z",
+      "observable_wall_seconds": 30.479
+    },
+    {
+      "case": "600518_control",
+      "start_utc": "2026-10-20T14:36:57.135Z",
+      "task": "Recheck prior official file identities and bounded revision counterexample; no new chain search",
+      "end_utc": "2026-10-20T14:38:33.070Z",
+      "observable_wall_seconds": 95.935
+    }
+  ]
+}

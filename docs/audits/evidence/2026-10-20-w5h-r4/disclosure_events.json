@@ -1,0 +1,126 @@
+{
+  "identity": "AUDIT_DERIVED_OFFICIAL_DISCLOSURE_LEDGER_NOT_VENDOR_RESPONSE",
+  "events": [
+    {
+      "disclosure_id": "CNINFO:1204793690",
+      "disclosure_date": "2018-04-26",
+      "available_on_session_close": "2018-04-27",
+      "version_identity": "SH600518:FY2017:ORIGINAL_2018_04_26:15b3b15df2dfd3310cc16e1e345e8950e8a9cb047bdad38d1263e2b55cfd2985",
+      "fields": {
+        "revenue": "26476970977.57",
+        "net_profit_attributable_to_parent": "4100926148.57",
+        "net_operating_cashflow": "1842794237.84",
+        "equity_attributable_to_parent": "32032959807.76"
+      },
+      "provenance": {
+        "revenue": {
+          "origin_kind": "OFFICIAL_PDF_DIRECT_VALUE",
+          "original_url": "https://static.cninfo.com.cn/finalpage/2018-04-26/1204793690.PDF",
+          "file": "official_original_2017.pdf",
+          "source_sha256": "15b3b15df2dfd3310cc16e1e345e8950e8a9cb047bdad38d1263e2b55cfd2985",
+          "locator_pages": [
+            6
+          ],
+          "excerpt": " \n本期比上年\n同期增减\n(%) \n2015年 \n营业收入 26,476,970,977.57 21,642,324,070.28 22.34 18,066,827,952.30 \n归属于上市公司股东的净利润 4,100,926,148.57 3,340,403,640.26 22.77 2,756,734,598.26 \n归属于上市公司股东的扣除非\n经常性损益的净利润 4,027,843,491.44 3,313,706,535.24 21.55 2,738,091,380.60 \n经营活动产生的现金流量净额 1,842,794,237.84 1,6",
+          "column_semantics": "2017 current-year original"
+        },
+        "net_profit_attributable_to_parent": {
+          "origin_kind": "OFFICIAL_PDF_DIRECT_VALUE",
+          "original_url": "https://static.cninfo.com.cn/finalpage/2018-04-26/1204793690.PDF",
+          "file": "official_original_2017.pdf",
+          "source_sha256": "15b3b15df2dfd3310cc16e1e345e8950e8a9cb047bdad38d1263e2b55cfd2985",
+          "locator_pages": [
+            6
+          ],
+          "excerpt": "22.34 18,066,827,952.30 \n归属于上市公司股东的净利润 4,100,926,148.57 3,340,403,640.26 22.77 2,756,734,598.26 \n归属于上市公司股东的扣除非\n经常性损益的净利润 4,027,843,491.44 3,313,706,535.24 21.55 2,738,091,380.60 \n经营活动产生的现金流量净额 1,842,794,237.84 1,603,189,351.32 14.95 508,863,225.38 \n 2017年末 2016年末 本期末比上\n年同期末增 2015年末 ",
+          "column_semantics": "2017 current-year original"
+        },
+        "net_operating_cashflow": {
+          "origin_kind": "OFFICIAL_PDF_DIRECT_VALUE",
+          "original_url": "https://static.cninfo.com.cn/finalpage/2018-04-26/1204793690.PDF",
+          "file": "official_original_2017.pdf",
+          "source_sha256": "15b3b15df2dfd3310cc16e1e345e8950e8a9cb047bdad38d1263e2b55cfd2985",
+          "locator_pages": [
+            6
+          ],
+          "excerpt": " 21.55 2,738,091,380.60 \n经营活动产生的现金流量净额 1,842,794,237.84 1,603,189,351.32 14.95 508,863,225.38 \n 2017年末 2016年末 本期末比上\n年同期末增 2015年末 ",
+          "column_semantics": "2017 current-year original"
+        },
+        "equity_attributable_to_parent": {
+          "origin_kind": "OFFICIAL_PDF_DIRECT_VALUE",
+          "original_url": "https://static.cninfo.com.cn/finalpage/2018-04-26/1204793690.PDF",
+          "file": "official_original_2017.pdf",
+          "source_sha256": "15b3b15df2dfd3310cc16e1e345e8950e8a9cb047bdad38d1263e2b55cfd2985",
+          "locator_pages": [
+            7
+          ],
+          "excerpt": " 年年度报告 \n7 / 251 \n \n减（%） \n归属于上市公司股东的净资产 32,032,959,807.76 29,115,570,378.99 10.02 18,765,126,902.43 \n总资产 68,722,020,630.61 54,823,896,576.81 25.35 38,105,229,314.85 \n \n(二) 主要财务指标 \n \n主要财务指标 2017年 2016年 本期比上年同期增\n减(%) 2015年 \n基本每股收益（元／股） 0.784 0.667 17.54 0.623 \n稀释每股收益（元／股） 0.783 0.666 17.57 ",
+          "column_semantics": "2017 current-year original"
+        }
+      }
+    },
+    {
+      "disclosure_id": "CNINFO:1206168292",
+      "disclosure_date": "2019-04-30",
+      "available_on_session_close": "2019-05-06",
+      "version_identity": "SH600518:FY2017:COMPARATIVE_RESTATEMENT_2019_04_30:9f47aa0dc0a8838ffd21e600d7eca194052d91cf867d8e22a4ba56dee2b9f60a",
+      "fields": {
+        "revenue": "17578618640.06",
+        "net_profit_attributable_to_parent": "2149836281.41",
+        "net_operating_cashflow": "-4840052606.46",
+        "equity_attributable_to_parent": "28413344515.00"
+      },
+      "provenance": {
+        "revenue": {
+          "origin_kind": "OFFICIAL_PDF_DIRECT_VALUE",
+          "original_url": "https://static.cninfo.com.cn/finalpage/2019-04-30/1206168292.PDF",
+          "file": "official_annual_2018.pdf",
+          "source_sha256": "9f47aa0dc0a8838ffd21e600d7eca194052d91cf867d8e22a4ba56dee2b9f60a",
+          "locator_pages": [
+            6
+          ],
+          "excerpt": "\n2016年 \n调整后 调整前 调整后 调整前 \n营业收入 19,356,233,375.88 17,578,618,640.06 26,476,970,977.57 10.11 14,693,965,364.67 21,642,324,070.28 \n归属于上市公司\n股东的净利润 1,135,188,498.44 2,149,836,281.41 4,100,926,148.57 -47.20 1,841,878,214.66 3,340,403,640.26 \n归属于上市公司\n股东的扣除非经\n常性损益的净利\n润 \n1,020,992,905.66 ",
+          "column_semantics": "2017 adjusted comparative, not 2018 current-year"
+        },
+        "net_profit_attributable_to_parent": {
+          "origin_kind": "OFFICIAL_PDF_DIRECT_VALUE",
+          "original_url": "https://static.cninfo.com.cn/finalpage/2019-04-30/1206168292.PDF",
+          "file": "official_annual_2018.pdf",
+          "source_sha256": "9f47aa0dc0a8838ffd21e600d7eca194052d91cf867d8e22a4ba56dee2b9f60a",
+          "locator_pages": [
+            6
+          ],
+          "excerpt": "64.67 21,642,324,070.28 \n归属于上市公司\n股东的净利润 1,135,188,498.44 2,149,836,281.41 4,100,926,148.57 -47.20 1,841,878,214.66 3,340,403,640.26 \n归属于上市公司\n股东的扣除非经\n常性损益的净利\n润 \n1,020,992,905.66 2,076,753,624.28 4,027,843,491.44 -50.84 1,815,181,109.64 3,313,706,535.24 \n经营活动产生的\n现金流量净额 -3,191,529,576.31 -4,",
+          "column_semantics": "2017 adjusted comparative, not 2018 current-year"
+        },
+        "net_operating_cashflow": {
+          "origin_kind": "OFFICIAL_PDF_DIRECT_VALUE",
+          "original_url": "https://static.cninfo.com.cn/finalpage/2019-04-30/1206168292.PDF",
+          "file": "official_annual_2018.pdf",
+          "source_sha256": "9f47aa0dc0a8838ffd21e600d7eca194052d91cf867d8e22a4ba56dee2b9f60a",
+          "locator_pages": [
+            6
+          ],
+          "excerpt": "109.64 3,313,706,535.24 \n经营活动产生的\n现金流量净额 -3,191,529,576.31 -4,840,052,606.46 1,842,794,237.84 34.06 -2,304,733,439.35 1,603,189,351.32 \n \n2018年末 \n2017年末 \n本期末\n比上年\n同期末\n增减 （%\n） \n2016年末 \n调整后 调整前 调整后 调整前 \n归属于上市公司\n股东的净资产 28,194,949,523.88 28,413,344,515.00 32,032,959,807.76 -0.77 27,714,601,608.",
+          "column_semantics": "2017 adjusted comparative, not 2018 current-year"
+        },
+        "equity_attributable_to_parent": {
+          "origin_kind": "OFFICIAL_PDF_DIRECT_VALUE",
+          "original_url": "https://static.cninfo.com.cn/finalpage/2019-04-30/1206168292.PDF",
+          "file": "official_annual_2018.pdf",
+          "source_sha256": "9f47aa0dc0a8838ffd21e600d7eca194052d91cf867d8e22a4ba56dee2b9f60a",
+          "locator_pages": [
+            6
+          ],
+          "excerpt": "2016年末 \n调整后 调整前 调整后 调整前 \n归属于上市公司\n股东的净资产 28,194,949,523.88 28,413,344,515.00 32,032,959,807.76 -0.77 27,714,601,608.54 29,115,570,378.99 \n总资产 74,627,937,566.57 65,292,951,329.52 68,722,020,630.61 14.30 53,251,762,620.05 54,823,896,576.81 \n \n ",
+          "column_semantics": "2017 adjusted comparative, not 2018 current-year"
+        }
+      }
+    }
+  ],
+  "version_chain_completeness": "UNKNOWN; finite title-index and referenced-document checks only",
+  "availability_rule": "DATE_ONLY_NEXT_OBSERVED_SH_INDEX_SESSION_CLOSE_DIAGNOSTIC_NOT_OWNER_FROZEN",
+  "calendar_path": "D:\\Dev\\Projects\\chstockdata\\.rh3a2-vipdoc\\sh\\lday\\sh000001.day",
+  "calendar_sha256": "7eeedb6c1691304f21636a88af84730107074b8072c5fb265b8f4098ea28da0c",
+  "calendar_purpose": "fixed-date diagnostic session selection, not full-market calendar qualification"
+}

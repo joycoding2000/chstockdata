@@ -1,0 +1,236 @@
+{
+  "root": "C:\\Users\\Administrator\\.chstockdata\\cache\\vipdoc",
+  "discovery_basis": "actual config._DEFAULT_CACHE_DIR + vipdoc_history_dir fallback; targeted follow-up after bounded drive scan",
+  "directories": [
+    {
+      "path": "C:\\Users\\Administrator\\.chstockdata\\cache\\vipdoc\\sh\\lday",
+      "status": "PRESENT",
+      "file_count": 5948,
+      "total_bytes": 485588672,
+      "mtime_min_utc": "2026-09-16T14:32:54.011681+00:00",
+      "mtime_max_utc": "2026-09-16T14:33:02.178519+00:00",
+      "samples": [
+        {
+          "path": "C:\\Users\\Administrator\\.chstockdata\\cache\\vipdoc\\sh\\lday\\sh000001.day",
+          "bytes": 279264,
+          "mtime_utc": "2026-09-16T14:32:54.011681+00:00",
+          "ctime_utc": "2026-09-16T14:32:54.009686+00:00"
+        },
+        {
+          "path": "C:\\Users\\Administrator\\.chstockdata\\cache\\vipdoc\\sh\\lday\\sh000002.day",
+          "bytes": 279264,
+          "mtime_utc": "2026-09-16T14:32:54.013680+00:00",
+          "ctime_utc": "2026-09-16T14:32:54.011681+00:00"
+        },
+        {
+          "path": "C:\\Users\\Administrator\\.chstockdata\\cache\\vipdoc\\sh\\lday\\sh000003.day",
+          "bytes": 269568,
+          "mtime_utc": "2026-09-16T14:32:54.015682+00:00",
+          "ctime_utc": "2026-09-16T14:32:54.013680+00:00"
+        },
+        {
+          "path": "C:\\Users\\Administrator\\.chstockdata\\cache\\vipdoc\\sh\\lday\\sh999997.day",
+          "bytes": 269568,
+          "mtime_utc": "2026-09-16T14:33:02.174520+00:00",
+          "ctime_utc": "2026-09-16T14:33:02.172524+00:00"
+        },
+        {
+          "path": "C:\\Users\\Administrator\\.chstockdata\\cache\\vipdoc\\sh\\lday\\sh999998.day",
+          "bytes": 279264,
+          "mtime_utc": "2026-09-16T14:33:02.176519+00:00",
+          "ctime_utc": "2026-09-16T14:33:02.174520+00:00"
+        },
+        {
+          "path": "C:\\Users\\Administrator\\.chstockdata\\cache\\vipdoc\\sh\\lday\\sh999999.day",
+          "bytes": 279264,
+          "mtime_utc": "2026-09-16T14:33:02.178519+00:00",
+          "ctime_utc": "2026-09-16T14:33:02.176519+00:00"
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\Administrator\\.chstockdata\\cache\\vipdoc\\sh\\minline",
+      "status": "MISSING"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\.chstockdata\\cache\\vipdoc\\sz\\lday",
+      "status": "PRESENT",
+      "file_count": 5858,
+      "total_bytes": 450149376,
+      "mtime_min_utc": "2026-09-16T14:33:02.181519+00:00",
+      "mtime_max_utc": "2026-09-16T14:33:10.184316+00:00",
+      "samples": [
+        {
+          "path": "C:\\Users\\Administrator\\.chstockdata\\cache\\vipdoc\\sz\\lday\\sz000001.day",
+          "bytes": 270560,
+          "mtime_utc": "2026-09-16T14:33:02.181519+00:00",
+          "ctime_utc": "2026-09-16T14:33:02.179521+00:00"
+        },
+        {
+          "path": "C:\\Users\\Administrator\\.chstockdata\\cache\\vipdoc\\sz\\lday\\sz000002.day",
+          "bytes": 271392,
+          "mtime_utc": "2026-09-16T14:33:02.183527+00:00",
+          "ctime_utc": "2026-09-16T14:33:02.181519+00:00"
+        },
+        {
+          "path": "C:\\Users\\Administrator\\.chstockdata\\cache\\vipdoc\\sz\\lday\\sz000003.day",
+          "bytes": 73120,
+          "mtime_utc": "2026-09-16T14:33:02.184527+00:00",
+          "ctime_utc": "2026-09-16T14:33:02.184527+00:00"
+        },
+        {
+          "path": "C:\\Users\\Administrator\\.chstockdata\\cache\\vipdoc\\sz\\lday\\sz399996.day",
+          "bytes": 110528,
+          "mtime_utc": "2026-09-16T14:33:10.181312+00:00",
+          "ctime_utc": "2026-09-16T14:33:10.180312+00:00"
+        },
+        {
+          "path": "C:\\Users\\Administrator\\.chstockdata\\cache\\vipdoc\\sz\\lday\\sz399997.day",
+          "bytes": 137632,
+          "mtime_utc": "2026-09-16T14:33:10.183322+00:00",
+          "ctime_utc": "2026-09-16T14:33:10.182316+00:00"
+        },
+        {
+          "path": "C:\\Users\\Administrator\\.chstockdata\\cache\\vipdoc\\sz\\lday\\sz399998.day",
+          "bytes": 137600,
+          "mtime_utc": "2026-09-16T14:33:10.184316+00:00",
+          "ctime_utc": "2026-09-16T14:33:10.183322+00:00"
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\Administrator\\.chstockdata\\cache\\vipdoc\\sz\\minline",
+      "status": "MISSING"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\.chstockdata\\cache\\vipdoc\\bj\\lday",
+      "status": "PRESENT",
+      "file_count": 610,
+      "total_bytes": 14959040,
+      "mtime_min_utc": "2026-09-16T14:33:10.186182+00:00",
+      "mtime_max_utc": "2026-09-16T14:33:10.886927+00:00",
+      "samples": [
+        {
+          "path": "C:\\Users\\Administrator\\.chstockdata\\cache\\vipdoc\\bj\\lday\\bj430017.day",
+          "bytes": 18240,
+          "mtime_utc": "2026-09-16T14:33:10.186182+00:00",
+          "ctime_utc": "2026-09-16T14:33:10.186182+00:00"
+        },
+        {
+          "path": "C:\\Users\\Administrator\\.chstockdata\\cache\\vipdoc\\bj\\lday\\bj430047.day",
+          "bytes": 37760,
+          "mtime_utc": "2026-09-16T14:33:10.187288+00:00",
+          "ctime_utc": "2026-09-16T14:33:10.187288+00:00"
+        },
+        {
+          "path": "C:\\Users\\Administrator\\.chstockdata\\cache\\vipdoc\\bj\\lday\\bj430090.day",
+          "bytes": 32064,
+          "mtime_utc": "2026-09-16T14:33:10.189298+00:00",
+          "ctime_utc": "2026-09-16T14:33:10.188283+00:00"
+        },
+        {
+          "path": "C:\\Users\\Administrator\\.chstockdata\\cache\\vipdoc\\bj\\lday\\bj920982.day",
+          "bytes": 24576,
+          "mtime_utc": "2026-09-16T14:33:10.884925+00:00",
+          "ctime_utc": "2026-09-16T14:33:10.883923+00:00"
+        },
+        {
+          "path": "C:\\Users\\Administrator\\.chstockdata\\cache\\vipdoc\\bj\\lday\\bj920985.day",
+          "bytes": 31936,
+          "mtime_utc": "2026-09-16T14:33:10.885926+00:00",
+          "ctime_utc": "2026-09-16T14:33:10.884925+00:00"
+        },
+        {
+          "path": "C:\\Users\\Administrator\\.chstockdata\\cache\\vipdoc\\bj\\lday\\bj920992.day",
+          "bytes": 30496,
+          "mtime_utc": "2026-09-16T14:33:10.886927+00:00",
+          "ctime_utc": "2026-09-16T14:33:10.885926+00:00"
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\Administrator\\.chstockdata\\cache\\vipdoc\\bj\\minline",
+      "status": "MISSING"
+    }
+  ],
+  "cw": {
+    "path": "C:\\Users\\Administrator\\.chstockdata\\cache\\vipdoc\\cw",
+    "status": "MISSING"
+  },
+  "fixed_samples": [
+    {
+      "path": "C:\\Users\\Administrator\\.chstockdata\\cache\\vipdoc\\sh\\lday\\sh600518.day",
+      "bytes": 194432,
+      "mtime_utc": "2026-09-16T14:32:57.185686+00:00",
+      "ctime_utc": "2026-09-16T14:32:57.184686+00:00",
+      "sha256": "22b5fca27caf654d2123ae267cb3e506d822588dc5d02afda22f08710043a3fe",
+      "records": 6076,
+      "first_date": 20010319,
+      "last_date": 20260916
+    },
+    {
+      "path": "C:\\Users\\Administrator\\.chstockdata\\cache\\vipdoc\\sh\\lday\\sh600519.day",
+      "bytes": 192192,
+      "mtime_utc": "2026-09-16T14:32:57.187435+00:00",
+      "ctime_utc": "2026-09-16T14:32:57.186371+00:00",
+      "sha256": "b37288a0bf6d4c7a62d6f154f1597306cf741309a91559906812d635e1470be8",
+      "records": 6006,
+      "first_date": 20010827,
+      "last_date": 20260916
+    },
+    {
+      "path": "C:\\Users\\Administrator\\.chstockdata\\cache\\vipdoc\\sh\\lday\\sh000001.day",
+      "bytes": 279264,
+      "mtime_utc": "2026-09-16T14:32:54.011681+00:00",
+      "ctime_utc": "2026-09-16T14:32:54.009686+00:00",
+      "sha256": "b80e7ce933deac639f80408899cfdd6d0357f1f176a982822c177b6d85b77a6b",
+      "records": 8727,
+      "first_date": 19901219,
+      "last_date": 20260916
+    },
+    {
+      "path": "C:\\Users\\Administrator\\.chstockdata\\cache\\vipdoc\\sz\\lday\\sz000001.day",
+      "bytes": 270560,
+      "mtime_utc": "2026-09-16T14:33:02.181519+00:00",
+      "ctime_utc": "2026-09-16T14:33:02.179521+00:00",
+      "sha256": "cf3eb3296e850b274b3948c29d38895ab3da4c5b05ac447271fa66ee8f941884",
+      "records": 8455,
+      "first_date": 19910403,
+      "last_date": 20260916
+    }
+  ],
+  "manifests": [
+    {
+      "path": "C:\\Users\\Administrator\\.chstockdata\\cache\\vipdoc\\manifest.json",
+      "sha256": "cf1e1681b0188ad667fd25dc0017ad3fd4ba2c3dac455b9f62923bffe3049e5e",
+      "metadata": {
+        "downloaded_at": "2026-09-16T14:34:32Z",
+        "schema_version": 1,
+        "source_last_modified": "Wed, 16 Sep 2026 07:58:57 GMT",
+        "source_url": "http://data.tdx.com.cn/vipdoc/hsjday.zip",
+        "zip_sha256": "b5c9e4494ed8ebdfc1f85d48d7bf80ce12d663608175827a00101c146a22d3ff"
+      },
+      "record_counts": {
+        "bj": 467470,
+        "sh": 15174646,
+        "sz": 14067168
+      }
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\.rh3a2-vipdoc\\manifest.json",
+      "sha256": "3886c94ebe7292d4ad16528cd5edee2ebdb821d8966949d0fd60966d3c18b3ae",
+      "metadata": {
+        "downloaded_at": "2026-09-23T06:19:31Z",
+        "schema_version": 1,
+        "source_last_modified": "Tue, 22 Sep 2026 07:56:47 GMT",
+        "source_url": "https://data.tdx.com.cn/vipdoc/hsjday.zip",
+        "zip_sha256": "72bf25fb6dd5fbdb1a83c64a37d8ad7c4d9652f7036919b6694ba955b643e968"
+      },
+      "record_counts": {
+        "bj": 468855,
+        "sh": 15194081,
+        "sz": 14085112
+      }
+    }
+  ]
+}

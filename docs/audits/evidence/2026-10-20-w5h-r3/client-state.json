@@ -1,0 +1,44 @@
+{
+  "clients": [
+    {
+      "root": "C:\\new_hxzq_hc",
+      "executables": []
+    },
+    {
+      "root": "C:\\zd_zxzq_gm",
+      "executables": [
+        {
+          "Name": "AutoUpEx.exe",
+          "product_version": "",
+          "file_version": "1, 28, 0, 0",
+          "product_name": ""
+        },
+        {
+          "Name": "NodeTool.exe",
+          "product_version": "1, 0, 0, 1",
+          "file_version": "1, 0, 0, 1",
+          "product_name": "NodeTool 应用程序"
+        },
+        {
+          "Name": "TdxNonSP.exe",
+          "product_version": "1, 0, 0, 1",
+          "file_version": "1, 0, 0, 1",
+          "product_name": "TdxNonSP 应用程序"
+        },
+        {
+          "Name": "TdxSP.exe",
+          "product_version": "1, 0, 0, 1",
+          "file_version": "1, 0, 0, 1",
+          "product_name": "TdxSP 应用程序"
+        },
+        {
+          "Name": "TdxW.exe",
+          "product_version": "1, 0, 0, 1",
+          "file_version": "1, 0, 0, 1",
+          "product_name": "通达信应用程序"
+        }
+      ]
+    }
+  ],
+  "processes": []
+}

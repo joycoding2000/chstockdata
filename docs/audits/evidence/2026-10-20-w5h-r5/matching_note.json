@@ -1,0 +1,26 @@
+{
+  "reason": "Initial exact-title matcher omitted issuer name prefixes. Corrected to Chinese full-title suffix, no value-based selection, no requests repeated. Original raw indexes untouched.",
+  "at_utc": "2026-10-20T14:34:01.260605+00:00",
+  "targets": {
+    "600519": {
+      "FY2023": "1219506510",
+      "Q12024": "1219875828"
+    },
+    "000002": {
+      "FY2023": "1219487237",
+      "Q12024": "1219913619"
+    },
+    "300750": {
+      "FY2023": "1219313047",
+      "Q12024": "1219619642"
+    },
+    "601398": {
+      "FY2023": "1219429144",
+      "Q12024": "1219922891"
+    },
+    "000961": {
+      "FY2023": "1219747877",
+      "Q12024": "1219909136"
+    }
+  }
+}

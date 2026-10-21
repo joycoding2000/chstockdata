@@ -1,0 +1,517 @@
+{
+  "cases": [
+    {
+      "code": "600519",
+      "period_inventory": [
+        {
+          "financial_period_end": "2022-12-31",
+          "files": [
+            {
+              "id": "1216281757",
+              "title": "贵州茅台2022年年度报告",
+              "url": "https://static.cninfo.com.cn/finalpage/2023-03-31/1216281757.PDF"
+            }
+          ],
+          "status": "INDEX_FOUND_NOT_ALL_DOWNLOADED"
+        },
+        {
+          "financial_period_end": "2023-03-31",
+          "files": [
+            {
+              "id": "1216595064",
+              "title": "贵州茅台2023年第一季度报告",
+              "url": "https://static.cninfo.com.cn/finalpage/2023-04-26/1216595064.PDF"
+            }
+          ],
+          "status": "INDEX_FOUND_NOT_ALL_DOWNLOADED"
+        },
+        {
+          "financial_period_end": "2023-06-30",
+          "files": [
+            {
+              "id": "1217453695",
+              "title": "贵州茅台2023年半年度报告",
+              "url": "https://static.cninfo.com.cn/finalpage/2023-08-03/1217453695.PDF"
+            }
+          ],
+          "status": "INDEX_FOUND_NOT_ALL_DOWNLOADED"
+        },
+        {
+          "financial_period_end": "2023-09-30",
+          "files": [
+            {
+              "id": "1218110141",
+              "title": "贵州茅台2023年第三季度报告",
+              "url": "https://static.cninfo.com.cn/finalpage/2023-10-21/1218110141.PDF"
+            }
+          ],
+          "status": "INDEX_FOUND_NOT_ALL_DOWNLOADED"
+        },
+        {
+          "financial_period_end": "2023-12-31",
+          "files": [
+            {
+              "id": "1219506510",
+              "title": "贵州茅台2023年年度报告",
+              "url": "https://static.cninfo.com.cn/finalpage/2024-04-03/1219506510.PDF"
+            }
+          ],
+          "status": "INDEX_FOUND_NOT_ALL_DOWNLOADED"
+        },
+        {
+          "financial_period_end": "2024-03-31",
+          "files": [
+            {
+              "id": "1219875828",
+              "title": "贵州茅台2024年第一季度报告",
+              "url": "https://static.cninfo.com.cn/finalpage/2024-04-27/1219875828.PDF"
+            }
+          ],
+          "status": "INDEX_FOUND_NOT_ALL_DOWNLOADED"
+        },
+        {
+          "financial_period_end": "2024-06-30",
+          "files": [
+            {
+              "id": "1220825189",
+              "title": "贵州茅台2024年半年度报告",
+              "url": "https://static.cninfo.com.cn/finalpage/2024-08-09/1220825189.PDF"
+            }
+          ],
+          "status": "INDEX_FOUND_NOT_ALL_DOWNLOADED"
+        },
+        {
+          "financial_period_end": "2024-09-30",
+          "files": [
+            {
+              "id": "1221523519",
+              "title": "贵州茅台2024年第三季度报告",
+              "url": "https://static.cninfo.com.cn/finalpage/2024-10-26/1221523519.PDF"
+            }
+          ],
+          "status": "INDEX_FOUND_NOT_ALL_DOWNLOADED"
+        }
+      ],
+      "selected_download_targets": 2,
+      "downloaded_targets": 2,
+      "PDF_bytes": 3944262,
+      "PDF_pages": 155,
+      "PDF_download_wall_seconds": 0.25270199999795295,
+      "index_and_identity_wall_seconds": 0.6733693000132916,
+      "structured_http_wall_seconds": 1.5864882999958354,
+      "machine_parse_wall_seconds": 7.7116383999964455,
+      "empty_text_pages": 0,
+      "manual_required": "Page/label plans; units; period/column/version interpretation. Not independent human reviewed."
+    },
+    {
+      "code": "000002",
+      "period_inventory": [
+        {
+          "financial_period_end": "2022-12-31",
+          "files": [
+            {
+              "id": "1216273938",
+              "title": "2022年年度报告",
+              "url": "https://static.cninfo.com.cn/finalpage/2023-03-31/1216273938.PDF"
+            }
+          ],
+          "status": "INDEX_FOUND_NOT_ALL_DOWNLOADED"
+        },
+        {
+          "financial_period_end": "2023-03-31",
+          "files": [
+            {
+              "id": "1216686497",
+              "title": "2023年一季度报告",
+              "url": "https://static.cninfo.com.cn/finalpage/2023-04-29/1216686497.PDF"
+            }
+          ],
+          "status": "INDEX_FOUND_NOT_ALL_DOWNLOADED"
+        },
+        {
+          "financial_period_end": "2023-06-30",
+          "files": [
+            {
+              "id": "1217713835",
+              "title": "2023年半年度报告",
+              "url": "https://static.cninfo.com.cn/finalpage/2023-08-31/1217713835.PDF"
+            }
+          ],
+          "status": "INDEX_FOUND_NOT_ALL_DOWNLOADED"
+        },
+        {
+          "financial_period_end": "2023-09-30",
+          "files": [
+            {
+              "id": "1218181044",
+              "title": "2023年三季度报告",
+              "url": "https://static.cninfo.com.cn/finalpage/2023-10-28/1218181044.PDF"
+            }
+          ],
+          "status": "INDEX_FOUND_NOT_ALL_DOWNLOADED"
+        },
+        {
+          "financial_period_end": "2023-12-31",
+          "files": [
+            {
+              "id": "1219487237",
+              "title": "2023年年度报告",
+              "url": "https://static.cninfo.com.cn/finalpage/2024-03-29/1219487237.PDF"
+            }
+          ],
+          "status": "INDEX_FOUND_NOT_ALL_DOWNLOADED"
+        },
+        {
+          "financial_period_end": "2024-03-31",
+          "files": [
+            {
+              "id": "1219913619",
+              "title": "2024年一季度报告",
+              "url": "https://static.cninfo.com.cn/finalpage/2024-04-30/1219913619.PDF"
+            }
+          ],
+          "status": "INDEX_FOUND_NOT_ALL_DOWNLOADED"
+        },
+        {
+          "financial_period_end": "2024-06-30",
+          "files": [
+            {
+              "id": "1221084198",
+              "title": "2024年半年度报告",
+              "url": "https://static.cninfo.com.cn/finalpage/2024-08-31/1221084198.PDF"
+            }
+          ],
+          "status": "INDEX_FOUND_NOT_ALL_DOWNLOADED"
+        },
+        {
+          "financial_period_end": "2024-09-30",
+          "files": [
+            {
+              "id": "1221577051",
+              "title": "2024年三季度报告",
+              "url": "https://static.cninfo.com.cn/finalpage/2024-10-31/1221577051.PDF"
+            }
+          ],
+          "status": "INDEX_FOUND_NOT_ALL_DOWNLOADED"
+        }
+      ],
+      "selected_download_targets": 2,
+      "downloaded_targets": 2,
+      "PDF_bytes": 11683063,
+      "PDF_pages": 338,
+      "PDF_download_wall_seconds": 0.3242835999990348,
+      "index_and_identity_wall_seconds": 0.6466390000059619,
+      "structured_http_wall_seconds": 0,
+      "machine_parse_wall_seconds": 22.385218199997325,
+      "empty_text_pages": 0,
+      "manual_required": "Page/label plans; units; period/column/version interpretation. Not independent human reviewed."
+    },
+    {
+      "code": "300750",
+      "period_inventory": [
+        {
+          "financial_period_end": "2022-12-31",
+          "files": [
+            {
+              "id": "1216084559",
+              "title": "2022年年度报告",
+              "url": "https://static.cninfo.com.cn/finalpage/2023-03-10/1216084559.PDF"
+            }
+          ],
+          "status": "INDEX_FOUND_NOT_ALL_DOWNLOADED"
+        },
+        {
+          "financial_period_end": "2023-03-31",
+          "files": [
+            {
+              "id": "1216489857",
+              "title": "2023年一季度报告",
+              "url": "https://static.cninfo.com.cn/finalpage/2023-04-21/1216489857.PDF"
+            }
+          ],
+          "status": "INDEX_FOUND_NOT_ALL_DOWNLOADED"
+        },
+        {
+          "financial_period_end": "2023-06-30",
+          "files": [
+            {
+              "id": "1217386504",
+              "title": "2023年半年度报告",
+              "url": "https://static.cninfo.com.cn/finalpage/2023-07-26/1217386504.PDF"
+            }
+          ],
+          "status": "INDEX_FOUND_NOT_ALL_DOWNLOADED"
+        },
+        {
+          "financial_period_end": "2023-09-30",
+          "files": [
+            {
+              "id": "1218095874",
+              "title": "2023年三季度报告",
+              "url": "https://static.cninfo.com.cn/finalpage/2023-10-20/1218095874.PDF"
+            }
+          ],
+          "status": "INDEX_FOUND_NOT_ALL_DOWNLOADED"
+        },
+        {
+          "financial_period_end": "2023-12-31",
+          "files": [
+            {
+              "id": "1219313047",
+              "title": "2023年年度报告",
+              "url": "https://static.cninfo.com.cn/finalpage/2024-03-16/1219313047.PDF"
+            }
+          ],
+          "status": "INDEX_FOUND_NOT_ALL_DOWNLOADED"
+        },
+        {
+          "financial_period_end": "2024-03-31",
+          "files": [
+            {
+              "id": "1219619642",
+              "title": "2024年一季度报告",
+              "url": "https://static.cninfo.com.cn/finalpage/2024-04-16/1219619642.PDF"
+            }
+          ],
+          "status": "INDEX_FOUND_NOT_ALL_DOWNLOADED"
+        },
+        {
+          "financial_period_end": "2024-06-30",
+          "files": [
+            {
+              "id": "1220740372",
+              "title": "2024年半年度报告",
+              "url": "https://static.cninfo.com.cn/finalpage/2024-07-27/1220740372.PDF"
+            }
+          ],
+          "status": "INDEX_FOUND_NOT_ALL_DOWNLOADED"
+        },
+        {
+          "financial_period_end": "2024-09-30",
+          "files": [
+            {
+              "id": "1221432744",
+              "title": "2024年三季度报告",
+              "url": "https://static.cninfo.com.cn/finalpage/2024-10-19/1221432744.PDF"
+            }
+          ],
+          "status": "INDEX_FOUND_NOT_ALL_DOWNLOADED"
+        }
+      ],
+      "selected_download_targets": 2,
+      "downloaded_targets": 2,
+      "PDF_bytes": 6311673,
+      "PDF_pages": 243,
+      "PDF_download_wall_seconds": 0.29137370000535157,
+      "index_and_identity_wall_seconds": 0.9211240999939037,
+      "structured_http_wall_seconds": 0,
+      "machine_parse_wall_seconds": 12.666144700000586,
+      "empty_text_pages": 0,
+      "manual_required": "Page/label plans; units; period/column/version interpretation. Not independent human reviewed."
+    },
+    {
+      "code": "601398",
+      "period_inventory": [
+        {
+          "financial_period_end": "2022-12-31",
+          "files": [
+            {
+              "id": "1216282265",
+              "title": "工商银行2022年度报告",
+              "url": "https://static.cninfo.com.cn/finalpage/2023-03-31/1216282265.PDF"
+            }
+          ],
+          "status": "INDEX_FOUND_NOT_ALL_DOWNLOADED"
+        },
+        {
+          "financial_period_end": "2023-03-31",
+          "files": [
+            {
+              "id": "1216692664",
+              "title": "工商银行2023年第一季度报告",
+              "url": "https://static.cninfo.com.cn/finalpage/2023-04-29/1216692664.PDF"
+            }
+          ],
+          "status": "INDEX_FOUND_NOT_ALL_DOWNLOADED"
+        },
+        {
+          "financial_period_end": "2023-06-30",
+          "files": [
+            {
+              "id": "1217717315",
+              "title": "工商银行2023半年度报告",
+              "url": "https://static.cninfo.com.cn/finalpage/2023-08-31/1217717315.PDF"
+            }
+          ],
+          "status": "INDEX_FOUND_NOT_ALL_DOWNLOADED"
+        },
+        {
+          "financial_period_end": "2023-09-30",
+          "files": [
+            {
+              "id": "1218190968",
+              "title": "工商银行2023年第三季度报告",
+              "url": "https://static.cninfo.com.cn/finalpage/2023-10-28/1218190968.PDF"
+            }
+          ],
+          "status": "INDEX_FOUND_NOT_ALL_DOWNLOADED"
+        },
+        {
+          "financial_period_end": "2023-12-31",
+          "files": [
+            {
+              "id": "1219429144",
+              "title": "工商银行2023年度报告",
+              "url": "https://static.cninfo.com.cn/finalpage/2024-03-28/1219429144.PDF"
+            }
+          ],
+          "status": "INDEX_FOUND_NOT_ALL_DOWNLOADED"
+        },
+        {
+          "financial_period_end": "2024-03-31",
+          "files": [
+            {
+              "id": "1219922891",
+              "title": "工商银行2024年第一季度报告",
+              "url": "https://static.cninfo.com.cn/finalpage/2024-04-30/1219922891.PDF"
+            }
+          ],
+          "status": "INDEX_FOUND_NOT_ALL_DOWNLOADED"
+        },
+        {
+          "financial_period_end": "2024-06-30",
+          "files": [
+            {
+              "id": "1221087759",
+              "title": "工商银行2024半年度报告",
+              "url": "https://static.cninfo.com.cn/finalpage/2024-08-31/1221087759.PDF"
+            }
+          ],
+          "status": "INDEX_FOUND_NOT_ALL_DOWNLOADED"
+        },
+        {
+          "financial_period_end": "2024-09-30",
+          "files": [
+            {
+              "id": "1221576095",
+              "title": "工商银行2024年第三季度报告",
+              "url": "https://static.cninfo.com.cn/finalpage/2024-10-31/1221576095.PDF"
+            }
+          ],
+          "status": "INDEX_FOUND_NOT_ALL_DOWNLOADED"
+        }
+      ],
+      "selected_download_targets": 2,
+      "downloaded_targets": 2,
+      "PDF_bytes": 10839908,
+      "PDF_pages": 415,
+      "PDF_download_wall_seconds": 0.4067302999974345,
+      "index_and_identity_wall_seconds": 0.6074074000061955,
+      "structured_http_wall_seconds": 0,
+      "machine_parse_wall_seconds": 17.092826900006912,
+      "empty_text_pages": 0,
+      "manual_required": "Page/label plans; units; period/column/version interpretation. Not independent human reviewed."
+    },
+    {
+      "code": "000961",
+      "period_inventory": [
+        {
+          "financial_period_end": "2022-12-31",
+          "files": [
+            {
+              "id": "1216561621",
+              "title": "2022年年度报告（更新前）",
+              "url": "https://static.cninfo.com.cn/finalpage/2023-04-25/1216561621.PDF"
+            },
+            {
+              "id": "1217386817",
+              "title": "2022年度报告 (更新后）",
+              "url": "https://static.cninfo.com.cn/finalpage/2023-07-26/1217386817.PDF"
+            }
+          ],
+          "status": "INDEX_FOUND_NOT_ALL_DOWNLOADED"
+        },
+        {
+          "financial_period_end": "2023-03-31",
+          "files": [
+            {
+              "id": "1216696970",
+              "title": "2023年一季度报告",
+              "url": "https://static.cninfo.com.cn/finalpage/2023-04-29/1216696970.PDF"
+            }
+          ],
+          "status": "INDEX_FOUND_NOT_ALL_DOWNLOADED"
+        },
+        {
+          "financial_period_end": "2023-06-30",
+          "files": [
+            {
+              "id": "1217710575",
+              "title": "2023年半年度报告",
+              "url": "https://static.cninfo.com.cn/finalpage/2023-08-31/1217710575.PDF"
+            }
+          ],
+          "status": "INDEX_FOUND_NOT_ALL_DOWNLOADED"
+        },
+        {
+          "financial_period_end": "2023-09-30",
+          "files": [
+            {
+              "id": "1218204096",
+              "title": "2023年三季度报告",
+              "url": "https://static.cninfo.com.cn/finalpage/2023-10-31/1218204096.PDF"
+            }
+          ],
+          "status": "INDEX_FOUND_NOT_ALL_DOWNLOADED"
+        },
+        {
+          "financial_period_end": "2023-12-31",
+          "files": [
+            {
+              "id": "1219747877",
+              "title": "2023年年度报告",
+              "url": "https://static.cninfo.com.cn/finalpage/2024-04-23/1219747877.PDF"
+            }
+          ],
+          "status": "INDEX_FOUND_NOT_ALL_DOWNLOADED"
+        },
+        {
+          "financial_period_end": "2024-03-31",
+          "files": [
+            {
+              "id": "1219909136",
+              "title": "2024年一季度报告",
+              "url": "https://static.cninfo.com.cn/finalpage/2024-04-30/1219909136.PDF"
+            }
+          ],
+          "status": "INDEX_FOUND_NOT_ALL_DOWNLOADED"
+        },
+        {
+          "financial_period_end": "2024-06-30",
+          "files": [],
+          "status": "NORMAL_EMPTY_IN_BOUNDED_INDEX_POST_DELISTING_OBLIGATION_NOT_DECIDED"
+        },
+        {
+          "financial_period_end": "2024-09-30",
+          "files": [],
+          "status": "NORMAL_EMPTY_IN_BOUNDED_INDEX_POST_DELISTING_OBLIGATION_NOT_DECIDED"
+        }
+      ],
+      "selected_download_targets": 2,
+      "downloaded_targets": 2,
+      "PDF_bytes": 8580668,
+      "PDF_pages": 288,
+      "PDF_download_wall_seconds": 0.329925899997761,
+      "index_and_identity_wall_seconds": 0.7311199000032502,
+      "structured_http_wall_seconds": 1.7007682000039495,
+      "machine_parse_wall_seconds": 15.60493029999634,
+      "empty_text_pages": 0,
+      "manual_required": "Page/label plans; units; period/column/version interpretation. Not independent human reviewed."
+    }
+  ],
+  "inventory_denominator": 40,
+  "inventory_found": 38,
+  "target_file_denominator": 10,
+  "downloaded": 10,
+  "unfetched_periods_are_not_successes": true
+}

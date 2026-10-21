@@ -1,0 +1,41 @@
+{
+  "method": "Agent/tool wall spans including inference and tool latency; C human review not performed; no person-hour conversion",
+  "HUMAN_REVIEW_TIME": "NOT_MEASURED",
+  "spans": [
+    {
+      "case": "000961_versions",
+      "started_at": "2026-10-21T03:58:01.503Z",
+      "task": "Independently locate original/update core facts, inspect whole supplemental notice and changed pages",
+      "finished_at": "2026-10-21T03:59:31.918Z",
+      "observable_wall_seconds": 90.415
+    },
+    {
+      "case": "000002_correction",
+      "started_at": "2026-10-21T03:59:31.918Z",
+      "task": "Read both correction pages, distinguish other-issuer historical-report references from Vanke financial facts",
+      "finished_at": "2026-10-21T04:00:51.787Z",
+      "observable_wall_seconds": 79.869
+    },
+    {
+      "case": "300750_eps_control",
+      "started_at": "2026-10-21T04:00:51.787Z",
+      "task": "Compare all three monetary comparatives against EPS-specific adjustment narrative using saved R5 pages",
+      "finished_at": "2026-10-21T04:02:45.879Z",
+      "observable_wall_seconds": 114.092
+    },
+    {
+      "case": "asof_completeness",
+      "started_at": "2026-10-21T04:02:45.879Z",
+      "task": "Separate positive anchored facts from unreviewed intervening reports; inspect availability and strict fail-closed cases",
+      "finished_at": "2026-10-21T04:08:01.372Z",
+      "observable_wall_seconds": 315.493
+    },
+    {
+      "case": "cross_case_validation",
+      "started_at": "2026-10-21T04:08:01.372Z",
+      "task": "Investigate failed unit validation, inspect five rendered pages, finalize source/route evidence; not a pure per-issuer operation",
+      "finished_at": "2026-10-21T04:09:01.821Z",
+      "observable_wall_seconds": 60.449
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "web_batches": 2,
+  "budget": 2,
+  "search_sources": [
+    {
+      "url": "https://www.szse.cn/disclosure/notice/general/t20221227_598022.html",
+      "observation": "Official search result says 2023-04-29 through 2023-05-03 closed; 2023-05-04 opens"
+    },
+    {
+      "url": "https://www.szse.cn/disclosure/notice/t20231226_605108.html",
+      "observation": "Official search result says 2024-10-01 through 2024-10-07 closed; 2024-10-08 opens"
+    },
+    {
+      "url": "https://www.szse.cn/disclosure/notice/t20240919_609420.html",
+      "observation": "Official holiday-specific result independently lists Oct8 reopening"
+    }
+  ],
+  "full_page_opens": "Both tool fetches timed out; no page raw bytes or full-calendar certification claimed",
+  "date_rule": "R4 next real session CLOSE candidate; mapping used only for listed diagnostic dates; not frozen or DR06 qualification"
+}

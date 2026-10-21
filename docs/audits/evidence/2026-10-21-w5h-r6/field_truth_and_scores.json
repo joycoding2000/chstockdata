@@ -1,0 +1,473 @@
+{
+  "at_utc": "2026-10-21T04:06:15.292804+00:00",
+  "truth_method": "Agent semantic review and physical-page label checks; no independent human reviewer. Truth is separate from frozen detector. R5 values are already documented manual-page/column audited facts, not unseen validation.",
+  "original_and_update_truth": [
+    {
+      "id": "1216561621",
+      "code": "000961",
+      "period": "2022-12-31",
+      "unit": "CNY",
+      "source_sha256": "4b102c9d697fc3bb96b61a4a1aaca82924bcf74224cc91006741dd1298db8271",
+      "fields": {
+        "NP": {
+          "physical_page": 6,
+          "label": "归属于上市公司股东的净利润",
+          "values_CNY": [
+            "-9170618058.58"
+          ],
+          "excerpt": " 2020 年 \n营业收入（元） 59,036,308,075.82 79,210,505,937.87 -25.47% 78,600,848,306.78 \n归属于上市公司股东的净利润\n（元） -9,170,618,058.58 -3,381,953,677.00 -171.16% 7,077,790,442.07 \n归属于上市公司股东的扣除非经常\n性损益的净利润（元） -9,643,382,264.29 -4,036,494,220.39 -138.90% 5,644,555,016.26 \n经营活动产生的现金流量净额\n（元） 6,253,316,303.14 16,771,980,470.34 -62.72% 8,467,448,835.24 \n基本每股收益（元/股） -2.3966 -0.885 -170.80% 1.8679 \n稀释每股收益（元/股） -2.3966 -0.885 -170.80% 1.8670 \n加权平均净资产收益率 -48.70% -13.06% -36 个百分点 28.18% \n项目 2022 年末 2021 年末 同比增减 2020 年末"
+        },
+        "OCF": {
+          "physical_page": 6,
+          "label": "经营活动产生的现金流量净额",
+          "values_CNY": [
+            "6253316303.14"
+          ],
+          "excerpt": "扣除非经常\n性损益的净利润（元） -9,643,382,264.29 -4,036,494,220.39 -138.90% 5,644,555,016.26 \n经营活动产生的现金流量净额\n（元） 6,253,316,303.14 16,771,980,470.34 -62.72% 8,467,448,835.24 \n基本每股收益（元/股） -2.3966 -0.885 -170.80% 1.8679 \n稀释每股收益（元/股） -2.3966 -0.885 -170.80% 1.8670 \n加权平均净资产收益率 -48.70% -13.06% -36 个百分点 28.18% \n项目 2022 年末 2021 年末 同比增减 2020 年末 \n总资产（元） 306,722,295,982.59 367,976,521,814.23 -16.65% 359,253,452,733.35 \n归属于上市公司股东的股东权益\n（元） 14,425,941,059.26 23,414,520,575.69 -38.39% 28,701,111,621.86 \n公司总股份数 3,826,5"
+        },
+        "EQ": {
+          "physical_page": 6,
+          "label": "归属于上市公司股东的股东权益",
+          "values_CNY": [
+            "14425941059.26"
+          ],
+          "excerpt": "20 年末 \n总资产（元） 306,722,295,982.59 367,976,521,814.23 -16.65% 359,253,452,733.35 \n归属于上市公司股东的股东权益\n（元） 14,425,941,059.26 23,414,520,575.69 -38.39% 28,701,111,621.86 \n公司总股份数 3,826,558,901.00 3,826,558,901 - 3,821,284,303 \n注：本报告披露日相比 2022 年末公司总股份数没有变化。 \n营业收入扣除情况 \n项目 2022 年 2021 年 \n营业收入（元） 59,036,308,075.82  79,210,505,937.87 \n营业收入扣除金额\n（元） 364,100,798.29 275,149,643.35 \n营业收入扣除后金额\n（元） 58,672,207,277.53  78,935,356,294.52 \n注：营业收入扣除项是与主营业务之外的业务收入，包括销售材料收入、管理费收入、咨询费收入、担保费收入等。 \n七、境内外会计准则下会计数据差异：无 \n八、分"
+        }
+      }
+    },
+    {
+      "id": "1217386817",
+      "code": "000961",
+      "period": "2022-12-31",
+      "unit": "CNY",
+      "source_sha256": "0f0af42e6e45d2b583e0d37b4620f6482de2e0b1716150a986612d26d29eff2d",
+      "fields": {
+        "NP": {
+          "physical_page": 6,
+          "label": "归属于上市公司股东的净利润",
+          "values_CNY": [
+            "-9170618058.58"
+          ],
+          "excerpt": " 2020 年 \n营业收入（元） 59,036,308,075.82 79,210,505,937.87 -25.47% 78,600,848,306.78 \n归属于上市公司股东的净利润\n（元） -9,170,618,058.58 -3,381,953,677.00 -171.16% 7,077,790,442.07 \n归属于上市公司股东的扣除非经常\n性损益的净利润（元） -9,643,382,264.29 -4,036,494,220.39 -138.90% 5,644,555,016.26 \n经营活动产生的现金流量净额\n（元） 6,253,316,303.14 16,771,980,470.34 -62.72% 8,467,448,835.24 \n基本每股收益（元/股） -2.3966 -0.885 -170.80% 1.8679 \n稀释每股收益（元/股） -2.3966 -0.885 -170.80% 1.8670 \n加权平均净资产收益率 -48.70% -13.06% -36 个百分点 28.18% \n项目 2022 年末 2021 年末 同比增减 2020 年末"
+        },
+        "OCF": {
+          "physical_page": 6,
+          "label": "经营活动产生的现金流量净额",
+          "values_CNY": [
+            "6253316303.14"
+          ],
+          "excerpt": "扣除非经常\n性损益的净利润（元） -9,643,382,264.29 -4,036,494,220.39 -138.90% 5,644,555,016.26 \n经营活动产生的现金流量净额\n（元） 6,253,316,303.14 16,771,980,470.34 -62.72% 8,467,448,835.24 \n基本每股收益（元/股） -2.3966 -0.885 -170.80% 1.8679 \n稀释每股收益（元/股） -2.3966 -0.885 -170.80% 1.8670 \n加权平均净资产收益率 -48.70% -13.06% -36 个百分点 28.18% \n项目 2022 年末 2021 年末 同比增减 2020 年末 \n总资产（元） 306,722,295,982.59 367,976,521,814.23 -16.65% 359,253,452,733.35 \n归属于上市公司股东的股东权益\n（元） 14,425,941,059.26 23,414,520,575.69 -38.39% 28,701,111,621.86 \n公司总股份数 3,826,5"
+        },
+        "EQ": {
+          "physical_page": 6,
+          "label": "归属于上市公司股东的股东权益",
+          "values_CNY": [
+            "14425941059.26"
+          ],
+          "excerpt": "20 年末 \n总资产（元） 306,722,295,982.59 367,976,521,814.23 -16.65% 359,253,452,733.35 \n归属于上市公司股东的股东权益\n（元） 14,425,941,059.26 23,414,520,575.69 -38.39% 28,701,111,621.86 \n公司总股份数 3,826,558,901.00 3,826,558,901 - 3,821,284,303 \n注：本报告披露日相比 2022 年末公司总股份数没有变化。 \n营业收入扣除情况 \n项目 2022 年 2021 年 \n营业收入（元） 59,036,308,075.82  79,210,505,937.87 \n营业收入扣除金额\n（元） 364,100,798.29 275,149,643.35 \n营业收入扣除后金额\n（元） 58,672,207,277.53  78,935,356,294.52 \n注：营业收入扣除项是与主营业务之外的业务收入，包括销售材料收入、管理费收入、咨询费收入、担保费收入等。 \n七、境内外会计准则下会计数据差异：无 \n八、分"
+        }
+      }
+    }
+  ],
+  "expected_current_facts": {
+    "1216561621": {
+      "NP": "-9170618058.58",
+      "OCF": "6253316303.14",
+      "EQ": "14425941059.26"
+    },
+    "1217386817": {
+      "NP": "-9170618058.58",
+      "OCF": "6253316303.14",
+      "EQ": "14425941059.26"
+    },
+    "1219747877": {
+      "NP": "-5292700162.01",
+      "OCF": "127132640.50",
+      "EQ": "9226697746.73"
+    },
+    "1219909136": {
+      "NP": "-600799489.90",
+      "OCF": "23057532.85",
+      "EQ": "8580724832.10"
+    },
+    "1219487237": {
+      "NP": "12162684368.86",
+      "OCF": "3912323920.11",
+      "EQ": "250784613404.38"
+    },
+    "1219913619": {
+      "NP": "-361967511.52",
+      "OCF": "-9421419428.01",
+      "EQ": "250633266316.32"
+    },
+    "1219313047": {
+      "NP": "44121248300.00",
+      "OCF": "92826124400.00",
+      "EQ": "197708052400.00"
+    },
+    "1219619642": {
+      "NP": "10509923200.00",
+      "OCF": "28357910600.00",
+      "EQ": "207729874000.00"
+    }
+  },
+  "V2_current_validations": [
+    {
+      "source_id": "1216561621",
+      "field": "NP",
+      "extracted": "-9170618058.58",
+      "independent_expected": "-9170618058.58",
+      "match": true
+    },
+    {
+      "source_id": "1216561621",
+      "field": "OCF",
+      "extracted": "6253316303.14",
+      "independent_expected": "6253316303.14",
+      "match": true
+    },
+    {
+      "source_id": "1216561621",
+      "field": "EQ",
+      "extracted": "14425941059.26",
+      "independent_expected": "14425941059.26",
+      "match": true
+    },
+    {
+      "source_id": "1217386817",
+      "field": "NP",
+      "extracted": "-9170618058.58",
+      "independent_expected": "-9170618058.58",
+      "match": true
+    },
+    {
+      "source_id": "1217386817",
+      "field": "OCF",
+      "extracted": "6253316303.14",
+      "independent_expected": "6253316303.14",
+      "match": true
+    },
+    {
+      "source_id": "1217386817",
+      "field": "EQ",
+      "extracted": "14425941059.26",
+      "independent_expected": "14425941059.26",
+      "match": true
+    },
+    {
+      "source_id": "1219747877",
+      "field": "NP",
+      "extracted": "-5292700162.01",
+      "independent_expected": "-5292700162.01",
+      "match": true
+    },
+    {
+      "source_id": "1219747877",
+      "field": "OCF",
+      "extracted": "127132640.50",
+      "independent_expected": "127132640.50",
+      "match": true
+    },
+    {
+      "source_id": "1219747877",
+      "field": "EQ",
+      "extracted": "9226697746.73",
+      "independent_expected": "9226697746.73",
+      "match": true
+    },
+    {
+      "source_id": "1219909136",
+      "field": "NP",
+      "extracted": "-600799489.90",
+      "independent_expected": "-600799489.90",
+      "match": true
+    },
+    {
+      "source_id": "1219909136",
+      "field": "OCF",
+      "extracted": "23057532.85",
+      "independent_expected": "23057532.85",
+      "match": true
+    },
+    {
+      "source_id": "1219909136",
+      "field": "EQ",
+      "extracted": "8580724832.10",
+      "independent_expected": "8580724832.10",
+      "match": true
+    },
+    {
+      "source_id": "1219487237",
+      "field": "NP",
+      "extracted": "12162684368.86",
+      "independent_expected": "12162684368.86",
+      "match": true
+    },
+    {
+      "source_id": "1219487237",
+      "field": "OCF",
+      "extracted": "3912323920.11",
+      "independent_expected": "3912323920.11",
+      "match": true
+    },
+    {
+      "source_id": "1219487237",
+      "field": "EQ",
+      "extracted": "250784613404.38",
+      "independent_expected": "250784613404.38",
+      "match": true
+    },
+    {
+      "source_id": "1219913619",
+      "field": "NP",
+      "extracted": "-3619675115200.00",
+      "independent_expected": "-361967511.52",
+      "match": false
+    },
+    {
+      "source_id": "1219913619",
+      "field": "OCF",
+      "extracted": "-94214194280100.00",
+      "independent_expected": "-9421419428.01",
+      "match": false
+    },
+    {
+      "source_id": "1219913619",
+      "field": "EQ",
+      "extracted": "2506332663163200.00",
+      "independent_expected": "250633266316.32",
+      "match": false
+    },
+    {
+      "source_id": "1219313047",
+      "field": "NP",
+      "extracted": "44121248300.00",
+      "independent_expected": "44121248300.00",
+      "match": true
+    },
+    {
+      "source_id": "1219313047",
+      "field": "OCF",
+      "extracted": "92826124400.00",
+      "independent_expected": "92826124400.00",
+      "match": true
+    },
+    {
+      "source_id": "1219313047",
+      "field": "EQ",
+      "extracted": "197708052400.00",
+      "independent_expected": "197708052400.00",
+      "match": true
+    },
+    {
+      "source_id": "1219619642",
+      "field": "NP",
+      "extracted": "10509923200.00",
+      "independent_expected": "10509923200.00",
+      "match": true
+    },
+    {
+      "source_id": "1219619642",
+      "field": "OCF",
+      "extracted": "28357910600.00",
+      "independent_expected": "28357910600.00",
+      "match": true
+    },
+    {
+      "source_id": "1219619642",
+      "field": "EQ",
+      "extracted": "207729874000.00",
+      "independent_expected": "207729874000.00",
+      "match": true
+    }
+  ],
+  "comparative_truth": [
+    {
+      "code": "000961",
+      "source_id": "1219747877",
+      "comparison_period": "2022-12-31",
+      "field": "NP",
+      "before": "-9170618058.58",
+      "after": "-9183273202.95",
+      "changed": true
+    },
+    {
+      "code": "000961",
+      "source_id": "1219747877",
+      "comparison_period": "2022-12-31",
+      "field": "OCF",
+      "before": "6253316303.14",
+      "after": "6253316303.14",
+      "changed": false
+    },
+    {
+      "code": "000961",
+      "source_id": "1219747877",
+      "comparison_period": "2022-12-31",
+      "field": "EQ",
+      "before": "14425941059.26",
+      "after": "14426074702.61",
+      "changed": true
+    },
+    {
+      "code": "000002",
+      "source_id": "1219487237",
+      "comparison_period": "2022-12-31",
+      "field": "NP",
+      "before": "22617778516.45",
+      "after": "22688551801.52",
+      "changed": true
+    },
+    {
+      "code": "000002",
+      "source_id": "1219487237",
+      "comparison_period": "2022-12-31",
+      "field": "OCF",
+      "before": "2750449478.44",
+      "after": "2750449478.44",
+      "changed": false
+    },
+    {
+      "code": "000002",
+      "source_id": "1219487237",
+      "comparison_period": "2022-12-31",
+      "field": "EQ",
+      "before": "242691342204.55",
+      "after": "243325374922.33",
+      "changed": true
+    },
+    {
+      "code": "300750",
+      "source_id": "1219313047",
+      "comparison_period": "2022-12-31",
+      "field": "NP",
+      "before": "30729163500.00",
+      "after": "30729163500.00",
+      "changed": false
+    },
+    {
+      "code": "300750",
+      "source_id": "1219313047",
+      "comparison_period": "2022-12-31",
+      "field": "OCF",
+      "before": "61208843300.00",
+      "after": "61208843300.00",
+      "changed": false
+    },
+    {
+      "code": "300750",
+      "source_id": "1219313047",
+      "comparison_period": "2022-12-31",
+      "field": "EQ",
+      "before": "164481251600.00",
+      "after": "164481251600.00",
+      "changed": false
+    }
+  ],
+  "events": [
+    {
+      "source_ids": [
+        "1216561621",
+        "1217386817"
+      ],
+      "kind": "DOCUMENT_UPDATE_NO_TARGET_VALUE_CHANGE",
+      "numeric_changed_fields": [],
+      "tested_unchanged_fields": [
+        "NP",
+        "OCF",
+        "EQ"
+      ],
+      "evidence": "Both physical p6 equal; 1217386818 p1 limits update to section 六/十二 penalties and rectification, says other content unchanged. Not a new FY2022 monetary fact."
+    },
+    {
+      "source_ids": [
+        "1217386818"
+      ],
+      "kind": "NON_TARGET_SUPPLEMENT",
+      "numeric_changed_fields": [],
+      "other_new_fact": "Adds historical regulatory warning/discipline narrative concerning 2021 forecast accuracy; not new NP/OCF/EQ amounts. No other issuer or cited old notices fetched."
+    },
+    {
+      "source_ids": [
+        "1221331382"
+      ],
+      "kind": "IRRELEVANT_TO_TESTED_FINANCIAL_FACTS_CORRECTION",
+      "numeric_changed_fields": [],
+      "evidence": "Both pages amend director biography/qualification/discipline statements in 2020/2023 governance documents. Mentions other-issuer 2017/2018 reports as background; not a Vanke statement restatement."
+    },
+    {
+      "source_ids": [
+        "1219747877"
+      ],
+      "kind": "CONFIRMED_COMPARATIVE_MONETARY_CHANGE",
+      "code": "000961",
+      "financial_period": "2022-12-31",
+      "numeric_changed_fields": [
+        "NP",
+        "EQ"
+      ],
+      "unchanged": [
+        "OCF"
+      ],
+      "financial_fact_first_confirmed_in_this_set": "2024-04-23",
+      "earliest_real_world_revision_disclosure": "UNKNOWN_UNREVIEWED_2023_INTERVENING_REPORTS"
+    },
+    {
+      "source_ids": [
+        "1219487237"
+      ],
+      "kind": "CONFIRMED_COMPARATIVE_MONETARY_CHANGE",
+      "code": "000002",
+      "financial_period": "2022-12-31",
+      "numeric_changed_fields": [
+        "NP",
+        "EQ"
+      ],
+      "unchanged": [
+        "OCF"
+      ],
+      "financial_fact_first_confirmed_in_this_set": "2024-03-29",
+      "independent_original_FY2022": "NOT_OBTAINED_DO_NOT_BACKDATE_UNADJUSTED_COMPARATIVE"
+    },
+    {
+      "source_ids": [
+        "1219313047",
+        "1219619642"
+      ],
+      "kind": "EPS_ADJUSTMENT_NO_TESTED_MONETARY_CHANGE",
+      "code": "300750",
+      "numeric_changed_fields": [],
+      "tested_unchanged_fields": [
+        "NP",
+        "OCF",
+        "EQ"
+      ],
+      "evidence": "FY2023 p7 comparative monetary columns equal; EPS recalculated for April2023 capital-reserve conversion. Q12024 NP/OCF comparative before/after equal; EQ continuation on p2. No conclusion on untested EPS/PE eligibility."
+    }
+  ],
+  "scores": {
+    "metadata_rows": 44,
+    "metadata_candidates": 5,
+    "title_only_rows": 2,
+    "four_material_ids_have_metadata_candidates": {
+      "1216561621": true,
+      "1217386817": true,
+      "1217386818": true,
+      "1221331382": true
+    },
+    "actual_monetary_change_source_events": 2,
+    "title_only_hits_for_these_two": 0,
+    "body_candidate_hits_for_these_two": 2,
+    "v1_current_periodic_fields_extracted": 20,
+    "current_periodic_field_denominator": 24,
+    "v1_unknown_current_fields": 4,
+    "v2_current_validated": 21,
+    "v2_current_wrong": 3,
+    "v2_comparative_denominator": 9,
+    "v2_comparative_amount_changes": 4,
+    "EPS_target_monetary_false_change_count": 0,
+    "all_notices_automatically_semantically_resolved": false,
+    "unknown_revision_recall": "NOT_ESTABLISHED",
+    "not_population_recall_or_precision": true
+  }
+}

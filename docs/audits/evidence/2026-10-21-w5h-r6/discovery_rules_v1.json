@@ -1,0 +1,104 @@
+{
+  "registered_at_utc": "2026-10-21T03:53:49.962Z",
+  "id": "R6_DISCOVERY_V1",
+  "known_case_benchmark_not_blinded": true,
+  "first_result_immutable": true,
+  "scope": {
+    "securities": [
+      "000961",
+      "000002",
+      "300750"
+    ],
+    "new_documents": [
+      {
+        "code": "000961",
+        "id": "1216561621",
+        "date": "2023-04-25",
+        "period": "2022-12-31",
+        "role": "original",
+        "url": "https://static.cninfo.com.cn/finalpage/2023-04-25/1216561621.PDF"
+      },
+      {
+        "code": "000961",
+        "id": "1217386817",
+        "date": "2023-07-26",
+        "period": "2022-12-31",
+        "role": "updated",
+        "url": "https://static.cninfo.com.cn/finalpage/2023-07-26/1217386817.PDF"
+      },
+      {
+        "code": "000961",
+        "id": "1217386818",
+        "date": "2023-07-26",
+        "period": "2022-12-31",
+        "role": "supplement",
+        "url": "https://static.cninfo.com.cn/finalpage/2023-07-26/1217386818.PDF"
+      },
+      {
+        "code": "000002",
+        "id": "1221331382",
+        "date": "2024-09-30",
+        "period": "UNKNOWN_UNTIL_BODY",
+        "role": "correction",
+        "url": "https://static.cninfo.com.cn/finalpage/2024-09-30/1221331382.PDF"
+      }
+    ],
+    "reused_body_files": [
+      "000961_FY2023.pdf",
+      "000961_Q12024.pdf",
+      "000002_FY2023.pdf",
+      "000002_Q12024.pdf",
+      "300750_FY2023.pdf",
+      "300750_Q12024.pdf"
+    ],
+    "metadata": "Existing R5 periodic/correction/supplement indexes for only these three securities; no new index requests",
+    "gold_ids_used_only_for_scoring": "Known IDs must not be predicates in discovery implementation"
+  },
+  "budget": {
+    "direct_requests": 4,
+    "web_batches": 2,
+    "single_body_bytes": 15000000,
+    "total_network_bytes": 40000000,
+    "timeout_seconds": 20,
+    "same_host_after_finish_seconds": 3,
+    "automatic_retries": 0,
+    "redirects": 0,
+    "new_securities": 0,
+    "extra_documents": 0
+  },
+  "baseline_title_rule": "B0: clean announcementTitle contains 更正; emits candidate only, never numeric change",
+  "candidate_rules": [
+    {
+      "id": "M1",
+      "rule": "Title contains 更正|修订|更新前|更新后 => candidate; no issuer or ID exceptions"
+    },
+    {
+      "id": "M2",
+      "rule": "Title contains 补充 and also 年度|报告|财务|会计 => candidate, not necessarily S07 numeric change"
+    },
+    {
+      "id": "M3",
+      "rule": "Group full periodic-report records by issuer and normalized report period; >=2 distinct IDs or dates => repeated-period version candidate. Exclude 摘要|英文|H股; content SHA difference signals document bytes only, not numeric changes"
+    },
+    {
+      "id": "B1",
+      "rule": "Available body contains 追溯|重述|会计政策变更|比较期间|调整前|调整后|补充修订 => candidate. Box states/semantics require triage; not a proven field change"
+    },
+    {
+      "id": "F1",
+      "rule": "On each first matching 主要会计数据和财务指标 summary page among first 30 physical pages, use common NP/OCF/EQ labels and adjacent comma-grouped amount tokens. No issuer-specific page numbers, sign/unit overrides or exception IDs. Capture source amount and first3 columns; source unit must appear near label or in page header; ambiguity => UNKNOWN"
+    },
+    {
+      "id": "F2",
+      "rule": "For same issuer and same period, compare machine-extracted NP/OCF/EQ only when report-period, unit and column identity resolved. Same hash/ID version identity not inferred from numeric equality. Different numeric values => field-change evidence; equal triples do not prove entire report unchanged"
+    },
+    {
+      "id": "F3",
+      "rule": "Comparative amount change candidates require explicit adjusted/unadjusted column ordering; EPS-only adjustment never proves NP/OCF/EQ changed. No revised fields from keyword alone."
+    }
+  ],
+  "v1_extraction_guard": "If no reliable matched summary page, field labels, unit or period/column, emit UNKNOWN instead of reading unrelated figures; retain first failures. Full-document semantic review separately classified agent-assisted, not automatic.",
+  "asof_diagnostic": "Reuse R4 candidate next actual trading session close for date-only announcements; no product rule freeze. Add only positively supported original/revised facts. Unrelated correction has no replacement values; conflicting/unknown versions fail closed.",
+  "cost": "A actual download/parser/detector execution; B explicitly timestamped agent review spans incl latency; C HUMAN_REVIEW_TIME=NOT_MEASURED; no accepted human cap assumed",
+  "no_generalization": "Fixed known cases only; no unknown revision recall, no population precision/exception rate, no SLA"
+}

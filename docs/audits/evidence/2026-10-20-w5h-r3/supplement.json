@@ -1,0 +1,288 @@
+{
+  "mirror_daily": {
+    "root": "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.rh3a2-vipdoc",
+    "directories": [
+      {
+        "path": "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.rh3a2-vipdoc\\sh\\lday",
+        "status": "PRESENT",
+        "file_count": 5951,
+        "total_bytes": 486210592,
+        "mtime_min_utc": "2026-09-23T06:17:41.767975+00:00",
+        "mtime_max_utc": "2026-09-23T06:17:56.878584+00:00",
+        "samples": [
+          {
+            "path": "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.rh3a2-vipdoc\\sh\\lday\\sh000001.day",
+            "bytes": 279392,
+            "mtime_utc": "2026-09-23T06:17:41.767975+00:00",
+            "ctime_utc": "2026-09-23T06:17:41.765974+00:00"
+          },
+          {
+            "path": "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.rh3a2-vipdoc\\sh\\lday\\sh000002.day",
+            "bytes": 279392,
+            "mtime_utc": "2026-09-23T06:17:41.780564+00:00",
+            "ctime_utc": "2026-09-23T06:17:41.778563+00:00"
+          },
+          {
+            "path": "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.rh3a2-vipdoc\\sh\\lday\\sh000003.day",
+            "bytes": 269696,
+            "mtime_utc": "2026-09-23T06:17:41.782593+00:00",
+            "ctime_utc": "2026-09-23T06:17:41.780564+00:00"
+          },
+          {
+            "path": "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.rh3a2-vipdoc\\sh\\lday\\sh999997.day",
+            "bytes": 269696,
+            "mtime_utc": "2026-09-23T06:17:56.874583+00:00",
+            "ctime_utc": "2026-09-23T06:17:56.872589+00:00"
+          },
+          {
+            "path": "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.rh3a2-vipdoc\\sh\\lday\\sh999998.day",
+            "bytes": 279392,
+            "mtime_utc": "2026-09-23T06:17:56.876586+00:00",
+            "ctime_utc": "2026-09-23T06:17:56.874583+00:00"
+          },
+          {
+            "path": "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.rh3a2-vipdoc\\sh\\lday\\sh999999.day",
+            "bytes": 279392,
+            "mtime_utc": "2026-09-23T06:17:56.878584+00:00",
+            "ctime_utc": "2026-09-23T06:17:56.877587+00:00"
+          }
+        ]
+      },
+      {
+        "path": "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.rh3a2-vipdoc\\sz\\lday",
+        "status": "PRESENT",
+        "file_count": 5864,
+        "total_bytes": 450723584,
+        "mtime_min_utc": "2026-09-23T06:17:56.881512+00:00",
+        "mtime_max_utc": "2026-09-23T06:18:08.832954+00:00",
+        "samples": [
+          {
+            "path": "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.rh3a2-vipdoc\\sz\\lday\\sz000001.day",
+            "bytes": 270688,
+            "mtime_utc": "2026-09-23T06:17:56.881512+00:00",
+            "ctime_utc": "2026-09-23T06:17:56.879583+00:00"
+          },
+          {
+            "path": "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.rh3a2-vipdoc\\sz\\lday\\sz000002.day",
+            "bytes": 271520,
+            "mtime_utc": "2026-09-23T06:17:56.883673+00:00",
+            "ctime_utc": "2026-09-23T06:17:56.882152+00:00"
+          },
+          {
+            "path": "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.rh3a2-vipdoc\\sz\\lday\\sz000003.day",
+            "bytes": 73120,
+            "mtime_utc": "2026-09-23T06:17:56.884671+00:00",
+            "ctime_utc": "2026-09-23T06:17:56.883673+00:00"
+          },
+          {
+            "path": "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.rh3a2-vipdoc\\sz\\lday\\sz399996.day",
+            "bytes": 110656,
+            "mtime_utc": "2026-09-23T06:18:08.829919+00:00",
+            "ctime_utc": "2026-09-23T06:18:08.829919+00:00"
+          },
+          {
+            "path": "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.rh3a2-vipdoc\\sz\\lday\\sz399997.day",
+            "bytes": 137760,
+            "mtime_utc": "2026-09-23T06:18:08.831950+00:00",
+            "ctime_utc": "2026-09-23T06:18:08.830952+00:00"
+          },
+          {
+            "path": "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.rh3a2-vipdoc\\sz\\lday\\sz399998.day",
+            "bytes": 137728,
+            "mtime_utc": "2026-09-23T06:18:08.832954+00:00",
+            "ctime_utc": "2026-09-23T06:18:08.831950+00:00"
+          }
+        ]
+      },
+      {
+        "path": "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.rh3a2-vipdoc\\bj\\lday",
+        "status": "PRESENT",
+        "file_count": 611,
+        "total_bytes": 15003360,
+        "mtime_min_utc": "2026-09-23T06:18:08.833953+00:00",
+        "mtime_max_utc": "2026-09-23T06:18:09.518997+00:00",
+        "samples": [
+          {
+            "path": "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.rh3a2-vipdoc\\bj\\lday\\bj430017.day",
+            "bytes": 18240,
+            "mtime_utc": "2026-09-23T06:18:08.833953+00:00",
+            "ctime_utc": "2026-09-23T06:18:08.832954+00:00"
+          },
+          {
+            "path": "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.rh3a2-vipdoc\\bj\\lday\\bj430047.day",
+            "bytes": 37760,
+            "mtime_utc": "2026-09-23T06:18:08.833953+00:00",
+            "ctime_utc": "2026-09-23T06:18:08.833953+00:00"
+          },
+          {
+            "path": "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.rh3a2-vipdoc\\bj\\lday\\bj430090.day",
+            "bytes": 32064,
+            "mtime_utc": "2026-09-23T06:18:08.834953+00:00",
+            "ctime_utc": "2026-09-23T06:18:08.834953+00:00"
+          },
+          {
+            "path": "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.rh3a2-vipdoc\\bj\\lday\\bj920982.day",
+            "bytes": 24704,
+            "mtime_utc": "2026-09-23T06:18:09.517439+00:00",
+            "ctime_utc": "2026-09-23T06:18:09.516433+00:00"
+          },
+          {
+            "path": "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.rh3a2-vipdoc\\bj\\lday\\bj920985.day",
+            "bytes": 32064,
+            "mtime_utc": "2026-09-23T06:18:09.517983+00:00",
+            "ctime_utc": "2026-09-23T06:18:09.517983+00:00"
+          },
+          {
+            "path": "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.rh3a2-vipdoc\\bj\\lday\\bj920992.day",
+            "bytes": 30624,
+            "mtime_utc": "2026-09-23T06:18:09.518997+00:00",
+            "ctime_utc": "2026-09-23T06:18:09.518997+00:00"
+          }
+        ]
+      }
+    ],
+    "fixed_samples": [
+      {
+        "path": "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.rh3a2-vipdoc\\sh\\lday\\sh600518.day",
+        "sha256": "5cc904ed01b8f3287a047f7e77ddfebb2ec93248aa61c2e239ddc4d65416ce83",
+        "bytes": 194560,
+        "first_date": 20010319,
+        "last_date": 20260922
+      },
+      {
+        "path": "D:\\Dev\\Projects\\chstockdata-frozen-v042\\.rh3a2-vipdoc\\sh\\lday\\sh600519.day",
+        "sha256": "8b27f2d55a0f014eb9e1d8f45329bcc2b2e49a47339d137cae3199d7381adf08",
+        "bytes": 192320,
+        "first_date": 20010827,
+        "last_date": 20260922
+      }
+    ]
+  },
+  "existing_public_daily_reader_verification": [
+    {
+      "root": "C:\\zd_zxzq_gm\\vipdoc",
+      "code": "600518",
+      "rows": 1184,
+      "first_date": "2021-08-02 00:00:00",
+      "last_date": "2026-06-29 00:00:00",
+      "last_close": 1.23,
+      "last_amount_yuan_float32": 403855776.0,
+      "last_volume_shares": 334447232,
+      "matches_raw_last_record": true
+    },
+    {
+      "root": "C:\\zd_zxzq_gm\\vipdoc",
+      "code": "600519",
+      "rows": 1187,
+      "first_date": "2021-08-02 00:00:00",
+      "last_date": "2026-06-29 00:00:00",
+      "last_close": 1194.96,
+      "last_amount_yuan_float32": 7949237760.0,
+      "last_volume_shares": 6687812,
+      "matches_raw_last_record": true
+    },
+    {
+      "root": "D:\\Dev\\Projects\\chstockdata\\.rh3a2-vipdoc",
+      "code": "600518",
+      "rows": 6080,
+      "first_date": "2001-03-19 00:00:00",
+      "last_date": "2026-09-22 00:00:00",
+      "last_close": 1.36,
+      "last_amount_yuan_float32": 183360032.0,
+      "last_volume_shares": 133560005,
+      "matches_raw_last_record": true
+    },
+    {
+      "root": "D:\\Dev\\Projects\\chstockdata\\.rh3a2-vipdoc",
+      "code": "600519",
+      "rows": 6010,
+      "first_date": "2001-08-27 00:00:00",
+      "last_date": "2026-09-22 00:00:00",
+      "last_close": 1253.8,
+      "last_amount_yuan_float32": 3088526080.0,
+      "last_volume_shares": 2457294,
+      "matches_raw_last_record": true
+    }
+  ],
+  "2026q1_600518_saved_ths_crosscheck": [
+    {
+      "field": "FN74",
+      "ths_field": "operating_income",
+      "ths_raw_decimal": "1079786637.4400",
+      "gpcw_float32": 1079786624.0,
+      "matches_rounded_float32": true,
+      "source_sha256": "bc8300fae2d0c8112c604cdbce139491d69f1640b75ae0208d1f73d4ccf9100f"
+    },
+    {
+      "field": "FN96",
+      "ths_field": "parent_holder_net_profit",
+      "ths_raw_decimal": "-16563882.3900",
+      "gpcw_float32": -16563882.0,
+      "matches_rounded_float32": true,
+      "source_sha256": "bc8300fae2d0c8112c604cdbce139491d69f1640b75ae0208d1f73d4ccf9100f"
+    },
+    {
+      "field": "FN107",
+      "ths_field": "act_cash_flow_net",
+      "ths_raw_decimal": "-54755349.2600",
+      "gpcw_float32": -54755348.0,
+      "matches_rounded_float32": true,
+      "source_sha256": "a4b74022c33e4c4a262d78319225bf3c4d7864e124726ebc1a1f3402dbf9408c"
+    },
+    {
+      "field": "FN271",
+      "ths_field": "parent_holder_equity_total",
+      "ths_raw_decimal": "7273519463.3300",
+      "gpcw_float32": 7273519616.0,
+      "matches_rounded_float32": true,
+      "source_sha256": "bb5b3701ea3add975b1ee9519112e456a379c2c5694df6216278f118a670e84b"
+    },
+    {
+      "field": "FN238",
+      "ths_field": "equity",
+      "ths_raw_decimal": "13828896690.0000",
+      "gpcw_float32": 13828896768.0,
+      "matches_rounded_float32": true,
+      "source_sha256": "bb5b3701ea3add975b1ee9519112e456a379c2c5694df6216278f118a670e84b"
+    }
+  ],
+  "stock_analysis_field_doc_encoding": "utf-8",
+  "stock_analysis_field_lines": [
+    "74.--其中：营业收入",
+    "96.--归属于母公司所有者的净利润",
+    "107.--经营活动产生的现金流量净额",
+    "238.--总股本",
+    "271.--归属于母公司股东权益(资产负债表)",
+    "281.--加权净资产收益率(每股指标)",
+    "314.--财报公告日期 [注：日期格式为YYMMDD,例：190101代表2019年1月1日]"
+  ],
+  "prior_corrected_disclosure_observation": {
+    "url": "https://vip.stock.finance.sina.com.cn/corp/view/vCB_AllBulletinDetail.php?id=5335851&stockid=600518",
+    "title": "康美药业2018年年度报告摘要",
+    "announcement_date": "2019-04-30",
+    "locator": "§3.1, main accounting-data table, 2017 adjusted/unadjusted columns (web tool lines 67-78)",
+    "period_end": "2017-12-31",
+    "currency": "CNY",
+    "amount_unit": "yuan",
+    "2017_net_profit_attributable_to_parent": {
+      "before": "4100926148.57",
+      "after": "2149836281.41"
+    },
+    "2017_net_operating_cashflow": {
+      "before": "1842794237.84",
+      "after": "-4840052606.46"
+    },
+    "2017_equity_attributable_to_parent": {
+      "before": "32032959807.76",
+      "after": "28413344515.00"
+    },
+    "2017_weighted_roe_percent": {
+      "before": "14.02",
+      "after": "7.68"
+    },
+    "2018_net_profit_attributable_to_parent_as_published_2019": "1135188498.44",
+    "note": "This issuer disclosure corroborates revised totals independently of today's financial API; no exact intraday publication time or historical vendor ingestion log was provided. Correction bulletin 5335860 instead displays 7.20 for the revised weighted ROE: retain the discrepancy."
+  },
+  "prior_observation_sha256": "4743e11f6028522bff7dc73e176eccb9171aac0a9b48e3618ef48f86d857e8b5",
+  "default_vipdoc_root_exists": true
+}

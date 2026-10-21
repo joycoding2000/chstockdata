@@ -1,0 +1,248 @@
+{
+  "at_utc": "2026-10-21T04:16:30.679899+00:00",
+  "delivery_verification": "PASS",
+  "qualification_verdict": "MANUAL_VERIFICATION_DOMINANT",
+  "automated_qualification": "NOT_PASSED_EXPECTED_FAILURES_PRESERVED",
+  "protected_repositories": [
+    {
+      "repository": "chstockdata",
+      "head": "69957a58bcfd258f011c9c80250b58704fe0d784",
+      "branch": "main",
+      "tracked_content_count": 688,
+      "tracked_content_and_status_unchanged": true,
+      "original_untracked_names_preserved": true,
+      "new_untracked": "ONLY_R6_ALLOWLIST"
+    },
+    {
+      "repository": "mishi-radar",
+      "head": "76012c0db977d21832378c473638c271d8c1a554",
+      "branch": "main",
+      "tracked_content_count": 272,
+      "tracked_content_and_status_unchanged": true,
+      "original_untracked_names_preserved": true,
+      "new_untracked": []
+    },
+    {
+      "repository": "systematic-investing-os",
+      "head": "f06e7d8e342133a02beb20a4b310580a633ba9cb",
+      "branch": "codex/v010-owner-product-clarification",
+      "tracked_content_count": 251,
+      "tracked_content_and_status_unchanged": true,
+      "original_untracked_names_preserved": true,
+      "new_untracked": [
+        "docs/m1-r2/R2-etf-session-pressure-and-execution-value-2026-10-21.md"
+      ]
+    }
+  ],
+  "protected_prior_R5_files": 86,
+  "frozen_rule_code_first_result_hashes": "PASS",
+  "direct_requests": 4,
+  "min_same_host_gap_seconds": 3.000214,
+  "first_pass_current_fact_checks": [
+    {
+      "id": "1216561621",
+      "field": "NP",
+      "actual": "-9170618058.58",
+      "expected": "-9170618058.58",
+      "status": "MATCH"
+    },
+    {
+      "id": "1216561621",
+      "field": "OCF",
+      "actual": "6253316303.14",
+      "expected": "6253316303.14",
+      "status": "MATCH"
+    },
+    {
+      "id": "1216561621",
+      "field": "EQ",
+      "actual": null,
+      "expected": "14425941059.26",
+      "status": "UNKNOWN"
+    },
+    {
+      "id": "1217386817",
+      "field": "NP",
+      "actual": "-9170618058.58",
+      "expected": "-9170618058.58",
+      "status": "MATCH"
+    },
+    {
+      "id": "1217386817",
+      "field": "OCF",
+      "actual": "6253316303.14",
+      "expected": "6253316303.14",
+      "status": "MATCH"
+    },
+    {
+      "id": "1217386817",
+      "field": "EQ",
+      "actual": null,
+      "expected": "14425941059.26",
+      "status": "UNKNOWN"
+    },
+    {
+      "id": "1219747877",
+      "field": "NP",
+      "actual": "-5292700162.01",
+      "expected": "-5292700162.01",
+      "status": "MATCH"
+    },
+    {
+      "id": "1219747877",
+      "field": "OCF",
+      "actual": "127132640.50",
+      "expected": "127132640.50",
+      "status": "MATCH"
+    },
+    {
+      "id": "1219747877",
+      "field": "EQ",
+      "actual": "9226697746.73",
+      "expected": "9226697746.73",
+      "status": "MATCH"
+    },
+    {
+      "id": "1219909136",
+      "field": "NP",
+      "actual": "-600799489.90",
+      "expected": "-600799489.90",
+      "status": "MATCH"
+    },
+    {
+      "id": "1219909136",
+      "field": "OCF",
+      "actual": "23057532.85",
+      "expected": "23057532.85",
+      "status": "MATCH"
+    },
+    {
+      "id": "1219909136",
+      "field": "EQ",
+      "actual": "8580724832.10",
+      "expected": "8580724832.10",
+      "status": "MATCH"
+    },
+    {
+      "id": "1219487237",
+      "field": "NP",
+      "actual": "12162684368.86",
+      "expected": "12162684368.86",
+      "status": "MATCH"
+    },
+    {
+      "id": "1219487237",
+      "field": "OCF",
+      "actual": "3912323920.11",
+      "expected": "3912323920.11",
+      "status": "MATCH"
+    },
+    {
+      "id": "1219487237",
+      "field": "EQ",
+      "actual": null,
+      "expected": "250784613404.38",
+      "status": "UNKNOWN"
+    },
+    {
+      "id": "1219913619",
+      "field": "NP",
+      "actual": "-361967511.52",
+      "expected": "-361967511.52",
+      "status": "MATCH"
+    },
+    {
+      "id": "1219913619",
+      "field": "OCF",
+      "actual": "-9421419428.01",
+      "expected": "-9421419428.01",
+      "status": "MATCH"
+    },
+    {
+      "id": "1219913619",
+      "field": "EQ",
+      "actual": "250633266316.32",
+      "expected": "250633266316.32",
+      "status": "MATCH"
+    },
+    {
+      "id": "1219313047",
+      "field": "NP",
+      "actual": "44121248300.00",
+      "expected": "44121248300.00",
+      "status": "MATCH"
+    },
+    {
+      "id": "1219313047",
+      "field": "OCF",
+      "actual": "92826124400.00",
+      "expected": "92826124400.00",
+      "status": "MATCH"
+    },
+    {
+      "id": "1219313047",
+      "field": "EQ",
+      "actual": "197708052400.00",
+      "expected": "197708052400.00",
+      "status": "MATCH"
+    },
+    {
+      "id": "1219619642",
+      "field": "NP",
+      "actual": "10509923200.00",
+      "expected": "10509923200.00",
+      "status": "MATCH"
+    },
+    {
+      "id": "1219619642",
+      "field": "OCF",
+      "actual": "28357910600.00",
+      "expected": "28357910600.00",
+      "status": "MATCH"
+    },
+    {
+      "id": "1219619642",
+      "field": "EQ",
+      "actual": null,
+      "expected": "207729874000.00",
+      "status": "UNKNOWN"
+    }
+  ],
+  "V2_validation": {
+    "correct": 21,
+    "wrong": 3,
+    "denominator": 24
+  },
+  "fresh_source_page_checks": [
+    {
+      "file": "1216561621.pdf",
+      "physical_page": 6,
+      "fresh_text_matches": true
+    },
+    {
+      "file": "1217386817.pdf",
+      "physical_page": 6,
+      "fresh_text_matches": true
+    },
+    {
+      "file": "1217386818.pdf",
+      "physical_page": 1,
+      "fresh_text_matches": true
+    },
+    {
+      "file": "1221331382.pdf",
+      "physical_page": 1,
+      "fresh_text_matches": true
+    },
+    {
+      "file": "1221331382.pdf",
+      "physical_page": 2,
+      "fresh_text_matches": true
+    }
+  ],
+  "asof_diagnostic_tests": 14,
+  "asof_complete_chain": "NOT_PASSED",
+  "HUMAN_REVIEW_TIME": "NOT_MEASURED",
+  "MISHI_S07_HISTORICAL_GATE": "NOT_PASSED",
+  "commit_push_release": false
+}

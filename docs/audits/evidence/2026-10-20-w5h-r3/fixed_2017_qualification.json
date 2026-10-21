@@ -1,0 +1,148 @@
+{
+  "zip_file": "http_gpcw20171231.response",
+  "zip_bytes": 4206396,
+  "zip_sha256": "e393c139a78eef736e8fa25a9226ad73480c8393afdffdd1fbf5a33033065086",
+  "zip_md5": "5face3f599d2f19db9e37fbb065c7523",
+  "prior_official_catalog_match": true,
+  "catalog_row": [
+    "gpcw20171231.zip",
+    "5face3f599d2f19db9e37fbb065c7523",
+    "4206396"
+  ],
+  "zip_crc_verified": true,
+  "members": [
+    {
+      "name": "gpcw20171231.dat",
+      "bytes": 10784485,
+      "crc32": "5cc0bfef"
+    }
+  ],
+  "dat_sha256": "b95f860bcb129d17eac7d02e240aa732000958071b22c8122485c45d426c0513",
+  "parse": {
+    "header": [
+      1,
+      20171231,
+      4595,
+      720896,
+      2336,
+      0
+    ],
+    "report_date": 20171231,
+    "securities_count": 4595,
+    "fields_per_record": 584,
+    "all_index_offsets_in_bounds": true,
+    "fixed_securities": {
+      "600518": {
+        "index_position": 2969,
+        "market_flag_hex": "00",
+        "record_offset": 6986149,
+        "fn": {
+          "FN1": 0.23970000445842743,
+          "FN4": 5.420899868011475,
+          "FN6": 5.254000186920166,
+          "FN64": 4974253568.0,
+          "FN72": 28515358720.0,
+          "FN74": 17578618880.0,
+          "FN95": 2143556352.0,
+          "FN96": 2149836288.0,
+          "FN107": 1842794240.0,
+          "FN230": -1935907584.0,
+          "FN232": -1001140160.0,
+          "FN234": 317041664.0,
+          "FN238": 4974253568.0,
+          "FN239": 4403191808.0,
+          "FN271": 28413343744.0,
+          "FN281": 4.809999942779541,
+          "FN314": 180426.0
+        }
+      },
+      "600519": {
+        "index_position": 2970,
+        "market_flag_hex": "00",
+        "record_offset": 6988485,
+        "fn": {
+          "FN1": 21.559999465942383,
+          "FN4": 72.80030059814453,
+          "FN6": 29.611000061035156,
+          "FN64": 1256197760.0,
+          "FN72": 96019628032.0,
+          "FN74": 58217861120.0,
+          "FN95": 29006424064.0,
+          "FN96": 27079360512.0,
+          "FN107": 22153035776.0,
+          "FN230": 15767394304.0,
+          "FN232": 7095513088.0,
+          "FN234": -633731136.0,
+          "FN238": 1256197760.0,
+          "FN239": 1256197760.0,
+          "FN271": 91451523072.0,
+          "FN281": 32.95000076293945,
+          "FN314": 180328.0
+        }
+      }
+    }
+  },
+  "600518_comparison": {
+    "FN74": {
+      "actual_float32": 17578618880.0,
+      "original_disclosure_yuan": "26476970977.57",
+      "revision_disclosure_yuan": "17578618640.06",
+      "matches_original_rounded_float32": false,
+      "matches_revision_rounded_float32": true,
+      "difference_from_original_yuan": -8898352097.57,
+      "difference_from_revision_yuan": 239.93999862670898
+    },
+    "FN96": {
+      "actual_float32": 2149836288.0,
+      "original_disclosure_yuan": "4100926148.57",
+      "revision_disclosure_yuan": "2149836281.41",
+      "matches_original_rounded_float32": false,
+      "matches_revision_rounded_float32": true,
+      "difference_from_original_yuan": -1951089860.5700002,
+      "difference_from_revision_yuan": 6.590000152587891
+    },
+    "FN107": {
+      "actual_float32": 1842794240.0,
+      "original_disclosure_yuan": "1842794237.84",
+      "revision_disclosure_yuan": "-4840052606.46",
+      "matches_original_rounded_float32": true,
+      "matches_revision_rounded_float32": false,
+      "difference_from_original_yuan": 2.1600000858306885,
+      "difference_from_revision_yuan": 6682846846.46
+    },
+    "FN271": {
+      "actual_float32": 28413343744.0,
+      "original_disclosure_yuan": "32032959807.76",
+      "revision_disclosure_yuan": "28413344515.00",
+      "matches_original_rounded_float32": false,
+      "matches_revision_rounded_float32": true,
+      "difference_from_original_yuan": -3619616063.7599983,
+      "difference_from_revision_yuan": -771.0
+    }
+  },
+  "installed_mootdx_crosscheck": {
+    "600518": true,
+    "600519": true
+  },
+  "pit": [
+    {
+      "T": "2018-04-24",
+      "allowed_2017_report": "NEITHER_ORIGINAL_NOR_REVISION",
+      "observed_row": "MIXED_REVISION_FIELDS",
+      "available_version_asof_proven": false
+    },
+    {
+      "T": "2018-04-27",
+      "allowed_2017_report": "ORIGINAL_DISCLOSED_2018-04-26",
+      "observed_row": "REVISED_REVENUE_PROFIT_EQUITY_WITH_ORIGINAL_OCF_AND_ORIGINAL_ANNOUNCEMENT_DATE",
+      "available_version_asof_proven": false
+    },
+    {
+      "T": "2019-05-06",
+      "allowed_2017_report": "REVISION_DISCLOSED_2019-04-30",
+      "observed_row": "REVISED_REVENUE_PROFIT_EQUITY_BUT_OCF_DOES_NOT_MATCH_REVISION",
+      "available_version_asof_proven": false
+    }
+  ],
+  "qualification": "HISTORICAL_PERIOD_VALUES_ONLY / MIXED_REVISION_FIELDS / NOT_ASOF_VERIFIED"
+}

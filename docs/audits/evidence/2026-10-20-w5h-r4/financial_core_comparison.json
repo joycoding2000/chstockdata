@@ -1,0 +1,41 @@
+{
+  "source": "fresh extraction from the two official PDFs; not hardcoded R3 values",
+  "fields": [
+    {
+      "field_name": "revenue",
+      "tdx_field": "FN74",
+      "original_direct_value": "26476970977.57",
+      "revised_direct_value": "17578618640.06",
+      "tdx_value": 17578618880.0,
+      "matches_original_float32": false,
+      "matches_revised_float32": true
+    },
+    {
+      "field_name": "net_profit_attributable_to_parent",
+      "tdx_field": "FN96",
+      "original_direct_value": "4100926148.57",
+      "revised_direct_value": "2149836281.41",
+      "tdx_value": 2149836288.0,
+      "matches_original_float32": false,
+      "matches_revised_float32": true
+    },
+    {
+      "field_name": "net_operating_cashflow",
+      "tdx_field": "FN107",
+      "original_direct_value": "1842794237.84",
+      "revised_direct_value": "-4840052606.46",
+      "tdx_value": 1842794240.0,
+      "matches_original_float32": true,
+      "matches_revised_float32": false
+    },
+    {
+      "field_name": "equity_attributable_to_parent",
+      "tdx_field": "FN271",
+      "original_direct_value": "32032959807.76",
+      "revised_direct_value": "28413344515.00",
+      "tdx_value": 28413343744.0,
+      "matches_original_float32": false,
+      "matches_revised_float32": true
+    }
+  ]
+}

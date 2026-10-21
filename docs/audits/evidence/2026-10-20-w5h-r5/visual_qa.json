@@ -1,0 +1,44 @@
+{
+  "at_utc": "2026-10-20T14:43:19.299Z",
+  "reviewer": "agent visual inspection; no independent human signoff",
+  "pages": [
+    {
+      "file": "600519_FY2023.pdf",
+      "physical_page": 5,
+      "image": "600519_FY2023_qa-005.jpg",
+      "inspection": "Unit, ordering of prior adjusted/unadjusted columns and minus/parentheses visually checked; visible amounts match saved text. Rendering font fallback warnings retained."
+    },
+    {
+      "file": "000002_FY2023.pdf",
+      "physical_page": 10,
+      "image": "000002_FY2023_qa-010.jpg",
+      "inspection": "Unit, ordering of prior adjusted/unadjusted columns and minus/parentheses visually checked; visible amounts match saved text. Rendering font fallback warnings retained."
+    },
+    {
+      "file": "300750_FY2023.pdf",
+      "physical_page": 7,
+      "image": "300750_FY2023_qa-007.jpg",
+      "inspection": "Unit, ordering of prior adjusted/unadjusted columns and minus/parentheses visually checked; visible amounts match saved text. Rendering font fallback warnings retained."
+    },
+    {
+      "file": "601398_FY2023.pdf",
+      "physical_page": 14,
+      "image": "601398_FY2023_qa-014.jpg",
+      "inspection": "Unit, ordering of prior adjusted/unadjusted columns and minus/parentheses visually checked; visible amounts match saved text. Rendering font fallback warnings retained."
+    },
+    {
+      "file": "000961_FY2023.pdf",
+      "physical_page": 6,
+      "image": "000961_FY2023_qa-006.jpg",
+      "inspection": "Unit, ordering of prior adjusted/unadjusted columns and minus/parentheses visually checked; visible amounts match saved text. Rendering font fallback warnings retained."
+    },
+    {
+      "file": "000002_Q12024.pdf",
+      "physical_page": 2,
+      "image": "000002_Q12024_qa-02.jpg",
+      "inspection": "Unit, ordering of prior adjusted/unadjusted columns and minus/parentheses visually checked; visible amounts match saved text. Rendering font fallback warnings retained."
+    }
+  ],
+  "not_all_1439_pages_visually_inspected": true,
+  "numeric_transcription_corrections": 0
+}

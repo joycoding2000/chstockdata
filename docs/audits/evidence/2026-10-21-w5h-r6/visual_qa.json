@@ -1,0 +1,38 @@
+{
+  "at_utc": "2026-10-21T04:08:01.373Z",
+  "reviewer": "Agent visual review, not real human review",
+  "pages": [
+    {
+      "id": "1216561621",
+      "physical_page": 6,
+      "status": "READABLE_TEXT_AND_LAYOUT_CHECKED",
+      "scope": "All three FY2022 monetary rows, units, signs and period column"
+    },
+    {
+      "id": "1217386817",
+      "physical_page": 6,
+      "status": "READABLE_TEXT_AND_LAYOUT_CHECKED",
+      "scope": "All three FY2022 monetary rows, units, signs and period column"
+    },
+    {
+      "id": "1217386818",
+      "physical_page": 1,
+      "status": "READABLE_TEXT_AND_LAYOUT_CHECKED",
+      "scope": "Whole one-page update-scope notice"
+    },
+    {
+      "id": "1221331382",
+      "physical_page": 1,
+      "status": "READABLE_TEXT_AND_LAYOUT_CHECKED",
+      "scope": "Whole two-page governance correction"
+    },
+    {
+      "id": "1221331382",
+      "physical_page": 2,
+      "status": "READABLE_TEXT_AND_LAYOUT_CHECKED",
+      "scope": "Whole two-page governance correction"
+    }
+  ],
+  "warnings": "Poppler missing fallback display fonts retained in render log; inspected Chinese text/amounts legible",
+  "HUMAN_REVIEW_TIME": "NOT_MEASURED"
+}

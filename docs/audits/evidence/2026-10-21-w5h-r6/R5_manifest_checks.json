@@ -1,0 +1,521 @@
+{
+  "all_match": true,
+  "files": [
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-20-w5h-r5\\000002_correction_index.json",
+      "expected_sha256": "c76c089f812ecfc8b6e6d8c2bd5ab61922a4822d03eea380cf34dcf09c33761a",
+      "actual_sha256": "c76c089f812ecfc8b6e6d8c2bd5ab61922a4822d03eea380cf34dcf09c33761a",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-20-w5h-r5\\000002_FY2023.pdf",
+      "expected_sha256": "511a089558610e86605841f39b98f67993bd444c1e23018a204e704706882d0d",
+      "actual_sha256": "511a089558610e86605841f39b98f67993bd444c1e23018a204e704706882d0d",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-20-w5h-r5\\000002_FY2023.pdf.hits.json",
+      "expected_sha256": "05782f5253da8b37b273bd7213c72789e9a1a29a074b44380fa51ec85aeb366e",
+      "actual_sha256": "05782f5253da8b37b273bd7213c72789e9a1a29a074b44380fa51ec85aeb366e",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-20-w5h-r5\\000002_FY2023.pdf.pages.json",
+      "expected_sha256": "cc975678f26df3551fd209a3e7ced603985440c8e8d6b9c6d2024320aa743c93",
+      "actual_sha256": "cc975678f26df3551fd209a3e7ced603985440c8e8d6b9c6d2024320aa743c93",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-20-w5h-r5\\000002_FY2023_qa-010.jpg",
+      "expected_sha256": "196012b539d06702bbaecd4dedd3d9e02d5a262bf10386231d1620a6733655bd",
+      "actual_sha256": "196012b539d06702bbaecd4dedd3d9e02d5a262bf10386231d1620a6733655bd",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-20-w5h-r5\\000002_issuer.json",
+      "expected_sha256": "a73f5d7a572059f98001581115b468fbafd81109e24d17be0ff867ae190f5a58",
+      "actual_sha256": "a73f5d7a572059f98001581115b468fbafd81109e24d17be0ff867ae190f5a58",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-20-w5h-r5\\000002_periodic_index.json",
+      "expected_sha256": "50d0a405881136aa5e1893c65057c7e4677e18a293c097431e621474640ceb2e",
+      "actual_sha256": "50d0a405881136aa5e1893c65057c7e4677e18a293c097431e621474640ceb2e",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-20-w5h-r5\\000002_Q12024.pdf",
+      "expected_sha256": "9b6448abe7897ee462f905fb1273630d1c157fa4f5cd2d73c8ac8ef3cd551341",
+      "actual_sha256": "9b6448abe7897ee462f905fb1273630d1c157fa4f5cd2d73c8ac8ef3cd551341",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-20-w5h-r5\\000002_Q12024.pdf.hits.json",
+      "expected_sha256": "a4983ae74a169d6ab9092e02d68636d6e2e3ee22666da2d736816bd62216f40b",
+      "actual_sha256": "a4983ae74a169d6ab9092e02d68636d6e2e3ee22666da2d736816bd62216f40b",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-20-w5h-r5\\000002_Q12024.pdf.pages.json",
+      "expected_sha256": "fb8dfb062c209dc8588cf069b2f1e925f339f462392656158faf4d744ecbaae7",
+      "actual_sha256": "fb8dfb062c209dc8588cf069b2f1e925f339f462392656158faf4d744ecbaae7",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-20-w5h-r5\\000002_Q12024_qa-02.jpg",
+      "expected_sha256": "92efe56cc5e682e3359af583ad79725a4af4fe4dfc0068824e622e29dc936755",
+      "actual_sha256": "92efe56cc5e682e3359af583ad79725a4af4fe4dfc0068824e622e29dc936755",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-20-w5h-r5\\000002_supplement_index.json",
+      "expected_sha256": "c2a890bbf3a6a53ab02ddc6c1794bf1c72ba45799fe9f59dcc5ba2cc18467114",
+      "actual_sha256": "c2a890bbf3a6a53ab02ddc6c1794bf1c72ba45799fe9f59dcc5ba2cc18467114",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-20-w5h-r5\\000961_correction_index.json",
+      "expected_sha256": "21dfe6b3e58268d146dec1b66043358793356e365852aea10d7d989169b6e157",
+      "actual_sha256": "21dfe6b3e58268d146dec1b66043358793356e365852aea10d7d989169b6e157",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-20-w5h-r5\\000961_delisting_identity.pdf",
+      "expected_sha256": "68d8e35cf41c32ab07736045a52eb477980ab1522c29e6c3a60102cf9914776c",
+      "actual_sha256": "68d8e35cf41c32ab07736045a52eb477980ab1522c29e6c3a60102cf9914776c",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-20-w5h-r5\\000961_FY2023.pdf",
+      "expected_sha256": "c67bafcbefa6125abd0edb8bb8a181cc0fdad4dbb05950a311d7556202089a34",
+      "actual_sha256": "c67bafcbefa6125abd0edb8bb8a181cc0fdad4dbb05950a311d7556202089a34",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-20-w5h-r5\\000961_FY2023.pdf.hits.json",
+      "expected_sha256": "fd02280a85f7ff1136a1e458f7f719c1dc13adce6d1d51a649b0e23a4ff3b97e",
+      "actual_sha256": "fd02280a85f7ff1136a1e458f7f719c1dc13adce6d1d51a649b0e23a4ff3b97e",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-20-w5h-r5\\000961_FY2023.pdf.pages.json",
+      "expected_sha256": "8c7250e3ebbd033a9f112ceb323d1fa5b878a44e4a161c7a5436e7e52b37509b",
+      "actual_sha256": "8c7250e3ebbd033a9f112ceb323d1fa5b878a44e4a161c7a5436e7e52b37509b",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-20-w5h-r5\\000961_FY2023_qa-006.jpg",
+      "expected_sha256": "745dc24c17c4eb471afeeb811a99155a548c66f5851b9f5426037a7c26a865a9",
+      "actual_sha256": "745dc24c17c4eb471afeeb811a99155a548c66f5851b9f5426037a7c26a865a9",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-20-w5h-r5\\000961_issuer.json",
+      "expected_sha256": "7d556e677dcdee87c2e60cefdae0f84a57be1a4145c5079c0f814837c688404d",
+      "actual_sha256": "7d556e677dcdee87c2e60cefdae0f84a57be1a4145c5079c0f814837c688404d",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-20-w5h-r5\\000961_periodic_index.json",
+      "expected_sha256": "23f5a4d0178915ea2f02022767895e49e8b828e403bee48eacd0c0b55f68fd1d",
+      "actual_sha256": "23f5a4d0178915ea2f02022767895e49e8b828e403bee48eacd0c0b55f68fd1d",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-20-w5h-r5\\000961_Q12024.pdf",
+      "expected_sha256": "ea7a848e108b9e9334a2cce61eef1538fad0354ab20aeb8661acada62f76f108",
+      "actual_sha256": "ea7a848e108b9e9334a2cce61eef1538fad0354ab20aeb8661acada62f76f108",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-20-w5h-r5\\000961_Q12024.pdf.hits.json",
+      "expected_sha256": "f3bf525232221ae2637e18478b1fdfbd33b98e9e081609ad18f1fc83a1420a25",
+      "actual_sha256": "f3bf525232221ae2637e18478b1fdfbd33b98e9e081609ad18f1fc83a1420a25",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-20-w5h-r5\\000961_Q12024.pdf.pages.json",
+      "expected_sha256": "f3bf525232221ae2637e18478b1fdfbd33b98e9e081609ad18f1fc83a1420a25",
+      "actual_sha256": "f3bf525232221ae2637e18478b1fdfbd33b98e9e081609ad18f1fc83a1420a25",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-20-w5h-r5\\000961_supplement_index.json",
+      "expected_sha256": "de9c055e220a593ce1570b1e8dcb69b602d16893b807a8567510f2987ef35dc7",
+      "actual_sha256": "de9c055e220a593ce1570b1e8dcb69b602d16893b807a8567510f2987ef35dc7",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-20-w5h-r5\\000961_ths_benefit.json",
+      "expected_sha256": "3e07ba9c44f17039a48d36324994a3ccf7b1008244329792436af37dc2f690ad",
+      "actual_sha256": "3e07ba9c44f17039a48d36324994a3ccf7b1008244329792436af37dc2f690ad",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-20-w5h-r5\\000961_ths_cash.json",
+      "expected_sha256": "74710f2c40abdc913a09d8fed4f63dc75399ffce682bc27181cdb053c6a4c032",
+      "actual_sha256": "74710f2c40abdc913a09d8fed4f63dc75399ffce682bc27181cdb053c6a4c032",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-20-w5h-r5\\000961_ths_debt.json",
+      "expected_sha256": "4f5d362c07146bbb3cbf2618ff6dd7e3330044b8b252211cbb716a1b66e9244e",
+      "actual_sha256": "4f5d362c07146bbb3cbf2618ff6dd7e3330044b8b252211cbb716a1b66e9244e",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-20-w5h-r5\\300750_correction_index.json",
+      "expected_sha256": "c2a890bbf3a6a53ab02ddc6c1794bf1c72ba45799fe9f59dcc5ba2cc18467114",
+      "actual_sha256": "c2a890bbf3a6a53ab02ddc6c1794bf1c72ba45799fe9f59dcc5ba2cc18467114",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-20-w5h-r5\\300750_FY2023.pdf",
+      "expected_sha256": "6081f0377617dddb82f900569d6458c278a7ab26697b34c87684188eac083471",
+      "actual_sha256": "6081f0377617dddb82f900569d6458c278a7ab26697b34c87684188eac083471",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-20-w5h-r5\\300750_FY2023.pdf.hits.json",
+      "expected_sha256": "49eb8d90058898deacea3cc9619a621018acec1b0f10d1a022830aaa16b789a0",
+      "actual_sha256": "49eb8d90058898deacea3cc9619a621018acec1b0f10d1a022830aaa16b789a0",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-20-w5h-r5\\300750_FY2023.pdf.pages.json",
+      "expected_sha256": "cb3ad0844d3aaf6a635f2aa5aa1fcb0f105ec5df644fffd136b82b930ed55d1a",
+      "actual_sha256": "cb3ad0844d3aaf6a635f2aa5aa1fcb0f105ec5df644fffd136b82b930ed55d1a",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-20-w5h-r5\\300750_FY2023_qa-007.jpg",
+      "expected_sha256": "31b634092440c3b81185df01eab88dbe63bb38e05283c45503d9b8d3c2a8003f",
+      "actual_sha256": "31b634092440c3b81185df01eab88dbe63bb38e05283c45503d9b8d3c2a8003f",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-20-w5h-r5\\300750_issuer.json",
+      "expected_sha256": "932c5dcb4fe346825e158c6d9a5efbefb7ee3d744b772880fa6994648394d5bd",
+      "actual_sha256": "932c5dcb4fe346825e158c6d9a5efbefb7ee3d744b772880fa6994648394d5bd",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-20-w5h-r5\\300750_periodic_index.json",
+      "expected_sha256": "dff33cc00039fcaecab412d58bca31c2c969393450d939dede127ce918c283e6",
+      "actual_sha256": "dff33cc00039fcaecab412d58bca31c2c969393450d939dede127ce918c283e6",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-20-w5h-r5\\300750_Q12024.pdf",
+      "expected_sha256": "7be8765c33298b96a1010e61a7bcac3212db7f58dc3d360888548cfd11424265",
+      "actual_sha256": "7be8765c33298b96a1010e61a7bcac3212db7f58dc3d360888548cfd11424265",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-20-w5h-r5\\300750_Q12024.pdf.hits.json",
+      "expected_sha256": "1199388921334fb97832de359ffc6b9bcec233292a579caf1a46024899a4c6e4",
+      "actual_sha256": "1199388921334fb97832de359ffc6b9bcec233292a579caf1a46024899a4c6e4",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-20-w5h-r5\\300750_Q12024.pdf.pages.json",
+      "expected_sha256": "755282f27b478bac829014987338b71b625716de937de885da24b2ffbcb1f8c5",
+      "actual_sha256": "755282f27b478bac829014987338b71b625716de937de885da24b2ffbcb1f8c5",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-20-w5h-r5\\300750_supplement_index.json",
+      "expected_sha256": "c2a890bbf3a6a53ab02ddc6c1794bf1c72ba45799fe9f59dcc5ba2cc18467114",
+      "actual_sha256": "c2a890bbf3a6a53ab02ddc6c1794bf1c72ba45799fe9f59dcc5ba2cc18467114",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-20-w5h-r5\\600519_correction_index.json",
+      "expected_sha256": "c2a890bbf3a6a53ab02ddc6c1794bf1c72ba45799fe9f59dcc5ba2cc18467114",
+      "actual_sha256": "c2a890bbf3a6a53ab02ddc6c1794bf1c72ba45799fe9f59dcc5ba2cc18467114",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-20-w5h-r5\\600519_FY2023.pdf",
+      "expected_sha256": "2125ff97a452ea79b0d784e2432f7d224b6aecc330b644b593477d69e22f4ed1",
+      "actual_sha256": "2125ff97a452ea79b0d784e2432f7d224b6aecc330b644b593477d69e22f4ed1",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-20-w5h-r5\\600519_FY2023.pdf.hits.json",
+      "expected_sha256": "fe45dcbdc8da63bf2d5460530215c88dba409aa033f4b53dbc99d6e3c57f4ea0",
+      "actual_sha256": "fe45dcbdc8da63bf2d5460530215c88dba409aa033f4b53dbc99d6e3c57f4ea0",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-20-w5h-r5\\600519_FY2023.pdf.pages.json",
+      "expected_sha256": "290296f928ff7af11cd784e15dc440b63feaaffb794660f0bfa270b55f829899",
+      "actual_sha256": "290296f928ff7af11cd784e15dc440b63feaaffb794660f0bfa270b55f829899",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-20-w5h-r5\\600519_FY2023_qa-005.jpg",
+      "expected_sha256": "c81144be2c802a3842f6e32f6040cacdd8358bb2e9053334ab4f181ff76a3d57",
+      "actual_sha256": "c81144be2c802a3842f6e32f6040cacdd8358bb2e9053334ab4f181ff76a3d57",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-20-w5h-r5\\600519_issuer.json",
+      "expected_sha256": "2d23a5667f625d146298e2c313ccd064a0eb80dede0a43f1a2f7ab2fa65c40e9",
+      "actual_sha256": "2d23a5667f625d146298e2c313ccd064a0eb80dede0a43f1a2f7ab2fa65c40e9",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-20-w5h-r5\\600519_periodic_index.json",
+      "expected_sha256": "8aecfd5f3b2eff7040e7e149e58919c6d723cc2ced627c0ea8f12136d4e9a522",
+      "actual_sha256": "8aecfd5f3b2eff7040e7e149e58919c6d723cc2ced627c0ea8f12136d4e9a522",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-20-w5h-r5\\600519_Q12024.pdf",
+      "expected_sha256": "b706e237e25ff54a0bde7070a13b019a5e1eec7f412eb9d0baf33e750a7c32e2",
+      "actual_sha256": "b706e237e25ff54a0bde7070a13b019a5e1eec7f412eb9d0baf33e750a7c32e2",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-20-w5h-r5\\600519_Q12024.pdf.hits.json",
+      "expected_sha256": "8a886ea564c14b3d183d96f4c12e3e9055e39438e279632925ce5aa345776044",
+      "actual_sha256": "8a886ea564c14b3d183d96f4c12e3e9055e39438e279632925ce5aa345776044",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-20-w5h-r5\\600519_Q12024.pdf.pages.json",
+      "expected_sha256": "378f32035e3cf45fa79bba7cf4c342b8bc069922177596f5d7499c4da6f3f4d0",
+      "actual_sha256": "378f32035e3cf45fa79bba7cf4c342b8bc069922177596f5d7499c4da6f3f4d0",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-20-w5h-r5\\600519_supplement_index.json",
+      "expected_sha256": "c2a890bbf3a6a53ab02ddc6c1794bf1c72ba45799fe9f59dcc5ba2cc18467114",
+      "actual_sha256": "c2a890bbf3a6a53ab02ddc6c1794bf1c72ba45799fe9f59dcc5ba2cc18467114",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-20-w5h-r5\\600519_ths_benefit.json",
+      "expected_sha256": "5fecd4fe1772d958d7b81f07c53b974a8e2715bb4dd5d56075d6bb64b848667d",
+      "actual_sha256": "5fecd4fe1772d958d7b81f07c53b974a8e2715bb4dd5d56075d6bb64b848667d",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-20-w5h-r5\\600519_ths_cash.json",
+      "expected_sha256": "0ff0c3dd157c35fab1f44d01ae523fe66bd905b0ae682b13b097eec657ae8df9",
+      "actual_sha256": "0ff0c3dd157c35fab1f44d01ae523fe66bd905b0ae682b13b097eec657ae8df9",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-20-w5h-r5\\600519_ths_debt.json",
+      "expected_sha256": "1ae8918d282804a06ac222bd1b94a2f9d89b03e8dce5c3d0b0aebc1d42286cf0",
+      "actual_sha256": "1ae8918d282804a06ac222bd1b94a2f9d89b03e8dce5c3d0b0aebc1d42286cf0",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-20-w5h-r5\\601398_correction_index.json",
+      "expected_sha256": "c2a890bbf3a6a53ab02ddc6c1794bf1c72ba45799fe9f59dcc5ba2cc18467114",
+      "actual_sha256": "c2a890bbf3a6a53ab02ddc6c1794bf1c72ba45799fe9f59dcc5ba2cc18467114",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-20-w5h-r5\\601398_FY2023.pdf",
+      "expected_sha256": "e310e8a55ff8f057782c6c70b003fa220ca5a2e484334bffbf308bdc39b3434d",
+      "actual_sha256": "e310e8a55ff8f057782c6c70b003fa220ca5a2e484334bffbf308bdc39b3434d",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-20-w5h-r5\\601398_FY2023.pdf.hits.json",
+      "expected_sha256": "0883567ab05aba652bc49bc726e820f63f082b97d089e80f06ccdf880feed0e2",
+      "actual_sha256": "0883567ab05aba652bc49bc726e820f63f082b97d089e80f06ccdf880feed0e2",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-20-w5h-r5\\601398_FY2023.pdf.pages.json",
+      "expected_sha256": "07e1ee4523dd2239b0a47d84c0cea2432de70e6d199713197920e449adbec6ce",
+      "actual_sha256": "07e1ee4523dd2239b0a47d84c0cea2432de70e6d199713197920e449adbec6ce",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-20-w5h-r5\\601398_FY2023_qa-014.jpg",
+      "expected_sha256": "03945c4c6155eae7f2a4256702f59b54b81d7d43a19aa22447dffc85b7e1fe6c",
+      "actual_sha256": "03945c4c6155eae7f2a4256702f59b54b81d7d43a19aa22447dffc85b7e1fe6c",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-20-w5h-r5\\601398_issuer.json",
+      "expected_sha256": "4c588966c553e5c731ee5634e88c2765ca98429b063283ddd4f5b0f679a60bd2",
+      "actual_sha256": "4c588966c553e5c731ee5634e88c2765ca98429b063283ddd4f5b0f679a60bd2",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-20-w5h-r5\\601398_periodic_index.json",
+      "expected_sha256": "40dc45423dbf04967251b405c2c9c5cb090013ced12c85370e458af9940769f7",
+      "actual_sha256": "40dc45423dbf04967251b405c2c9c5cb090013ced12c85370e458af9940769f7",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-20-w5h-r5\\601398_Q12024.pdf",
+      "expected_sha256": "4c0c46e807f389e05ece1b0d4ea519f47656c356affd11106375988aef96d9dd",
+      "actual_sha256": "4c0c46e807f389e05ece1b0d4ea519f47656c356affd11106375988aef96d9dd",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-20-w5h-r5\\601398_Q12024.pdf.hits.json",
+      "expected_sha256": "5755069482a3153317002ead342d7ee5aa986fa1b5c19f6afcdd31057dd9ddb3",
+      "actual_sha256": "5755069482a3153317002ead342d7ee5aa986fa1b5c19f6afcdd31057dd9ddb3",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-20-w5h-r5\\601398_Q12024.pdf.pages.json",
+      "expected_sha256": "687d968286409c121e3804fdf794557e7e9cfe4ba1050fe463587e8a2cb68f41",
+      "actual_sha256": "687d968286409c121e3804fdf794557e7e9cfe4ba1050fe463587e8a2cb68f41",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-20-w5h-r5\\601398_supplement_index.json",
+      "expected_sha256": "b3e416991010f224fa9608f927a595147f7691f49a4c761f3776087601e1adfa",
+      "actual_sha256": "b3e416991010f224fa9608f927a595147f7691f49a4c761f3776087601e1adfa",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-20-w5h-r5\\after.json",
+      "expected_sha256": "1a4024b54aea07cd4ce1445a7871cb49755a179846eb0b32e193667380b2c340",
+      "actual_sha256": "1a4024b54aea07cd4ce1445a7871cb49755a179846eb0b32e193667380b2c340",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-20-w5h-r5\\analyze.py",
+      "expected_sha256": "6ec14998993ef46ae26a17c792288aa9f92fc7c653ae85dd4f76167639ed80f8",
+      "actual_sha256": "6ec14998993ef46ae26a17c792288aa9f92fc7c653ae85dd4f76167639ed80f8",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-20-w5h-r5\\before.json",
+      "expected_sha256": "43b21082c35c424d39c2e503299a9806e40ddc62fac686e8078ab9ee0436b5d5",
+      "actual_sha256": "43b21082c35c424d39c2e503299a9806e40ddc62fac686e8078ab9ee0436b5d5",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-20-w5h-r5\\case_costs_and_denominators.json",
+      "expected_sha256": "94f2ad83b3ee566fd63fd02fc7915d9870f3a61f63c87f620b410d6f01f1e77e",
+      "actual_sha256": "94f2ad83b3ee566fd63fd02fc7915d9870f3a61f63c87f620b410d6f01f1e77e",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-20-w5h-r5\\cost_summary.json",
+      "expected_sha256": "3fdec1c806b21add9e5587b4cc6c5f179ba69d5eb7640ddf2b4582c7b7a1bc9c",
+      "actual_sha256": "3fdec1c806b21add9e5587b4cc6c5f179ba69d5eb7640ddf2b4582c7b7a1bc9c",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-20-w5h-r5\\discovery.json",
+      "expected_sha256": "ae24b5ca7609c74879eb279922f07b74a6639ac4ab53e4e41c37dcd4d1643959",
+      "actual_sha256": "ae24b5ca7609c74879eb279922f07b74a6639ac4ab53e4e41c37dcd4d1643959",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-20-w5h-r5\\documents.json",
+      "expected_sha256": "90777918a32f62a6e00f740cb4fb301afaf4bb9ee2f2fbd495ecdc9dfcc1af0a",
+      "actual_sha256": "90777918a32f62a6e00f740cb4fb301afaf4bb9ee2f2fbd495ecdc9dfcc1af0a",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-20-w5h-r5\\final_verification.json",
+      "expected_sha256": "d7b715591b7c80cc8f05adfaf43d5bc27ce4b088f4c17e2bc8401986e534c369",
+      "actual_sha256": "d7b715591b7c80cc8f05adfaf43d5bc27ce4b088f4c17e2bc8401986e534c369",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-20-w5h-r5\\finalize.py",
+      "expected_sha256": "475ef0603be746df686e65b0169c45f53f79c07db2a25b919aa52a948e610a1a",
+      "actual_sha256": "475ef0603be746df686e65b0169c45f53f79c07db2a25b919aa52a948e610a1a",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-20-w5h-r5\\financial_facts.json",
+      "expected_sha256": "eadfc67e09d66bd02e55de0c726d848c59578a7384ff6ee82d8d2e68bf03438a",
+      "actual_sha256": "eadfc67e09d66bd02e55de0c726d848c59578a7384ff6ee82d8d2e68bf03438a",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-20-w5h-r5\\matching_note.json",
+      "expected_sha256": "fa2ff021471658e200dd6bd5d993d89113c4f5bc910835ab728fca49b05bc24f",
+      "actual_sha256": "fa2ff021471658e200dd6bd5d993d89113c4f5bc910835ab728fca49b05bc24f",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-20-w5h-r5\\measure.py",
+      "expected_sha256": "d392281de1445f840f543c2ddd085cbe90be02e0f8212897fa493081e9479e94",
+      "actual_sha256": "d392281de1445f840f543c2ddd085cbe90be02e0f8212897fa493081e9479e94",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-20-w5h-r5\\pdf_measurements.json",
+      "expected_sha256": "6ae7ea7e3e895b9df6023726a5eab0243db88bfc3bd0fcb991f12c849e53f353",
+      "actual_sha256": "6ae7ea7e3e895b9df6023726a5eab0243db88bfc3bd0fcb991f12c849e53f353",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-20-w5h-r5\\preregistration.json",
+      "expected_sha256": "123190a5ce3ad15ac3ae8620e107697b4056396f88a0331cff1c58374df89ffc",
+      "actual_sha256": "123190a5ce3ad15ac3ae8620e107697b4056396f88a0331cff1c58374df89ffc",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-20-w5h-r5\\preregistration_identity.json",
+      "expected_sha256": "28d4abccfdebde4b8b47c0f9b623a62e94836957764745f58e8874bdbe9610e1",
+      "actual_sha256": "28d4abccfdebde4b8b47c0f9b623a62e94836957764745f58e8874bdbe9610e1",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-20-w5h-r5\\render_log.json",
+      "expected_sha256": "d688a60f146145d107f633a3b45eda2ae5938a31b6756d05bcdb0975fed5b817",
+      "actual_sha256": "d688a60f146145d107f633a3b45eda2ae5938a31b6756d05bcdb0975fed5b817",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-20-w5h-r5\\requests.json",
+      "expected_sha256": "6c890f0381a79d5da15327da9009d021fc0ead0e1a514b7e9a8c4f5a80231f5e",
+      "actual_sha256": "6c890f0381a79d5da15327da9009d021fc0ead0e1a514b7e9a8c4f5a80231f5e",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-20-w5h-r5\\reused_control_checks.json",
+      "expected_sha256": "3a8d4ef3ca709373385146ac53ca5826599f8d77b16d197e566748c7ce14fab2",
+      "actual_sha256": "3a8d4ef3ca709373385146ac53ca5826599f8d77b16d197e566748c7ce14fab2",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-20-w5h-r5\\review_spans.json",
+      "expected_sha256": "ed1096c9f63fbc82f361934647f2e466b95f811d7bf67b5aa30ccf66571e5dd4",
+      "actual_sha256": "ed1096c9f63fbc82f361934647f2e466b95f811d7bf67b5aa30ccf66571e5dd4",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-20-w5h-r5\\structured_comparison.json",
+      "expected_sha256": "c5a47bc87e6936cc4edc72159a07bd382ef3a65cd0916c55d120cd85636a380f",
+      "actual_sha256": "c5a47bc87e6936cc4edc72159a07bd382ef3a65cd0916c55d120cd85636a380f",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-20-w5h-r5\\visual_qa.json",
+      "expected_sha256": "d628b1fd6965d7fe26967ced8ea25711b6ef58c16899ed2a6d26778f4ea2819f",
+      "actual_sha256": "d628b1fd6965d7fe26967ced8ea25711b6ef58c16899ed2a6d26778f4ea2819f",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-20-w5h-r5\\web_observations.json",
+      "expected_sha256": "5fb400088dee41a82f240169a52754ac0d8128b61d578e22bdd165aa2646c801",
+      "actual_sha256": "5fb400088dee41a82f240169a52754ac0d8128b61d578e22bdd165aa2646c801",
+      "matches": true
+    },
+    {
+      "path": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\2026-10-20-w5h-r5-historical-disclosure-scale-cost-screen.md",
+      "expected_sha256": "e9238c3cfa4d32ab6820943cd5ae803142da96a19fdce11bfa35072c360f4b1f",
+      "actual_sha256": "e9238c3cfa4d32ab6820943cd5ae803142da96a19fdce11bfa35072c360f4b1f",
+      "matches": true
+    }
+  ]
+}
