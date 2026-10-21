@@ -1,0 +1,17 @@
+[
+  {
+    "n": "run_auxiliary.py",
+    "stdout": "{'eps_facts': 8, 'notices': 9}\r\n",
+    "stderr": ""
+  },
+  {
+    "n": "version_f2.py",
+    "stdout": "{'ledger': 127, 'paired': 22, 'transitions': 42, 'queries': 118}\r\n",
+    "stderr": ""
+  },
+  {
+    "n": "validate_replay_f2.py",
+    "stdout": "{'counts': {'PASS': 118}, 'eps': {'PASS': 3}, 'failed': []}\r\n",
+    "stderr": ""
+  }
+]

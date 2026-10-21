@@ -1,0 +1,13 @@
+{
+  "actual_total": 156,
+  "actual_new_pdf_requests": 20,
+  "actual_non_pdf_requests": 136,
+  "amended_total_cap": 160,
+  "amended_metadata_cap": 130,
+  "metadata_overrun": 6,
+  "cause": "Original request() enforced total bound but did not enforce metadata_requests sub-budget.",
+  "fixed": "Central pre-network guard now enforces total, metadata and new-original counts independently. Existing cache remains readable.",
+  "no_retroactive_budget_edit": true,
+  "requests_after_repair": 0,
+  "original_pdf_cap_never_exceeded": true
+}

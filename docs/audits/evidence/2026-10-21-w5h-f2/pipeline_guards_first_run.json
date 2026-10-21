@@ -1,0 +1,11 @@
+[
+  {
+    "stdout": "",
+    "stderr": "Traceback (most recent call last):\r\n  File \"D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-21-w5h-f2\\qualify_events.py\", line 53, in <module>\r\n    main()\r\n  File \"D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-21-w5h-f2\\qualify_events.py\", line 46, in main\r\n    assert any(r['classification']=='NO_CHANGE_IN_THREE_TESTED_MONETARY_FIELDS' for r in updates)\r\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\r\nAssertionError\r\n",
+    "code": 1
+  },
+  {
+    "stdout": "",
+    "stderr": "..............\r\n----------------------------------------------------------------------\r\nRan 14 tests in 0.069s\r\n\r\nOK\r\n"
+  }
+]

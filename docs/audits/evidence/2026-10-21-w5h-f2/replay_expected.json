@@ -1,0 +1,151 @@
+{
+  "frozen_at_utc": "2026-10-21T05:45:57.070Z",
+  "candidate_time_rule": "DATE_ONLY_NEXT_OBSERVED_SH_INDEX_SESSION_CLOSE_NOT_FROZEN",
+  "cases": [
+    {
+      "name": "kangmei_before",
+      "code": "600518",
+      "period": "2017-12-31",
+      "T": "2018-04-24",
+      "mode": "strict_saved_catalog",
+      "expected_status": "UNKNOWN"
+    },
+    {
+      "name": "kangmei_original",
+      "code": "600518",
+      "period": "2017-12-31",
+      "T": "2018-04-27",
+      "mode": "strict_saved_catalog",
+      "expected_status": "SELECTED_BOUNDED",
+      "expected_id": "1204793690"
+    },
+    {
+      "name": "kangmei_revised",
+      "code": "600518",
+      "period": "2017-12-31",
+      "T": "2019-05-06",
+      "mode": "strict_saved_catalog",
+      "expected_status": "SELECTED_BOUNDED",
+      "expected_id": "1206168292"
+    },
+    {
+      "name": "zhongnan_before",
+      "code": "000961",
+      "period": "2022-12-31",
+      "T": "2023-04-24",
+      "mode": "strict_saved_catalog",
+      "expected_status": "UNKNOWN"
+    },
+    {
+      "name": "zhongnan_original",
+      "code": "000961",
+      "period": "2022-12-31",
+      "T": "2023-04-26",
+      "mode": "strict_saved_catalog",
+      "expected_status": "SELECTED_BOUNDED",
+      "expected_id": "1216561621"
+    },
+    {
+      "name": "zhongnan_update_known_only",
+      "code": "000961",
+      "period": "2022-12-31",
+      "T": "2023-07-27",
+      "mode": "known_ledger_only",
+      "expected_status": "SELECTED_BOUNDED",
+      "expected_id": "1217386817"
+    },
+    {
+      "name": "zhongnan_update_strict_gap",
+      "code": "000961",
+      "period": "2022-12-31",
+      "T": "2023-07-27",
+      "mode": "strict_saved_catalog",
+      "expected_status": "UNKNOWN"
+    },
+    {
+      "name": "zhongnan_before_new_available",
+      "code": "000961",
+      "period": "2022-12-31",
+      "T": "2024-04-23",
+      "mode": "strict_saved_catalog",
+      "expected_status": "UNKNOWN"
+    },
+    {
+      "name": "zhongnan_adjusted",
+      "code": "000961",
+      "period": "2022-12-31",
+      "T": "2024-04-24",
+      "mode": "strict_saved_catalog",
+      "expected_status": "SELECTED_BOUNDED",
+      "expected_id": "1219747877"
+    },
+    {
+      "name": "vanke_missing_original",
+      "code": "000002",
+      "period": "2022-12-31",
+      "T": "2023-04-26",
+      "mode": "strict_saved_catalog",
+      "expected_status": "UNKNOWN"
+    },
+    {
+      "name": "vanke_adjusted",
+      "code": "000002",
+      "period": "2022-12-31",
+      "T": "2024-04-01",
+      "mode": "strict_saved_catalog",
+      "expected_status": "SELECTED_BOUNDED",
+      "expected_id": "1219487237"
+    },
+    {
+      "name": "vanke_before_notice_known_only",
+      "code": "000002",
+      "period": "2023-12-31",
+      "T": "2024-09-27",
+      "fields": [
+        "NP",
+        "OCF"
+      ],
+      "mode": "known_ledger_only",
+      "expected_status": "SELECTED_BOUNDED",
+      "expected_id": "1219487237"
+    },
+    {
+      "name": "vanke_after_notice_known_only",
+      "code": "000002",
+      "period": "2023-12-31",
+      "T": "2024-10-08",
+      "fields": [
+        "NP",
+        "OCF"
+      ],
+      "mode": "known_ledger_only",
+      "expected_status": "SELECTED_BOUNDED",
+      "expected_id": "1219487237"
+    },
+    {
+      "name": "vanke_intervening_halfyear_gap",
+      "code": "000002",
+      "period": "2023-12-31",
+      "T": "2024-10-08",
+      "mode": "strict_saved_catalog",
+      "expected_status": "UNKNOWN"
+    },
+    {
+      "name": "cat_before",
+      "code": "300750",
+      "period": "2022-12-31",
+      "T": "2024-03-15",
+      "mode": "strict_saved_catalog",
+      "expected_status": "UNKNOWN"
+    },
+    {
+      "name": "cat_comparative",
+      "code": "300750",
+      "period": "2022-12-31",
+      "T": "2024-03-18",
+      "mode": "strict_saved_catalog",
+      "expected_status": "SELECTED_BOUNDED",
+      "expected_id": "1219313047"
+    }
+  ]
+}

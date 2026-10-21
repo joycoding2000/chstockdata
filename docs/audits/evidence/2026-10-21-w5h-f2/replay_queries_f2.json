@@ -1,0 +1,946 @@
+[
+  {
+    "query_id": "f2-001",
+    "code": "000002",
+    "period": "2022-12-31",
+    "field": "NP",
+    "T": "2023-04-03",
+    "mode": "strict_index"
+  },
+  {
+    "query_id": "f2-002",
+    "code": "000002",
+    "period": "2022-12-31",
+    "field": "NP",
+    "T": "2023-03-31",
+    "mode": "strict_index"
+  },
+  {
+    "query_id": "f2-003",
+    "code": "000002",
+    "period": "2022-12-31",
+    "field": "OCF",
+    "T": "2023-04-03",
+    "mode": "strict_index"
+  },
+  {
+    "query_id": "f2-004",
+    "code": "000002",
+    "period": "2022-12-31",
+    "field": "OCF",
+    "T": "2023-03-31",
+    "mode": "strict_index"
+  },
+  {
+    "query_id": "f2-005",
+    "code": "000002",
+    "period": "2022-12-31",
+    "field": "EQ",
+    "T": "2023-04-03",
+    "mode": "strict_index"
+  },
+  {
+    "query_id": "f2-006",
+    "code": "000002",
+    "period": "2022-12-31",
+    "field": "EQ",
+    "T": "2023-03-31",
+    "mode": "strict_index"
+  },
+  {
+    "query_id": "f2-007",
+    "code": "600519",
+    "period": "2022-12-31",
+    "field": "NP",
+    "T": "2023-04-03",
+    "mode": "strict_index"
+  },
+  {
+    "query_id": "f2-008",
+    "code": "600519",
+    "period": "2022-12-31",
+    "field": "NP",
+    "T": "2023-03-31",
+    "mode": "strict_index"
+  },
+  {
+    "query_id": "f2-009",
+    "code": "600519",
+    "period": "2022-12-31",
+    "field": "OCF",
+    "T": "2023-04-03",
+    "mode": "strict_index"
+  },
+  {
+    "query_id": "f2-010",
+    "code": "600519",
+    "period": "2022-12-31",
+    "field": "OCF",
+    "T": "2023-03-31",
+    "mode": "strict_index"
+  },
+  {
+    "query_id": "f2-011",
+    "code": "600519",
+    "period": "2022-12-31",
+    "field": "EQ",
+    "T": "2023-04-03",
+    "mode": "strict_index"
+  },
+  {
+    "query_id": "f2-012",
+    "code": "600519",
+    "period": "2022-12-31",
+    "field": "EQ",
+    "T": "2023-03-31",
+    "mode": "strict_index"
+  },
+  {
+    "query_id": "f2-013",
+    "code": "601398",
+    "period": "2022-12-31",
+    "field": "NP",
+    "T": "2023-04-03",
+    "mode": "strict_index"
+  },
+  {
+    "query_id": "f2-014",
+    "code": "601398",
+    "period": "2022-12-31",
+    "field": "NP",
+    "T": "2023-03-31",
+    "mode": "strict_index"
+  },
+  {
+    "query_id": "f2-015",
+    "code": "601398",
+    "period": "2022-12-31",
+    "field": "OCF",
+    "T": "2023-04-03",
+    "mode": "strict_index"
+  },
+  {
+    "query_id": "f2-016",
+    "code": "601398",
+    "period": "2022-12-31",
+    "field": "OCF",
+    "T": "2023-03-31",
+    "mode": "strict_index"
+  },
+  {
+    "query_id": "f2-017",
+    "code": "601398",
+    "period": "2022-12-31",
+    "field": "EQ",
+    "T": "2023-04-03",
+    "mode": "strict_index"
+  },
+  {
+    "query_id": "f2-018",
+    "code": "601398",
+    "period": "2022-12-31",
+    "field": "EQ",
+    "T": "2023-03-31",
+    "mode": "strict_index"
+  },
+  {
+    "query_id": "f2-019",
+    "code": "300750",
+    "period": "2022-12-31",
+    "field": "NP",
+    "T": "2023-03-13",
+    "mode": "strict_index"
+  },
+  {
+    "query_id": "f2-020",
+    "code": "300750",
+    "period": "2022-12-31",
+    "field": "NP",
+    "T": "2023-03-10",
+    "mode": "strict_index"
+  },
+  {
+    "query_id": "f2-021",
+    "code": "300750",
+    "period": "2022-12-31",
+    "field": "OCF",
+    "T": "2023-03-13",
+    "mode": "strict_index"
+  },
+  {
+    "query_id": "f2-022",
+    "code": "300750",
+    "period": "2022-12-31",
+    "field": "OCF",
+    "T": "2023-03-10",
+    "mode": "strict_index"
+  },
+  {
+    "query_id": "f2-023",
+    "code": "300750",
+    "period": "2022-12-31",
+    "field": "EQ",
+    "T": "2023-03-13",
+    "mode": "strict_index"
+  },
+  {
+    "query_id": "f2-024",
+    "code": "300750",
+    "period": "2022-12-31",
+    "field": "EQ",
+    "T": "2023-03-10",
+    "mode": "strict_index"
+  },
+  {
+    "query_id": "f2-025",
+    "code": "000961",
+    "period": "2023-03-31",
+    "field": "NP",
+    "T": "2023-05-04",
+    "mode": "strict_index"
+  },
+  {
+    "query_id": "f2-026",
+    "code": "000961",
+    "period": "2023-03-31",
+    "field": "NP",
+    "T": "2023-04-29",
+    "mode": "strict_index"
+  },
+  {
+    "query_id": "f2-027",
+    "code": "000961",
+    "period": "2023-03-31",
+    "field": "OCF",
+    "T": "2023-05-04",
+    "mode": "strict_index"
+  },
+  {
+    "query_id": "f2-028",
+    "code": "000961",
+    "period": "2023-03-31",
+    "field": "OCF",
+    "T": "2023-04-29",
+    "mode": "strict_index"
+  },
+  {
+    "query_id": "f2-029",
+    "code": "000961",
+    "period": "2023-03-31",
+    "field": "EQ",
+    "T": "2023-05-04",
+    "mode": "strict_index"
+  },
+  {
+    "query_id": "f2-030",
+    "code": "000961",
+    "period": "2023-03-31",
+    "field": "EQ",
+    "T": "2023-04-29",
+    "mode": "strict_index"
+  },
+  {
+    "query_id": "f2-031",
+    "code": "000961",
+    "period": "2023-06-30",
+    "field": "NP",
+    "T": "2023-09-01",
+    "mode": "strict_index"
+  },
+  {
+    "query_id": "f2-032",
+    "code": "000961",
+    "period": "2023-06-30",
+    "field": "NP",
+    "T": "2023-08-31",
+    "mode": "strict_index"
+  },
+  {
+    "query_id": "f2-033",
+    "code": "000961",
+    "period": "2023-06-30",
+    "field": "OCF",
+    "T": "2023-09-01",
+    "mode": "strict_index"
+  },
+  {
+    "query_id": "f2-034",
+    "code": "000961",
+    "period": "2023-06-30",
+    "field": "OCF",
+    "T": "2023-08-31",
+    "mode": "strict_index"
+  },
+  {
+    "query_id": "f2-035",
+    "code": "000961",
+    "period": "2023-06-30",
+    "field": "EQ",
+    "T": "2023-09-01",
+    "mode": "strict_index"
+  },
+  {
+    "query_id": "f2-036",
+    "code": "000961",
+    "period": "2023-06-30",
+    "field": "EQ",
+    "T": "2023-08-31",
+    "mode": "strict_index"
+  },
+  {
+    "query_id": "f2-037",
+    "code": "000961",
+    "period": "2023-09-30",
+    "field": "NP",
+    "T": "2023-11-01",
+    "mode": "strict_index"
+  },
+  {
+    "query_id": "f2-038",
+    "code": "000961",
+    "period": "2023-09-30",
+    "field": "NP",
+    "T": "2023-10-31",
+    "mode": "strict_index"
+  },
+  {
+    "query_id": "f2-039",
+    "code": "000961",
+    "period": "2023-09-30",
+    "field": "OCF",
+    "T": "2023-11-01",
+    "mode": "strict_index"
+  },
+  {
+    "query_id": "f2-040",
+    "code": "000961",
+    "period": "2023-09-30",
+    "field": "OCF",
+    "T": "2023-10-31",
+    "mode": "strict_index"
+  },
+  {
+    "query_id": "f2-041",
+    "code": "000961",
+    "period": "2023-09-30",
+    "field": "EQ",
+    "T": "2023-11-01",
+    "mode": "strict_index"
+  },
+  {
+    "query_id": "f2-042",
+    "code": "000961",
+    "period": "2023-09-30",
+    "field": "EQ",
+    "T": "2023-10-31",
+    "mode": "strict_index"
+  },
+  {
+    "query_id": "f2-043",
+    "code": "000002",
+    "period": "2024-06-30",
+    "field": "NP",
+    "T": "2024-09-02",
+    "mode": "strict_index"
+  },
+  {
+    "query_id": "f2-044",
+    "code": "000002",
+    "period": "2024-06-30",
+    "field": "NP",
+    "T": "2024-08-31",
+    "mode": "strict_index"
+  },
+  {
+    "query_id": "f2-045",
+    "code": "000002",
+    "period": "2024-06-30",
+    "field": "OCF",
+    "T": "2024-09-02",
+    "mode": "strict_index"
+  },
+  {
+    "query_id": "f2-046",
+    "code": "000002",
+    "period": "2024-06-30",
+    "field": "OCF",
+    "T": "2024-08-31",
+    "mode": "strict_index"
+  },
+  {
+    "query_id": "f2-047",
+    "code": "000002",
+    "period": "2024-06-30",
+    "field": "EQ",
+    "T": "2024-09-02",
+    "mode": "strict_index"
+  },
+  {
+    "query_id": "f2-048",
+    "code": "000002",
+    "period": "2024-06-30",
+    "field": "EQ",
+    "T": "2024-08-31",
+    "mode": "strict_index"
+  },
+  {
+    "query_id": "f2-049",
+    "code": "000002",
+    "period": "2023-03-31",
+    "field": "NP",
+    "T": "2023-05-04",
+    "mode": "strict_index"
+  },
+  {
+    "query_id": "f2-050",
+    "code": "000002",
+    "period": "2023-03-31",
+    "field": "NP",
+    "T": "2023-04-29",
+    "mode": "strict_index"
+  },
+  {
+    "query_id": "f2-051",
+    "code": "000002",
+    "period": "2023-03-31",
+    "field": "OCF",
+    "T": "2023-05-04",
+    "mode": "strict_index"
+  },
+  {
+    "query_id": "f2-052",
+    "code": "000002",
+    "period": "2023-03-31",
+    "field": "OCF",
+    "T": "2023-04-29",
+    "mode": "strict_index"
+  },
+  {
+    "query_id": "f2-053",
+    "code": "000002",
+    "period": "2023-03-31",
+    "field": "EQ",
+    "T": "2023-05-04",
+    "mode": "strict_index"
+  },
+  {
+    "query_id": "f2-054",
+    "code": "000002",
+    "period": "2023-03-31",
+    "field": "EQ",
+    "T": "2023-04-29",
+    "mode": "strict_index"
+  },
+  {
+    "query_id": "f2-055",
+    "code": "000002",
+    "period": "2023-06-30",
+    "field": "NP",
+    "T": "2023-09-01",
+    "mode": "strict_index"
+  },
+  {
+    "query_id": "f2-056",
+    "code": "000002",
+    "period": "2023-06-30",
+    "field": "NP",
+    "T": "2023-08-31",
+    "mode": "strict_index"
+  },
+  {
+    "query_id": "f2-057",
+    "code": "000002",
+    "period": "2023-06-30",
+    "field": "OCF",
+    "T": "2023-09-01",
+    "mode": "strict_index"
+  },
+  {
+    "query_id": "f2-058",
+    "code": "000002",
+    "period": "2023-06-30",
+    "field": "OCF",
+    "T": "2023-08-31",
+    "mode": "strict_index"
+  },
+  {
+    "query_id": "f2-059",
+    "code": "000002",
+    "period": "2023-06-30",
+    "field": "EQ",
+    "T": "2023-09-01",
+    "mode": "strict_index"
+  },
+  {
+    "query_id": "f2-060",
+    "code": "000002",
+    "period": "2023-06-30",
+    "field": "EQ",
+    "T": "2023-08-31",
+    "mode": "strict_index"
+  },
+  {
+    "query_id": "f2-061",
+    "code": "000002",
+    "period": "2023-09-30",
+    "field": "NP",
+    "T": "2023-10-30",
+    "mode": "strict_index"
+  },
+  {
+    "query_id": "f2-062",
+    "code": "000002",
+    "period": "2023-09-30",
+    "field": "NP",
+    "T": "2023-10-28",
+    "mode": "strict_index"
+  },
+  {
+    "query_id": "f2-063",
+    "code": "000002",
+    "period": "2023-09-30",
+    "field": "OCF",
+    "T": "2023-10-30",
+    "mode": "strict_index"
+  },
+  {
+    "query_id": "f2-064",
+    "code": "000002",
+    "period": "2023-09-30",
+    "field": "OCF",
+    "T": "2023-10-28",
+    "mode": "strict_index"
+  },
+  {
+    "query_id": "f2-065",
+    "code": "000002",
+    "period": "2023-09-30",
+    "field": "EQ",
+    "T": "2023-10-30",
+    "mode": "strict_index"
+  },
+  {
+    "query_id": "f2-066",
+    "code": "000002",
+    "period": "2023-09-30",
+    "field": "EQ",
+    "T": "2023-10-28",
+    "mode": "strict_index"
+  },
+  {
+    "query_id": "f2-067",
+    "code": "600518",
+    "period": "2018-03-31",
+    "field": "NP",
+    "T": "2018-05-02",
+    "mode": "strict_index"
+  },
+  {
+    "query_id": "f2-068",
+    "code": "600518",
+    "period": "2018-03-31",
+    "field": "NP",
+    "T": "2018-04-28",
+    "mode": "strict_index"
+  },
+  {
+    "query_id": "f2-069",
+    "code": "600518",
+    "period": "2018-03-31",
+    "field": "OCF",
+    "T": "2018-05-02",
+    "mode": "strict_index"
+  },
+  {
+    "query_id": "f2-070",
+    "code": "600518",
+    "period": "2018-03-31",
+    "field": "OCF",
+    "T": "2018-04-28",
+    "mode": "strict_index"
+  },
+  {
+    "query_id": "f2-071",
+    "code": "600518",
+    "period": "2018-03-31",
+    "field": "EQ",
+    "T": "2018-05-02",
+    "mode": "strict_index"
+  },
+  {
+    "query_id": "f2-072",
+    "code": "600518",
+    "period": "2018-03-31",
+    "field": "EQ",
+    "T": "2018-04-28",
+    "mode": "strict_index"
+  },
+  {
+    "query_id": "f2-073",
+    "code": "600518",
+    "period": "2018-06-30",
+    "field": "NP",
+    "T": "2018-08-30",
+    "mode": "strict_index"
+  },
+  {
+    "query_id": "f2-074",
+    "code": "600518",
+    "period": "2018-06-30",
+    "field": "NP",
+    "T": "2018-08-29",
+    "mode": "strict_index"
+  },
+  {
+    "query_id": "f2-075",
+    "code": "600518",
+    "period": "2018-06-30",
+    "field": "OCF",
+    "T": "2018-08-30",
+    "mode": "strict_index"
+  },
+  {
+    "query_id": "f2-076",
+    "code": "600518",
+    "period": "2018-06-30",
+    "field": "OCF",
+    "T": "2018-08-29",
+    "mode": "strict_index"
+  },
+  {
+    "query_id": "f2-077",
+    "code": "600518",
+    "period": "2018-06-30",
+    "field": "EQ",
+    "T": "2018-08-30",
+    "mode": "strict_index"
+  },
+  {
+    "query_id": "f2-078",
+    "code": "600518",
+    "period": "2018-06-30",
+    "field": "EQ",
+    "T": "2018-08-29",
+    "mode": "strict_index"
+  },
+  {
+    "query_id": "f2-079",
+    "code": "600518",
+    "period": "2018-09-30",
+    "field": "NP",
+    "T": "2018-10-29",
+    "mode": "strict_index"
+  },
+  {
+    "query_id": "f2-080",
+    "code": "600518",
+    "period": "2018-09-30",
+    "field": "NP",
+    "T": "2018-10-27",
+    "mode": "strict_index"
+  },
+  {
+    "query_id": "f2-081",
+    "code": "600518",
+    "period": "2018-09-30",
+    "field": "OCF",
+    "T": "2018-10-29",
+    "mode": "strict_index"
+  },
+  {
+    "query_id": "f2-082",
+    "code": "600518",
+    "period": "2018-09-30",
+    "field": "OCF",
+    "T": "2018-10-27",
+    "mode": "strict_index"
+  },
+  {
+    "query_id": "f2-083",
+    "code": "600518",
+    "period": "2018-09-30",
+    "field": "EQ",
+    "T": "2018-10-29",
+    "mode": "strict_index"
+  },
+  {
+    "query_id": "f2-084",
+    "code": "600518",
+    "period": "2018-09-30",
+    "field": "EQ",
+    "T": "2018-10-27",
+    "mode": "strict_index"
+  },
+  {
+    "query_id": "f2-085",
+    "code": "600518",
+    "period": "2019-03-31",
+    "field": "NP",
+    "T": "2019-05-06",
+    "mode": "strict_index"
+  },
+  {
+    "query_id": "f2-086",
+    "code": "600518",
+    "period": "2019-03-31",
+    "field": "NP",
+    "T": "2019-04-30",
+    "mode": "strict_index"
+  },
+  {
+    "query_id": "f2-087",
+    "code": "600518",
+    "period": "2019-03-31",
+    "field": "OCF",
+    "T": "2019-05-06",
+    "mode": "strict_index"
+  },
+  {
+    "query_id": "f2-088",
+    "code": "600518",
+    "period": "2019-03-31",
+    "field": "OCF",
+    "T": "2019-04-30",
+    "mode": "strict_index"
+  },
+  {
+    "query_id": "f2-089",
+    "code": "600518",
+    "period": "2019-03-31",
+    "field": "EQ",
+    "T": "2019-05-06",
+    "mode": "strict_index"
+  },
+  {
+    "query_id": "f2-090",
+    "code": "600518",
+    "period": "2019-03-31",
+    "field": "EQ",
+    "T": "2019-04-30",
+    "mode": "strict_index"
+  },
+  {
+    "query_id": "f2-091",
+    "code": "600519",
+    "period": "2022-12-31",
+    "field": "NP",
+    "T": "2024-04-08",
+    "mode": "strict_index"
+  },
+  {
+    "query_id": "f2-092",
+    "code": "600519",
+    "period": "2022-12-31",
+    "field": "EQ",
+    "T": "2024-04-08",
+    "mode": "strict_index"
+  },
+  {
+    "query_id": "f2-093",
+    "code": "601398",
+    "period": "2022-12-31",
+    "field": "NP",
+    "T": "2024-03-29",
+    "mode": "strict_index"
+  },
+  {
+    "query_id": "f2-094",
+    "code": "601398",
+    "period": "2022-12-31",
+    "field": "EQ",
+    "T": "2024-03-29",
+    "mode": "strict_index"
+  },
+  {
+    "query_id": "f2-095",
+    "code": "300750",
+    "period": "2022-12-31",
+    "field": "NP",
+    "T": "2024-03-18",
+    "mode": "strict_index"
+  },
+  {
+    "query_id": "f2-096",
+    "code": "300750",
+    "period": "2022-12-31",
+    "field": "OCF",
+    "T": "2024-03-18",
+    "mode": "strict_index"
+  },
+  {
+    "query_id": "f2-097",
+    "code": "300750",
+    "period": "2022-12-31",
+    "field": "EQ",
+    "T": "2024-03-18",
+    "mode": "strict_index"
+  },
+  {
+    "query_id": "f2-098",
+    "code": "000002",
+    "period": "2022-12-31",
+    "field": "EQ",
+    "T": "2023-05-04",
+    "mode": "strict_index"
+  },
+  {
+    "query_id": "f2-099",
+    "code": "000002",
+    "period": "2022-12-31",
+    "field": "EQ",
+    "T": "2023-09-01",
+    "mode": "strict_index"
+  },
+  {
+    "query_id": "f2-100",
+    "code": "000002",
+    "period": "2022-12-31",
+    "field": "EQ",
+    "T": "2023-10-30",
+    "mode": "strict_index"
+  },
+  {
+    "query_id": "f2-101",
+    "code": "000961",
+    "period": "2022-12-31",
+    "field": "NP",
+    "T": "2023-04-26",
+    "mode": "strict_index"
+  },
+  {
+    "query_id": "f2-102",
+    "code": "000961",
+    "period": "2022-12-31",
+    "field": "EQ",
+    "T": "2023-07-27",
+    "mode": "strict_index"
+  },
+  {
+    "query_id": "f2-103",
+    "code": "000961",
+    "period": "2022-12-31",
+    "field": "EQ",
+    "T": "2023-09-01",
+    "mode": "strict_index"
+  },
+  {
+    "query_id": "f2-104",
+    "code": "000961",
+    "period": "2022-12-31",
+    "field": "EQ",
+    "T": "2023-11-01",
+    "mode": "strict_index"
+  },
+  {
+    "query_id": "f2-105",
+    "code": "000961",
+    "period": "2022-12-31",
+    "field": "NP",
+    "T": "2024-04-24",
+    "mode": "strict_index"
+  },
+  {
+    "query_id": "f2-106",
+    "code": "000961",
+    "period": "2022-12-31",
+    "field": "EQ",
+    "T": "2024-04-24",
+    "mode": "strict_index"
+  },
+  {
+    "query_id": "f2-107",
+    "code": "600518",
+    "period": "2017-12-31",
+    "field": "OCF",
+    "T": "2018-04-27",
+    "mode": "strict_index"
+  },
+  {
+    "query_id": "f2-108",
+    "code": "600518",
+    "period": "2017-12-31",
+    "field": "OCF",
+    "T": "2019-05-06",
+    "mode": "strict_index"
+  },
+  {
+    "query_id": "f2-109",
+    "code": "600518",
+    "period": "2018-03-31",
+    "field": "NP",
+    "T": "2019-05-06",
+    "mode": "strict_index"
+  },
+  {
+    "query_id": "f2-110",
+    "code": "600518",
+    "period": "2018-03-31",
+    "field": "OCF",
+    "T": "2019-05-06",
+    "mode": "strict_index"
+  },
+  {
+    "query_id": "f2-111",
+    "code": "000002",
+    "period": "2024-06-30",
+    "field": "NP",
+    "T": "2024-10-08",
+    "mode": "strict_index"
+  },
+  {
+    "query_id": "f2-112",
+    "code": "000961",
+    "period": "2022-12-31",
+    "field": "EQ",
+    "T": "2023-05-05",
+    "mode": "strict_index"
+  },
+  {
+    "query_id": "f2-113",
+    "code": "000961",
+    "period": "2022-12-31",
+    "field": "EQ",
+    "T": "2023-09-27",
+    "mode": "strict_index"
+  },
+  {
+    "query_id": "f2-114",
+    "code": "000002",
+    "period": "2022-12-31",
+    "field": "EQ",
+    "T": "2023-05-23",
+    "mode": "strict_index"
+  },
+  {
+    "query_id": "f2-115",
+    "code": "600518",
+    "period": "2017-12-31",
+    "field": "OCF",
+    "T": "2018-07-18",
+    "mode": "strict_index"
+  },
+  {
+    "query_id": "f2-116",
+    "code": "600519",
+    "period": "2022-12-31",
+    "field": "NP",
+    "T": "2024-04-03",
+    "mode": "strict_index"
+  },
+  {
+    "query_id": "f2-117",
+    "code": "601398",
+    "period": "2022-12-31",
+    "field": "NP",
+    "T": "2024-03-28",
+    "mode": "strict_index"
+  },
+  {
+    "query_id": "f2-118",
+    "code": "600519",
+    "period": "2023-12-31",
+    "field": "NP",
+    "T": "2026-10-21",
+    "mode": "strict_index"
+  }
+]

@@ -1,0 +1,199 @@
+diff --git a/D:/Dev/Projects/chstockdata/docs/audits/evidence/2026-10-21-w5h-r6-f1/parser_f1.py b/D:/Dev/Projects/chstockdata/docs/audits/evidence/2026-10-21-w5h-f2/parser_f2.py
+index 0fea83d..06ed96d 100644
+--- a/D:/Dev/Projects/chstockdata/docs/audits/evidence/2026-10-21-w5h-r6-f1/parser_f1.py
++++ b/D:/Dev/Projects/chstockdata/docs/audits/evidence/2026-10-21-w5h-f2/parser_f2.py
+@@ -15,7 +15,7 @@ LABELS = {
+     'EQ': {'归属于上市公司股东的净资产', '归属于母公司股东的净资产',
+            '归属于上市公司股东的所有者权益', '归属于母公司股东的所有者权益',
+            '归属于母公司所有者权益合计', '归属于上市公司股东的股东权益',
+-           '归属于母公司股东的权益'},
++           '归属于母公司股东的权益', '归属于母公司股东权益合计', '归属于母公司所有者权益（或股东权益）合计'},
+ }
+ UNITS = {'元': 1, '万元': 10000, '百万元': 1000000}
+ 
+@@ -83,8 +83,12 @@ def header_period(text, report_period, field):
+     if quarter and not re.search(r'20\d{2}', t):
+         return None
+     year = int(report_period[:4])
+-    if re.search(r'上年[度]?末|年初', t):
++    if re.search(r'上年[度]?末', t) or field == 'EQ' and t == '年初':
+         return f'{year-1}-12-31'
++    if re.search(r'上年(?:年)?初至', t):
++        return f'{year-1}' + report_period[4:]
++    if '年初至' in t:
++        return report_period
+     if '上年同期' in t:
+         return f'{year-1}' + report_period[4:]
+     if re.search(r'本报告期|本期末|本期|报告期末', t):
+@@ -169,8 +173,13 @@ def column_identity(headers, box, source, field):
+     if period is None:
+         return None
+     column = 'current' if period == source['period'] else adjustment or 'comparative'
++    header = compact(period_cell['text'])
++    duration = None
++    if field != 'EQ' and source['period'].endswith('09-30'):
++        duration = ('SINGLE_QUARTER' if re.search(r'7[~～—至-]9月', header) or
++                    '本报告期' in header and '年初至' not in header else 'YTD_NOT_SINGLE_QUARTER')
+     return {'period': period, 'column': column, 'period_header': period_cell,
+-            'adjustment': adjustment}
++            'adjustment': adjustment, **({'duration': duration} if duration else {})}
+ 
+ 
+ def continuity(previous, current, page_no, page, lines):
+@@ -195,6 +204,23 @@ def continuity(previous, current, page_no, page, lines):
+             'previous_bbox': a, 'current_bbox': b}
+ 
+ 
++def same_page_unit_block(previous, current, page_no, lines):
++    """One monetary summary may have adjacent flow and balance sub-tables."""
++    if not previous or previous['page'] != page_no or not previous.get('unit'):
++        return None
++    a, b = previous['bbox'], current['bbox']
++    if not 0 <= b[1]-a[3] <= 30 or len(previous['edges']) != len(current['edges']):
++        return None
++    if any(abs(x-y)>3 for x,y in zip(previous['edges'], current['edges'])):
++        return None
++    between = ''.join(l['text'] for l in lines if a[3] <= l['top'] < b[1])
++    if compact(between):
++        return None
++    return {'previous_page': page_no, 'current_page': page_no,
++            'reason': 'ADJACENT_SAME_PAGE_ALIGNED_SUBTABLES_NO_INTERVENING_TEXT',
++            'previous_bbox': a, 'current_bbox': b, 'matching_column_edges': current['edges']}
++
++
+ def record(source, field, label, cell, unit, identity, page_no, row_box, table_box,
+            proof, scope='consolidated', mode='summary'):
+     val = amount(cell['text'])
+@@ -207,10 +233,10 @@ def record(source, field, label, cell, unit, identity, page_no, row_box, table_b
+             'cell_bbox': cell['bbox'], 'row_bbox': row_box, 'table_bbox': table_box,
+             'continuity': proof, 'announcement_date': source['date'],
+             'source_sha256': source['sha256'], 'source_path': source['path'],
+-            'duration': 'INSTANT_END' if field == 'EQ' else
++            'duration': identity.get('duration') or ('INSTANT_END' if field == 'EQ' else
+                         'FY_CUMULATIVE' if identity['period'].endswith('12-31') else
+                         'Q1_YTD_EQUALS_SINGLE_QUARTER' if identity['period'].endswith('03-31') else
+-                        'YTD_NOT_SINGLE_QUARTER',
++                        'YTD_NOT_SINGLE_QUARTER'),
+             'pit_qualified': False, 'status': 'PARSED_LOCAL_EVIDENCE_NOT_PIT'}
+ 
+ 
+@@ -220,8 +246,10 @@ def parse_grid(page, page_no, table, source, lines, previous, lower_bound):
+                    {round(c['bbox'][2], 1) for r in rows for c in r['cells']})
+     state = {'page': page_no, 'height': page.height, 'bbox': list(table.bbox),
+              'edges': edges, 'headers': [], 'unit': None}
+-    proof = continuity(previous, state, page_no, page, lines)
+-    headers = list(previous['headers']) if proof else []
++    cross_page = continuity(previous, state, page_no, page, lines)
++    proof = cross_page or same_page_unit_block(previous, state, page_no, lines)
++    # Same-page sub-tables must supply their own period/column headings.
++    headers = list(previous['headers']) if cross_page else []
+     unit = preceding_unit(lines, table.bbox[1], lower_bound)
+     if unit:
+         unit = {**unit, 'physical_page': page_no, 'origin': 'PRECEDING_THIS_TABLE'}
+@@ -239,6 +267,9 @@ def parse_grid(page, page_no, table, source, lines, previous, lower_bound):
+             continue
+         first_x = min(c['bbox'][0] for c in nums)
+         label = ''.join(c['text'] for c in row['cells'] if c['bbox'][2] <= first_x + 1)
++        # A blank single-quarter amount can precede the cumulative amount.
++        # Its printed dash is neither part of the label nor a zero value.
++        label = re.sub(r'[-—－\s]+$', '', label)
+         # Some PDFs split a label across ruled rows but keep the amount in the first.
+         j = i + 1
+         while j < len(rows) and not numeric_cells(rows[j]):
+@@ -285,7 +316,7 @@ def parse_unruled_summary(page, n, source, lines, previous):
+     """A narrow position fallback for an unruled consolidated annual summary."""
+     text = compact(''.join(l['text'] for l in lines))
+     rows = [(l, word_money_row(l)) for l in lines]
+-    rows = [(l, r) for l, r in rows if r and len(r[1]) == 4]
++    rows = [(l, r) for l, r in rows if r and len(r[1]) in (3, 4)]
+     start = '全年经营成果（人民币百万元）' in text and '合并数据' in text
+     proof = None
+     if start:
+@@ -309,6 +340,7 @@ def parse_unruled_summary(page, n, source, lines, previous):
+         anchors = [w['x1'] for w in rows[0][1][1]]
+         before = compact(''.join(l['text'] for l in lines if l['bottom'] < rows[0][0]['top']))
+         if (rows[0][0]['top'] > .2 * page.height or previous['last_bottom'] < .73 * previous['height']
++                or len(anchors) != len(previous['anchors'])
+                 or any(abs(x-y) > 3 for x, y in zip(anchors, previous['anchors']))
+                 or re.search('单位|主要|每股计|重要事项|财务报表', before)):
+             return [], None
+@@ -324,7 +356,7 @@ def parse_unruled_summary(page, n, source, lines, previous):
+         if u:
+             unit = {**u, 'physical_page': n, 'bbox': line['bbox']}
+         row = word_money_row(line)
+-        if not row or len(row[1]) != 4:
++        if not row or len(row[1]) != len(anchors):
+             continue
+         label, nums = row
+         if any(abs(w['x1']-x) > 3 for w, x in zip(nums, anchors)):
+@@ -377,14 +409,45 @@ def parse_group_cashflow(page, n, source, lines):
+     return found
+ 
+ 
++def parse_notice_adjustment(page_no, table, source, lines, lower):
++    """Only explicit consolidated before/after level columns, never delta amounts."""
++    rows = grid_rows(table)
++    if not rows:
++        return []
++    first = compact(''.join(c['text'] for c in rows[0]['cells']))
++    if '合并资产负债表' not in first or not all(t in first for t in ['调整前', '调整后']):
++        return []
++    m = re.search(r'(20\d{2})年(\d{1,2})月(\d{1,2})日', first)
++    unit = preceding_unit(lines, table.bbox[1], lower)
++    if not m or not unit:
++        return []
++    period = f'{m[1]}-{int(m[2]):02d}-{int(m[3]):02d}'
++    headers = rows[0]['cells']
++    found = []
++    for row in rows[1:]:
++        label = row['cells'][0]['text']
++        field = field_id(label)
++        if field != 'EQ':
++            continue
++        for cell in numeric_cells(row):
++            x = (cell['bbox'][0]+cell['bbox'][2])/2
++            h = next((c for c in headers if c['bbox'][0] <= x <= c['bbox'][2]), None)
++            if h is None or compact(h['text']) not in ('调整前', '调整后'):
++                continue
++            identity = {'period': period, 'column': 'unadjusted' if '前' in h['text'] else 'adjusted',
++                        'period_header': rows[0]['cells'][0], 'adjustment': h['text']}
++            found.append(record(source, field, label, cell,
++                {**unit, 'physical_page': page_no, 'origin': 'PRECEDING_THIS_NOTICE_TABLE'},
++                identity, page_no, row['bbox'], list(table.bbox), None, mode='notice_adjustment'))
++    return found
++
++
+ def extract_document(root, source):
+     """Only the fixed document + identity is input; no expected amounts/pages."""
+     import pdfplumber
+     path = Path(root) / source['path']
+     if not path.is_file() or hashlib.sha256(path.read_bytes()).hexdigest() != source['sha256']:
+         return {'id': source['id'], 'facts': [], 'status': 'UNKNOWN_SOURCE_IDENTITY'}
+-    if source['kind'] != 'periodic':
+-        return {'id': source['id'], 'facts': [], 'status': 'NOTICE_NO_AUTOMATIC_MONETARY_REPLACEMENT'}
+     facts, issues, tables_seen = [], [], []
+     previous = None
+     loose_previous = None
+@@ -394,6 +457,13 @@ def extract_document(root, source):
+         for i, page in enumerate(doc.pages[:30]):
+             lines = lines_of(page)
+             front_text.append(''.join(l['text'] for l in lines))
++            if source['kind'] != 'periodic':
++                lower = 0
++                for table in page.find_tables():
++                    facts.extend(parse_notice_adjustment(i+1, table, source, lines, lower))
++                    lower = table.bbox[3]
++                page.close()
++                continue
+             loose, loose_previous = parse_unruled_summary(page, i+1, source, lines, loose_previous)
+             facts.extend(loose)
+             facts.extend(parse_group_cashflow(page, i+1, source, lines))
+@@ -402,7 +472,7 @@ def extract_document(root, source):
+             prior_page = previous
+             for ti, table in enumerate(tables):
+                 found, problems, state = parse_grid(page, i+1, table, source, lines,
+-                                                   prior_page if ti == 0 else None, lower)
++                                                   prior_page if ti == 0 else previous, lower)
+                 facts.extend(found)
+                 issues.extend(problems)
+                 tables_seen.append({'page': i+1, 'bbox': list(table.bbox), 'facts': len(found),

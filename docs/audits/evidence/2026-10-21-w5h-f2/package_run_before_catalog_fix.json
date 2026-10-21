@@ -1,0 +1,195 @@
+{
+  "finished_at_utc": "2026-10-21T10:42:02.448849+00:00",
+  "code_sha256_start": {
+    "acquire.py": "139a384a09abfcfab162d007a10c351d26e332b791b1f7eee6879a672d32b263",
+    "check_new_quality.py": "e0dfef91582af49e36033b7de6aef1d86e6f8d03a51f448c1e9fb130b3deea67",
+    "check_quality.py": "d9de9439417ed5063e6de5aaa54d9bf4019e2b29289a0c79dfb0c66b362d9737",
+    "classify_index.py": "5dc7e91416e0d47778bc3ad46b48cbde381cf3101c04d18b4d3f1436a7288f8d",
+    "close_index.py": "f42485a2508d1013a66de8f5829c62c36f12066524be5674b7eb71579b76d1e5",
+    "download_named.py": "b46009f6c328e78300cecac09e9750aadd921e746495f23b8762c68b1b972d6b",
+    "download_required.py": "117f9fe5b28b88effea7f9bfdac7292b345df8e28ea7fdd3697be8a4d7b36261",
+    "inspect_base_layout.py": "3004fed449b37fbe0785da2843ef9a9b687a725315656c7bbe12091529261808",
+    "offline_extras.py": "ae275c8bf35a05b503dcd0ed91ce95ce32f89a4f6b5a63a9b8135b964de5fa08",
+    "parser_f2.py": "c74794b04b9934a680338d006d791befd57dbb1ddb9c4e1d246e337530234acd",
+    "parse_new.py": "577c69203aa5ed255110f0224a72b5138b7949b354edcc00dd83564bf7eda3dc",
+    "probe_frontend.py": "f73ec35b921ea39edb54acce43ff92e47c96b6b87b903b88f2290e26941c1d3b",
+    "probe_js.py": "b48551e2e2bcf8c2044cf7df08f5bc9ba5113d9f408a2a309c8967b8bb9a7d19",
+    "probe_layout.py": "35f9a5aa7294061834dc81aae6387fbcb08b01c57f57201ff3246018fdb4ac33",
+    "probe_new.py": "41bbb82b9ef53c7921c06fb9ab5a4b8fadfe60745932474d779e69a2995f3e97",
+    "probe_official_form.py": "79eeedd4d1ef033ea5ecfa0ab2c7299aa248004d0e6d3c98e036a9c51e12ea4a",
+    "probe_pagination.py": "579f0cab96f9368859c12283c12a93058ca60b90c8d10e405a6d4d554235618f",
+    "probe_pagination_get.py": "7759acad9c227532a89bb7c5e4593159996fd75a9ee1addb1a9dd0c8a91a4f49",
+    "qualify_events.py": "d3e694f23a7ee21704050a011b326f2695aa2e1993f5f974c45696a6ecbd12e1",
+    "run_auxiliary.py": "885121887ff404d44812b8971fdeb509778a195d9454e514de23a9d8f40817de",
+    "run_package.py": "6c7247bb1c549f567e94b0d22a1263270b464ce0c5e412dcead7c7ece306b889",
+    "run_parse.py": "1626eced1754550f4ba4d4e783662a0cdb4cf2bfdab3a513571b350b49901a61",
+    "test_f2.py": "69feb1095fac38f79757ccacfdd531491c0d7d132344afae19eb6084f7f6523e",
+    "test_parser.py": "a65275fa9ba40cf02bab5c1ced750e0de3b9f8d40eb5a1a89e78f24a7798df72",
+    "test_pipeline.py": "a02f252a0b4320423aa02185a49ed2084bd83f039544f14c534653a892ba01cd",
+    "test_versions.py": "acd8f6e114335f93a5f7a10c29047f2595848f1b4c0978c04e06d6b0237a271e",
+    "validate_new.py": "df37687518454dd3ede100ae17f680aece0f28ba4a93d58e6918a5ed199fb8e8",
+    "validate_replay_f2.py": "1476858fe3488b83db6ca948774b4b4f15e8167f217a6d15ceb1d7a92b95c147",
+    "validate_values.py": "d78f355098f85e7c966d8b4a9cc6b49ad1a1c40bb44218fe023f656fc814bbd6",
+    "version_f2.py": "9cda471db244e0894caf18987038cda5003dd405ed4d205074a40b9dcb8268bb",
+    "version_legacy.py": "3d647c24d332a734123581a741b6c7f76e855d71585efc8ffe4a7d22ddf1c0f8"
+  },
+  "code_sha256_end": {
+    "acquire.py": "139a384a09abfcfab162d007a10c351d26e332b791b1f7eee6879a672d32b263",
+    "check_new_quality.py": "e0dfef91582af49e36033b7de6aef1d86e6f8d03a51f448c1e9fb130b3deea67",
+    "check_quality.py": "d9de9439417ed5063e6de5aaa54d9bf4019e2b29289a0c79dfb0c66b362d9737",
+    "classify_index.py": "5dc7e91416e0d47778bc3ad46b48cbde381cf3101c04d18b4d3f1436a7288f8d",
+    "close_index.py": "f42485a2508d1013a66de8f5829c62c36f12066524be5674b7eb71579b76d1e5",
+    "download_named.py": "b46009f6c328e78300cecac09e9750aadd921e746495f23b8762c68b1b972d6b",
+    "download_required.py": "117f9fe5b28b88effea7f9bfdac7292b345df8e28ea7fdd3697be8a4d7b36261",
+    "inspect_base_layout.py": "3004fed449b37fbe0785da2843ef9a9b687a725315656c7bbe12091529261808",
+    "offline_extras.py": "ae275c8bf35a05b503dcd0ed91ce95ce32f89a4f6b5a63a9b8135b964de5fa08",
+    "parser_f2.py": "c74794b04b9934a680338d006d791befd57dbb1ddb9c4e1d246e337530234acd",
+    "parse_new.py": "577c69203aa5ed255110f0224a72b5138b7949b354edcc00dd83564bf7eda3dc",
+    "probe_frontend.py": "f73ec35b921ea39edb54acce43ff92e47c96b6b87b903b88f2290e26941c1d3b",
+    "probe_js.py": "b48551e2e2bcf8c2044cf7df08f5bc9ba5113d9f408a2a309c8967b8bb9a7d19",
+    "probe_layout.py": "35f9a5aa7294061834dc81aae6387fbcb08b01c57f57201ff3246018fdb4ac33",
+    "probe_new.py": "41bbb82b9ef53c7921c06fb9ab5a4b8fadfe60745932474d779e69a2995f3e97",
+    "probe_official_form.py": "79eeedd4d1ef033ea5ecfa0ab2c7299aa248004d0e6d3c98e036a9c51e12ea4a",
+    "probe_pagination.py": "579f0cab96f9368859c12283c12a93058ca60b90c8d10e405a6d4d554235618f",
+    "probe_pagination_get.py": "7759acad9c227532a89bb7c5e4593159996fd75a9ee1addb1a9dd0c8a91a4f49",
+    "qualify_events.py": "d3e694f23a7ee21704050a011b326f2695aa2e1993f5f974c45696a6ecbd12e1",
+    "run_auxiliary.py": "885121887ff404d44812b8971fdeb509778a195d9454e514de23a9d8f40817de",
+    "run_package.py": "6c7247bb1c549f567e94b0d22a1263270b464ce0c5e412dcead7c7ece306b889",
+    "run_parse.py": "1626eced1754550f4ba4d4e783662a0cdb4cf2bfdab3a513571b350b49901a61",
+    "test_f2.py": "69feb1095fac38f79757ccacfdd531491c0d7d132344afae19eb6084f7f6523e",
+    "test_parser.py": "a65275fa9ba40cf02bab5c1ced750e0de3b9f8d40eb5a1a89e78f24a7798df72",
+    "test_pipeline.py": "a02f252a0b4320423aa02185a49ed2084bd83f039544f14c534653a892ba01cd",
+    "test_versions.py": "acd8f6e114335f93a5f7a10c29047f2595848f1b4c0978c04e06d6b0237a271e",
+    "validate_new.py": "df37687518454dd3ede100ae17f680aece0f28ba4a93d58e6918a5ed199fb8e8",
+    "validate_replay_f2.py": "1476858fe3488b83db6ca948774b4b4f15e8167f217a6d15ceb1d7a92b95c147",
+    "validate_values.py": "d78f355098f85e7c966d8b4a9cc6b49ad1a1c40bb44218fe023f656fc814bbd6",
+    "version_f2.py": "9cda471db244e0894caf18987038cda5003dd405ed4d205074a40b9dcb8268bb",
+    "version_legacy.py": "3d647c24d332a734123581a741b6c7f76e855d71585efc8ffe4a7d22ddf1c0f8"
+  },
+  "stages": [
+    {
+      "args": [
+        "run_parse.py"
+      ],
+      "elapsed_seconds": 68.22294649999822,
+      "exit_code": 0,
+      "stdout": "{\"id\": \"1219506510\", \"facts\": 17, \"seconds\": 4.922962600001483}\n{\"id\": \"1219875828\", \"facts\": 8, \"seconds\": 1.72615130000122}\n{\"id\": \"1219487237\", \"facts\": 11, \"seconds\": 4.004914299999655}\n{\"id\": \"1219913619\", \"facts\": 9, \"seconds\": 1.9986355999972147}\n{\"id\": \"1219313047\", \"facts\": 17, \"seconds\": 4.7746619999998074}\n{\"id\": \"1219619642\", \"facts\": 10, \"seconds\": 1.9341077000026416}\n{\"id\": \"1219429144\", \"facts\": 12, \"seconds\": 2.5787830999979633}\n{\"id\": \"1219922891\", \"facts\": 14, \"seconds\": 3.604257900002267}\n{\"id\": \"1219747877\", \"facts\": 15, \"seconds\": 11.00761059999786}\n{\"id\": \"1219909136\", \"facts\": 10, \"seconds\": 1.5124572000022454}\n{\"id\": \"1216561621\", \"facts\": 9, \"seconds\": 11.954120900001726}\n{\"id\": \"1217386817\", \"facts\": 11, \"seconds\": 12.16641620000155}\n{\"id\": \"1217386818\", \"facts\": 0, \"seconds\": 0.08406990000003134}\n{\"id\": \"1221331382\", \"facts\": 0, \"seconds\": 0.11814099999901373}\n{\"id\": \"1204793690\", \"facts\": 11, \"seconds\": 3.1062287999993714}\n{\"id\": \"1206168283\", \"facts\": 0, \"seconds\": 0.01806109999961336}\n{\"id\": \"1206168292\", \"facts\": 17, \"seconds\": 2.459208199998102}\n{\"id\": \"1206201352\", \"facts\": 0, \"seconds\": 0.08848009999928763}\n",
+      "stderr": ""
+    },
+    {
+      "args": [
+        "parse_new.py"
+      ],
+      "elapsed_seconds": 77.03156780000063,
+      "exit_code": 0,
+      "stdout": "{\"id\": \"1216273938\", \"kind\": \"periodic\", \"facts\": 11, \"seconds\": 5.054543099999137}\n{\"id\": \"1216281757\", \"kind\": \"periodic\", \"facts\": 11, \"seconds\": 4.804036999998061}\n{\"id\": \"1216282265\", \"kind\": \"periodic\", \"facts\": 9, \"seconds\": 2.3516502999991644}\n{\"id\": \"1216084559\", \"kind\": \"periodic\", \"facts\": 11, \"seconds\": 5.130414300001576}\n{\"id\": \"1216696970\", \"kind\": \"periodic\", \"facts\": 12, \"seconds\": 1.7063855999986117}\n{\"id\": \"1217710575\", \"kind\": \"periodic\", \"facts\": 6, \"seconds\": 11.054442099997686}\n{\"id\": \"1218204096\", \"kind\": \"periodic\", \"facts\": 9, \"seconds\": 1.7262887000033516}\n{\"id\": \"1221084198\", \"kind\": \"periodic\", \"facts\": 6, \"seconds\": 3.245281600000453}\n{\"id\": \"1216686497\", \"kind\": \"periodic\", \"facts\": 12, \"seconds\": 2.168815999997605}\n{\"id\": \"1217713835\", \"kind\": \"periodic\", \"facts\": 9, \"seconds\": 3.535869100000127}\n{\"id\": \"1218181044\", \"kind\": \"periodic\", \"facts\": 13, \"seconds\": 2.209475499999826}\n{\"id\": \"1217348612\", \"kind\": \"notice\", \"facts\": 0, \"seconds\": 9.371775999999954}\n{\"id\": \"1217361565\", \"kind\": \"notice\", \"facts\": 0, \"seconds\": 10.883745099999942}\n{\"id\": \"1219747900\", \"kind\": \"notice\", \"facts\": 4, \"seconds\": 0.7014253999986977}\n{\"id\": \"1204793018\", \"kind\": \"notice\", \"facts\": 0, \"seconds\": 0.2998356000025524}\n{\"id\": \"1204829467\", \"kind\": \"periodic\", \"facts\": 7, \"seconds\": 2.7127748999992036}\n{\"id\": \"1205349494\", \"kind\": \"periodic\", \"facts\": 8, \"seconds\": 3.002410699999018}\n{\"id\": \"1205546609\", \"kind\": \"periodic\", \"facts\": 12, \"seconds\": 3.3271499000002223}\n{\"id\": \"1206168278\", \"kind\": \"notice\", \"facts\": 0, \"seconds\": 0.6400695999982418}\n{\"id\": \"1206168279\", \"kind\": \"periodic\", \"facts\": 13, \"seconds\": 2.8743681000014476}\n",
+      "stderr": ""
+    },
+    {
+      "args": [
+        "run_auxiliary.py"
+      ],
+      "elapsed_seconds": 14.232396399998834,
+      "exit_code": 0,
+      "stdout": "{'eps_facts': 8, 'notices': 9}\n",
+      "stderr": ""
+    },
+    {
+      "args": [
+        "classify_index.py"
+      ],
+      "elapsed_seconds": 0.21696929999961867,
+      "exit_code": 0,
+      "stdout": "{'metadata': 868, 'unread_financial_candidates': 23, 'counts': {'000002': 3, '000961': 18, '600518': 2}}\n",
+      "stderr": ""
+    },
+    {
+      "args": [
+        "validate_values.py"
+      ],
+      "elapsed_seconds": 0.13356990000102087,
+      "exit_code": 0,
+      "stdout": "{\"counts\": {\"PASS\": 89}, \"by_id\": {\"1219506510\": {\"PASS\": 9}, \"1219875828\": {\"PASS\": 6}, \"1219487237\": {\"PASS\": 9}, \"1219913619\": {\"PASS\": 6}, \"1219313047\": {\"PASS\": 9}, \"1219619642\": {\"PASS\": 6}, \"1219429144\": {\"PASS\": 9}, \"1219922891\": {\"PASS\": 8}, \"1219747877\": {\"PASS\": 9}, \"1219909136\": {\"PASS\": 6}, \"1216561621\": {\"PASS\": 3}, \"1217386817\": {\"PASS\": 3}, \"1217386818\": {}, \"1221331382\": {}, \"1204793690\": {\"PASS\": 3}, \"1206168283\": {}, \"1206168292\": {\"PASS\": 3}, \"1206201352\": {}}}\n",
+      "stderr": ""
+    },
+    {
+      "args": [
+        "validate_new.py"
+      ],
+      "elapsed_seconds": 0.1360965000021679,
+      "exit_code": 0,
+      "stdout": "{\"counts\": {\"PASS\": 68, \"PASS_UNKNOWN\": 2}, \"non_pass\": []}\n",
+      "stderr": ""
+    },
+    {
+      "args": [
+        "version_legacy.py"
+      ],
+      "elapsed_seconds": 0.7721354000022984,
+      "exit_code": 0,
+      "stdout": "{\"ledger_facts\": 69, \"catalog\": 85, \"paired_comparatives\": 15, \"changed_fields\": 8, \"replay_pass\": 46, \"replay_denominator\": 46}\n",
+      "stderr": ""
+    },
+    {
+      "args": [
+        "check_quality.py"
+      ],
+      "elapsed_seconds": 0.13920389999839244,
+      "exit_code": 0,
+      "stdout": "{\"pass\": true, \"checks\": 91, \"current_row_numeric_mismatches\": 2}\n",
+      "stderr": ""
+    },
+    {
+      "args": [
+        "check_new_quality.py"
+      ],
+      "elapsed_seconds": 0.39676930000132415,
+      "exit_code": 0,
+      "stdout": "{'checks': 70, 'all_pass': True}\n",
+      "stderr": ""
+    },
+    {
+      "args": [
+        "version_f2.py"
+      ],
+      "elapsed_seconds": 0.5343028999996022,
+      "exit_code": 0,
+      "stdout": "{'ledger': 127, 'paired': 22, 'transitions': 42, 'queries': 118}\n",
+      "stderr": ""
+    },
+    {
+      "args": [
+        "validate_replay_f2.py"
+      ],
+      "elapsed_seconds": 0.19893130000127712,
+      "exit_code": 0,
+      "stdout": "{'counts': {'PASS': 118}, 'eps': {'PASS': 3}, 'failed': []}\n",
+      "stderr": ""
+    },
+    {
+      "args": [
+        "qualify_events.py"
+      ],
+      "elapsed_seconds": 0.1997869000006176,
+      "exit_code": 0,
+      "stdout": "{'comparative_events': 11, 'document_updates': 1, 'changed_transitions_without_correction_title': 13}\n",
+      "stderr": ""
+    },
+    {
+      "args": [
+        "-m",
+        "unittest",
+        "test_parser",
+        "test_versions",
+        "test_f2",
+        "test_pipeline"
+      ],
+      "elapsed_seconds": 2.3068597999990743,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ".................................\n----------------------------------------------------------------------\nRan 33 tests in 1.992s\n\nOK\n"
+    }
+  ],
+  "complete": true,
+  "no_network": true
+}

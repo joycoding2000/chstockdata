@@ -1,0 +1,596 @@
+{
+  "frozen_at_utc": "2026-10-21T10:35:13.915Z",
+  "design": "Fixed supplied originals and independent truth; not full-market or blind; operational date policy remains candidate.",
+  "cases": [
+    {
+      "query_id": "f2-001",
+      "status": "SELECTED_KNOWN_SOURCE",
+      "value_CNY": "22617778516.45"
+    },
+    {
+      "query_id": "f2-002",
+      "status": "UNKNOWN",
+      "value_CNY": null
+    },
+    {
+      "query_id": "f2-003",
+      "status": "SELECTED_KNOWN_SOURCE",
+      "value_CNY": "2750449478.44"
+    },
+    {
+      "query_id": "f2-004",
+      "status": "UNKNOWN",
+      "value_CNY": null
+    },
+    {
+      "query_id": "f2-005",
+      "status": "SELECTED_KNOWN_SOURCE",
+      "value_CNY": "242691342204.55"
+    },
+    {
+      "query_id": "f2-006",
+      "status": "UNKNOWN",
+      "value_CNY": null
+    },
+    {
+      "query_id": "f2-007",
+      "status": "SELECTED_KNOWN_SOURCE",
+      "value_CNY": "62716443738.27"
+    },
+    {
+      "query_id": "f2-008",
+      "status": "UNKNOWN",
+      "value_CNY": null
+    },
+    {
+      "query_id": "f2-009",
+      "status": "SELECTED_KNOWN_SOURCE",
+      "value_CNY": "36698595830.03"
+    },
+    {
+      "query_id": "f2-010",
+      "status": "UNKNOWN",
+      "value_CNY": null
+    },
+    {
+      "query_id": "f2-011",
+      "status": "SELECTED_KNOWN_SOURCE",
+      "value_CNY": "197506672396.00"
+    },
+    {
+      "query_id": "f2-012",
+      "status": "UNKNOWN",
+      "value_CNY": null
+    },
+    {
+      "query_id": "f2-013",
+      "status": "SELECTED_KNOWN_SOURCE",
+      "value_CNY": "360483000000"
+    },
+    {
+      "query_id": "f2-014",
+      "status": "UNKNOWN",
+      "value_CNY": null
+    },
+    {
+      "query_id": "f2-015",
+      "status": "SELECTED_KNOWN_SOURCE",
+      "value_CNY": "1404657000000"
+    },
+    {
+      "query_id": "f2-016",
+      "status": "UNKNOWN",
+      "value_CNY": null
+    },
+    {
+      "query_id": "f2-017",
+      "status": "SELECTED_KNOWN_SOURCE",
+      "value_CNY": "3495171000000"
+    },
+    {
+      "query_id": "f2-018",
+      "status": "UNKNOWN",
+      "value_CNY": null
+    },
+    {
+      "query_id": "f2-019",
+      "status": "SELECTED_KNOWN_SOURCE",
+      "value_CNY": "30729163500"
+    },
+    {
+      "query_id": "f2-020",
+      "status": "UNKNOWN",
+      "value_CNY": null
+    },
+    {
+      "query_id": "f2-021",
+      "status": "SELECTED_KNOWN_SOURCE",
+      "value_CNY": "61208843300"
+    },
+    {
+      "query_id": "f2-022",
+      "status": "UNKNOWN",
+      "value_CNY": null
+    },
+    {
+      "query_id": "f2-023",
+      "status": "SELECTED_KNOWN_SOURCE",
+      "value_CNY": "164481251600"
+    },
+    {
+      "query_id": "f2-024",
+      "status": "UNKNOWN",
+      "value_CNY": null
+    },
+    {
+      "query_id": "f2-025",
+      "status": "SELECTED_KNOWN_SOURCE",
+      "value_CNY": "-665649652.02"
+    },
+    {
+      "query_id": "f2-026",
+      "status": "UNKNOWN",
+      "value_CNY": null
+    },
+    {
+      "query_id": "f2-027",
+      "status": "SELECTED_KNOWN_SOURCE",
+      "value_CNY": "358139479.80"
+    },
+    {
+      "query_id": "f2-028",
+      "status": "UNKNOWN",
+      "value_CNY": null
+    },
+    {
+      "query_id": "f2-029",
+      "status": "SELECTED_KNOWN_SOURCE",
+      "value_CNY": "13810779031.86"
+    },
+    {
+      "query_id": "f2-030",
+      "status": "UNKNOWN",
+      "value_CNY": null
+    },
+    {
+      "query_id": "f2-031",
+      "status": "SELECTED_KNOWN_SOURCE",
+      "value_CNY": "-798112292.31"
+    },
+    {
+      "query_id": "f2-032",
+      "status": "UNKNOWN",
+      "value_CNY": null
+    },
+    {
+      "query_id": "f2-033",
+      "status": "SELECTED_KNOWN_SOURCE",
+      "value_CNY": "571396874.11"
+    },
+    {
+      "query_id": "f2-034",
+      "status": "UNKNOWN",
+      "value_CNY": null
+    },
+    {
+      "query_id": "f2-035",
+      "status": "SELECTED_KNOWN_SOURCE",
+      "value_CNY": "13225163369.32"
+    },
+    {
+      "query_id": "f2-036",
+      "status": "UNKNOWN",
+      "value_CNY": null
+    },
+    {
+      "query_id": "f2-037",
+      "status": "SELECTED_KNOWN_SOURCE",
+      "value_CNY": "-1201689079.80"
+    },
+    {
+      "query_id": "f2-038",
+      "status": "UNKNOWN",
+      "value_CNY": null
+    },
+    {
+      "query_id": "f2-039",
+      "status": "SELECTED_KNOWN_SOURCE",
+      "value_CNY": "267360450.96"
+    },
+    {
+      "query_id": "f2-040",
+      "status": "UNKNOWN",
+      "value_CNY": null
+    },
+    {
+      "query_id": "f2-041",
+      "status": "SELECTED_KNOWN_SOURCE",
+      "value_CNY": "12740981752.38"
+    },
+    {
+      "query_id": "f2-042",
+      "status": "UNKNOWN",
+      "value_CNY": null
+    },
+    {
+      "query_id": "f2-043",
+      "status": "SELECTED_KNOWN_SOURCE",
+      "value_CNY": "-9852499598.84"
+    },
+    {
+      "query_id": "f2-044",
+      "status": "UNKNOWN",
+      "value_CNY": null
+    },
+    {
+      "query_id": "f2-045",
+      "status": "SELECTED_KNOWN_SOURCE",
+      "value_CNY": "-5176325811.10"
+    },
+    {
+      "query_id": "f2-046",
+      "status": "UNKNOWN",
+      "value_CNY": null
+    },
+    {
+      "query_id": "f2-047",
+      "status": "SELECTED_KNOWN_SOURCE",
+      "value_CNY": "241678563970.12"
+    },
+    {
+      "query_id": "f2-048",
+      "status": "UNKNOWN",
+      "value_CNY": null
+    },
+    {
+      "query_id": "f2-049",
+      "status": "SELECTED_KNOWN_SOURCE",
+      "value_CNY": "1445811341.87"
+    },
+    {
+      "query_id": "f2-050",
+      "status": "UNKNOWN",
+      "value_CNY": null
+    },
+    {
+      "query_id": "f2-051",
+      "status": "SELECTED_KNOWN_SOURCE",
+      "value_CNY": "7001300467.87"
+    },
+    {
+      "query_id": "f2-052",
+      "status": "UNKNOWN",
+      "value_CNY": null
+    },
+    {
+      "query_id": "f2-053",
+      "status": "SELECTED_KNOWN_SOURCE",
+      "value_CNY": "246012295962.94"
+    },
+    {
+      "query_id": "f2-054",
+      "status": "UNKNOWN",
+      "value_CNY": null
+    },
+    {
+      "query_id": "f2-055",
+      "status": "SELECTED_KNOWN_SOURCE",
+      "value_CNY": "9870472245.91"
+    },
+    {
+      "query_id": "f2-056",
+      "status": "UNKNOWN",
+      "value_CNY": null
+    },
+    {
+      "query_id": "f2-057",
+      "status": "SELECTED_KNOWN_SOURCE",
+      "value_CNY": "1864499635.13"
+    },
+    {
+      "query_id": "f2-058",
+      "status": "UNKNOWN",
+      "value_CNY": null
+    },
+    {
+      "query_id": "f2-059",
+      "status": "SELECTED_KNOWN_SOURCE",
+      "value_CNY": "249326669106.12"
+    },
+    {
+      "query_id": "f2-060",
+      "status": "UNKNOWN",
+      "value_CNY": null
+    },
+    {
+      "query_id": "f2-061",
+      "status": "SELECTED_KNOWN_SOURCE",
+      "value_CNY": "13621477419.62"
+    },
+    {
+      "query_id": "f2-062",
+      "status": "UNKNOWN",
+      "value_CNY": null
+    },
+    {
+      "query_id": "f2-063",
+      "status": "SELECTED_KNOWN_SOURCE",
+      "value_CNY": "235323600.88"
+    },
+    {
+      "query_id": "f2-064",
+      "status": "UNKNOWN",
+      "value_CNY": null
+    },
+    {
+      "query_id": "f2-065",
+      "status": "SELECTED_KNOWN_SOURCE",
+      "value_CNY": "252907846631.80"
+    },
+    {
+      "query_id": "f2-066",
+      "status": "UNKNOWN",
+      "value_CNY": null
+    },
+    {
+      "query_id": "f2-067",
+      "status": "SELECTED_KNOWN_SOURCE",
+      "value_CNY": "1423085287.87"
+    },
+    {
+      "query_id": "f2-068",
+      "status": "UNKNOWN",
+      "value_CNY": null
+    },
+    {
+      "query_id": "f2-069",
+      "status": "SELECTED_KNOWN_SOURCE",
+      "value_CNY": "982047981.69"
+    },
+    {
+      "query_id": "f2-070",
+      "status": "UNKNOWN",
+      "value_CNY": null
+    },
+    {
+      "query_id": "f2-071",
+      "status": "SELECTED_KNOWN_SOURCE",
+      "value_CNY": "33501060239.47"
+    },
+    {
+      "query_id": "f2-072",
+      "status": "UNKNOWN",
+      "value_CNY": null
+    },
+    {
+      "query_id": "f2-073",
+      "status": "SELECTED_KNOWN_SOURCE",
+      "value_CNY": "2604581643.03"
+    },
+    {
+      "query_id": "f2-074",
+      "status": "UNKNOWN",
+      "value_CNY": null
+    },
+    {
+      "query_id": "f2-075",
+      "status": "SELECTED_KNOWN_SOURCE",
+      "value_CNY": "451877526.22"
+    },
+    {
+      "query_id": "f2-076",
+      "status": "UNKNOWN",
+      "value_CNY": null
+    },
+    {
+      "query_id": "f2-077",
+      "status": "SELECTED_KNOWN_SOURCE",
+      "value_CNY": "33335658040.29"
+    },
+    {
+      "query_id": "f2-078",
+      "status": "UNKNOWN",
+      "value_CNY": null
+    },
+    {
+      "query_id": "f2-079",
+      "status": "SELECTED_KNOWN_SOURCE",
+      "value_CNY": "3847295826.30"
+    },
+    {
+      "query_id": "f2-080",
+      "status": "UNKNOWN",
+      "value_CNY": null
+    },
+    {
+      "query_id": "f2-081",
+      "status": "SELECTED_KNOWN_SOURCE",
+      "value_CNY": "1293219643.16"
+    },
+    {
+      "query_id": "f2-082",
+      "status": "UNKNOWN",
+      "value_CNY": null
+    },
+    {
+      "query_id": "f2-083",
+      "status": "SELECTED_KNOWN_SOURCE",
+      "value_CNY": "34620051016.24"
+    },
+    {
+      "query_id": "f2-084",
+      "status": "UNKNOWN",
+      "value_CNY": null
+    },
+    {
+      "query_id": "f2-085",
+      "status": "SELECTED_KNOWN_SOURCE",
+      "value_CNY": "220878213.70"
+    },
+    {
+      "query_id": "f2-086",
+      "status": "UNKNOWN",
+      "value_CNY": null
+    },
+    {
+      "query_id": "f2-087",
+      "status": "SELECTED_KNOWN_SOURCE",
+      "value_CNY": "673948510.00"
+    },
+    {
+      "query_id": "f2-088",
+      "status": "UNKNOWN",
+      "value_CNY": null
+    },
+    {
+      "query_id": "f2-089",
+      "status": "SELECTED_KNOWN_SOURCE",
+      "value_CNY": "28415731046.08"
+    },
+    {
+      "query_id": "f2-090",
+      "status": "UNKNOWN",
+      "value_CNY": null
+    },
+    {
+      "query_id": "f2-091",
+      "status": "SELECTED_KNOWN_SOURCE",
+      "value_CNY": "62717467870.12"
+    },
+    {
+      "query_id": "f2-092",
+      "status": "SELECTED_KNOWN_SOURCE",
+      "value_CNY": "197480041239.46"
+    },
+    {
+      "query_id": "f2-093",
+      "status": "SELECTED_KNOWN_SOURCE",
+      "value_CNY": "361132000000"
+    },
+    {
+      "query_id": "f2-094",
+      "status": "SELECTED_KNOWN_SOURCE",
+      "value_CNY": "3496109000000"
+    },
+    {
+      "query_id": "f2-095",
+      "status": "SELECTED_KNOWN_SOURCE",
+      "value_CNY": "30729163500"
+    },
+    {
+      "query_id": "f2-096",
+      "status": "SELECTED_KNOWN_SOURCE",
+      "value_CNY": "61208843300"
+    },
+    {
+      "query_id": "f2-097",
+      "status": "SELECTED_KNOWN_SOURCE",
+      "value_CNY": "164481251600"
+    },
+    {
+      "query_id": "f2-098",
+      "status": "SELECTED_KNOWN_SOURCE",
+      "value_CNY": "243325374922.33"
+    },
+    {
+      "query_id": "f2-099",
+      "status": "SELECTED_KNOWN_SOURCE",
+      "value_CNY": "243325374922.33"
+    },
+    {
+      "query_id": "f2-100",
+      "status": "SELECTED_KNOWN_SOURCE",
+      "value_CNY": "243325374922.33"
+    },
+    {
+      "query_id": "f2-101",
+      "status": "SELECTED_KNOWN_SOURCE",
+      "value_CNY": "-9170618058.58"
+    },
+    {
+      "query_id": "f2-102",
+      "status": "SELECTED_KNOWN_SOURCE",
+      "value_CNY": "14425941059.26"
+    },
+    {
+      "query_id": "f2-103",
+      "status": "SELECTED_KNOWN_SOURCE",
+      "value_CNY": "14425941059.26"
+    },
+    {
+      "query_id": "f2-104",
+      "status": "SELECTED_KNOWN_SOURCE",
+      "value_CNY": "14425941059.26"
+    },
+    {
+      "query_id": "f2-105",
+      "status": "SELECTED_KNOWN_SOURCE",
+      "value_CNY": "-9183273202.95"
+    },
+    {
+      "query_id": "f2-106",
+      "status": "SELECTED_KNOWN_SOURCE",
+      "value_CNY": "14426074702.61"
+    },
+    {
+      "query_id": "f2-107",
+      "status": "SELECTED_KNOWN_SOURCE",
+      "value_CNY": "1842794237.84"
+    },
+    {
+      "query_id": "f2-108",
+      "status": "SELECTED_KNOWN_SOURCE",
+      "value_CNY": "-4840052606.46"
+    },
+    {
+      "query_id": "f2-109",
+      "status": "SELECTED_KNOWN_SOURCE",
+      "value_CNY": "258565636.12"
+    },
+    {
+      "query_id": "f2-110",
+      "status": "SELECTED_KNOWN_SOURCE",
+      "value_CNY": "-1619432371.05"
+    },
+    {
+      "query_id": "f2-111",
+      "status": "SELECTED_KNOWN_SOURCE",
+      "value_CNY": "-9852499598.84"
+    },
+    {
+      "query_id": "f2-112",
+      "status": "UNKNOWN",
+      "value_CNY": null
+    },
+    {
+      "query_id": "f2-113",
+      "status": "UNKNOWN",
+      "value_CNY": null
+    },
+    {
+      "query_id": "f2-114",
+      "status": "UNKNOWN",
+      "value_CNY": null
+    },
+    {
+      "query_id": "f2-115",
+      "status": "UNKNOWN",
+      "value_CNY": null
+    },
+    {
+      "query_id": "f2-116",
+      "status": "UNKNOWN",
+      "value_CNY": null
+    },
+    {
+      "query_id": "f2-117",
+      "status": "UNKNOWN",
+      "value_CNY": null
+    },
+    {
+      "query_id": "f2-118",
+      "status": "UNKNOWN",
+      "value_CNY": null
+    }
+  ]
+}

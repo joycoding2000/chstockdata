@@ -1,0 +1,187 @@
+{
+  "frozen_at_utc": "2026-10-21T05:35:01.098Z",
+  "documents": [
+    {
+      "id": "1219506510",
+      "code": "600519",
+      "path": "docs/audits/evidence/2026-10-20-w5h-r5/600519_FY2023.pdf",
+      "sha256": "2125ff97a452ea79b0d784e2432f7d224b6aecc330b644b593477d69e22f4ed1",
+      "date": "2024-04-03",
+      "title": "贵州茅台2023年年度报告",
+      "period": "2023-12-31",
+      "kind": "periodic"
+    },
+    {
+      "id": "1219875828",
+      "code": "600519",
+      "path": "docs/audits/evidence/2026-10-20-w5h-r5/600519_Q12024.pdf",
+      "sha256": "b706e237e25ff54a0bde7070a13b019a5e1eec7f412eb9d0baf33e750a7c32e2",
+      "date": "2024-04-27",
+      "title": "贵州茅台2024年第一季度报告",
+      "period": "2024-03-31",
+      "kind": "periodic"
+    },
+    {
+      "id": "1219487237",
+      "code": "000002",
+      "path": "docs/audits/evidence/2026-10-20-w5h-r5/000002_FY2023.pdf",
+      "sha256": "511a089558610e86605841f39b98f67993bd444c1e23018a204e704706882d0d",
+      "date": "2024-03-29",
+      "title": "2023年年度报告",
+      "period": "2023-12-31",
+      "kind": "periodic"
+    },
+    {
+      "id": "1219913619",
+      "code": "000002",
+      "path": "docs/audits/evidence/2026-10-20-w5h-r5/000002_Q12024.pdf",
+      "sha256": "9b6448abe7897ee462f905fb1273630d1c157fa4f5cd2d73c8ac8ef3cd551341",
+      "date": "2024-04-30",
+      "title": "2024年一季度报告",
+      "period": "2024-03-31",
+      "kind": "periodic"
+    },
+    {
+      "id": "1219313047",
+      "code": "300750",
+      "path": "docs/audits/evidence/2026-10-20-w5h-r5/300750_FY2023.pdf",
+      "sha256": "6081f0377617dddb82f900569d6458c278a7ab26697b34c87684188eac083471",
+      "date": "2024-03-16",
+      "title": "2023年年度报告",
+      "period": "2023-12-31",
+      "kind": "periodic"
+    },
+    {
+      "id": "1219619642",
+      "code": "300750",
+      "path": "docs/audits/evidence/2026-10-20-w5h-r5/300750_Q12024.pdf",
+      "sha256": "7be8765c33298b96a1010e61a7bcac3212db7f58dc3d360888548cfd11424265",
+      "date": "2024-04-16",
+      "title": "2024年一季度报告",
+      "period": "2024-03-31",
+      "kind": "periodic"
+    },
+    {
+      "id": "1219429144",
+      "code": "601398",
+      "path": "docs/audits/evidence/2026-10-20-w5h-r5/601398_FY2023.pdf",
+      "sha256": "e310e8a55ff8f057782c6c70b003fa220ca5a2e484334bffbf308bdc39b3434d",
+      "date": "2024-03-28",
+      "title": "工商银行2023年度报告",
+      "period": "2023-12-31",
+      "kind": "periodic"
+    },
+    {
+      "id": "1219922891",
+      "code": "601398",
+      "path": "docs/audits/evidence/2026-10-20-w5h-r5/601398_Q12024.pdf",
+      "sha256": "4c0c46e807f389e05ece1b0d4ea519f47656c356affd11106375988aef96d9dd",
+      "date": "2024-04-30",
+      "title": "工商银行2024年第一季度报告",
+      "period": "2024-03-31",
+      "kind": "periodic"
+    },
+    {
+      "id": "1219747877",
+      "code": "000961",
+      "path": "docs/audits/evidence/2026-10-20-w5h-r5/000961_FY2023.pdf",
+      "sha256": "c67bafcbefa6125abd0edb8bb8a181cc0fdad4dbb05950a311d7556202089a34",
+      "date": "2024-04-23",
+      "title": "2023年年度报告",
+      "period": "2023-12-31",
+      "kind": "periodic"
+    },
+    {
+      "id": "1219909136",
+      "code": "000961",
+      "path": "docs/audits/evidence/2026-10-20-w5h-r5/000961_Q12024.pdf",
+      "sha256": "ea7a848e108b9e9334a2cce61eef1538fad0354ab20aeb8661acada62f76f108",
+      "date": "2024-04-30",
+      "title": "2024年一季度报告",
+      "period": "2024-03-31",
+      "kind": "periodic"
+    },
+    {
+      "id": "1216561621",
+      "code": "000961",
+      "path": "docs/audits/evidence/2026-10-21-w5h-r6/1216561621.pdf",
+      "sha256": "4b102c9d697fc3bb96b61a4a1aaca82924bcf74224cc91006741dd1298db8271",
+      "date": "2023-04-25",
+      "title": "original",
+      "period": "2022-12-31",
+      "kind": "periodic"
+    },
+    {
+      "id": "1217386817",
+      "code": "000961",
+      "path": "docs/audits/evidence/2026-10-21-w5h-r6/1217386817.pdf",
+      "sha256": "0f0af42e6e45d2b583e0d37b4620f6482de2e0b1716150a986612d26d29eff2d",
+      "date": "2023-07-26",
+      "title": "updated",
+      "period": "2022-12-31",
+      "kind": "periodic"
+    },
+    {
+      "id": "1217386818",
+      "code": "000961",
+      "path": "docs/audits/evidence/2026-10-21-w5h-r6/1217386818.pdf",
+      "sha256": "322ad321ee6941764f1ce6ccaef5df07299780c9e4380847523c729169836673",
+      "date": "2023-07-26",
+      "title": "supplement",
+      "period": null,
+      "kind": "notice"
+    },
+    {
+      "id": "1221331382",
+      "code": "000002",
+      "path": "docs/audits/evidence/2026-10-21-w5h-r6/1221331382.pdf",
+      "sha256": "10cfe922a5328d994c9ebd32e4a217b1b11bdce61755ff84b52b9ab3d960fd79",
+      "date": "2024-09-30",
+      "title": "correction",
+      "period": null,
+      "kind": "notice"
+    },
+    {
+      "id": "1204793690",
+      "code": "600518",
+      "path": "docs/audits/evidence/2026-10-20-w5h-r4/official_original_2017.pdf",
+      "sha256": "15b3b15df2dfd3310cc16e1e345e8950e8a9cb047bdad38d1263e2b55cfd2985",
+      "date": "2018-04-26",
+      "title": "2017年年度报告",
+      "period": "2017-12-31",
+      "kind": "periodic"
+    },
+    {
+      "id": "1206168283",
+      "code": "600518",
+      "path": "docs/audits/evidence/2026-10-20-w5h-r4/correction_audit_20190430.pdf",
+      "sha256": "ca22aa1858f56e2cd9181d15c88fde83312afb94701898a2de74c378c7c41bab",
+      "date": "2019-04-30",
+      "title": "2018年度前期会计差错更正专项说明的审核报告",
+      "period": null,
+      "kind": "notice"
+    },
+    {
+      "id": "1206168292",
+      "code": "600518",
+      "path": "docs/audits/evidence/2026-10-20-w5h-r4/official_annual_2018.pdf",
+      "sha256": "9f47aa0dc0a8838ffd21e600d7eca194052d91cf867d8e22a4ba56dee2b9f60a",
+      "date": "2019-04-30",
+      "title": "2018年年度报告",
+      "period": "2018-12-31",
+      "kind": "periodic"
+    },
+    {
+      "id": "1206201352",
+      "code": "600518",
+      "path": "docs/audits/evidence/2026-10-20-w5h-r4/official_regulatory_letter_20190501.pdf",
+      "sha256": "eb418f8ef428841839577bc82f2812167092b65c4bcaa928fe38c30faf099ed8",
+      "date": "2019-05-01",
+      "title": "关于收到上海证券交易所对公司前期会计差错更正等有关事项的监管工作函的公告",
+      "period": null,
+      "kind": "notice"
+    }
+  ],
+  "security_count": 6,
+  "network_requests_authorized": 0
+}

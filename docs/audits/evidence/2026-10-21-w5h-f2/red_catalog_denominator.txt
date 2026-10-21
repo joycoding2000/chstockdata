@@ -1,0 +1,13 @@
+F.
+======================================================================
+FAIL: test_full_denominator_and_positive_periodic_bodies (test_catalog.CatalogIdentity.test_full_denominator_and_positive_periodic_bodies)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\Dev\Projects\chstockdata\docs\audits\evidence\2026-10-21-w5h-f2\test_catalog.py", line 19, in test_full_denominator_and_positive_periodic_bodies
+    self.assertEqual(len(periodic),25)
+AssertionError: 26 != 25
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.011s
+
+FAILED (failures=1)

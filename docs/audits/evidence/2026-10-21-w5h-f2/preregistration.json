@@ -1,0 +1,62 @@
+{
+  "at_utc": "2026-10-21T09:56:29.228Z",
+  "baseline": "52e8c114e72a35cdbab1837710b89f628644e311",
+  "windows": [
+    {
+      "code": "600518",
+      "start": "2018-04-24",
+      "end": "2019-05-06",
+      "target": "FY2017 original and restatement; existing F1 T range"
+    },
+    {
+      "code": "000961",
+      "start": "2023-04-24",
+      "end": "2024-05-06",
+      "target": "FY2022 original/update, 2023 intervening reports, FY2023 and Q12024"
+    },
+    {
+      "code": "000002",
+      "start": "2023-04-24",
+      "end": "2024-10-08",
+      "target": "FY2022 original through FY2023 and Q12024/H12024; existing F1 T range"
+    },
+    {
+      "code": "300750",
+      "start": "2024-03-15",
+      "end": "2024-04-17",
+      "target": "FY2023/Q12024 EPS-only comparative control"
+    },
+    {
+      "code": "600519",
+      "start": "2024-04-02",
+      "end": "2024-05-06",
+      "target": "FY2023 and Q12024 accounting/period-end identity"
+    },
+    {
+      "code": "601398",
+      "start": "2024-03-27",
+      "end": "2024-05-06",
+      "target": "FY2023 and Q12024 group/bank accounting and comparative control"
+    }
+  ],
+  "additional_independent_bases": [
+    "000002 FY2022 mandatory original from existing index",
+    "600519 FY2022 original to cross-check FY2023 before/after",
+    "601398 FY2022 original to cross-check FY2023 before/after",
+    "300750 FY2022 original to validate EPS-only monetary control"
+  ],
+  "scope_note": "Windows are fixed-case diagnostic windows, not a change to one-year full-market S07 target. Independent base originals are separately labelled point anchors, not a claim of complete intervening chains outside these windows.",
+  "budget": {
+    "new_pdfs": 20,
+    "metadata_requests": 40,
+    "total_direct_requests": 65,
+    "single_pdf_max_bytes": 25000000,
+    "total_pdf_max_bytes": 200000000,
+    "seconds_between_same_host": 3,
+    "timeout_seconds": 25,
+    "max_pages_per_issuer": 12,
+    "page_size": 100
+  },
+  "discovery": "Unfiltered official issuer/date index, every returned page; no keyword/category exclusion at index query. Required bodies: complete periodic statements; target report updates, supplements, accounting/restatement notices, and related inquiries/answers within windows. Irrelevant governance/operational bodies not assumed to alter monetary facts; unresolved materiality blocks qualification.",
+  "no_network_before_registration": true
+}

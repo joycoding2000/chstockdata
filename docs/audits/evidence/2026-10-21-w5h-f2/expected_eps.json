@@ -1,0 +1,23 @@
+{
+  "frozen_at_utc": "2026-10-21T10:31:05.205Z",
+  "expected": [
+    {
+      "id": "1216084559",
+      "period": "2022-12-31",
+      "column": "current",
+      "value": "12.9178"
+    },
+    {
+      "id": "1219313047",
+      "period": "2022-12-31",
+      "column": "unadjusted",
+      "value": "12.9178"
+    },
+    {
+      "id": "1219313047",
+      "period": "2022-12-31",
+      "column": "adjusted",
+      "value": "7.1766"
+    }
+  ]
+}

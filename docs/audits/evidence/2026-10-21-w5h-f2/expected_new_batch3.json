@@ -1,0 +1,54 @@
+{
+  "frozen_at_utc": "2026-10-21T10:25:22.466Z",
+  "truth": "Independent notice PDF text review, not parser input; comprehensive income deliberately not NP.",
+  "cases": [
+    {
+      "id": "1219747900",
+      "code": "000961",
+      "field": "EQ",
+      "period": "2022-12-31",
+      "column": "unadjusted",
+      "scope": "consolidated",
+      "duration": "INSTANT_END",
+      "expected_CNY": "14425941059.26",
+      "expected_multiplier": 1,
+      "physical_page": 2
+    },
+    {
+      "id": "1219747900",
+      "code": "000961",
+      "field": "EQ",
+      "period": "2022-12-31",
+      "column": "adjusted",
+      "scope": "consolidated",
+      "duration": "INSTANT_END",
+      "expected_CNY": "14426074702.61",
+      "expected_multiplier": 1,
+      "physical_page": 2
+    },
+    {
+      "id": "1219747900",
+      "code": "000961",
+      "field": "EQ",
+      "period": "2022-01-01",
+      "column": "unadjusted",
+      "scope": "consolidated",
+      "duration": "INSTANT_START",
+      "expected_CNY": "23414520575.69",
+      "expected_multiplier": 1,
+      "physical_page": 3
+    },
+    {
+      "id": "1219747900",
+      "code": "000961",
+      "field": "EQ",
+      "period": "2022-01-01",
+      "column": "adjusted",
+      "scope": "consolidated",
+      "duration": "INSTANT_START",
+      "expected_CNY": "23427309363.41",
+      "expected_multiplier": 1,
+      "physical_page": 3
+    }
+  ]
+}

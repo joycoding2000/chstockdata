@@ -1,0 +1,11 @@
+{
+  "at_utc": "2026-10-21T10:03:49.021Z",
+  "original_registration_sha256": "6d7ccd1bc8b4067ea6502946a60cc4089a33474362f1a0d7bf78537ae3b31b79",
+  "evidence": "POST pageNum 1..12 returned byte-identical first pages; explicit query parameter also identical; one GET yielded HTTP500. Raw responses and requests retained.",
+  "change": "Use disjoint date partitions within the same six fixed windows; single-date overflow may use ascending/descending union only if its unique ID count exactly equals official total. Stop on non-closing count, no inferred completeness.",
+  "metadata_requests": 130,
+  "total_direct_requests": 160,
+  "new_pdfs": 20,
+  "scope_changed": false,
+  "reason": "Source-pagination diagnosis and exact finite-window index closure; no securities/dates or PDF count expansion."
+}

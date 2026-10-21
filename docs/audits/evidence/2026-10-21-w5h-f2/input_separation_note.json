@@ -1,0 +1,7 @@
+{
+  "first_aux_manifest_had_unused_expected_records": true,
+  "initial_aux_parser_read_only_ids_and_never_used_amounts": true,
+  "final_aux_manifest_contains_only_source_ids_and_reason": true,
+  "final_expected_amounts_read_only_by_scorer": "expected_eps.json",
+  "not_a_blind_test": true
+}

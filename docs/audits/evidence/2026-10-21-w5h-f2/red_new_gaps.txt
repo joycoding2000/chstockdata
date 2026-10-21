@@ -1,0 +1,42 @@
+.FFF.F
+======================================================================
+FAIL: test_new_documents_unit_blocks_and_dash_do_not_hide_fields (test_f2.F2KnownGaps.test_new_documents_unit_blocks_and_dash_do_not_hide_fields) (id='1218204096', field='OCF')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\Dev\Projects\chstockdata\docs\audits\evidence\2026-10-21-w5h-f2\test_f2.py", line 42, in test_new_documents_unit_blocks_and_dash_do_not_hide_fields
+    self.assertNotEqual(got['status'], 'UNKNOWN')
+AssertionError: 'UNKNOWN' == 'UNKNOWN'
+
+======================================================================
+FAIL: test_new_documents_unit_blocks_and_dash_do_not_hide_fields (test_f2.F2KnownGaps.test_new_documents_unit_blocks_and_dash_do_not_hide_fields) (id='1221084198', field='EQ')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\Dev\Projects\chstockdata\docs\audits\evidence\2026-10-21-w5h-f2\test_f2.py", line 42, in test_new_documents_unit_blocks_and_dash_do_not_hide_fields
+    self.assertNotEqual(got['status'], 'UNKNOWN')
+AssertionError: 'UNKNOWN' == 'UNKNOWN'
+
+======================================================================
+FAIL: test_new_documents_unit_blocks_and_dash_do_not_hide_fields (test_f2.F2KnownGaps.test_new_documents_unit_blocks_and_dash_do_not_hide_fields) (id='1217713835', field='EQ')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\Dev\Projects\chstockdata\docs\audits\evidence\2026-10-21-w5h-f2\test_f2.py", line 42, in test_new_documents_unit_blocks_and_dash_do_not_hide_fields
+    self.assertNotEqual(got['status'], 'UNKNOWN')
+AssertionError: 'UNKNOWN' == 'UNKNOWN'
+
+======================================================================
+FAIL: test_prior_ytd_header_is_prior_period (test_f2.F2KnownGaps.test_prior_ytd_header_is_prior_period)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\Dev\Projects\chstockdata\docs\audits\evidence\2026-10-21-w5h-f2\test_f2.py", line 31, in test_prior_ytd_header_is_prior_period
+    self.assertEqual(p.header_period('上年初至上年报告期末', '2019-03-31', 'NP'), '2018-03-31')
+AssertionError: '2019-03-31' != '2018-03-31'
+- 2019-03-31
+?    ^
++ 2018-03-31
+?    ^
+
+
+----------------------------------------------------------------------
+Ran 4 tests in 1.973s
+
+FAILED (failures=4)
