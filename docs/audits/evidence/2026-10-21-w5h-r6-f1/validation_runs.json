@@ -1,0 +1,30 @@
+[
+  {
+    "name": "guards",
+    "exit_code": 0,
+    "observable_process_seconds": 0.227,
+    "stdout": "",
+    "stderr": "...............\r\n----------------------------------------------------------------------\r\nRan 15 tests in 0.002s\r\n\r\nOK\r\n"
+  },
+  {
+    "name": "values",
+    "exit_code": 0,
+    "observable_process_seconds": 0.134,
+    "stdout": "{\"counts\": {\"PASS\": 87, \"UNKNOWN\": 2}, \"by_id\": {\"1219506510\": {\"PASS\": 9}, \"1219875828\": {\"PASS\": 4, \"UNKNOWN\": 2}, \"1219487237\": {\"PASS\": 9}, \"1219913619\": {\"PASS\": 6}, \"1219313047\": {\"PASS\": 9}, \"1219619642\": {\"PASS\": 6}, \"1219429144\": {\"PASS\": 9}, \"1219922891\": {\"PASS\": 8}, \"1219747877\": {\"PASS\": 9}, \"1219909136\": {\"PASS\": 6}, \"1216561621\": {\"PASS\": 3}, \"1217386817\": {\"PASS\": 3}, \"1217386818\": {}, \"1221331382\": {}, \"1204793690\": {\"PASS\": 3}, \"1206168283\": {}, \"1206168292\": {\"PASS\": 3}, \"1206201352\": {}}}\r\n",
+    "stderr": ""
+  },
+  {
+    "name": "versions",
+    "exit_code": 0,
+    "observable_process_seconds": 0.82,
+    "stdout": "{\"ledger_facts\": 67, \"catalog\": 85, \"paired_comparatives\": 15, \"changed_fields\": 8, \"replay_pass\": 46, \"replay_denominator\": 46}\r\n",
+    "stderr": ""
+  },
+  {
+    "name": "quality",
+    "exit_code": 0,
+    "observable_process_seconds": 0.141,
+    "stdout": "{\"pass\": true, \"checks\": 91, \"current_row_numeric_mismatches\": 2}\r\n",
+    "stderr": ""
+  }
+]

@@ -1,0 +1,48 @@
+{
+  "method": "Agent visual inspection of seven freshly rendered full physical pages; not independent human signoff",
+  "numeric_corrections": 0,
+  "checks": [
+    {
+      "id": "1219913619",
+      "physical_page": 2,
+      "observation": "元；NP 与 OCF 括号为负数；EQ 为本报告期末",
+      "checked": true
+    },
+    {
+      "id": "1219913619",
+      "physical_page": 3,
+      "observation": "下半页变动说明表另用万元，不能作用于前页",
+      "checked": true
+    },
+    {
+      "id": "1219619642",
+      "physical_page": 1,
+      "observation": "目标行万元；上年同期调整前/后列；期末表头在页尾",
+      "checked": true
+    },
+    {
+      "id": "1219619642",
+      "physical_page": 2,
+      "observation": "权益行万元；承接上页期末列，另起非经常性损益表",
+      "checked": true
+    },
+    {
+      "id": "1219922891",
+      "physical_page": 13,
+      "observation": "百万元；前两列本集团，后两列本行；OCF 本期1367252 与1166485",
+      "checked": true
+    },
+    {
+      "id": "1206168292",
+      "physical_page": 6,
+      "observation": "2017 调整后 OCF 负数；调整前正数，当前期为2018",
+      "checked": true
+    },
+    {
+      "id": "1219875828",
+      "physical_page": 2,
+      "observation": "权益表本期末与上年末；单位未在本页本表重述，下面万元属于其他表",
+      "checked": true
+    }
+  ]
+}

@@ -1,0 +1,126 @@
+{
+  "verified_at_utc": "2026-10-21T06:01:31.363093+00:00",
+  "status": "PASS_DELIVERY_NOT_S07_GATE",
+  "head": "975a75f6717e1d8a3bd39fe34b3096d917b80066",
+  "protected_tracked_files": 977,
+  "checks": {
+    "head_unchanged": true,
+    "branch_main": true,
+    "all_archived_tracked_bytes_unchanged": true,
+    "frozen_fixture_bytes_unchanged": true,
+    "authority_context_bytes_unchanged": true,
+    "source_PDFs_match": true,
+    "parser_sha_stable_during_final_run": true,
+    "whole_batch_values": true,
+    "replay_values_sources_and_statuses": true,
+    "strict_and_diagnostic_denominators": true,
+    "actual_output_quality": true,
+    "no_staged_or_tracked_diff": true,
+    "only_authorized_additions": true,
+    "report_links_exist": true
+  },
+  "tracked_changes": [],
+  "frozen_changes": [],
+  "context_changes": [],
+  "source_checks": [
+    {
+      "id": "1219506510",
+      "matches": true
+    },
+    {
+      "id": "1219875828",
+      "matches": true
+    },
+    {
+      "id": "1219487237",
+      "matches": true
+    },
+    {
+      "id": "1219913619",
+      "matches": true
+    },
+    {
+      "id": "1219313047",
+      "matches": true
+    },
+    {
+      "id": "1219619642",
+      "matches": true
+    },
+    {
+      "id": "1219429144",
+      "matches": true
+    },
+    {
+      "id": "1219922891",
+      "matches": true
+    },
+    {
+      "id": "1219747877",
+      "matches": true
+    },
+    {
+      "id": "1219909136",
+      "matches": true
+    },
+    {
+      "id": "1216561621",
+      "matches": true
+    },
+    {
+      "id": "1217386817",
+      "matches": true
+    },
+    {
+      "id": "1217386818",
+      "matches": true
+    },
+    {
+      "id": "1221331382",
+      "matches": true
+    },
+    {
+      "id": "1204793690",
+      "matches": true
+    },
+    {
+      "id": "1206168283",
+      "matches": true
+    },
+    {
+      "id": "1206168292",
+      "matches": true
+    },
+    {
+      "id": "1206201352",
+      "matches": true
+    }
+  ],
+  "outside_scope_statuses": [],
+  "removed_original_statuses": [],
+  "broken_links": [],
+  "syntax_checked_scripts": [
+    "check_quality.py",
+    "inspect_layout.py",
+    "inspect_layout_extra.py",
+    "parser_f1.py",
+    "render_check.py",
+    "run_parse.py",
+    "seal_manifest.py",
+    "summarize_cost.py",
+    "test_legacy_units.py",
+    "test_parser.py",
+    "test_versions.py",
+    "validate_values.py",
+    "verify_delivery.py",
+    "version_f1.py"
+  ],
+  "strict_output_counts": {
+    "UNKNOWN": 21,
+    "SELECTED_BOUNDED": 18
+  },
+  "staged_files": [],
+  "git_commit": "NO",
+  "git_push": "NO",
+  "S07_gate": "NOT_PASSED"
+}

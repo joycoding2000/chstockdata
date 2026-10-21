@@ -1,0 +1,269 @@
+[
+  {
+    "path": "AGENTS.md",
+    "sha256": "cd29b01d7fe742c9571db2bbfcb7b59bddd3b84d4bc81bbfbc0af1488c4c7586",
+    "relevant_lines": []
+  },
+  {
+    "path": "docs/MISHI_RADAR_V0_1_SPEC_R3_2_SCOPE_APPROVED_DATA_PENDING_2026-10-16.md",
+    "sha256": "9b98641d4602fcd2a35c28520f9160a3fbf935ce1c43e89d466a473419e5bd62",
+    "relevant_lines": [
+      {
+        "line": 4,
+        "text": "> **决策身份：OWNER_SCOPE_APPROVED / PRODUCT_IMPLEMENTATION_NOT_AUTHORIZED**。Owner 已明确批准 S07 首发，以及 B–F 五项范围取舍与两项交付底线。本文件据此整合 R3、R3.1 的相关条款；**不是“所有数据已合格”、不是整个技术/运行规格冻结、不是产品实施或发布授权**。  "
+      },
+      {
+        "line": 15,
+        "text": "| A | S07 | **价值质量是独立首发必交策略**。S01–S08 **八套**必须纳入正式交付；S07 不再为“条件候选”。数据不足形成阻断或 Owner Change Request，不自动取消 |"
+      },
+      {
+        "line": 24,
+        "text": "1. **当前扫描底线**：八套策略都必须在经明确声明的正式沪深 A 股范围内，使用合格的最新实际数据完成**当期全市场日终筛选**；F1 最新全池覆盖、S06 当前完整行业成员、S07 全池价值质量输入、S08 最近五个完整交易日同源无损资金数据必须取得合格证据。不得把“可打开页面/个别股票成功/多显示无法计算”当作交付成功。"
+      },
+      {
+        "line": 25,
+        "text": "2. **回测底线**：八套策略都必须能以其真实规则进行**单股历史规则检验和 Top N 现金组合回测**，现金、仓位、费用、不可成交与净值可核对；统一向供应项目提出**最近约1个交易年度（另含预热）**的目标历史范围，实际可承诺区间必须据供应证据决定。不能因某项历史不足而静默降低承诺，需 Owner 明确裁决支持区间、供应需求或发布时间。"
+      },
+      {
+        "line": 27,
+        "text": "**生效原则**：本文件对范围、首发优先级、非目标的明确表述优先于 R3/R3.1 的冲突候选句子（尤其“七套”“S07条件候选”“AND首发”）。原始策略的具体参数、公式仍以 `2026-10-15-LAUNCH_STRATEGIES.md` 的**待冻结提案**为来源，不因本文件而假定得到 Owner 参数批准。整份规格的技术交付资格尚待数据应答和必要运行预算确认。"
+      },
+      {
+        "line": 35,
+        "text": "| F3 个股诊断 | 任意支持证券的六维解释、原始数值/单位/窗/日期、横截面位置（数据足够才显示）、主要正反证据、策略命中与差异、板块/资金/量价/风险/失效、历史入口；可查看缺失 | 不能把缺字段转成 0、50分、五星、低风险或黑盒预测总分；价值/质量画像不能替代独立S07 |"
+      },
+      {
+        "line": 52,
+        "text": "| **S07 价值质量** | 估值合理、财务质量合格股票 | PE、ROE、利润、经营现金流、公告日与历史版本、行业归属 | **Owner 已批准必交；DR03/05/06双资格待核** |"
+      },
+      {
+        "line": 71,
+        "text": "| **S07** | **必**（可知财务/估值及行业内全池） | **观**（最新公告数据与当前行情，不称实时财报） | **必** | **必** | DR03/05/06，避免回填未来财报 |"
+      },
+      {
+        "line": 76,
+        "text": "- `CURRENT_SCAN`：实际股票池分母及合格、剔除、缺失、失败数量；最新已完成交易日/源时点、数据单位/定义、采集吞吐；股票全池可靠性**尚未证实**，S06 当前行业成员、S07 全池财务估值、S08 最近五日资金是重点阻断候选。"
+      },
+      {
+        "line": 78,
+        "text": "- **历史目标**：向供应方请求近约一个交易年度真实复现（另加规则预热）；三年/自定义保留为后续数据范围目标。短于目标或某策略无法复现，必须 Owner 另行批准商品承诺/供应计划/发布时间变更；不能默认“有几个月数据就标称完整回测”。"
+      },
+      {
+        "line": 98,
+        "text": "| DR02 价量额与行情 | 当前全池日线 Amount /成交量、基准、报价真实源时间、S02累计量、完成批次 | 原始/复权价格与执行价、量额单位、预热与历史跨度 |"
+      },
+      {
+        "line": 99,
+        "text": "| DR03 行业 | 同一分类当前**全量成员**、无行业比例与版本 | 历史分类成员、有效区间、S06/S07行业内排名资格 |"
+      },
+      {
+        "line": 101,
+        "text": "| DR05 财务估值 | S07 / F3 当前 PE、ROE、盈利、经营现金流及全池覆盖/公告时间 | PIT财报与估值逐日值、旧修订可知性、金融股分类与数据跨度 |"
+      },
+      {
+        "line": 121,
+        "text": "## 8. Gate、未冻结事项和停止条件"
+      },
+      {
+        "line": 135,
+        "text": "| `OWNER_SCOPE_ACCEPTANCE` | `PASS`：S01–S08 八套、B–F取舍及两项交付底线；具体参数/数据资格未冻结 |"
+      },
+      {
+        "line": 138,
+        "text": "| `SCOPE_DEVIATION` | 经 Owner 正式批准 S07 加入必交；AND/WF 后排、H1/六维/预设/历史排名首发；变更已显式记录 |"
+      }
+    ]
+  },
+  {
+    "path": "docs/MISHI_RADAR_TO_CHSTOCKDATA_DR01_DR06_CONSUMER_REQUEST_2026-10-16.md",
+    "sha256": "35609c8cbf823dbb86a681ea15c27f7f598892b7ea73f46ecde5025e85ff8866",
+    "relevant_lines": [
+      {
+        "line": 7,
+        "text": "- 消费者 Mishi Radar 已批准 **S01–S08 八套策略**首发，覆盖沪深A股选股、六维诊断、S06行业、S07价值质量、S08日度资金、自选资金日报、真实单股及TopN现金组合回测；PC/手机Web使用同一后端。"
+      },
+      {
+        "line": 9,
+        "text": "- 历史目标：最近**约1个交易年度另含预热**，若不支持请准确报告可支持日期段和限制。不要以临时修改消费者范围代替数据能力答复。"
+      },
+      {
+        "line": 17,
+        "text": "| **DR02 OHLCV/Amount/基准/盘中量** | 盘后全池价量成交额的数值/单位/可用更新窗；基准覆盖；若S02盘中触发，真实累计成交量及源行情时间；原始价格与复权用途区别 | 最少一交易年度另含窗口预热的价/量/额/基准；历史收益计算用复权，订单成交价用当时未复权真实价格；数据来源/单位/旧值修订范围 | S01–S08、F3/F4/F6；S02/S05 特别依赖 |"
+      },
+      {
+        "line": 18,
+        "text": "| **DR03 行业成员** | 选定一个一致的行业分类，当前完整股票→行业ID和行业成员矩阵、未分类分母、分类版本与时点；S06广度和S07行业内排名必须可计算 | 对应历史日生效的行业归属、成分及分类修订信息，尤其股票迁移、退市及当时无分类；无法提供须明确起止与覆盖 | S06 当前及历史、S07 横截面、F3/F4、F6 |"
+      },
+      {
+        "line": 20,
+        "text": "| **DR05 财务与估值** | PE类型及有效值、盈利、经营现金流、ROE所需分子/分母及算法/单位、最新报告期/公告日期、行业/金融股排除；当前全池更新吞吐 | 当时已公告且当时版本的财报数据（包括修订的真实可知日期）、指定日PE等估值数值及数据日期、ROE口径一致性、历史可用首尾 | **S07 必交**、F3价值质量、F6 |"
+      },
+      {
+        "line": 49,
+        "text": "`SUPPLIER_SHA`、`PACKAGE_RELEASE_BASELINE`、`DR01_STATUS`、`DR02_STATUS`、`DR03_STATUS`、`DR04_STATUS`、`DR05_STATUS`、`DR06_STATUS`、`CURRENT_SCAN_BLOCKERS`、`HISTORICAL_REPLAY_BLOCKERS`、`EVIDENCE_PATHS`、`OWNER_DECISIONS_REQUIRED`。"
+      }
+    ]
+  },
+  {
+    "path": "docs/audits/2026-10-20-w5h-r4-tdx-revision-root-cause-and-archival-pit.md",
+    "sha256": "f4b68c112d25fc0de4969c37ae497411d2a8e36e988e17769ccc8257c326f33b",
+    "relevant_lines": [
+      {
+        "line": 14,
+        "text": "之所以不将总体裁决上调为完整档案重建可行，是因为**截至 T2 的全部影响材料链仍 UNKNOWN、独立 2016 原件未认证、完整财务预热/最终 ROE 方法未合格，时间规则也不是本任务有权冻结的合同**。四字段的有限信息集合成功，不等于完整历史财务输入或 S07 通过。不是 ARCHIVAL_RECONSTRUCTION_BLOCKED：官方原件已经实际取得，不存在据本轮证据否决 PDF/HTML 路线的理由。"
+      },
+      {
+        "line": 18,
+        "text": "沿用并核对 AGENTS、双消费者供给计划、W5-H/R2/R3、Mishi R3.2 已批准范围及 DR05 历史要求；另读取最新运行规格候选，身份为规则基线已接受但整体设计/实施未授权。遵从本轮 Owner：S07 必交、当前和历史独立、约一交易年度另含预热、不冻结 PE/ROE/阈值。候选中的“公告日后首个交易日收盘可用”仅用于下述诊断，不提升为正式供给合同。"
+      },
+      {
+        "line": 141,
+        "text": "另有一个可以缩小的旧风险：**本轮官方扫描审核报告 PDF 第6页（印刷第5页）和官方后续年报第7页均给出 2017 修订后加权 ROE=7.68%**；旧新浪更正公告镜像为7.20%。这是官方 PDF 与旧镜像的来源差异，**不能继续表述为这两份官方 PDF 互相矛盾**，但未取得官方更正公告 PDF 本体，不替旧镜像擅改值。仍不冻结 S07 的 ROE 算法、不把披露加权 ROE 与自算平均权益 ROE等同。"
+      },
+      {
+        "line": 151,
+        "text": "日历只读已有 `.rh3a2-vipdoc/sh/lday/sh000001.day`，内容 SHA 记入 [disclosure_events.json](evidence/2026-10-20-w5h-r4/disclosure_events.json)。固定样本下，2018-04-26 的下一交易日为 **04-27**；2019-04-30 的下一交易日为 **05-06**。不把工作日/自然日当交易日。该规则是**未冻结的保守候选**，不是获批 SLA/历史日内首发认证，也不认证整个市场日历。"
+      },
+      {
+        "line": 166,
+        "text": "原件直接值、确定性计算和 UNKNOWN 分开保存：回放四字段为 `OFFICIAL_PDF_DIRECT_VALUE`；DAT 分项 OCF 只在诊断文件；完整 ROE/缺失预热为 UNKNOWN。这个演示是离线审计产物，不是新供应商响应、数据库、公共 API 或策略输入包。"
+      },
+      {
+        "line": 170,
+        "text": "原报 p7 给出当时披露的 2016 比较期归母权益 **29,115,570,378.99**；后续年报 p6 给出其调整后比较值 **27,714,601,608.54**。账本分别保留对应披露日，**不能用后一数值填 T1**。本轮没有独立认证 2016 原年报，没有认证所有所需季度/TTM基期，也没有计算或选择 S07 ROE 公式；不能把两行比较数据包装成完整财务预热合格。"
+      },
+      {
+        "line": 193,
+        "text": "**对完整 S07 所需事实，尚未证明。** 完整修订链、独立基期、季度连续性、金融类/合并口径差异、最终 ROE/PE方法、历史估值/股本、行业/历史池和全市场覆盖各有独立资格。XBRL 当前 JSON 仅提供一套原值，不代替这些版本事实。"
+      },
+      {
+        "line": 199,
+        "text": "**唯一最小下一动作：Owner Review 后，若授权继续，只做一个“来源链与财务预热闭合”的资格包。** 先补本例截至 T2 可能影响2017字段的完整具名披露清单（包括不含“更正”标题的答复/补充材料）、独立前期原件，并确认日期级可用规则。以字段/版本差异及缺口账本为验收，不运行收益回测、不开发接口。"
+      },
+      {
+        "line": 201,
+        "text": "该包若成立，才可提出一沪一深、事前固定证券和目标年度另含必要财务预热的最小扩样；600518 保留为离线修订反例。下一次应量测原件获取成功/缺失、原/修订身份、字段/单位完整度、人工处理页/耗时及与既有结构化值的差异；未冻结公式所需期间不擅定，不能据两公司样例宣称全市场可行。本报告**不授权这一扩样或任何下一实施阶段**。"
+      },
+      {
+        "line": 216,
+        "text": "| UNRESOLVED_RISK | TDX 实际上游/更新机制、完整修订链、独立基期/预热、可用时间合同、完整字段与全池资格 |"
+      },
+      {
+        "line": 246,
+        "text": "REQUIRED_FINANCIAL_FIELD_COVERAGE = FOUR_SELECTED_FIELDS_DIRECT; NOT_COMPLETE_S07_FINANCIAL_INPUT"
+      },
+      {
+        "line": 252,
+        "text": "MISHI_S07_HISTORICAL_GATE = NOT_PASSED"
+      },
+      {
+        "line": 257,
+        "text": "GIT_COMMIT = NO"
+      },
+      {
+        "line": 266,
+        "text": "- Gate 与证据：DAT 混合及分项/小计不一致已确认；官方原件取得及有限四字段回放 `PASS_BOUNDED`，总体 `PARTIAL_RECONSTRUCTION_WITH_NAMED_GAPS`；cashflow_comparison、official_document_identities、three_date_information_sets、offline_assertions 为决定性证据。S07 历史 Gate 未通过。"
+      },
+      {
+        "line": 267,
+        "text": "- 未解阻断与范围变化：实际 TDX 更新血缘、完整更正链、独立基期/完整预热、时间规则和完整 S07 其他输入未认证；没有产品范围变化或工程实施。"
+      }
+    ]
+  },
+  {
+    "path": "docs/audits/2026-10-20-w5h-r5-historical-disclosure-scale-cost-screen.md",
+    "sha256": "e9238c3cfa4d32ab6820943cd5ae803142da96a19fdce11bfa35072c360f4b1f",
+    "relevant_lines": [
+      {
+        "line": 3,
+        "text": "2026-10-20，Asia/Shanghai。只读来源与成本调查；`CURRENT_DECISION = INVESTIGATE`。R4 的限定研究证据已由 Owner 接受，S07 Gate 仍未通过。"
+      },
+      {
+        "line": 11,
+        "text": "已读取并按内容身份保存：根 [AGENTS.md](../../AGENTS.md)、[双消费者供给计划](../plans/2026-10-19-dual-consumer-supply-plan.md)、[W5-H](2026-10-19-w5h-historical-financial-pit-feasibility.md)、[R2](2026-10-20-w5h-r2-alternative-source-qualification.md)、[R3](2026-10-20-w5h-r3-tdx-local-opensource-qualification.md)、[R4](2026-10-20-w5h-r4-tdx-revision-root-cause-and-archival-pit.md)、[Mishi R3.2 已批准范围](../MISHI_RADAR_V0_1_SPEC_R3_2_SCOPE_APPROVED_DATA_PENDING_2026-10-16.md)、[DR05 历史请求](../MISHI_RADAR_TO_CHSTOCKDATA_DR01_DR06_CONSUMER_REQUEST_2026-10-16.md)，以及 Mishi 仓库 2026-10-19 运行规格综合候选。身份底稿见 [before.json](evidence/2026-10-20-w5h-r5/before.json)。"
+      },
+      {
+        "line": 13,
+        "text": "S07 仍须支持近约一个交易年度真实历史回测，另含规则预热及财务基期，使用当时证券池和当时已披露版本。运行候选中的 PE_TTM、TTM 拼接、归母权益均值及 ROE_TTM 细节，不在本轮冻结；披露加权 ROE 不被默换成候选 ROE。公告只有日期时何时进入信息集合仍待批准，本轮没有执行信息集合回放或冻结日期政策。"
+      },
+      {
+        "line": 28,
+        "text": "| SH601398 工商银行 | 金融、特殊报表；2024 年前已上市银行 | 同上；检验集团/本行并列和百万元，不据此决定 S07 是否纳入金融 |"
+      },
+      {
+        "line": 101,
+        "text": "结论：结构化数据可承担**普通数值候选**，当前样本的数值对账成立；它不能独立承担当时旧版。普通值也须先锚定原披露版本，不能因当前相等便绕过旧版验证。完整逐日估值未在本轮验证，不能从这些财务数字宣称 S07 已可供给。证据见 [structured_comparison.json](evidence/2026-10-20-w5h-r5/structured_comparison.json)。"
+      },
+      {
+        "line": 172,
+        "text": "交付检查见 [final_verification.json](evidence/2026-10-20-w5h-r5/final_verification.json)；证据与报告字节身份见 [manifest.json](evidence/2026-10-20-w5h-r5/manifest.json)。核验事前登记、37 份响应长度/SHA/同源间隔、10 PDF/75 数值/12 对账的分母、六个已渲染页面的重新读取、旧康美四原件 SHA、权威输入及三仓库原 tracked 内容；没有运行生产测试或把本调查检查当作 S07 Gate。"
+      },
+      {
+        "line": 176,
+        "text": "- Gate 与证据：固定 6/6 类别覆盖；新目标 10/10 原件、30/30 本期事实、45 比较位置；结构化 12/12 当期匹配同时暴露旧版不合格；**Mishi S07 历史 Gate NOT_PASSED**。"
+      },
+      {
+        "line": 192,
+        "text": "MISHI_S07_HISTORICAL_GATE = NOT_PASSED"
+      },
+      {
+        "line": 195,
+        "text": "GIT_COMMIT = NO"
+      }
+    ]
+  },
+  {
+    "path": "docs/audits/2026-10-21-w5h-r6-version-exception-qualification.md",
+    "sha256": "045cba72e06960682155cf9fcc7681a432ea44b082c355174021aed3c72bba94",
+    "relevant_lines": [
+      {
+        "line": 17,
+        "text": "重新读取根 [AGENTS.md](../../AGENTS.md)、[双消费者计划](../plans/2026-10-19-dual-consumer-supply-plan.md)、[W5-H](2026-10-19-w5h-historical-financial-pit-feasibility.md)、[R2](2026-10-20-w5h-r2-alternative-source-qualification.md)、[R3](2026-10-20-w5h-r3-tdx-local-opensource-qualification.md)、[R4](2026-10-20-w5h-r4-tdx-revision-root-cause-and-archival-pit.md)、[R5](2026-10-20-w5h-r5-historical-disclosure-scale-cost-screen.md)、[R3.2 已批准范围](../MISHI_RADAR_V0_1_SPEC_R3_2_SCOPE_APPROVED_DATA_PENDING_2026-10-16.md)、[DR05 历史合同](../MISHI_RADAR_TO_CHSTOCKDATA_DR01_DR06_CONSUMER_REQUEST_2026-10-16.md)，以及 Mishi 2026-10-19 运行规格综合候选。实际读入字符、相关条款和 SHA 见 [context_recovery.json](evidence/2026-10-21-w5h-r6/context_recovery.json)。R5 manifest 的 **86 项文件/报告身份**在本轮开始时复核匹配，终检再保护其内容。"
+      },
+      {
+        "line": 19,
+        "text": "S07 首版必交、近约一年真实历史检验另含预热、当时真实证券池及禁止未来修订回填均不变。PE/ROE 补充口径及公告日期到可用日的候选政策没有被本任务冻结。R5 的 `FEASIBLE_FOR_NEXT_SOURCE_QUALIFICATION` 只是本轮调查依据。"
+      },
+      {
+        "line": 54,
+        "text": "该文件不提供万科 NP/OCF/EQ 替代值，不应覆盖这些财务版本；它是本轮经正文确认的 **1 个无关更正反例**。不能只因正文出现年度、季报、处罚或“更正”就生成 S07 金额事件。"
+      },
+      {
+        "line": 128,
+        "text": "沿用 R4 的**候选**规则：只有公告日期，取下一真实交易日收盘可用；未冻结。2023 劳动节及 2024 国庆重开日的交易所检索证据、网页工具全文超时限制保留在 [calendar_evidence.json](evidence/2026-10-21-w5h-r6/calendar_evidence.json)。本轮不是完整日历/DR06 准入。"
+      },
+      {
+        "line": 213,
+        "text": "还未计生产自动化、独立 QA、重试/更新和其他 S07 输入。本轮不能给人工占比一个可信上界；Owner 也未批准成本上限，故不伪造“可接受人时”或人民币报价。`MANUAL_VERIFICATION_DOMINANT` 指目前资格仍由逐项语义核验支撑，而非已测得某个具体全池人工总额。"
+      },
+      {
+        "line": 219,
+        "text": "尚未证明全市场任何免费方法均无经济性；但为了尽快首版，不能把未实现/未测量的完整表格语义、版本认证或“AI 将来可处理”作为当前供应能力。应结束免费自建的扩样式调查，优先让 Owner 比较成熟服务的**现成数据与总成本**。该选择不是以放松 fail-closed、删除 S07、缩短一年或排除退市股换通过。"
+      },
+      {
+        "line": 232,
+        "text": "历史 PE、真实历史证券池、行业分类和执行状态 Gate **继续独立阻断**，不因财务版本演示自动解除；PE/ROE 与可用日期政策仍未冻结。免费取得也不等于商业分发许可，本轮未扩展成许可专项。"
+      },
+      {
+        "line": 240,
+        "text": "- Gate：文档原件可取；固定修订/非金额变动与 EPS 对照已区分；有界 T 诊断含明确 UNKNOWN；自动普通值及完整历史版本资格未通过，**Mishi S07 历史 Gate NOT_PASSED**。"
+      },
+      {
+        "line": 241,
+        "text": "- 未解项/范围：人工依赖不能限定、首次版本链与其他 S07 输入未合格；产品范围无变化，生产实施仍未授权。"
+      },
+      {
+        "line": 251,
+        "text": "REVISION_DETECTION_FIXED_CASE = CANDIDATES_FOUND; TITLE_ONLY_MISSES_2_OF_2_KNOWN_MONETARY_EVENTS; AUTOMATED_QUALIFICATION_NOT_PASSED"
+      },
+      {
+        "line": 267,
+        "text": "MISHI_S07_HISTORICAL_GATE = NOT_PASSED"
+      },
+      {
+        "line": 270,
+        "text": "GIT_COMMIT = NO"
+      }
+    ]
+  }
+]

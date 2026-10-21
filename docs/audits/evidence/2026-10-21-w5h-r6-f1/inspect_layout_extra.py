@@ -1,0 +1,16 @@
+import json,sys,time
+from pathlib import Path
+import pdfplumber
+ROOT=Path(__file__).resolve().parents[4]
+OUT=Path(__file__).parent
+selections=[('2026-10-20-w5h-r5','600519_Q12024.pdf',[1,2]),('2026-10-20-w5h-r5','000961_FY2023.pdf',[6]),('2026-10-21-w5h-r6','1216561621.pdf',[6])]
+res=[]
+for dr,name,ps in selections:
+ with pdfplumber.open(OUT.parent/dr/name) as doc:
+  for n in ps:
+   pg=doc.pages[n-1]
+   words=pg.extract_words(x_tolerance=2,y_tolerance=3)
+   tables=pg.find_tables()
+   res.append(dict(file=name,page=n,width=pg.width,height=pg.height,text=pg.extract_text(layout=False),tables=[dict(bbox=t.bbox,rows=t.extract()) for t in tables],words=words))
+(OUT/'layout_probe_extra.json').write_text(json.dumps(res,ensure_ascii=False,indent=2),encoding='utf-8')
+print(json.dumps([dict(file=r['file'],page=r['page'],tables=len(r['tables']),chars=len(r['text'] or '')) for r in res]))

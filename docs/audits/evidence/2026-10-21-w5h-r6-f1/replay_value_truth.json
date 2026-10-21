@@ -1,0 +1,281 @@
+{
+  "frozen_at_utc": "2026-10-21T05:50:43.136Z",
+  "cases": [
+    {
+      "test": "kangmei_before",
+      "field": "NP",
+      "expected_value_CNY": null,
+      "derived_only_from_frozen_expected_case": null
+    },
+    {
+      "test": "kangmei_before",
+      "field": "OCF",
+      "expected_value_CNY": null,
+      "derived_only_from_frozen_expected_case": null
+    },
+    {
+      "test": "kangmei_before",
+      "field": "EQ",
+      "expected_value_CNY": null,
+      "derived_only_from_frozen_expected_case": null
+    },
+    {
+      "test": "kangmei_original",
+      "field": "NP",
+      "expected_value_CNY": "4100926148.57",
+      "derived_only_from_frozen_expected_case": "r4_1204793690_FN96"
+    },
+    {
+      "test": "kangmei_original",
+      "field": "OCF",
+      "expected_value_CNY": "1842794237.84",
+      "derived_only_from_frozen_expected_case": "r4_1204793690_FN107"
+    },
+    {
+      "test": "kangmei_original",
+      "field": "EQ",
+      "expected_value_CNY": "32032959807.76",
+      "derived_only_from_frozen_expected_case": "r4_1204793690_FN271"
+    },
+    {
+      "test": "kangmei_revised",
+      "field": "NP",
+      "expected_value_CNY": "2149836281.41",
+      "derived_only_from_frozen_expected_case": "r4_1206168292_FN96"
+    },
+    {
+      "test": "kangmei_revised",
+      "field": "OCF",
+      "expected_value_CNY": "-4840052606.46",
+      "derived_only_from_frozen_expected_case": "r4_1206168292_FN107"
+    },
+    {
+      "test": "kangmei_revised",
+      "field": "EQ",
+      "expected_value_CNY": "28413344515.00",
+      "derived_only_from_frozen_expected_case": "r4_1206168292_FN271"
+    },
+    {
+      "test": "zhongnan_before",
+      "field": "NP",
+      "expected_value_CNY": null,
+      "derived_only_from_frozen_expected_case": null
+    },
+    {
+      "test": "zhongnan_before",
+      "field": "OCF",
+      "expected_value_CNY": null,
+      "derived_only_from_frozen_expected_case": null
+    },
+    {
+      "test": "zhongnan_before",
+      "field": "EQ",
+      "expected_value_CNY": null,
+      "derived_only_from_frozen_expected_case": null
+    },
+    {
+      "test": "zhongnan_original",
+      "field": "NP",
+      "expected_value_CNY": "-9170618058.58",
+      "derived_only_from_frozen_expected_case": "r6_1216561621_NP"
+    },
+    {
+      "test": "zhongnan_original",
+      "field": "OCF",
+      "expected_value_CNY": "6253316303.14",
+      "derived_only_from_frozen_expected_case": "r6_1216561621_OCF"
+    },
+    {
+      "test": "zhongnan_original",
+      "field": "EQ",
+      "expected_value_CNY": "14425941059.26",
+      "derived_only_from_frozen_expected_case": "r6_1216561621_EQ"
+    },
+    {
+      "test": "zhongnan_update_known_only",
+      "field": "NP",
+      "expected_value_CNY": "-9170618058.58",
+      "derived_only_from_frozen_expected_case": "r6_1217386817_NP"
+    },
+    {
+      "test": "zhongnan_update_known_only",
+      "field": "OCF",
+      "expected_value_CNY": "6253316303.14",
+      "derived_only_from_frozen_expected_case": "r6_1217386817_OCF"
+    },
+    {
+      "test": "zhongnan_update_known_only",
+      "field": "EQ",
+      "expected_value_CNY": "14425941059.26",
+      "derived_only_from_frozen_expected_case": "r6_1217386817_EQ"
+    },
+    {
+      "test": "zhongnan_update_strict_gap",
+      "field": "NP",
+      "expected_value_CNY": null,
+      "derived_only_from_frozen_expected_case": null
+    },
+    {
+      "test": "zhongnan_update_strict_gap",
+      "field": "OCF",
+      "expected_value_CNY": null,
+      "derived_only_from_frozen_expected_case": null
+    },
+    {
+      "test": "zhongnan_update_strict_gap",
+      "field": "EQ",
+      "expected_value_CNY": null,
+      "derived_only_from_frozen_expected_case": null
+    },
+    {
+      "test": "zhongnan_before_new_available",
+      "field": "NP",
+      "expected_value_CNY": null,
+      "derived_only_from_frozen_expected_case": null
+    },
+    {
+      "test": "zhongnan_before_new_available",
+      "field": "OCF",
+      "expected_value_CNY": null,
+      "derived_only_from_frozen_expected_case": null
+    },
+    {
+      "test": "zhongnan_before_new_available",
+      "field": "EQ",
+      "expected_value_CNY": null,
+      "derived_only_from_frozen_expected_case": null
+    },
+    {
+      "test": "zhongnan_adjusted",
+      "field": "NP",
+      "expected_value_CNY": "-9183273202.95",
+      "derived_only_from_frozen_expected_case": "r5_63"
+    },
+    {
+      "test": "zhongnan_adjusted",
+      "field": "OCF",
+      "expected_value_CNY": "6253316303.14",
+      "derived_only_from_frozen_expected_case": "r5_66"
+    },
+    {
+      "test": "zhongnan_adjusted",
+      "field": "EQ",
+      "expected_value_CNY": "14426074702.61",
+      "derived_only_from_frozen_expected_case": "r5_69"
+    },
+    {
+      "test": "vanke_missing_original",
+      "field": "NP",
+      "expected_value_CNY": null,
+      "derived_only_from_frozen_expected_case": null
+    },
+    {
+      "test": "vanke_missing_original",
+      "field": "OCF",
+      "expected_value_CNY": null,
+      "derived_only_from_frozen_expected_case": null
+    },
+    {
+      "test": "vanke_missing_original",
+      "field": "EQ",
+      "expected_value_CNY": null,
+      "derived_only_from_frozen_expected_case": null
+    },
+    {
+      "test": "vanke_adjusted",
+      "field": "NP",
+      "expected_value_CNY": "22688551801.52",
+      "derived_only_from_frozen_expected_case": "r5_18"
+    },
+    {
+      "test": "vanke_adjusted",
+      "field": "OCF",
+      "expected_value_CNY": "2750449478.44",
+      "derived_only_from_frozen_expected_case": "r5_21"
+    },
+    {
+      "test": "vanke_adjusted",
+      "field": "EQ",
+      "expected_value_CNY": "243325374922.33",
+      "derived_only_from_frozen_expected_case": "r5_24"
+    },
+    {
+      "test": "vanke_before_notice_known_only",
+      "field": "NP",
+      "expected_value_CNY": "12162684368.86",
+      "derived_only_from_frozen_expected_case": "r5_16"
+    },
+    {
+      "test": "vanke_before_notice_known_only",
+      "field": "OCF",
+      "expected_value_CNY": "3912323920.11",
+      "derived_only_from_frozen_expected_case": "r5_19"
+    },
+    {
+      "test": "vanke_after_notice_known_only",
+      "field": "NP",
+      "expected_value_CNY": "12162684368.86",
+      "derived_only_from_frozen_expected_case": "r5_16"
+    },
+    {
+      "test": "vanke_after_notice_known_only",
+      "field": "OCF",
+      "expected_value_CNY": "3912323920.11",
+      "derived_only_from_frozen_expected_case": "r5_19"
+    },
+    {
+      "test": "vanke_intervening_halfyear_gap",
+      "field": "NP",
+      "expected_value_CNY": null,
+      "derived_only_from_frozen_expected_case": null
+    },
+    {
+      "test": "vanke_intervening_halfyear_gap",
+      "field": "OCF",
+      "expected_value_CNY": null,
+      "derived_only_from_frozen_expected_case": null
+    },
+    {
+      "test": "vanke_intervening_halfyear_gap",
+      "field": "EQ",
+      "expected_value_CNY": null,
+      "derived_only_from_frozen_expected_case": null
+    },
+    {
+      "test": "cat_before",
+      "field": "NP",
+      "expected_value_CNY": null,
+      "derived_only_from_frozen_expected_case": null
+    },
+    {
+      "test": "cat_before",
+      "field": "OCF",
+      "expected_value_CNY": null,
+      "derived_only_from_frozen_expected_case": null
+    },
+    {
+      "test": "cat_before",
+      "field": "EQ",
+      "expected_value_CNY": null,
+      "derived_only_from_frozen_expected_case": null
+    },
+    {
+      "test": "cat_comparative",
+      "field": "NP",
+      "expected_value_CNY": "30729163500.00",
+      "derived_only_from_frozen_expected_case": "r5_33"
+    },
+    {
+      "test": "cat_comparative",
+      "field": "OCF",
+      "expected_value_CNY": "61208843300.00",
+      "derived_only_from_frozen_expected_case": "r5_36"
+    },
+    {
+      "test": "cat_comparative",
+      "field": "EQ",
+      "expected_value_CNY": "164481251600.00",
+      "derived_only_from_frozen_expected_case": "r5_39"
+    }
+  ]
+}

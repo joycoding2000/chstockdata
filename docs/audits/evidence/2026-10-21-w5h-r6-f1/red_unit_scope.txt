@@ -1,0 +1,14 @@
+
+....F..
+======================================================================
+FAIL: test_explicit_units (test_parser.ParserSafety.test_explicit_units)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\Dev\Projects\chstockdata\docs\audits\evidence\2026-10-21-w5h-r6-f1\test_parser.py", line 31, in test_explicit_units
+    self.assertIsNotNone(p.unit_from('单位：除特别注明外，为人民币百万元'))
+AssertionError: unexpectedly None
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.002s
+
+FAILED (failures=1)

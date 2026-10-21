@@ -1,0 +1,39 @@
+
+FFF
+======================================================================
+FAIL: test_vanke_three_units (__main__.LegacyUnitRegression.test_vanke_three_units) (field='NP')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\Dev\Projects\chstockdata\docs\audits\evidence\2026-10-21-w5h-r6-f1\test_legacy_units.py", line 27, in test_vanke_three_units
+    self.assertEqual(Decimal(got['fields'][case['field']]['current_CNY']),
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                     Decimal(case['expected_CNY']))
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Decimal('-3619675115200.00') != Decimal('-361967511.52')
+
+======================================================================
+FAIL: test_vanke_three_units (__main__.LegacyUnitRegression.test_vanke_three_units) (field='OCF')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\Dev\Projects\chstockdata\docs\audits\evidence\2026-10-21-w5h-r6-f1\test_legacy_units.py", line 27, in test_vanke_three_units
+    self.assertEqual(Decimal(got['fields'][case['field']]['current_CNY']),
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                     Decimal(case['expected_CNY']))
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Decimal('-94214194280100.00') != Decimal('-9421419428.01')
+
+======================================================================
+FAIL: test_vanke_three_units (__main__.LegacyUnitRegression.test_vanke_three_units) (field='EQ')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\Dev\Projects\chstockdata\docs\audits\evidence\2026-10-21-w5h-r6-f1\test_legacy_units.py", line 27, in test_vanke_three_units
+    self.assertEqual(Decimal(got['fields'][case['field']]['current_CNY']),
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                     Decimal(case['expected_CNY']))
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Decimal('2506332663163200.00') != Decimal('250633266316.32')
+
+----------------------------------------------------------------------
+Ran 1 test in 0.005s
+
+FAILED (failures=3)

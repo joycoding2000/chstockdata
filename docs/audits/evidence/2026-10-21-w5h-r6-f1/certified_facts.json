@@ -1,0 +1,6237 @@
+{
+  "qualification": "FIXED_CASE_VALUES_ONLY_NOT_PIT",
+  "expected_values_excluded_from_runtime_ledger_input": true,
+  "parsed_sha256": "aab3949d5f75456ae73b8794ae2e8e255f3d8538bcbe3cf25602ff76465406e2",
+  "whole_batch_has_zero_incorrect_accepted_values": true,
+  "facts": [
+    {
+      "id": "1219506510",
+      "code": "600519",
+      "field": "NP",
+      "period": "2023-12-31",
+      "column": "current",
+      "period_header": {
+        "text": "2023年",
+        "bbox": [
+          90.08114285714286,
+          199.45999999999992,
+          175.10000000000002,
+          235.0999949999999
+        ]
+      },
+      "adjustment": null,
+      "scope": "consolidated",
+      "mode": "summary",
+      "label": "归属于上市公\n司股东的净利\n润",
+      "raw_text": "74,734,071,550.75",
+      "source_amount": "74734071550.75",
+      "unit": "元",
+      "multiplier": 1,
+      "unit_evidence": {
+        "unit": "元",
+        "multiplier": 1,
+        "raw": "单位：元 币种：人民币",
+        "bbox": [
+          421.27,
+          187.02895999999987,
+          531.7038399999999,
+          197.58895999999993
+        ],
+        "top": 187.02895999999987,
+        "physical_page": 5,
+        "origin": "PRECEDING_THIS_TABLE"
+      },
+      "value_CNY": "74734071550.75",
+      "physical_page": 5,
+      "quantum_CNY": "0.01",
+      "cell_bbox": [
+        90.08114285714286,
+        249.8599999999999,
+        175.10000000000002,
+        281.56999499999995
+      ],
+      "row_bbox": [
+        26.04,
+        249.8599999999999,
+        572.0400199999999,
+        281.56999499999995
+      ],
+      "table_bbox": [
+        26.04,
+        199.45999999999992,
+        572.0400199999999,
+        458.349995
+      ],
+      "continuity": null,
+      "announcement_date": "2024-04-03",
+      "source_sha256": "2125ff97a452ea79b0d784e2432f7d224b6aecc330b644b593477d69e22f4ed1",
+      "source_path": "docs/audits/evidence/2026-10-20-w5h-r5/600519_FY2023.pdf",
+      "duration": "FY_CUMULATIVE",
+      "pit_qualified": false,
+      "status": "PARSED_LOCAL_EVIDENCE_NOT_PIT",
+      "corroborating_locations": 1
+    },
+    {
+      "id": "1219506510",
+      "code": "600519",
+      "field": "NP",
+      "period": "2022-12-31",
+      "column": "adjusted",
+      "period_header": {
+        "text": "2022年",
+        "bbox": [
+          175.10000000000002,
+          199.45999999999992,
+          345.310005,
+          220.33999999999992
+        ]
+      },
+      "adjustment": "adjusted",
+      "scope": "consolidated",
+      "mode": "summary",
+      "label": "归属于上市公\n司股东的净利\n润",
+      "raw_text": "62,717,467,870.12",
+      "source_amount": "62717467870.12",
+      "unit": "元",
+      "multiplier": 1,
+      "unit_evidence": {
+        "unit": "元",
+        "multiplier": 1,
+        "raw": "单位：元 币种：人民币",
+        "bbox": [
+          421.27,
+          187.02895999999987,
+          531.7038399999999,
+          197.58895999999993
+        ],
+        "top": 187.02895999999987,
+        "physical_page": 5,
+        "origin": "PRECEDING_THIS_TABLE"
+      },
+      "value_CNY": "62717467870.12",
+      "physical_page": 5,
+      "quantum_CNY": "0.01",
+      "cell_bbox": [
+        175.10000000000002,
+        249.8599999999999,
+        260.210005,
+        281.56999499999995
+      ],
+      "row_bbox": [
+        26.04,
+        249.8599999999999,
+        572.0400199999999,
+        281.56999499999995
+      ],
+      "table_bbox": [
+        26.04,
+        199.45999999999992,
+        572.0400199999999,
+        458.349995
+      ],
+      "continuity": null,
+      "announcement_date": "2024-04-03",
+      "source_sha256": "2125ff97a452ea79b0d784e2432f7d224b6aecc330b644b593477d69e22f4ed1",
+      "source_path": "docs/audits/evidence/2026-10-20-w5h-r5/600519_FY2023.pdf",
+      "duration": "FY_CUMULATIVE",
+      "pit_qualified": false,
+      "status": "PARSED_LOCAL_EVIDENCE_NOT_PIT",
+      "corroborating_locations": 1
+    },
+    {
+      "id": "1219506510",
+      "code": "600519",
+      "field": "NP",
+      "period": "2022-12-31",
+      "column": "unadjusted",
+      "period_header": {
+        "text": "2022年",
+        "bbox": [
+          175.10000000000002,
+          199.45999999999992,
+          345.310005,
+          220.33999999999992
+        ]
+      },
+      "adjustment": "unadjusted",
+      "scope": "consolidated",
+      "mode": "summary",
+      "label": "归属于上市公\n司股东的净利\n润",
+      "raw_text": "62,716,443,738.27",
+      "source_amount": "62716443738.27",
+      "unit": "元",
+      "multiplier": 1,
+      "unit_evidence": {
+        "unit": "元",
+        "multiplier": 1,
+        "raw": "单位：元 币种：人民币",
+        "bbox": [
+          421.27,
+          187.02895999999987,
+          531.7038399999999,
+          197.58895999999993
+        ],
+        "top": 187.02895999999987,
+        "physical_page": 5,
+        "origin": "PRECEDING_THIS_TABLE"
+      },
+      "value_CNY": "62716443738.27",
+      "physical_page": 5,
+      "quantum_CNY": "0.01",
+      "cell_bbox": [
+        260.210005,
+        249.8599999999999,
+        345.310005,
+        281.56999499999995
+      ],
+      "row_bbox": [
+        26.04,
+        249.8599999999999,
+        572.0400199999999,
+        281.56999499999995
+      ],
+      "table_bbox": [
+        26.04,
+        199.45999999999992,
+        572.0400199999999,
+        458.349995
+      ],
+      "continuity": null,
+      "announcement_date": "2024-04-03",
+      "source_sha256": "2125ff97a452ea79b0d784e2432f7d224b6aecc330b644b593477d69e22f4ed1",
+      "source_path": "docs/audits/evidence/2026-10-20-w5h-r5/600519_FY2023.pdf",
+      "duration": "FY_CUMULATIVE",
+      "pit_qualified": false,
+      "status": "PARSED_LOCAL_EVIDENCE_NOT_PIT",
+      "corroborating_locations": 1
+    },
+    {
+      "id": "1219506510",
+      "code": "600519",
+      "field": "OCF",
+      "period": "2023-12-31",
+      "column": "current",
+      "period_header": {
+        "text": "2023年",
+        "bbox": [
+          90.08114285714286,
+          199.45999999999992,
+          175.10000000000002,
+          235.0999949999999
+        ]
+      },
+      "adjustment": null,
+      "scope": "consolidated",
+      "mode": "summary",
+      "label": "经营活动产生\n的现金流量净\n额",
+      "raw_text": "66,593,247,721.09",
+      "source_amount": "66593247721.09",
+      "unit": "元",
+      "multiplier": 1,
+      "unit_evidence": {
+        "unit": "元",
+        "multiplier": 1,
+        "raw": "单位：元 币种：人民币",
+        "bbox": [
+          421.27,
+          187.02895999999987,
+          531.7038399999999,
+          197.58895999999993
+        ],
+        "top": 187.02895999999987,
+        "physical_page": 5,
+        "origin": "PRECEDING_THIS_TABLE"
+      },
+      "value_CNY": "66593247721.09",
+      "physical_page": 5,
+      "quantum_CNY": "0.01",
+      "cell_bbox": [
+        90.08114285714286,
+        323.56999499999995,
+        175.10000000000002,
+        355.12999499999995
+      ],
+      "row_bbox": [
+        26.04,
+        323.56999499999995,
+        572.0400199999999,
+        355.12999499999995
+      ],
+      "table_bbox": [
+        26.04,
+        199.45999999999992,
+        572.0400199999999,
+        458.349995
+      ],
+      "continuity": null,
+      "announcement_date": "2024-04-03",
+      "source_sha256": "2125ff97a452ea79b0d784e2432f7d224b6aecc330b644b593477d69e22f4ed1",
+      "source_path": "docs/audits/evidence/2026-10-20-w5h-r5/600519_FY2023.pdf",
+      "duration": "FY_CUMULATIVE",
+      "pit_qualified": false,
+      "status": "PARSED_LOCAL_EVIDENCE_NOT_PIT",
+      "corroborating_locations": 2
+    },
+    {
+      "id": "1219506510",
+      "code": "600519",
+      "field": "OCF",
+      "period": "2022-12-31",
+      "column": "adjusted",
+      "period_header": {
+        "text": "2022年",
+        "bbox": [
+          175.10000000000002,
+          199.45999999999992,
+          345.310005,
+          220.33999999999992
+        ]
+      },
+      "adjustment": "adjusted",
+      "scope": "consolidated",
+      "mode": "summary",
+      "label": "经营活动产生\n的现金流量净\n额",
+      "raw_text": "36,698,595,830.03",
+      "source_amount": "36698595830.03",
+      "unit": "元",
+      "multiplier": 1,
+      "unit_evidence": {
+        "unit": "元",
+        "multiplier": 1,
+        "raw": "单位：元 币种：人民币",
+        "bbox": [
+          421.27,
+          187.02895999999987,
+          531.7038399999999,
+          197.58895999999993
+        ],
+        "top": 187.02895999999987,
+        "physical_page": 5,
+        "origin": "PRECEDING_THIS_TABLE"
+      },
+      "value_CNY": "36698595830.03",
+      "physical_page": 5,
+      "quantum_CNY": "0.01",
+      "cell_bbox": [
+        175.10000000000002,
+        323.56999499999995,
+        260.210005,
+        355.12999499999995
+      ],
+      "row_bbox": [
+        26.04,
+        323.56999499999995,
+        572.0400199999999,
+        355.12999499999995
+      ],
+      "table_bbox": [
+        26.04,
+        199.45999999999992,
+        572.0400199999999,
+        458.349995
+      ],
+      "continuity": null,
+      "announcement_date": "2024-04-03",
+      "source_sha256": "2125ff97a452ea79b0d784e2432f7d224b6aecc330b644b593477d69e22f4ed1",
+      "source_path": "docs/audits/evidence/2026-10-20-w5h-r5/600519_FY2023.pdf",
+      "duration": "FY_CUMULATIVE",
+      "pit_qualified": false,
+      "status": "PARSED_LOCAL_EVIDENCE_NOT_PIT",
+      "corroborating_locations": 1
+    },
+    {
+      "id": "1219506510",
+      "code": "600519",
+      "field": "OCF",
+      "period": "2022-12-31",
+      "column": "unadjusted",
+      "period_header": {
+        "text": "2022年",
+        "bbox": [
+          175.10000000000002,
+          199.45999999999992,
+          345.310005,
+          220.33999999999992
+        ]
+      },
+      "adjustment": "unadjusted",
+      "scope": "consolidated",
+      "mode": "summary",
+      "label": "经营活动产生\n的现金流量净\n额",
+      "raw_text": "36,698,595,830.03",
+      "source_amount": "36698595830.03",
+      "unit": "元",
+      "multiplier": 1,
+      "unit_evidence": {
+        "unit": "元",
+        "multiplier": 1,
+        "raw": "单位：元 币种：人民币",
+        "bbox": [
+          421.27,
+          187.02895999999987,
+          531.7038399999999,
+          197.58895999999993
+        ],
+        "top": 187.02895999999987,
+        "physical_page": 5,
+        "origin": "PRECEDING_THIS_TABLE"
+      },
+      "value_CNY": "36698595830.03",
+      "physical_page": 5,
+      "quantum_CNY": "0.01",
+      "cell_bbox": [
+        260.210005,
+        323.56999499999995,
+        345.310005,
+        355.12999499999995
+      ],
+      "row_bbox": [
+        26.04,
+        323.56999499999995,
+        572.0400199999999,
+        355.12999499999995
+      ],
+      "table_bbox": [
+        26.04,
+        199.45999999999992,
+        572.0400199999999,
+        458.349995
+      ],
+      "continuity": null,
+      "announcement_date": "2024-04-03",
+      "source_sha256": "2125ff97a452ea79b0d784e2432f7d224b6aecc330b644b593477d69e22f4ed1",
+      "source_path": "docs/audits/evidence/2026-10-20-w5h-r5/600519_FY2023.pdf",
+      "duration": "FY_CUMULATIVE",
+      "pit_qualified": false,
+      "status": "PARSED_LOCAL_EVIDENCE_NOT_PIT",
+      "corroborating_locations": 1
+    },
+    {
+      "id": "1219506510",
+      "code": "600519",
+      "field": "EQ",
+      "period": "2023-12-31",
+      "column": "current",
+      "period_header": {
+        "text": "2023年末",
+        "bbox": [
+          90.08114285714286,
+          355.12999499999995,
+          175.10000000000002,
+          397.12999499999995
+        ]
+      },
+      "adjustment": null,
+      "scope": "consolidated",
+      "mode": "summary",
+      "label": "归属于上市公\n司股东的净资\n产",
+      "raw_text": "215,668,571,607.43",
+      "source_amount": "215668571607.43",
+      "unit": "元",
+      "multiplier": 1,
+      "unit_evidence": {
+        "unit": "元",
+        "multiplier": 1,
+        "raw": "单位：元 币种：人民币",
+        "bbox": [
+          421.27,
+          187.02895999999987,
+          531.7038399999999,
+          197.58895999999993
+        ],
+        "top": 187.02895999999987,
+        "physical_page": 5,
+        "origin": "PRECEDING_THIS_TABLE"
+      },
+      "value_CNY": "215668571607.43",
+      "physical_page": 5,
+      "quantum_CNY": "0.01",
+      "cell_bbox": [
+        90.08114285714286,
+        397.12999499999995,
+        175.10000000000002,
+        428.80999499999996
+      ],
+      "row_bbox": [
+        26.04,
+        397.12999499999995,
+        572.0400199999999,
+        428.80999499999996
+      ],
+      "table_bbox": [
+        26.04,
+        199.45999999999992,
+        572.0400199999999,
+        458.349995
+      ],
+      "continuity": null,
+      "announcement_date": "2024-04-03",
+      "source_sha256": "2125ff97a452ea79b0d784e2432f7d224b6aecc330b644b593477d69e22f4ed1",
+      "source_path": "docs/audits/evidence/2026-10-20-w5h-r5/600519_FY2023.pdf",
+      "duration": "INSTANT_END",
+      "pit_qualified": false,
+      "status": "PARSED_LOCAL_EVIDENCE_NOT_PIT",
+      "corroborating_locations": 1
+    },
+    {
+      "id": "1219506510",
+      "code": "600519",
+      "field": "EQ",
+      "period": "2022-12-31",
+      "column": "adjusted",
+      "period_header": {
+        "text": "2022年末",
+        "bbox": [
+          175.10000000000002,
+          355.12999499999995,
+          345.310005,
+          379.729995
+        ]
+      },
+      "adjustment": "adjusted",
+      "scope": "consolidated",
+      "mode": "summary",
+      "label": "归属于上市公\n司股东的净资\n产",
+      "raw_text": "197,480,041,239.46",
+      "source_amount": "197480041239.46",
+      "unit": "元",
+      "multiplier": 1,
+      "unit_evidence": {
+        "unit": "元",
+        "multiplier": 1,
+        "raw": "单位：元 币种：人民币",
+        "bbox": [
+          421.27,
+          187.02895999999987,
+          531.7038399999999,
+          197.58895999999993
+        ],
+        "top": 187.02895999999987,
+        "physical_page": 5,
+        "origin": "PRECEDING_THIS_TABLE"
+      },
+      "value_CNY": "197480041239.46",
+      "physical_page": 5,
+      "quantum_CNY": "0.01",
+      "cell_bbox": [
+        175.10000000000002,
+        397.12999499999995,
+        260.210005,
+        428.80999499999996
+      ],
+      "row_bbox": [
+        26.04,
+        397.12999499999995,
+        572.0400199999999,
+        428.80999499999996
+      ],
+      "table_bbox": [
+        26.04,
+        199.45999999999992,
+        572.0400199999999,
+        458.349995
+      ],
+      "continuity": null,
+      "announcement_date": "2024-04-03",
+      "source_sha256": "2125ff97a452ea79b0d784e2432f7d224b6aecc330b644b593477d69e22f4ed1",
+      "source_path": "docs/audits/evidence/2026-10-20-w5h-r5/600519_FY2023.pdf",
+      "duration": "INSTANT_END",
+      "pit_qualified": false,
+      "status": "PARSED_LOCAL_EVIDENCE_NOT_PIT",
+      "corroborating_locations": 1
+    },
+    {
+      "id": "1219506510",
+      "code": "600519",
+      "field": "EQ",
+      "period": "2022-12-31",
+      "column": "unadjusted",
+      "period_header": {
+        "text": "2022年末",
+        "bbox": [
+          175.10000000000002,
+          355.12999499999995,
+          345.310005,
+          379.729995
+        ]
+      },
+      "adjustment": "unadjusted",
+      "scope": "consolidated",
+      "mode": "summary",
+      "label": "归属于上市公\n司股东的净资\n产",
+      "raw_text": "197,506,672,396.00",
+      "source_amount": "197506672396.00",
+      "unit": "元",
+      "multiplier": 1,
+      "unit_evidence": {
+        "unit": "元",
+        "multiplier": 1,
+        "raw": "单位：元 币种：人民币",
+        "bbox": [
+          421.27,
+          187.02895999999987,
+          531.7038399999999,
+          197.58895999999993
+        ],
+        "top": 187.02895999999987,
+        "physical_page": 5,
+        "origin": "PRECEDING_THIS_TABLE"
+      },
+      "value_CNY": "197506672396.00",
+      "physical_page": 5,
+      "quantum_CNY": "0.01",
+      "cell_bbox": [
+        260.210005,
+        397.12999499999995,
+        345.310005,
+        428.80999499999996
+      ],
+      "row_bbox": [
+        26.04,
+        397.12999499999995,
+        572.0400199999999,
+        428.80999499999996
+      ],
+      "table_bbox": [
+        26.04,
+        199.45999999999992,
+        572.0400199999999,
+        458.349995
+      ],
+      "continuity": null,
+      "announcement_date": "2024-04-03",
+      "source_sha256": "2125ff97a452ea79b0d784e2432f7d224b6aecc330b644b593477d69e22f4ed1",
+      "source_path": "docs/audits/evidence/2026-10-20-w5h-r5/600519_FY2023.pdf",
+      "duration": "INSTANT_END",
+      "pit_qualified": false,
+      "status": "PARSED_LOCAL_EVIDENCE_NOT_PIT",
+      "corroborating_locations": 1
+    },
+    {
+      "id": "1219875828",
+      "code": "600519",
+      "field": "NP",
+      "period": "2024-03-31",
+      "column": "current",
+      "period_header": {
+        "text": "本报告期",
+        "bbox": [
+          288.410005,
+          577.99001,
+          414.54999,
+          614.47001
+        ]
+      },
+      "adjustment": null,
+      "scope": "consolidated",
+      "mode": "summary",
+      "label": "归属于上市公司股东的净利润",
+      "raw_text": "24,065,262,374.15",
+      "source_amount": "24065262374.15",
+      "unit": "元",
+      "multiplier": 1,
+      "unit_evidence": {
+        "unit": "元",
+        "multiplier": 1,
+        "raw": "单位：元 币种：人民币",
+        "bbox": [
+          410.83,
+          564.7189599999999,
+          526.5438399999999,
+          575.27896
+        ],
+        "top": 564.7189599999999,
+        "physical_page": 1,
+        "origin": "PRECEDING_THIS_TABLE"
+      },
+      "value_CNY": "24065262374.15",
+      "physical_page": 1,
+      "quantum_CNY": "0.01",
+      "cell_bbox": [
+        288.410005,
+        632.98001,
+        414.54999,
+        651.46001
+      ],
+      "row_bbox": [
+        90.14399999999999,
+        632.98001,
+        531.33999,
+        651.46001
+      ],
+      "table_bbox": [
+        90.14399999999999,
+        577.99001,
+        531.33999,
+        761.9760099999999
+      ],
+      "continuity": null,
+      "announcement_date": "2024-04-27",
+      "source_sha256": "b706e237e25ff54a0bde7070a13b019a5e1eec7f412eb9d0baf33e750a7c32e2",
+      "source_path": "docs/audits/evidence/2026-10-20-w5h-r5/600519_Q12024.pdf",
+      "duration": "Q1_YTD_EQUALS_SINGLE_QUARTER",
+      "pit_qualified": false,
+      "status": "PARSED_LOCAL_EVIDENCE_NOT_PIT",
+      "corroborating_locations": 2
+    },
+    {
+      "id": "1219875828",
+      "code": "600519",
+      "field": "NP",
+      "period": "2023-03-31",
+      "column": "comparative",
+      "period_header": {
+        "text": "2023 年第一季度",
+        "bbox": [
+          408.42999000000003,
+          448.27000999999996,
+          531.1077416129033,
+          464.349995
+        ]
+      },
+      "adjustment": null,
+      "scope": "consolidated",
+      "mode": "summary",
+      "label": "1.归属于母公司股东的净利润（净\n亏损以“-”号填列）",
+      "raw_text": "20,794,882,754.55",
+      "source_amount": "20794882754.55",
+      "unit": "元",
+      "multiplier": 1,
+      "unit_evidence": {
+        "unit": "元",
+        "multiplier": 1,
+        "raw": "单位：元 币种:人民币 审计类型：未经审计",
+        "bbox": [
+          316.27,
+          434.97896,
+          531.7038399999999,
+          445.53896
+        ],
+        "top": 434.97896,
+        "physical_page": 8,
+        "origin": "PRECEDING_THIS_TABLE",
+        "inherited_with_continuity": {
+          "previous_page": 8,
+          "current_page": 9,
+          "matching_column_edges": [
+            90.1,
+            285.8,
+            408.4,
+            531.3
+          ],
+          "reason": "ADJACENT_EDGE_ALIGNED_NO_NEW_SECTION",
+          "previous_bbox": [
+            90.19045161290323,
+            448.27000999999996,
+            531.1077416129033,
+            754.17601
+          ],
+          "current_bbox": [
+            90.14399999999999,
+            76.43999999999994,
+            531.3399900000001,
+            761.85601
+          ]
+        }
+      },
+      "value_CNY": "20794882754.55",
+      "physical_page": 9,
+      "quantum_CNY": "0.01",
+      "cell_bbox": [
+        408.42999000000003,
+        602.8299800000001,
+        531.3399900000001,
+        634.5400099999999
+      ],
+      "row_bbox": [
+        90.14399999999999,
+        602.8299800000001,
+        531.3399900000001,
+        634.5400099999999
+      ],
+      "table_bbox": [
+        90.14399999999999,
+        76.43999999999994,
+        531.3399900000001,
+        761.85601
+      ],
+      "continuity": {
+        "previous_page": 8,
+        "current_page": 9,
+        "matching_column_edges": [
+          90.1,
+          285.8,
+          408.4,
+          531.3
+        ],
+        "reason": "ADJACENT_EDGE_ALIGNED_NO_NEW_SECTION",
+        "previous_bbox": [
+          90.19045161290323,
+          448.27000999999996,
+          531.1077416129033,
+          754.17601
+        ],
+        "current_bbox": [
+          90.14399999999999,
+          76.43999999999994,
+          531.3399900000001,
+          761.85601
+        ]
+      },
+      "announcement_date": "2024-04-27",
+      "source_sha256": "b706e237e25ff54a0bde7070a13b019a5e1eec7f412eb9d0baf33e750a7c32e2",
+      "source_path": "docs/audits/evidence/2026-10-20-w5h-r5/600519_Q12024.pdf",
+      "duration": "Q1_YTD_EQUALS_SINGLE_QUARTER",
+      "pit_qualified": false,
+      "status": "PARSED_LOCAL_EVIDENCE_NOT_PIT",
+      "corroborating_locations": 1
+    },
+    {
+      "id": "1219875828",
+      "code": "600519",
+      "field": "OCF",
+      "period": "2024-03-31",
+      "column": "current",
+      "period_header": {
+        "text": "本报告期",
+        "bbox": [
+          288.410005,
+          577.99001,
+          414.54999,
+          614.47001
+        ]
+      },
+      "adjustment": null,
+      "scope": "consolidated",
+      "mode": "summary",
+      "label": "经营活动产生的现金流量净额",
+      "raw_text": "9,187,422,415.09",
+      "source_amount": "9187422415.09",
+      "unit": "元",
+      "multiplier": 1,
+      "unit_evidence": {
+        "unit": "元",
+        "multiplier": 1,
+        "raw": "单位：元 币种：人民币",
+        "bbox": [
+          410.83,
+          564.7189599999999,
+          526.5438399999999,
+          575.27896
+        ],
+        "top": 564.7189599999999,
+        "physical_page": 1,
+        "origin": "PRECEDING_THIS_TABLE"
+      },
+      "value_CNY": "9187422415.09",
+      "physical_page": 1,
+      "quantum_CNY": "0.01",
+      "cell_bbox": [
+        288.410005,
+        687.93998,
+        414.54999,
+        706.54001
+      ],
+      "row_bbox": [
+        90.14399999999999,
+        687.93998,
+        531.33999,
+        706.54001
+      ],
+      "table_bbox": [
+        90.14399999999999,
+        577.99001,
+        531.33999,
+        761.9760099999999
+      ],
+      "continuity": null,
+      "announcement_date": "2024-04-27",
+      "source_sha256": "b706e237e25ff54a0bde7070a13b019a5e1eec7f412eb9d0baf33e750a7c32e2",
+      "source_path": "docs/audits/evidence/2026-10-20-w5h-r5/600519_Q12024.pdf",
+      "duration": "Q1_YTD_EQUALS_SINGLE_QUARTER",
+      "pit_qualified": false,
+      "status": "PARSED_LOCAL_EVIDENCE_NOT_PIT",
+      "corroborating_locations": 2
+    },
+    {
+      "id": "1219875828",
+      "code": "600519",
+      "field": "OCF",
+      "period": "2023-03-31",
+      "column": "comparative",
+      "period_header": {
+        "text": "2023年第一季度",
+        "bbox": [
+          400.26999,
+          577.51001,
+          531.33999,
+          593.5899800000001
+        ]
+      },
+      "adjustment": null,
+      "scope": "consolidated",
+      "mode": "summary",
+      "label": "经营活动产生的现金流量净\n额",
+      "raw_text": "5,244,796,293.93",
+      "source_amount": "5244796293.93",
+      "unit": "元",
+      "multiplier": 1,
+      "unit_evidence": {
+        "unit": "元",
+        "multiplier": 1,
+        "raw": "单位：元 币种：人民币 审计类型：未经审计",
+        "bbox": [
+          311.09,
+          564.2389599999999,
+          531.70768,
+          574.79896
+        ],
+        "top": 564.2389599999999,
+        "physical_page": 10,
+        "origin": "PRECEDING_THIS_TABLE",
+        "inherited_with_continuity": {
+          "previous_page": 10,
+          "current_page": 11,
+          "matching_column_edges": [
+            90.1,
+            268.7,
+            400.3,
+            531.3
+          ],
+          "reason": "ADJACENT_EDGE_ALIGNED_NO_NEW_SECTION",
+          "previous_bbox": [
+            90.14399999999999,
+            577.51001,
+            531.33999,
+            753.5760099999999
+          ],
+          "current_bbox": [
+            90.144,
+            76.43999999999994,
+            531.33999,
+            749.2559799999999
+          ]
+        }
+      },
+      "value_CNY": "5244796293.93",
+      "physical_page": 11,
+      "quantum_CNY": "0.01",
+      "cell_bbox": [
+        400.26998999999995,
+        381.8900099999999,
+        531.33999,
+        413.68999499999995
+      ],
+      "row_bbox": [
+        90.144,
+        381.8900099999999,
+        531.33999,
+        413.68999499999995
+      ],
+      "table_bbox": [
+        90.144,
+        76.43999999999994,
+        531.33999,
+        749.2559799999999
+      ],
+      "continuity": {
+        "previous_page": 10,
+        "current_page": 11,
+        "matching_column_edges": [
+          90.1,
+          268.7,
+          400.3,
+          531.3
+        ],
+        "reason": "ADJACENT_EDGE_ALIGNED_NO_NEW_SECTION",
+        "previous_bbox": [
+          90.14399999999999,
+          577.51001,
+          531.33999,
+          753.5760099999999
+        ],
+        "current_bbox": [
+          90.144,
+          76.43999999999994,
+          531.33999,
+          749.2559799999999
+        ]
+      },
+      "announcement_date": "2024-04-27",
+      "source_sha256": "b706e237e25ff54a0bde7070a13b019a5e1eec7f412eb9d0baf33e750a7c32e2",
+      "source_path": "docs/audits/evidence/2026-10-20-w5h-r5/600519_Q12024.pdf",
+      "duration": "Q1_YTD_EQUALS_SINGLE_QUARTER",
+      "pit_qualified": false,
+      "status": "PARSED_LOCAL_EVIDENCE_NOT_PIT",
+      "corroborating_locations": 1
+    },
+    {
+      "id": "1219487237",
+      "code": "000002",
+      "field": "NP",
+      "period": "2023-12-31",
+      "column": "current",
+      "period_header": {
+        "text": "2023年 1-12月",
+        "bbox": [
+          181.22,
+          509.349995,
+          276.530005,
+          535.8700099999999
+        ]
+      },
+      "adjustment": null,
+      "scope": "consolidated",
+      "mode": "summary",
+      "label": "归属于上市公司股东的净利润",
+      "raw_text": "12,162,684,368.86",
+      "source_amount": "12162684368.86",
+      "unit": "元",
+      "multiplier": 1,
+      "unit_evidence": {
+        "unit": "元",
+        "multiplier": 1,
+        "raw": "单位：元",
+        "bbox": [
+          502.66,
+          498.739,
+          538.6600000000001,
+          507.739
+        ],
+        "top": 498.739,
+        "physical_page": 10,
+        "origin": "PRECEDING_THIS_TABLE"
+      },
+      "value_CNY": "12162684368.86",
+      "physical_page": 10,
+      "quantum_CNY": "0.01",
+      "cell_bbox": [
+        181.22,
+        588.34001,
+        276.530005,
+        605.86001
+      ],
+      "row_bbox": [
+        32.52,
+        588.34001,
+        562.89999,
+        605.86001
+      ],
+      "table_bbox": [
+        32.52,
+        509.349995,
+        562.89999,
+        717.2200099999999
+      ],
+      "continuity": null,
+      "announcement_date": "2024-03-29",
+      "source_sha256": "511a089558610e86605841f39b98f67993bd444c1e23018a204e704706882d0d",
+      "source_path": "docs/audits/evidence/2026-10-20-w5h-r5/000002_FY2023.pdf",
+      "duration": "FY_CUMULATIVE",
+      "pit_qualified": false,
+      "status": "PARSED_LOCAL_EVIDENCE_NOT_PIT",
+      "corroborating_locations": 1
+    },
+    {
+      "id": "1219487237",
+      "code": "000002",
+      "field": "NP",
+      "period": "2022-12-31",
+      "column": "unadjusted",
+      "period_header": {
+        "text": "2022年 1-12月",
+        "bbox": [
+          276.530005,
+          509.349995,
+          464.98000500000006,
+          522.5500099999999
+        ]
+      },
+      "adjustment": "unadjusted",
+      "scope": "consolidated",
+      "mode": "summary",
+      "label": "归属于上市公司股东的净利润",
+      "raw_text": "22,617,778,516.45",
+      "source_amount": "22617778516.45",
+      "unit": "元",
+      "multiplier": 1,
+      "unit_evidence": {
+        "unit": "元",
+        "multiplier": 1,
+        "raw": "单位：元",
+        "bbox": [
+          502.66,
+          498.739,
+          538.6600000000001,
+          507.739
+        ],
+        "top": 498.739,
+        "physical_page": 10,
+        "origin": "PRECEDING_THIS_TABLE"
+      },
+      "value_CNY": "22617778516.45",
+      "physical_page": 10,
+      "quantum_CNY": "0.01",
+      "cell_bbox": [
+        276.530005,
+        588.34001,
+        370.750005,
+        605.86001
+      ],
+      "row_bbox": [
+        32.52,
+        588.34001,
+        562.89999,
+        605.86001
+      ],
+      "table_bbox": [
+        32.52,
+        509.349995,
+        562.89999,
+        717.2200099999999
+      ],
+      "continuity": null,
+      "announcement_date": "2024-03-29",
+      "source_sha256": "511a089558610e86605841f39b98f67993bd444c1e23018a204e704706882d0d",
+      "source_path": "docs/audits/evidence/2026-10-20-w5h-r5/000002_FY2023.pdf",
+      "duration": "FY_CUMULATIVE",
+      "pit_qualified": false,
+      "status": "PARSED_LOCAL_EVIDENCE_NOT_PIT",
+      "corroborating_locations": 1
+    },
+    {
+      "id": "1219487237",
+      "code": "000002",
+      "field": "NP",
+      "period": "2022-12-31",
+      "column": "adjusted",
+      "period_header": {
+        "text": "2022年 1-12月",
+        "bbox": [
+          276.530005,
+          509.349995,
+          464.98000500000006,
+          522.5500099999999
+        ]
+      },
+      "adjustment": "adjusted",
+      "scope": "consolidated",
+      "mode": "summary",
+      "label": "归属于上市公司股东的净利润",
+      "raw_text": "22,688,551,801.52",
+      "source_amount": "22688551801.52",
+      "unit": "元",
+      "multiplier": 1,
+      "unit_evidence": {
+        "unit": "元",
+        "multiplier": 1,
+        "raw": "单位：元",
+        "bbox": [
+          502.66,
+          498.739,
+          538.6600000000001,
+          507.739
+        ],
+        "top": 498.739,
+        "physical_page": 10,
+        "origin": "PRECEDING_THIS_TABLE"
+      },
+      "value_CNY": "22688551801.52",
+      "physical_page": 10,
+      "quantum_CNY": "0.01",
+      "cell_bbox": [
+        370.750005,
+        588.34001,
+        464.98000500000006,
+        605.86001
+      ],
+      "row_bbox": [
+        32.52,
+        588.34001,
+        562.89999,
+        605.86001
+      ],
+      "table_bbox": [
+        32.52,
+        509.349995,
+        562.89999,
+        717.2200099999999
+      ],
+      "continuity": null,
+      "announcement_date": "2024-03-29",
+      "source_sha256": "511a089558610e86605841f39b98f67993bd444c1e23018a204e704706882d0d",
+      "source_path": "docs/audits/evidence/2026-10-20-w5h-r5/000002_FY2023.pdf",
+      "duration": "FY_CUMULATIVE",
+      "pit_qualified": false,
+      "status": "PARSED_LOCAL_EVIDENCE_NOT_PIT",
+      "corroborating_locations": 1
+    },
+    {
+      "id": "1219487237",
+      "code": "000002",
+      "field": "OCF",
+      "period": "2023-12-31",
+      "column": "current",
+      "period_header": {
+        "text": "2023年 1-12月",
+        "bbox": [
+          181.22,
+          509.349995,
+          276.530005,
+          535.8700099999999
+        ]
+      },
+      "adjustment": null,
+      "scope": "consolidated",
+      "mode": "summary",
+      "label": "经营活动产生的现金流量净额",
+      "raw_text": "3,912,323,920.11",
+      "source_amount": "3912323920.11",
+      "unit": "元",
+      "multiplier": 1,
+      "unit_evidence": {
+        "unit": "元",
+        "multiplier": 1,
+        "raw": "单位：元",
+        "bbox": [
+          502.66,
+          498.739,
+          538.6600000000001,
+          507.739
+        ],
+        "top": 498.739,
+        "physical_page": 10,
+        "origin": "PRECEDING_THIS_TABLE"
+      },
+      "value_CNY": "3912323920.11",
+      "physical_page": 10,
+      "quantum_CNY": "0.01",
+      "cell_bbox": [
+        181.22,
+        629.74001,
+        276.530005,
+        647.25998
+      ],
+      "row_bbox": [
+        32.52,
+        629.74001,
+        562.89999,
+        647.25998
+      ],
+      "table_bbox": [
+        32.52,
+        509.349995,
+        562.89999,
+        717.2200099999999
+      ],
+      "continuity": null,
+      "announcement_date": "2024-03-29",
+      "source_sha256": "511a089558610e86605841f39b98f67993bd444c1e23018a204e704706882d0d",
+      "source_path": "docs/audits/evidence/2026-10-20-w5h-r5/000002_FY2023.pdf",
+      "duration": "FY_CUMULATIVE",
+      "pit_qualified": false,
+      "status": "PARSED_LOCAL_EVIDENCE_NOT_PIT",
+      "corroborating_locations": 2
+    },
+    {
+      "id": "1219487237",
+      "code": "000002",
+      "field": "OCF",
+      "period": "2022-12-31",
+      "column": "unadjusted",
+      "period_header": {
+        "text": "2022年 1-12月",
+        "bbox": [
+          276.530005,
+          509.349995,
+          464.98000500000006,
+          522.5500099999999
+        ]
+      },
+      "adjustment": "unadjusted",
+      "scope": "consolidated",
+      "mode": "summary",
+      "label": "经营活动产生的现金流量净额",
+      "raw_text": "2,750,449,478.44",
+      "source_amount": "2750449478.44",
+      "unit": "元",
+      "multiplier": 1,
+      "unit_evidence": {
+        "unit": "元",
+        "multiplier": 1,
+        "raw": "单位：元",
+        "bbox": [
+          502.66,
+          498.739,
+          538.6600000000001,
+          507.739
+        ],
+        "top": 498.739,
+        "physical_page": 10,
+        "origin": "PRECEDING_THIS_TABLE"
+      },
+      "value_CNY": "2750449478.44",
+      "physical_page": 10,
+      "quantum_CNY": "0.01",
+      "cell_bbox": [
+        276.530005,
+        629.74001,
+        370.750005,
+        647.25998
+      ],
+      "row_bbox": [
+        32.52,
+        629.74001,
+        562.89999,
+        647.25998
+      ],
+      "table_bbox": [
+        32.52,
+        509.349995,
+        562.89999,
+        717.2200099999999
+      ],
+      "continuity": null,
+      "announcement_date": "2024-03-29",
+      "source_sha256": "511a089558610e86605841f39b98f67993bd444c1e23018a204e704706882d0d",
+      "source_path": "docs/audits/evidence/2026-10-20-w5h-r5/000002_FY2023.pdf",
+      "duration": "FY_CUMULATIVE",
+      "pit_qualified": false,
+      "status": "PARSED_LOCAL_EVIDENCE_NOT_PIT",
+      "corroborating_locations": 1
+    },
+    {
+      "id": "1219487237",
+      "code": "000002",
+      "field": "OCF",
+      "period": "2022-12-31",
+      "column": "adjusted",
+      "period_header": {
+        "text": "2022年 1-12月",
+        "bbox": [
+          276.530005,
+          509.349995,
+          464.98000500000006,
+          522.5500099999999
+        ]
+      },
+      "adjustment": "adjusted",
+      "scope": "consolidated",
+      "mode": "summary",
+      "label": "经营活动产生的现金流量净额",
+      "raw_text": "2,750,449,478.44",
+      "source_amount": "2750449478.44",
+      "unit": "元",
+      "multiplier": 1,
+      "unit_evidence": {
+        "unit": "元",
+        "multiplier": 1,
+        "raw": "单位：元",
+        "bbox": [
+          502.66,
+          498.739,
+          538.6600000000001,
+          507.739
+        ],
+        "top": 498.739,
+        "physical_page": 10,
+        "origin": "PRECEDING_THIS_TABLE"
+      },
+      "value_CNY": "2750449478.44",
+      "physical_page": 10,
+      "quantum_CNY": "0.01",
+      "cell_bbox": [
+        370.750005,
+        629.74001,
+        464.98000500000006,
+        647.25998
+      ],
+      "row_bbox": [
+        32.52,
+        629.74001,
+        562.89999,
+        647.25998
+      ],
+      "table_bbox": [
+        32.52,
+        509.349995,
+        562.89999,
+        717.2200099999999
+      ],
+      "continuity": null,
+      "announcement_date": "2024-03-29",
+      "source_sha256": "511a089558610e86605841f39b98f67993bd444c1e23018a204e704706882d0d",
+      "source_path": "docs/audits/evidence/2026-10-20-w5h-r5/000002_FY2023.pdf",
+      "duration": "FY_CUMULATIVE",
+      "pit_qualified": false,
+      "status": "PARSED_LOCAL_EVIDENCE_NOT_PIT",
+      "corroborating_locations": 1
+    },
+    {
+      "id": "1219487237",
+      "code": "000002",
+      "field": "EQ",
+      "period": "2023-12-31",
+      "column": "current",
+      "period_header": {
+        "text": "2023年 12月 31日",
+        "bbox": [
+          181.1,
+          76.07999999999993,
+          277.370005,
+          102.62
+        ]
+      },
+      "adjustment": null,
+      "scope": "consolidated",
+      "mode": "summary",
+      "label": "归属于上市公司股东的净资产",
+      "raw_text": "250,784,613,404.38",
+      "source_amount": "250784613404.38",
+      "unit": "元",
+      "multiplier": 1,
+      "unit_evidence": {
+        "unit": "元",
+        "multiplier": 1,
+        "raw": "单位：元",
+        "bbox": [
+          502.66,
+          498.739,
+          538.6600000000001,
+          507.739
+        ],
+        "top": 498.739,
+        "physical_page": 10,
+        "origin": "PRECEDING_THIS_TABLE",
+        "inherited_with_continuity": {
+          "previous_page": 10,
+          "current_page": 11,
+          "matching_column_edges": [
+            32.5,
+            181.1,
+            277.4,
+            371.1,
+            464.7,
+            562.9
+          ],
+          "reason": "ADJACENT_EDGE_ALIGNED_NO_NEW_SECTION",
+          "previous_bbox": [
+            32.52,
+            509.349995,
+            562.89999,
+            717.2200099999999
+          ],
+          "current_bbox": [
+            32.519999999999996,
+            76.07999999999993,
+            562.89999,
+            242.68999499999995
+          ]
+        }
+      },
+      "value_CNY": "250784613404.38",
+      "physical_page": 11,
+      "quantum_CNY": "0.01",
+      "cell_bbox": [
+        181.1,
+        137.65999499999998,
+        277.370005,
+        155.17999999999995
+      ],
+      "row_bbox": [
+        32.519999999999996,
+        137.65999499999998,
+        562.89999,
+        155.17999999999995
+      ],
+      "table_bbox": [
+        32.519999999999996,
+        76.07999999999993,
+        562.89999,
+        242.68999499999995
+      ],
+      "continuity": {
+        "previous_page": 10,
+        "current_page": 11,
+        "matching_column_edges": [
+          32.5,
+          181.1,
+          277.4,
+          371.1,
+          464.7,
+          562.9
+        ],
+        "reason": "ADJACENT_EDGE_ALIGNED_NO_NEW_SECTION",
+        "previous_bbox": [
+          32.52,
+          509.349995,
+          562.89999,
+          717.2200099999999
+        ],
+        "current_bbox": [
+          32.519999999999996,
+          76.07999999999993,
+          562.89999,
+          242.68999499999995
+        ]
+      },
+      "announcement_date": "2024-03-29",
+      "source_sha256": "511a089558610e86605841f39b98f67993bd444c1e23018a204e704706882d0d",
+      "source_path": "docs/audits/evidence/2026-10-20-w5h-r5/000002_FY2023.pdf",
+      "duration": "INSTANT_END",
+      "pit_qualified": false,
+      "status": "PARSED_LOCAL_EVIDENCE_NOT_PIT",
+      "corroborating_locations": 1
+    },
+    {
+      "id": "1219487237",
+      "code": "000002",
+      "field": "EQ",
+      "period": "2022-12-31",
+      "column": "unadjusted",
+      "period_header": {
+        "text": "2022年 12月 31日",
+        "bbox": [
+          277.370005,
+          76.07999999999993,
+          464.740005,
+          89.41999999999996
+        ]
+      },
+      "adjustment": "unadjusted",
+      "scope": "consolidated",
+      "mode": "summary",
+      "label": "归属于上市公司股东的净资产",
+      "raw_text": "242,691,342,204.55",
+      "source_amount": "242691342204.55",
+      "unit": "元",
+      "multiplier": 1,
+      "unit_evidence": {
+        "unit": "元",
+        "multiplier": 1,
+        "raw": "单位：元",
+        "bbox": [
+          502.66,
+          498.739,
+          538.6600000000001,
+          507.739
+        ],
+        "top": 498.739,
+        "physical_page": 10,
+        "origin": "PRECEDING_THIS_TABLE",
+        "inherited_with_continuity": {
+          "previous_page": 10,
+          "current_page": 11,
+          "matching_column_edges": [
+            32.5,
+            181.1,
+            277.4,
+            371.1,
+            464.7,
+            562.9
+          ],
+          "reason": "ADJACENT_EDGE_ALIGNED_NO_NEW_SECTION",
+          "previous_bbox": [
+            32.52,
+            509.349995,
+            562.89999,
+            717.2200099999999
+          ],
+          "current_bbox": [
+            32.519999999999996,
+            76.07999999999993,
+            562.89999,
+            242.68999499999995
+          ]
+        }
+      },
+      "value_CNY": "242691342204.55",
+      "physical_page": 11,
+      "quantum_CNY": "0.01",
+      "cell_bbox": [
+        277.370005,
+        137.65999499999998,
+        371.10999000000004,
+        155.17999999999995
+      ],
+      "row_bbox": [
+        32.519999999999996,
+        137.65999499999998,
+        562.89999,
+        155.17999999999995
+      ],
+      "table_bbox": [
+        32.519999999999996,
+        76.07999999999993,
+        562.89999,
+        242.68999499999995
+      ],
+      "continuity": {
+        "previous_page": 10,
+        "current_page": 11,
+        "matching_column_edges": [
+          32.5,
+          181.1,
+          277.4,
+          371.1,
+          464.7,
+          562.9
+        ],
+        "reason": "ADJACENT_EDGE_ALIGNED_NO_NEW_SECTION",
+        "previous_bbox": [
+          32.52,
+          509.349995,
+          562.89999,
+          717.2200099999999
+        ],
+        "current_bbox": [
+          32.519999999999996,
+          76.07999999999993,
+          562.89999,
+          242.68999499999995
+        ]
+      },
+      "announcement_date": "2024-03-29",
+      "source_sha256": "511a089558610e86605841f39b98f67993bd444c1e23018a204e704706882d0d",
+      "source_path": "docs/audits/evidence/2026-10-20-w5h-r5/000002_FY2023.pdf",
+      "duration": "INSTANT_END",
+      "pit_qualified": false,
+      "status": "PARSED_LOCAL_EVIDENCE_NOT_PIT",
+      "corroborating_locations": 1
+    },
+    {
+      "id": "1219487237",
+      "code": "000002",
+      "field": "EQ",
+      "period": "2022-12-31",
+      "column": "adjusted",
+      "period_header": {
+        "text": "2022年 12月 31日",
+        "bbox": [
+          277.370005,
+          76.07999999999993,
+          464.740005,
+          89.41999999999996
+        ]
+      },
+      "adjustment": "adjusted",
+      "scope": "consolidated",
+      "mode": "summary",
+      "label": "归属于上市公司股东的净资产",
+      "raw_text": "243,325,374,922.33",
+      "source_amount": "243325374922.33",
+      "unit": "元",
+      "multiplier": 1,
+      "unit_evidence": {
+        "unit": "元",
+        "multiplier": 1,
+        "raw": "单位：元",
+        "bbox": [
+          502.66,
+          498.739,
+          538.6600000000001,
+          507.739
+        ],
+        "top": 498.739,
+        "physical_page": 10,
+        "origin": "PRECEDING_THIS_TABLE",
+        "inherited_with_continuity": {
+          "previous_page": 10,
+          "current_page": 11,
+          "matching_column_edges": [
+            32.5,
+            181.1,
+            277.4,
+            371.1,
+            464.7,
+            562.9
+          ],
+          "reason": "ADJACENT_EDGE_ALIGNED_NO_NEW_SECTION",
+          "previous_bbox": [
+            32.52,
+            509.349995,
+            562.89999,
+            717.2200099999999
+          ],
+          "current_bbox": [
+            32.519999999999996,
+            76.07999999999993,
+            562.89999,
+            242.68999499999995
+          ]
+        }
+      },
+      "value_CNY": "243325374922.33",
+      "physical_page": 11,
+      "quantum_CNY": "0.01",
+      "cell_bbox": [
+        371.10999000000004,
+        137.65999499999998,
+        464.740005,
+        155.17999999999995
+      ],
+      "row_bbox": [
+        32.519999999999996,
+        137.65999499999998,
+        562.89999,
+        155.17999999999995
+      ],
+      "table_bbox": [
+        32.519999999999996,
+        76.07999999999993,
+        562.89999,
+        242.68999499999995
+      ],
+      "continuity": {
+        "previous_page": 10,
+        "current_page": 11,
+        "matching_column_edges": [
+          32.5,
+          181.1,
+          277.4,
+          371.1,
+          464.7,
+          562.9
+        ],
+        "reason": "ADJACENT_EDGE_ALIGNED_NO_NEW_SECTION",
+        "previous_bbox": [
+          32.52,
+          509.349995,
+          562.89999,
+          717.2200099999999
+        ],
+        "current_bbox": [
+          32.519999999999996,
+          76.07999999999993,
+          562.89999,
+          242.68999499999995
+        ]
+      },
+      "announcement_date": "2024-03-29",
+      "source_sha256": "511a089558610e86605841f39b98f67993bd444c1e23018a204e704706882d0d",
+      "source_path": "docs/audits/evidence/2026-10-20-w5h-r5/000002_FY2023.pdf",
+      "duration": "INSTANT_END",
+      "pit_qualified": false,
+      "status": "PARSED_LOCAL_EVIDENCE_NOT_PIT",
+      "corroborating_locations": 1
+    },
+    {
+      "id": "1219913619",
+      "code": "000002",
+      "field": "NP",
+      "period": "2024-03-31",
+      "column": "current",
+      "period_header": {
+        "text": "本报告期",
+        "bbox": [
+          191.09,
+          196.99999999999994,
+          311.85265933333335,
+          214.24666666666658
+        ]
+      },
+      "adjustment": null,
+      "scope": "consolidated",
+      "mode": "summary",
+      "label": "归属于上市公司股东的净利润",
+      "raw_text": "(361,967,511.52)",
+      "source_amount": "-361967511.52",
+      "unit": "元",
+      "multiplier": 1,
+      "unit_evidence": {
+        "unit": "元",
+        "multiplier": 1,
+        "raw": "单位：元",
+        "bbox": [
+          502.66,
+          182.12900000000002,
+          538.6600000000001,
+          191.12900000000002
+        ],
+        "top": 182.12900000000002,
+        "physical_page": 2,
+        "origin": "PRECEDING_THIS_TABLE"
+      },
+      "value_CNY": "-361967511.52",
+      "physical_page": 2,
+      "quantum_CNY": "0.01",
+      "cell_bbox": [
+        191.09,
+        231.01999666666666,
+        311.85265933333335,
+        247.46099999999993
+      ],
+      "row_bbox": [
+        57.672444444444444,
+        231.01999666666666,
+        532.3058747058824,
+        247.46099999999993
+      ],
+      "table_bbox": [
+        57.672444444444444,
+        196.99999999999994,
+        532.3058747058824,
+        407.8820079999999
+      ],
+      "continuity": null,
+      "announcement_date": "2024-04-30",
+      "source_sha256": "9b6448abe7897ee462f905fb1273630d1c157fa4f5cd2d73c8ac8ef3cd551341",
+      "source_path": "docs/audits/evidence/2026-10-20-w5h-r5/000002_Q12024.pdf",
+      "duration": "Q1_YTD_EQUALS_SINGLE_QUARTER",
+      "pit_qualified": false,
+      "status": "PARSED_LOCAL_EVIDENCE_NOT_PIT",
+      "corroborating_locations": 2
+    },
+    {
+      "id": "1219913619",
+      "code": "000002",
+      "field": "NP",
+      "period": "2023-03-31",
+      "column": "comparative",
+      "period_header": {
+        "text": "上年同期",
+        "bbox": [
+          311.85265933333335,
+          196.99999999999994,
+          418.2699926666666,
+          214.24666666666658
+        ]
+      },
+      "adjustment": null,
+      "scope": "consolidated",
+      "mode": "summary",
+      "label": "归属于上市公司股东的净利润",
+      "raw_text": "1,445,811,341.87",
+      "source_amount": "1445811341.87",
+      "unit": "元",
+      "multiplier": 1,
+      "unit_evidence": {
+        "unit": "元",
+        "multiplier": 1,
+        "raw": "单位：元",
+        "bbox": [
+          502.66,
+          182.12900000000002,
+          538.6600000000001,
+          191.12900000000002
+        ],
+        "top": 182.12900000000002,
+        "physical_page": 2,
+        "origin": "PRECEDING_THIS_TABLE"
+      },
+      "value_CNY": "1445811341.87",
+      "physical_page": 2,
+      "quantum_CNY": "0.01",
+      "cell_bbox": [
+        311.85265933333335,
+        231.01999666666666,
+        418.2699926666666,
+        247.46099999999993
+      ],
+      "row_bbox": [
+        57.672444444444444,
+        231.01999666666666,
+        532.3058747058824,
+        247.46099999999993
+      ],
+      "table_bbox": [
+        57.672444444444444,
+        196.99999999999994,
+        532.3058747058824,
+        407.8820079999999
+      ],
+      "continuity": null,
+      "announcement_date": "2024-04-30",
+      "source_sha256": "9b6448abe7897ee462f905fb1273630d1c157fa4f5cd2d73c8ac8ef3cd551341",
+      "source_path": "docs/audits/evidence/2026-10-20-w5h-r5/000002_Q12024.pdf",
+      "duration": "Q1_YTD_EQUALS_SINGLE_QUARTER",
+      "pit_qualified": false,
+      "status": "PARSED_LOCAL_EVIDENCE_NOT_PIT",
+      "corroborating_locations": 1
+    },
+    {
+      "id": "1219913619",
+      "code": "000002",
+      "field": "OCF",
+      "period": "2024-03-31",
+      "column": "current",
+      "period_header": {
+        "text": "本报告期",
+        "bbox": [
+          191.09,
+          196.99999999999994,
+          311.85265933333335,
+          214.24666666666658
+        ]
+      },
+      "adjustment": null,
+      "scope": "consolidated",
+      "mode": "summary",
+      "label": "经营活动产生的现金流量净额",
+      "raw_text": "(9,421,419,428.01)",
+      "source_amount": "-9421419428.01",
+      "unit": "元",
+      "multiplier": 1,
+      "unit_evidence": {
+        "unit": "元",
+        "multiplier": 1,
+        "raw": "单位：元",
+        "bbox": [
+          502.66,
+          182.12900000000002,
+          538.6600000000001,
+          191.12900000000002
+        ],
+        "top": 182.12900000000002,
+        "physical_page": 2,
+        "origin": "PRECEDING_THIS_TABLE"
+      },
+      "value_CNY": "-9421419428.01",
+      "physical_page": 2,
+      "quantum_CNY": "0.01",
+      "cell_bbox": [
+        191.09,
+        276.05000666666666,
+        311.85265933333335,
+        292.4900066666666
+      ],
+      "row_bbox": [
+        57.672444444444444,
+        276.05000666666666,
+        532.3058747058824,
+        292.4900066666666
+      ],
+      "table_bbox": [
+        57.672444444444444,
+        196.99999999999994,
+        532.3058747058824,
+        407.8820079999999
+      ],
+      "continuity": null,
+      "announcement_date": "2024-04-30",
+      "source_sha256": "9b6448abe7897ee462f905fb1273630d1c157fa4f5cd2d73c8ac8ef3cd551341",
+      "source_path": "docs/audits/evidence/2026-10-20-w5h-r5/000002_Q12024.pdf",
+      "duration": "Q1_YTD_EQUALS_SINGLE_QUARTER",
+      "pit_qualified": false,
+      "status": "PARSED_LOCAL_EVIDENCE_NOT_PIT",
+      "corroborating_locations": 1
+    },
+    {
+      "id": "1219913619",
+      "code": "000002",
+      "field": "OCF",
+      "period": "2023-03-31",
+      "column": "comparative",
+      "period_header": {
+        "text": "上年同期",
+        "bbox": [
+          311.85265933333335,
+          196.99999999999994,
+          418.2699926666666,
+          214.24666666666658
+        ]
+      },
+      "adjustment": null,
+      "scope": "consolidated",
+      "mode": "summary",
+      "label": "经营活动产生的现金流量净额",
+      "raw_text": "7,001,300,467.87",
+      "source_amount": "7001300467.87",
+      "unit": "元",
+      "multiplier": 1,
+      "unit_evidence": {
+        "unit": "元",
+        "multiplier": 1,
+        "raw": "单位：元",
+        "bbox": [
+          502.66,
+          182.12900000000002,
+          538.6600000000001,
+          191.12900000000002
+        ],
+        "top": 182.12900000000002,
+        "physical_page": 2,
+        "origin": "PRECEDING_THIS_TABLE"
+      },
+      "value_CNY": "7001300467.87",
+      "physical_page": 2,
+      "quantum_CNY": "0.01",
+      "cell_bbox": [
+        311.85265933333335,
+        276.05000666666666,
+        418.2699926666666,
+        292.4900066666666
+      ],
+      "row_bbox": [
+        57.672444444444444,
+        276.05000666666666,
+        532.3058747058824,
+        292.4900066666666
+      ],
+      "table_bbox": [
+        57.672444444444444,
+        196.99999999999994,
+        532.3058747058824,
+        407.8820079999999
+      ],
+      "continuity": null,
+      "announcement_date": "2024-04-30",
+      "source_sha256": "9b6448abe7897ee462f905fb1273630d1c157fa4f5cd2d73c8ac8ef3cd551341",
+      "source_path": "docs/audits/evidence/2026-10-20-w5h-r5/000002_Q12024.pdf",
+      "duration": "Q1_YTD_EQUALS_SINGLE_QUARTER",
+      "pit_qualified": false,
+      "status": "PARSED_LOCAL_EVIDENCE_NOT_PIT",
+      "corroborating_locations": 1
+    },
+    {
+      "id": "1219913619",
+      "code": "000002",
+      "field": "EQ",
+      "period": "2024-03-31",
+      "column": "current",
+      "period_header": {
+        "text": "本报告期末",
+        "bbox": [
+          191.09,
+          342.5100044444444,
+          311.85265933333335,
+          362.4433311111111
+        ]
+      },
+      "adjustment": null,
+      "scope": "consolidated",
+      "mode": "summary",
+      "label": "归属于上市公司股东的所有者权益",
+      "raw_text": "250,633,266,316.32",
+      "source_amount": "250633266316.32",
+      "unit": "元",
+      "multiplier": 1,
+      "unit_evidence": {
+        "unit": "元",
+        "multiplier": 1,
+        "raw": "单位：元",
+        "bbox": [
+          502.66,
+          182.12900000000002,
+          538.6600000000001,
+          191.12900000000002
+        ],
+        "top": 182.12900000000002,
+        "physical_page": 2,
+        "origin": "PRECEDING_THIS_TABLE"
+      },
+      "value_CNY": "250633266316.32",
+      "physical_page": 2,
+      "quantum_CNY": "0.01",
+      "cell_bbox": [
+        191.09,
+        379.3699966666666,
+        311.85265933333335,
+        407.8820079999999
+      ],
+      "row_bbox": [
+        57.672444444444444,
+        379.3699966666666,
+        532.3058747058824,
+        407.8820079999999
+      ],
+      "table_bbox": [
+        57.672444444444444,
+        196.99999999999994,
+        532.3058747058824,
+        407.8820079999999
+      ],
+      "continuity": null,
+      "announcement_date": "2024-04-30",
+      "source_sha256": "9b6448abe7897ee462f905fb1273630d1c157fa4f5cd2d73c8ac8ef3cd551341",
+      "source_path": "docs/audits/evidence/2026-10-20-w5h-r5/000002_Q12024.pdf",
+      "duration": "INSTANT_END",
+      "pit_qualified": false,
+      "status": "PARSED_LOCAL_EVIDENCE_NOT_PIT",
+      "corroborating_locations": 2
+    },
+    {
+      "id": "1219913619",
+      "code": "000002",
+      "field": "EQ",
+      "period": "2023-12-31",
+      "column": "comparative",
+      "period_header": {
+        "text": "上年度末",
+        "bbox": [
+          311.85265933333335,
+          342.5100044444444,
+          418.2699926666666,
+          362.4433311111111
+        ]
+      },
+      "adjustment": null,
+      "scope": "consolidated",
+      "mode": "summary",
+      "label": "归属于上市公司股东的所有者权益",
+      "raw_text": "250,784,613,404.38",
+      "source_amount": "250784613404.38",
+      "unit": "元",
+      "multiplier": 1,
+      "unit_evidence": {
+        "unit": "元",
+        "multiplier": 1,
+        "raw": "单位：元",
+        "bbox": [
+          502.66,
+          182.12900000000002,
+          538.6600000000001,
+          191.12900000000002
+        ],
+        "top": 182.12900000000002,
+        "physical_page": 2,
+        "origin": "PRECEDING_THIS_TABLE"
+      },
+      "value_CNY": "250784613404.38",
+      "physical_page": 2,
+      "quantum_CNY": "0.01",
+      "cell_bbox": [
+        311.85265933333335,
+        379.3699966666666,
+        418.2699926666666,
+        407.8820079999999
+      ],
+      "row_bbox": [
+        57.672444444444444,
+        379.3699966666666,
+        532.3058747058824,
+        407.8820079999999
+      ],
+      "table_bbox": [
+        57.672444444444444,
+        196.99999999999994,
+        532.3058747058824,
+        407.8820079999999
+      ],
+      "continuity": null,
+      "announcement_date": "2024-04-30",
+      "source_sha256": "9b6448abe7897ee462f905fb1273630d1c157fa4f5cd2d73c8ac8ef3cd551341",
+      "source_path": "docs/audits/evidence/2026-10-20-w5h-r5/000002_Q12024.pdf",
+      "duration": "INSTANT_END",
+      "pit_qualified": false,
+      "status": "PARSED_LOCAL_EVIDENCE_NOT_PIT",
+      "corroborating_locations": 2
+    },
+    {
+      "id": "1219313047",
+      "code": "300750",
+      "field": "NP",
+      "period": "2023-12-31",
+      "column": "current",
+      "period_header": {
+        "text": "2023年",
+        "bbox": [
+          134.3593623076923,
+          261.38812187499997,
+          205.2315665625,
+          306.8676760714285
+        ]
+      },
+      "adjustment": null,
+      "scope": "consolidated",
+      "mode": "summary",
+      "label": "归属于上市公司\n股东的净利润\n（万元）",
+      "raw_text": "4,412,124.83",
+      "source_amount": "4412124.83",
+      "unit": "万元",
+      "multiplier": 10000,
+      "unit_evidence": {
+        "unit": "万元",
+        "multiplier": 10000,
+        "raw": "归属于上市公司\n股东的净利润\n（万元）",
+        "physical_page": 7,
+        "bbox": [
+          58.84178571428572,
+          335.2836188888889,
+          537.5574530232558,
+          375.51305166666657
+        ],
+        "origin": "THIS_FIELD_LABEL"
+      },
+      "value_CNY": "44121248300.00",
+      "physical_page": 7,
+      "quantum_CNY": "100.00",
+      "cell_bbox": [
+        134.3593623076923,
+        335.2836188888889,
+        205.2315665625,
+        375.51305166666657
+      ],
+      "row_bbox": [
+        58.84178571428572,
+        335.2836188888889,
+        537.5574530232558,
+        375.51305166666657
+      ],
+      "table_bbox": [
+        58.84178571428572,
+        261.38812187499997,
+        537.5574530232558,
+        666.74250875
+      ],
+      "continuity": null,
+      "announcement_date": "2024-03-16",
+      "source_sha256": "6081f0377617dddb82f900569d6458c278a7ab26697b34c87684188eac083471",
+      "source_path": "docs/audits/evidence/2026-10-20-w5h-r5/300750_FY2023.pdf",
+      "duration": "FY_CUMULATIVE",
+      "pit_qualified": false,
+      "status": "PARSED_LOCAL_EVIDENCE_NOT_PIT",
+      "corroborating_locations": 1
+    },
+    {
+      "id": "1219313047",
+      "code": "300750",
+      "field": "NP",
+      "period": "2022-12-31",
+      "column": "unadjusted",
+      "period_header": {
+        "text": "2022年",
+        "bbox": [
+          205.2315665625,
+          261.38812187499997,
+          333.1711802941177,
+          289.748075
+        ]
+      },
+      "adjustment": "unadjusted",
+      "scope": "consolidated",
+      "mode": "summary",
+      "label": "归属于上市公司\n股东的净利润\n（万元）",
+      "raw_text": "3,072,916.35",
+      "source_amount": "3072916.35",
+      "unit": "万元",
+      "multiplier": 10000,
+      "unit_evidence": {
+        "unit": "万元",
+        "multiplier": 10000,
+        "raw": "归属于上市公司\n股东的净利润\n（万元）",
+        "physical_page": 7,
+        "bbox": [
+          58.84178571428572,
+          335.2836188888889,
+          537.5574530232558,
+          375.51305166666657
+        ],
+        "origin": "THIS_FIELD_LABEL"
+      },
+      "value_CNY": "30729163500.00",
+      "physical_page": 7,
+      "quantum_CNY": "100.00",
+      "cell_bbox": [
+        205.2315665625,
+        335.2836188888889,
+        268.9180811538462,
+        375.51305166666657
+      ],
+      "row_bbox": [
+        58.84178571428572,
+        335.2836188888889,
+        537.5574530232558,
+        375.51305166666657
+      ],
+      "table_bbox": [
+        58.84178571428572,
+        261.38812187499997,
+        537.5574530232558,
+        666.74250875
+      ],
+      "continuity": null,
+      "announcement_date": "2024-03-16",
+      "source_sha256": "6081f0377617dddb82f900569d6458c278a7ab26697b34c87684188eac083471",
+      "source_path": "docs/audits/evidence/2026-10-20-w5h-r5/300750_FY2023.pdf",
+      "duration": "FY_CUMULATIVE",
+      "pit_qualified": false,
+      "status": "PARSED_LOCAL_EVIDENCE_NOT_PIT",
+      "corroborating_locations": 1
+    },
+    {
+      "id": "1219313047",
+      "code": "300750",
+      "field": "NP",
+      "period": "2022-12-31",
+      "column": "adjusted",
+      "period_header": {
+        "text": "2022年",
+        "bbox": [
+          205.2315665625,
+          261.38812187499997,
+          333.1711802941177,
+          289.748075
+        ]
+      },
+      "adjustment": "adjusted",
+      "scope": "consolidated",
+      "mode": "summary",
+      "label": "归属于上市公司\n股东的净利润\n（万元）",
+      "raw_text": "3,072,916.35",
+      "source_amount": "3072916.35",
+      "unit": "万元",
+      "multiplier": 10000,
+      "unit_evidence": {
+        "unit": "万元",
+        "multiplier": 10000,
+        "raw": "归属于上市公司\n股东的净利润\n（万元）",
+        "physical_page": 7,
+        "bbox": [
+          58.84178571428572,
+          335.2836188888889,
+          537.5574530232558,
+          375.51305166666657
+        ],
+        "origin": "THIS_FIELD_LABEL"
+      },
+      "value_CNY": "30729163500.00",
+      "physical_page": 7,
+      "quantum_CNY": "100.00",
+      "cell_bbox": [
+        268.9180811538462,
+        335.2836188888889,
+        333.1711802941177,
+        375.51305166666657
+      ],
+      "row_bbox": [
+        58.84178571428572,
+        335.2836188888889,
+        537.5574530232558,
+        375.51305166666657
+      ],
+      "table_bbox": [
+        58.84178571428572,
+        261.38812187499997,
+        537.5574530232558,
+        666.74250875
+      ],
+      "continuity": null,
+      "announcement_date": "2024-03-16",
+      "source_sha256": "6081f0377617dddb82f900569d6458c278a7ab26697b34c87684188eac083471",
+      "source_path": "docs/audits/evidence/2026-10-20-w5h-r5/300750_FY2023.pdf",
+      "duration": "FY_CUMULATIVE",
+      "pit_qualified": false,
+      "status": "PARSED_LOCAL_EVIDENCE_NOT_PIT",
+      "corroborating_locations": 1
+    },
+    {
+      "id": "1219313047",
+      "code": "300750",
+      "field": "OCF",
+      "period": "2023-12-31",
+      "column": "current",
+      "period_header": {
+        "text": "2023年",
+        "bbox": [
+          134.3593623076923,
+          261.38812187499997,
+          205.2315665625,
+          306.8676760714285
+        ]
+      },
+      "adjustment": null,
+      "scope": "consolidated",
+      "mode": "summary",
+      "label": "经营活动产生的\n现金流量净额\n（万元）",
+      "raw_text": "9,282,612.44",
+      "source_amount": "9282612.44",
+      "unit": "万元",
+      "multiplier": 10000,
+      "unit_evidence": {
+        "unit": "万元",
+        "multiplier": 10000,
+        "raw": "经营活动产生的\n现金流量净额\n（万元）",
+        "physical_page": 7,
+        "bbox": [
+          58.84178571428572,
+          427.7336072222222,
+          537.5574530232558,
+          467.9833294444444
+        ],
+        "origin": "THIS_FIELD_LABEL"
+      },
+      "value_CNY": "92826124400.00",
+      "physical_page": 7,
+      "quantum_CNY": "100.00",
+      "cell_bbox": [
+        134.3593623076923,
+        427.7336072222222,
+        205.2315665625,
+        467.9833294444444
+      ],
+      "row_bbox": [
+        58.84178571428572,
+        427.7336072222222,
+        537.5574530232558,
+        467.9833294444444
+      ],
+      "table_bbox": [
+        58.84178571428572,
+        261.38812187499997,
+        537.5574530232558,
+        666.74250875
+      ],
+      "continuity": null,
+      "announcement_date": "2024-03-16",
+      "source_sha256": "6081f0377617dddb82f900569d6458c278a7ab26697b34c87684188eac083471",
+      "source_path": "docs/audits/evidence/2026-10-20-w5h-r5/300750_FY2023.pdf",
+      "duration": "FY_CUMULATIVE",
+      "pit_qualified": false,
+      "status": "PARSED_LOCAL_EVIDENCE_NOT_PIT",
+      "corroborating_locations": 2
+    },
+    {
+      "id": "1219313047",
+      "code": "300750",
+      "field": "OCF",
+      "period": "2022-12-31",
+      "column": "unadjusted",
+      "period_header": {
+        "text": "2022年",
+        "bbox": [
+          205.2315665625,
+          261.38812187499997,
+          333.1711802941177,
+          289.748075
+        ]
+      },
+      "adjustment": "unadjusted",
+      "scope": "consolidated",
+      "mode": "summary",
+      "label": "经营活动产生的\n现金流量净额\n（万元）",
+      "raw_text": "6,120,884.33",
+      "source_amount": "6120884.33",
+      "unit": "万元",
+      "multiplier": 10000,
+      "unit_evidence": {
+        "unit": "万元",
+        "multiplier": 10000,
+        "raw": "经营活动产生的\n现金流量净额\n（万元）",
+        "physical_page": 7,
+        "bbox": [
+          58.84178571428572,
+          427.7336072222222,
+          537.5574530232558,
+          467.9833294444444
+        ],
+        "origin": "THIS_FIELD_LABEL"
+      },
+      "value_CNY": "61208843300.00",
+      "physical_page": 7,
+      "quantum_CNY": "100.00",
+      "cell_bbox": [
+        205.2315665625,
+        427.7336072222222,
+        268.9180811538462,
+        467.9833294444444
+      ],
+      "row_bbox": [
+        58.84178571428572,
+        427.7336072222222,
+        537.5574530232558,
+        467.9833294444444
+      ],
+      "table_bbox": [
+        58.84178571428572,
+        261.38812187499997,
+        537.5574530232558,
+        666.74250875
+      ],
+      "continuity": null,
+      "announcement_date": "2024-03-16",
+      "source_sha256": "6081f0377617dddb82f900569d6458c278a7ab26697b34c87684188eac083471",
+      "source_path": "docs/audits/evidence/2026-10-20-w5h-r5/300750_FY2023.pdf",
+      "duration": "FY_CUMULATIVE",
+      "pit_qualified": false,
+      "status": "PARSED_LOCAL_EVIDENCE_NOT_PIT",
+      "corroborating_locations": 1
+    },
+    {
+      "id": "1219313047",
+      "code": "300750",
+      "field": "OCF",
+      "period": "2022-12-31",
+      "column": "adjusted",
+      "period_header": {
+        "text": "2022年",
+        "bbox": [
+          205.2315665625,
+          261.38812187499997,
+          333.1711802941177,
+          289.748075
+        ]
+      },
+      "adjustment": "adjusted",
+      "scope": "consolidated",
+      "mode": "summary",
+      "label": "经营活动产生的\n现金流量净额\n（万元）",
+      "raw_text": "6,120,884.33",
+      "source_amount": "6120884.33",
+      "unit": "万元",
+      "multiplier": 10000,
+      "unit_evidence": {
+        "unit": "万元",
+        "multiplier": 10000,
+        "raw": "经营活动产生的\n现金流量净额\n（万元）",
+        "physical_page": 7,
+        "bbox": [
+          58.84178571428572,
+          427.7336072222222,
+          537.5574530232558,
+          467.9833294444444
+        ],
+        "origin": "THIS_FIELD_LABEL"
+      },
+      "value_CNY": "61208843300.00",
+      "physical_page": 7,
+      "quantum_CNY": "100.00",
+      "cell_bbox": [
+        268.9180811538462,
+        427.7336072222222,
+        333.1711802941177,
+        467.9833294444444
+      ],
+      "row_bbox": [
+        58.84178571428572,
+        427.7336072222222,
+        537.5574530232558,
+        467.9833294444444
+      ],
+      "table_bbox": [
+        58.84178571428572,
+        261.38812187499997,
+        537.5574530232558,
+        666.74250875
+      ],
+      "continuity": null,
+      "announcement_date": "2024-03-16",
+      "source_sha256": "6081f0377617dddb82f900569d6458c278a7ab26697b34c87684188eac083471",
+      "source_path": "docs/audits/evidence/2026-10-20-w5h-r5/300750_FY2023.pdf",
+      "duration": "FY_CUMULATIVE",
+      "pit_qualified": false,
+      "status": "PARSED_LOCAL_EVIDENCE_NOT_PIT",
+      "corroborating_locations": 1
+    },
+    {
+      "id": "1219313047",
+      "code": "300750",
+      "field": "EQ",
+      "period": "2023-12-31",
+      "column": "current",
+      "period_header": {
+        "text": "2023年末",
+        "bbox": [
+          134.3593623076923,
+          552.7556881818181,
+          205.2315665625,
+          598.0707192857143
+        ]
+      },
+      "adjustment": null,
+      "scope": "consolidated",
+      "mode": "summary",
+      "label": "归属于上市公司\n股东的净资产\n（万元）",
+      "raw_text": "19,770,805.24",
+      "source_amount": "19770805.24",
+      "unit": "万元",
+      "multiplier": 10000,
+      "unit_evidence": {
+        "unit": "万元",
+        "multiplier": 10000,
+        "raw": "归属于上市公司\n股东的净资产\n（万元）",
+        "physical_page": 7,
+        "bbox": [
+          58.84178571428572,
+          626.4833177777778,
+          537.5574530232558,
+          666.74250875
+        ],
+        "origin": "THIS_FIELD_LABEL"
+      },
+      "value_CNY": "197708052400.00",
+      "physical_page": 7,
+      "quantum_CNY": "100.00",
+      "cell_bbox": [
+        134.3593623076923,
+        626.4833177777778,
+        205.2315665625,
+        666.74250875
+      ],
+      "row_bbox": [
+        58.84178571428572,
+        626.4833177777778,
+        537.5574530232558,
+        666.74250875
+      ],
+      "table_bbox": [
+        58.84178571428572,
+        261.38812187499997,
+        537.5574530232558,
+        666.74250875
+      ],
+      "continuity": null,
+      "announcement_date": "2024-03-16",
+      "source_sha256": "6081f0377617dddb82f900569d6458c278a7ab26697b34c87684188eac083471",
+      "source_path": "docs/audits/evidence/2026-10-20-w5h-r5/300750_FY2023.pdf",
+      "duration": "INSTANT_END",
+      "pit_qualified": false,
+      "status": "PARSED_LOCAL_EVIDENCE_NOT_PIT",
+      "corroborating_locations": 1
+    },
+    {
+      "id": "1219313047",
+      "code": "300750",
+      "field": "EQ",
+      "period": "2022-12-31",
+      "column": "unadjusted",
+      "period_header": {
+        "text": "2022年末",
+        "bbox": [
+          205.2315665625,
+          552.7556881818181,
+          333.1711802941177,
+          581.1126846153846
+        ]
+      },
+      "adjustment": "unadjusted",
+      "scope": "consolidated",
+      "mode": "summary",
+      "label": "归属于上市公司\n股东的净资产\n（万元）",
+      "raw_text": "16,448,125.16",
+      "source_amount": "16448125.16",
+      "unit": "万元",
+      "multiplier": 10000,
+      "unit_evidence": {
+        "unit": "万元",
+        "multiplier": 10000,
+        "raw": "归属于上市公司\n股东的净资产\n（万元）",
+        "physical_page": 7,
+        "bbox": [
+          58.84178571428572,
+          626.4833177777778,
+          537.5574530232558,
+          666.74250875
+        ],
+        "origin": "THIS_FIELD_LABEL"
+      },
+      "value_CNY": "164481251600.00",
+      "physical_page": 7,
+      "quantum_CNY": "100.00",
+      "cell_bbox": [
+        205.2315665625,
+        626.4833177777778,
+        268.9180811538462,
+        666.74250875
+      ],
+      "row_bbox": [
+        58.84178571428572,
+        626.4833177777778,
+        537.5574530232558,
+        666.74250875
+      ],
+      "table_bbox": [
+        58.84178571428572,
+        261.38812187499997,
+        537.5574530232558,
+        666.74250875
+      ],
+      "continuity": null,
+      "announcement_date": "2024-03-16",
+      "source_sha256": "6081f0377617dddb82f900569d6458c278a7ab26697b34c87684188eac083471",
+      "source_path": "docs/audits/evidence/2026-10-20-w5h-r5/300750_FY2023.pdf",
+      "duration": "INSTANT_END",
+      "pit_qualified": false,
+      "status": "PARSED_LOCAL_EVIDENCE_NOT_PIT",
+      "corroborating_locations": 1
+    },
+    {
+      "id": "1219313047",
+      "code": "300750",
+      "field": "EQ",
+      "period": "2022-12-31",
+      "column": "adjusted",
+      "period_header": {
+        "text": "2022年末",
+        "bbox": [
+          205.2315665625,
+          552.7556881818181,
+          333.1711802941177,
+          581.1126846153846
+        ]
+      },
+      "adjustment": "adjusted",
+      "scope": "consolidated",
+      "mode": "summary",
+      "label": "归属于上市公司\n股东的净资产\n（万元）",
+      "raw_text": "16,448,125.16",
+      "source_amount": "16448125.16",
+      "unit": "万元",
+      "multiplier": 10000,
+      "unit_evidence": {
+        "unit": "万元",
+        "multiplier": 10000,
+        "raw": "归属于上市公司\n股东的净资产\n（万元）",
+        "physical_page": 7,
+        "bbox": [
+          58.84178571428572,
+          626.4833177777778,
+          537.5574530232558,
+          666.74250875
+        ],
+        "origin": "THIS_FIELD_LABEL"
+      },
+      "value_CNY": "164481251600.00",
+      "physical_page": 7,
+      "quantum_CNY": "100.00",
+      "cell_bbox": [
+        268.9180811538462,
+        626.4833177777778,
+        333.1711802941177,
+        666.74250875
+      ],
+      "row_bbox": [
+        58.84178571428572,
+        626.4833177777778,
+        537.5574530232558,
+        666.74250875
+      ],
+      "table_bbox": [
+        58.84178571428572,
+        261.38812187499997,
+        537.5574530232558,
+        666.74250875
+      ],
+      "continuity": null,
+      "announcement_date": "2024-03-16",
+      "source_sha256": "6081f0377617dddb82f900569d6458c278a7ab26697b34c87684188eac083471",
+      "source_path": "docs/audits/evidence/2026-10-20-w5h-r5/300750_FY2023.pdf",
+      "duration": "INSTANT_END",
+      "pit_qualified": false,
+      "status": "PARSED_LOCAL_EVIDENCE_NOT_PIT",
+      "corroborating_locations": 1
+    },
+    {
+      "id": "1219619642",
+      "code": "300750",
+      "field": "NP",
+      "period": "2024-03-31",
+      "column": "current",
+      "period_header": {
+        "text": "本报告期",
+        "bbox": [
+          184.2654806451613,
+          537.1161569230769,
+          283.504396,
+          578.3026025
+        ]
+      },
+      "adjustment": null,
+      "scope": "consolidated",
+      "mode": "summary",
+      "label": "归属于上市公司股东的净利润（万元）",
+      "raw_text": "1,050,992.32",
+      "source_amount": "1050992.32",
+      "unit": "万元",
+      "multiplier": 10000,
+      "unit_evidence": {
+        "unit": "万元",
+        "multiplier": 10000,
+        "raw": "归属于上市公司股东的净利润（万元）",
+        "physical_page": 1,
+        "bbox": [
+          56.677241379310345,
+          595.6257178571428,
+          538.6805173913043,
+          620.1400035714286
+        ],
+        "origin": "THIS_FIELD_LABEL"
+      },
+      "value_CNY": "10509923200.00",
+      "physical_page": 1,
+      "quantum_CNY": "100.00",
+      "cell_bbox": [
+        184.2654806451613,
+        595.6257178571428,
+        283.504396,
+        620.1400035714286
+      ],
+      "row_bbox": [
+        56.677241379310345,
+        595.6257178571428,
+        538.6805173913043,
+        620.1400035714286
+      ],
+      "table_bbox": [
+        56.677241379310345,
+        537.1161569230769,
+        538.6805173913043,
+        756.5298492307692
+      ],
+      "continuity": null,
+      "announcement_date": "2024-04-16",
+      "source_sha256": "7be8765c33298b96a1010e61a7bcac3212db7f58dc3d360888548cfd11424265",
+      "source_path": "docs/audits/evidence/2026-10-20-w5h-r5/300750_Q12024.pdf",
+      "duration": "Q1_YTD_EQUALS_SINGLE_QUARTER",
+      "pit_qualified": false,
+      "status": "PARSED_LOCAL_EVIDENCE_NOT_PIT",
+      "corroborating_locations": 2
+    },
+    {
+      "id": "1219619642",
+      "code": "300750",
+      "field": "NP",
+      "period": "2023-03-31",
+      "column": "unadjusted",
+      "period_header": {
+        "text": "上年同期",
+        "bbox": [
+          283.504396,
+          537.1161569230769,
+          453.6997769230769,
+          562.0723547058824
+        ]
+      },
+      "adjustment": "unadjusted",
+      "scope": "consolidated",
+      "mode": "summary",
+      "label": "归属于上市公司股东的净利润（万元）",
+      "raw_text": "982,226.51",
+      "source_amount": "982226.51",
+      "unit": "万元",
+      "multiplier": 10000,
+      "unit_evidence": {
+        "unit": "万元",
+        "multiplier": 10000,
+        "raw": "归属于上市公司股东的净利润（万元）",
+        "physical_page": 1,
+        "bbox": [
+          56.677241379310345,
+          595.6257178571428,
+          538.6805173913043,
+          620.1400035714286
+        ],
+        "origin": "THIS_FIELD_LABEL"
+      },
+      "value_CNY": "9822265100.00",
+      "physical_page": 1,
+      "quantum_CNY": "100.00",
+      "cell_bbox": [
+        283.504396,
+        595.6257178571428,
+        368.59021777777775,
+        620.1400035714286
+      ],
+      "row_bbox": [
+        56.677241379310345,
+        595.6257178571428,
+        538.6805173913043,
+        620.1400035714286
+      ],
+      "table_bbox": [
+        56.677241379310345,
+        537.1161569230769,
+        538.6805173913043,
+        756.5298492307692
+      ],
+      "continuity": null,
+      "announcement_date": "2024-04-16",
+      "source_sha256": "7be8765c33298b96a1010e61a7bcac3212db7f58dc3d360888548cfd11424265",
+      "source_path": "docs/audits/evidence/2026-10-20-w5h-r5/300750_Q12024.pdf",
+      "duration": "Q1_YTD_EQUALS_SINGLE_QUARTER",
+      "pit_qualified": false,
+      "status": "PARSED_LOCAL_EVIDENCE_NOT_PIT",
+      "corroborating_locations": 2
+    },
+    {
+      "id": "1219619642",
+      "code": "300750",
+      "field": "OCF",
+      "period": "2024-03-31",
+      "column": "current",
+      "period_header": {
+        "text": "本报告期",
+        "bbox": [
+          184.2654806451613,
+          537.1161569230769,
+          283.504396,
+          578.3026025
+        ]
+      },
+      "adjustment": null,
+      "scope": "consolidated",
+      "mode": "summary",
+      "label": "经营活动产生的现金流量净额（万元）",
+      "raw_text": "2,835,791.06",
+      "source_amount": "2835791.06",
+      "unit": "万元",
+      "multiplier": 10000,
+      "unit_evidence": {
+        "unit": "万元",
+        "multiplier": 10000,
+        "raw": "经营活动产生的现金流量净额（万元）",
+        "physical_page": 1,
+        "bbox": [
+          56.677241379310345,
+          656.3799821428572,
+          538.6805173913043,
+          680.8000035714285
+        ],
+        "origin": "THIS_FIELD_LABEL"
+      },
+      "value_CNY": "28357910600.00",
+      "physical_page": 1,
+      "quantum_CNY": "100.00",
+      "cell_bbox": [
+        184.2654806451613,
+        656.3799821428572,
+        283.504396,
+        680.8000035714285
+      ],
+      "row_bbox": [
+        56.677241379310345,
+        656.3799821428572,
+        538.6805173913043,
+        680.8000035714285
+      ],
+      "table_bbox": [
+        56.677241379310345,
+        537.1161569230769,
+        538.6805173913043,
+        756.5298492307692
+      ],
+      "continuity": null,
+      "announcement_date": "2024-04-16",
+      "source_sha256": "7be8765c33298b96a1010e61a7bcac3212db7f58dc3d360888548cfd11424265",
+      "source_path": "docs/audits/evidence/2026-10-20-w5h-r5/300750_Q12024.pdf",
+      "duration": "Q1_YTD_EQUALS_SINGLE_QUARTER",
+      "pit_qualified": false,
+      "status": "PARSED_LOCAL_EVIDENCE_NOT_PIT",
+      "corroborating_locations": 1
+    },
+    {
+      "id": "1219619642",
+      "code": "300750",
+      "field": "OCF",
+      "period": "2023-03-31",
+      "column": "unadjusted",
+      "period_header": {
+        "text": "上年同期",
+        "bbox": [
+          283.504396,
+          537.1161569230769,
+          453.6997769230769,
+          562.0723547058824
+        ]
+      },
+      "adjustment": "unadjusted",
+      "scope": "consolidated",
+      "mode": "summary",
+      "label": "经营活动产生的现金流量净额（万元）",
+      "raw_text": "2,096,627.85",
+      "source_amount": "2096627.85",
+      "unit": "万元",
+      "multiplier": 10000,
+      "unit_evidence": {
+        "unit": "万元",
+        "multiplier": 10000,
+        "raw": "经营活动产生的现金流量净额（万元）",
+        "physical_page": 1,
+        "bbox": [
+          56.677241379310345,
+          656.3799821428572,
+          538.6805173913043,
+          680.8000035714285
+        ],
+        "origin": "THIS_FIELD_LABEL"
+      },
+      "value_CNY": "20966278500.00",
+      "physical_page": 1,
+      "quantum_CNY": "100.00",
+      "cell_bbox": [
+        283.504396,
+        656.3799821428572,
+        368.59021777777775,
+        680.8000035714285
+      ],
+      "row_bbox": [
+        56.677241379310345,
+        656.3799821428572,
+        538.6805173913043,
+        680.8000035714285
+      ],
+      "table_bbox": [
+        56.677241379310345,
+        537.1161569230769,
+        538.6805173913043,
+        756.5298492307692
+      ],
+      "continuity": null,
+      "announcement_date": "2024-04-16",
+      "source_sha256": "7be8765c33298b96a1010e61a7bcac3212db7f58dc3d360888548cfd11424265",
+      "source_path": "docs/audits/evidence/2026-10-20-w5h-r5/300750_Q12024.pdf",
+      "duration": "Q1_YTD_EQUALS_SINGLE_QUARTER",
+      "pit_qualified": false,
+      "status": "PARSED_LOCAL_EVIDENCE_NOT_PIT",
+      "corroborating_locations": 2
+    },
+    {
+      "id": "1219619642",
+      "code": "300750",
+      "field": "EQ",
+      "period": "2024-03-31",
+      "column": "current",
+      "period_header": {
+        "text": "本报告期末",
+        "bbox": [
+          184.2654806451613,
+          732.2117676470588,
+          283.504396,
+          756.5298492307692
+        ]
+      },
+      "adjustment": null,
+      "scope": "consolidated",
+      "mode": "summary",
+      "label": "归属于上市公司股东的所有者权益（万元）",
+      "raw_text": "20,772,987.40",
+      "source_amount": "20772987.40",
+      "unit": "万元",
+      "multiplier": 10000,
+      "unit_evidence": {
+        "unit": "万元",
+        "multiplier": 10000,
+        "raw": "归属于上市公司股东的所有者权益（万元）",
+        "physical_page": 2,
+        "bbox": [
+          56.68137931034483,
+          106.51999999999994,
+          538.6698663829787,
+          130.9200041666666
+        ],
+        "origin": "THIS_FIELD_LABEL"
+      },
+      "value_CNY": "207729874000.00",
+      "physical_page": 2,
+      "quantum_CNY": "100.00",
+      "cell_bbox": [
+        184.1889975,
+        106.51999999999994,
+        283.189997,
+        130.9200041666666
+      ],
+      "row_bbox": [
+        56.68137931034483,
+        106.51999999999994,
+        538.6698663829787,
+        130.9200041666666
+      ],
+      "table_bbox": [
+        56.68137931034483,
+        72.59155555555554,
+        538.6698663829787,
+        130.9200041666666
+      ],
+      "continuity": {
+        "previous_page": 1,
+        "current_page": 2,
+        "matching_column_edges": [
+          56.7,
+          62.2,
+          179.0,
+          184.2,
+          283.2,
+          289.0,
+          363.2,
+          368.6,
+          374.0,
+          448.3,
+          453.7,
+          459.1,
+          533.4,
+          538.7
+        ],
+        "reason": "ADJACENT_EDGE_ALIGNED_NO_NEW_SECTION",
+        "previous_bbox": [
+          56.677241379310345,
+          537.1161569230769,
+          538.6805173913043,
+          756.5298492307692
+        ],
+        "current_bbox": [
+          56.68137931034483,
+          72.59155555555554,
+          538.6698663829787,
+          130.9200041666666
+        ]
+      },
+      "announcement_date": "2024-04-16",
+      "source_sha256": "7be8765c33298b96a1010e61a7bcac3212db7f58dc3d360888548cfd11424265",
+      "source_path": "docs/audits/evidence/2026-10-20-w5h-r5/300750_Q12024.pdf",
+      "duration": "INSTANT_END",
+      "pit_qualified": false,
+      "status": "PARSED_LOCAL_EVIDENCE_NOT_PIT",
+      "corroborating_locations": 1
+    },
+    {
+      "id": "1219619642",
+      "code": "300750",
+      "field": "EQ",
+      "period": "2023-12-31",
+      "column": "unadjusted",
+      "period_header": {
+        "text": "上年度末",
+        "bbox": [
+          283.504396,
+          732.2117676470588,
+          453.6997769230769,
+          756.5298492307692
+        ]
+      },
+      "adjustment": "unadjusted",
+      "scope": "consolidated",
+      "mode": "summary",
+      "label": "归属于上市公司股东的所有者权益（万元）",
+      "raw_text": "19,770,805.24",
+      "source_amount": "19770805.24",
+      "unit": "万元",
+      "multiplier": 10000,
+      "unit_evidence": {
+        "unit": "万元",
+        "multiplier": 10000,
+        "raw": "归属于上市公司股东的所有者权益（万元）",
+        "physical_page": 2,
+        "bbox": [
+          56.68137931034483,
+          106.51999999999994,
+          538.6698663829787,
+          130.9200041666666
+        ],
+        "origin": "THIS_FIELD_LABEL"
+      },
+      "value_CNY": "197708052400.00",
+      "physical_page": 2,
+      "quantum_CNY": "100.00",
+      "cell_bbox": [
+        283.189997,
+        106.51999999999994,
+        368.59049625,
+        130.9200041666666
+      ],
+      "row_bbox": [
+        56.68137931034483,
+        106.51999999999994,
+        538.6698663829787,
+        130.9200041666666
+      ],
+      "table_bbox": [
+        56.68137931034483,
+        72.59155555555554,
+        538.6698663829787,
+        130.9200041666666
+      ],
+      "continuity": {
+        "previous_page": 1,
+        "current_page": 2,
+        "matching_column_edges": [
+          56.7,
+          62.2,
+          179.0,
+          184.2,
+          283.2,
+          289.0,
+          363.2,
+          368.6,
+          374.0,
+          448.3,
+          453.7,
+          459.1,
+          533.4,
+          538.7
+        ],
+        "reason": "ADJACENT_EDGE_ALIGNED_NO_NEW_SECTION",
+        "previous_bbox": [
+          56.677241379310345,
+          537.1161569230769,
+          538.6805173913043,
+          756.5298492307692
+        ],
+        "current_bbox": [
+          56.68137931034483,
+          72.59155555555554,
+          538.6698663829787,
+          130.9200041666666
+        ]
+      },
+      "announcement_date": "2024-04-16",
+      "source_sha256": "7be8765c33298b96a1010e61a7bcac3212db7f58dc3d360888548cfd11424265",
+      "source_path": "docs/audits/evidence/2026-10-20-w5h-r5/300750_Q12024.pdf",
+      "duration": "INSTANT_END",
+      "pit_qualified": false,
+      "status": "PARSED_LOCAL_EVIDENCE_NOT_PIT",
+      "corroborating_locations": 2
+    },
+    {
+      "id": "1219429144",
+      "code": "601398",
+      "field": "NP",
+      "period": "2023-12-31",
+      "column": "current",
+      "period_header": {
+        "text": "2023",
+        "x0": 301.73,
+        "x1": 321.83000000000004,
+        "top": 464.46135999999996,
+        "doctop": 11409.421359999998,
+        "bottom": 474.42136,
+        "upright": true,
+        "height": 9.960000000000036,
+        "width": 20.100000000000023,
+        "direction": "ltr"
+      },
+      "adjustment": null,
+      "scope": "consolidated",
+      "mode": "summary",
+      "label": "归属于母公司股东的净利润",
+      "raw_text": "363,993",
+      "source_amount": "363993",
+      "unit": "百万元",
+      "multiplier": 1000000,
+      "unit_evidence": {
+        "unit": "百万元",
+        "multiplier": 1000000,
+        "raw": "全年经营成果（人民币百万元）",
+        "physical_page": 14,
+        "bbox": [
+          53.64,
+          488.43435999999997,
+          193.91912000000002,
+          498.39435999999995
+        ]
+      },
+      "value_CNY": "363993000000",
+      "physical_page": 14,
+      "quantum_CNY": "1000000",
+      "cell_bbox": [
+        307.49,
+        634.14136,
+        340.01936,
+        644.10136
+      ],
+      "row_bbox": [
+        53.64,
+        633.39436,
+        541.66936,
+        644.10136
+      ],
+      "table_bbox": null,
+      "continuity": null,
+      "announcement_date": "2024-03-28",
+      "source_sha256": "e310e8a55ff8f057782c6c70b003fa220ca5a2e484334bffbf308bdc39b3434d",
+      "source_path": "docs/audits/evidence/2026-10-20-w5h-r5/601398_FY2023.pdf",
+      "duration": "FY_CUMULATIVE",
+      "pit_qualified": false,
+      "status": "PARSED_LOCAL_EVIDENCE_NOT_PIT",
+      "corroborating_locations": 1
+    },
+    {
+      "id": "1219429144",
+      "code": "601398",
+      "field": "NP",
+      "period": "2022-12-31",
+      "column": "unadjusted",
+      "period_header": {
+        "text": "2022",
+        "x0": 402.55,
+        "x1": 422.65000000000003,
+        "top": 456.16135999999995,
+        "doctop": 11401.12136,
+        "bottom": 466.12136,
+        "upright": true,
+        "height": 9.960000000000036,
+        "width": 20.100000000000023,
+        "direction": "ltr"
+      },
+      "adjustment": "调整前（1）",
+      "scope": "consolidated",
+      "mode": "summary",
+      "label": "归属于母公司股东的净利润",
+      "raw_text": "360,483",
+      "source_amount": "360483",
+      "unit": "百万元",
+      "multiplier": 1000000,
+      "unit_evidence": {
+        "unit": "百万元",
+        "multiplier": 1000000,
+        "raw": "全年经营成果（人民币百万元）",
+        "physical_page": 14,
+        "bbox": [
+          53.64,
+          488.43435999999997,
+          193.91912000000002,
+          498.39435999999995
+        ]
+      },
+      "value_CNY": "360483000000",
+      "physical_page": 14,
+      "quantum_CNY": "1000000",
+      "cell_bbox": [
+        374.71,
+        634.14136,
+        407.23936,
+        644.10136
+      ],
+      "row_bbox": [
+        53.64,
+        633.39436,
+        541.66936,
+        644.10136
+      ],
+      "table_bbox": null,
+      "continuity": null,
+      "announcement_date": "2024-03-28",
+      "source_sha256": "e310e8a55ff8f057782c6c70b003fa220ca5a2e484334bffbf308bdc39b3434d",
+      "source_path": "docs/audits/evidence/2026-10-20-w5h-r5/601398_FY2023.pdf",
+      "duration": "FY_CUMULATIVE",
+      "pit_qualified": false,
+      "status": "PARSED_LOCAL_EVIDENCE_NOT_PIT",
+      "corroborating_locations": 1
+    },
+    {
+      "id": "1219429144",
+      "code": "601398",
+      "field": "NP",
+      "period": "2022-12-31",
+      "column": "adjusted",
+      "period_header": {
+        "text": "2022",
+        "x0": 402.55,
+        "x1": 422.65000000000003,
+        "top": 456.16135999999995,
+        "doctop": 11401.12136,
+        "bottom": 466.12136,
+        "upright": true,
+        "height": 9.960000000000036,
+        "width": 20.100000000000023,
+        "direction": "ltr"
+      },
+      "adjustment": "调整后（1）",
+      "scope": "consolidated",
+      "mode": "summary",
+      "label": "归属于母公司股东的净利润",
+      "raw_text": "361,132",
+      "source_amount": "361132",
+      "unit": "百万元",
+      "multiplier": 1000000,
+      "unit_evidence": {
+        "unit": "百万元",
+        "multiplier": 1000000,
+        "raw": "全年经营成果（人民币百万元）",
+        "physical_page": 14,
+        "bbox": [
+          53.64,
+          488.43435999999997,
+          193.91912000000002,
+          498.39435999999995
+        ]
+      },
+      "value_CNY": "361132000000",
+      "physical_page": 14,
+      "quantum_CNY": "1000000",
+      "cell_bbox": [
+        441.91,
+        634.14136,
+        474.43936,
+        644.10136
+      ],
+      "row_bbox": [
+        53.64,
+        633.39436,
+        541.66936,
+        644.10136
+      ],
+      "table_bbox": null,
+      "continuity": null,
+      "announcement_date": "2024-03-28",
+      "source_sha256": "e310e8a55ff8f057782c6c70b003fa220ca5a2e484334bffbf308bdc39b3434d",
+      "source_path": "docs/audits/evidence/2026-10-20-w5h-r5/601398_FY2023.pdf",
+      "duration": "FY_CUMULATIVE",
+      "pit_qualified": false,
+      "status": "PARSED_LOCAL_EVIDENCE_NOT_PIT",
+      "corroborating_locations": 1
+    },
+    {
+      "id": "1219429144",
+      "code": "601398",
+      "field": "OCF",
+      "period": "2023-12-31",
+      "column": "current",
+      "period_header": {
+        "text": "2023",
+        "x0": 301.73,
+        "x1": 321.83000000000004,
+        "top": 464.46135999999996,
+        "doctop": 11409.421359999998,
+        "bottom": 474.42136,
+        "upright": true,
+        "height": 9.960000000000036,
+        "width": 20.100000000000023,
+        "direction": "ltr"
+      },
+      "adjustment": null,
+      "scope": "consolidated",
+      "mode": "summary",
+      "label": "经营活动产生的现金流量净额",
+      "raw_text": "1,417,002",
+      "source_amount": "1417002",
+      "unit": "百万元",
+      "multiplier": 1000000,
+      "unit_evidence": {
+        "unit": "百万元",
+        "multiplier": 1000000,
+        "raw": "全年经营成果（人民币百万元）",
+        "physical_page": 14,
+        "bbox": [
+          53.64,
+          488.43435999999997,
+          193.91912000000002,
+          498.39435999999995
+        ]
+      },
+      "value_CNY": "1417002000000",
+      "physical_page": 14,
+      "quantum_CNY": "1000000",
+      "cell_bbox": [
+        300.05,
+        666.3313599999999,
+        340.00952000000007,
+        676.2913599999999
+      ],
+      "row_bbox": [
+        53.64,
+        665.58436,
+        541.72,
+        676.2913599999999
+      ],
+      "table_bbox": null,
+      "continuity": null,
+      "announcement_date": "2024-03-28",
+      "source_sha256": "e310e8a55ff8f057782c6c70b003fa220ca5a2e484334bffbf308bdc39b3434d",
+      "source_path": "docs/audits/evidence/2026-10-20-w5h-r5/601398_FY2023.pdf",
+      "duration": "FY_CUMULATIVE",
+      "pit_qualified": false,
+      "status": "PARSED_LOCAL_EVIDENCE_NOT_PIT",
+      "corroborating_locations": 1
+    },
+    {
+      "id": "1219429144",
+      "code": "601398",
+      "field": "OCF",
+      "period": "2022-12-31",
+      "column": "unadjusted",
+      "period_header": {
+        "text": "2022",
+        "x0": 402.55,
+        "x1": 422.65000000000003,
+        "top": 456.16135999999995,
+        "doctop": 11401.12136,
+        "bottom": 466.12136,
+        "upright": true,
+        "height": 9.960000000000036,
+        "width": 20.100000000000023,
+        "direction": "ltr"
+      },
+      "adjustment": "调整前（1）",
+      "scope": "consolidated",
+      "mode": "summary",
+      "label": "经营活动产生的现金流量净额",
+      "raw_text": "1,404,657",
+      "source_amount": "1404657",
+      "unit": "百万元",
+      "multiplier": 1000000,
+      "unit_evidence": {
+        "unit": "百万元",
+        "multiplier": 1000000,
+        "raw": "全年经营成果（人民币百万元）",
+        "physical_page": 14,
+        "bbox": [
+          53.64,
+          488.43435999999997,
+          193.91912000000002,
+          498.39435999999995
+        ]
+      },
+      "value_CNY": "1404657000000",
+      "physical_page": 14,
+      "quantum_CNY": "1000000",
+      "cell_bbox": [
+        367.27,
+        666.3313599999999,
+        407.2498,
+        676.2913599999999
+      ],
+      "row_bbox": [
+        53.64,
+        665.58436,
+        541.72,
+        676.2913599999999
+      ],
+      "table_bbox": null,
+      "continuity": null,
+      "announcement_date": "2024-03-28",
+      "source_sha256": "e310e8a55ff8f057782c6c70b003fa220ca5a2e484334bffbf308bdc39b3434d",
+      "source_path": "docs/audits/evidence/2026-10-20-w5h-r5/601398_FY2023.pdf",
+      "duration": "FY_CUMULATIVE",
+      "pit_qualified": false,
+      "status": "PARSED_LOCAL_EVIDENCE_NOT_PIT",
+      "corroborating_locations": 1
+    },
+    {
+      "id": "1219429144",
+      "code": "601398",
+      "field": "OCF",
+      "period": "2022-12-31",
+      "column": "adjusted",
+      "period_header": {
+        "text": "2022",
+        "x0": 402.55,
+        "x1": 422.65000000000003,
+        "top": 456.16135999999995,
+        "doctop": 11401.12136,
+        "bottom": 466.12136,
+        "upright": true,
+        "height": 9.960000000000036,
+        "width": 20.100000000000023,
+        "direction": "ltr"
+      },
+      "adjustment": "调整后（1）",
+      "scope": "consolidated",
+      "mode": "summary",
+      "label": "经营活动产生的现金流量净额",
+      "raw_text": "1,404,657",
+      "source_amount": "1404657",
+      "unit": "百万元",
+      "multiplier": 1000000,
+      "unit_evidence": {
+        "unit": "百万元",
+        "multiplier": 1000000,
+        "raw": "全年经营成果（人民币百万元）",
+        "physical_page": 14,
+        "bbox": [
+          53.64,
+          488.43435999999997,
+          193.91912000000002,
+          498.39435999999995
+        ]
+      },
+      "value_CNY": "1404657000000",
+      "physical_page": 14,
+      "quantum_CNY": "1000000",
+      "cell_bbox": [
+        434.47,
+        666.3313599999999,
+        474.42952,
+        676.2913599999999
+      ],
+      "row_bbox": [
+        53.64,
+        665.58436,
+        541.72,
+        676.2913599999999
+      ],
+      "table_bbox": null,
+      "continuity": null,
+      "announcement_date": "2024-03-28",
+      "source_sha256": "e310e8a55ff8f057782c6c70b003fa220ca5a2e484334bffbf308bdc39b3434d",
+      "source_path": "docs/audits/evidence/2026-10-20-w5h-r5/601398_FY2023.pdf",
+      "duration": "FY_CUMULATIVE",
+      "pit_qualified": false,
+      "status": "PARSED_LOCAL_EVIDENCE_NOT_PIT",
+      "corroborating_locations": 1
+    },
+    {
+      "id": "1219429144",
+      "code": "601398",
+      "field": "EQ",
+      "period": "2023-12-31",
+      "column": "current",
+      "period_header": {
+        "text": "2023",
+        "x0": 301.73,
+        "x1": 321.83000000000004,
+        "top": 464.46135999999996,
+        "doctop": 11409.421359999998,
+        "bottom": 474.42136,
+        "upright": true,
+        "height": 9.960000000000036,
+        "width": 20.100000000000023,
+        "direction": "ltr"
+      },
+      "adjustment": null,
+      "scope": "consolidated",
+      "mode": "summary",
+      "label": "归属于母公司股东的权益",
+      "raw_text": "3,756,887",
+      "source_amount": "3756887",
+      "unit": "百万元",
+      "multiplier": 1000000,
+      "unit_evidence": {
+        "unit": "百万元",
+        "multiplier": 1000000,
+        "raw": "于报告期末（人民币百万元）",
+        "physical_page": 14,
+        "bbox": [
+          53.64,
+          682.2643599999999,
+          183.83912,
+          692.2243599999999
+        ]
+      },
+      "value_CNY": "3756887000000",
+      "physical_page": 15,
+      "quantum_CNY": "1000000",
+      "cell_bbox": [
+        300.05,
+        253.09136,
+        340.08004,
+        263.05135999999993
+      ],
+      "row_bbox": [
+        53.64,
+        252.34435999999994,
+        541.72,
+        263.05135999999993
+      ],
+      "table_bbox": null,
+      "continuity": {
+        "previous_page": 14,
+        "current_page": 15,
+        "numeric_column_right_edges": [
+          340.00952000000007,
+          407.22952,
+          474.42952,
+          541.66936
+        ],
+        "reason": "ADJACENT_UNRULED_ROWS_ALIGNED_NO_NEW_HEADING"
+      },
+      "announcement_date": "2024-03-28",
+      "source_sha256": "e310e8a55ff8f057782c6c70b003fa220ca5a2e484334bffbf308bdc39b3434d",
+      "source_path": "docs/audits/evidence/2026-10-20-w5h-r5/601398_FY2023.pdf",
+      "duration": "INSTANT_END",
+      "pit_qualified": false,
+      "status": "PARSED_LOCAL_EVIDENCE_NOT_PIT",
+      "corroborating_locations": 1
+    },
+    {
+      "id": "1219429144",
+      "code": "601398",
+      "field": "EQ",
+      "period": "2022-12-31",
+      "column": "unadjusted",
+      "period_header": {
+        "text": "2022",
+        "x0": 402.55,
+        "x1": 422.65000000000003,
+        "top": 456.16135999999995,
+        "doctop": 11401.12136,
+        "bottom": 466.12136,
+        "upright": true,
+        "height": 9.960000000000036,
+        "width": 20.100000000000023,
+        "direction": "ltr"
+      },
+      "adjustment": "调整前（1）",
+      "scope": "consolidated",
+      "mode": "summary",
+      "label": "归属于母公司股东的权益",
+      "raw_text": "3,495,171",
+      "source_amount": "3495171",
+      "unit": "百万元",
+      "multiplier": 1000000,
+      "unit_evidence": {
+        "unit": "百万元",
+        "multiplier": 1000000,
+        "raw": "于报告期末（人民币百万元）",
+        "physical_page": 14,
+        "bbox": [
+          53.64,
+          682.2643599999999,
+          183.83912,
+          692.2243599999999
+        ]
+      },
+      "value_CNY": "3495171000000",
+      "physical_page": 15,
+      "quantum_CNY": "1000000",
+      "cell_bbox": [
+        367.27,
+        253.09136,
+        407.27020000000005,
+        263.05135999999993
+      ],
+      "row_bbox": [
+        53.64,
+        252.34435999999994,
+        541.72,
+        263.05135999999993
+      ],
+      "table_bbox": null,
+      "continuity": {
+        "previous_page": 14,
+        "current_page": 15,
+        "numeric_column_right_edges": [
+          340.00952000000007,
+          407.22952,
+          474.42952,
+          541.66936
+        ],
+        "reason": "ADJACENT_UNRULED_ROWS_ALIGNED_NO_NEW_HEADING"
+      },
+      "announcement_date": "2024-03-28",
+      "source_sha256": "e310e8a55ff8f057782c6c70b003fa220ca5a2e484334bffbf308bdc39b3434d",
+      "source_path": "docs/audits/evidence/2026-10-20-w5h-r5/601398_FY2023.pdf",
+      "duration": "INSTANT_END",
+      "pit_qualified": false,
+      "status": "PARSED_LOCAL_EVIDENCE_NOT_PIT",
+      "corroborating_locations": 1
+    },
+    {
+      "id": "1219429144",
+      "code": "601398",
+      "field": "EQ",
+      "period": "2022-12-31",
+      "column": "adjusted",
+      "period_header": {
+        "text": "2022",
+        "x0": 402.55,
+        "x1": 422.65000000000003,
+        "top": 456.16135999999995,
+        "doctop": 11401.12136,
+        "bottom": 466.12136,
+        "upright": true,
+        "height": 9.960000000000036,
+        "width": 20.100000000000023,
+        "direction": "ltr"
+      },
+      "adjustment": "调整后（1）",
+      "scope": "consolidated",
+      "mode": "summary",
+      "label": "归属于母公司股东的权益",
+      "raw_text": "3,496,109",
+      "source_amount": "3496109",
+      "unit": "百万元",
+      "multiplier": 1000000,
+      "unit_evidence": {
+        "unit": "百万元",
+        "multiplier": 1000000,
+        "raw": "于报告期末（人民币百万元）",
+        "physical_page": 14,
+        "bbox": [
+          53.64,
+          682.2643599999999,
+          183.83912,
+          692.2243599999999
+        ]
+      },
+      "value_CNY": "3496109000000",
+      "physical_page": 15,
+      "quantum_CNY": "1000000",
+      "cell_bbox": [
+        434.47,
+        253.09136,
+        474.42952,
+        263.05135999999993
+      ],
+      "row_bbox": [
+        53.64,
+        252.34435999999994,
+        541.72,
+        263.05135999999993
+      ],
+      "table_bbox": null,
+      "continuity": {
+        "previous_page": 14,
+        "current_page": 15,
+        "numeric_column_right_edges": [
+          340.00952000000007,
+          407.22952,
+          474.42952,
+          541.66936
+        ],
+        "reason": "ADJACENT_UNRULED_ROWS_ALIGNED_NO_NEW_HEADING"
+      },
+      "announcement_date": "2024-03-28",
+      "source_sha256": "e310e8a55ff8f057782c6c70b003fa220ca5a2e484334bffbf308bdc39b3434d",
+      "source_path": "docs/audits/evidence/2026-10-20-w5h-r5/601398_FY2023.pdf",
+      "duration": "INSTANT_END",
+      "pit_qualified": false,
+      "status": "PARSED_LOCAL_EVIDENCE_NOT_PIT",
+      "corroborating_locations": 1
+    },
+    {
+      "id": "1219922891",
+      "code": "601398",
+      "field": "NP",
+      "period": "2024-03-31",
+      "column": "current",
+      "period_header": {
+        "text": "2024 年\n1 至 3 月",
+        "bbox": [
+          215.08999999999997,
+          583.6300099999999,
+          316.38999,
+          611.47001
+        ]
+      },
+      "adjustment": null,
+      "scope": "consolidated",
+      "mode": "summary",
+      "label": "归属于母公司股东的净利润",
+      "raw_text": "87,653",
+      "source_amount": "87653",
+      "unit": "百万元",
+      "multiplier": 1000000,
+      "unit_evidence": {
+        "unit": "百万元",
+        "multiplier": 1000000,
+        "raw": "单位：除特别注明外，为人民币百万元",
+        "bbox": [
+          340.27,
+          571.3189600000001,
+          518.98,
+          581.87896
+        ],
+        "top": 571.3189600000001,
+        "physical_page": 1,
+        "origin": "PRECEDING_THIS_TABLE"
+      },
+      "value_CNY": "87653000000",
+      "physical_page": 1,
+      "quantum_CNY": "1000000",
+      "cell_bbox": [
+        215.08999999999997,
+        625.5400099999999,
+        316.38999,
+        639.6999799999999
+      ],
+      "row_bbox": [
+        76.584,
+        625.5400099999999,
+        518.8599899999999,
+        639.6999799999999
+      ],
+      "table_bbox": [
+        76.584,
+        583.6300099999999,
+        518.8599899999999,
+        751.1760099999999
+      ],
+      "continuity": null,
+      "announcement_date": "2024-04-30",
+      "source_sha256": "4c0c46e807f389e05ece1b0d4ea519f47656c356affd11106375988aef96d9dd",
+      "source_path": "docs/audits/evidence/2026-10-20-w5h-r5/601398_Q12024.pdf",
+      "duration": "Q1_YTD_EQUALS_SINGLE_QUARTER",
+      "pit_qualified": false,
+      "status": "PARSED_LOCAL_EVIDENCE_NOT_PIT",
+      "corroborating_locations": 1
+    },
+    {
+      "id": "1219922891",
+      "code": "601398",
+      "field": "NP",
+      "period": "2023-03-31",
+      "column": "comparative",
+      "period_header": {
+        "text": "2023 年\n1 至 3 月",
+        "bbox": [
+          316.38999,
+          583.6300099999999,
+          417.54999,
+          611.47001
+        ]
+      },
+      "adjustment": null,
+      "scope": "consolidated",
+      "mode": "summary",
+      "label": "归属于母公司股东的净利润",
+      "raw_text": "90,164",
+      "source_amount": "90164",
+      "unit": "百万元",
+      "multiplier": 1000000,
+      "unit_evidence": {
+        "unit": "百万元",
+        "multiplier": 1000000,
+        "raw": "单位：除特别注明外，为人民币百万元",
+        "bbox": [
+          340.27,
+          571.3189600000001,
+          518.98,
+          581.87896
+        ],
+        "top": 571.3189600000001,
+        "physical_page": 1,
+        "origin": "PRECEDING_THIS_TABLE"
+      },
+      "value_CNY": "90164000000",
+      "physical_page": 1,
+      "quantum_CNY": "1000000",
+      "cell_bbox": [
+        316.38999,
+        625.5400099999999,
+        417.54999,
+        639.6999799999999
+      ],
+      "row_bbox": [
+        76.584,
+        625.5400099999999,
+        518.8599899999999,
+        639.6999799999999
+      ],
+      "table_bbox": [
+        76.584,
+        583.6300099999999,
+        518.8599899999999,
+        751.1760099999999
+      ],
+      "continuity": null,
+      "announcement_date": "2024-04-30",
+      "source_sha256": "4c0c46e807f389e05ece1b0d4ea519f47656c356affd11106375988aef96d9dd",
+      "source_path": "docs/audits/evidence/2026-10-20-w5h-r5/601398_Q12024.pdf",
+      "duration": "Q1_YTD_EQUALS_SINGLE_QUARTER",
+      "pit_qualified": false,
+      "status": "PARSED_LOCAL_EVIDENCE_NOT_PIT",
+      "corroborating_locations": 1
+    },
+    {
+      "id": "1219922891",
+      "code": "601398",
+      "field": "OCF",
+      "period": "2024-03-31",
+      "column": "current",
+      "period_header": {
+        "text": "2024 年\n1 至 3 月",
+        "bbox": [
+          215.08999999999997,
+          583.6300099999999,
+          316.38999,
+          611.47001
+        ]
+      },
+      "adjustment": null,
+      "scope": "consolidated",
+      "mode": "summary",
+      "label": "经营活动产生的现金流量净\n额",
+      "raw_text": "1,367,252",
+      "source_amount": "1367252",
+      "unit": "百万元",
+      "multiplier": 1000000,
+      "unit_evidence": {
+        "unit": "百万元",
+        "multiplier": 1000000,
+        "raw": "单位：除特别注明外，为人民币百万元",
+        "bbox": [
+          340.27,
+          571.3189600000001,
+          518.98,
+          581.87896
+        ],
+        "top": 571.3189600000001,
+        "physical_page": 1,
+        "origin": "PRECEDING_THIS_TABLE"
+      },
+      "value_CNY": "1367252000000",
+      "physical_page": 1,
+      "quantum_CNY": "1000000",
+      "cell_bbox": [
+        215.08999999999997,
+        667.42001,
+        316.38999,
+        695.1400099999998
+      ],
+      "row_bbox": [
+        76.584,
+        667.42001,
+        518.8599899999999,
+        695.1400099999998
+      ],
+      "table_bbox": [
+        76.584,
+        583.6300099999999,
+        518.8599899999999,
+        751.1760099999999
+      ],
+      "continuity": null,
+      "announcement_date": "2024-04-30",
+      "source_sha256": "4c0c46e807f389e05ece1b0d4ea519f47656c356affd11106375988aef96d9dd",
+      "source_path": "docs/audits/evidence/2026-10-20-w5h-r5/601398_Q12024.pdf",
+      "duration": "Q1_YTD_EQUALS_SINGLE_QUARTER",
+      "pit_qualified": false,
+      "status": "PARSED_LOCAL_EVIDENCE_NOT_PIT",
+      "corroborating_locations": 1
+    },
+    {
+      "id": "1219922891",
+      "code": "601398",
+      "field": "OCF",
+      "period": "2023-03-31",
+      "column": "comparative",
+      "period_header": {
+        "text": "2023 年\n1 至 3 月",
+        "bbox": [
+          316.38999,
+          583.6300099999999,
+          417.54999,
+          611.47001
+        ]
+      },
+      "adjustment": null,
+      "scope": "consolidated",
+      "mode": "summary",
+      "label": "经营活动产生的现金流量净\n额",
+      "raw_text": "1,105,614",
+      "source_amount": "1105614",
+      "unit": "百万元",
+      "multiplier": 1000000,
+      "unit_evidence": {
+        "unit": "百万元",
+        "multiplier": 1000000,
+        "raw": "单位：除特别注明外，为人民币百万元",
+        "bbox": [
+          340.27,
+          571.3189600000001,
+          518.98,
+          581.87896
+        ],
+        "top": 571.3189600000001,
+        "physical_page": 1,
+        "origin": "PRECEDING_THIS_TABLE"
+      },
+      "value_CNY": "1105614000000",
+      "physical_page": 1,
+      "quantum_CNY": "1000000",
+      "cell_bbox": [
+        316.38999,
+        667.42001,
+        417.54999,
+        695.1400099999998
+      ],
+      "row_bbox": [
+        76.584,
+        667.42001,
+        518.8599899999999,
+        695.1400099999998
+      ],
+      "table_bbox": [
+        76.584,
+        583.6300099999999,
+        518.8599899999999,
+        751.1760099999999
+      ],
+      "continuity": null,
+      "announcement_date": "2024-04-30",
+      "source_sha256": "4c0c46e807f389e05ece1b0d4ea519f47656c356affd11106375988aef96d9dd",
+      "source_path": "docs/audits/evidence/2026-10-20-w5h-r5/601398_Q12024.pdf",
+      "duration": "Q1_YTD_EQUALS_SINGLE_QUARTER",
+      "pit_qualified": false,
+      "status": "PARSED_LOCAL_EVIDENCE_NOT_PIT",
+      "corroborating_locations": 1
+    },
+    {
+      "id": "1219922891",
+      "code": "601398",
+      "field": "EQ",
+      "period": "2024-03-31",
+      "column": "current",
+      "period_header": {
+        "text": "2024 年\n3 月 31 日",
+        "bbox": [
+          214.610005,
+          54.120000000000005,
+          316.030005,
+          81.83999999999992
+        ]
+      },
+      "adjustment": null,
+      "scope": "consolidated",
+      "mode": "summary",
+      "label": "归属于母公司股东的权益",
+      "raw_text": "3,857,572",
+      "source_amount": "3857572",
+      "unit": "百万元",
+      "multiplier": 1000000,
+      "unit_evidence": {
+        "unit": "百万元",
+        "multiplier": 1000000,
+        "raw": "单位：除特别注明外，为人民币百万元",
+        "bbox": [
+          340.27,
+          571.3189600000001,
+          518.98,
+          581.87896
+        ],
+        "top": 571.3189600000001,
+        "physical_page": 1,
+        "origin": "PRECEDING_THIS_TABLE",
+        "inherited_with_continuity": {
+          "previous_page": 1,
+          "current_page": 2,
+          "matching_column_edges": [
+            76.6,
+            214.6,
+            316.0,
+            417.4,
+            518.9
+          ],
+          "reason": "ADJACENT_EDGE_ALIGNED_NO_NEW_SECTION",
+          "previous_bbox": [
+            76.584,
+            583.6300099999999,
+            518.8599899999999,
+            751.1760099999999
+          ],
+          "current_bbox": [
+            76.584,
+            54.120000000000005,
+            518.85999,
+            110.05999999999995
+          ]
+        }
+      },
+      "value_CNY": "3857572000000",
+      "physical_page": 2,
+      "quantum_CNY": "1000000",
+      "cell_bbox": [
+        214.610005,
+        96.01999999999998,
+        316.030005,
+        110.05999999999995
+      ],
+      "row_bbox": [
+        76.584,
+        96.01999999999998,
+        518.85999,
+        110.05999999999995
+      ],
+      "table_bbox": [
+        76.584,
+        54.120000000000005,
+        518.85999,
+        110.05999999999995
+      ],
+      "continuity": {
+        "previous_page": 1,
+        "current_page": 2,
+        "matching_column_edges": [
+          76.6,
+          214.6,
+          316.0,
+          417.4,
+          518.9
+        ],
+        "reason": "ADJACENT_EDGE_ALIGNED_NO_NEW_SECTION",
+        "previous_bbox": [
+          76.584,
+          583.6300099999999,
+          518.8599899999999,
+          751.1760099999999
+        ],
+        "current_bbox": [
+          76.584,
+          54.120000000000005,
+          518.85999,
+          110.05999999999995
+        ]
+      },
+      "announcement_date": "2024-04-30",
+      "source_sha256": "4c0c46e807f389e05ece1b0d4ea519f47656c356affd11106375988aef96d9dd",
+      "source_path": "docs/audits/evidence/2026-10-20-w5h-r5/601398_Q12024.pdf",
+      "duration": "INSTANT_END",
+      "pit_qualified": false,
+      "status": "PARSED_LOCAL_EVIDENCE_NOT_PIT",
+      "corroborating_locations": 1
+    },
+    {
+      "id": "1219922891",
+      "code": "601398",
+      "field": "EQ",
+      "period": "2023-12-31",
+      "column": "comparative",
+      "period_header": {
+        "text": "2023 年\n12 月 31 日",
+        "bbox": [
+          316.030005,
+          54.120000000000005,
+          417.42999000000003,
+          81.83999999999992
+        ]
+      },
+      "adjustment": null,
+      "scope": "consolidated",
+      "mode": "summary",
+      "label": "归属于母公司股东的权益",
+      "raw_text": "3,756,887",
+      "source_amount": "3756887",
+      "unit": "百万元",
+      "multiplier": 1000000,
+      "unit_evidence": {
+        "unit": "百万元",
+        "multiplier": 1000000,
+        "raw": "单位：除特别注明外，为人民币百万元",
+        "bbox": [
+          340.27,
+          571.3189600000001,
+          518.98,
+          581.87896
+        ],
+        "top": 571.3189600000001,
+        "physical_page": 1,
+        "origin": "PRECEDING_THIS_TABLE",
+        "inherited_with_continuity": {
+          "previous_page": 1,
+          "current_page": 2,
+          "matching_column_edges": [
+            76.6,
+            214.6,
+            316.0,
+            417.4,
+            518.9
+          ],
+          "reason": "ADJACENT_EDGE_ALIGNED_NO_NEW_SECTION",
+          "previous_bbox": [
+            76.584,
+            583.6300099999999,
+            518.8599899999999,
+            751.1760099999999
+          ],
+          "current_bbox": [
+            76.584,
+            54.120000000000005,
+            518.85999,
+            110.05999999999995
+          ]
+        }
+      },
+      "value_CNY": "3756887000000",
+      "physical_page": 2,
+      "quantum_CNY": "1000000",
+      "cell_bbox": [
+        316.030005,
+        96.01999999999998,
+        417.42999000000003,
+        110.05999999999995
+      ],
+      "row_bbox": [
+        76.584,
+        96.01999999999998,
+        518.85999,
+        110.05999999999995
+      ],
+      "table_bbox": [
+        76.584,
+        54.120000000000005,
+        518.85999,
+        110.05999999999995
+      ],
+      "continuity": {
+        "previous_page": 1,
+        "current_page": 2,
+        "matching_column_edges": [
+          76.6,
+          214.6,
+          316.0,
+          417.4,
+          518.9
+        ],
+        "reason": "ADJACENT_EDGE_ALIGNED_NO_NEW_SECTION",
+        "previous_bbox": [
+          76.584,
+          583.6300099999999,
+          518.8599899999999,
+          751.1760099999999
+        ],
+        "current_bbox": [
+          76.584,
+          54.120000000000005,
+          518.85999,
+          110.05999999999995
+        ]
+      },
+      "announcement_date": "2024-04-30",
+      "source_sha256": "4c0c46e807f389e05ece1b0d4ea519f47656c356affd11106375988aef96d9dd",
+      "source_path": "docs/audits/evidence/2026-10-20-w5h-r5/601398_Q12024.pdf",
+      "duration": "INSTANT_END",
+      "pit_qualified": false,
+      "status": "PARSED_LOCAL_EVIDENCE_NOT_PIT",
+      "corroborating_locations": 1
+    },
+    {
+      "id": "1219747877",
+      "code": "000961",
+      "field": "NP",
+      "period": "2023-12-31",
+      "column": "current",
+      "period_header": {
+        "text": "2023 年",
+        "bbox": [
+          99.34133333333335,
+          111.38,
+          177.19000499999999,
+          140.29999999999993
+        ]
+      },
+      "adjustment": null,
+      "scope": "consolidated",
+      "mode": "summary",
+      "label": "归属于母公司股东的净利润（元）",
+      "raw_text": "-5,292,700,162.01",
+      "source_amount": "-5292700162.01",
+      "unit": "元",
+      "multiplier": 1,
+      "unit_evidence": {
+        "unit": "元",
+        "multiplier": 1,
+        "raw": "归属于母公司股东的净利润（元）",
+        "physical_page": 6,
+        "bbox": [
+          7.573333333333333,
+          154.5566627777777,
+          574.29999,
+          179.0897777777777
+        ],
+        "origin": "THIS_FIELD_LABEL"
+      },
+      "value_CNY": "-5292700162.01",
+      "physical_page": 6,
+      "quantum_CNY": "0.01",
+      "cell_bbox": [
+        99.34133333333335,
+        154.5566627777777,
+        177.19000499999999,
+        179.0897777777777
+      ],
+      "row_bbox": [
+        7.573333333333333,
+        154.5566627777777,
+        574.29999,
+        179.0897777777777
+      ],
+      "table_bbox": [
+        7.573333333333333,
+        111.38,
+        574.29999,
+        589.36998
+      ],
+      "continuity": null,
+      "announcement_date": "2024-04-23",
+      "source_sha256": "c67bafcbefa6125abd0edb8bb8a181cc0fdad4dbb05950a311d7556202089a34",
+      "source_path": "docs/audits/evidence/2026-10-20-w5h-r5/000961_FY2023.pdf",
+      "duration": "FY_CUMULATIVE",
+      "pit_qualified": false,
+      "status": "PARSED_LOCAL_EVIDENCE_NOT_PIT",
+      "corroborating_locations": 1
+    },
+    {
+      "id": "1219747877",
+      "code": "000961",
+      "field": "NP",
+      "period": "2022-12-31",
+      "column": "unadjusted",
+      "period_header": {
+        "text": "2022 年",
+        "bbox": [
+          177.19000499999999,
+          111.38,
+          326.27999,
+          125.80999999999995
+        ]
+      },
+      "adjustment": "unadjusted",
+      "scope": "consolidated",
+      "mode": "summary",
+      "label": "归属于母公司股东的净利润（元）",
+      "raw_text": "-9,170,618,058.58",
+      "source_amount": "-9170618058.58",
+      "unit": "元",
+      "multiplier": 1,
+      "unit_evidence": {
+        "unit": "元",
+        "multiplier": 1,
+        "raw": "归属于母公司股东的净利润（元）",
+        "physical_page": 6,
+        "bbox": [
+          7.573333333333333,
+          154.5566627777777,
+          574.29999,
+          179.0897777777777
+        ],
+        "origin": "THIS_FIELD_LABEL"
+      },
+      "value_CNY": "-9170618058.58",
+      "physical_page": 6,
+      "quantum_CNY": "0.01",
+      "cell_bbox": [
+        177.19000499999999,
+        154.5566627777777,
+        249.70000000000002,
+        179.0897777777777
+      ],
+      "row_bbox": [
+        7.573333333333333,
+        154.5566627777777,
+        574.29999,
+        179.0897777777777
+      ],
+      "table_bbox": [
+        7.573333333333333,
+        111.38,
+        574.29999,
+        589.36998
+      ],
+      "continuity": null,
+      "announcement_date": "2024-04-23",
+      "source_sha256": "c67bafcbefa6125abd0edb8bb8a181cc0fdad4dbb05950a311d7556202089a34",
+      "source_path": "docs/audits/evidence/2026-10-20-w5h-r5/000961_FY2023.pdf",
+      "duration": "FY_CUMULATIVE",
+      "pit_qualified": false,
+      "status": "PARSED_LOCAL_EVIDENCE_NOT_PIT",
+      "corroborating_locations": 1
+    },
+    {
+      "id": "1219747877",
+      "code": "000961",
+      "field": "NP",
+      "period": "2022-12-31",
+      "column": "adjusted",
+      "period_header": {
+        "text": "2022 年",
+        "bbox": [
+          177.19000499999999,
+          111.38,
+          326.27999,
+          125.80999999999995
+        ]
+      },
+      "adjustment": "adjusted",
+      "scope": "consolidated",
+      "mode": "summary",
+      "label": "归属于母公司股东的净利润（元）",
+      "raw_text": "-9,183,273,202.95",
+      "source_amount": "-9183273202.95",
+      "unit": "元",
+      "multiplier": 1,
+      "unit_evidence": {
+        "unit": "元",
+        "multiplier": 1,
+        "raw": "归属于母公司股东的净利润（元）",
+        "physical_page": 6,
+        "bbox": [
+          7.573333333333333,
+          154.5566627777777,
+          574.29999,
+          179.0897777777777
+        ],
+        "origin": "THIS_FIELD_LABEL"
+      },
+      "value_CNY": "-9183273202.95",
+      "physical_page": 6,
+      "quantum_CNY": "0.01",
+      "cell_bbox": [
+        249.70000000000002,
+        154.5566627777777,
+        326.27999,
+        179.0897777777777
+      ],
+      "row_bbox": [
+        7.573333333333333,
+        154.5566627777777,
+        574.29999,
+        179.0897777777777
+      ],
+      "table_bbox": [
+        7.573333333333333,
+        111.38,
+        574.29999,
+        589.36998
+      ],
+      "continuity": null,
+      "announcement_date": "2024-04-23",
+      "source_sha256": "c67bafcbefa6125abd0edb8bb8a181cc0fdad4dbb05950a311d7556202089a34",
+      "source_path": "docs/audits/evidence/2026-10-20-w5h-r5/000961_FY2023.pdf",
+      "duration": "FY_CUMULATIVE",
+      "pit_qualified": false,
+      "status": "PARSED_LOCAL_EVIDENCE_NOT_PIT",
+      "corroborating_locations": 1
+    },
+    {
+      "id": "1219747877",
+      "code": "000961",
+      "field": "OCF",
+      "period": "2023-12-31",
+      "column": "current",
+      "period_header": {
+        "text": "2023 年",
+        "bbox": [
+          99.34133333333335,
+          111.38,
+          177.19000499999999,
+          140.29999999999993
+        ]
+      },
+      "adjustment": null,
+      "scope": "consolidated",
+      "mode": "summary",
+      "label": "经营活动产生的现金流量净额（元）",
+      "raw_text": "127,132,640.50",
+      "source_amount": "127132640.50",
+      "unit": "元",
+      "multiplier": 1,
+      "unit_evidence": {
+        "unit": "元",
+        "multiplier": 1,
+        "raw": "经营活动产生的现金流量净额（元）",
+        "physical_page": 6,
+        "bbox": [
+          7.573333333333333,
+          215.6166666666666,
+          574.29999,
+          240.30999999999995
+        ],
+        "origin": "THIS_FIELD_LABEL"
+      },
+      "value_CNY": "127132640.50",
+      "physical_page": 6,
+      "quantum_CNY": "0.01",
+      "cell_bbox": [
+        99.34133333333335,
+        215.6166666666666,
+        177.19000499999999,
+        240.30999999999995
+      ],
+      "row_bbox": [
+        7.573333333333333,
+        215.6166666666666,
+        574.29999,
+        240.30999999999995
+      ],
+      "table_bbox": [
+        7.573333333333333,
+        111.38,
+        574.29999,
+        589.36998
+      ],
+      "continuity": null,
+      "announcement_date": "2024-04-23",
+      "source_sha256": "c67bafcbefa6125abd0edb8bb8a181cc0fdad4dbb05950a311d7556202089a34",
+      "source_path": "docs/audits/evidence/2026-10-20-w5h-r5/000961_FY2023.pdf",
+      "duration": "FY_CUMULATIVE",
+      "pit_qualified": false,
+      "status": "PARSED_LOCAL_EVIDENCE_NOT_PIT",
+      "corroborating_locations": 1
+    },
+    {
+      "id": "1219747877",
+      "code": "000961",
+      "field": "OCF",
+      "period": "2022-12-31",
+      "column": "unadjusted",
+      "period_header": {
+        "text": "2022 年",
+        "bbox": [
+          177.19000499999999,
+          111.38,
+          326.27999,
+          125.80999999999995
+        ]
+      },
+      "adjustment": "unadjusted",
+      "scope": "consolidated",
+      "mode": "summary",
+      "label": "经营活动产生的现金流量净额（元）",
+      "raw_text": "6 ,253,316,303.14",
+      "source_amount": "6253316303.14",
+      "unit": "元",
+      "multiplier": 1,
+      "unit_evidence": {
+        "unit": "元",
+        "multiplier": 1,
+        "raw": "经营活动产生的现金流量净额（元）",
+        "physical_page": 6,
+        "bbox": [
+          7.573333333333333,
+          215.6166666666666,
+          574.29999,
+          240.30999999999995
+        ],
+        "origin": "THIS_FIELD_LABEL"
+      },
+      "value_CNY": "6253316303.14",
+      "physical_page": 6,
+      "quantum_CNY": "0.01",
+      "cell_bbox": [
+        177.19000499999999,
+        215.6166666666666,
+        249.70000000000002,
+        240.30999999999995
+      ],
+      "row_bbox": [
+        7.573333333333333,
+        215.6166666666666,
+        574.29999,
+        240.30999999999995
+      ],
+      "table_bbox": [
+        7.573333333333333,
+        111.38,
+        574.29999,
+        589.36998
+      ],
+      "continuity": null,
+      "announcement_date": "2024-04-23",
+      "source_sha256": "c67bafcbefa6125abd0edb8bb8a181cc0fdad4dbb05950a311d7556202089a34",
+      "source_path": "docs/audits/evidence/2026-10-20-w5h-r5/000961_FY2023.pdf",
+      "duration": "FY_CUMULATIVE",
+      "pit_qualified": false,
+      "status": "PARSED_LOCAL_EVIDENCE_NOT_PIT",
+      "corroborating_locations": 1
+    },
+    {
+      "id": "1219747877",
+      "code": "000961",
+      "field": "OCF",
+      "period": "2022-12-31",
+      "column": "adjusted",
+      "period_header": {
+        "text": "2022 年",
+        "bbox": [
+          177.19000499999999,
+          111.38,
+          326.27999,
+          125.80999999999995
+        ]
+      },
+      "adjustment": "adjusted",
+      "scope": "consolidated",
+      "mode": "summary",
+      "label": "经营活动产生的现金流量净额（元）",
+      "raw_text": "6,253,316,303.14",
+      "source_amount": "6253316303.14",
+      "unit": "元",
+      "multiplier": 1,
+      "unit_evidence": {
+        "unit": "元",
+        "multiplier": 1,
+        "raw": "经营活动产生的现金流量净额（元）",
+        "physical_page": 6,
+        "bbox": [
+          7.573333333333333,
+          215.6166666666666,
+          574.29999,
+          240.30999999999995
+        ],
+        "origin": "THIS_FIELD_LABEL"
+      },
+      "value_CNY": "6253316303.14",
+      "physical_page": 6,
+      "quantum_CNY": "0.01",
+      "cell_bbox": [
+        249.70000000000002,
+        215.6166666666666,
+        326.27999,
+        240.30999999999995
+      ],
+      "row_bbox": [
+        7.573333333333333,
+        215.6166666666666,
+        574.29999,
+        240.30999999999995
+      ],
+      "table_bbox": [
+        7.573333333333333,
+        111.38,
+        574.29999,
+        589.36998
+      ],
+      "continuity": null,
+      "announcement_date": "2024-04-23",
+      "source_sha256": "c67bafcbefa6125abd0edb8bb8a181cc0fdad4dbb05950a311d7556202089a34",
+      "source_path": "docs/audits/evidence/2026-10-20-w5h-r5/000961_FY2023.pdf",
+      "duration": "FY_CUMULATIVE",
+      "pit_qualified": false,
+      "status": "PARSED_LOCAL_EVIDENCE_NOT_PIT",
+      "corroborating_locations": 1
+    },
+    {
+      "id": "1219747877",
+      "code": "000961",
+      "field": "EQ",
+      "period": "2023-12-31",
+      "column": "current",
+      "period_header": {
+        "text": "2023 年末",
+        "bbox": [
+          99.34133333333335,
+          424.67999499999996,
+          177.19000499999999,
+          453.72001
+        ]
+      },
+      "adjustment": null,
+      "scope": "consolidated",
+      "mode": "summary",
+      "label": "归属于上市公司股东的\n净资产（元）",
+      "raw_text": "9,226,697,746.73",
+      "source_amount": "9226697746.73",
+      "unit": "元",
+      "multiplier": 1,
+      "unit_evidence": {
+        "unit": "元",
+        "multiplier": 1,
+        "raw": "归属于上市公司股东的\n净资产（元）",
+        "physical_page": 6,
+        "bbox": [
+          7.573333333333333,
+          468.13999499999994,
+          574.29999,
+          492.61999499999996
+        ],
+        "origin": "THIS_FIELD_LABEL"
+      },
+      "value_CNY": "9226697746.73",
+      "physical_page": 6,
+      "quantum_CNY": "0.01",
+      "cell_bbox": [
+        99.34133333333335,
+        468.13999499999994,
+        177.19000499999999,
+        492.61999499999996
+      ],
+      "row_bbox": [
+        7.573333333333333,
+        468.13999499999994,
+        574.29999,
+        492.61999499999996
+      ],
+      "table_bbox": [
+        7.573333333333333,
+        111.38,
+        574.29999,
+        589.36998
+      ],
+      "continuity": null,
+      "announcement_date": "2024-04-23",
+      "source_sha256": "c67bafcbefa6125abd0edb8bb8a181cc0fdad4dbb05950a311d7556202089a34",
+      "source_path": "docs/audits/evidence/2026-10-20-w5h-r5/000961_FY2023.pdf",
+      "duration": "INSTANT_END",
+      "pit_qualified": false,
+      "status": "PARSED_LOCAL_EVIDENCE_NOT_PIT",
+      "corroborating_locations": 1
+    },
+    {
+      "id": "1219747877",
+      "code": "000961",
+      "field": "EQ",
+      "period": "2022-12-31",
+      "column": "unadjusted",
+      "period_header": {
+        "text": "2022 年末",
+        "bbox": [
+          177.19000499999999,
+          424.67999499999996,
+          326.27999,
+          439.3200099999999
+        ]
+      },
+      "adjustment": "unadjusted",
+      "scope": "consolidated",
+      "mode": "summary",
+      "label": "归属于上市公司股东的\n净资产（元）",
+      "raw_text": "14,425,941,059.26",
+      "source_amount": "14425941059.26",
+      "unit": "元",
+      "multiplier": 1,
+      "unit_evidence": {
+        "unit": "元",
+        "multiplier": 1,
+        "raw": "归属于上市公司股东的\n净资产（元）",
+        "physical_page": 6,
+        "bbox": [
+          7.573333333333333,
+          468.13999499999994,
+          574.29999,
+          492.61999499999996
+        ],
+        "origin": "THIS_FIELD_LABEL"
+      },
+      "value_CNY": "14425941059.26",
+      "physical_page": 6,
+      "quantum_CNY": "0.01",
+      "cell_bbox": [
+        177.19000499999999,
+        468.13999499999994,
+        249.70000000000002,
+        492.61999499999996
+      ],
+      "row_bbox": [
+        7.573333333333333,
+        468.13999499999994,
+        574.29999,
+        492.61999499999996
+      ],
+      "table_bbox": [
+        7.573333333333333,
+        111.38,
+        574.29999,
+        589.36998
+      ],
+      "continuity": null,
+      "announcement_date": "2024-04-23",
+      "source_sha256": "c67bafcbefa6125abd0edb8bb8a181cc0fdad4dbb05950a311d7556202089a34",
+      "source_path": "docs/audits/evidence/2026-10-20-w5h-r5/000961_FY2023.pdf",
+      "duration": "INSTANT_END",
+      "pit_qualified": false,
+      "status": "PARSED_LOCAL_EVIDENCE_NOT_PIT",
+      "corroborating_locations": 1
+    },
+    {
+      "id": "1219747877",
+      "code": "000961",
+      "field": "EQ",
+      "period": "2022-12-31",
+      "column": "adjusted",
+      "period_header": {
+        "text": "2022 年末",
+        "bbox": [
+          177.19000499999999,
+          424.67999499999996,
+          326.27999,
+          439.3200099999999
+        ]
+      },
+      "adjustment": "adjusted",
+      "scope": "consolidated",
+      "mode": "summary",
+      "label": "归属于上市公司股东的\n净资产（元）",
+      "raw_text": "14,426,074,702.61",
+      "source_amount": "14426074702.61",
+      "unit": "元",
+      "multiplier": 1,
+      "unit_evidence": {
+        "unit": "元",
+        "multiplier": 1,
+        "raw": "归属于上市公司股东的\n净资产（元）",
+        "physical_page": 6,
+        "bbox": [
+          7.573333333333333,
+          468.13999499999994,
+          574.29999,
+          492.61999499999996
+        ],
+        "origin": "THIS_FIELD_LABEL"
+      },
+      "value_CNY": "14426074702.61",
+      "physical_page": 6,
+      "quantum_CNY": "0.01",
+      "cell_bbox": [
+        249.70000000000002,
+        468.13999499999994,
+        326.27999,
+        492.61999499999996
+      ],
+      "row_bbox": [
+        7.573333333333333,
+        468.13999499999994,
+        574.29999,
+        492.61999499999996
+      ],
+      "table_bbox": [
+        7.573333333333333,
+        111.38,
+        574.29999,
+        589.36998
+      ],
+      "continuity": null,
+      "announcement_date": "2024-04-23",
+      "source_sha256": "c67bafcbefa6125abd0edb8bb8a181cc0fdad4dbb05950a311d7556202089a34",
+      "source_path": "docs/audits/evidence/2026-10-20-w5h-r5/000961_FY2023.pdf",
+      "duration": "INSTANT_END",
+      "pit_qualified": false,
+      "status": "PARSED_LOCAL_EVIDENCE_NOT_PIT",
+      "corroborating_locations": 1
+    },
+    {
+      "id": "1219909136",
+      "code": "000961",
+      "field": "NP",
+      "period": "2024-03-31",
+      "column": "current",
+      "period_header": {
+        "text": "2024 年 1~3 月",
+        "bbox": [
+          271.370005,
+          351.409995,
+          361.030005,
+          363.89000999999996
+        ]
+      },
+      "adjustment": null,
+      "scope": "consolidated",
+      "mode": "summary",
+      "label": "归属于母公司股东的净利润",
+      "raw_text": "-600,799,489.90",
+      "source_amount": "-600799489.90",
+      "unit": "元",
+      "multiplier": 1,
+      "unit_evidence": {
+        "unit": "元",
+        "multiplier": 1,
+        "raw": "单位：元",
+        "bbox": [
+          502.66,
+          340.799,
+          538.6600000000001,
+          349.799
+        ],
+        "top": 340.799,
+        "physical_page": 1,
+        "origin": "PRECEDING_THIS_TABLE"
+      },
+      "value_CNY": "-600799489.90",
+      "physical_page": 1,
+      "quantum_CNY": "0.01",
+      "cell_bbox": [
+        271.370005,
+        376.36999499999996,
+        361.030005,
+        388.849995
+      ],
+      "row_bbox": [
+        68.664,
+        376.36999499999996,
+        526.65999,
+        388.849995
+      ],
+      "table_bbox": [
+        68.664,
+        351.409995,
+        526.65999,
+        506.11001
+      ],
+      "continuity": null,
+      "announcement_date": "2024-04-30",
+      "source_sha256": "ea7a848e108b9e9334a2cce61eef1538fad0354ab20aeb8661acada62f76f108",
+      "source_path": "docs/audits/evidence/2026-10-20-w5h-r5/000961_Q12024.pdf",
+      "duration": "Q1_YTD_EQUALS_SINGLE_QUARTER",
+      "pit_qualified": false,
+      "status": "PARSED_LOCAL_EVIDENCE_NOT_PIT",
+      "corroborating_locations": 2
+    },
+    {
+      "id": "1219909136",
+      "code": "000961",
+      "field": "NP",
+      "period": "2023-03-31",
+      "column": "comparative",
+      "period_header": {
+        "text": "2023 年 1~3 月",
+        "bbox": [
+          361.030005,
+          351.409995,
+          453.700005,
+          363.89000999999996
+        ]
+      },
+      "adjustment": null,
+      "scope": "consolidated",
+      "mode": "summary",
+      "label": "归属于母公司股东的净利润",
+      "raw_text": "-665,649,652.02",
+      "source_amount": "-665649652.02",
+      "unit": "元",
+      "multiplier": 1,
+      "unit_evidence": {
+        "unit": "元",
+        "multiplier": 1,
+        "raw": "单位：元",
+        "bbox": [
+          502.66,
+          340.799,
+          538.6600000000001,
+          349.799
+        ],
+        "top": 340.799,
+        "physical_page": 1,
+        "origin": "PRECEDING_THIS_TABLE"
+      },
+      "value_CNY": "-665649652.02",
+      "physical_page": 1,
+      "quantum_CNY": "0.01",
+      "cell_bbox": [
+        361.030005,
+        376.36999499999996,
+        453.700005,
+        388.849995
+      ],
+      "row_bbox": [
+        68.664,
+        376.36999499999996,
+        526.65999,
+        388.849995
+      ],
+      "table_bbox": [
+        68.664,
+        351.409995,
+        526.65999,
+        506.11001
+      ],
+      "continuity": null,
+      "announcement_date": "2024-04-30",
+      "source_sha256": "ea7a848e108b9e9334a2cce61eef1538fad0354ab20aeb8661acada62f76f108",
+      "source_path": "docs/audits/evidence/2026-10-20-w5h-r5/000961_Q12024.pdf",
+      "duration": "Q1_YTD_EQUALS_SINGLE_QUARTER",
+      "pit_qualified": false,
+      "status": "PARSED_LOCAL_EVIDENCE_NOT_PIT",
+      "corroborating_locations": 2
+    },
+    {
+      "id": "1219909136",
+      "code": "000961",
+      "field": "OCF",
+      "period": "2024-03-31",
+      "column": "current",
+      "period_header": {
+        "text": "2024 年 1~3 月",
+        "bbox": [
+          271.370005,
+          351.409995,
+          361.030005,
+          363.89000999999996
+        ]
+      },
+      "adjustment": null,
+      "scope": "consolidated",
+      "mode": "summary",
+      "label": "经营活动产生的现金流量净额",
+      "raw_text": "23,057,532.85",
+      "source_amount": "23057532.85",
+      "unit": "元",
+      "multiplier": 1,
+      "unit_evidence": {
+        "unit": "元",
+        "multiplier": 1,
+        "raw": "单位：元",
+        "bbox": [
+          502.66,
+          340.799,
+          538.6600000000001,
+          349.799
+        ],
+        "top": 340.799,
+        "physical_page": 1,
+        "origin": "PRECEDING_THIS_TABLE"
+      },
+      "value_CNY": "23057532.85",
+      "physical_page": 1,
+      "quantum_CNY": "0.01",
+      "cell_bbox": [
+        271.370005,
+        403.729995,
+        361.030005,
+        416.2100099999999
+      ],
+      "row_bbox": [
+        68.664,
+        403.729995,
+        526.65999,
+        416.2100099999999
+      ],
+      "table_bbox": [
+        68.664,
+        351.409995,
+        526.65999,
+        506.11001
+      ],
+      "continuity": null,
+      "announcement_date": "2024-04-30",
+      "source_sha256": "ea7a848e108b9e9334a2cce61eef1538fad0354ab20aeb8661acada62f76f108",
+      "source_path": "docs/audits/evidence/2026-10-20-w5h-r5/000961_Q12024.pdf",
+      "duration": "Q1_YTD_EQUALS_SINGLE_QUARTER",
+      "pit_qualified": false,
+      "status": "PARSED_LOCAL_EVIDENCE_NOT_PIT",
+      "corroborating_locations": 1
+    },
+    {
+      "id": "1219909136",
+      "code": "000961",
+      "field": "OCF",
+      "period": "2023-03-31",
+      "column": "comparative",
+      "period_header": {
+        "text": "2023 年 1~3 月",
+        "bbox": [
+          361.030005,
+          351.409995,
+          453.700005,
+          363.89000999999996
+        ]
+      },
+      "adjustment": null,
+      "scope": "consolidated",
+      "mode": "summary",
+      "label": "经营活动产生的现金流量净额",
+      "raw_text": "358,139,479.80",
+      "source_amount": "358139479.80",
+      "unit": "元",
+      "multiplier": 1,
+      "unit_evidence": {
+        "unit": "元",
+        "multiplier": 1,
+        "raw": "单位：元",
+        "bbox": [
+          502.66,
+          340.799,
+          538.6600000000001,
+          349.799
+        ],
+        "top": 340.799,
+        "physical_page": 1,
+        "origin": "PRECEDING_THIS_TABLE"
+      },
+      "value_CNY": "358139479.80",
+      "physical_page": 1,
+      "quantum_CNY": "0.01",
+      "cell_bbox": [
+        361.030005,
+        403.729995,
+        453.700005,
+        416.2100099999999
+      ],
+      "row_bbox": [
+        68.664,
+        403.729995,
+        526.65999,
+        416.2100099999999
+      ],
+      "table_bbox": [
+        68.664,
+        351.409995,
+        526.65999,
+        506.11001
+      ],
+      "continuity": null,
+      "announcement_date": "2024-04-30",
+      "source_sha256": "ea7a848e108b9e9334a2cce61eef1538fad0354ab20aeb8661acada62f76f108",
+      "source_path": "docs/audits/evidence/2026-10-20-w5h-r5/000961_Q12024.pdf",
+      "duration": "Q1_YTD_EQUALS_SINGLE_QUARTER",
+      "pit_qualified": false,
+      "status": "PARSED_LOCAL_EVIDENCE_NOT_PIT",
+      "corroborating_locations": 1
+    },
+    {
+      "id": "1219909136",
+      "code": "000961",
+      "field": "EQ",
+      "period": "2024-03-31",
+      "column": "current",
+      "period_header": {
+        "text": "2024 年 3 月 31 日",
+        "bbox": [
+          271.370005,
+          453.789995,
+          361.030005,
+          466.27000999999996
+        ]
+      },
+      "adjustment": null,
+      "scope": "consolidated",
+      "mode": "summary",
+      "label": "归属于母公司股东的所有者权益",
+      "raw_text": "8,580,724,832.10",
+      "source_amount": "8580724832.10",
+      "unit": "元",
+      "multiplier": 1,
+      "unit_evidence": {
+        "unit": "元",
+        "multiplier": 1,
+        "raw": "单位：元",
+        "bbox": [
+          502.66,
+          340.799,
+          538.6600000000001,
+          349.799
+        ],
+        "top": 340.799,
+        "physical_page": 1,
+        "origin": "PRECEDING_THIS_TABLE"
+      },
+      "value_CNY": "8580724832.10",
+      "physical_page": 1,
+      "quantum_CNY": "0.01",
+      "cell_bbox": [
+        271.370005,
+        481.15000999999995,
+        361.030005,
+        493.62999499999995
+      ],
+      "row_bbox": [
+        68.664,
+        481.15000999999995,
+        526.65999,
+        493.62999499999995
+      ],
+      "table_bbox": [
+        68.664,
+        351.409995,
+        526.65999,
+        506.11001
+      ],
+      "continuity": null,
+      "announcement_date": "2024-04-30",
+      "source_sha256": "ea7a848e108b9e9334a2cce61eef1538fad0354ab20aeb8661acada62f76f108",
+      "source_path": "docs/audits/evidence/2026-10-20-w5h-r5/000961_Q12024.pdf",
+      "duration": "INSTANT_END",
+      "pit_qualified": false,
+      "status": "PARSED_LOCAL_EVIDENCE_NOT_PIT",
+      "corroborating_locations": 2
+    },
+    {
+      "id": "1219909136",
+      "code": "000961",
+      "field": "EQ",
+      "period": "2023-12-31",
+      "column": "comparative",
+      "period_header": {
+        "text": "2023 年 12 月 31 日",
+        "bbox": [
+          361.030005,
+          453.789995,
+          453.700005,
+          466.27000999999996
+        ]
+      },
+      "adjustment": null,
+      "scope": "consolidated",
+      "mode": "summary",
+      "label": "归属于母公司股东的所有者权益",
+      "raw_text": "9,226,697,746.73",
+      "source_amount": "9226697746.73",
+      "unit": "元",
+      "multiplier": 1,
+      "unit_evidence": {
+        "unit": "元",
+        "multiplier": 1,
+        "raw": "单位：元",
+        "bbox": [
+          502.66,
+          340.799,
+          538.6600000000001,
+          349.799
+        ],
+        "top": 340.799,
+        "physical_page": 1,
+        "origin": "PRECEDING_THIS_TABLE"
+      },
+      "value_CNY": "9226697746.73",
+      "physical_page": 1,
+      "quantum_CNY": "0.01",
+      "cell_bbox": [
+        361.030005,
+        481.15000999999995,
+        453.700005,
+        493.62999499999995
+      ],
+      "row_bbox": [
+        68.664,
+        481.15000999999995,
+        526.65999,
+        493.62999499999995
+      ],
+      "table_bbox": [
+        68.664,
+        351.409995,
+        526.65999,
+        506.11001
+      ],
+      "continuity": null,
+      "announcement_date": "2024-04-30",
+      "source_sha256": "ea7a848e108b9e9334a2cce61eef1538fad0354ab20aeb8661acada62f76f108",
+      "source_path": "docs/audits/evidence/2026-10-20-w5h-r5/000961_Q12024.pdf",
+      "duration": "INSTANT_END",
+      "pit_qualified": false,
+      "status": "PARSED_LOCAL_EVIDENCE_NOT_PIT",
+      "corroborating_locations": 2
+    },
+    {
+      "id": "1216561621",
+      "code": "000961",
+      "field": "NP",
+      "period": "2022-12-31",
+      "column": "current",
+      "period_header": {
+        "text": "2022年",
+        "bbox": [
+          191.35000000000002,
+          93.8599999999999,
+          276.100005,
+          107.53999999999996
+        ]
+      },
+      "adjustment": null,
+      "scope": "consolidated",
+      "mode": "summary",
+      "label": "归属于上市公司股东的净利润\n（元）",
+      "raw_text": "-9,170,618,058.58",
+      "source_amount": "-9170618058.58",
+      "unit": "元",
+      "multiplier": 1,
+      "unit_evidence": {
+        "unit": "元",
+        "multiplier": 1,
+        "raw": "归属于上市公司股东的净利润\n（元）",
+        "physical_page": 6,
+        "bbox": [
+          40.824000000000005,
+          120.25999999999999,
+          529.0935194117646,
+          144.76999999999998
+        ],
+        "origin": "THIS_FIELD_LABEL"
+      },
+      "value_CNY": "-9170618058.58",
+      "physical_page": 6,
+      "quantum_CNY": "0.01",
+      "cell_bbox": [
+        191.35000000000002,
+        120.25999999999999,
+        276.100005,
+        144.76999999999998
+      ],
+      "row_bbox": [
+        40.824000000000005,
+        120.25999999999999,
+        529.0935194117646,
+        144.76999999999998
+      ],
+      "table_bbox": [
+        40.824000000000005,
+        93.8599999999999,
+        529.0935194117646,
+        293.139995
+      ],
+      "continuity": null,
+      "announcement_date": "2023-04-25",
+      "source_sha256": "4b102c9d697fc3bb96b61a4a1aaca82924bcf74224cc91006741dd1298db8271",
+      "source_path": "docs/audits/evidence/2026-10-21-w5h-r6/1216561621.pdf",
+      "duration": "FY_CUMULATIVE",
+      "pit_qualified": false,
+      "status": "PARSED_LOCAL_EVIDENCE_NOT_PIT",
+      "corroborating_locations": 1
+    },
+    {
+      "id": "1216561621",
+      "code": "000961",
+      "field": "OCF",
+      "period": "2022-12-31",
+      "column": "current",
+      "period_header": {
+        "text": "2022年",
+        "bbox": [
+          191.35000000000002,
+          93.8599999999999,
+          276.100005,
+          107.53999999999996
+        ]
+      },
+      "adjustment": null,
+      "scope": "consolidated",
+      "mode": "summary",
+      "label": "经营活动产生的现金流量净额\n（元）",
+      "raw_text": "6,253,316,303.14",
+      "source_amount": "6253316303.14",
+      "unit": "元",
+      "multiplier": 1,
+      "unit_evidence": {
+        "unit": "元",
+        "multiplier": 1,
+        "raw": "经营活动产生的现金流量净额\n（元）",
+        "physical_page": 6,
+        "bbox": [
+          40.824000000000005,
+          169.249995,
+          529.0935194117646,
+          193.7299999999999
+        ],
+        "origin": "THIS_FIELD_LABEL"
+      },
+      "value_CNY": "6253316303.14",
+      "physical_page": 6,
+      "quantum_CNY": "0.01",
+      "cell_bbox": [
+        191.35000000000002,
+        169.249995,
+        276.100005,
+        193.7299999999999
+      ],
+      "row_bbox": [
+        40.824000000000005,
+        169.249995,
+        529.0935194117646,
+        193.7299999999999
+      ],
+      "table_bbox": [
+        40.824000000000005,
+        93.8599999999999,
+        529.0935194117646,
+        293.139995
+      ],
+      "continuity": null,
+      "announcement_date": "2023-04-25",
+      "source_sha256": "4b102c9d697fc3bb96b61a4a1aaca82924bcf74224cc91006741dd1298db8271",
+      "source_path": "docs/audits/evidence/2026-10-21-w5h-r6/1216561621.pdf",
+      "duration": "FY_CUMULATIVE",
+      "pit_qualified": false,
+      "status": "PARSED_LOCAL_EVIDENCE_NOT_PIT",
+      "corroborating_locations": 1
+    },
+    {
+      "id": "1216561621",
+      "code": "000961",
+      "field": "EQ",
+      "period": "2022-12-31",
+      "column": "current",
+      "period_header": {
+        "text": "2022年末",
+        "bbox": [
+          191.35000000000002,
+          231.18999499999995,
+          276.100005,
+          243.67
+        ]
+      },
+      "adjustment": null,
+      "scope": "consolidated",
+      "mode": "summary",
+      "label": "归属于上市公司股东的股东权益\n（元）",
+      "raw_text": "14,425,941,059.26",
+      "source_amount": "14425941059.26",
+      "unit": "元",
+      "multiplier": 1,
+      "unit_evidence": {
+        "unit": "元",
+        "multiplier": 1,
+        "raw": "归属于上市公司股东的股东权益\n（元）",
+        "physical_page": 6,
+        "bbox": [
+          40.824000000000005,
+          256.15,
+          529.0935194117646,
+          280.629995
+        ],
+        "origin": "THIS_FIELD_LABEL"
+      },
+      "value_CNY": "14425941059.26",
+      "physical_page": 6,
+      "quantum_CNY": "0.01",
+      "cell_bbox": [
+        191.35000000000002,
+        256.15,
+        276.100005,
+        280.629995
+      ],
+      "row_bbox": [
+        40.824000000000005,
+        256.15,
+        529.0935194117646,
+        280.629995
+      ],
+      "table_bbox": [
+        40.824000000000005,
+        93.8599999999999,
+        529.0935194117646,
+        293.139995
+      ],
+      "continuity": null,
+      "announcement_date": "2023-04-25",
+      "source_sha256": "4b102c9d697fc3bb96b61a4a1aaca82924bcf74224cc91006741dd1298db8271",
+      "source_path": "docs/audits/evidence/2026-10-21-w5h-r6/1216561621.pdf",
+      "duration": "INSTANT_END",
+      "pit_qualified": false,
+      "status": "PARSED_LOCAL_EVIDENCE_NOT_PIT",
+      "corroborating_locations": 1
+    },
+    {
+      "id": "1217386817",
+      "code": "000961",
+      "field": "NP",
+      "period": "2022-12-31",
+      "column": "current",
+      "period_header": {
+        "text": "2022 年",
+        "bbox": [
+          191.45000000000002,
+          93.8599999999999,
+          275.930005,
+          107.65999999999997
+        ]
+      },
+      "adjustment": null,
+      "scope": "consolidated",
+      "mode": "summary",
+      "label": "归属于上市公司股东的净利润\n（元）",
+      "raw_text": "-9,170,618,058.58",
+      "source_amount": "-9170618058.58",
+      "unit": "元",
+      "multiplier": 1,
+      "unit_evidence": {
+        "unit": "元",
+        "multiplier": 1,
+        "raw": "归属于上市公司股东的净利润\n（元）",
+        "physical_page": 6,
+        "bbox": [
+          40.800000000000004,
+          120.13999999999999,
+          528.9188135294118,
+          144.62
+        ],
+        "origin": "THIS_FIELD_LABEL"
+      },
+      "value_CNY": "-9170618058.58",
+      "physical_page": 6,
+      "quantum_CNY": "0.01",
+      "cell_bbox": [
+        191.45000000000002,
+        120.13999999999999,
+        275.930005,
+        144.62
+      ],
+      "row_bbox": [
+        40.800000000000004,
+        120.13999999999999,
+        528.9188135294118,
+        144.62
+      ],
+      "table_bbox": [
+        40.800000000000004,
+        93.8599999999999,
+        528.9188135294118,
+        293.21000999999995
+      ],
+      "continuity": null,
+      "announcement_date": "2023-07-26",
+      "source_sha256": "0f0af42e6e45d2b583e0d37b4620f6482de2e0b1716150a986612d26d29eff2d",
+      "source_path": "docs/audits/evidence/2026-10-21-w5h-r6/1217386817.pdf",
+      "duration": "FY_CUMULATIVE",
+      "pit_qualified": false,
+      "status": "PARSED_LOCAL_EVIDENCE_NOT_PIT",
+      "corroborating_locations": 1
+    },
+    {
+      "id": "1217386817",
+      "code": "000961",
+      "field": "OCF",
+      "period": "2022-12-31",
+      "column": "current",
+      "period_header": {
+        "text": "2022 年",
+        "bbox": [
+          191.45000000000002,
+          93.8599999999999,
+          275.930005,
+          107.65999999999997
+        ]
+      },
+      "adjustment": null,
+      "scope": "consolidated",
+      "mode": "summary",
+      "label": "经营活动产生的现金流量净额\n（元）",
+      "raw_text": "6,253,316,303.14",
+      "source_amount": "6253316303.14",
+      "unit": "元",
+      "multiplier": 1,
+      "unit_evidence": {
+        "unit": "元",
+        "multiplier": 1,
+        "raw": "经营活动产生的现金流量净额\n（元）",
+        "physical_page": 6,
+        "bbox": [
+          40.800000000000004,
+          169.0999999999999,
+          528.9188135294118,
+          193.69999999999993
+        ],
+        "origin": "THIS_FIELD_LABEL"
+      },
+      "value_CNY": "6253316303.14",
+      "physical_page": 6,
+      "quantum_CNY": "0.01",
+      "cell_bbox": [
+        191.45000000000002,
+        169.0999999999999,
+        275.930005,
+        193.69999999999993
+      ],
+      "row_bbox": [
+        40.800000000000004,
+        169.0999999999999,
+        528.9188135294118,
+        193.69999999999993
+      ],
+      "table_bbox": [
+        40.800000000000004,
+        93.8599999999999,
+        528.9188135294118,
+        293.21000999999995
+      ],
+      "continuity": null,
+      "announcement_date": "2023-07-26",
+      "source_sha256": "0f0af42e6e45d2b583e0d37b4620f6482de2e0b1716150a986612d26d29eff2d",
+      "source_path": "docs/audits/evidence/2026-10-21-w5h-r6/1217386817.pdf",
+      "duration": "FY_CUMULATIVE",
+      "pit_qualified": false,
+      "status": "PARSED_LOCAL_EVIDENCE_NOT_PIT",
+      "corroborating_locations": 2
+    },
+    {
+      "id": "1217386817",
+      "code": "000961",
+      "field": "EQ",
+      "period": "2022-12-31",
+      "column": "current",
+      "period_header": {
+        "text": "2022 年末",
+        "bbox": [
+          191.45000000000002,
+          231.13999999999996,
+          275.930005,
+          243.61999999999998
+        ]
+      },
+      "adjustment": null,
+      "scope": "consolidated",
+      "mode": "summary",
+      "label": "归属于上市公司股东的股东权益\n（元）",
+      "raw_text": "14,425,941,059.26",
+      "source_amount": "14425941059.26",
+      "unit": "元",
+      "multiplier": 1,
+      "unit_evidence": {
+        "unit": "元",
+        "multiplier": 1,
+        "raw": "归属于上市公司股东的股东权益\n（元）",
+        "physical_page": 6,
+        "bbox": [
+          40.800000000000004,
+          256.0999999999999,
+          528.9188135294118,
+          280.7299949999999
+        ],
+        "origin": "THIS_FIELD_LABEL"
+      },
+      "value_CNY": "14425941059.26",
+      "physical_page": 6,
+      "quantum_CNY": "0.01",
+      "cell_bbox": [
+        191.45000000000002,
+        256.0999999999999,
+        275.930005,
+        280.7299949999999
+      ],
+      "row_bbox": [
+        40.800000000000004,
+        256.0999999999999,
+        528.9188135294118,
+        280.7299949999999
+      ],
+      "table_bbox": [
+        40.800000000000004,
+        93.8599999999999,
+        528.9188135294118,
+        293.21000999999995
+      ],
+      "continuity": null,
+      "announcement_date": "2023-07-26",
+      "source_sha256": "0f0af42e6e45d2b583e0d37b4620f6482de2e0b1716150a986612d26d29eff2d",
+      "source_path": "docs/audits/evidence/2026-10-21-w5h-r6/1217386817.pdf",
+      "duration": "INSTANT_END",
+      "pit_qualified": false,
+      "status": "PARSED_LOCAL_EVIDENCE_NOT_PIT",
+      "corroborating_locations": 1
+    },
+    {
+      "id": "1204793690",
+      "code": "600518",
+      "field": "NP",
+      "period": "2017-12-31",
+      "column": "current",
+      "period_header": {
+        "text": "2017年",
+        "bbox": [
+          199.85000000000002,
+          626.74001,
+          300.04999000000004,
+          668.02001
+        ]
+      },
+      "adjustment": null,
+      "scope": "consolidated",
+      "mode": "summary",
+      "label": "归属于上市公司股东的净利润",
+      "raw_text": "4,100,926,148.57",
+      "source_amount": "4100926148.57",
+      "unit": "元",
+      "multiplier": 1,
+      "unit_evidence": {
+        "unit": "元",
+        "multiplier": 1,
+        "raw": "单位：元 币种：人民币",
+        "bbox": [
+          415.99,
+          600.7489599999999,
+          531.7038399999999,
+          611.30896
+        ],
+        "top": 600.7489599999999,
+        "physical_page": 6,
+        "origin": "PRECEDING_THIS_TABLE"
+      },
+      "value_CNY": "4100926148.57",
+      "physical_page": 6,
+      "quantum_CNY": "0.01",
+      "cell_bbox": [
+        199.85000000000002,
+        682.78001,
+        300.04999000000004,
+        697.5400099999999
+      ],
+      "row_bbox": [
+        50.28,
+        682.78001,
+        571.19999,
+        697.5400099999999
+      ],
+      "table_bbox": [
+        50.28,
+        626.74001,
+        571.19999,
+        767.88001
+      ],
+      "continuity": null,
+      "announcement_date": "2018-04-26",
+      "source_sha256": "15b3b15df2dfd3310cc16e1e345e8950e8a9cb047bdad38d1263e2b55cfd2985",
+      "source_path": "docs/audits/evidence/2026-10-20-w5h-r4/official_original_2017.pdf",
+      "duration": "FY_CUMULATIVE",
+      "pit_qualified": false,
+      "status": "PARSED_LOCAL_EVIDENCE_NOT_PIT",
+      "corroborating_locations": 1
+    },
+    {
+      "id": "1204793690",
+      "code": "600518",
+      "field": "OCF",
+      "period": "2017-12-31",
+      "column": "current",
+      "period_header": {
+        "text": "2017年",
+        "bbox": [
+          199.85000000000002,
+          626.74001,
+          300.04999000000004,
+          668.02001
+        ]
+      },
+      "adjustment": null,
+      "scope": "consolidated",
+      "mode": "summary",
+      "label": "经营活动产生的现金流量净额",
+      "raw_text": "1,842,794,237.84",
+      "source_amount": "1842794237.84",
+      "unit": "元",
+      "multiplier": 1,
+      "unit_evidence": {
+        "unit": "元",
+        "multiplier": 1,
+        "raw": "单位：元 币种：人民币",
+        "bbox": [
+          415.99,
+          600.7489599999999,
+          531.7038399999999,
+          611.30896
+        ],
+        "top": 600.7489599999999,
+        "physical_page": 6,
+        "origin": "PRECEDING_THIS_TABLE"
+      },
+      "value_CNY": "1842794237.84",
+      "physical_page": 6,
+      "quantum_CNY": "0.01",
+      "cell_bbox": [
+        199.85000000000002,
+        725.25998,
+        300.04999000000004,
+        740.0399799999999
+      ],
+      "row_bbox": [
+        50.28,
+        725.25998,
+        571.19999,
+        740.0399799999999
+      ],
+      "table_bbox": [
+        50.28,
+        626.74001,
+        571.19999,
+        767.88001
+      ],
+      "continuity": null,
+      "announcement_date": "2018-04-26",
+      "source_sha256": "15b3b15df2dfd3310cc16e1e345e8950e8a9cb047bdad38d1263e2b55cfd2985",
+      "source_path": "docs/audits/evidence/2026-10-20-w5h-r4/official_original_2017.pdf",
+      "duration": "FY_CUMULATIVE",
+      "pit_qualified": false,
+      "status": "PARSED_LOCAL_EVIDENCE_NOT_PIT",
+      "corroborating_locations": 2
+    },
+    {
+      "id": "1204793690",
+      "code": "600518",
+      "field": "EQ",
+      "period": "2017-12-31",
+      "column": "current",
+      "period_header": {
+        "text": "2017年末",
+        "bbox": [
+          199.85000000000002,
+          740.0399799999999,
+          300.04999000000004,
+          767.88001
+        ]
+      },
+      "adjustment": null,
+      "scope": "consolidated",
+      "mode": "summary",
+      "label": "归属于上市公司股东的净资产",
+      "raw_text": "32,032,959,807.76",
+      "source_amount": "32032959807.76",
+      "unit": "元",
+      "multiplier": 1,
+      "unit_evidence": {
+        "unit": "元",
+        "multiplier": 1,
+        "raw": "单位：元 币种：人民币",
+        "bbox": [
+          415.99,
+          600.7489599999999,
+          531.7038399999999,
+          611.30896
+        ],
+        "top": 600.7489599999999,
+        "physical_page": 6,
+        "origin": "PRECEDING_THIS_TABLE",
+        "inherited_with_continuity": {
+          "previous_page": 6,
+          "current_page": 7,
+          "matching_column_edges": [
+            50.3,
+            199.9,
+            297.9,
+            399.4,
+            466.5,
+            571.2
+          ],
+          "reason": "ADJACENT_EDGE_ALIGNED_NO_NEW_SECTION",
+          "previous_bbox": [
+            50.28,
+            626.74001,
+            571.19999,
+            767.88001
+          ],
+          "current_bbox": [
+            50.28,
+            76.43999999999994,
+            571.19999,
+            133.21999499999993
+          ]
+        }
+      },
+      "value_CNY": "32032959807.76",
+      "physical_page": 7,
+      "quantum_CNY": "0.01",
+      "cell_bbox": [
+        199.85000000000002,
+        103.69999999999993,
+        297.874999375,
+        118.45999999999992
+      ],
+      "row_bbox": [
+        50.28,
+        103.69999999999993,
+        571.19999,
+        118.45999999999992
+      ],
+      "table_bbox": [
+        50.28,
+        76.43999999999994,
+        571.19999,
+        133.21999499999993
+      ],
+      "continuity": {
+        "previous_page": 6,
+        "current_page": 7,
+        "matching_column_edges": [
+          50.3,
+          199.9,
+          297.9,
+          399.4,
+          466.5,
+          571.2
+        ],
+        "reason": "ADJACENT_EDGE_ALIGNED_NO_NEW_SECTION",
+        "previous_bbox": [
+          50.28,
+          626.74001,
+          571.19999,
+          767.88001
+        ],
+        "current_bbox": [
+          50.28,
+          76.43999999999994,
+          571.19999,
+          133.21999499999993
+        ]
+      },
+      "announcement_date": "2018-04-26",
+      "source_sha256": "15b3b15df2dfd3310cc16e1e345e8950e8a9cb047bdad38d1263e2b55cfd2985",
+      "source_path": "docs/audits/evidence/2026-10-20-w5h-r4/official_original_2017.pdf",
+      "duration": "INSTANT_END",
+      "pit_qualified": false,
+      "status": "PARSED_LOCAL_EVIDENCE_NOT_PIT",
+      "corroborating_locations": 1
+    },
+    {
+      "id": "1206168292",
+      "code": "600518",
+      "field": "NP",
+      "period": "2017-12-31",
+      "column": "adjusted",
+      "period_header": {
+        "text": "2017年",
+        "bbox": [
+          211.970005,
+          521.23001,
+          371.230005,
+          542.23001
+        ]
+      },
+      "adjustment": "adjusted",
+      "scope": "consolidated",
+      "mode": "summary",
+      "label": "归属于上市公司\n股东的净利润",
+      "raw_text": "2,149,836,281.41",
+      "source_amount": "2149836281.41",
+      "unit": "元",
+      "multiplier": 1,
+      "unit_evidence": {
+        "unit": "元",
+        "multiplier": 1,
+        "raw": "单位：元 币种：人民币",
+        "bbox": [
+          415.99,
+          507.95896,
+          531.7038399999999,
+          518.51896
+        ],
+        "top": 507.95896,
+        "physical_page": 6,
+        "origin": "PRECEDING_THIS_TABLE"
+      },
+      "value_CNY": "2149836281.41",
+      "physical_page": 6,
+      "quantum_CNY": "0.01",
+      "cell_bbox": [
+        211.970005,
+        576.81998,
+        294.3336413636364,
+        596.7400100000001
+      ],
+      "row_bbox": [
+        58.67999999999999,
+        576.81998,
+        562.7799899999999,
+        596.7400100000001
+      ],
+      "table_bbox": [
+        58.67999999999999,
+        521.23001,
+        562.7799899999999,
+        740.0399799999999
+      ],
+      "continuity": null,
+      "announcement_date": "2019-04-30",
+      "source_sha256": "9f47aa0dc0a8838ffd21e600d7eca194052d91cf867d8e22a4ba56dee2b9f60a",
+      "source_path": "docs/audits/evidence/2026-10-20-w5h-r4/official_annual_2018.pdf",
+      "duration": "FY_CUMULATIVE",
+      "pit_qualified": false,
+      "status": "PARSED_LOCAL_EVIDENCE_NOT_PIT",
+      "corroborating_locations": 1
+    },
+    {
+      "id": "1206168292",
+      "code": "600518",
+      "field": "OCF",
+      "period": "2017-12-31",
+      "column": "adjusted",
+      "period_header": {
+        "text": "2017年",
+        "bbox": [
+          211.970005,
+          521.23001,
+          371.230005,
+          542.23001
+        ]
+      },
+      "adjustment": "adjusted",
+      "scope": "consolidated",
+      "mode": "summary",
+      "label": "经营活动产生的\n现金流量净额",
+      "raw_text": "-4,840,052,606.46",
+      "source_amount": "-4840052606.46",
+      "unit": "元",
+      "multiplier": 1,
+      "unit_evidence": {
+        "unit": "元",
+        "multiplier": 1,
+        "raw": "单位：元 币种：人民币",
+        "bbox": [
+          415.99,
+          507.95896,
+          531.7038399999999,
+          518.51896
+        ],
+        "top": 507.95896,
+        "physical_page": 6,
+        "origin": "PRECEDING_THIS_TABLE"
+      },
+      "value_CNY": "-4840052606.46",
+      "physical_page": 6,
+      "quantum_CNY": "0.01",
+      "cell_bbox": [
+        211.970005,
+        636.22001,
+        294.3336413636364,
+        656.14001
+      ],
+      "row_bbox": [
+        58.67999999999999,
+        636.22001,
+        562.7799899999999,
+        656.14001
+      ],
+      "table_bbox": [
+        58.67999999999999,
+        521.23001,
+        562.7799899999999,
+        740.0399799999999
+      ],
+      "continuity": null,
+      "announcement_date": "2019-04-30",
+      "source_sha256": "9f47aa0dc0a8838ffd21e600d7eca194052d91cf867d8e22a4ba56dee2b9f60a",
+      "source_path": "docs/audits/evidence/2026-10-20-w5h-r4/official_annual_2018.pdf",
+      "duration": "FY_CUMULATIVE",
+      "pit_qualified": false,
+      "status": "PARSED_LOCAL_EVIDENCE_NOT_PIT",
+      "corroborating_locations": 1
+    },
+    {
+      "id": "1206168292",
+      "code": "600518",
+      "field": "EQ",
+      "period": "2017-12-31",
+      "column": "adjusted",
+      "period_header": {
+        "text": "2017年末",
+        "bbox": [
+          211.970005,
+          656.14001,
+          371.230005,
+          680.6199799999999
+        ]
+      },
+      "adjustment": "adjusted",
+      "scope": "consolidated",
+      "mode": "summary",
+      "label": "归属于上市公司\n股东的净资产",
+      "raw_text": "28,413,344,515.00",
+      "source_amount": "28413344515.00",
+      "unit": "元",
+      "multiplier": 1,
+      "unit_evidence": {
+        "unit": "元",
+        "multiplier": 1,
+        "raw": "单位：元 币种：人民币",
+        "bbox": [
+          415.99,
+          507.95896,
+          531.7038399999999,
+          518.51896
+        ],
+        "top": 507.95896,
+        "physical_page": 6,
+        "origin": "PRECEDING_THIS_TABLE"
+      },
+      "value_CNY": "28413344515.00",
+      "physical_page": 6,
+      "quantum_CNY": "0.01",
+      "cell_bbox": [
+        211.970005,
+        705.22001,
+        294.3336413636364,
+        725.2599799999999
+      ],
+      "row_bbox": [
+        58.67999999999999,
+        705.22001,
+        562.7799899999999,
+        725.2599799999999
+      ],
+      "table_bbox": [
+        58.67999999999999,
+        521.23001,
+        562.7799899999999,
+        740.0399799999999
+      ],
+      "continuity": null,
+      "announcement_date": "2019-04-30",
+      "source_sha256": "9f47aa0dc0a8838ffd21e600d7eca194052d91cf867d8e22a4ba56dee2b9f60a",
+      "source_path": "docs/audits/evidence/2026-10-20-w5h-r4/official_annual_2018.pdf",
+      "duration": "INSTANT_END",
+      "pit_qualified": false,
+      "status": "PARSED_LOCAL_EVIDENCE_NOT_PIT",
+      "corroborating_locations": 1
+    },
+    {
+      "id": "1219922891",
+      "code": "601398",
+      "field": "OCF",
+      "period": "2024-03-31",
+      "column": "current",
+      "period_header": "2024 年 2023 年 2024 年 2023 年",
+      "scope_header": {
+        "text": "本集团",
+        "x0": 302.35,
+        "x1": 334.03000000000003,
+        "top": 151.7489599999999,
+        "doctop": 10253.588960000001,
+        "bottom": 162.30895999999996,
+        "upright": true,
+        "height": 10.56000000000006,
+        "width": 31.680000000000007,
+        "direction": "ltr"
+      },
+      "scope": "consolidated",
+      "mode": "group_statement",
+      "label": "经营活动产生的现金流量净额",
+      "raw_text": "1,367,252",
+      "source_amount": "1367252",
+      "unit": "百万元",
+      "multiplier": 1000000,
+      "unit_evidence": {
+        "unit": "百万元",
+        "multiplier": 1000000,
+        "raw": "(除特别注明外，金额单位均为人民币百万元)",
+        "bbox": [
+          197.09,
+          125.34895999999992,
+          403.78648,
+          136.70096
+        ],
+        "physical_page": 13
+      },
+      "value_CNY": "1367252000000",
+      "physical_page": 13,
+      "quantum_CNY": "1000000",
+      "cell_bbox": [
+        268.01,
+        524.2309599999999,
+        310.13384,
+        534.7909599999999
+      ],
+      "row_bbox": [
+        86.304,
+        522.59896,
+        544.06384,
+        534.7909599999999
+      ],
+      "table_bbox": null,
+      "continuity": null,
+      "announcement_date": "2024-04-30",
+      "source_sha256": "4c0c46e807f389e05ece1b0d4ea519f47656c356affd11106375988aef96d9dd",
+      "source_path": "docs/audits/evidence/2026-10-20-w5h-r5/601398_Q12024.pdf",
+      "duration": "Q1_YTD_EQUALS_SINGLE_QUARTER",
+      "pit_qualified": false,
+      "status": "PARSED_LOCAL_EVIDENCE_NOT_PIT",
+      "corroborating_locations": 2
+    },
+    {
+      "id": "1219922891",
+      "code": "601398",
+      "field": "OCF",
+      "period": "2024-03-31",
+      "column": "current",
+      "period_header": "2024 年 2023 年 2024 年 2023 年",
+      "scope_header": {
+        "text": "本行",
+        "x0": 460.66,
+        "x1": 481.78000000000003,
+        "top": 151.7489599999999,
+        "doctop": 10253.588960000001,
+        "bottom": 162.30895999999996,
+        "upright": true,
+        "height": 10.56000000000006,
+        "width": 21.120000000000005,
+        "direction": "ltr"
+      },
+      "scope": "parent",
+      "mode": "group_statement",
+      "label": "经营活动产生的现金流量净额",
+      "raw_text": "1,166,485",
+      "source_amount": "1166485",
+      "unit": "百万元",
+      "multiplier": 1000000,
+      "unit_evidence": {
+        "unit": "百万元",
+        "multiplier": 1000000,
+        "raw": "(除特别注明外，金额单位均为人民币百万元)",
+        "bbox": [
+          197.09,
+          125.34895999999992,
+          403.78648,
+          136.70096
+        ],
+        "physical_page": 13
+      },
+      "value_CNY": "1166485000000",
+      "physical_page": 13,
+      "quantum_CNY": "1000000",
+      "cell_bbox": [
+        424.18,
+        523.9909599999999,
+        466.29999999999995,
+        534.5509599999999
+      ],
+      "row_bbox": [
+        86.304,
+        522.59896,
+        544.06384,
+        534.7909599999999
+      ],
+      "table_bbox": null,
+      "continuity": null,
+      "announcement_date": "2024-04-30",
+      "source_sha256": "4c0c46e807f389e05ece1b0d4ea519f47656c356affd11106375988aef96d9dd",
+      "source_path": "docs/audits/evidence/2026-10-20-w5h-r5/601398_Q12024.pdf",
+      "duration": "Q1_YTD_EQUALS_SINGLE_QUARTER",
+      "pit_qualified": false,
+      "status": "PARSED_LOCAL_EVIDENCE_NOT_PIT",
+      "corroborating_locations": 2
+    }
+  ]
+}

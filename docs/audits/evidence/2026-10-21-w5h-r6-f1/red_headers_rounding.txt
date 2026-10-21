@@ -1,0 +1,23 @@
+
+..F.E...
+======================================================================
+ERROR: test_explicit_rounding_is_not_an_arbitrary_repair (test_parser.ParserSafety.test_explicit_rounding_is_not_an_arbitrary_repair)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\Dev\Projects\chstockdata\docs\audits\evidence\2026-10-21-w5h-r6-f1\test_parser.py", line 45, in test_explicit_rounding_is_not_an_arbitrary_repair
+    self.assertEqual(p.unique_value([b, a])['value_CNY'], '1234.56')
+                     ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+KeyError: 'value_CNY'
+
+======================================================================
+FAIL: test_equity_is_end_not_beginning (test_parser.ParserSafety.test_equity_is_end_not_beginning)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\Dev\Projects\chstockdata\docs\audits\evidence\2026-10-21-w5h-r6-f1\test_parser.py", line 40, in test_equity_is_end_not_beginning
+    self.assertEqual(p.header_period('2023年第一季度', '2024-03-31', 'NP'), '2023-03-31')
+AssertionError: None != '2023-03-31'
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.002s
+
+FAILED (failures=1, errors=1)

@@ -1,0 +1,15 @@
+
+....E..
+======================================================================
+ERROR: test_explicit_units (test_parser.ParserSafety.test_explicit_units)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\Dev\Projects\chstockdata\docs\audits\evidence\2026-10-21-w5h-r6-f1\test_parser.py", line 31, in test_explicit_units
+    self.assertEqual(p.unit_from('��λ�����ر�ע���⣬Ϊ����Ұ���Ԫ')['multiplier'], 1000000)
+                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+TypeError: 'NoneType' object is not subscriptable
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.007s
+
+FAILED (errors=1)
