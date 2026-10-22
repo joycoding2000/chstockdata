@@ -1,0 +1,89 @@
+{
+    "id":  "1218110511",
+    "text":  "Grant Thornton 2022 11 2023 21kå5ho 14",
+    "pit_qualified":  false,
+    "engine":  "Windows.Media.Ocr existing en-US",
+    "maximum_image_dimension":  10000,
+    "machine_seconds":  0.18187399999999998,
+    "pixel_height":  2105,
+    "image_sha256":  "33f8dd7bd5291970f6bb6e2b38b5a887bdeaff69abc435dfa65b014463be6292",
+    "pixel_width":  1488,
+    "source_sha256":  "d989780703a01055d0365266a7db87ab731dc596a84b7fff0c1b19b4a8d24bb8",
+    "physical_page":  15,
+    "lines":  [
+                  {
+                      "text":  "Grant Thornton",
+                      "words":  [
+                                    {
+                                        "y":  105,
+                                        "height":  42,
+                                        "width":  122,
+                                        "text":  "Grant",
+                                        "x":  270
+                                    },
+                                    {
+                                        "y":  106,
+                                        "height":  41,
+                                        "width":  190,
+                                        "text":  "Thornton",
+                                        "x":  396
+                                    }
+                                ]
+                  },
+                  {
+                      "text":  "2022 11",
+                      "words":  [
+                                    {
+                                        "y":  474,
+                                        "height":  22,
+                                        "width":  51,
+                                        "text":  "2022",
+                                        "x":  238
+                                    },
+                                    {
+                                        "y":  474,
+                                        "height":  23,
+                                        "width":  19,
+                                        "text":  "11",
+                                        "x":  347
+                                    }
+                                ]
+                  },
+                  {
+                      "text":  "2023",
+                      "words":  [
+                                    {
+                                        "y":  1042,
+                                        "height":  21,
+                                        "width":  50,
+                                        "text":  "2023",
+                                        "x":  568
+                                    }
+                                ]
+                  },
+                  {
+                      "text":  "21kå5ho",
+                      "words":  [
+                                    {
+                                        "y":  1333,
+                                        "height":  27,
+                                        "width":  92,
+                                        "text":  "21kå5ho",
+                                        "x":  237
+                                    }
+                                ]
+                  },
+                  {
+                      "text":  "14",
+                      "words":  [
+                                    {
+                                        "y":  1936,
+                                        "height":  17,
+                                        "width":  21,
+                                        "text":  "14",
+                                        "x":  756
+                                    }
+                                ]
+                  }
+              ]
+}

@@ -1,0 +1,41 @@
+{
+    "id":  "1216741269",
+    "text":  "6- I -209",
+    "pit_qualified":  false,
+    "engine":  "Windows.Media.Ocr existing en-US",
+    "maximum_image_dimension":  10000,
+    "machine_seconds":  0.2067447,
+    "pixel_height":  2105,
+    "image_sha256":  "72530c93a9b1162b91657c59f20a430e87903a179b2a6c2b435c0fda74de99b5",
+    "pixel_width":  1488,
+    "source_sha256":  "28f31493c52375f096a45ad326ad8421357f9e73252858ae236d6fa715aad2d2",
+    "physical_page":  211,
+    "lines":  [
+                  {
+                      "text":  "6- I -209",
+                      "words":  [
+                                    {
+                                        "y":  2021,
+                                        "height":  17,
+                                        "width":  18,
+                                        "text":  "6-",
+                                        "x":  706
+                                    },
+                                    {
+                                        "y":  2021,
+                                        "height":  17,
+                                        "width":  4,
+                                        "text":  "I",
+                                        "x":  729
+                                    },
+                                    {
+                                        "y":  2021,
+                                        "height":  17,
+                                        "width":  44,
+                                        "text":  "-209",
+                                        "x":  740
+                                    }
+                                ]
+                  }
+              ]
+}

@@ -1,0 +1,170 @@
+{
+    "id":  "1216741269",
+    "text":  "0 0 \u0027 新 ～ 关 世 亠 世 的 寻 0 以 6 一 ] ． 2 ] 0",
+    "pit_qualified":  false,
+    "engine":  "Windows.Media.Ocr existing zh-Hans-CN",
+    "maximum_image_dimension":  10000,
+    "machine_seconds":  0.270042,
+    "pixel_height":  2105,
+    "image_sha256":  "051a26bac693994af390915687bd5b7fe8c58516acdb8b65523e003ff5e52ae7",
+    "pixel_width":  1488,
+    "source_sha256":  "28f31493c52375f096a45ad326ad8421357f9e73252858ae236d6fa715aad2d2",
+    "physical_page":  212,
+    "lines":  [
+                  {
+                      "text":  "0 0 \u0027 新 ～ 关",
+                      "words":  [
+                                    {
+                                        "y":  451,
+                                        "height":  15,
+                                        "width":  17,
+                                        "text":  "0",
+                                        "x":  569
+                                    },
+                                    {
+                                        "y":  452,
+                                        "height":  10,
+                                        "width":  15,
+                                        "text":  "0",
+                                        "x":  640
+                                    },
+                                    {
+                                        "y":  454,
+                                        "height":  5,
+                                        "width":  3,
+                                        "text":  "\u0027",
+                                        "x":  670
+                                    },
+                                    {
+                                        "y":  452,
+                                        "height":  15,
+                                        "width":  18,
+                                        "text":  "新",
+                                        "x":  673
+                                    },
+                                    {
+                                        "y":  453,
+                                        "height":  7,
+                                        "width":  15,
+                                        "text":  "～",
+                                        "x":  697
+                                    },
+                                    {
+                                        "y":  453,
+                                        "height":  9,
+                                        "width":  14,
+                                        "text":  "关",
+                                        "x":  726
+                                    }
+                                ]
+                  },
+                  {
+                      "text":  "世 亠 世 的 寻 0 以",
+                      "words":  [
+                                    {
+                                        "y":  1802,
+                                        "height":  19,
+                                        "width":  20,
+                                        "text":  "世",
+                                        "x":  372
+                                    },
+                                    {
+                                        "y":  1805,
+                                        "height":  8,
+                                        "width":  16,
+                                        "text":  "亠",
+                                        "x":  461
+                                    },
+                                    {
+                                        "y":  1803,
+                                        "height":  19,
+                                        "width":  19,
+                                        "text":  "世",
+                                        "x":  514
+                                    },
+                                    {
+                                        "y":  1804,
+                                        "height":  24,
+                                        "width":  24,
+                                        "text":  "的",
+                                        "x":  598
+                                    },
+                                    {
+                                        "y":  1804,
+                                        "height":  15,
+                                        "width":  17,
+                                        "text":  "寻",
+                                        "x":  628
+                                    },
+                                    {
+                                        "y":  1814,
+                                        "height":  17,
+                                        "width":  19,
+                                        "text":  "0",
+                                        "x":  656
+                                    },
+                                    {
+                                        "y":  1806,
+                                        "height":  23,
+                                        "width":  19,
+                                        "text":  "以",
+                                        "x":  685
+                                    }
+                                ]
+                  },
+                  {
+                      "text":  "6 一 ] ． 2 ] 0",
+                      "words":  [
+                                    {
+                                        "y":  2021,
+                                        "height":  17,
+                                        "width":  11,
+                                        "text":  "6",
+                                        "x":  706
+                                    },
+                                    {
+                                        "y":  2032,
+                                        "height":  2,
+                                        "width":  6,
+                                        "text":  "一",
+                                        "x":  718
+                                    },
+                                    {
+                                        "y":  2021,
+                                        "height":  17,
+                                        "width":  4,
+                                        "text":  "]",
+                                        "x":  729
+                                    },
+                                    {
+                                        "y":  2032,
+                                        "height":  2,
+                                        "width":  6,
+                                        "text":  "．",
+                                        "x":  740
+                                    },
+                                    {
+                                        "y":  2021,
+                                        "height":  17,
+                                        "width":  10,
+                                        "text":  "2",
+                                        "x":  748
+                                    },
+                                    {
+                                        "y":  2021,
+                                        "height":  17,
+                                        "width":  5,
+                                        "text":  "]",
+                                        "x":  762
+                                    },
+                                    {
+                                        "y":  2021,
+                                        "height":  17,
+                                        "width":  11,
+                                        "text":  "0",
+                                        "x":  773
+                                    }
+                                ]
+                  }
+              ]
+}

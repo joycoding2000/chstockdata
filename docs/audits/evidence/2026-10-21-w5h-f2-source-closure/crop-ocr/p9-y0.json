@@ -1,0 +1,151 @@
+{
+    "id":  "1216741269",
+    "text":  "2022412k 31 .fri: 154/42,961.03 141 A Rütijru 124,620.00 3 10, 153,373.15 11828, 15563820",
+    "pit_qualified":  false,
+    "engine":  "Windows.Media.Ocr existing en-US",
+    "maximum_image_dimension":  10000,
+    "machine_seconds":  0.19304839999999998,
+    "pixel_height":  1080,
+    "image_sha256":  "b490df2f2df6c7750c06811577a0980f594f2b38e2b187dddc2cb199bf1b293c",
+    "pixel_width":  2976,
+    "source_sha256":  "28f31493c52375f096a45ad326ad8421357f9e73252858ae236d6fa715aad2d2",
+    "physical_page":  9,
+    "lines":  [
+                  {
+                      "text":  "2022412k 31",
+                      "words":  [
+                                    {
+                                        "y":  530,
+                                        "height":  40,
+                                        "width":  186,
+                                        "text":  "2022412k",
+                                        "x":  1344
+                                    },
+                                    {
+                                        "y":  534,
+                                        "height":  32,
+                                        "width":  30,
+                                        "text":  "31",
+                                        "x":  1540
+                                    }
+                                ]
+                  },
+                  {
+                      "text":  ".fri:",
+                      "words":  [
+                                    {
+                                        "y":  608,
+                                        "height":  38,
+                                        "width":  50,
+                                        "text":  ".fri:",
+                                        "x":  440
+                                    }
+                                ]
+                  },
+                  {
+                      "text":  "154/42,961.03",
+                      "words":  [
+                                    {
+                                        "y":  894,
+                                        "height":  40,
+                                        "width":  230,
+                                        "text":  "154/42,961.03",
+                                        "x":  1630
+                                    }
+                                ]
+                  },
+                  {
+                      "text":  "141",
+                      "words":  [
+                                    {
+                                        "y":  966,
+                                        "height":  30,
+                                        "width":  48,
+                                        "text":  "141",
+                                        "x":  1694
+                                    }
+                                ]
+                  },
+                  {
+                      "text":  "A Rütijru",
+                      "words":  [
+                                    {
+                                        "y":  610,
+                                        "height":  36,
+                                        "width":  42,
+                                        "text":  "A",
+                                        "x":  2482
+                                    },
+                                    {
+                                        "y":  610,
+                                        "height":  40,
+                                        "width":  116,
+                                        "text":  "Rütijru",
+                                        "x":  2534
+                                    }
+                                ]
+                  },
+                  {
+                      "text":  "124,620.00",
+                      "words":  [
+                                    {
+                                        "y":  966,
+                                        "height":  38,
+                                        "width":  172,
+                                        "text":  "124,620.00",
+                                        "x":  2468
+                                    }
+                                ]
+                  },
+                  {
+                      "text":  "3",
+                      "words":  [
+                                    {
+                                        "y":  1036,
+                                        "height":  34,
+                                        "width":  18,
+                                        "text":  "3",
+                                        "x":  1048
+                                    }
+                                ]
+                  },
+                  {
+                      "text":  "10, 153,373.15",
+                      "words":  [
+                                    {
+                                        "y":  966,
+                                        "height":  38,
+                                        "width":  42,
+                                        "text":  "10,",
+                                        "x":  2034
+                                    },
+                                    {
+                                        "y":  966,
+                                        "height":  38,
+                                        "width":  164,
+                                        "text":  "153,373.15",
+                                        "x":  2084
+                                    }
+                                ]
+                  },
+                  {
+                      "text":  "11828, 15563820",
+                      "words":  [
+                                    {
+                                        "y":  1036,
+                                        "height":  38,
+                                        "width":  90,
+                                        "text":  "11828,",
+                                        "x":  1986
+                                    },
+                                    {
+                                        "y":  1036,
+                                        "height":  32,
+                                        "width":  164,
+                                        "text":  "15563820",
+                                        "x":  2084
+                                    }
+                                ]
+                  }
+              ]
+}

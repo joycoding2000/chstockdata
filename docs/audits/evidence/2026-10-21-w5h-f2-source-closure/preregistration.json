@@ -1,0 +1,267 @@
+{
+  "preregistered_at_utc": "2026-10-21T14:37:52.106Z",
+  "before_new_network": true,
+  "baseline": "92d85ef7edc10a7663cce329589c5a0c8eb4bebd",
+  "priority_rule": "A explicit financial statements/data; B non-bond prospectus; C replies/bond materials; fixed A ordering then date/code/ID, never reordered for results.",
+  "sources": [
+    {
+      "id": "1216741269",
+      "code": "000961",
+      "title": "江苏中南建设集团股份有限公司向特定对象发行 A 股股票最近一年的财务报告及其审计报告以及最近一期的财务报告",
+      "date": "2023-05-04",
+      "url": "https://static.cninfo.com.cn/finalpage/2023-05-04/1216741269.PDF",
+      "orgId": "gssz0000961",
+      "tier": "A"
+    },
+    {
+      "id": "1216814161",
+      "code": "000961",
+      "title": "江苏中南建设集团股份有限公司向特定对象发行 A 股股票募集说明书（2022年财务数据更新版）",
+      "date": "2023-05-15",
+      "url": "https://static.cninfo.com.cn/finalpage/2023-05-15/1216814161.PDF",
+      "orgId": "gssz0000961",
+      "tier": "A"
+    },
+    {
+      "id": "1216869640",
+      "code": "000002",
+      "title": "万科企业股份有限公司最近一年的财务报告及其审计报告以及最近一期的财务报告",
+      "date": "2023-05-22",
+      "url": "https://static.cninfo.com.cn/finalpage/2023-05-22/1216869640.PDF",
+      "orgId": "gssz0000002",
+      "tier": "A"
+    },
+    {
+      "id": "1217078313",
+      "code": "000961",
+      "title": "江苏中南建设集团股份有限公司向特定对象发行 A 股股票最近一年的财务报告及其审计报告以及最近一期的财务报告",
+      "date": "2023-06-16",
+      "url": "https://static.cninfo.com.cn/finalpage/2023-06-16/1217078313.PDF",
+      "orgId": "gssz0000961",
+      "tier": "A"
+    },
+    {
+      "id": "1217949874",
+      "code": "000961",
+      "title": "江苏中南建设集团股份有限公司向特定对象发行 A 股股票最近一年的财务报告及其审计报告以及最近一期的财务报告",
+      "date": "2023-09-26",
+      "url": "https://static.cninfo.com.cn/finalpage/2023-09-26/1217949874.PDF",
+      "orgId": "gssz0000961",
+      "tier": "A"
+    },
+    {
+      "id": "1216741271",
+      "code": "000961",
+      "title": "江苏中南建设集团股份有限公司向特定对象发行 A 股股票募集说明书（修订稿）",
+      "date": "2023-05-04",
+      "url": "https://static.cninfo.com.cn/finalpage/2023-05-04/1216741271.PDF",
+      "orgId": "gssz0000961",
+      "tier": "B"
+    },
+    {
+      "id": "1216869636",
+      "code": "000002",
+      "title": "万科企业股份有限公司2023年度向特定对象发行A股股票募集说明书（申报稿）",
+      "date": "2023-05-22",
+      "url": "https://static.cninfo.com.cn/finalpage/2023-05-22/1216869636.PDF",
+      "orgId": "gssz0000002",
+      "tier": "B"
+    },
+    {
+      "id": "1217078318",
+      "code": "000961",
+      "title": "江苏中南建设集团股份有限公司向特定对象发行 A 股股票募集说明书（修订稿）",
+      "date": "2023-06-16",
+      "url": "https://static.cninfo.com.cn/finalpage/2023-06-16/1217078318.PDF",
+      "orgId": "gssz0000961",
+      "tier": "B"
+    },
+    {
+      "id": "1217949875",
+      "code": "000961",
+      "title": "江苏中南建设集团股份有限公司向特定对象发行 A 股股票募集说明书（2023年半年报更新）",
+      "date": "2023-09-26",
+      "url": "https://static.cninfo.com.cn/finalpage/2023-09-26/1217949875.PDF",
+      "orgId": "gssz0000961",
+      "tier": "B"
+    },
+    {
+      "id": "1205169602",
+      "code": "600518",
+      "title": "面向合格投资者公开发行2018年公司债券（第一期）募集说明书",
+      "date": "2018-07-17",
+      "url": "https://static.cninfo.com.cn/finalpage/2018-07-17/1205169602.PDF",
+      "orgId": "gssh0600518",
+      "tier": "C"
+    },
+    {
+      "id": "1205465511",
+      "code": "600518",
+      "title": "面向合格投资者公开发行2018年公司债券（第二期）募集说明书",
+      "date": "2018-09-26",
+      "url": "https://static.cninfo.com.cn/finalpage/2018-09-26/1205465511.PDF",
+      "orgId": "gssh0600518",
+      "tier": "C"
+    },
+    {
+      "id": "1216741268",
+      "code": "000961",
+      "title": "关于江苏中南建设集团股份有限公司申请向特定对象发行股票的审核问询函的回复",
+      "date": "2023-05-04",
+      "url": "https://static.cninfo.com.cn/finalpage/2023-05-04/1216741268.PDF",
+      "orgId": "gssz0000961",
+      "tier": "C"
+    },
+    {
+      "id": "1216741273",
+      "code": "000961",
+      "title": "致同会计师事务所（特殊普通合伙）关于江苏中南建设集团股份有限公司申请向特定对象发行股票的审核问询函中有关财务会计问题的专项回复",
+      "date": "2023-05-04",
+      "url": "https://static.cninfo.com.cn/finalpage/2023-05-04/1216741273.PDF",
+      "orgId": "gssz0000961",
+      "tier": "C"
+    },
+    {
+      "id": "1217078312",
+      "code": "000961",
+      "title": "致同会计师事务所（特殊普通合伙）关于江苏中南建设集团股份有限公司申请向特定对象发行股票的审核问询函中有关财务会计问题的专项回复 （修订稿）",
+      "date": "2023-06-16",
+      "url": "https://static.cninfo.com.cn/finalpage/2023-06-16/1217078312.PDF",
+      "orgId": "gssz0000961",
+      "tier": "C"
+    },
+    {
+      "id": "1217078316",
+      "code": "000961",
+      "title": "关于江苏中南建设集团股份有限公司申请向特定对象发行股票的审核问询函的回复（修订稿）",
+      "date": "2023-06-16",
+      "url": "https://static.cninfo.com.cn/finalpage/2023-06-16/1217078316.PDF",
+      "orgId": "gssz0000961",
+      "tier": "C"
+    },
+    {
+      "id": "1217170564",
+      "code": "000961",
+      "title": "致同会计师事务所（特殊普通合伙）关于江苏中南建设集团股份有限公司申请向特定对象发行股票的第二轮审核问询函回复",
+      "date": "2023-06-30",
+      "url": "https://static.cninfo.com.cn/finalpage/2023-06-30/1217170564.PDF",
+      "orgId": "gssz0000961",
+      "tier": "C"
+    },
+    {
+      "id": "1217170566",
+      "code": "000961",
+      "title": "关于江苏中南建设集团股份有限公司申请向特定对象发行股票的第二轮审核问询函的回复",
+      "date": "2023-06-30",
+      "url": "https://static.cninfo.com.cn/finalpage/2023-06-30/1217170566.PDF",
+      "orgId": "gssz0000961",
+      "tier": "C"
+    },
+    {
+      "id": "1217321905",
+      "code": "000002",
+      "title": "万科企业股份有限公司2023年面向专业投资者公开发行公司债券（第一期）募集说明书",
+      "date": "2023-07-19",
+      "url": "https://static.cninfo.com.cn/finalpage/2023-07-19/1217321905.PDF",
+      "orgId": "gssz0000002",
+      "tier": "C"
+    },
+    {
+      "id": "1217361564",
+      "code": "000961",
+      "title": "致同会计师事务所关于江苏中南建设集团股份有限公司2022年年报问询函的回复",
+      "date": "2023-07-22",
+      "url": "https://static.cninfo.com.cn/finalpage/2023-07-22/1217361564.PDF",
+      "orgId": "gssz0000961",
+      "tier": "C"
+    },
+    {
+      "id": "1217949872",
+      "code": "000961",
+      "title": "致同会计师事务所（特殊普通合伙）关于江苏中南建设集团股份有限公司申请向特定对象发行股票的审核问询函中有关财务会计问题的专项回复 （2023年半年报）",
+      "date": "2023-09-26",
+      "url": "https://static.cninfo.com.cn/finalpage/2023-09-26/1217949872.PDF",
+      "orgId": "gssz0000961",
+      "tier": "C"
+    },
+    {
+      "id": "1217949876",
+      "code": "000961",
+      "title": "关于江苏中南建设集团股份有限公司申请向特定对象发行股票的审核问询函的回复（2023年半年报更新）",
+      "date": "2023-09-26",
+      "url": "https://static.cninfo.com.cn/finalpage/2023-09-26/1217949876.PDF",
+      "orgId": "gssz0000961",
+      "tier": "C"
+    },
+    {
+      "id": "1218110511",
+      "code": "000961",
+      "title": "致同会计师事务所（特殊普通合伙）关于江苏中南建设集团股份有限公司申请向特定对象发行股票的第二轮审核问询函回复（修订稿）",
+      "date": "2023-10-21",
+      "url": "https://static.cninfo.com.cn/finalpage/2023-10-21/1218110511.PDF",
+      "orgId": "gssz0000961",
+      "tier": "C"
+    },
+    {
+      "id": "1218110512",
+      "code": "000961",
+      "title": "关于江苏中南建设集团股份有限公司申请向特定对象发行股票的第二轮审核问询函的回复（修订稿）",
+      "date": "2023-10-21",
+      "url": "https://static.cninfo.com.cn/finalpage/2023-10-21/1218110512.PDF",
+      "orgId": "gssz0000961",
+      "tier": "C"
+    }
+  ],
+  "budget": {
+    "previous_requests": 156,
+    "previous_pdf_successes": 20,
+    "previous_pdf_bytes": 52852518,
+    "additional_identities_max": 23,
+    "additional_requests_max": 25,
+    "additional_retries_max": 2,
+    "cumulative_requests_max": 181,
+    "cumulative_pdf_successes_max": 43,
+    "same_host_gap_seconds": 3,
+    "single_pdf_max_bytes": 25000000,
+    "cumulative_new_pdf_bytes_max": 200000000,
+    "metadata_discovery_requests": 0
+  },
+  "windows": [
+    {
+      "code": "600518",
+      "start": "2018-04-24",
+      "end": "2019-05-06",
+      "target": "FY2017 original and restatement; existing F1 T range"
+    },
+    {
+      "code": "000961",
+      "start": "2023-04-24",
+      "end": "2024-05-06",
+      "target": "FY2022 original/update, 2023 intervening reports, FY2023 and Q12024"
+    },
+    {
+      "code": "000002",
+      "start": "2023-04-24",
+      "end": "2024-10-08",
+      "target": "FY2022 original through FY2023 and Q12024/H12024; existing F1 T range"
+    },
+    {
+      "code": "300750",
+      "start": "2024-03-15",
+      "end": "2024-04-17",
+      "target": "FY2023/Q12024 EPS-only comparative control"
+    },
+    {
+      "code": "600519",
+      "start": "2024-04-02",
+      "end": "2024-05-06",
+      "target": "FY2023 and Q12024 accounting/period-end identity"
+    },
+    {
+      "code": "601398",
+      "start": "2024-03-27",
+      "end": "2024-05-06",
+      "target": "FY2023 and Q12024 group/bank accounting and comparative control"
+    }
+  ]
+}

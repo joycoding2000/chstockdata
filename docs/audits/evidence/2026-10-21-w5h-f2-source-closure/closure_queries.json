@@ -1,0 +1,186 @@
+[
+  {
+    "query_id": "K_before_original",
+    "code": "600518",
+    "period": "2017-12-31",
+    "field": "NP",
+    "T": "2018-04-25",
+    "mode": "known_documents"
+  },
+  {
+    "query_id": "K_original_ocf",
+    "code": "600518",
+    "period": "2017-12-31",
+    "field": "OCF",
+    "T": "2018-04-27",
+    "mode": "known_documents"
+  },
+  {
+    "query_id": "K_after_bond_NP",
+    "code": "600518",
+    "period": "2017-12-31",
+    "field": "NP",
+    "T": "2018-07-18",
+    "mode": "strict_index"
+  },
+  {
+    "query_id": "K_after_bond_OCF",
+    "code": "600518",
+    "period": "2017-12-31",
+    "field": "OCF",
+    "T": "2018-07-18",
+    "mode": "strict_index"
+  },
+  {
+    "query_id": "K_after_bond_EQ",
+    "code": "600518",
+    "period": "2017-12-31",
+    "field": "EQ",
+    "T": "2018-07-18",
+    "mode": "strict_index"
+  },
+  {
+    "query_id": "K_before_restatement",
+    "code": "600518",
+    "period": "2017-12-31",
+    "field": "NP",
+    "T": "2019-04-29",
+    "mode": "strict_index"
+  },
+  {
+    "query_id": "K_restatement_NP",
+    "code": "600518",
+    "period": "2017-12-31",
+    "field": "NP",
+    "T": "2019-05-06",
+    "mode": "strict_index"
+  },
+  {
+    "query_id": "K_restatement_OCF",
+    "code": "600518",
+    "period": "2017-12-31",
+    "field": "OCF",
+    "T": "2019-05-06",
+    "mode": "strict_index"
+  },
+  {
+    "query_id": "K_restatement_EQ",
+    "code": "600518",
+    "period": "2017-12-31",
+    "field": "EQ",
+    "T": "2019-05-06",
+    "mode": "strict_index"
+  },
+  {
+    "query_id": "K_2018Q1_before_revision",
+    "code": "600518",
+    "period": "2018-03-31",
+    "field": "NP",
+    "T": "2019-04-29",
+    "mode": "known_documents"
+  },
+  {
+    "query_id": "K_2018Q1_after_revision",
+    "code": "600518",
+    "period": "2018-03-31",
+    "field": "NP",
+    "T": "2019-05-06",
+    "mode": "known_documents"
+  },
+  {
+    "query_id": "V_Q1_adjusted",
+    "code": "000002",
+    "period": "2022-12-31",
+    "field": "EQ",
+    "T": "2023-05-04",
+    "mode": "strict_index"
+  },
+  {
+    "query_id": "V_after_bond_strict",
+    "code": "000002",
+    "period": "2022-12-31",
+    "field": "EQ",
+    "T": "2023-07-20",
+    "mode": "strict_index"
+  },
+  {
+    "query_id": "V_after_bond_known",
+    "code": "000002",
+    "period": "2022-12-31",
+    "field": "EQ",
+    "T": "2023-07-20",
+    "mode": "known_documents"
+  },
+  {
+    "query_id": "V_H1_anchor",
+    "code": "000002",
+    "period": "2022-12-31",
+    "field": "EQ",
+    "T": "2023-09-01",
+    "mode": "strict_index"
+  },
+  {
+    "query_id": "V_NP_later_revision",
+    "code": "000002",
+    "period": "2022-12-31",
+    "field": "NP",
+    "T": "2024-04-01",
+    "mode": "strict_index"
+  },
+  {
+    "query_id": "ZN_before_original",
+    "code": "000961",
+    "period": "2022-12-31",
+    "field": "NP",
+    "T": "2023-04-24",
+    "mode": "known_documents"
+  },
+  {
+    "query_id": "ZN_May_gap",
+    "code": "000961",
+    "period": "2022-12-31",
+    "field": "NP",
+    "T": "2023-05-05",
+    "mode": "strict_index"
+  },
+  {
+    "query_id": "ZN_update_NP",
+    "code": "000961",
+    "period": "2022-12-31",
+    "field": "NP",
+    "T": "2023-07-27",
+    "mode": "strict_index"
+  },
+  {
+    "query_id": "ZN_update_OCF",
+    "code": "000961",
+    "period": "2022-12-31",
+    "field": "OCF",
+    "T": "2023-07-27",
+    "mode": "strict_index"
+  },
+  {
+    "query_id": "ZN_September_gap",
+    "code": "000961",
+    "period": "2022-12-31",
+    "field": "NP",
+    "T": "2023-09-27",
+    "mode": "strict_index"
+  },
+  {
+    "query_id": "ZN_October_gap",
+    "code": "000961",
+    "period": "2022-12-31",
+    "field": "EQ",
+    "T": "2023-10-23",
+    "mode": "strict_index"
+  },
+  {
+    "query_id": "ZN_next_annual_revision",
+    "code": "000961",
+    "period": "2022-12-31",
+    "field": "NP",
+    "T": "2024-04-24",
+    "mode": "known_documents"
+  }
+]

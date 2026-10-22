@@ -1,0 +1,146 @@
+{
+    "id":  "1217321905",
+    "text":  "[HT34 2023] (320122197202260012) 024 2023 42 h 7 IL-o 2023 .fkf)k (320122197202260012) )",
+    "pit_qualified":  false,
+    "engine":  "Windows.Media.Ocr existing en-US",
+    "maximum_image_dimension":  10000,
+    "machine_seconds":  0.1047866,
+    "pixel_height":  2105,
+    "image_sha256":  "bb9983ca0692117e60bf85a43084e1dfde31545de17cf9b7f08084e31804a4da",
+    "pixel_width":  1488,
+    "source_sha256":  "ec62521ca89aea1015d4a0237df8032b6c102ad53679824eb39988616bd48ccb",
+    "physical_page":  317,
+    "lines":  [
+                  {
+                      "text":  "[HT34 2023]",
+                      "words":  [
+                                    {
+                                        "y":  234,
+                                        "height":  32,
+                                        "width":  80,
+                                        "text":  "[HT34",
+                                        "x":  1042
+                                    },
+                                    {
+                                        "y":  233,
+                                        "height":  32,
+                                        "width":  78,
+                                        "text":  "2023]",
+                                        "x":  1145
+                                    }
+                                ]
+                  },
+                  {
+                      "text":  "(320122197202260012)",
+                      "words":  [
+                                    {
+                                        "y":  574,
+                                        "height":  34,
+                                        "width":  357,
+                                        "text":  "(320122197202260012)",
+                                        "x":  560
+                                    }
+                                ]
+                  },
+                  {
+                      "text":  "024",
+                      "words":  [
+                                    {
+                                        "y":  932,
+                                        "height":  27,
+                                        "width":  54,
+                                        "text":  "024",
+                                        "x":  963
+                                    }
+                                ]
+                  },
+                  {
+                      "text":  "2023 42 h 7",
+                      "words":  [
+                                    {
+                                        "y":  935,
+                                        "height":  26,
+                                        "width":  69,
+                                        "text":  "2023",
+                                        "x":  646
+                                    },
+                                    {
+                                        "y":  929,
+                                        "height":  35,
+                                        "width":  58,
+                                        "text":  "42",
+                                        "x":  728
+                                    },
+                                    {
+                                        "y":  929,
+                                        "height":  34,
+                                        "width":  24,
+                                        "text":  "h",
+                                        "x":  801
+                                    },
+                                    {
+                                        "y":  934,
+                                        "height":  26,
+                                        "width":  15,
+                                        "text":  "7",
+                                        "x":  844
+                                    }
+                                ]
+                  },
+                  {
+                      "text":  "IL-o",
+                      "words":  [
+                                    {
+                                        "y":  1004,
+                                        "height":  32,
+                                        "width":  46,
+                                        "text":  "IL-o",
+                                        "x":  747
+                                    }
+                                ]
+                  },
+                  {
+                      "text":  "2023",
+                      "words":  [
+                                    {
+                                        "y":  1479,
+                                        "height":  27,
+                                        "width":  69,
+                                        "text":  "2023",
+                                        "x":  682
+                                    }
+                                ]
+                  },
+                  {
+                      "text":  ".fkf)k",
+                      "words":  [
+                                    {
+                                        "y":  1713,
+                                        "height":  31,
+                                        "width":  56,
+                                        "text":  ".fkf)k",
+                                        "x":  1100
+                                    }
+                                ]
+                  },
+                  {
+                      "text":  "(320122197202260012) )",
+                      "words":  [
+                                    {
+                                        "y":  1814,
+                                        "height":  36,
+                                        "width":  359,
+                                        "text":  "(320122197202260012)",
+                                        "x":  456
+                                    },
+                                    {
+                                        "y":  1814,
+                                        "height":  33,
+                                        "width":  10,
+                                        "text":  ")",
+                                        "x":  834
+                                    }
+                                ]
+                  }
+              ]
+}

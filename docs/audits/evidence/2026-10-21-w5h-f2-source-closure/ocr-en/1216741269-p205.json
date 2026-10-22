@@ -1,0 +1,155 @@
+{
+    "id":  "1216741269",
+    "text":  "20!12 g rug e s t 201 f 2013 6-1 -203 2016 b\u0027 • CVA",
+    "pit_qualified":  false,
+    "engine":  "Windows.Media.Ocr existing en-US",
+    "maximum_image_dimension":  10000,
+    "machine_seconds":  0.1331732,
+    "pixel_height":  2105,
+    "image_sha256":  "e4e25ff2d86937f6ee1360b27afaaeacf719cdb7c4a8e0246789745e7d7df192",
+    "pixel_width":  1488,
+    "source_sha256":  "28f31493c52375f096a45ad326ad8421357f9e73252858ae236d6fa715aad2d2",
+    "physical_page":  205,
+    "lines":  [
+                  {
+                      "text":  "20!12",
+                      "words":  [
+                                    {
+                                        "y":  1251,
+                                        "height":  29,
+                                        "width":  51,
+                                        "text":  "20!12",
+                                        "x":  427
+                                    }
+                                ]
+                  },
+                  {
+                      "text":  "g rug e s t",
+                      "words":  [
+                                    {
+                                        "y":  1570,
+                                        "height":  10,
+                                        "width":  9,
+                                        "text":  "g",
+                                        "x":  445
+                                    },
+                                    {
+                                        "y":  1570,
+                                        "height":  10,
+                                        "width":  26,
+                                        "text":  "rug",
+                                        "x":  461
+                                    },
+                                    {
+                                        "y":  1570,
+                                        "height":  10,
+                                        "width":  10,
+                                        "text":  "e",
+                                        "x":  494
+                                    },
+                                    {
+                                        "y":  1570,
+                                        "height":  11,
+                                        "width":  9,
+                                        "text":  "s",
+                                        "x":  510
+                                    },
+                                    {
+                                        "y":  1570,
+                                        "height":  10,
+                                        "width":  8,
+                                        "text":  "t",
+                                        "x":  527
+                                    }
+                                ]
+                  },
+                  {
+                      "text":  "201 f",
+                      "words":  [
+                                    {
+                                        "y":  820,
+                                        "height":  14,
+                                        "width":  29,
+                                        "text":  "201",
+                                        "x":  650
+                                    },
+                                    {
+                                        "y":  822,
+                                        "height":  13,
+                                        "width":  8,
+                                        "text":  "f",
+                                        "x":  682
+                                    }
+                                ]
+                  },
+                  {
+                      "text":  "2013",
+                      "words":  [
+                                    {
+                                        "y":  1257,
+                                        "height":  15,
+                                        "width":  52,
+                                        "text":  "2013",
+                                        "x":  681
+                                    }
+                                ]
+                  },
+                  {
+                      "text":  "6-1 -203",
+                      "words":  [
+                                    {
+                                        "y":  2023,
+                                        "height":  17,
+                                        "width":  27,
+                                        "text":  "6-1",
+                                        "x":  706
+                                    },
+                                    {
+                                        "y":  2023,
+                                        "height":  17,
+                                        "width":  43,
+                                        "text":  "-203",
+                                        "x":  740
+                                    }
+                                ]
+                  },
+                  {
+                      "text":  "2016",
+                      "words":  [
+                                    {
+                                        "y":  1256,
+                                        "height":  20,
+                                        "width":  53,
+                                        "text":  "2016",
+                                        "x":  859
+                                    }
+                                ]
+                  },
+                  {
+                      "text":  "b\u0027 • CVA",
+                      "words":  [
+                                    {
+                                        "y":  1432,
+                                        "height":  12,
+                                        "width":  11,
+                                        "text":  "b\u0027",
+                                        "x":  820
+                                    },
+                                    {
+                                        "y":  1435,
+                                        "height":  6,
+                                        "width":  5,
+                                        "text":  "•",
+                                        "x":  835
+                                    },
+                                    {
+                                        "y":  1432,
+                                        "height":  10,
+                                        "width":  23,
+                                        "text":  "CVA",
+                                        "x":  842
+                                    }
+                                ]
+                  }
+              ]
+}

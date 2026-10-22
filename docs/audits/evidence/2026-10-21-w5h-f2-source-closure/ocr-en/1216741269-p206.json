@@ -1,0 +1,87 @@
+{
+    "id":  "1216741269",
+    "text":  "2016 1976-0209 •nit \u0027\u0026\u0027ity zoo 6-1-204",
+    "pit_qualified":  false,
+    "engine":  "Windows.Media.Ocr existing en-US",
+    "maximum_image_dimension":  10000,
+    "machine_seconds":  0.1604565,
+    "pixel_height":  2105,
+    "image_sha256":  "8da70b7bc1a32641b0f4c7be946503c720df4b54dfde0633bcd3b826aa1b304a",
+    "pixel_width":  1488,
+    "source_sha256":  "28f31493c52375f096a45ad326ad8421357f9e73252858ae236d6fa715aad2d2",
+    "physical_page":  206,
+    "lines":  [
+                  {
+                      "text":  "2016",
+                      "words":  [
+                                    {
+                                        "y":  333,
+                                        "height":  11,
+                                        "width":  31,
+                                        "text":  "2016",
+                                        "x":  1042
+                                    }
+                                ]
+                  },
+                  {
+                      "text":  "1976-0209",
+                      "words":  [
+                                    {
+                                        "y":  369,
+                                        "height":  15,
+                                        "width":  99,
+                                        "text":  "1976-0209",
+                                        "x":  582
+                                    }
+                                ]
+                  },
+                  {
+                      "text":  "•nit",
+                      "words":  [
+                                    {
+                                        "y":  439,
+                                        "height":  10,
+                                        "width":  24,
+                                        "text":  "•nit",
+                                        "x":  466
+                                    }
+                                ]
+                  },
+                  {
+                      "text":  "\u0027\u0026\u0027ity",
+                      "words":  [
+                                    {
+                                        "y":  480,
+                                        "height":  14,
+                                        "width":  43,
+                                        "text":  "\u0027\u0026\u0027ity",
+                                        "x":  409
+                                    }
+                                ]
+                  },
+                  {
+                      "text":  "zoo",
+                      "words":  [
+                                    {
+                                        "y":  1100,
+                                        "height":  19,
+                                        "width":  40,
+                                        "text":  "zoo",
+                                        "x":  403
+                                    }
+                                ]
+                  },
+                  {
+                      "text":  "6-1-204",
+                      "words":  [
+                                    {
+                                        "y":  2021,
+                                        "height":  20,
+                                        "width":  79,
+                                        "text":  "6-1-204",
+                                        "x":  735
+                                    }
+                                ]
+                  }
+              ]
+}

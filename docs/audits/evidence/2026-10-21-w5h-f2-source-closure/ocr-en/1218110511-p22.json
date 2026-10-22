@@ -1,0 +1,70 @@
+{
+    "id":  "1218110511",
+    "text":  "0 Grant Thornton frJ 21",
+    "pit_qualified":  false,
+    "engine":  "Windows.Media.Ocr existing en-US",
+    "maximum_image_dimension":  10000,
+    "machine_seconds":  0.057738899999999996,
+    "pixel_height":  2105,
+    "image_sha256":  "e16b627f59bef249e678ed6f9e2dfed5464ba279d9cc61855499626b602ecca8",
+    "pixel_width":  1488,
+    "source_sha256":  "d989780703a01055d0365266a7db87ab731dc596a84b7fff0c1b19b4a8d24bb8",
+    "physical_page":  22,
+    "lines":  [
+                  {
+                      "text":  "0",
+                      "words":  [
+                                    {
+                                        "y":  91,
+                                        "height":  76,
+                                        "width":  75,
+                                        "text":  "0",
+                                        "x":  171
+                                    }
+                                ]
+                  },
+                  {
+                      "text":  "Grant Thornton",
+                      "words":  [
+                                    {
+                                        "y":  108,
+                                        "height":  41,
+                                        "width":  121,
+                                        "text":  "Grant",
+                                        "x":  266
+                                    },
+                                    {
+                                        "y":  108,
+                                        "height":  41,
+                                        "width":  191,
+                                        "text":  "Thornton",
+                                        "x":  391
+                                    }
+                                ]
+                  },
+                  {
+                      "text":  "frJ",
+                      "words":  [
+                                    {
+                                        "y":  230,
+                                        "height":  27,
+                                        "width":  19,
+                                        "text":  "frJ",
+                                        "x":  1014
+                                    }
+                                ]
+                  },
+                  {
+                      "text":  "21",
+                      "words":  [
+                                    {
+                                        "y":  1935,
+                                        "height":  18,
+                                        "width":  20,
+                                        "text":  "21",
+                                        "x":  760
+                                    }
+                                ]
+                  }
+              ]
+}

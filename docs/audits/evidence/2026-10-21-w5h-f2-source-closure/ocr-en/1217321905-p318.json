@@ -1,0 +1,51 @@
+{
+    "id":  "1217321905",
+    "text":  "202 202 718",
+    "pit_qualified":  false,
+    "engine":  "Windows.Media.Ocr existing en-US",
+    "maximum_image_dimension":  10000,
+    "machine_seconds":  0.098875899999999989,
+    "pixel_height":  2103,
+    "image_sha256":  "460246bab9feab34d0bc4d6e61ed53f172802ee5ebda2fbdc992721808565b41",
+    "pixel_width":  1488,
+    "source_sha256":  "ec62521ca89aea1015d4a0237df8032b6c102ad53679824eb39988616bd48ccb",
+    "physical_page":  318,
+    "lines":  [
+                  {
+                      "text":  "202",
+                      "words":  [
+                                    {
+                                        "y":  136,
+                                        "height":  15,
+                                        "width":  36,
+                                        "text":  "202",
+                                        "x":  735
+                                    }
+                                ]
+                  },
+                  {
+                      "text":  "202",
+                      "words":  [
+                                    {
+                                        "y":  1738,
+                                        "height":  21,
+                                        "width":  43,
+                                        "text":  "202",
+                                        "x":  1052
+                                    }
+                                ]
+                  },
+                  {
+                      "text":  "718",
+                      "words":  [
+                                    {
+                                        "y":  1740,
+                                        "height":  21,
+                                        "width":  78,
+                                        "text":  "718",
+                                        "x":  1153
+                                    }
+                                ]
+                  }
+              ]
+}

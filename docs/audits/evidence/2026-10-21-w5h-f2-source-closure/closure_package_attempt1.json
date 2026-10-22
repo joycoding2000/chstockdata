@@ -1,0 +1,41 @@
+{
+  "complete": false,
+  "stages": [
+    {
+      "args": [
+        "test_sources.py"
+      ],
+      "exit": 0,
+      "machine_seconds": 0.2959049999990384,
+      "stdout": "",
+      "stderr": "..\n----------------------------------------------------------------------\nRan 2 tests in 0.034s\n\nOK\n"
+    },
+    {
+      "args": [
+        "qualify_sources.py"
+      ],
+      "exit": 0,
+      "machine_seconds": 0.7719977000015206,
+      "stdout": "{'file_counts': {'UNRESOLVED_REQUIRES_EVIDENCE': 11, 'VERIFIED_DUPLICATE_OF_EXISTING_DISCLOSURE': 8, 'VERIFIED_NO_TARGET_FIELD_EFFECT': 3, 'DIFFERENT_ACCOUNTING_BASIS': 1}, 'facts': 172, 'fact_counts': {'UNVERIFIED_NOT_ACCEPTED': 68, 'VERIFIED_PRIOR_FACT_CORROBORATION': 62, 'DIFFERENT_SUBJECT_EXCLUDED': 12, 'UNKNOWN_SCOPE': 30}, 'truth_counts': {'PASS': 22, 'UNKNOWN': 1}}\n",
+      "stderr": ""
+    },
+    {
+      "args": [
+        "replay_closure.py"
+      ],
+      "exit": 0,
+      "machine_seconds": 0.6376872999971965,
+      "stdout": "{'new_assertions': 23, 'counts': {'PASS': 23}, 'old_status_changes': 1, 'all_outputs': {'SELECTED_KNOWN_SOURCE': 84, 'UNKNOWN': 57}}\n",
+      "stderr": ""
+    },
+    {
+      "args": [
+        "test_closure_safety.py"
+      ],
+      "exit": 1,
+      "machine_seconds": 0.3481355999974767,
+      "stdout": "",
+      "stderr": "test_mutually_exclusive_dispositions (__main__.ClosureSafety.test_mutually_exclusive_dispositions) ... ok\ntest_original_audit_requote_does_not_revert_adjustment (__main__.ClosureSafety.test_original_audit_requote_does_not_revert_adjustment) ... ok\ntest_parser_has_no_truth_or_issuer_patch_input (__main__.ClosureSafety.test_parser_has_no_truth_or_issuer_patch_input) ... FAIL\ntest_pre_network_budget_boundaries (__main__.ClosureSafety.test_pre_network_budget_boundaries) ... ok\ntest_real_budget_and_gap (__main__.ClosureSafety.test_real_budget_and_gap) ... ok\ntest_same_date_unqualified_companion_blocks (__main__.ClosureSafety.test_same_date_unqualified_companion_blocks) ... ok\ntest_source_conflict_not_silently_repaired (__main__.ClosureSafety.test_source_conflict_not_silently_repaired) ... ok\ntest_unknown_scope_not_certified_and_ocr_not_money (__main__.ClosureSafety.test_unknown_scope_not_certified_and_ocr_not_money) ... ok\n\n======================================================================\nFAIL: test_parser_has_no_truth_or_issuer_patch_input (__main__.ClosureSafety.test_parser_has_no_truth_or_issuer_patch_input)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-21-w5h-f2-source-closure\\test_closure_safety.py\", line 57, in test_parser_has_no_truth_or_issuer_patch_input\n    self.assertFalse(any(s in ids or s.startswith('expected_') for s in strings))\nAssertionError: True is not false\n\n----------------------------------------------------------------------\nRan 8 tests in 0.096s\n\nFAILED (failures=1)\n"
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+E
+======================================================================
+ERROR: test_source_fields (test_sources.FixedSourceFields.test_source_fields)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\Dev\Projects\chstockdata\docs\audits\evidence\2026-10-21-w5h-f2-source-closure\test_sources.py", line 8, in test_source_fields
+    from extract_facts import extract_all
+ModuleNotFoundError: No module named 'extract_facts'
+
+----------------------------------------------------------------------
+Ran 1 test in 0.002s
+
+FAILED (errors=1)

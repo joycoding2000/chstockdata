@@ -1,0 +1,106 @@
+{
+    "id":  "1216741269",
+    "text":  "7.994.757.95 -9,159.29419497 -23966 -14,172 289.85 .3325$97,960.38 96 -0.6850",
+    "pit_qualified":  false,
+    "engine":  "Windows.Media.Ocr existing en-US",
+    "maximum_image_dimension":  10000,
+    "machine_seconds":  0.1237655,
+    "pixel_height":  1080,
+    "image_sha256":  "09eeae50e2879f7fb2a3e0a3c62fbdae38586beef30d1b9307d2237ed264aaf6",
+    "pixel_width":  2976,
+    "source_sha256":  "28f31493c52375f096a45ad326ad8421357f9e73252858ae236d6fa715aad2d2",
+    "physical_page":  11,
+    "lines":  [
+                  {
+                      "text":  "7.994.757.95",
+                      "words":  [
+                                    {
+                                        "y":  130,
+                                        "height":  30,
+                                        "width":  164,
+                                        "text":  "7.994.757.95",
+                                        "x":  1496
+                                    }
+                                ]
+                  },
+                  {
+                      "text":  "-9,159.29419497",
+                      "words":  [
+                                    {
+                                        "y":  328,
+                                        "height":  30,
+                                        "width":  224,
+                                        "text":  "-9,159.29419497",
+                                        "x":  1434
+                                    }
+                                ]
+                  },
+                  {
+                      "text":  "-23966",
+                      "words":  [
+                                    {
+                                        "y":  480,
+                                        "height":  26,
+                                        "width":  92,
+                                        "text":  "-23966",
+                                        "x":  1566
+                                    }
+                                ]
+                  },
+                  {
+                      "text":  "-14,172 289.85",
+                      "words":  [
+                                    {
+                                        "y":  34,
+                                        "height":  34,
+                                        "width":  94,
+                                        "text":  "-14,172",
+                                        "x":  2116
+                                    },
+                                    {
+                                        "y":  34,
+                                        "height":  28,
+                                        "width":  82,
+                                        "text":  "289.85",
+                                        "x":  2220
+                                    }
+                                ]
+                  },
+                  {
+                      "text":  ".3325$97,960.38",
+                      "words":  [
+                                    {
+                                        "y":  278,
+                                        "height":  30,
+                                        "width":  226,
+                                        "text":  ".3325$97,960.38",
+                                        "x":  2078
+                                    }
+                                ]
+                  },
+                  {
+                      "text":  "96",
+                      "words":  [
+                                    {
+                                        "y":  378,
+                                        "height":  28,
+                                        "width":  28,
+                                        "text":  "96",
+                                        "x":  2276
+                                    }
+                                ]
+                  },
+                  {
+                      "text":  "-0.6850",
+                      "words":  [
+                                    {
+                                        "y":  482,
+                                        "height":  24,
+                                        "width":  96,
+                                        "text":  "-0.6850",
+                                        "x":  2210
+                                    }
+                                ]
+                  }
+              ]
+}

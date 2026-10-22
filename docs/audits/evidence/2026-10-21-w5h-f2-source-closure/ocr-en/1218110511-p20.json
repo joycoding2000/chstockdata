@@ -1,0 +1,177 @@
+{
+    "id":  "1218110511",
+    "text":  "Grant Thornton K12 ( 002659.sz ( 2023.6.30 ) 14.82 0.0052% Efi,tsÆ)) Is 202346 h 29 19",
+    "pit_qualified":  false,
+    "engine":  "Windows.Media.Ocr existing en-US",
+    "maximum_image_dimension":  10000,
+    "machine_seconds":  0.2006953,
+    "pixel_height":  2105,
+    "image_sha256":  "c73bf1d4deacc80a257cd9916ed16aa387ceb6ab240e0a463efcfac874ecf725",
+    "pixel_width":  1488,
+    "source_sha256":  "d989780703a01055d0365266a7db87ab731dc596a84b7fff0c1b19b4a8d24bb8",
+    "physical_page":  20,
+    "lines":  [
+                  {
+                      "text":  "Grant Thornton",
+                      "words":  [
+                                    {
+                                        "y":  107,
+                                        "height":  42,
+                                        "width":  122,
+                                        "text":  "Grant",
+                                        "x":  267
+                                    },
+                                    {
+                                        "y":  107,
+                                        "height":  42,
+                                        "width":  190,
+                                        "text":  "Thornton",
+                                        "x":  393
+                                    }
+                                ]
+                  },
+                  {
+                      "text":  "K12",
+                      "words":  [
+                                    {
+                                        "y":  359,
+                                        "height":  20,
+                                        "width":  36,
+                                        "text":  "K12",
+                                        "x":  427
+                                    }
+                                ]
+                  },
+                  {
+                      "text":  "( 002659.sz",
+                      "words":  [
+                                    {
+                                        "y":  375,
+                                        "height":  21,
+                                        "width":  6,
+                                        "text":  "(",
+                                        "x":  260
+                                    },
+                                    {
+                                        "y":  376,
+                                        "height":  19,
+                                        "width":  102,
+                                        "text":  "002659.sz",
+                                        "x":  274
+                                    }
+                                ]
+                  },
+                  {
+                      "text":  "( 2023.6.30 )",
+                      "words":  [
+                                    {
+                                        "y":  306,
+                                        "height":  24,
+                                        "width":  7,
+                                        "text":  "(",
+                                        "x":  744
+                                    },
+                                    {
+                                        "y":  308,
+                                        "height":  19,
+                                        "width":  91,
+                                        "text":  "2023.6.30",
+                                        "x":  815
+                                    },
+                                    {
+                                        "y":  305,
+                                        "height":  24,
+                                        "width":  7,
+                                        "text":  ")",
+                                        "x":  912
+                                    }
+                                ]
+                  },
+                  {
+                      "text":  "14.82",
+                      "words":  [
+                                    {
+                                        "y":  375,
+                                        "height":  19,
+                                        "width":  50,
+                                        "text":  "14.82",
+                                        "x":  807
+                                    }
+                                ]
+                  },
+                  {
+                      "text":  "0.0052%",
+                      "words":  [
+                                    {
+                                        "y":  373,
+                                        "height":  20,
+                                        "width":  81,
+                                        "text":  "0.0052%",
+                                        "x":  979
+                                    }
+                                ]
+                  },
+                  {
+                      "text":  "Efi,tsÆ))",
+                      "words":  [
+                                    {
+                                        "y":  1077,
+                                        "height":  27,
+                                        "width":  130,
+                                        "text":  "Efi,tsÆ))",
+                                        "x":  235
+                                    }
+                                ]
+                  },
+                  {
+                      "text":  "Is",
+                      "words":  [
+                                    {
+                                        "y":  1432,
+                                        "height":  22,
+                                        "width":  21,
+                                        "text":  "Is",
+                                        "x":  293
+                                    }
+                                ]
+                  },
+                  {
+                      "text":  "202346 h 29",
+                      "words":  [
+                                    {
+                                        "y":  1653,
+                                        "height":  30,
+                                        "width":  107,
+                                        "text":  "202346",
+                                        "x":  234
+                                    },
+                                    {
+                                        "y":  1654,
+                                        "height":  29,
+                                        "width":  20,
+                                        "text":  "h",
+                                        "x":  350
+                                    },
+                                    {
+                                        "y":  1657,
+                                        "height":  22,
+                                        "width":  27,
+                                        "text":  "29",
+                                        "x":  383
+                                    }
+                                ]
+                  },
+                  {
+                      "text":  "19",
+                      "words":  [
+                                    {
+                                        "y":  1937,
+                                        "height":  18,
+                                        "width":  22,
+                                        "text":  "19",
+                                        "x":  756
+                                    }
+                                ]
+                  }
+              ]
+}

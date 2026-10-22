@@ -1,0 +1,70 @@
+{
+    "id":  "1218110511",
+    "text":  "O Grant Thornton 2021 13",
+    "pit_qualified":  false,
+    "engine":  "Windows.Media.Ocr existing en-US",
+    "maximum_image_dimension":  10000,
+    "machine_seconds":  0.17487629999999998,
+    "pixel_height":  2105,
+    "image_sha256":  "eeddf1c4c46ca7019e51333a10e67b2a2b84e6a4247cd03ae0d2ac082e91bc8b",
+    "pixel_width":  1488,
+    "source_sha256":  "d989780703a01055d0365266a7db87ab731dc596a84b7fff0c1b19b4a8d24bb8",
+    "physical_page":  14,
+    "lines":  [
+                  {
+                      "text":  "O",
+                      "words":  [
+                                    {
+                                        "y":  88,
+                                        "height":  78,
+                                        "width":  77,
+                                        "text":  "O",
+                                        "x":  170
+                                    }
+                                ]
+                  },
+                  {
+                      "text":  "Grant Thornton",
+                      "words":  [
+                                    {
+                                        "y":  106,
+                                        "height":  42,
+                                        "width":  122,
+                                        "text":  "Grant",
+                                        "x":  266
+                                    },
+                                    {
+                                        "y":  106,
+                                        "height":  41,
+                                        "width":  191,
+                                        "text":  "Thornton",
+                                        "x":  392
+                                    }
+                                ]
+                  },
+                  {
+                      "text":  "2021",
+                      "words":  [
+                                    {
+                                        "y":  1838,
+                                        "height":  22,
+                                        "width":  50,
+                                        "text":  "2021",
+                                        "x":  291
+                                    }
+                                ]
+                  },
+                  {
+                      "text":  "13",
+                      "words":  [
+                                    {
+                                        "y":  1936,
+                                        "height":  17,
+                                        "width":  20,
+                                        "text":  "13",
+                                        "x":  755
+                                    }
+                                ]
+                  }
+              ]
+}

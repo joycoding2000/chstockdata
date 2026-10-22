@@ -1,0 +1,21 @@
+FF
+======================================================================
+FAIL: test_source_fields (test_sources.FixedSourceFields.test_source_fields) (id='1216869636', field='NP', scope='consolidated')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\Dev\Projects\chstockdata\docs\audits\evidence\2026-10-21-w5h-f2-source-closure\test_sources.py", line 14, in test_source_fields
+    self.assertTrue(got)
+AssertionError: [] is not true
+
+======================================================================
+FAIL: test_source_fields (test_sources.FixedSourceFields.test_source_fields) (id='1217321905', field='OCF', scope='parent')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\Dev\Projects\chstockdata\docs\audits\evidence\2026-10-21-w5h-f2-source-closure\test_sources.py", line 14, in test_source_fields
+    self.assertTrue(got)
+AssertionError: [] is not true
+
+----------------------------------------------------------------------
+Ran 1 test in 0.018s
+
+FAILED (failures=2)

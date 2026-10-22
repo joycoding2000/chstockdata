@@ -1,0 +1,51 @@
+{
+    "id":  "1217321905",
+    "text":  "2023 18 7",
+    "pit_qualified":  false,
+    "engine":  "Windows.Media.Ocr existing en-US",
+    "maximum_image_dimension":  10000,
+    "machine_seconds":  0.0918845,
+    "pixel_height":  2106,
+    "image_sha256":  "4d8036953284480c62a8f1cb165c3548a1b6a9afab4d63cf812bcf26e6d4cff9",
+    "pixel_width":  1488,
+    "source_sha256":  "ec62521ca89aea1015d4a0237df8032b6c102ad53679824eb39988616bd48ccb",
+    "physical_page":  299,
+    "lines":  [
+                  {
+                      "text":  "2023",
+                      "words":  [
+                                    {
+                                        "y":  1162,
+                                        "height":  38,
+                                        "width":  57,
+                                        "text":  "2023",
+                                        "x":  1007
+                                    }
+                                ]
+                  },
+                  {
+                      "text":  "18",
+                      "words":  [
+                                    {
+                                        "y":  1165,
+                                        "height":  24,
+                                        "width":  24,
+                                        "text":  "18",
+                                        "x":  1193
+                                    }
+                                ]
+                  },
+                  {
+                      "text":  "7",
+                      "words":  [
+                                    {
+                                        "y":  1168,
+                                        "height":  20,
+                                        "width":  13,
+                                        "text":  "7",
+                                        "x":  1124
+                                    }
+                                ]
+                  }
+              ]
+}

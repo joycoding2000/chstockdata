@@ -1,0 +1,149 @@
+{
+    "id":  "1218110511",
+    "text":  "O Grant Thornton *2022 K12 2022 2022 12 hh 2022.7.28 kik 16",
+    "pit_qualified":  false,
+    "engine":  "Windows.Media.Ocr existing en-US",
+    "maximum_image_dimension":  10000,
+    "machine_seconds":  0.1974929,
+    "pixel_height":  2105,
+    "image_sha256":  "6cd6c6f4e81d37fc1cd74f32904627e3af49c87d0174b790f51d8e43ccb25395",
+    "pixel_width":  1488,
+    "source_sha256":  "d989780703a01055d0365266a7db87ab731dc596a84b7fff0c1b19b4a8d24bb8",
+    "physical_page":  17,
+    "lines":  [
+                  {
+                      "text":  "O",
+                      "words":  [
+                                    {
+                                        "y":  87,
+                                        "height":  78,
+                                        "width":  74,
+                                        "text":  "O",
+                                        "x":  176
+                                    }
+                                ]
+                  },
+                  {
+                      "text":  "Grant Thornton",
+                      "words":  [
+                                    {
+                                        "y":  105,
+                                        "height":  42,
+                                        "width":  121,
+                                        "text":  "Grant",
+                                        "x":  271
+                                    },
+                                    {
+                                        "y":  106,
+                                        "height":  41,
+                                        "width":  191,
+                                        "text":  "Thornton",
+                                        "x":  396
+                                    }
+                                ]
+                  },
+                  {
+                      "text":  "*2022",
+                      "words":  [
+                                    {
+                                        "y":  233,
+                                        "height":  25,
+                                        "width":  85,
+                                        "text":  "*2022",
+                                        "x":  1132
+                                    }
+                                ]
+                  },
+                  {
+                      "text":  "K12",
+                      "words":  [
+                                    {
+                                        "y":  643,
+                                        "height":  21,
+                                        "width":  38,
+                                        "text":  "K12",
+                                        "x":  545
+                                    }
+                                ]
+                  },
+                  {
+                      "text":  "2022",
+                      "words":  [
+                                    {
+                                        "y":  1370,
+                                        "height":  22,
+                                        "width":  50,
+                                        "text":  "2022",
+                                        "x":  1001
+                                    }
+                                ]
+                  },
+                  {
+                      "text":  "2022",
+                      "words":  [
+                                    {
+                                        "y":  1428,
+                                        "height":  22,
+                                        "width":  51,
+                                        "text":  "2022",
+                                        "x":  278
+                                    }
+                                ]
+                  },
+                  {
+                      "text":  "12 hh",
+                      "words":  [
+                                    {
+                                        "y":  1484,
+                                        "height":  22,
+                                        "width":  24,
+                                        "text":  "12",
+                                        "x":  621
+                                    },
+                                    {
+                                        "y":  1480,
+                                        "height":  29,
+                                        "width":  50,
+                                        "text":  "hh",
+                                        "x":  652
+                                    }
+                                ]
+                  },
+                  {
+                      "text":  "2022.7.28",
+                      "words":  [
+                                    {
+                                        "y":  1824,
+                                        "height":  20,
+                                        "width":  92,
+                                        "text":  "2022.7.28",
+                                        "x":  248
+                                    }
+                                ]
+                  },
+                  {
+                      "text":  "kik",
+                      "words":  [
+                                    {
+                                        "y":  1838,
+                                        "height":  26,
+                                        "width":  48,
+                                        "text":  "kik",
+                                        "x":  446
+                                    }
+                                ]
+                  },
+                  {
+                      "text":  "16",
+                      "words":  [
+                                    {
+                                        "y":  1936,
+                                        "height":  17,
+                                        "width":  20,
+                                        "text":  "16",
+                                        "x":  758
+                                    }
+                                ]
+                  }
+              ]
+}

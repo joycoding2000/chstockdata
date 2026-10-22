@@ -1,0 +1,374 @@
+{
+  "comparative_events": [
+    {
+      "id": "1219506510",
+      "code": "600519",
+      "period": "2022-12-31",
+      "monetary_fields_checked": [
+        "EQ",
+        "NP",
+        "OCF"
+      ],
+      "monetary_changed": true,
+      "eps_changed": false,
+      "classification": "MONETARY_COMPARATIVE_REVISION",
+      "earliest_revision_date_established": false
+    },
+    {
+      "id": "1219487237",
+      "code": "000002",
+      "period": "2022-12-31",
+      "monetary_fields_checked": [
+        "EQ",
+        "NP",
+        "OCF"
+      ],
+      "monetary_changed": true,
+      "eps_changed": false,
+      "classification": "MONETARY_COMPARATIVE_REVISION",
+      "earliest_revision_date_established": false
+    },
+    {
+      "id": "1219313047",
+      "code": "300750",
+      "period": "2022-12-31",
+      "monetary_fields_checked": [
+        "EQ",
+        "NP",
+        "OCF"
+      ],
+      "monetary_changed": false,
+      "eps_changed": true,
+      "classification": "EPS_ONLY_IN_THREE_TESTED_MONETARY_FIELDS",
+      "earliest_revision_date_established": false
+    },
+    {
+      "id": "1219429144",
+      "code": "601398",
+      "period": "2022-12-31",
+      "monetary_fields_checked": [
+        "EQ",
+        "NP",
+        "OCF"
+      ],
+      "monetary_changed": true,
+      "eps_changed": false,
+      "classification": "MONETARY_COMPARATIVE_REVISION",
+      "earliest_revision_date_established": false
+    },
+    {
+      "id": "1219747877",
+      "code": "000961",
+      "period": "2022-12-31",
+      "monetary_fields_checked": [
+        "EQ",
+        "NP",
+        "OCF"
+      ],
+      "monetary_changed": true,
+      "eps_changed": false,
+      "classification": "MONETARY_COMPARATIVE_REVISION",
+      "earliest_revision_date_established": false
+    },
+    {
+      "id": "1216686497",
+      "code": "000002",
+      "period": "2022-12-31",
+      "monetary_fields_checked": [
+        "EQ"
+      ],
+      "monetary_changed": true,
+      "eps_changed": false,
+      "classification": "MONETARY_COMPARATIVE_REVISION",
+      "earliest_revision_date_established": false
+    },
+    {
+      "id": "1217713835",
+      "code": "000002",
+      "period": "2022-12-31",
+      "monetary_fields_checked": [
+        "EQ"
+      ],
+      "monetary_changed": true,
+      "eps_changed": false,
+      "classification": "MONETARY_COMPARATIVE_REVISION",
+      "earliest_revision_date_established": false
+    },
+    {
+      "id": "1218181044",
+      "code": "000002",
+      "period": "2022-12-31",
+      "monetary_fields_checked": [
+        "EQ"
+      ],
+      "monetary_changed": true,
+      "eps_changed": false,
+      "classification": "MONETARY_COMPARATIVE_REVISION",
+      "earliest_revision_date_established": false
+    },
+    {
+      "id": "1206168279",
+      "code": "600518",
+      "period": "2018-03-31",
+      "monetary_fields_checked": [
+        "NP",
+        "OCF"
+      ],
+      "monetary_changed": true,
+      "eps_changed": false,
+      "classification": "MONETARY_COMPARATIVE_REVISION",
+      "earliest_revision_date_established": false
+    },
+    {
+      "id": "1219747900",
+      "code": "000961",
+      "period": "2022-12-31",
+      "monetary_fields_checked": [
+        "EQ"
+      ],
+      "monetary_changed": true,
+      "eps_changed": false,
+      "classification": "MONETARY_COMPARATIVE_REVISION",
+      "earliest_revision_date_established": false
+    },
+    {
+      "id": "1219747900",
+      "code": "000961",
+      "period": "2022-01-01",
+      "monetary_fields_checked": [
+        "EQ"
+      ],
+      "monetary_changed": true,
+      "eps_changed": false,
+      "classification": "MONETARY_COMPARATIVE_REVISION",
+      "earliest_revision_date_established": false
+    }
+  ],
+  "document_updates": [
+    {
+      "code": "000961",
+      "period": "2022-12-31",
+      "original": "1216561621",
+      "updated": "1217386817",
+      "different_sha": true,
+      "fields": [
+        {
+          "field": "NP",
+          "before": "-9170618058.58",
+          "after": "-9170618058.58",
+          "source_pages": [
+            6,
+            6
+          ],
+          "changed": false
+        },
+        {
+          "field": "OCF",
+          "before": "6253316303.14",
+          "after": "6253316303.14",
+          "source_pages": [
+            6,
+            6
+          ],
+          "changed": false
+        },
+        {
+          "field": "EQ",
+          "before": "14425941059.26",
+          "after": "14425941059.26",
+          "source_pages": [
+            6,
+            6
+          ],
+          "changed": false
+        }
+      ],
+      "classification": "NO_CHANGE_IN_THREE_TESTED_MONETARY_FIELDS"
+    }
+  ],
+  "changes_in_ordinary_report_titles": [
+    {
+      "code": "000002",
+      "period": "2022-12-31",
+      "field": "EQ",
+      "duration": "INSTANT_END",
+      "first_id": "1216273938",
+      "second_id": "1216686497",
+      "first_date": "2023-03-31",
+      "second_date": "2023-04-29",
+      "before": "242691342204.55",
+      "after": "243325374922.33",
+      "changed": true,
+      "earliest_revision_date_established": false
+    },
+    {
+      "code": "000002",
+      "period": "2022-12-31",
+      "field": "NP",
+      "duration": "FY_CUMULATIVE",
+      "first_id": "1216273938",
+      "second_id": "1219487237",
+      "first_date": "2023-03-31",
+      "second_date": "2024-03-29",
+      "before": "22617778516.45",
+      "after": "22688551801.52",
+      "changed": true,
+      "earliest_revision_date_established": false
+    },
+    {
+      "code": "000961",
+      "period": "2022-12-31",
+      "field": "EQ",
+      "duration": "INSTANT_END",
+      "first_id": "1218204096",
+      "second_id": "1219747877",
+      "first_date": "2023-10-31",
+      "second_date": "2024-04-23",
+      "before": "14425941059.26",
+      "after": "14426074702.61",
+      "changed": true,
+      "earliest_revision_date_established": false
+    },
+    {
+      "code": "000961",
+      "period": "2022-12-31",
+      "field": "NP",
+      "duration": "FY_CUMULATIVE",
+      "first_id": "1217386817",
+      "second_id": "1219747877",
+      "first_date": "2023-07-26",
+      "second_date": "2024-04-23",
+      "before": "-9170618058.58",
+      "after": "-9183273202.95",
+      "changed": true,
+      "earliest_revision_date_established": false
+    },
+    {
+      "code": "600518",
+      "period": "2017-12-31",
+      "field": "EQ",
+      "duration": "INSTANT_END",
+      "first_id": "1205546609",
+      "second_id": "1206168292",
+      "first_date": "2018-10-27",
+      "second_date": "2019-04-30",
+      "before": "32032959807.76",
+      "after": "28413344515.00",
+      "changed": true,
+      "earliest_revision_date_established": false
+    },
+    {
+      "code": "600518",
+      "period": "2017-12-31",
+      "field": "NP",
+      "duration": "FY_CUMULATIVE",
+      "first_id": "1204793690",
+      "second_id": "1206168292",
+      "first_date": "2018-04-26",
+      "second_date": "2019-04-30",
+      "before": "4100926148.57",
+      "after": "2149836281.41",
+      "changed": true,
+      "earliest_revision_date_established": false
+    },
+    {
+      "code": "600518",
+      "period": "2017-12-31",
+      "field": "OCF",
+      "duration": "FY_CUMULATIVE",
+      "first_id": "1204793690",
+      "second_id": "1206168292",
+      "first_date": "2018-04-26",
+      "second_date": "2019-04-30",
+      "before": "1842794237.84",
+      "after": "-4840052606.46",
+      "changed": true,
+      "earliest_revision_date_established": false
+    },
+    {
+      "code": "600518",
+      "period": "2018-03-31",
+      "field": "NP",
+      "duration": "Q1_YTD_EQUALS_SINGLE_QUARTER",
+      "first_id": "1204829467",
+      "second_id": "1206168279",
+      "first_date": "2018-04-28",
+      "second_date": "2019-04-30",
+      "before": "1423085287.87",
+      "after": "258565636.12",
+      "changed": true,
+      "earliest_revision_date_established": false
+    },
+    {
+      "code": "600518",
+      "period": "2018-03-31",
+      "field": "OCF",
+      "duration": "Q1_YTD_EQUALS_SINGLE_QUARTER",
+      "first_id": "1204829467",
+      "second_id": "1206168279",
+      "first_date": "2018-04-28",
+      "second_date": "2019-04-30",
+      "before": "982047981.69",
+      "after": "-1619432371.05",
+      "changed": true,
+      "earliest_revision_date_established": false
+    },
+    {
+      "code": "600519",
+      "period": "2022-12-31",
+      "field": "EQ",
+      "duration": "INSTANT_END",
+      "first_id": "1216281757",
+      "second_id": "1219506510",
+      "first_date": "2023-03-31",
+      "second_date": "2024-04-03",
+      "before": "197506672396.00",
+      "after": "197480041239.46",
+      "changed": true,
+      "earliest_revision_date_established": false
+    },
+    {
+      "code": "600519",
+      "period": "2022-12-31",
+      "field": "NP",
+      "duration": "FY_CUMULATIVE",
+      "first_id": "1216281757",
+      "second_id": "1219506510",
+      "first_date": "2023-03-31",
+      "second_date": "2024-04-03",
+      "before": "62716443738.27",
+      "after": "62717467870.12",
+      "changed": true,
+      "earliest_revision_date_established": false
+    },
+    {
+      "code": "601398",
+      "period": "2022-12-31",
+      "field": "EQ",
+      "duration": "INSTANT_END",
+      "first_id": "1216282265",
+      "second_id": "1219429144",
+      "first_date": "2023-03-31",
+      "second_date": "2024-03-28",
+      "before": "3495171000000",
+      "after": "3496109000000",
+      "changed": true,
+      "earliest_revision_date_established": false
+    },
+    {
+      "code": "601398",
+      "period": "2022-12-31",
+      "field": "NP",
+      "duration": "FY_CUMULATIVE",
+      "first_id": "1216282265",
+      "second_id": "1219429144",
+      "first_date": "2023-03-31",
+      "second_date": "2024-03-28",
+      "before": "360483000000",
+      "after": "361132000000",
+      "changed": true,
+      "earliest_revision_date_established": false
+    }
+  ],
+  "unknown_revision_recall": "NOT_ESTABLISHED"
+}

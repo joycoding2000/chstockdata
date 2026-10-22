@@ -1,0 +1,46 @@
+{
+    "id":  "1216869640",
+    "text":  "/ 川 •n.LtXSN",
+    "pit_qualified":  false,
+    "engine":  "Windows.Media.Ocr existing zh-Hans-CN",
+    "maximum_image_dimension":  10000,
+    "machine_seconds":  0.1279488,
+    "pixel_height":  2105,
+    "image_sha256":  "fc07ac3a7fdcb39e92624703114ce2f9f450cf49d426f9c2427d459164c0ace3",
+    "pixel_width":  1489,
+    "source_sha256":  "d6fecbc0aa8be3e9a8eb2837454af517e58ab29d9f9cbd3e85ac76cf9f752fb8",
+    "physical_page":  195,
+    "lines":  [
+                  {
+                      "text":  "/ 川",
+                      "words":  [
+                                    {
+                                        "y":  956,
+                                        "height":  31,
+                                        "width":  14,
+                                        "text":  "/",
+                                        "x":  3
+                                    },
+                                    {
+                                        "y":  958,
+                                        "height":  33,
+                                        "width":  26,
+                                        "text":  "川",
+                                        "x":  14
+                                    }
+                                ]
+                  },
+                  {
+                      "text":  "•n.LtXSN",
+                      "words":  [
+                                    {
+                                        "y":  1041,
+                                        "height":  18,
+                                        "width":  73,
+                                        "text":  "•n.LtXSN",
+                                        "x":  0
+                                    }
+                                ]
+                  }
+              ]
+}

@@ -1,0 +1,67 @@
+{
+    "id":  "1218110511",
+    "text":  "目 录 问 题 1 “",
+    "pit_qualified":  false,
+    "engine":  "Windows.Media.Ocr existing zh-Hans-CN",
+    "maximum_image_dimension":  10000,
+    "machine_seconds":  0.046798099999999995,
+    "pixel_height":  2105,
+    "image_sha256":  "90249612547c74562c2105d91178e1ee4b71a2226d60adf335425a7d3c33475b",
+    "pixel_width":  1488,
+    "source_sha256":  "d989780703a01055d0365266a7db87ab731dc596a84b7fff0c1b19b4a8d24bb8",
+    "physical_page":  3,
+    "lines":  [
+                  {
+                      "text":  "目 录",
+                      "words":  [
+                                    {
+                                        "y":  449,
+                                        "height":  35,
+                                        "width":  24,
+                                        "text":  "目",
+                                        "x":  738
+                                    },
+                                    {
+                                        "y":  447,
+                                        "height":  38,
+                                        "width":  36,
+                                        "text":  "录",
+                                        "x":  771
+                                    }
+                                ]
+                  },
+                  {
+                      "text":  "问 题 1 “",
+                      "words":  [
+                                    {
+                                        "y":  715,
+                                        "height":  33,
+                                        "width":  27,
+                                        "text":  "问",
+                                        "x":  275
+                                    },
+                                    {
+                                        "y":  716,
+                                        "height":  32,
+                                        "width":  32,
+                                        "text":  "题",
+                                        "x":  306
+                                    },
+                                    {
+                                        "y":  719,
+                                        "height":  25,
+                                        "width":  10,
+                                        "text":  "1",
+                                        "x":  350
+                                    },
+                                    {
+                                        "y":  738,
+                                        "height":  6,
+                                        "width":  13,
+                                        "text":  "“",
+                                        "x":  365
+                                    }
+                                ]
+                  }
+              ]
+}

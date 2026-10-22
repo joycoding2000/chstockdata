@@ -1,0 +1,3201 @@
+{
+  "files": [
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/authority_inputs.json",
+      "bytes": 1351,
+      "sha256": "90f1b1116b3049d5b2f2611ae23e3784052d5a74769d2fbc2ccb44f17263b0f1"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/baseline_text_inventory.json",
+      "bytes": 4305,
+      "sha256": "cc0bcdbb9c01d951af5899dff1b512a9b6e822427742b80408cc31894df897fc"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/before.json",
+      "bytes": 190793,
+      "sha256": "df1454407712fd53c59887162640c2a10a6b2f945034435d39badb580a9da968"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/classification_context_pages.json",
+      "bytes": 54961,
+      "sha256": "fe6d4295ef697b39358e67548fc94f47403e847a95eccfc8b586081a24734839"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/closure_package_attempt1.json",
+      "bytes": 3039,
+      "sha256": "8c385a0222a29488e9b490a3fe93b8a87bd69a675647f5757bdd9596a48c0492"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/closure_package_run.json",
+      "bytes": 5665,
+      "sha256": "998349916415ae88023e2140348b80b397bab4875c730f958dc79d0b9de4857d"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/closure_queries.json",
+      "bytes": 3810,
+      "sha256": "7e38a2932e1585e7b263109db9b818dadcdf7748d03a7ae2c7f919e7c8ec95cf"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/closure_replay_results.json",
+      "bytes": 128545,
+      "sha256": "788f26aa2eaa38b3e4b0e9b9e946890215735df22561d7dd08388a0fab2af290"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/closure_replay_validation.json",
+      "bytes": 36901,
+      "sha256": "094b7f1ec7868823d6729f2e1c33d50b417b3eed91ecd2f96fd50f17f81c0051"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/cost_ledger.json",
+      "bytes": 14359,
+      "sha256": "056aacc827f1cfc1a1227d48878b85b22ed512da1b237a93fdceab6cd30d122c"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/crop-ocr/p10-y0.json",
+      "bytes": 5666,
+      "sha256": "4f0e3952f20cef059923e7bbadaf4ce138a0ee3d1314d8ffddfbb4b9749a1a84"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/crop-ocr/p10-y1260.json",
+      "bytes": 9981,
+      "sha256": "52a314604846788e2f5d7c54702f2c426f6f5bcaea70dc2ae41a4c9bd89a793e"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/crop-ocr/p10-y1680.json",
+      "bytes": 1873,
+      "sha256": "ee3411f17bfe65096d6a6c30a4cb548644aa6df6f83824a2bb848fb09e2d2113"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/crop-ocr/p10-y2100.json",
+      "bytes": 503,
+      "sha256": "a7baefb0ae1a128148a712616a41a9c97a7ad82ead9de938a994a4bc106b6f34"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/crop-ocr/p10-y420.json",
+      "bytes": 17229,
+      "sha256": "59d4c045e42237fedb1db51e19b71666716c97e1126b8303e64ccd298b489ab1"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/crop-ocr/p10-y840.json",
+      "bytes": 13382,
+      "sha256": "38031c55ca28821645ee143de203e2022d9a5ec76edccf4f69ca0f6bada94521"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/crop-ocr/p11-y0.json",
+      "bytes": 6556,
+      "sha256": "fb63d623a2269e7474e22ed78078b86a9ec3d34e422a3e47a95fb39edf85fbe7"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/crop-ocr/p11-y1260.json",
+      "bytes": 4541,
+      "sha256": "ab8f51127756a732d1c7d8769a4a5f980b7318bb09cec38ca2b167af3fbebb59"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/crop-ocr/p11-y1680.json",
+      "bytes": 1862,
+      "sha256": "4cb79b6a9f54ce689f77a01d2949e65f9efb7769805154062f623f98eab6af77"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/crop-ocr/p11-y2100.json",
+      "bytes": 503,
+      "sha256": "7f9d2e6af84c58b1ee0aeda9f2818c24997e8d8405bd5ac0c8699854a8bd098d"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/crop-ocr/p11-y420.json",
+      "bytes": 20067,
+      "sha256": "cb8b34ffe2ba01b3b7c4ecb3b22bc3a30401f154674cc56e1f0f95b0e6e8e793"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/crop-ocr/p11-y840.json",
+      "bytes": 7186,
+      "sha256": "15ca2666dbbeb4900a90fcae631dd69bba899885f188c338f2c0f97432b28e92"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/crop-ocr/p12-y0.json",
+      "bytes": 4841,
+      "sha256": "ddc80d7e03213dae7c5459d8ed67c490d779380031046321911c035f2531f015"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/crop-ocr/p12-y1260.json",
+      "bytes": 10310,
+      "sha256": "02fba4c446c1463703c1d0d95de90303a6b3d0d9baebb1be9cd1279275a6c669"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/crop-ocr/p12-y1680.json",
+      "bytes": 3470,
+      "sha256": "57cf5791356681cb1f6565a581dece6b78dcaeaf91ff43622b784b001a4d1f8c"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/crop-ocr/p12-y2100.json",
+      "bytes": 503,
+      "sha256": "47ee3278f1537c49cdf3f57515be1a4365af59e1f3d08e4c6dd4b8fd3b3c02a1"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/crop-ocr/p12-y420.json",
+      "bytes": 10033,
+      "sha256": "27f75c0f2cd939a1f4f4c26ae186680fdda8326fbdcb0c80c8cc75e7a629bdfa"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/crop-ocr/p12-y840.json",
+      "bytes": 9533,
+      "sha256": "2a54e4737faebb3fd01c2feffc1a2e4d05425d5781447d9cc145722ced19f570"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/crop-ocr/p9-y0.json",
+      "bytes": 6625,
+      "sha256": "6db121b372721287533d6306aca2c43e7716863bda70d064d24252262452485f"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/crop-ocr/p9-y1260.json",
+      "bytes": 8276,
+      "sha256": "c10149faf452a3913bca1e8a63c7eb85c8359a9f73c92b3c5942cfc27ce07bf7"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/crop-ocr/p9-y1680.json",
+      "bytes": 1361,
+      "sha256": "fcbee5ceeaca6ee0ff5071fab1560eeb1df4e3f5211555a636428c3458d9fffd"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/crop-ocr/p9-y2100.json",
+      "bytes": 513,
+      "sha256": "d964f9e930b35317963af08a3c7ec13ef08d00bb83d8257c1ec57ac78a8c59f6"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/crop-ocr/p9-y420.json",
+      "bytes": 9397,
+      "sha256": "7d3ba04ea4dddd198e40d8d12eb9d228b8414d229ba67586fdb5a2964e6fdca0"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/crop-ocr/p9-y840.json",
+      "bytes": 8102,
+      "sha256": "d4e52c8f6bb71337ed3ee6d190bbcffe85227cb7d87f5ccdb738e3e1ace7cb4a"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/crop-probe/p10-y0.png",
+      "bytes": 104537,
+      "sha256": "fad8c6bacf17a39e295228ef361a92f560061e435c1a74f71b556b3093a2340c"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/crop-probe/p10-y1260.png",
+      "bytes": 192831,
+      "sha256": "a629bc6627ca0f3e5209efc96aeece42b555799d5811fbc10a3eb3c91af3731f"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/crop-probe/p10-y1680.png",
+      "bytes": 85941,
+      "sha256": "53b446fb209c557d800f747787a5b97c3279e56de21d37cde2056ea2a6b5bfb0"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/crop-probe/p10-y2100.png",
+      "bytes": 916,
+      "sha256": "cfdbea6160caaeb6f42c9ccff8f565e44cf17fa63cb0cf38f20d7875cb423faa"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/crop-probe/p10-y420.png",
+      "bytes": 166799,
+      "sha256": "8acaa7b6715369d57181d4460e9688841942921de57057d6ec3adb393eb6de1f"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/crop-probe/p10-y840.png",
+      "bytes": 167490,
+      "sha256": "c2ed6e5acf604b91d305fc428220944c0ec1167644e8f255c1ac527d37fb979c"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/crop-probe/p11-y0.png",
+      "bytes": 119112,
+      "sha256": "65210b41d3fb06ede88fc81c828f149ac5755f531ce8cf58fdcf0c60ff5c5640"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/crop-probe/p11-y1260.png",
+      "bytes": 150761,
+      "sha256": "09eeae50e2879f7fb2a3e0a3c62fbdae38586beef30d1b9307d2237ed264aaf6"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/crop-probe/p11-y1680.png",
+      "bytes": 12094,
+      "sha256": "1fed8322412440d0342a6d00a8a62adb656e3701050b32cd9c65cd9783b916dd"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/crop-probe/p11-y2100.png",
+      "bytes": 916,
+      "sha256": "06e21fb0679cf8a88d1cea9e84608250fed44f66c0d3e47853e2acd76e2095e7"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/crop-probe/p11-y420.png",
+      "bytes": 208609,
+      "sha256": "09bb577dcbcda3f4b61cea580f194bfd8a67fc25e2133317d3f7c254c64ae844"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/crop-probe/p11-y840.png",
+      "bytes": 180309,
+      "sha256": "32582a26f3c8d50314205dc43bd4dbe1cbf1efbc3fddeebe4d88337f72f09d10"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/crop-probe/p12-y0.png",
+      "bytes": 116248,
+      "sha256": "6af07a389cc249ec71532275d9d715bbd3a3ae5f5229a5e65613e2832ad2c40d"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/crop-probe/p12-y1260.png",
+      "bytes": 176640,
+      "sha256": "2e542ef60abd739480b6fc9a763b6c29cac4df8205694a274ab6e7b9b98b5a9a"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/crop-probe/p12-y1680.png",
+      "bytes": 121747,
+      "sha256": "a66cd32bb0525f8fe085c237d72ef3c3e1e01e01dd7c5efa53f371bd9651eafd"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/crop-probe/p12-y2100.png",
+      "bytes": 916,
+      "sha256": "bc7513ca9017d4c1cae915473e0f67fe923b9d7cd1205e8f0041a9f829277a59"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/crop-probe/p12-y420.png",
+      "bytes": 164647,
+      "sha256": "4a3f3c53ddf59b567665feb3247fa075723b10f18b4c3681a570cd96b9805f7a"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/crop-probe/p12-y840.png",
+      "bytes": 156719,
+      "sha256": "bc8170e0cee4396a04d5187a7253b21d54b21772a4b45caeb6d233cae3316ff7"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/crop-probe/p9-y0.png",
+      "bytes": 103020,
+      "sha256": "b490df2f2df6c7750c06811577a0980f594f2b38e2b187dddc2cb199bf1b293c"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/crop-probe/p9-y1260.png",
+      "bytes": 166487,
+      "sha256": "e7ac45d3022d9901ca60fb7c8b9cd7e0ac5f6915009d461280f5f5bd78bfc7a2"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/crop-probe/p9-y1680.png",
+      "bytes": 86411,
+      "sha256": "9ddf6b725e1991432233250f29ed97bda8c0605b71403fbf9fc1a70f291a6001"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/crop-probe/p9-y2100.png",
+      "bytes": 889,
+      "sha256": "6ec39ce6dbb3c13c7191efd99ee14172610053c4de8888c8a14319e90516e8fa"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/crop-probe/p9-y420.png",
+      "bytes": 153957,
+      "sha256": "02e49dc0b6943310624994b31cb730ab251bcd547f73167f419b583c72e7aa3d"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/crop-probe/p9-y840.png",
+      "bytes": 123438,
+      "sha256": "23a4359b93d161f4bdb0eead2de871cb86f4b75feed7aab7ecd449b80644d204"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/crop_probe.py",
+      "bytes": 695,
+      "sha256": "cacd441755b4c95532797fed3c2d6b25a69e6b3340b07f1dc15ab4b47dc22c88"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/crop_probe_plan.json",
+      "bytes": 9953,
+      "sha256": "0912a0687a4203761ca81fbd4031c4d04ddc9de0501b24e17d54976e42e2d020"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/documents.json",
+      "bytes": 20921,
+      "sha256": "62f75af24b1072e6d1b7fc95ec61d2cb0a5397169907891b536c0ab2e116b71d"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/expected_annual_quote.json",
+      "bytes": 585,
+      "sha256": "47e9287d582d26c8e776fcda7e6abc835668fcd451329aed7796e7c4893f006b"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/expected_closure_replay.json",
+      "bytes": 6002,
+      "sha256": "a96b6177d80cabdd7871f5c6186e85cbbae148ccad06495234f82afc081d0ed7"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/expected_dated_narrative.json",
+      "bytes": 379,
+      "sha256": "0267c9838777e17b82f341f219c0742e801d092b350bbc102887080bc78770c9"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/expected_source_fields.json",
+      "bytes": 2929,
+      "sha256": "7af1e96e0d5e1af15d7c8244f3a04b50468610a712f8585b93d25a4a402b8bff"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/expected_split_row.json",
+      "bytes": 442,
+      "sha256": "3a4cf5efdfe070e16bb689e37510287291418a0fe6619a0751904c946505ac5e"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/expected_summary_columns.json",
+      "bytes": 1661,
+      "sha256": "c2723ada449dbc7663ec75e292cbea523da2c9633301998a890f9ff6d20a5abb"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/extract_facts.py",
+      "bytes": 15651,
+      "sha256": "175e692b382a17c266658dffb7de52f7ac434a215c0901bc093c4362f68b985f"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/fetch_named.py",
+      "bytes": 5152,
+      "sha256": "d57beda89b1de73a9a2b73e7312751b5a902d9a80976038c799bd029f3af85a1"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/final_integrity.json",
+      "bytes": 5922,
+      "sha256": "55b803d97fc18209eaa76bdc13a37b6fa17967541c77630dd2517c66e38bb1af"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/finalize_evidence.py",
+      "bytes": 5085,
+      "sha256": "e46b52c0a6337db2a8313934308bc086eb8126ef3ae3b3072d92167ea4f719c6"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/images/1216741268-p139.png",
+      "bytes": 65466,
+      "sha256": "51bb6ee74f167c82fd2905278d49961abfc9d78fd126fc7f593c0d48e2f69447"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/images/1216741268-p140.png",
+      "bytes": 66715,
+      "sha256": "d2f42f63a4cf5252a2cf44327ce2d13c2d6625ce6e2ff7ddd625bb0c65989f28"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/images/1216741268-p141.png",
+      "bytes": 94095,
+      "sha256": "de2af1677a7d7362a330609770625aeb591fbef245f452a8d09018877ac40a83"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/images/1216741269-p10.png",
+      "bytes": 359117,
+      "sha256": "bf43bbc4169bd17f852b4a33278ec0b6085a1d5da09d60e76429c6474789835d"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/images/1216741269-p11.png",
+      "bytes": 355761,
+      "sha256": "d5c8274118709d968ffbfeb2c696bb4ad8d4cf10eac3550b6c84774e44535eaa"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/images/1216741269-p12.png",
+      "bytes": 395326,
+      "sha256": "282cf57ded263f6609406ba61f43bd8c9d0e75e3f23a251470f7daa53d349105"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/images/1216741269-p13.png",
+      "bytes": 255076,
+      "sha256": "0011ade831fa9c56e752ceabb949e1acf2de82306a88a2bd5facd0198283504f"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/images/1216741269-p14.png",
+      "bytes": 264387,
+      "sha256": "ecba2893b103a821aa5748d213abf71ab106d5860d0d5815d0203fd55564ad3e"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/images/1216741269-p15.png",
+      "bytes": 232209,
+      "sha256": "48aa06aa68c449e745d7dd3fb4bae545545419f1c26a9bdd50b2063f83446820"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/images/1216741269-p16.png",
+      "bytes": 243198,
+      "sha256": "87b7d1d479e5fae58029ad7e323b537c41fd3e77abde51d6bbc11b3dd6a2281c"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/images/1216741269-p203.png",
+      "bytes": 398243,
+      "sha256": "3f94c1ed17c400ae4d16339ab4a995ce7367c6fcb1b2891e8ec3b3473aa162d3"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/images/1216741269-p204.png",
+      "bytes": 269845,
+      "sha256": "a115db6ed9aec64951ac747445dbcd0c161dfb533462fd38dd63ef553cd324b4"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/images/1216741269-p205.png",
+      "bytes": 261685,
+      "sha256": "e4e25ff2d86937f6ee1360b27afaaeacf719cdb7c4a8e0246789745e7d7df192"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/images/1216741269-p206.png",
+      "bytes": 237936,
+      "sha256": "8da70b7bc1a32641b0f4c7be946503c720df4b54dfde0633bcd3b826aa1b304a"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/images/1216741269-p207.png",
+      "bytes": 506684,
+      "sha256": "da60722ea981507af9d6c8cb0622843f3f3ed6c7c398d6ed5422d7077285fc1e"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/images/1216741269-p208.png",
+      "bytes": 520849,
+      "sha256": "96cf241662dccb56a93c26330975c033e4c45fb1f32a539fd2c93d111c2410a5"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/images/1216741269-p209.png",
+      "bytes": 658180,
+      "sha256": "a0959e8051674f9590fe49f420724c1d7fba86e2abdeaf6501542ec0f813be53"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/images/1216741269-p210.png",
+      "bytes": 627064,
+      "sha256": "58d69610691db0bbca6cce7fd22e2493d89216649323ce08f6e11de3dfc86549"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/images/1216741269-p211.png",
+      "bytes": 491767,
+      "sha256": "72530c93a9b1162b91657c59f20a430e87903a179b2a6c2b435c0fda74de99b5"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/images/1216741269-p212.png",
+      "bytes": 421058,
+      "sha256": "051a26bac693994af390915687bd5b7fe8c58516acdb8b65523e003ff5e52ae7"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/images/1216741269-p213.png",
+      "bytes": 432973,
+      "sha256": "11b749536b608032b19395062171b801d3a0fcabc447fc72ffa826eb9c845e68"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/images/1216741269-p214.png",
+      "bytes": 369935,
+      "sha256": "b0dd4382b9c76a45b7df9af6eaa19074ee995cae7804b17573ff9bd6313c1e61"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/images/1216741269-p9.png",
+      "bytes": 308198,
+      "sha256": "b3909206d2fb3e0fb575e541d1b92bf7bd4ec418cbdebb54fccc35888d5b6d77"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/images/1216869640-p10.png",
+      "bytes": 282323,
+      "sha256": "bec995bfa598b5caf215004e628d96e6316c65adfcfa8b18968595e11571ed4b"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/images/1216869640-p11.png",
+      "bytes": 107546,
+      "sha256": "1324312060d98ff391e468e1344495c5300f59b5f8a241ca9def72c9664abc2a"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/images/1216869640-p12.png",
+      "bytes": 226410,
+      "sha256": "61555b81b87544998b8cbb4026ff842204ed6fc7827d5231a7bf3d0fd220920c"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/images/1216869640-p13.png",
+      "bytes": 154453,
+      "sha256": "725a15ec7acf40559950819a0175fe64fbcb6bce854af37c827c6aa66e0a2680"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/images/1216869640-p14.png",
+      "bytes": 213547,
+      "sha256": "53172f63804c5e8c80dd1de9ef5348988d85ad207851da21eb4362d6e69727b7"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/images/1216869640-p15.png",
+      "bytes": 210368,
+      "sha256": "78fe601507c5bd24aeafc3e83108ecebcc8c1c8192844d81ddacddd706be0478"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/images/1216869640-p16.png",
+      "bytes": 167117,
+      "sha256": "e8afc248424193080e798dd3da677560fb2e403df6d9b62ffd6b51cb46e68101"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/images/1216869640-p17.png",
+      "bytes": 226232,
+      "sha256": "7071bb439aee5a0e7ab685ca852428a322fa566fbbf295563e6b596ea7769698"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/images/1216869640-p18.png",
+      "bytes": 135706,
+      "sha256": "46a2f56dab4a55c9794ed7b10566ff0d8e63b83bb35d3d0dcbfbd42260f81118"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/images/1216869640-p189.png",
+      "bytes": 466716,
+      "sha256": "022490bdc141c317255f8a54b9e15e39adafb18ad5ea6588a9bd336846f971f9"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/images/1216869640-p19.png",
+      "bytes": 204804,
+      "sha256": "0edf1bb512a74831c11f4f64801293971ac2973fef403479de908093afdaebd7"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/images/1216869640-p190.png",
+      "bytes": 229595,
+      "sha256": "824b5dd726ee073088c64ed7aa469fe1cbfbbd507a501ba7596f23b2e713575d"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/images/1216869640-p191.png",
+      "bytes": 258440,
+      "sha256": "c767c093faa4a4c8e309b49b4bcafc8aecc8cd75ac0e5696a44cbdaede4f3a77"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/images/1216869640-p192.png",
+      "bytes": 131289,
+      "sha256": "f9d2c809ad8ceedcb9194e99a9b1e884955afe9c052c24cff0c6601c57c98eb2"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/images/1216869640-p193.png",
+      "bytes": 101553,
+      "sha256": "5b49ce0e6449d7dd6b94180188d07e0bc04f3f6295ff256a45278c877a626e6f"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/images/1216869640-p194.png",
+      "bytes": 135708,
+      "sha256": "4d693c8eda78f3ec1a429cd120edd3ef2189983ce538c38a25194225da4e055a"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/images/1216869640-p195.png",
+      "bytes": 140689,
+      "sha256": "fc07ac3a7fdcb39e92624703114ce2f9f450cf49d426f9c2427d459164c0ace3"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/images/1216869640-p196.png",
+      "bytes": 126455,
+      "sha256": "2b5688998328f067d207ff4c9e62b76a5f5c67cf496a1bcb374ae69aa016a988"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/images/1216869640-p197.png",
+      "bytes": 132997,
+      "sha256": "15506b075dd5bb837d79782b39a3c8037656ca9edd1e30649b6dcdf180e70c16"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/images/1216869640-p198.png",
+      "bytes": 103419,
+      "sha256": "133645c67a0b5cf5333082bca33b9ce39288d3afade926a76dcdce8f56dcf331"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/images/1216869640-p199.png",
+      "bytes": 34715,
+      "sha256": "cdd963689af0b70b5f84c7ad34cc3f27a629f204c340a879622f1c2153d2afac"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/images/1216869640-p20.png",
+      "bytes": 213638,
+      "sha256": "ee678879bdb7c02208ab63a4197b81d199d1134243574b0c50332ce778a0efd9"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/images/1216869640-p200.png",
+      "bytes": 216292,
+      "sha256": "0e095b7b056643df1ae2bb2cd28e545cfabbc0da8b584e12efc09078599edf3f"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/images/1216869640-p201.png",
+      "bytes": 222216,
+      "sha256": "07e78690702301f6747ebbaa6635904e31208a1d20b8c6a67cf7ac57f9c2ca11"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/images/1216869640-p202.png",
+      "bytes": 224630,
+      "sha256": "dd22f0ae4558d7c4c16293a1f81d8521da755de0a31c3fa7621990eccb564e65"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/images/1216869640-p203.png",
+      "bytes": 192479,
+      "sha256": "01cd41718b6662126244b2bb92246079f3c57d42746a039978e851164dd040ec"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/images/1216869640-p204.png",
+      "bytes": 162881,
+      "sha256": "d74b3895439dd068b02ee13000ff669c034bfbee2da525585cf5679bef84ff15"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/images/1216869640-p205.png",
+      "bytes": 172547,
+      "sha256": "5eb000a0497ec4bb84676020a988b34ff7f5b8211136dd2d55726dd17077419f"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/images/1216869640-p206.png",
+      "bytes": 215379,
+      "sha256": "3b8279ca5577daba8514e6dd2b18c9245ee0fed8d89d6d67416593588dd0f62b"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/images/1216869640-p207.png",
+      "bytes": 190455,
+      "sha256": "db9fc673b1e395de76b1537f80cb4ef63d20d6debd24e283ee2c1ca39f082bf8"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/images/1216869640-p208.png",
+      "bytes": 253561,
+      "sha256": "c11ff09e2e34ae079d78858054410740d068c2a2a6b1e8e26894177287fcfbc0"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/images/1216869640-p21.png",
+      "bytes": 127527,
+      "sha256": "0fad47612da47394ad8a1a6ae7e1f1b636d72bd0e54cb298eefd4b6b318abf9a"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/images/1216869640-p22.png",
+      "bytes": 216393,
+      "sha256": "f3eb8f9b4d3922a43de365ab5175afd48325da004b32e912882a99bded4fda10"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/images/1216869640-p23.png",
+      "bytes": 120831,
+      "sha256": "8dcfc1ccb699fec07e0ed150eb71b805d8a643b712881d9a5b74fdc901d96d26"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/images/1216869640-p9.png",
+      "bytes": 162431,
+      "sha256": "3c98490d1f38b9199845d8c8e29e57d14ebde83bf03593f5d4af908414808bc3"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/images/1217078313-p10.png",
+      "bytes": 368684,
+      "sha256": "3b7be26cb618fcec4f3952b54a5a9a4bf11ceee3cac5d6c9052e0be36e535908"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/images/1217078313-p11.png",
+      "bytes": 364023,
+      "sha256": "212515906f5b7eefd3cbfedc8eec8614030d0ae4c29cf295982f7551364349ce"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/images/1217078313-p12.png",
+      "bytes": 405238,
+      "sha256": "bcb970427c5cf4a470642b57e4f62324336a36e9c93adf0c79a662e94c9b2cf1"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/images/1217078313-p13.png",
+      "bytes": 261569,
+      "sha256": "43679867a79bd93e65f57ad10574a51753086fbc39d153164ebd6c164048215b"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/images/1217078313-p14.png",
+      "bytes": 266857,
+      "sha256": "911fcbb6d732babe5862efe2c7ce012d758e9b37ad740e7d147aa0a2c81d51a3"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/images/1217078313-p16.png",
+      "bytes": 248321,
+      "sha256": "bfac0472f9a9d6dbe553ee30b0bcd255a31ad715e6961c7d7c99518dc3db3add"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/images/1217078313-p203.png",
+      "bytes": 402609,
+      "sha256": "439c23f8ad8cb12c4248a6650dcd5d76725de792902755d82a689a6789148a0f"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/images/1217078313-p204.png",
+      "bytes": 275885,
+      "sha256": "9a4b163df8ea2cc6c3a9c378e2897683cfe0cb8fb1db3a9ae42ac2a8ad1c4134"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/images/1217078313-p205.png",
+      "bytes": 266471,
+      "sha256": "454506022afd54c00896e4ecf8e8ba685e2cfe7a8d77e1e9c3fc50bdabc2885c"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/images/1217078313-p206.png",
+      "bytes": 242926,
+      "sha256": "36591af9f00988828ccab26b06f45e678d346a7923e6067a365603ad7340286c"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/images/1217078313-p207.png",
+      "bytes": 234827,
+      "sha256": "9ca2b0261b0adca4108af5baecc6372cce8b71b5963437f2749ff604d0d12c06"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/images/1217078313-p208.png",
+      "bytes": 271130,
+      "sha256": "3ba00b08bcc288d469c8e814bab9ce15c77225fd20d45eda6d77cdcc4b7dda08"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/images/1217078313-p209.png",
+      "bytes": 302893,
+      "sha256": "5c3fbff778bee3913762ed9c60fd9ee94a1d7617aab9716ce0054970166cdb42"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/images/1217078313-p210.png",
+      "bytes": 317378,
+      "sha256": "f7263d77b1b688849a00c8157467bcc9f0c819a2c118f43f07ba0fdcf423c239"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/images/1217078313-p211.png",
+      "bytes": 279477,
+      "sha256": "57f3cd112f512e48e89215a0818c7c0e4b1223a533aeec24136820483b4ca328"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/images/1217078313-p212.png",
+      "bytes": 303459,
+      "sha256": "5fd8fb3af83805ab58e21da0c0474b60de2071920afcd3a7b4dce1e270ea0759"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/images/1217078313-p213.png",
+      "bytes": 314399,
+      "sha256": "1bc508858922bcc3f196f8193b442bd38da86967418f5f5cdb443f2ff447b0db"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/images/1217078313-p214.png",
+      "bytes": 411934,
+      "sha256": "9ea95e38a8b69d6b324f63ab70ad2089ec443a89e55073696fb47b9051044908"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/images/1217078313-p9.png",
+      "bytes": 317930,
+      "sha256": "f1c6a4e732453b9973eb6a6ab0fe859fa2be15776e855eaeb755f269537fb261"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/images/1217078316-p174.png",
+      "bytes": 78173,
+      "sha256": "af4726cfdcc6414265773a01b83b9d81af3f750dc59bc74a65fe432e5b72cbac"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/images/1217078316-p175.png",
+      "bytes": 54005,
+      "sha256": "e0e5b457fd49e269c4a4a78391f5e1945c252d08f6fb0c80884e5abeb017bb8e"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/images/1217078316-p176.png",
+      "bytes": 86919,
+      "sha256": "6c8fe61f0006a0484ff0f6857d48306351dff7b0077b4fa32b0c691243c78b88"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/images/1217321905-p1.png",
+      "bytes": 121702,
+      "sha256": "3ea1610951385008c5c633c1be471889504f2d85b78e99fcf7cf024e98998a0a"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/images/1217321905-p298.png",
+      "bytes": 95173,
+      "sha256": "e8374def227ab9bfe2af108912680e7958d09b5289fa424091e2ded63e762191"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/images/1217321905-p299.png",
+      "bytes": 158488,
+      "sha256": "4d8036953284480c62a8f1cb165c3548a1b6a9afab4d63cf812bcf26e6d4cff9"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/images/1217321905-p300.png",
+      "bytes": 121064,
+      "sha256": "c0667e03b1b1b5f928bc7c5d8a5fefa3259bd048a2ce3da2d552ece46d22ea9e"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/images/1217321905-p301.png",
+      "bytes": 157533,
+      "sha256": "95b25d5b2cf500ab09864db323cd105cbc44a27a0401b44cf86d3935840be5e6"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/images/1217321905-p302.png",
+      "bytes": 119272,
+      "sha256": "c98c9196004ab76858b1a969b20a3b7c8caf207c3ee1bd4a4ff6a4abfe9bfd44"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/images/1217321905-p303.png",
+      "bytes": 67053,
+      "sha256": "bf2dfeb0c684f014441b0dc4ca221478831b66bc584e303d87491c27bd58da5d"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/images/1217321905-p304.png",
+      "bytes": 76910,
+      "sha256": "5d0f956fdf74986d0d399812b12a0dada48788ac7465160fad39ddece9317670"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/images/1217321905-p305.png",
+      "bytes": 62204,
+      "sha256": "914803db7ccbfda9dd65c06f24a480582ed65dfb602bffd2ffd496ff7be99d48"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/images/1217321905-p306.png",
+      "bytes": 63722,
+      "sha256": "3ce76c264c7ec9446e80bbd79798b1c36170dd11a850760a078d01b00572606f"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/images/1217321905-p307.png",
+      "bytes": 63296,
+      "sha256": "356a9021bcbd658c462c96d592b8cfb15527df064776b017a84e8bcbdf1188f4"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/images/1217321905-p308.png",
+      "bytes": 65100,
+      "sha256": "30e2f234660c23ca1ef0be2a2e40ddb0ad2c936788936f2990744d8ae9fdd8fc"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/images/1217321905-p309.png",
+      "bytes": 207272,
+      "sha256": "6e6d20e8578897e72a377c4eecb359951d4c3dbc392f05a761098940700c4aac"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/images/1217321905-p310.png",
+      "bytes": 188521,
+      "sha256": "1ebcc2facabff8c48bd622b11ccafa625d28e1197f254b6eea29942097d3f284"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/images/1217321905-p311.png",
+      "bytes": 161617,
+      "sha256": "1b2e6a6722208c174b8a117b80ac7d3c44d14f8a8aa302e72898f2dfeada8386"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/images/1217321905-p312.png",
+      "bytes": 60972,
+      "sha256": "b7b2d4dd04be8ebdafdfba8332ca720d28a8f0b51ff061cc7b17d35f9bb4a01b"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/images/1217321905-p313.png",
+      "bytes": 146787,
+      "sha256": "eeee7f2146b05c5228b0b5eb93c0954df0788830da10d3c52d1406cfcfc7be6e"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/images/1217321905-p314.png",
+      "bytes": 53948,
+      "sha256": "22a64d7e6968187969217bf764116d60baeb5e097746f73ebe377a04ebf8629c"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/images/1217321905-p315.png",
+      "bytes": 177131,
+      "sha256": "8b21b5adb84551512734a6c08a349e88ab0c5a79b20ebf5eae9db2456f2097a4"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/images/1217321905-p316.png",
+      "bytes": 356002,
+      "sha256": "769daf9e8b527048f7e9094bdf747f071ff1ae86d9e48a749c6142dc405c9d3b"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/images/1217321905-p317.png",
+      "bytes": 170907,
+      "sha256": "bb9983ca0692117e60bf85a43084e1dfde31545de17cf9b7f08084e31804a4da"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/images/1217321905-p318.png",
+      "bytes": 50271,
+      "sha256": "460246bab9feab34d0bc4d6e61ed53f172802ee5ebda2fbdc992721808565b41"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/images/1217321905-p319.png",
+      "bytes": 240867,
+      "sha256": "90d1b68bb8a52626517306653e859587442c8f728d3b7b9ff4d88d590f6a8d07"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/images/1217321905-p320.png",
+      "bytes": 137992,
+      "sha256": "461a623297230f0bb6198c76ced2d6dc340343401b0152507bcd254904515430"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/images/1217949874-p10.png",
+      "bytes": 368684,
+      "sha256": "3b7be26cb618fcec4f3952b54a5a9a4bf11ceee3cac5d6c9052e0be36e535908"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/images/1217949874-p11.png",
+      "bytes": 364023,
+      "sha256": "212515906f5b7eefd3cbfedc8eec8614030d0ae4c29cf295982f7551364349ce"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/images/1217949874-p12.png",
+      "bytes": 405238,
+      "sha256": "bcb970427c5cf4a470642b57e4f62324336a36e9c93adf0c79a662e94c9b2cf1"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/images/1217949874-p13.png",
+      "bytes": 261569,
+      "sha256": "43679867a79bd93e65f57ad10574a51753086fbc39d153164ebd6c164048215b"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/images/1217949874-p14.png",
+      "bytes": 266857,
+      "sha256": "911fcbb6d732babe5862efe2c7ce012d758e9b37ad740e7d147aa0a2c81d51a3"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/images/1217949874-p16.png",
+      "bytes": 248321,
+      "sha256": "bfac0472f9a9d6dbe553ee30b0bcd255a31ad715e6961c7d7c99518dc3db3add"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/images/1217949874-p203.png",
+      "bytes": 402609,
+      "sha256": "439c23f8ad8cb12c4248a6650dcd5d76725de792902755d82a689a6789148a0f"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/images/1217949874-p204.png",
+      "bytes": 275885,
+      "sha256": "9a4b163df8ea2cc6c3a9c378e2897683cfe0cb8fb1db3a9ae42ac2a8ad1c4134"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/images/1217949874-p205.png",
+      "bytes": 266471,
+      "sha256": "454506022afd54c00896e4ecf8e8ba685e2cfe7a8d77e1e9c3fc50bdabc2885c"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/images/1217949874-p206.png",
+      "bytes": 242926,
+      "sha256": "36591af9f00988828ccab26b06f45e678d346a7923e6067a365603ad7340286c"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/images/1217949874-p207.png",
+      "bytes": 235071,
+      "sha256": "0b7fc242e17c2dbd2e295159601bb893f370ecc2c79bf1cd8dda03da032b62f8"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/images/1217949874-p208.png",
+      "bytes": 260452,
+      "sha256": "6c3db64ed804ff2e336c702d874760a0b95c0618212428c4f757d26076f1c3fe"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/images/1217949874-p209.png",
+      "bytes": 327383,
+      "sha256": "a0ced6de22ca5e63aea15cbcf0c1ea8367840a7d8284b8a62e60c94d48445da6"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/images/1217949874-p210.png",
+      "bytes": 320364,
+      "sha256": "2c18c5fea10b7baf489fc251a8cd3bdabd5cec2cda6bb6204fa65f3cb899b662"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/images/1217949874-p211.png",
+      "bytes": 268567,
+      "sha256": "eb46bb598d9fbe225c1195fd3623ed7b55b968c71bbdb42d64f89ff304e89ac3"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/images/1217949874-p212.png",
+      "bytes": 267151,
+      "sha256": "b72ed941c1265b61c3f36533e0142341c95d295649f58b0ffb14a43f9a1ff71c"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/images/1217949874-p213.png",
+      "bytes": 189543,
+      "sha256": "57350e62e9af7844b64f0d8ec1c5df5afac04fe61ea07cd6dee36fbc8a15f66f"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/images/1217949874-p214.png",
+      "bytes": 217446,
+      "sha256": "7bce66048cd57472a76d2af6fe2878316024325d704348a5e9c9acb8a30daa59"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/images/1217949874-p215.png",
+      "bytes": 238484,
+      "sha256": "2375af951119821296adf95af7fa811fe90f0a2700955be402dc5e16db5c049f"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/images/1217949874-p216.png",
+      "bytes": 292442,
+      "sha256": "e50da20cec10e66cb7f705a81fdf24b36da807edc05d1bb0e411c5a9f759d87c"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/images/1217949874-p217.png",
+      "bytes": 251047,
+      "sha256": "a073e8af3ed2a33ac0328cf3d122b1e9b5677a3fbd94d8b342cd461b88403dc5"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/images/1217949874-p218.png",
+      "bytes": 249749,
+      "sha256": "42a00eac64f951d61a443ff810535ee004a327c181f796c77009b17b5ce02662"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/images/1217949874-p9.png",
+      "bytes": 317930,
+      "sha256": "f1c6a4e732453b9973eb6a6ab0fe859fa2be15776e855eaeb755f269537fb261"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/images/1218110511-p1.png",
+      "bytes": 64612,
+      "sha256": "b83d4d45132dbcf824dca63b5f833118bab28dd23121ec4c8023e16f8a7da8e9"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/images/1218110511-p10.png",
+      "bytes": 230480,
+      "sha256": "256f7420100ae9b44d8b54322ccb5d4a5f210b27be003afd72604d65c5fd365e"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/images/1218110511-p11.png",
+      "bytes": 234618,
+      "sha256": "93a224bad63b7f88c79c5eaf3fd7c2976c3ca215e77c1f770a81ae86d472aeda"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/images/1218110511-p12.png",
+      "bytes": 226612,
+      "sha256": "a96f0678b1031382976e8a088e9ca47646f990ca4585e0baa9e56a107d26d4e4"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/images/1218110511-p13.png",
+      "bytes": 280306,
+      "sha256": "03c575286231d79ac59c455634ae24663ccc97525bb95b80409975a640204741"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/images/1218110511-p14.png",
+      "bytes": 233044,
+      "sha256": "eeddf1c4c46ca7019e51333a10e67b2a2b84e6a4247cd03ae0d2ac082e91bc8b"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/images/1218110511-p15.png",
+      "bytes": 228045,
+      "sha256": "33f8dd7bd5291970f6bb6e2b38b5a887bdeaff69abc435dfa65b014463be6292"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/images/1218110511-p16.png",
+      "bytes": 248590,
+      "sha256": "57445cc50e9a152195bb93c867e16009572061defcedb804e0d6d5f3bd7b1dd0"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/images/1218110511-p17.png",
+      "bytes": 257753,
+      "sha256": "6cd6c6f4e81d37fc1cd74f32904627e3af49c87d0174b790f51d8e43ccb25395"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/images/1218110511-p18.png",
+      "bytes": 245929,
+      "sha256": "e2cf16366a8feefa454d3cf5634cbaa8aeacb28617618af2b121e867db72174c"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/images/1218110511-p19.png",
+      "bytes": 251499,
+      "sha256": "953df81e1901c421f38261256783580a07e4477f101746d0b295637a8da01bce"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/images/1218110511-p2.png",
+      "bytes": 103581,
+      "sha256": "e41111239b3b368a3dc060ff60905247f153a47f94733a3d040a677c03988e5b"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/images/1218110511-p20.png",
+      "bytes": 240278,
+      "sha256": "c73bf1d4deacc80a257cd9916ed16aa387ceb6ab240e0a463efcfac874ecf725"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/images/1218110511-p21.png",
+      "bytes": 227853,
+      "sha256": "9ad44b05d38e5d8f9c98d07847abdb03d4b5a5811d2faade8c66200f85287549"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/images/1218110511-p22.png",
+      "bytes": 70972,
+      "sha256": "e16b627f59bef249e678ed6f9e2dfed5464ba279d9cc61855499626b602ecca8"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/images/1218110511-p3.png",
+      "bytes": 9951,
+      "sha256": "90249612547c74562c2105d91178e1ee4b71a2226d60adf335425a7d3c33475b"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/images/1218110511-p4.png",
+      "bytes": 206654,
+      "sha256": "7a51c5f86d970a758137bf0a1f0a828ddd5dd2128694a2738c2f74b47bb8223b"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/images/1218110511-p5.png",
+      "bytes": 197746,
+      "sha256": "65a73bc3725bee4697bbc6399ea857f9ab2e60491b10d699dae32635c9cc106d"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/images/1218110511-p6.png",
+      "bytes": 239052,
+      "sha256": "6aeac196a1bc8c44c74dd44e574ad94af04ff7600c3a64f33ab72c0455ff38b3"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/images/1218110511-p7.png",
+      "bytes": 193099,
+      "sha256": "b8656fdf57c753d62f1a55387669bc5368a3198c020263101ab579ce4e34c6a1"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/images/1218110511-p8.png",
+      "bytes": 199201,
+      "sha256": "436793d215e092343e68be9f0c86ee52edb2edc254ae31c8323858f21aa66143"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/images/1218110511-p9.png",
+      "bytes": 215656,
+      "sha256": "10c67d8c579a401e8cd3b07c62b2eaa4f2d4f2d2940df528a0ee620af9b4b16a"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/images/1218110512-p22.png",
+      "bytes": 69246,
+      "sha256": "02b6530d4bcb554d5236dd955fbf31231b0e5d6e44199948d2509602dfe1946a"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/images/1218110512-p23.png",
+      "bytes": 72114,
+      "sha256": "767b8e5c74e6dadd705e1c1ce5c902413f1b0d2f0f01ec42956b7b36d6c17e70"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/images/1218110512-p24.png",
+      "bytes": 113241,
+      "sha256": "28a067c589c7d8958df106bd994b2467f95b1955399347ff836156a980c396d5"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/inspect_tables.py",
+      "bytes": 746,
+      "sha256": "228fe3bbbb90f752ff9de79abd0b0b9fd817a876ff9d1593d23de339e86cf4f5"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr/1216741268-p139.json",
+      "bytes": 23602,
+      "sha256": "b94421394af1a399af2b3e409236cc59b0a1eefebdb2d6f33887ebf06b9d4018"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr/1216741268-p140.json",
+      "bytes": 26396,
+      "sha256": "f86167cdef3a9ed2cb2d1359dd171061a413850e100951f5cd507bbf67d2cf63"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr/1216741268-p141.json",
+      "bytes": 69295,
+      "sha256": "8165f9b5b0438e267cd5255ec66f69f8ddc611d8911eef1eb7edf69407bd0628"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr/1216741269-p10.json",
+      "bytes": 413554,
+      "sha256": "77bed77591b307b8a1f55bc05789be7217e1111b4f3129d9fa228e641c994c23"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr/1216741269-p11.json",
+      "bytes": 458564,
+      "sha256": "1e182913f83c73d250b2071b60fd291a19edc1de95ff2021b569b9f4b784f82a"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr/1216741269-p12.json",
+      "bytes": 491765,
+      "sha256": "da8e0e0df1e6e7e37c85946d11fd57c204af6544de35ab3248c3c420f65a3089"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr/1216741269-p13.json",
+      "bytes": 246946,
+      "sha256": "9053db563685e7e315a3b7443ac592584275b021e49c590b68be0c4942ce2907"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr/1216741269-p14.json",
+      "bytes": 255737,
+      "sha256": "0cf45066fc2b7f806bc8fa58248971cea5b4a968d700b4a9924e595d776e389e"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr/1216741269-p15.json",
+      "bytes": 162397,
+      "sha256": "c3c41d8217c4acafc87f14c8af3489c7675319df64b400d318f135c1d2e109ab"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr/1216741269-p16.json",
+      "bytes": 199487,
+      "sha256": "460258d9321340d71c569aa6244f58c2621440f205778d8f24785b2bb24ee8d8"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr/1216741269-p203.json",
+      "bytes": 15532,
+      "sha256": "cdc3389e94ab1c377485208533f60a512ad117205ef5ec13c0970180b9ec7118"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr/1216741269-p204.json",
+      "bytes": 18199,
+      "sha256": "1f3d9611d3eb97f592b938437e3f0c84578c388eb4e17d49d66509bc47aecdeb"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr/1216741269-p205.json",
+      "bytes": 27333,
+      "sha256": "3b679e44fe4cc2605397b621565e4929fa7e73d43e6884d5af4a7ede8eba127e"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr/1216741269-p206.json",
+      "bytes": 25352,
+      "sha256": "ec0a4bf100c206047a66d43ff497ada0e0c8a2f4bdc8d1b4c228b9a2bdda8a49"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr/1216741269-p207.json",
+      "bytes": 293515,
+      "sha256": "516c5a59e069d1a9d07067179df622723e581fa55805468e7faa922fed315d34"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr/1216741269-p208.json",
+      "bytes": 356845,
+      "sha256": "d9876c9fa028429fb835bb88a6553cd7ab580abc87242bebef50f722603222ef"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr/1216741269-p209.json",
+      "bytes": 499785,
+      "sha256": "9331f020e56d17f4787e24549bf9d1a6a11ec89cbf747da33bf42b62fa39489c"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr/1216741269-p210.json",
+      "bytes": 520773,
+      "sha256": "2425d361fa8a86460d09feb9cbaaa36968f27bbed3db200132b536fc6011cc21"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr/1216741269-p211.json",
+      "bytes": 14266,
+      "sha256": "ea84db28aed108ca215717121abd65413323e21e46ff0994742504b1c20ad6a1"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr/1216741269-p212.json",
+      "bytes": 8071,
+      "sha256": "ffc82a4cbd94e4bb00851aca210465af151e75d7e2e28c41ad9e2c7b79ae85e8"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr/1216741269-p213.json",
+      "bytes": 12450,
+      "sha256": "cf5ed130a695327464dc8436420891f028f447efcc253a58f752c8f8b9667c4f"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr/1216741269-p214.json",
+      "bytes": 3993,
+      "sha256": "6798e759dfe91d0d577b06ad4100c5b57bf5ccb66eba33f7640bcdd6a8073512"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr/1216741269-p9.json",
+      "bytes": 321976,
+      "sha256": "b99d607d5241d44f7bfcf1316ab9858656dd3610076404a014d4102a8533e810"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr/1216869640-p10.json",
+      "bytes": 307724,
+      "sha256": "2ea3cc297b6cd50aebe2477ced17d32f57236a3ced2a9d9991ba0a8eb0c82cc1"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr/1216869640-p11.json",
+      "bytes": 120471,
+      "sha256": "b9145751a4d37ca28ba76b4b0f110e75a154167d9c92cafb2ecaeba41110b5ea"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr/1216869640-p12.json",
+      "bytes": 215849,
+      "sha256": "9f776e33b3e7aea3a13ec92185ffde6ad7f85c48afcccce9c22986f67e087e62"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr/1216869640-p13.json",
+      "bytes": 242317,
+      "sha256": "5936d43196ff596e79f32b50efadf765aefb1b9858142b992ce29b036dbdcabc"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr/1216869640-p14.json",
+      "bytes": 181626,
+      "sha256": "fb60d0c7f69f52e0581947c1852804a62e38d7c0400f95fe4673423d192da9a5"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr/1216869640-p15.json",
+      "bytes": 190856,
+      "sha256": "5bbc792f103b1e7eb0aed85db1d38cba9839236f4162fc822f02b022dadb708d"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr/1216869640-p16.json",
+      "bytes": 262810,
+      "sha256": "34d9352f334385b7cb94df3ee8685c6e82cfc8cc746b08ca41af8e5a73e965d0"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr/1216869640-p17.json",
+      "bytes": 232972,
+      "sha256": "7413f541000a7d0f16b6617b4957f6d6cfa4d450269372dc397754d16d0dc6a8"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr/1216869640-p18.json",
+      "bytes": 192041,
+      "sha256": "dc9be2daed1f19a0499cca8b3c1e33d17e9f1690c920d64d92e8d327143f7599"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr/1216869640-p189.json",
+      "bytes": 9925,
+      "sha256": "6e01212b6f59140510ce07ea9ad7a6dfb4957be7067e85e6e4b0a3fc3f6763f3"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr/1216869640-p19.json",
+      "bytes": 185165,
+      "sha256": "7d67ae605fd0c4dd68e21e38e7c3bf6dcf7d457141c64d16da99109e69633d28"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr/1216869640-p190.json",
+      "bytes": 12092,
+      "sha256": "16f7110bbbbdebdf808d95c358748a3a635a92d153e3c899978bf7cf18e3b0b7"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr/1216869640-p191.json",
+      "bytes": 1386,
+      "sha256": "82c5d9094da3a5afb990b554ad28816863b63de9bd37e10650f9669a829217c3"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr/1216869640-p192.json",
+      "bytes": 6647,
+      "sha256": "bb4c6db36cd6556dca0f67f01a6273433ace3b530eb00edb12e9ef323d3bda50"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr/1216869640-p193.json",
+      "bytes": 2439,
+      "sha256": "c5ac281045cbe84af61c2efb7b51a14613c5b956fc86fab5822d1eb11e24fbf2"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr/1216869640-p194.json",
+      "bytes": 1732,
+      "sha256": "a7ff1bd6d66d5f121f75f053acecd2434619a353f9ec947a8f08254c3661a667"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr/1216869640-p195.json",
+      "bytes": 1886,
+      "sha256": "d2b932ce97255cec23fbb20ec241233f77385cd0a6480c562b71fcafb993ee46"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr/1216869640-p196.json",
+      "bytes": 41414,
+      "sha256": "e277ac60230777aabc23b07eb767d75e123fa1568bf7607ea99b9628332da2ff"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr/1216869640-p197.json",
+      "bytes": 1732,
+      "sha256": "58bd674e25476336223cd14de6ba1ce521e9d82226915729272684a75fb065e6"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr/1216869640-p198.json",
+      "bytes": 33791,
+      "sha256": "3a6fe72c9b190ead6fb1287aa15cb7a505e3f36c68594c6e640d1013e5fdbe4e"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr/1216869640-p199.json",
+      "bytes": 9898,
+      "sha256": "80f3bc8c6ac2b50e5d300035ee7911d0d64394a7bbbf0f0374883d40a22d0873"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr/1216869640-p20.json",
+      "bytes": 267374,
+      "sha256": "13da712895c1f2b4c01fac87bf04f69797439f69bed23d8cb8446a50034f90e4"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr/1216869640-p200.json",
+      "bytes": 232644,
+      "sha256": "f80f652c1530b3ddd5859d9c116fe0fddf5e8c5efa1c38220de99c23ddb34145"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr/1216869640-p201.json",
+      "bytes": 300368,
+      "sha256": "fe9ec3440ecff200869250305ffd234a7079d2a7adead625b502898c53d4fdc2"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr/1216869640-p202.json",
+      "bytes": 292290,
+      "sha256": "44e24b607690561d61a787cd12363fa1ab6389b9381d4582e7e45c908931b321"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr/1216869640-p203.json",
+      "bytes": 238901,
+      "sha256": "9ebb635642bb40bdd0eab493e012b1a495be343e77f5b3e049b3498e943c5439"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr/1216869640-p204.json",
+      "bytes": 177490,
+      "sha256": "0a4b495221745177c41e2e9973dd8530a68e505be924179b7897744c4bd8f6dc"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr/1216869640-p205.json",
+      "bytes": 187159,
+      "sha256": "ad2ea46dae63f7429d1eb955fe7b8a4c8c4fe939f449173056d7fd2c76f24306"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr/1216869640-p206.json",
+      "bytes": 276215,
+      "sha256": "36bb1aa90ae624031fa2b0fa073c59e5c2a3bd617265c390dd508b1939d6d3dc"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr/1216869640-p207.json",
+      "bytes": 220846,
+      "sha256": "2c9ba51f284b17597bac914fa801621f3a1a392dd3fc6433c86023d270a8dfa9"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr/1216869640-p208.json",
+      "bytes": 340836,
+      "sha256": "ed48f3b9a85c0be95d4aae4806b367c2e96c236f50a54535cd8f135f3ca79b14"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr/1216869640-p21.json",
+      "bytes": 214374,
+      "sha256": "b8cf80271374d78e28a553de0d521fe15e03ea849fc04d3837dbb69dff1ed804"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr/1216869640-p22.json",
+      "bytes": 196694,
+      "sha256": "88da30c776897c78f880a8f6573e95be92dab83d5181fe3ea85eb4803704b809"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr/1216869640-p23.json",
+      "bytes": 150722,
+      "sha256": "d175f092f9efa2f0f688fbc422ee111bb6d2d5ce17d4284c9a19d212c019dd40"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr/1216869640-p9.json",
+      "bytes": 226102,
+      "sha256": "2d36b2e5d4c2b4b808e57a6a9b915f9da0b019d763ccf4e8ecf8135ee81ac9b4"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr/1217078313-p10.json",
+      "bytes": 417062,
+      "sha256": "8893aba684694fa56c649d7eeef508eafe811a4a13c91604e082b85747953a69"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr/1217078313-p11.json",
+      "bytes": 464716,
+      "sha256": "4367d828319a72ec8547ed4babb69c6e94561a07fb2f1da0254979c0e46e211b"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr/1217078313-p12.json",
+      "bytes": 493381,
+      "sha256": "fda5592cdf12dc2b80e7f72fd0f14b10b5fde738810596b2ddfac6d92d70f491"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr/1217078313-p13.json",
+      "bytes": 255894,
+      "sha256": "7428e66421ddef14904fcf8870b3d0ca9da31978ec3f98f06c8db5b1b73303e6"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr/1217078313-p14.json",
+      "bytes": 239052,
+      "sha256": "935173b260a92c616c4c3a4cdf5068481f8b3cc953eef22730cef26f8511fbe4"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr/1217078313-p16.json",
+      "bytes": 200551,
+      "sha256": "369befd3dd2c4ce1687a94a391ea719321bf42c68491fbe5e89f069349079a56"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr/1217078313-p203.json",
+      "bytes": 10117,
+      "sha256": "95e84119b6bb87223c2f9b0234cd0fb79c31670a7b0451a7d35eb8c362029b93"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr/1217078313-p204.json",
+      "bytes": 13051,
+      "sha256": "de7c5577e56b61698bfe9ba05140b9d2910428c6ebb3dac187d4f30382ff181c"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr/1217078313-p205.json",
+      "bytes": 29183,
+      "sha256": "a515e6b1baf482d74897a550db47829ff23b9f484ce3002fa37caf8df90b86d8"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr/1217078313-p206.json",
+      "bytes": 20981,
+      "sha256": "4b6e8f9c381e407a3aa68fb6fd07f75427be68ee30483e594baee206b1190ef1"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr/1217078313-p207.json",
+      "bytes": 236547,
+      "sha256": "ade6bf5ee83c0056416179667c2f7e75c32858eee79a78022692912f5b5d9c34"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr/1217078313-p208.json",
+      "bytes": 303906,
+      "sha256": "7936fc0bf37d90ed2705ee379ae2f023b53c742a0505702213d2f6a9403ee6d1"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr/1217078313-p209.json",
+      "bytes": 370449,
+      "sha256": "64facbfb3e5e9d1dff13abda745ffbb312b6a3068055aa1acc53dd15ce8079e1"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr/1217078313-p210.json",
+      "bytes": 387349,
+      "sha256": "6d0cc94f4152f5d722b5d2f73ffc19c36e58d61c945f78b640ecf57c9982a223"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr/1217078313-p211.json",
+      "bytes": 176333,
+      "sha256": "fc4c0beda923f12d42a9f5035949fa18f96c0f7c819f95f6963eecdb2cea0717"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr/1217078313-p212.json",
+      "bytes": 224351,
+      "sha256": "c86ad3ca1b8c4843e143af380e603d217709f77d2c80933524b0502c09e0629b"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr/1217078313-p213.json",
+      "bytes": 218296,
+      "sha256": "84e61fb4c54e9f19fa5a79c3239e846e7b80607e58db8df02b7a97efb8341707"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr/1217078313-p214.json",
+      "bytes": 190871,
+      "sha256": "3e0818da77300ab74caff2095ac07a809a2a0f2bc3ff2da5ab63f43127678d86"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr/1217078313-p9.json",
+      "bytes": 335453,
+      "sha256": "def3386a3c59a175f9cdc609dc625016e48d9c5c1bb6944d37df464ab3e5a5ef"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr/1217078316-p174.json",
+      "bytes": 38054,
+      "sha256": "266bacff6011550ac7435ed94a6b56df1ce72666a40d73722b92a72756b4573e"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr/1217078316-p175.json",
+      "bytes": 25375,
+      "sha256": "aa2712a8a44d04f440563cb0b7916b4de86c7c03bdf511056d294ea4d9b5fe66"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr/1217078316-p176.json",
+      "bytes": 69655,
+      "sha256": "29bda1eb072be6991b9a2118348705770438270a0f11082ac69fe333bcd34955"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr/1217321905-p1.json",
+      "bytes": 64062,
+      "sha256": "4a6e2a119850a3ba68e7ee538aad51ffd638e5f1719946c0d1d48bf435ad763b"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr/1217321905-p298.json",
+      "bytes": 25947,
+      "sha256": "7225dd74410437196c6ec6ab2057bef4f9ad96476443db645dd3d633283f5751"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr/1217321905-p299.json",
+      "bytes": 75681,
+      "sha256": "fe0eb6e7949079f0267206dc214b813e5c8c25defd3953765b981073cf5cef80"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr/1217321905-p300.json",
+      "bytes": 76969,
+      "sha256": "8177f02f82528d37004977ff5dacc4d2981cbf425d023b82a082cfc290c0c3fe"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr/1217321905-p301.json",
+      "bytes": 72868,
+      "sha256": "85585646afbf5febf420aa09d36aa69d63b621c8634c8bb0dc9a2fa0de2061a5"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr/1217321905-p302.json",
+      "bytes": 75171,
+      "sha256": "ce99b1c757c718fae95eace58ad2b5c45a9da83749404f3868a4a983fae1f406"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr/1217321905-p303.json",
+      "bytes": 39989,
+      "sha256": "eafccf2d46d310fa20273399e7202a032a233f819cb1d603a8b44e52cd3357e7"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr/1217321905-p304.json",
+      "bytes": 38771,
+      "sha256": "74d7c9e3a91c891149e3726ea8b8826f9c2bce4f792c2f013cfe314ee7219cdc"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr/1217321905-p305.json",
+      "bytes": 40350,
+      "sha256": "477263414b7baec1afa68d0ecd810cb143043bf485dc97b51141d9a7e9f8ef0a"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr/1217321905-p306.json",
+      "bytes": 39627,
+      "sha256": "908acbaaace263c5310562b34181575607c2a8bb4eac6ac9be163a056c6e9b75"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr/1217321905-p307.json",
+      "bytes": 41793,
+      "sha256": "ffb2c9ae08b06a75a8cf853264e8c4fe6a6e4bcacc2a7eae054bc3df47a597f9"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr/1217321905-p308.json",
+      "bytes": 43569,
+      "sha256": "1872e9f8e6c8dcc02cd33dba05a76fe073a5c613e637ccff1bbcc079cc2946e2"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr/1217321905-p309.json",
+      "bytes": 73727,
+      "sha256": "936df0a7a3fc6041dc3881bd803ce6cfbe6acbc9cdcb159d01c6cf8de412b453"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr/1217321905-p310.json",
+      "bytes": 73242,
+      "sha256": "caa9e004fad9061026a1b538bfd9f5c0da49db3e8691fc6843da30c1b99ae4da"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr/1217321905-p311.json",
+      "bytes": 76912,
+      "sha256": "456c38b8340f55e70b629de870c6224477981d38fa74caf412586760a0384a81"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr/1217321905-p312.json",
+      "bytes": 40352,
+      "sha256": "26d706db42daeb5fdb44f42418166fa0bbb564c912fce88478b7d4512b4ae408"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr/1217321905-p313.json",
+      "bytes": 77681,
+      "sha256": "a1a51a7c8626dfb106d13532a0f8ca76fab47b151cea05accfcfae2f0490533d"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr/1217321905-p314.json",
+      "bytes": 40203,
+      "sha256": "0751b95823e3ac0ae675db6d77646f61024bd9a037a92f443624812e10a50328"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr/1217321905-p315.json",
+      "bytes": 76455,
+      "sha256": "e3ebe4e1398940fd2bc1782322b2cab306cecb1b61c57c00ca6d10908958dd03"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr/1217321905-p316.json",
+      "bytes": 40226,
+      "sha256": "299da1eac7de6f5113b2e118cbef7546442bcc999d68e168c5ba16efdf1ff809"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr/1217321905-p317.json",
+      "bytes": 81379,
+      "sha256": "7af56a73969f7031b1b427816621dd925513b2751714f42de4bcfc2eb90b200d"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr/1217321905-p318.json",
+      "bytes": 80197,
+      "sha256": "96ce914797635ccc304f0b49efe778dcc964f08ed987d0d9af2dc4345c43451c"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr/1217321905-p319.json",
+      "bytes": 223810,
+      "sha256": "8b49585a66213ea1f4771200b845caf79829d4f35e343e3b61a52369e26b10dd"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr/1217321905-p320.json",
+      "bytes": 78979,
+      "sha256": "1bed18bc0cdc98a9cf5240684cc6e7c5a8e2075660cc21c6e16783e218cf4420"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr/1217949874-p10.json",
+      "bytes": 417061,
+      "sha256": "ed252ad8a1a19257e37ab330721e030625ef6a3916e5df665b20c180c95dc1cf"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr/1217949874-p11.json",
+      "bytes": 464706,
+      "sha256": "c00ba004e9bdb0422ae460d7a4dcdcdf533fda40770b40ca2e66128371a61744"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr/1217949874-p12.json",
+      "bytes": 493381,
+      "sha256": "a2e3e05500e9192ede8e75d656614c85a5442669326942573f7c9a868905a4a3"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr/1217949874-p13.json",
+      "bytes": 255894,
+      "sha256": "25378eda58916b0bcb00c512b2cc9f9be77355f574df5736316a1f6b1f4bb35a"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr/1217949874-p14.json",
+      "bytes": 239052,
+      "sha256": "45caef3a41b6762f06f87a86749e6ed25f79bf3faa4036ea295d584652bf046b"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr/1217949874-p16.json",
+      "bytes": 200551,
+      "sha256": "6525e4932a3dcfcd471912fa52d610b0bd49ac6d4fe58feea6184b39842c8dd8"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr/1217949874-p203.json",
+      "bytes": 10107,
+      "sha256": "5f4ec54094770cad190722f82772238311170ce7e3218c7d94276f3024e9b776"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr/1217949874-p204.json",
+      "bytes": 13051,
+      "sha256": "4fcbd04f6f485b59451e23e64bf57a039f10f4c0f9df2df752649cad8146e6d0"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr/1217949874-p205.json",
+      "bytes": 29173,
+      "sha256": "af09679f273724b1204aada105feb335b553aa2a39b05af974a03ea565d13303"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr/1217949874-p206.json",
+      "bytes": 20991,
+      "sha256": "2bcb43568ac749be8a0bf68263a6f8aff5f855095ce7929793690450799b87d6"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr/1217949874-p207.json",
+      "bytes": 244987,
+      "sha256": "4ad6fd38a56c19274f8a328303e91da1de77e5dffa630af49ee43fba66e219b6"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr/1217949874-p208.json",
+      "bytes": 331776,
+      "sha256": "e65c7ac224bc67bc2d5169492f0e6b9bc632e5270107855d67d2cdc5685b5681"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr/1217949874-p209.json",
+      "bytes": 395890,
+      "sha256": "e3e30f6429f233d1420be074585411c7436bf73aeafb100085899d19fe9dfbdf"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr/1217949874-p210.json",
+      "bytes": 376880,
+      "sha256": "a6ca0bc5710009edc68f6b32a202072aa9892304f6df2450b4d69d413301c1ec"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr/1217949874-p211.json",
+      "bytes": 15787,
+      "sha256": "058e003361401d53ba6ccfc08a2f6487a2641ec8c324e61ca9cd70e458f73595"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr/1217949874-p212.json",
+      "bytes": 8603,
+      "sha256": "7bd6398ac5abf0c8e4f58bd0af3b66b20d53b4fd83190b9c6daa099d7cccc4d4"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr/1217949874-p213.json",
+      "bytes": 179230,
+      "sha256": "ebffad0f28bf620280ffac0f4d1402686b36ebdcf5571df132ef84a862eed5f3"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr/1217949874-p214.json",
+      "bytes": 225360,
+      "sha256": "1326d3f5e1798ddcc338e3343446ceada9473d6e9cdc63ba944d54c37626e7ad"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr/1217949874-p215.json",
+      "bytes": 239378,
+      "sha256": "ebbbff7ffa3744dc20a02febc5c9c2eb682762633a81dff3133053e8fc5278c7"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr/1217949874-p216.json",
+      "bytes": 288214,
+      "sha256": "18ee2608a7ac9b04bbe63d57bb97ebb598d54a7f8ba5adcfef29b637ce1fc49c"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr/1217949874-p217.json",
+      "bytes": 21733,
+      "sha256": "cbc45f1b05663b809f8cf42f258410eb7858c0d567eb6989d42335327631467d"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr/1217949874-p218.json",
+      "bytes": 16556,
+      "sha256": "51cec011300ebce55c23473732af15fe7e3e3a6563928000153f06bee099740b"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr/1217949874-p9.json",
+      "bytes": 335453,
+      "sha256": "5e72b7a0c1f78f91854fa883cfb81b510d39cf77eb56fbaeb995a2a06202d98b"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr/1218110511-p1.json",
+      "bytes": 24746,
+      "sha256": "b9471e14078ab46bc32386ef8eee39735cb35d31db8c880e6f0320e288280294"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr/1218110511-p10.json",
+      "bytes": 286554,
+      "sha256": "dd8ebb2a17d1024f7b87aa934eedc81f9b3207b04a9d35c37531d8dbc5d58263"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr/1218110511-p11.json",
+      "bytes": 287343,
+      "sha256": "00d09fe9764cf75ff4fd37c71f705b643d9376243894b180767ee5db82601b9a"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr/1218110511-p12.json",
+      "bytes": 279539,
+      "sha256": "6f07de6cf7cd337afcd275a60a1ab05acafe2e9a8addde1474f9a4c56b9eb917"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr/1218110511-p13.json",
+      "bytes": 372130,
+      "sha256": "a6e9236f339e41bbc7f915acf4862f16c4c303780f5974a2958336282445b97b"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr/1218110511-p14.json",
+      "bytes": 276401,
+      "sha256": "5e62fa633130af5aea83c84592dbe9eee2a9591eb982584a7f5781f98f816bc1"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr/1218110511-p15.json",
+      "bytes": 274223,
+      "sha256": "1baafe632ab0d9bc2aaef4ea0db5e97d915f63e786f1f76c3febe619b7701234"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr/1218110511-p16.json",
+      "bytes": 313299,
+      "sha256": "266836b3b4d496cb662d4cea8dc2524297a6521da1a63f4058343b019826f5ff"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr/1218110511-p17.json",
+      "bytes": 312807,
+      "sha256": "00447be339b54d7ef6d697034fae2645fa2c9f7a0ffc13024cd16baf876b4af6"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr/1218110511-p18.json",
+      "bytes": 323480,
+      "sha256": "f2b8127235fb5ac6effd9e1c4b0aa3764e6e55a475865bf593b1546477d8e8b0"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr/1218110511-p19.json",
+      "bytes": 305891,
+      "sha256": "7b99aad4daf17783d0ad238c0545461e4cc1cdf38d1a564ecd04bbd88c93d5d5"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr/1218110511-p2.json",
+      "bytes": 105035,
+      "sha256": "6b82e5a760b576f09ec91f70f42c91ae689ad6c5bd8689e31c6b5f241ac8e5ee"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr/1218110511-p20.json",
+      "bytes": 288137,
+      "sha256": "c3ae4ab793cba795f1e4282abe53780f381721c7fcceccfccd1f6772eb43f6ea"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr/1218110511-p21.json",
+      "bytes": 279317,
+      "sha256": "4129407b5cf50c34e376f7e72ff327bc6ba58e1b6be3b4af437850bc62cf1242"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr/1218110511-p22.json",
+      "bytes": 24975,
+      "sha256": "e1633ac5d821d74581ea6c33b4829ec690f8e4fedd99110b8528a590a18eba0c"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr/1218110511-p3.json",
+      "bytes": 2951,
+      "sha256": "cb62ba91ed4bedc98bde3ddc8ed1356a32ba9759a3a3beeeac8ed87fc822e06c"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr/1218110511-p4.json",
+      "bytes": 225044,
+      "sha256": "3b1c5477e682a0a7524dec931fb53e2a03de917c6e7ae4d2b052b6e4d00ecd1c"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr/1218110511-p5.json",
+      "bytes": 230454,
+      "sha256": "dcf1a540b07c82fb4eeec8050d69f956e3fd6a0542309860cac8f16685691419"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr/1218110511-p6.json",
+      "bytes": 301683,
+      "sha256": "f089bae6e6df2d17af266bbe3fdaf065c85c65a2820cb2420b4ab8d7ba85b410"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr/1218110511-p7.json",
+      "bytes": 231170,
+      "sha256": "b5fbaae10569930a3234c3061a8bb8543b1b12bfdfe57ba5b6fc0863b2519aea"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr/1218110511-p8.json",
+      "bytes": 238800,
+      "sha256": "18027388dedebdc461298f25b952b90c862691b2e7fa63b1597a12255fd2924e"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr/1218110511-p9.json",
+      "bytes": 256475,
+      "sha256": "aa9c2fa838e0ac4bf0a1fd7d8a735f515a3fd29c6d821ab879eea7ee2c62f4d7"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr/1218110512-p22.json",
+      "bytes": 24736,
+      "sha256": "2a3cb4fcdfbe1640af2d4d50439035caa4add6e67a678bb99059135d666a489c"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr/1218110512-p23.json",
+      "bytes": 30601,
+      "sha256": "507945458f5710c6a019e504a24a8880165b9c6452d3f904f8ce91a6f5a06594"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr/1218110512-p24.json",
+      "bytes": 73728,
+      "sha256": "292121cdcbb114a504b4bacafe88cbcdb0b901dc706fe0964b6be021e9e3365f"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr-en/1216741268-p139.json",
+      "bytes": 506,
+      "sha256": "52842962b9ccbc0e444e37242597b0c153468ce3188854c2966f0331c397b45c"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr-en/1216741268-p140.json",
+      "bytes": 1032,
+      "sha256": "c94f9d3e3ac9473c329ef045fa10a287181a496efe1027c1796b0752b628ec20"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr-en/1216741268-p141.json",
+      "bytes": 506,
+      "sha256": "28dc9f720e93ac78a512076e0092a318bb35c1e14845917d1a747bfc356628fb"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr-en/1216741269-p10.json",
+      "bytes": 27185,
+      "sha256": "5092882549f984845eff91c1075f245b4263aa9461e9c217a8b891ea9cc656e1"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr-en/1216741269-p11.json",
+      "bytes": 38451,
+      "sha256": "ddf07e3dd79c83bc41ef96d5dd727a362fa4ffc1fc443ec724d57f9c0929c323"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr-en/1216741269-p12.json",
+      "bytes": 32003,
+      "sha256": "14417708d7a2bf5408a91aad5ae3e2048cfc9dc1d08a52842367aee00c9918d8"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr-en/1216741269-p13.json",
+      "bytes": 15966,
+      "sha256": "c7a1b7e7d606878931bd2f77252d9b7e00efea285f433c633a48607d2bc99485"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr-en/1216741269-p14.json",
+      "bytes": 17287,
+      "sha256": "77eaa2fad28dca5cc288da0db2dd794bdf76e665292b224f085e04cb95ed4f44"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr-en/1216741269-p15.json",
+      "bytes": 8677,
+      "sha256": "3b34611fb735941f02170c47e03819279b8113b61c46325ca2abb380e3adcac9"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr-en/1216741269-p16.json",
+      "bytes": 10563,
+      "sha256": "a97c4006633b92910a425174ed995d5be91f27310b797b08c8e48a35b5828041"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr-en/1216741269-p203.json",
+      "bytes": 1019,
+      "sha256": "ec280d6090e32db421b23f466a437918451e14cbac464fe2fd35f2d500255c57"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr-en/1216741269-p204.json",
+      "bytes": 2391,
+      "sha256": "7f4b9c8f4b45d08d2067c71659725fd1b7cfc095977db1b5b8206d8aa517cb23"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr-en/1216741269-p205.json",
+      "bytes": 6905,
+      "sha256": "95f79b3bb950e32dbdd857f200f1ebe57076ecb2994865aa0c26c616ed27b342"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr-en/1216741269-p206.json",
+      "bytes": 3631,
+      "sha256": "80b3de5845519d989f71849e4ed2c2cc6d2442c9b0618a528fa62b45508fa726"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr-en/1216741269-p207.json",
+      "bytes": 29792,
+      "sha256": "68d07feed8b1d0dec7c04519f73f9942a4662ec9c60c6cba649dd8cbcdaca497"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr-en/1216741269-p208.json",
+      "bytes": 37387,
+      "sha256": "0de2693341be483e51494db4b7834bca0d61ce7bbaddc27588c7879a949fd130"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr-en/1216741269-p209.json",
+      "bytes": 37414,
+      "sha256": "8ac957b0e3b2bb6352fee9bcd2699c73665c7ae8f7bf986a675e2cc3339075b6"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr-en/1216741269-p210.json",
+      "bytes": 37637,
+      "sha256": "4d32fe7237382bcf94ef2d444015410b31648a1fdadbd7a46034d28b54442c3e"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr-en/1216741269-p211.json",
+      "bytes": 1719,
+      "sha256": "401afa9beb3568b8fc1183734d24a303212fe4d771b14cd9bd598fb64c4a6f60"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr-en/1216741269-p212.json",
+      "bytes": 1030,
+      "sha256": "dd44f35b62172b31f48a82b9312ec23f30341a82c3021a2a07d026f75bbc2e2c"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr-en/1216741269-p213.json",
+      "bytes": 7535,
+      "sha256": "d0bdd5cec7947875f2b3d64c72683064d9fef6443107aa9fdf0321904b81b47e"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr-en/1216741269-p214.json",
+      "bytes": 1030,
+      "sha256": "ab2c32a73710919ac72065a45dda4251d30248f0a809b29e88ac7e5efd55f30b"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr-en/1216741269-p9.json",
+      "bytes": 27570,
+      "sha256": "aef9b8d391e170437889dc25d7c3a95e3e7f3a0987ee004019b64e4db4934ff2"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr-en/1216869640-p10.json",
+      "bytes": 39465,
+      "sha256": "e2e2320ef1eb013d9454999b93f343d9521a8f36378331dd89e1b112e197e73f"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr-en/1216869640-p11.json",
+      "bytes": 23561,
+      "sha256": "656d6ab7f8bc6f71780ed56992ea6b5f5086488b527c304c2a92739274e2ea68"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr-en/1216869640-p12.json",
+      "bytes": 30756,
+      "sha256": "7d79cb69707b06cb96860975261da2457afba73c460004c0e98cebc7f544c175"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr-en/1216869640-p13.json",
+      "bytes": 44933,
+      "sha256": "534ad9e9d5180d7e4cdf266b5b41d26c01207182e7419b08a6a97e3ed0bdf35b"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr-en/1216869640-p14.json",
+      "bytes": 18168,
+      "sha256": "11a70cd0ab3029125b5220490b4023b68c849d89ca302ea8a881eb9cc7a6c372"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr-en/1216869640-p15.json",
+      "bytes": 25706,
+      "sha256": "2d789c6c4acd3253940f3bbf440facf3663328d2ecc49e3daf9756a461964400"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr-en/1216869640-p16.json",
+      "bytes": 28728,
+      "sha256": "8ccc3f9bd8135d33a5360e5f65b4d735b8f7120271c366d5ffeefef2d06f8ef4"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr-en/1216869640-p17.json",
+      "bytes": 19178,
+      "sha256": "3cee397a4e7a4e06549b6fd8c966446380122c5ed2b4ea1f05a3d643e0ac00d9"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr-en/1216869640-p18.json",
+      "bytes": 16345,
+      "sha256": "50c935b07299c7fb64bfc73c2bff5c9fc5277e66a8aeb26ab927b9b0c2e18f71"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr-en/1216869640-p189.json",
+      "bytes": 2534,
+      "sha256": "f30f2731d78ee1930f50f4730570ab38a7cb00b1cf22440741ad9ab18dba8b93"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr-en/1216869640-p19.json",
+      "bytes": 16491,
+      "sha256": "14cd04c22c84868445bca9560941d30c52ddb0787d4d6988105f5dd5c6a75e22"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr-en/1216869640-p190.json",
+      "bytes": 1019,
+      "sha256": "df9bda2ddf706d7cbbc74e5758632351fbacfde248fbc2ef8d715f8cdd2612fa"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr-en/1216869640-p191.json",
+      "bytes": 1020,
+      "sha256": "872beb88bb80227a9e2cbea70f6acc84e4c33a7b3cbc3fb48671b555b2c53db7"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr-en/1216869640-p192.json",
+      "bytes": 2415,
+      "sha256": "4d8fe0a6c595dcea066b74b7d02ccb47d7db74d28f5e4005a8cfdc07d54652b2"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr-en/1216869640-p193.json",
+      "bytes": 516,
+      "sha256": "b4c53c8168f2f6bf6a6cc035f9bc66bcb81e6c4cfa2508d2d1f04a26974c5dfe"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr-en/1216869640-p194.json",
+      "bytes": 1031,
+      "sha256": "bbd608c341a5226b7d4aa2aae7340a540b7870ed00d9808a76a9e6a4e2a03698"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr-en/1216869640-p195.json",
+      "bytes": 1018,
+      "sha256": "a8d65206248189d7852c49cf2a00d5c7be09b9bfa2b08414cd8094a95774057d"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr-en/1216869640-p196.json",
+      "bytes": 14467,
+      "sha256": "0afc50201d01b8ea6af5e017b396d345a8136610f32289779409a11ce5b12ffb"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr-en/1216869640-p197.json",
+      "bytes": 1020,
+      "sha256": "f28c57ef5141ea35a7cb8f1966e21f6da55846d6afc5be6c99038c6e3a9b1fdc"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr-en/1216869640-p198.json",
+      "bytes": 12968,
+      "sha256": "da6a64e57ba415d88cb935a4f5c522e03fc0513db67805d40c32e9a1cf67b75c"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr-en/1216869640-p199.json",
+      "bytes": 1523,
+      "sha256": "3ac6c2d6908cfd9834f0a8250bd776a362ef23ac9c04c8b6a157bf17b8362426"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr-en/1216869640-p20.json",
+      "bytes": 36891,
+      "sha256": "beec7aec1f55ddca2668d59472ef12f27ef9b3cf3800f4ebf44309e1eb9dd7d0"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr-en/1216869640-p200.json",
+      "bytes": 21729,
+      "sha256": "657941361f4ceaaa2c75f3d2be148b57dddec3e882dce1a563a321c910333dee"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr-en/1216869640-p201.json",
+      "bytes": 26789,
+      "sha256": "e26b9701ba1d725da2ea5bff3c9429b56922d4e3e1e8be1c8e68125420351aa2"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr-en/1216869640-p202.json",
+      "bytes": 25838,
+      "sha256": "a930cbcbf6f245ab590802cc2c7fa09bcb3a04e8388500ad0b0baa146100ec92"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr-en/1216869640-p203.json",
+      "bytes": 23060,
+      "sha256": "a71021aa7e9cb0dd6d24c288f7b6ad858dbc3d626c18d3d2c0c110fd536ec2c2"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr-en/1216869640-p204.json",
+      "bytes": 15562,
+      "sha256": "c5b5b10162dccdb8b61ddeb70edbaec6ab67c8fcdb162d5621890be3fd6e2405"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr-en/1216869640-p205.json",
+      "bytes": 21991,
+      "sha256": "32aba92f6cb4985e2a50c5adad9a76c672af8841b5119e2fc21a808184fc9eb8"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr-en/1216869640-p206.json",
+      "bytes": 20228,
+      "sha256": "70e037319c96d3e9aa3519062a6c9d7aa578ff657463b66bb2acf19ac464322f"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr-en/1216869640-p207.json",
+      "bytes": 19893,
+      "sha256": "bdbfd62e9853bc728e911debb181c6c90fb0f14fd5a98d069dda56b03f117f90"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr-en/1216869640-p208.json",
+      "bytes": 24421,
+      "sha256": "ea0e37460feae97d38a9c3a5129dc0054fa5ce9acbc73c4aebd6ef02cec8d7e4"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr-en/1216869640-p21.json",
+      "bytes": 25071,
+      "sha256": "29f7dc8c49561ce83b385e5778f2ffb6483402f73ad35c403085d1e04792361c"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr-en/1216869640-p22.json",
+      "bytes": 21083,
+      "sha256": "a77d94d22593187deb429cfcb82c0ec5a75578f35146a4e09211d2d81fab94ab"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr-en/1216869640-p23.json",
+      "bytes": 15222,
+      "sha256": "93009a37c946d4149c6cc1640a6938fa5d49c242c82fa669e9adc9052f789015"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr-en/1216869640-p9.json",
+      "bytes": 55386,
+      "sha256": "1993e4d08397fb6799cbb847b8e3087ddeaeb8f922be28ef9dde0789b590acdc"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr-en/1217078313-p10.json",
+      "bytes": 34475,
+      "sha256": "cb80f3583cf8337ccc08cb279c9124aa4c6a7bce7cf128e1a643d1fce066a759"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr-en/1217078313-p11.json",
+      "bytes": 37974,
+      "sha256": "0fdd2a827bd7003b974307ca320ccf8039f8a47dabe346a5650695782c4eba19"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr-en/1217078313-p12.json",
+      "bytes": 20896,
+      "sha256": "3f33ba05f6331cb3e93b8806c4e1d8ec5d1fe19b199d462e1e08cc36e0920568"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr-en/1217078313-p13.json",
+      "bytes": 11550,
+      "sha256": "e93af4f1164e81fd8ab631575a798469cc6a0ffa6dc11eb7d88e7be7b350824b"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr-en/1217078313-p14.json",
+      "bytes": 16539,
+      "sha256": "671b8a9bfd9b91b1ae8b32d5a188e7f71592ffada7ebabf7c92cc2141a83da6c"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr-en/1217078313-p16.json",
+      "bytes": 6752,
+      "sha256": "3bda691742c4107aa8c76348aeda90df382eb54e09f26111a4b921917bf0426c"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr-en/1217078313-p203.json",
+      "bytes": 1377,
+      "sha256": "807c2359f7fd316d8344bded1b26967ba41bb0e54e7709050b8e8c55db8cdd56"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr-en/1217078313-p204.json",
+      "bytes": 2384,
+      "sha256": "64bc8573d88b3e90679b3d28694777488570bed0380e34c063e9f87283362e91"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr-en/1217078313-p205.json",
+      "bytes": 7958,
+      "sha256": "501e70b03044fa752185a4b54341d5649937bd16782842e7ae082bb2432cd071"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr-en/1217078313-p206.json",
+      "bytes": 6598,
+      "sha256": "96207ef4411615599da0da6ebdd2e5c43958d34fd12122ca7eb9ff633be224dc"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr-en/1217078313-p207.json",
+      "bytes": 20968,
+      "sha256": "f0f05f5a6ca68fd36c61c6039f49abe53a4ea751691badd63a247466ee665288"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr-en/1217078313-p208.json",
+      "bytes": 18776,
+      "sha256": "262478dec80b872e896e6e35ffe43384e4613dbaef38e79cf9c4c0dfeed8aa13"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr-en/1217078313-p209.json",
+      "bytes": 24449,
+      "sha256": "d9a3a66858dcb1640c8213240e9cb543d337b1a798f88844c1f9fc1cb86b24b5"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr-en/1217078313-p210.json",
+      "bytes": 18419,
+      "sha256": "30139f38b219887f4ab6c6e8c37f7259176ea5295997e031cac689fee1962383"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr-en/1217078313-p211.json",
+      "bytes": 13130,
+      "sha256": "5872e31352eddbd4704150d1e46f264a5201b14a4bc8247abe2869ac10f9e5cb"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr-en/1217078313-p212.json",
+      "bytes": 16551,
+      "sha256": "c506dcff5e55c4d788b88179133b00b50d652ba2557f9e80a50bbd132522e162"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr-en/1217078313-p213.json",
+      "bytes": 23578,
+      "sha256": "7ce38f78aac299e80e06998c4cd6ffd6477a9dba64717470e2b22341e751fb34"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr-en/1217078313-p214.json",
+      "bytes": 30144,
+      "sha256": "b6a21a9e6b50ec0f5ac07ff7e036ead6aac88255fc7c739a2b5f09afa475f680"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr-en/1217078313-p9.json",
+      "bytes": 24219,
+      "sha256": "75f5bc6898d12d3c999b2037fe34bab4f86cb7d83ae0e2aa8349a76d8533320b"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr-en/1217078316-p174.json",
+      "bytes": 506,
+      "sha256": "35c949431394030402faa05f54d24a2c83649574515b84dd02884801750f5fb3"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr-en/1217078316-p175.json",
+      "bytes": 517,
+      "sha256": "ddc3abb99e79d3be4e507e21f5306bc0a67033a66904ee04622241e159667624"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr-en/1217078316-p176.json",
+      "bytes": 1012,
+      "sha256": "db6c47f01ae1028e0c97cbe8659f6e9bea5af4ea9ed8f3b87560ded46656b054"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr-en/1217321905-p1.json",
+      "bytes": 4612,
+      "sha256": "76910292e541e31b58134bc2770ff42c000f474161ec40dba437334b65eadc5a"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr-en/1217321905-p298.json",
+      "bytes": 506,
+      "sha256": "f3db4d35f686e7198854e31abdc1475a9fd76a309f256ae8399a861b087a8f47"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr-en/1217321905-p299.json",
+      "bytes": 2017,
+      "sha256": "81669b0ea5a9ba487486762b0ccd63a6f8116361e41e5155a2d825a52de533f5"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr-en/1217321905-p300.json",
+      "bytes": 1514,
+      "sha256": "e59328aa27adaf43c80755df645b6d9350062ebffe9b7d2f44e40759666afe10"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr-en/1217321905-p301.json",
+      "bytes": 1547,
+      "sha256": "b58d31f787a279c6ee39c0a064d5f4f08e9d331742b5d2069ba88dee48679b9e"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr-en/1217321905-p302.json",
+      "bytes": 1012,
+      "sha256": "d3e38066feb7b63177c4c0dc318a57f8fd4bd06f33a15353eaf6f0868bb42aa7"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr-en/1217321905-p303.json",
+      "bytes": 1009,
+      "sha256": "aa477b6d8820a6497e07446b427032d6fe9cdce83f390ebf99334342b60f7598"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr-en/1217321905-p304.json",
+      "bytes": 517,
+      "sha256": "46c6e26f35a151a948df66f616b3be18caec63eb943d4f9445f3afac83d07d71"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr-en/1217321905-p305.json",
+      "bytes": 2238,
+      "sha256": "3912e50574bbac84ba85ccf6a447e4292a9ca2148347a995d9f9302848ad0a29"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr-en/1217321905-p306.json",
+      "bytes": 517,
+      "sha256": "5d9bce19c00095b29bb7d1fab089b1330a4864bd7f6c2a867a9d380d39254b98"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr-en/1217321905-p307.json",
+      "bytes": 1520,
+      "sha256": "7dc015b7d25a5e300b829e8b1439399610131cc14517dd56e1b70f9631fc9c77"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr-en/1217321905-p308.json",
+      "bytes": 1033,
+      "sha256": "a560b3d26e85e41f27ae411a4caf10a81d962741a78607e4fdde22ec1b7426a0"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr-en/1217321905-p309.json",
+      "bytes": 1017,
+      "sha256": "edfd380a89c9fcb3d6d85cc0edf1aa19a4375a7defb4f1f2631bd6e9faeb7aa2"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr-en/1217321905-p310.json",
+      "bytes": 506,
+      "sha256": "68d29b82ff0f5bc85459e31b894299f43cdc2f648b2deea8fbc63f82f40b5098"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr-en/1217321905-p311.json",
+      "bytes": 1507,
+      "sha256": "860c11266db553f1208b6aeba601631e46ac1b5cf413dbed577ea4cae147623b"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr-en/1217321905-p312.json",
+      "bytes": 1019,
+      "sha256": "d1d338c33c43ef4ff9ba044f7d2212df61cd93a585bc29177cc71f2f9e530740"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr-en/1217321905-p313.json",
+      "bytes": 2006,
+      "sha256": "1862326ba75358cb8b99b59ab9da97cd7dcc0cf291a03b30b9e6d7b285128710"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr-en/1217321905-p314.json",
+      "bytes": 1521,
+      "sha256": "e8ff3ee5c964641c07d98afe0f00aa3406a2de2400359ed40d6496f6c0a02626"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr-en/1217321905-p315.json",
+      "bytes": 1020,
+      "sha256": "ade7ef5437fa748affd61f25251b106965b1f2ea9a2b84ff668bfed7de97c7d7"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr-en/1217321905-p316.json",
+      "bytes": 1507,
+      "sha256": "3142c162f069e3afacfd1b58228d87c2e82f527343056ba14625aec4be251a9e"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr-en/1217321905-p317.json",
+      "bytes": 6453,
+      "sha256": "88fe458b1124e9b3633458581044431c4deb4ed57d06c2930414d53bdd0e9961"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr-en/1217321905-p318.json",
+      "bytes": 2032,
+      "sha256": "5ba31972bae19315917b36310dab7d5f2e92fa45d66b516c658d64230a942e4c"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr-en/1217321905-p319.json",
+      "bytes": 27862,
+      "sha256": "dc8951536f7e64d1e623f4de790f0071835ec3a098dcb148661e01c62b02253b"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr-en/1217321905-p320.json",
+      "bytes": 3754,
+      "sha256": "d496601ddb4bbc7dfae801055e2af826dcea87e4349c8bf65ff22c3ea0e67eec"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr-en/1217949874-p10.json",
+      "bytes": 34475,
+      "sha256": "7fe38445145ab75c71faaaec8e155bc5ee701afa903b25a654b8145fab3946bb"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr-en/1217949874-p11.json",
+      "bytes": 37974,
+      "sha256": "d54741254599f86644bde84a25cd5a5e31d46b9068d6ba0672f0a6d6cd08c9f6"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr-en/1217949874-p12.json",
+      "bytes": 20886,
+      "sha256": "51e766cfcc10e1325eb2e1d7b5adb7664f3dfae27b25a734a099f890e2862d5e"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr-en/1217949874-p13.json",
+      "bytes": 11540,
+      "sha256": "f573888db4509ff325109c4c9736d8a0b1c729c7b80e6dc57fb7e556793ac9d2"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr-en/1217949874-p14.json",
+      "bytes": 16549,
+      "sha256": "d7e16bcae7188e92c824884873fbcad70e0b685b60b7a30e3ff34607cab520ac"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr-en/1217949874-p16.json",
+      "bytes": 6762,
+      "sha256": "fa3664b4a8e192bac74be0b1bd8de15e1463a762f26e53db959bdbe414629cce"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr-en/1217949874-p203.json",
+      "bytes": 1377,
+      "sha256": "16980def21b7c517ecd48205c712e20565b6a145fdc8ab9d8c28b93238fad89e"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr-en/1217949874-p204.json",
+      "bytes": 2385,
+      "sha256": "a7b4ff1aa93f2d142b6f253ca0f8cb6dfcd41549e95d45872c6b0bfeec40db0c"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr-en/1217949874-p205.json",
+      "bytes": 7958,
+      "sha256": "8fdb5c4bf3bfda4e785e1e289f078a4363aea1d4d242965e9fe833479f44a8f5"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr-en/1217949874-p206.json",
+      "bytes": 6598,
+      "sha256": "24866bd2575379ac492a1214daacf0437b615e13a70a173fe1c58b32b4b98358"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr-en/1217949874-p207.json",
+      "bytes": 14058,
+      "sha256": "bdb973c8a21f6d686a7f67babe2b348f1c2889dd21c6b95b93235304d48a51df"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr-en/1217949874-p208.json",
+      "bytes": 21692,
+      "sha256": "78ae5ade7395f190b1ce8dc5d7c75435dd3adbd40d5d4a706aa3442c3dd7d464"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr-en/1217949874-p209.json",
+      "bytes": 59342,
+      "sha256": "cd9f9ad094c7edee1b512240f6d126086117fdc5dd007b41b577c481b79237be"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr-en/1217949874-p210.json",
+      "bytes": 62686,
+      "sha256": "82d225a3e50d47403cfb0e86cfe52394f6cd35d37c536522d50adeb0f5f146b5"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr-en/1217949874-p211.json",
+      "bytes": 1020,
+      "sha256": "4dc3c3878c5366f4469162bde99c18c3fc36e6e6ec4c9b7d63f29ff43939ab26"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr-en/1217949874-p212.json",
+      "bytes": 516,
+      "sha256": "0e4c27d30f6fc37dfd7f1d83f00e0766584018120203accc250c591e42f4f0e9"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr-en/1217949874-p213.json",
+      "bytes": 7537,
+      "sha256": "9ba4cc5f40e6f48fc59638f9c837d44a818f08c919c5506af0c569c00825153b"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr-en/1217949874-p214.json",
+      "bytes": 17106,
+      "sha256": "ebcc33f1c278eb375253d1bae4f120563b82d9358ad6aa170c967e0fa9ea40d2"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr-en/1217949874-p215.json",
+      "bytes": 38309,
+      "sha256": "1570c2d60148b250e65f7e56070dc42a5b7b93a4c8f2031959294df0613f5f01"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr-en/1217949874-p216.json",
+      "bytes": 38148,
+      "sha256": "98dd7236e6675c3eda27d9e8b8a471b52c03f2a9d41696ea4699e53487b32465"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr-en/1217949874-p217.json",
+      "bytes": 506,
+      "sha256": "ee05224a29688ed26a51000db345296dab0f3406038c728d1c41a1ea473f6e71"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr-en/1217949874-p218.json",
+      "bytes": 504,
+      "sha256": "84f9224a72b9c7190bed59a2bf658a6e5711df31e1c2859b7ab71ae5ab0ad5f6"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr-en/1217949874-p9.json",
+      "bytes": 24219,
+      "sha256": "965d64b3d5c0adbe9eb848d7d9b49fb2ac8e2adfd4456d86a70fa4d8b7537155"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr-en/1218110511-p1.json",
+      "bytes": 515,
+      "sha256": "66ef6cfd3d3a54ae9fd2f0ac79cee87d9dcb7c0e711c11b7f3edb181f91c4fb9"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr-en/1218110511-p10.json",
+      "bytes": 1897,
+      "sha256": "464e4a30baeff399db9179b266505dc3314dae263d99f2eb73f66769d18a1734"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr-en/1218110511-p11.json",
+      "bytes": 5357,
+      "sha256": "6ba308cc643078d7f95151a82f3c68f24b53f055462c4d3dcd1b9994e9f1a3d5"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr-en/1218110511-p12.json",
+      "bytes": 24419,
+      "sha256": "f93977348745e836f06ab77587061608283dcf09f56b96e943ee6f5c5c817f76"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr-en/1218110511-p13.json",
+      "bytes": 17749,
+      "sha256": "32dca7d30089058389ca365fd9190cc5ca3d22fa2b85416ca4af30037045a108"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr-en/1218110511-p14.json",
+      "bytes": 2907,
+      "sha256": "ae00cbeefde717f0c9826b383bf676c3f9fdfa8efef9e60da5fd9d598c81d127"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr-en/1218110511-p15.json",
+      "bytes": 3793,
+      "sha256": "7173ea471e92cb3c8c168c0b39eca1702cae85dd8316df65ac62dd2f03f879fb"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr-en/1218110511-p16.json",
+      "bytes": 14747,
+      "sha256": "abcbe0ba82184e6bf14c0490cc3aaa21783499fc19aa3c2d1d6b315039c38a1b"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr-en/1218110511-p17.json",
+      "bytes": 6313,
+      "sha256": "7fc4438133e7513c1a356857a896838c789bc8aba67036de761f072ba3a2591e"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr-en/1218110511-p18.json",
+      "bytes": 10946,
+      "sha256": "ca00046a09f9e17e40057fea4f7e8a56d318b8f8331c5fc2a40489440744790a"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr-en/1218110511-p19.json",
+      "bytes": 8334,
+      "sha256": "21262eb10100568e04f14c32336222afb9b7ef7b4a0204337e2174cfcffe6c84"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr-en/1218110511-p2.json",
+      "bytes": 7578,
+      "sha256": "0672e6a711370377d4f3481469396cd0faeb42da0a94d042c522302c2418657b"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr-en/1218110511-p20.json",
+      "bytes": 7779,
+      "sha256": "a7baaf2aa190f8c8d8e4b663b1d90796ec04fc6d4329c1d472de38cab758496a"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr-en/1218110511-p21.json",
+      "bytes": 7634,
+      "sha256": "472d27dc0b061e06f96e8df9d9fbeaa3f7a5f912473baff2acd0ce30bc487317"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr-en/1218110511-p22.json",
+      "bytes": 2905,
+      "sha256": "6998ae8712970838b5f1bb21ec528fd2ea129c42b1b794da16942f0ff369b8f0"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr-en/1218110511-p3.json",
+      "bytes": 1000,
+      "sha256": "0248d9cfb2345616fd9271c963d509b0b2fdc1f096d152b7f39ec831b84cd013"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr-en/1218110511-p4.json",
+      "bytes": 14320,
+      "sha256": "4415b7e8053ebd9c80ffa14a4d61d2088b074f9195fafae54063c4b102e96923"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr-en/1218110511-p5.json",
+      "bytes": 16005,
+      "sha256": "595fd643663f1597d7dd698401771e84198da8e61bfa194210ffb031b442f650"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr-en/1218110511-p6.json",
+      "bytes": 11319,
+      "sha256": "fea0b6ac52c58b11fffe62de607dfeabc470113dc138b3edf0d960565d306af2"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr-en/1218110511-p7.json",
+      "bytes": 14460,
+      "sha256": "11259bc33d4c9f31c1325d5a979c8bd57e0008e29b16d25de83d48d68e523390"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr-en/1218110511-p8.json",
+      "bytes": 14022,
+      "sha256": "0739ac449d1db37aa2012c46f880b0cf0c8d3438dc6677a941788ee9414c5d27"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr-en/1218110511-p9.json",
+      "bytes": 14753,
+      "sha256": "c5880490219bc23de5df0e82da55dbd4fd91abed153fa07c38d868ff575c84c1"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr-en/1218110512-p22.json",
+      "bytes": 1010,
+      "sha256": "1344353da0ed270fb0e46500c02fd4bd70dee3a5100691edfafbcabb9fb98e03"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr-en/1218110512-p23.json",
+      "bytes": 1007,
+      "sha256": "a6902cee4d776a26e05b0fcfb2d2a3f1cc5a404eb113eed2f94bf5b00b553a11"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr-en/1218110512-p24.json",
+      "bytes": 1024,
+      "sha256": "7395e38e49ef5da27d8e77bb1edc45f245b4b0dc451a34e339ae8f8568e4eff5"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr_capability_probe.json",
+      "bytes": 64,
+      "sha256": "dc89e271314200963f7e1cb42f4d897e31e6dd248a6b0fd9ae11fe8815aad8e3"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr_en_plan.json",
+      "bytes": 63155,
+      "sha256": "fbff8897b7ce6c482af14d0c4ada49b4f70fbeca118e9020a43702e7db5bd059"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr_images.ps1",
+      "bytes": 3371,
+      "sha256": "5c1f96c25b50613154f60e5d8bd8832ffed49532b7f5f577a3db2789dd1d2b5c"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/ocr_plan.json",
+      "bytes": 63764,
+      "sha256": "7dfcd0d3dc909ef8b82eddc15e5998f83c4b9fa13415ac911ac49c03cf0fa997"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/originals/1205169602.pdf",
+      "bytes": 5470591,
+      "sha256": "4343f6395aa0cd19ecb489f5fdfafcdc732c97dbfeb55caa4d10eff296e153f1"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/originals/1205465511.pdf",
+      "bytes": 5792786,
+      "sha256": "b321e6dada304b7aa5fb86d0d7391eb749b091e5fe1a05086b41e17bb3ce2150"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/originals/1216741268.pdf",
+      "bytes": 2578479,
+      "sha256": "43e01bfd5c512d70accc4921d73ae8bf326320169dae7baeb0c2636cae18999d"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/originals/1216741269.pdf",
+      "bytes": 7724169,
+      "sha256": "28f31493c52375f096a45ad326ad8421357f9e73252858ae236d6fa715aad2d2"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/originals/1216741271.pdf",
+      "bytes": 4494304,
+      "sha256": "60081ea59c3604e7ec79b713f43480e9dff50d882fb153ca6dedbcea1f57aa17"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/originals/1216741273.pdf",
+      "bytes": 1446302,
+      "sha256": "2d9d338043402cc3464b56f4041581f979823a92710d9fd5df5089aadf079f44"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/originals/1216814161.pdf",
+      "bytes": 3941629,
+      "sha256": "0ec4a6dda81318a0ff0e2a47b6bb19043b65b38b7f1f33ea82b8bbdc1987c83a"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/originals/1216869636.pdf",
+      "bytes": 6919814,
+      "sha256": "b7f149126fae29ab448797f0603651c4aa22ae6030fcbef36c3dea8b4b4deabd"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/originals/1216869640.pdf",
+      "bytes": 12381989,
+      "sha256": "d6fecbc0aa8be3e9a8eb2837454af517e58ab29d9f9cbd3e85ac76cf9f752fb8"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/originals/1217078312.pdf",
+      "bytes": 1668977,
+      "sha256": "d44edcdf73b6a4bf7649582324ee0e66f90f82ecb5acc112cc7e62eb700cfc02"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/originals/1217078313.pdf",
+      "bytes": 9100462,
+      "sha256": "20fbe4384ea3e87419d5af2e73b127fc93b22c1435904a2819c1a135cd1c9bc2"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/originals/1217078316.pdf",
+      "bytes": 2638788,
+      "sha256": "2d2500019280ff38a63fcc8ed3e05b2bd26ce9bcb0759f784ffd26d75b5f443e"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/originals/1217078318.pdf",
+      "bytes": 3738354,
+      "sha256": "6c801a5bbd82483aac9612c363164e01e262c6563f51fcb5cb695b82377fb287"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/originals/1217170564.pdf",
+      "bytes": 796736,
+      "sha256": "842f69f66e66ae3efe23cd152aea3b54bf02530f601b8b4e86edfb1785b32171"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/originals/1217170566.pdf",
+      "bytes": 1270048,
+      "sha256": "957a42625d80905bb26564272e21a354adb6367126f66be729a389e7755627bc"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/originals/1217321905.pdf",
+      "bytes": 9301301,
+      "sha256": "ec62521ca89aea1015d4a0237df8032b6c102ad53679824eb39988616bd48ccb"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/originals/1217361564.pdf",
+      "bytes": 1035810,
+      "sha256": "701f2725e9778a5dc54bb8b72a4bca6b363414ab0ce5b70cb1f74f5c8e5997f0"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/originals/1217949872.pdf",
+      "bytes": 1898579,
+      "sha256": "2ae73c452d31df7006124bb2bac82b9772430da23f4a8f5aea11d954705149c4"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/originals/1217949874.pdf",
+      "bytes": 15852778,
+      "sha256": "5cefd1e1ef733ef5887b619e09ce792d52bd33e2710580616be5736da03cd33c"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/originals/1217949875.pdf",
+      "bytes": 4144145,
+      "sha256": "d983950b9c698a8735aeedf5398d06592a467bbf9fba06e3484013be055a2ac1"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/originals/1217949876.pdf",
+      "bytes": 2660112,
+      "sha256": "7ec5f9e171caf3adbba8a19b38b075ecbc2a056f34be2cdae827d87450b5fbee"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/originals/1218110511.pdf",
+      "bytes": 4693844,
+      "sha256": "d989780703a01055d0365266a7db87ab731dc596a84b7fff0c1b19b4a8d24bb8"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/originals/1218110512.pdf",
+      "bytes": 1299578,
+      "sha256": "924250d7b46aa7d284a159e3b081f951b2d357ce14c37de6f64b5b78f0152503"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/parsed_before_growth_column_fix.json",
+      "bytes": 310643,
+      "sha256": "cbe8717e89221518abe5c9c7f8e0f5ac16f7fd039a0ab23d82a012b49a0f76ea"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/parsed_source_attempt1.json",
+      "bytes": 219042,
+      "sha256": "0f5c552ae408be26ed717fe493cbfdd8f9eeca86eda585d702e449e6618e1194"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/parsed_source_facts.json",
+      "bytes": 330528,
+      "sha256": "5abdb7d3809bda795cc35377d5b2310993f1da0c1a8692183e35e27b93e68b11"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/prepare_images.py",
+      "bytes": 1065,
+      "sha256": "71793915a3c1092ceaadb544a7d05413f7193bd3574c9d94fed574f1fd5f4e93"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/preregistration.json",
+      "bytes": 10380,
+      "sha256": "21ebc75cd319581237f7a2ac3e7b498278be351bdc55157ba3133e5a7dbe03d2"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/qualify_sources.py",
+      "bytes": 6973,
+      "sha256": "567927af36c03cbe057c35db1bc474314a67f12520ac0901a72ce14cd0070b3a"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/red_source_parser.txt",
+      "bytes": 615,
+      "sha256": "89319827657f9fce8a3e535f476cc48a49ad66603a83f6bb7a7b090cf61a1ce2"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/red_split_row.txt",
+      "bytes": 633,
+      "sha256": "5b96a4f35182315a112dfb05387d06bf37516ace305e1aa6ea4b3fe1e7411581"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/red_summary_columns.txt",
+      "bytes": 3669,
+      "sha256": "60630545f34c39028d9e78289dcd512c9d2ea9b2490ff4d5aa153adfc362d764"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/regression/auxiliary_evidence.json",
+      "bytes": 217624,
+      "sha256": "06f2483b5236d3799a9a912491dd30b49b5bd3f3408439d920b0e58b46be0cde"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/regression/certified_facts.json",
+      "bytes": 182759,
+      "sha256": "96ed2d52e0c0e9a7ff54e3795422cc187d9c562d67c6266391a63cde41472f98"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/regression/certified_new_facts.json",
+      "bytes": 138876,
+      "sha256": "a5702b201acd3d1cab3cb4ca7b6df33fcf83a49a6d71aab3d1891d058a5573aa"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/regression/discovery_classification.json",
+      "bytes": 542647,
+      "sha256": "2afe395e59a1242c89a939c9c2d989b5e23b84d369fa328cdb26f65bdc670dd3"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/regression/event_qualification.json",
+      "bytes": 10263,
+      "sha256": "b1932044504621bf332cf104cd0ffde462ad43ee7c4b00bcadf8858c5393e52d"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/regression/new_quality_checks.json",
+      "bytes": 15360,
+      "sha256": "104074c5fa005a920f28f328d6ab662b4f274c5446ecde1f8118497ffc4bac2d"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/regression/new_value_validation.json",
+      "bytes": 177256,
+      "sha256": "6e1ff351139fc4bbf3f763af85470c84919a4f0892a78ef756aef2c876a94ce3"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/regression/quality_checks.json",
+      "bytes": 11666,
+      "sha256": "44b39b9a80878d6d8bdb21e35799fa74e68607cba1f5a177ab364d9ceb2ff53e"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/regression/replay_results_f2.json",
+      "bytes": 100441,
+      "sha256": "7148fbbc274bbe50c830f3692133bceb5edd5764f67573cc10a5fb0e352704cb"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/regression/replay_validation.json",
+      "bytes": 62254,
+      "sha256": "d3805d36ef26b433d87cf707ff334c402e14a31e82ea51d598b575cd8c928ffe"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/regression/replay_validation_f2.json",
+      "bytes": 139831,
+      "sha256": "ffb7827bad9e68daace761c9d5e98c240caa779dbff2f4574c0566ffb7bb2705"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/regression/value_validation.json",
+      "bytes": 263367,
+      "sha256": "236871d41ab9a7c0ea23fa24e1e982dd35afa91c907c55efa08fc4b986f835cc"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/regression/version_evidence.json",
+      "bytes": 202134,
+      "sha256": "b98a6ab4abdb8b61f9dd89404c907497c10311ca5b708bf9809d8673805d21ce"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/regression/version_evidence_f2.json",
+      "bytes": 326342,
+      "sha256": "7497476a42f737f5487b566f88fd21562d05581546020ea3b1e61f2ee5315c11"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/regression_run.json",
+      "bytes": 7607,
+      "sha256": "f874b21b62fa803f1c4242bd1593703e357a2eabdf91b7dcbead7e73e2a1bbca"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/replay_closure.py",
+      "bytes": 6228,
+      "sha256": "c2b5a79f9ed6c96911c1aa7ae5308d75424b4f5a463c5072d695d27936f96e04"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/requests.json",
+      "bytes": 20921,
+      "sha256": "62f75af24b1072e6d1b7fc95ec61d2cb0a5397169907891b536c0ab2e116b71d"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/run_closure.py",
+      "bytes": 1562,
+      "sha256": "9c1c2f48ca9671b57a7ab5320c890625daf57a2b0194d1f488c0aaaf8e15568d"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/run_regression.py",
+      "bytes": 3167,
+      "sha256": "116b8193e55ac2ab03fa1f5d3f74843ee7faf484320bc306d1dc6c3d9682036d"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/scan_text.py",
+      "bytes": 2252,
+      "sha256": "83dc61be5c83e16ceb9a4ac03a64aba33a20e931c218563f5bfbdec013be7fc5"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/source_aware_ledger.json",
+      "bytes": 384526,
+      "sha256": "d04f59660a8181b30379c629a4d0df6436c4e84267d3d85719b0c18a830c89dd"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/source_qualification.json",
+      "bytes": 682158,
+      "sha256": "6512d42beee3923388614958e085868a37b1efeb8b5babfb37dfbbe0afe4364b"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/source_reviews.json",
+      "bytes": 19489,
+      "sha256": "234e62c85be5767ae4f8b7d1e97866a8020848716c055d6cf3a8bf42cdbc9728"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/source_test_attempt1.txt",
+      "bytes": 1136,
+      "sha256": "083a467ed0850ed6c518b06bedc1de916f63d100eee86ab1366794898723d20c"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/source_test_attempt2.txt",
+      "bytes": 103,
+      "sha256": "0caa30d17eff8f933c140cec8956a6c1ec654582de16de5c28c4dac698347018"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/source_value_validation.json",
+      "bytes": 61018,
+      "sha256": "d95b88a8714a67fd50cf06b697538199205cd497c74a0e41465f0d24665deb23"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/summary_table_diagnostic.json",
+      "bytes": 53126,
+      "sha256": "a4deb8a691fe45ec50cae08d0640b58baf77377989ebe53e8d1e094edb983dec"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/target_text_review.json",
+      "bytes": 44169,
+      "sha256": "f40ea6b9b37ef47d62a806ea01c351aaba505953351f8ebadbfa6e413f3db47f"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/test_closure_safety.py",
+      "bytes": 4048,
+      "sha256": "aa9b64c09bc0a8fec54dd548c7e319ea797e6bc9dac38d3d0c251ddfd37ee696"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/test_sources.py",
+      "bytes": 1550,
+      "sha256": "aecfa7fd365a13fbe7e5fb294f16ab8341b75843aed9982ad912c55b4a0dbe0d"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/text/1204793690.json",
+      "bytes": 605710,
+      "sha256": "51db43edd808be1d236d5a9c9559d804e9aeccfb00f2c1e6eddce4bdba9114eb"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/text/1204829467.json",
+      "bytes": 38723,
+      "sha256": "f2a7c3ab2ee21e2a1a63867f9c9c5f72d82a8de66caa0c2bd1b87def3a46133c"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/text/1205169602.json",
+      "bytes": 483050,
+      "sha256": "9fe3b382622c0b80b230aafbf01f9368070b9a6d3c7d9afc0331ba539f75e9a2"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/text/1205349494.json",
+      "bytes": 430613,
+      "sha256": "6f877a642d0350f60570ef0aa0653065b6688a08a4d410d5c01222a4c597eae2"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/text/1205465511.json",
+      "bytes": 483523,
+      "sha256": "1168a4da6ec5bff5183d469c7d53e5b10bff99fce980d7e5b717f77c16dd3aff"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/text/1205546609.json",
+      "bytes": 45522,
+      "sha256": "f08b09136832538740c367287644d0f9181547c67a753401bdcf41526ca02a5f"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/text/1206168279.json",
+      "bytes": 41013,
+      "sha256": "228b8b90fed9e7580c82fd3010a7e68e115c070e05459a85586ecedfba99d271"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/text/1206168292.json",
+      "bytes": 636635,
+      "sha256": "043fd021a3d8353cf9294c3018e298cc849ba8fd6853de6d1493f8e5fc2a66c7"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/text/1216273938.json",
+      "bytes": 849464,
+      "sha256": "7c22507155555b39fc32c90a9143eb0aa5bb4a3c214da9becf1376c323a13e45"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/text/1216561621.json",
+      "bytes": 753154,
+      "sha256": "b4567cd96c92060e172c53657d6884fabd41045b183b0a9e5c5901b36cd0bb5a"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/text/1216686497.json",
+      "bytes": 30208,
+      "sha256": "09b147ecd2eea5dbffb3986f376b55f52715dc8111c19474fa80a2d98d30a129"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/text/1216696970.json",
+      "bytes": 25700,
+      "sha256": "f1e4c45df1e66b41ba5ad6e44d9cb80c44347de5601290af2a9f76f8d1eb59c8"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/text/1216741268.json",
+      "bytes": 352996,
+      "sha256": "00a849a2068803abdbebe9f1b2f78db95c563ebeb7469e0409bc24926879bd24"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/text/1216741269.json",
+      "bytes": 496253,
+      "sha256": "fcb991ea902df9346a75707d08e91edbc4e064d898f274c9cec693bc226132e9"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/text/1216741271.json",
+      "bytes": 154327,
+      "sha256": "ba83f2e05544d0df39e1c244285cb70362373c25b5efae79b947c8180b714ddf"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/text/1216741273.json",
+      "bytes": 241106,
+      "sha256": "2720363b24cd4f3d76d2d28ed5a0717e810d199f3d31b1e7f069f047039d84e1"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/text/1216814161.json",
+      "bytes": 154218,
+      "sha256": "b7bc216021bf70ce76184e010fb204ee801709818f27f7f8f3c876b39257498f"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/text/1216869636.json",
+      "bytes": 457813,
+      "sha256": "c25adb42ba963eb817517febe18b85f7aa388b74528c89cedf4ebf73784ec1bc"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/text/1216869640.json",
+      "bytes": 469987,
+      "sha256": "80efd5f01650d42b93747b254cb180beaae1c496715fd9db42e054d2f5f205bf"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/text/1217078312.json",
+      "bytes": 292185,
+      "sha256": "3bc98716d5736ec67e3a59e1d4df565bebadc76e32960d97ff5f45820b39bb88"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/text/1217078313.json",
+      "bytes": 505314,
+      "sha256": "455ff6d7d1cbefba6fa119cf9db9e6a7501cc298849539e137ba4548db3aa1d6"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/text/1217078316.json",
+      "bytes": 438976,
+      "sha256": "c48f71bc18cd9f4ee1b495825dadf60a02697e9313f545c93df88867f4756c50"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/text/1217078318.json",
+      "bytes": 161164,
+      "sha256": "d861e0e503caab9097c929e80bde62521b7af73a109db15577121a76b94df2fe"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/text/1217170564.json",
+      "bytes": 43198,
+      "sha256": "df1c3a66a437da6772e5fff8eec4095d4c04c8708a4d98f7ce6e705598a57fa1"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/text/1217170566.json",
+      "bytes": 45271,
+      "sha256": "bf7318c887ebed3d579ce322e46f01f7d86aeea042dd87d8564c4b69670fbe3a"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/text/1217321905.json",
+      "bytes": 731861,
+      "sha256": "c3bc9522f689c7b69f33ea925ba2bdc49489afa94122911dc95235f0dc4d0cdb"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/text/1217361564.json",
+      "bytes": 64019,
+      "sha256": "8b03565550418a692b7603f1f7541cb7372b7feff6b738d738a6fc656fd69366"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/text/1217386817.json",
+      "bytes": 754642,
+      "sha256": "ffd312af73a46f9cee844c43950a6012c550c1b6394c08f01ef6bedf1d004df9"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/text/1217710575.json",
+      "bytes": 578225,
+      "sha256": "b9037053d8548d278c943d4b8f0bd57737d37647a78781ded0791937f154f2a4"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/text/1217713835.json",
+      "bytes": 589568,
+      "sha256": "ceea3796de72f426030a10986ba0c46421c96eb9b1711c381d4d910915781371"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/text/1217949872.json",
+      "bytes": 315762,
+      "sha256": "4fa5038dfa065c99be2fc8f92aed0808a1c31dbe4d1df160accfddda61e99e9e"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/text/1217949874.json",
+      "bytes": 506074,
+      "sha256": "6796c46450e95714194957edde12f1b006b3dec4562cf254c9f3aa4f91bb8b52"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/text/1217949875.json",
+      "bytes": 156150,
+      "sha256": "0b429b6ad1fb259d9b917ee8132a8743fa96c8cba04377e07c34685e0d647517"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/text/1217949876.json",
+      "bytes": 483375,
+      "sha256": "7e87cf38b64091e24820339e7168d3aab018e983b7055331f64339d8f4a93a44"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/text/1218110511.json",
+      "bytes": 4213,
+      "sha256": "6f4f091e5c002ff73cc153479328689554d61cf1ce871b201be7a9a35b08dbf6"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/text/1218110512.json",
+      "bytes": 49444,
+      "sha256": "866952049288f4161f2f1f59983770b484fa47371ec61ffac321d7861b3ff37b"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/text/1218181044.json",
+      "bytes": 34384,
+      "sha256": "22559405404159443b7501e692279f55ee916fa8235fb4a50f63a77af94b13c7"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/text/1218204096.json",
+      "bytes": 25395,
+      "sha256": "5aebc4cf5ad8690ef966962a4d3ecc5a9ae4b3af560a4d13b7dfc0f9d7708949"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/text/1219487237.json",
+      "bytes": 864769,
+      "sha256": "1a7ac00c30d4c045da87cefacc1646152cfa8cf099a95fd79d377a388c515499"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/text/1219747877.json",
+      "bytes": 753855,
+      "sha256": "e2a1d66f8df2f7ee3855d59c22af4bf22c6c5903b57df98a791db9a251b338aa"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/text/1219909136.json",
+      "bytes": 21540,
+      "sha256": "70b3101b1691ed8909a2ae7ce4c37032e1be5b9726752480a38243b77c0bb41e"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/text/1219913619.json",
+      "bytes": 32920,
+      "sha256": "7af93441eba1c7929c2fb837564de802cc2f90504f04037d894161662a24d16f"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/text/1221084198.json",
+      "bytes": 591226,
+      "sha256": "1e287bb8c8792d4666f6092e1c5893e16435aa5829ead37fe9fc6b570721b5d9"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-21-w5h-f2-source-closure/text_inventory.json",
+      "bytes": 4953,
+      "sha256": "f5f7f86f1a11fbe745ba93029226b9855ed160d2cb85c3ef25908a026accf594"
+    }
+  ],
+  "count": 638,
+  "bytes": 197112579,
+  "report": {
+    "path": "docs/audits/2026-10-21-w5h-f2-source-closure.md",
+    "sha256": "5d93061a01af9e64f14d56d923cb1a23cc1bf4924a39e05c92f7175716ea8659"
+  },
+  "excluded_self": "manifest.json cannot contain its own hash"
+}

@@ -1,0 +1,61 @@
+FFFFFFF
+======================================================================
+FAIL: test_source_fields (__main__.FixedSourceFields.test_source_fields) (id='1216741268', field='NP', scope='consolidated')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\Dev\Projects\chstockdata\docs\audits\evidence\2026-10-21-w5h-f2-source-closure\test_sources.py", line 14, in test_source_fields
+    self.assertTrue(got)
+AssertionError: [] is not true
+
+======================================================================
+FAIL: test_source_fields (__main__.FixedSourceFields.test_source_fields) (id='1216741273', field='NP', scope='consolidated')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\Dev\Projects\chstockdata\docs\audits\evidence\2026-10-21-w5h-f2-source-closure\test_sources.py", line 14, in test_source_fields
+    self.assertTrue(got)
+AssertionError: [] is not true
+
+======================================================================
+FAIL: test_source_fields (__main__.FixedSourceFields.test_source_fields) (id='1217078312', field='NP', scope='consolidated')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\Dev\Projects\chstockdata\docs\audits\evidence\2026-10-21-w5h-f2-source-closure\test_sources.py", line 14, in test_source_fields
+    self.assertTrue(got)
+AssertionError: [] is not true
+
+======================================================================
+FAIL: test_source_fields (__main__.FixedSourceFields.test_source_fields) (id='1217078316', field='NP', scope='consolidated')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\Dev\Projects\chstockdata\docs\audits\evidence\2026-10-21-w5h-f2-source-closure\test_sources.py", line 14, in test_source_fields
+    self.assertTrue(got)
+AssertionError: [] is not true
+
+======================================================================
+FAIL: test_source_fields (__main__.FixedSourceFields.test_source_fields) (id='1217949872', field='NP', scope='consolidated')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\Dev\Projects\chstockdata\docs\audits\evidence\2026-10-21-w5h-f2-source-closure\test_sources.py", line 14, in test_source_fields
+    self.assertTrue(got)
+AssertionError: [] is not true
+
+======================================================================
+FAIL: test_source_fields (__main__.FixedSourceFields.test_source_fields) (id='1217949876', field='NP', scope='consolidated')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\Dev\Projects\chstockdata\docs\audits\evidence\2026-10-21-w5h-f2-source-closure\test_sources.py", line 14, in test_source_fields
+    self.assertTrue(got)
+AssertionError: [] is not true
+
+======================================================================
+FAIL: test_source_fields (__main__.FixedSourceFields.test_source_fields) (id='1216741273', field='OCF', scope='consolidated')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\Dev\Projects\chstockdata\docs\audits\evidence\2026-10-21-w5h-f2-source-closure\test_sources.py", line 14, in test_source_fields
+    self.assertTrue(got)
+AssertionError: [] is not true
+
+----------------------------------------------------------------------
+Ran 1 test in 0.021s
+
+FAILED (failures=7)

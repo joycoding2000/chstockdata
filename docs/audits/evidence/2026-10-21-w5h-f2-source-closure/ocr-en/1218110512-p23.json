@@ -1,0 +1,27 @@
+{
+    "id":  "1218110512",
+    "text":  "Ili",
+    "pit_qualified":  false,
+    "engine":  "Windows.Media.Ocr existing en-US",
+    "maximum_image_dimension":  10000,
+    "machine_seconds":  0.0669005,
+    "pixel_height":  2105,
+    "image_sha256":  "767b8e5c74e6dadd705e1c1ce5c902413f1b0d2f0f01ec42956b7b36d6c17e70",
+    "pixel_width":  1489,
+    "source_sha256":  "924250d7b46aa7d284a159e3b081f951b2d357ce14c37de6f64b5b78f0152503",
+    "physical_page":  23,
+    "lines":  [
+                  {
+                      "text":  "Ili",
+                      "words":  [
+                                    {
+                                        "y":  708,
+                                        "height":  25,
+                                        "width":  11,
+                                        "text":  "Ili",
+                                        "x":  1017
+                                    }
+                                ]
+                  }
+              ]
+}

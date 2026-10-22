@@ -1,0 +1,82 @@
+{
+    "id":  "1216741269",
+    "text":  "14.534.715.58523 4 6-1-10 539,001 3, 158,327652.53",
+    "pit_qualified":  false,
+    "engine":  "Windows.Media.Ocr existing en-US",
+    "maximum_image_dimension":  10000,
+    "machine_seconds":  0.0929825,
+    "pixel_height":  850,
+    "image_sha256":  "a66cd32bb0525f8fe085c237d72ef3c3e1e01e01dd7c5efa53f371bd9651eafd",
+    "pixel_width":  2976,
+    "source_sha256":  "28f31493c52375f096a45ad326ad8421357f9e73252858ae236d6fa715aad2d2",
+    "physical_page":  12,
+    "lines":  [
+                  {
+                      "text":  "14.534.715.58523",
+                      "words":  [
+                                    {
+                                        "y":  98,
+                                        "height":  32,
+                                        "width":  248,
+                                        "text":  "14.534.715.58523",
+                                        "x":  1380
+                                    }
+                                ]
+                  },
+                  {
+                      "text":  "4",
+                      "words":  [
+                                    {
+                                        "y":  530,
+                                        "height":  28,
+                                        "width":  16,
+                                        "text":  "4",
+                                        "x":  1464
+                                    }
+                                ]
+                  },
+                  {
+                      "text":  "6-1-10",
+                      "words":  [
+                                    {
+                                        "y":  688,
+                                        "height":  36,
+                                        "width":  130,
+                                        "text":  "6-1-10",
+                                        "x":  1424
+                                    }
+                                ]
+                  },
+                  {
+                      "text":  "539,001",
+                      "words":  [
+                                    {
+                                        "y":  98,
+                                        "height":  32,
+                                        "width":  102,
+                                        "text":  "539,001",
+                                        "x":  1758
+                                    }
+                                ]
+                  },
+                  {
+                      "text":  "3, 158,327652.53",
+                      "words":  [
+                                    {
+                                        "y":  98,
+                                        "height":  32,
+                                        "width":  22,
+                                        "text":  "3,",
+                                        "x":  2410
+                                    },
+                                    {
+                                        "y":  98,
+                                        "height":  30,
+                                        "width":  204,
+                                        "text":  "158,327652.53",
+                                        "x":  2440
+                                    }
+                                ]
+                  }
+              ]
+}

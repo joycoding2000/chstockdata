@@ -1,0 +1,27 @@
+{
+    "id":  "1216869640",
+    "text":  "6-1-191",
+    "pit_qualified":  false,
+    "engine":  "Windows.Media.Ocr existing en-US",
+    "maximum_image_dimension":  10000,
+    "machine_seconds":  0.1184452,
+    "pixel_height":  2105,
+    "image_sha256":  "c767c093faa4a4c8e309b49b4bcafc8aecc8cd75ac0e5696a44cbdaede4f3a77",
+    "pixel_width":  1489,
+    "source_sha256":  "d6fecbc0aa8be3e9a8eb2837454af517e58ab29d9f9cbd3e85ac76cf9f752fb8",
+    "physical_page":  191,
+    "lines":  [
+                  {
+                      "text":  "6-1-191",
+                      "words":  [
+                                    {
+                                        "y":  2029,
+                                        "height":  19,
+                                        "width":  81,
+                                        "text":  "6-1-191",
+                                        "x":  702
+                                    }
+                                ]
+                  }
+              ]
+}

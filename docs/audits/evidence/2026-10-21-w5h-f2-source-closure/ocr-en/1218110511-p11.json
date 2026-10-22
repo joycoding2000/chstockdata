@@ -1,0 +1,122 @@
+{
+    "id":  "1218110511",
+    "text":  "Grant Thornton 2022 6 h, bLfJ% 25%; 15%; LEO 2) 10",
+    "pit_qualified":  false,
+    "engine":  "Windows.Media.Ocr existing en-US",
+    "maximum_image_dimension":  10000,
+    "machine_seconds":  0.17832969999999998,
+    "pixel_height":  2105,
+    "image_sha256":  "93a224bad63b7f88c79c5eaf3fd7c2976c3ca215e77c1f770a81ae86d472aeda",
+    "pixel_width":  1488,
+    "source_sha256":  "d989780703a01055d0365266a7db87ab731dc596a84b7fff0c1b19b4a8d24bb8",
+    "physical_page":  11,
+    "lines":  [
+                  {
+                      "text":  "Grant Thornton",
+                      "words":  [
+                                    {
+                                        "y":  104,
+                                        "height":  42,
+                                        "width":  121,
+                                        "text":  "Grant",
+                                        "x":  273
+                                    },
+                                    {
+                                        "y":  105,
+                                        "height":  43,
+                                        "width":  190,
+                                        "text":  "Thornton",
+                                        "x":  398
+                                    }
+                                ]
+                  },
+                  {
+                      "text":  "2022 6 h,",
+                      "words":  [
+                                    {
+                                        "y":  474,
+                                        "height":  21,
+                                        "width":  53,
+                                        "text":  "2022",
+                                        "x":  296
+                                    },
+                                    {
+                                        "y":  474,
+                                        "height":  22,
+                                        "width":  13,
+                                        "text":  "6",
+                                        "x":  403
+                                    },
+                                    {
+                                        "y":  472,
+                                        "height":  28,
+                                        "width":  35,
+                                        "text":  "h,",
+                                        "x":  429
+                                    }
+                                ]
+                  },
+                  {
+                      "text":  "bLfJ% 25%; 15%;",
+                      "words":  [
+                                    {
+                                        "y":  694,
+                                        "height":  28,
+                                        "width":  76,
+                                        "text":  "bLfJ%",
+                                        "x":  241
+                                    },
+                                    {
+                                        "y":  698,
+                                        "height":  26,
+                                        "width":  55,
+                                        "text":  "25%;",
+                                        "x":  328
+                                    },
+                                    {
+                                        "y":  700,
+                                        "height":  25,
+                                        "width":  52,
+                                        "text":  "15%;",
+                                        "x":  1015
+                                    }
+                                ]
+                  },
+                  {
+                      "text":  "LEO",
+                      "words":  [
+                                    {
+                                        "y":  807,
+                                        "height":  27,
+                                        "width":  37,
+                                        "text":  "LEO",
+                                        "x":  236
+                                    }
+                                ]
+                  },
+                  {
+                      "text":  "2)",
+                      "words":  [
+                                    {
+                                        "y":  1411,
+                                        "height":  26,
+                                        "width":  28,
+                                        "text":  "2)",
+                                        "x":  289
+                                    }
+                                ]
+                  },
+                  {
+                      "text":  "10",
+                      "words":  [
+                                    {
+                                        "y":  1938,
+                                        "height":  17,
+                                        "width":  21,
+                                        "text":  "10",
+                                        "x":  750
+                                    }
+                                ]
+                  }
+              ]
+}

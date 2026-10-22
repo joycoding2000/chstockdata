@@ -1,0 +1,58 @@
+{
+    "id":  "1216741269",
+    "text":  "{Ell 6-1 -202 filr,",
+    "pit_qualified":  false,
+    "engine":  "Windows.Media.Ocr existing en-US",
+    "maximum_image_dimension":  10000,
+    "machine_seconds":  0.1074991,
+    "pixel_height":  2105,
+    "image_sha256":  "a115db6ed9aec64951ac747445dbcd0c161dfb533462fd38dd63ef553cd324b4",
+    "pixel_width":  1488,
+    "source_sha256":  "28f31493c52375f096a45ad326ad8421357f9e73252858ae236d6fa715aad2d2",
+    "physical_page":  204,
+    "lines":  [
+                  {
+                      "text":  "{Ell",
+                      "words":  [
+                                    {
+                                        "y":  650,
+                                        "height":  19,
+                                        "width":  27,
+                                        "text":  "{Ell",
+                                        "x":  730
+                                    }
+                                ]
+                  },
+                  {
+                      "text":  "6-1 -202",
+                      "words":  [
+                                    {
+                                        "y":  2023,
+                                        "height":  17,
+                                        "width":  27,
+                                        "text":  "6-1",
+                                        "x":  706
+                                    },
+                                    {
+                                        "y":  2023,
+                                        "height":  17,
+                                        "width":  44,
+                                        "text":  "-202",
+                                        "x":  740
+                                    }
+                                ]
+                  },
+                  {
+                      "text":  "filr,",
+                      "words":  [
+                                    {
+                                        "y":  1258,
+                                        "height":  30,
+                                        "width":  28,
+                                        "text":  "filr,",
+                                        "x":  1239
+                                    }
+                                ]
+                  }
+              ]
+}

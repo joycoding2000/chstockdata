@@ -1,0 +1,123 @@
+{
+  "frozen_at_utc": "2026-10-21T14:53:41.928Z",
+  "independent_truth": "Read complete physical source pages with independent pypdf; fields as printed, not originals substituted. Not blind or full-universe.",
+  "cases": [
+    {
+      "id": "1216869636",
+      "field": "NP",
+      "period": "2022-12-31",
+      "value_CNY": "22617778500",
+      "multiplier": 10000,
+      "physical_page": 35,
+      "scope": "consolidated"
+    },
+    {
+      "id": "1216869636",
+      "field": "NP",
+      "period": "2023-03-31",
+      "value_CNY": "1445811300",
+      "multiplier": 10000,
+      "physical_page": 35,
+      "scope": "consolidated"
+    },
+    {
+      "id": "1217321905",
+      "field": "EQ",
+      "period": "2022-12-31",
+      "value_CNY": "242691342200",
+      "multiplier": 10000,
+      "physical_page": 156,
+      "scope": "consolidated"
+    },
+    {
+      "id": "1217321905",
+      "field": "NP",
+      "period": "2022-12-31",
+      "value_CNY": "22617778500",
+      "multiplier": 10000,
+      "physical_page": 157,
+      "scope": "consolidated"
+    },
+    {
+      "id": "1217321905",
+      "field": "OCF",
+      "period": "2022-12-31",
+      "value_CNY": "2750449500",
+      "multiplier": 10000,
+      "physical_page": 158,
+      "scope": "consolidated"
+    },
+    {
+      "id": "1217321905",
+      "field": "OCF",
+      "period": "2022-12-31",
+      "value_CNY": "-19960531800",
+      "multiplier": 10000,
+      "physical_page": 162,
+      "scope": "parent"
+    },
+    {
+      "id": "1205169602",
+      "field": "EQ",
+      "period": "2017-12-31",
+      "value_CNY": "32032959807.76",
+      "multiplier": 1,
+      "physical_page": 120,
+      "scope": "consolidated"
+    },
+    {
+      "id": "1205169602",
+      "field": "NP",
+      "period": "2017-12-31",
+      "value_CNY": "4100926148.57",
+      "multiplier": 1,
+      "physical_page": 121,
+      "scope": "consolidated"
+    },
+    {
+      "id": "1205169602",
+      "field": "OCF",
+      "period": "2017-12-31",
+      "value_CNY": "1842794237.84",
+      "multiplier": 1,
+      "physical_page": 122,
+      "scope": "consolidated"
+    },
+    {
+      "id": "1216814161",
+      "field": "NP",
+      "period": "2022-12-31",
+      "value_CNY": "-9170618100",
+      "multiplier": 10000,
+      "physical_page": 56,
+      "scope": "consolidated"
+    },
+    {
+      "id": "1216814161",
+      "field": "OCF",
+      "period": "2022-12-31",
+      "value_CNY": "6253316300",
+      "multiplier": 10000,
+      "physical_page": 56,
+      "scope": "consolidated"
+    },
+    {
+      "id": "1217078318",
+      "field": "NP",
+      "period": "2022-12-31",
+      "value_CNY": "-9170618100",
+      "multiplier": 10000,
+      "physical_page": 58,
+      "scope": "consolidated"
+    },
+    {
+      "id": "1217949875",
+      "field": "NP",
+      "period": "2022-12-31",
+      "value_CNY": "-9170618100",
+      "multiplier": 10000,
+      "physical_page": 57,
+      "scope": "consolidated"
+    }
+  ]
+}

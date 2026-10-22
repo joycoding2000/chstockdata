@@ -1,0 +1,179 @@
+{
+    "id":  "1217078313",
+    "text":  "2011 : ltOCOUIS\u0026OS 2017 2012 1 2013 2016 the u nit b\u0027 • CPA 6- I -203",
+    "pit_qualified":  false,
+    "engine":  "Windows.Media.Ocr existing en-US",
+    "maximum_image_dimension":  10000,
+    "machine_seconds":  0.1688046,
+    "pixel_height":  2105,
+    "image_sha256":  "454506022afd54c00896e4ecf8e8ba685e2cfe7a8d77e1e9c3fc50bdabc2885c",
+    "pixel_width":  1488,
+    "source_sha256":  "20fbe4384ea3e87419d5af2e73b127fc93b22c1435904a2819c1a135cd1c9bc2",
+    "physical_page":  205,
+    "lines":  [
+                  {
+                      "text":  "2011",
+                      "words":  [
+                                    {
+                                        "y":  819,
+                                        "height":  15,
+                                        "width":  41,
+                                        "text":  "2011",
+                                        "x":  649
+                                    }
+                                ]
+                  },
+                  {
+                      "text":  ": ltOCOUIS\u0026OS",
+                      "words":  [
+                                    {
+                                        "y":  1064,
+                                        "height":  7,
+                                        "width":  4,
+                                        "text":  ":",
+                                        "x":  486
+                                    },
+                                    {
+                                        "y":  1061,
+                                        "height":  12,
+                                        "width":  81,
+                                        "text":  "ltOCOUIS\u0026OS",
+                                        "x":  495
+                                    }
+                                ]
+                  },
+                  {
+                      "text":  "2017",
+                      "words":  [
+                                    {
+                                        "y":  1070,
+                                        "height":  21,
+                                        "width":  53,
+                                        "text":  "2017",
+                                        "x":  303
+                                    }
+                                ]
+                  },
+                  {
+                      "text":  "2012",
+                      "words":  [
+                                    {
+                                        "y":  1263,
+                                        "height":  17,
+                                        "width":  51,
+                                        "text":  "2012",
+                                        "x":  427
+                                    }
+                                ]
+                  },
+                  {
+                      "text":  "1",
+                      "words":  [
+                                    {
+                                        "y":  1075,
+                                        "height":  15,
+                                        "width":  9,
+                                        "text":  "1",
+                                        "x":  695
+                                    }
+                                ]
+                  },
+                  {
+                      "text":  "2013",
+                      "words":  [
+                                    {
+                                        "y":  1257,
+                                        "height":  15,
+                                        "width":  52,
+                                        "text":  "2013",
+                                        "x":  681
+                                    }
+                                ]
+                  },
+                  {
+                      "text":  "2016",
+                      "words":  [
+                                    {
+                                        "y":  1256,
+                                        "height":  20,
+                                        "width":  53,
+                                        "text":  "2016",
+                                        "x":  859
+                                    }
+                                ]
+                  },
+                  {
+                      "text":  "the u nit b\u0027 • CPA",
+                      "words":  [
+                                    {
+                                        "y":  1432,
+                                        "height":  9,
+                                        "width":  16,
+                                        "text":  "the",
+                                        "x":  676
+                                    },
+                                    {
+                                        "y":  1432,
+                                        "height":  9,
+                                        "width":  8,
+                                        "text":  "u",
+                                        "x":  794
+                                    },
+                                    {
+                                        "y":  1433,
+                                        "height":  8,
+                                        "width":  13,
+                                        "text":  "nit",
+                                        "x":  804
+                                    },
+                                    {
+                                        "y":  1432,
+                                        "height":  11,
+                                        "width":  11,
+                                        "text":  "b\u0027",
+                                        "x":  820
+                                    },
+                                    {
+                                        "y":  1434,
+                                        "height":  7,
+                                        "width":  5,
+                                        "text":  "•",
+                                        "x":  835
+                                    },
+                                    {
+                                        "y":  1432,
+                                        "height":  9,
+                                        "width":  23,
+                                        "text":  "CPA",
+                                        "x":  842
+                                    }
+                                ]
+                  },
+                  {
+                      "text":  "6- I -203",
+                      "words":  [
+                                    {
+                                        "y":  2023,
+                                        "height":  17,
+                                        "width":  18,
+                                        "text":  "6-",
+                                        "x":  706
+                                    },
+                                    {
+                                        "y":  2023,
+                                        "height":  17,
+                                        "width":  4,
+                                        "text":  "I",
+                                        "x":  729
+                                    },
+                                    {
+                                        "y":  2023,
+                                        "height":  17,
+                                        "width":  43,
+                                        "text":  "-203",
+                                        "x":  740
+                                    }
+                                ]
+                  }
+              ]
+}

@@ -1,0 +1,55 @@
+{
+    "id":  "1216869640",
+    "text":  "々 ` 丫 \u0027 0",
+    "pit_qualified":  false,
+    "engine":  "Windows.Media.Ocr existing zh-Hans-CN",
+    "maximum_image_dimension":  10000,
+    "machine_seconds":  0.1417709,
+    "pixel_height":  2105,
+    "image_sha256":  "5b49ce0e6449d7dd6b94180188d07e0bc04f3f6295ff256a45278c877a626e6f",
+    "pixel_width":  1489,
+    "source_sha256":  "d6fecbc0aa8be3e9a8eb2837454af517e58ab29d9f9cbd3e85ac76cf9f752fb8",
+    "physical_page":  193,
+    "lines":  [
+                  {
+                      "text":  "々 ` 丫 \u0027 0",
+                      "words":  [
+                                    {
+                                        "y":  930,
+                                        "height":  26,
+                                        "width":  21,
+                                        "text":  "々",
+                                        "x":  520
+                                    },
+                                    {
+                                        "y":  940,
+                                        "height":  17,
+                                        "width":  20,
+                                        "text":  "`",
+                                        "x":  542
+                                    },
+                                    {
+                                        "y":  937,
+                                        "height":  26,
+                                        "width":  19,
+                                        "text":  "丫",
+                                        "x":  561
+                                    },
+                                    {
+                                        "y":  940,
+                                        "height":  5,
+                                        "width":  5,
+                                        "text":  "\u0027",
+                                        "x":  589
+                                    },
+                                    {
+                                        "y":  945,
+                                        "height":  20,
+                                        "width":  19,
+                                        "text":  "0",
+                                        "x":  595
+                                    }
+                                ]
+                  }
+              ]
+}

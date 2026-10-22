@@ -1,0 +1,546 @@
+{
+  "scope": "Mutually exclusive file-level disposition for the supplied 23 IDs; partial verified facts do not erase named unknown fields",
+  "reviews": [
+    {
+      "id": "1216741269",
+      "status": "UNRESOLVED_REQUIRES_EVIDENCE",
+      "source_pages": [
+        3,
+        9,
+        10,
+        11,
+        12,
+        203
+      ],
+      "fields_compared": [
+        "NP",
+        "OCF",
+        "EQ"
+      ],
+      "version_basis": "FY2022 audit 110A014431 + appended Q1/H1 financial statements",
+      "reason": "Image-only statement cells: whole-page zh/en OCR and bounded crop probe did not establish exact amount/column identities. Audit number alone does not prove no change in appended statements.",
+      "blocked_fields": [
+        "NP",
+        "OCF",
+        "EQ"
+      ],
+      "whole_document_equivalence": false,
+      "code": "000961",
+      "date": "2023-05-04",
+      "source_sha256": "28f31493c52375f096a45ad326ad8421357f9e73252858ae236d6fa715aad2d2",
+      "primary_target_period": "2022-12-31"
+    },
+    {
+      "id": "1216814161",
+      "status": "VERIFIED_DUPLICATE_OF_EXISTING_DISCLOSURE",
+      "source_pages": [
+        12,
+        56
+      ],
+      "fields_compared": [
+        "NP",
+        "OCF"
+      ],
+      "version_basis": "Explicit issuer report-period definition and risk disclosure; FY2022 figures match original 1216561621 at printed precision",
+      "reason": "Duplicates only for disclosed FY2022 NP/OCF. EQ is not supplied; no assertion of complete report equivalence or new monetary revision.",
+      "blocked_fields": [],
+      "whole_document_equivalence": false,
+      "code": "000961",
+      "date": "2023-05-15",
+      "source_sha256": "0ec4a6dda81318a0ff0e2a47b6bb19043b65b38b7f1f33ea82b8bbdc1987c83a",
+      "primary_target_period": "2022-12-31"
+    },
+    {
+      "id": "1216869640",
+      "status": "UNRESOLVED_REQUIRES_EVIDENCE",
+      "source_pages": [
+        3,
+        9,
+        10,
+        13,
+        15,
+        189
+      ],
+      "fields_compared": [
+        "NP",
+        "OCF",
+        "EQ"
+      ],
+      "version_basis": "FY2022 audit 2302617 + Q1 annex",
+      "reason": "Image-only consolidated and parent statements; no safe monetary fact accepted from OCR. Original basis and later Q1 basis must be separated.",
+      "blocked_fields": [
+        "NP",
+        "OCF",
+        "EQ"
+      ],
+      "whole_document_equivalence": false,
+      "code": "000002",
+      "date": "2023-05-22",
+      "source_sha256": "d6fecbc0aa8be3e9a8eb2837454af517e58ab29d9f9cbd3e85ac76cf9f752fb8",
+      "primary_target_period": "2022-12-31"
+    },
+    {
+      "id": "1217078313",
+      "status": "UNRESOLVED_REQUIRES_EVIDENCE",
+      "source_pages": [
+        3,
+        9,
+        10,
+        11,
+        12,
+        203
+      ],
+      "fields_compared": [
+        "NP",
+        "OCF",
+        "EQ"
+      ],
+      "version_basis": "FY2022 audit 110A014431 + appended Q1/H1 financial statements",
+      "reason": "Image-only statement cells: whole-page zh/en OCR and bounded crop probe did not establish exact amount/column identities. Audit number alone does not prove no change in appended statements.",
+      "blocked_fields": [
+        "NP",
+        "OCF",
+        "EQ"
+      ],
+      "whole_document_equivalence": false,
+      "code": "000961",
+      "date": "2023-06-16",
+      "source_sha256": "20fbe4384ea3e87419d5af2e73b127fc93b22c1435904a2819c1a135cd1c9bc2",
+      "primary_target_period": "2022-12-31"
+    },
+    {
+      "id": "1217949874",
+      "status": "UNRESOLVED_REQUIRES_EVIDENCE",
+      "source_pages": [
+        3,
+        9,
+        10,
+        11,
+        12,
+        203
+      ],
+      "fields_compared": [
+        "NP",
+        "OCF",
+        "EQ"
+      ],
+      "version_basis": "FY2022 audit 110A014431 + appended Q1/H1 financial statements",
+      "reason": "Image-only statement cells: whole-page zh/en OCR and bounded crop probe did not establish exact amount/column identities. Audit number alone does not prove no change in appended statements.",
+      "blocked_fields": [
+        "NP",
+        "OCF",
+        "EQ"
+      ],
+      "whole_document_equivalence": false,
+      "code": "000961",
+      "date": "2023-09-26",
+      "source_sha256": "5cefd1e1ef733ef5887b619e09ce792d52bd33e2710580616be5736da03cd33c",
+      "primary_target_period": "2022-12-31"
+    },
+    {
+      "id": "1216741271",
+      "status": "VERIFIED_DUPLICATE_OF_EXISTING_DISCLOSURE",
+      "source_pages": [
+        12,
+        56
+      ],
+      "fields_compared": [
+        "NP",
+        "OCF"
+      ],
+      "version_basis": "Explicit issuer report-period definition and risk disclosure; FY2022 figures match original 1216561621 at printed precision",
+      "reason": "Duplicates only for disclosed FY2022 NP/OCF. EQ is not supplied; no assertion of complete report equivalence or new monetary revision.",
+      "blocked_fields": [],
+      "whole_document_equivalence": false,
+      "code": "000961",
+      "date": "2023-05-04",
+      "source_sha256": "60081ea59c3604e7ec79b713f43480e9dff50d882fb153ca6dedbcea1f57aa17",
+      "primary_target_period": "2022-12-31"
+    },
+    {
+      "id": "1216869636",
+      "status": "VERIFIED_DUPLICATE_OF_EXISTING_DISCLOSURE",
+      "source_pages": [
+        35,
+        95,
+        117
+      ],
+      "fields_compared": [
+        "NP",
+        "OCF"
+      ],
+      "version_basis": "Auditor declaration explicitly identifies annual audit 2302617; dated issuer summary",
+      "reason": "FY2022 NP/OCF repeat original 1216273938 at printed precision. EQ is not derived from financial-investment ratios.",
+      "blocked_fields": [],
+      "whole_document_equivalence": false,
+      "code": "000002",
+      "date": "2023-05-22",
+      "source_sha256": "b7f149126fae29ab448797f0603651c4aa22ae6030fcbef36c3dea8b4b4deabd",
+      "primary_target_period": "2022-12-31"
+    },
+    {
+      "id": "1217078318",
+      "status": "VERIFIED_DUPLICATE_OF_EXISTING_DISCLOSURE",
+      "source_pages": [
+        14,
+        58
+      ],
+      "fields_compared": [
+        "NP",
+        "OCF"
+      ],
+      "version_basis": "Explicit issuer report-period definition and risk disclosure; FY2022 figures match original 1216561621 at printed precision",
+      "reason": "Duplicates only for disclosed FY2022 NP/OCF. EQ is not supplied; no assertion of complete report equivalence or new monetary revision.",
+      "blocked_fields": [],
+      "whole_document_equivalence": false,
+      "code": "000961",
+      "date": "2023-06-16",
+      "source_sha256": "6c801a5bbd82483aac9612c363164e01e262c6563f51fcb5cb695b82377fb287",
+      "primary_target_period": "2022-12-31"
+    },
+    {
+      "id": "1217949875",
+      "status": "VERIFIED_DUPLICATE_OF_EXISTING_DISCLOSURE",
+      "source_pages": [
+        12,
+        57
+      ],
+      "fields_compared": [
+        "NP",
+        "OCF"
+      ],
+      "version_basis": "Explicit issuer report-period definition and risk disclosure; FY2022 figures match original 1216561621 at printed precision",
+      "reason": "Duplicates only for disclosed FY2022 NP/OCF. EQ is not supplied; no assertion of complete report equivalence or new monetary revision.",
+      "blocked_fields": [],
+      "whole_document_equivalence": false,
+      "code": "000961",
+      "date": "2023-09-26",
+      "source_sha256": "d983950b9c698a8735aeedf5398d06592a467bbf9fba06e3484013be055a2ac1",
+      "primary_target_period": "2022-12-31"
+    },
+    {
+      "id": "1205169602",
+      "status": "VERIFIED_DUPLICATE_OF_EXISTING_DISCLOSURE",
+      "source_pages": [
+        118,
+        120,
+        121,
+        122,
+        126
+      ],
+      "fields_compared": [
+        "NP",
+        "OCF",
+        "EQ"
+      ],
+      "version_basis": "Explicit consolidated report section, audit G17034190036, FY2017 original 1204793690",
+      "reason": "All three consolidated FY2017 amounts agree exactly. Parent cash flow kept separate; growth percentage excluded.",
+      "blocked_fields": [],
+      "whole_document_equivalence": false,
+      "code": "600518",
+      "date": "2018-07-17",
+      "source_sha256": "4343f6395aa0cd19ecb489f5fdfafcdc732c97dbfeb55caa4d10eff296e153f1",
+      "primary_target_period": "2017-12-31"
+    },
+    {
+      "id": "1205465511",
+      "status": "VERIFIED_DUPLICATE_OF_EXISTING_DISCLOSURE",
+      "source_pages": [
+        117,
+        119,
+        120,
+        121,
+        125
+      ],
+      "fields_compared": [
+        "NP",
+        "OCF",
+        "EQ"
+      ],
+      "version_basis": "Same named FY2017 audit G17034190036, consolidated statements, own later publication",
+      "reason": "All three FY2017 amounts agree with original, not with later 2019 restatement. No historical backdating.",
+      "blocked_fields": [],
+      "whole_document_equivalence": false,
+      "code": "600518",
+      "date": "2018-09-26",
+      "source_sha256": "b321e6dada304b7aa5fb86d0d7391eb749b091e5fe1a05086b41e17bb3ce2150",
+      "primary_target_period": "2017-12-31"
+    },
+    {
+      "id": "1216741268",
+      "status": "UNRESOLVED_REQUIRES_EVIDENCE",
+      "source_pages": [
+        46,
+        53,
+        108
+      ],
+      "fields_compared": [
+        "NP",
+        "OCF"
+      ],
+      "version_basis": "Issuer FY2022 financial explanations and current Q1/H1 updates; NP agrees with original at 100-CNY quantum",
+      "reason": "NP correspondence is established. OCF summary/narrative has no independently established consolidated-versus-parent scope in this extension; exact amount agreement does not certify scope. Explicitly retain UNKNOWN for OCF.",
+      "blocked_fields": [
+        "OCF"
+      ],
+      "whole_document_equivalence": false,
+      "code": "000961",
+      "date": "2023-05-04",
+      "source_sha256": "43e01bfd5c512d70accc4921d73ae8bf326320169dae7baeb0c2636cae18999d",
+      "primary_target_period": "2022-12-31"
+    },
+    {
+      "id": "1216741273",
+      "status": "UNRESOLVED_REQUIRES_EVIDENCE",
+      "source_pages": [
+        21,
+        88
+      ],
+      "fields_compared": [
+        "NP",
+        "OCF"
+      ],
+      "version_basis": "Issuer FY2022 financial explanations and current Q1/H1 updates; NP agrees with original at 100-CNY quantum",
+      "reason": "NP correspondence is established. OCF summary/narrative has no independently established consolidated-versus-parent scope in this extension; exact amount agreement does not certify scope. Explicitly retain UNKNOWN for OCF.",
+      "blocked_fields": [
+        "OCF"
+      ],
+      "whole_document_equivalence": false,
+      "code": "000961",
+      "date": "2023-05-04",
+      "source_sha256": "2d9d338043402cc3464b56f4041581f979823a92710d9fd5df5089aadf079f44",
+      "primary_target_period": "2022-12-31"
+    },
+    {
+      "id": "1217078312",
+      "status": "UNRESOLVED_REQUIRES_EVIDENCE",
+      "source_pages": [
+        24,
+        30,
+        38,
+        97,
+        98
+      ],
+      "fields_compared": [
+        "NP",
+        "OCF"
+      ],
+      "version_basis": "Issuer FY2022 financial explanations and current Q1/H1 updates; NP agrees with original at 100-CNY quantum",
+      "reason": "NP correspondence is established. OCF summary/narrative has no independently established consolidated-versus-parent scope in this extension; exact amount agreement does not certify scope. Explicitly retain UNKNOWN for OCF.",
+      "blocked_fields": [
+        "OCF"
+      ],
+      "whole_document_equivalence": false,
+      "code": "000961",
+      "date": "2023-06-16",
+      "source_sha256": "d44edcdf73b6a4bf7649582324ee0e66f90f82ecb5acc112cc7e62eb700cfc02",
+      "primary_target_period": "2022-12-31"
+    },
+    {
+      "id": "1217078316",
+      "status": "UNRESOLVED_REQUIRES_EVIDENCE",
+      "source_pages": [
+        50,
+        56,
+        64,
+        126
+      ],
+      "fields_compared": [
+        "NP",
+        "OCF"
+      ],
+      "version_basis": "Issuer FY2022 financial explanations and current Q1/H1 updates; NP agrees with original at 100-CNY quantum",
+      "reason": "NP correspondence is established. OCF summary/narrative has no independently established consolidated-versus-parent scope in this extension; exact amount agreement does not certify scope. Explicitly retain UNKNOWN for OCF.",
+      "blocked_fields": [
+        "OCF"
+      ],
+      "whole_document_equivalence": false,
+      "code": "000961",
+      "date": "2023-06-16",
+      "source_sha256": "2d2500019280ff38a63fcc8ed3e05b2bd26ce9bcb0759f784ffd26d75b5f443e",
+      "primary_target_period": "2022-12-31"
+    },
+    {
+      "id": "1217170564",
+      "status": "VERIFIED_NO_TARGET_FIELD_EFFECT",
+      "source_pages": [
+        2,
+        3,
+        4,
+        19,
+        20
+      ],
+      "fields_compared": [],
+      "version_basis": "Sole question 1 of second-round inquiry 120104: debt restructuring, presale fund usage, education investments and industry-policy eligibility",
+      "reason": "Whole body checked; no NP/OCF/EQ replacement or positive period-level amount. Not cleared from title or OCR no-hit alone. For October company reply, final three image pages are seal/declaration pages.",
+      "blocked_fields": [],
+      "whole_document_equivalence": false,
+      "code": "000961",
+      "date": "2023-06-30",
+      "source_sha256": "842f69f66e66ae3efe23cd152aea3b54bf02530f601b8b4e86edfb1785b32171",
+      "primary_target_period": "2022-12-31"
+    },
+    {
+      "id": "1217170566",
+      "status": "VERIFIED_NO_TARGET_FIELD_EFFECT",
+      "source_pages": [
+        3,
+        4,
+        21,
+        22
+      ],
+      "fields_compared": [],
+      "version_basis": "Sole question 1 of second-round inquiry 120104: debt restructuring, presale fund usage, education investments and industry-policy eligibility",
+      "reason": "Whole body checked; no NP/OCF/EQ replacement or positive period-level amount. Not cleared from title or OCR no-hit alone. For October company reply, final three image pages are seal/declaration pages.",
+      "blocked_fields": [],
+      "whole_document_equivalence": false,
+      "code": "000961",
+      "date": "2023-06-30",
+      "source_sha256": "957a42625d80905bb26564272e21a354adb6367126f66be729a389e7755627bc",
+      "primary_target_period": "2022-12-31"
+    },
+    {
+      "id": "1217321905",
+      "status": "DIFFERENT_ACCOUNTING_BASIS",
+      "source_pages": [
+        154,
+        156,
+        157,
+        158,
+        161,
+        162
+      ],
+      "fields_compared": [
+        "NP",
+        "OCF",
+        "EQ"
+      ],
+      "version_basis": "Explicit annual financial chapter cites each audited current-period-end report, including original audit 2302617; parent tables labelled separately",
+      "reason": "FY2022 EQ is original-audit basis, while Q1 report 1216686497 already contains adjusted comparative EQ. Later publication must not revert that adjusted ledger value. NP/OCF are corroborations, not new revisions.",
+      "blocked_fields": [],
+      "whole_document_equivalence": false,
+      "code": "000002",
+      "date": "2023-07-19",
+      "source_sha256": "ec62521ca89aea1015d4a0237df8032b6c102ad53679824eb39988616bd48ccb",
+      "primary_target_period": "2022-12-31"
+    },
+    {
+      "id": "1217361564",
+      "status": "VERIFIED_DUPLICATE_OF_EXISTING_DISCLOSURE",
+      "source_pages": [
+        2,
+        6,
+        22,
+        23
+      ],
+      "fields_compared": [
+        "NP",
+        "OCF"
+      ],
+      "version_basis": "Explicit audit 110A014431, report-period quotation and no replacement amount in auditor conclusions",
+      "reason": "FY2022 NP/OCF quoted in 亿元 at coarse precision; match original within rounding bounds. Does not provide target EQ. Purpose-limited auditor statement retained; no commercial redistribution permission inferred.",
+      "blocked_fields": [],
+      "whole_document_equivalence": false,
+      "code": "000961",
+      "date": "2023-07-22",
+      "source_sha256": "701f2725e9778a5dc54bb8b72a4bca6b363414ab0ce5b70cb1f74f5c8e5997f0",
+      "primary_target_period": "2022-12-31"
+    },
+    {
+      "id": "1217949872",
+      "status": "UNRESOLVED_REQUIRES_EVIDENCE",
+      "source_pages": [
+        28,
+        36,
+        43,
+        107
+      ],
+      "fields_compared": [
+        "NP",
+        "OCF"
+      ],
+      "version_basis": "Issuer FY2022 financial explanations and current Q1/H1 updates; NP agrees with original at 100-CNY quantum",
+      "reason": "NP correspondence is established. OCF summary/narrative has no independently established consolidated-versus-parent scope in this extension; exact amount agreement does not certify scope. Explicitly retain UNKNOWN for OCF.",
+      "blocked_fields": [
+        "OCF"
+      ],
+      "whole_document_equivalence": false,
+      "code": "000961",
+      "date": "2023-09-26",
+      "source_sha256": "2ae73c452d31df7006124bb2bac82b9772430da23f4a8f5aea11d954705149c4",
+      "primary_target_period": "2022-12-31"
+    },
+    {
+      "id": "1217949876",
+      "status": "UNRESOLVED_REQUIRES_EVIDENCE",
+      "source_pages": [
+        57,
+        65,
+        73,
+        138
+      ],
+      "fields_compared": [
+        "NP",
+        "OCF"
+      ],
+      "version_basis": "Issuer FY2022 financial explanations and current Q1/H1 updates; NP agrees with original at 100-CNY quantum",
+      "reason": "NP correspondence is established. OCF summary/narrative has no independently established consolidated-versus-parent scope in this extension; exact amount agreement does not certify scope. Explicitly retain UNKNOWN for OCF.",
+      "blocked_fields": [
+        "OCF"
+      ],
+      "whole_document_equivalence": false,
+      "code": "000961",
+      "date": "2023-09-26",
+      "source_sha256": "7ec5f9e171caf3adbba8a19b38b075ecbc2a056f34be2cdae827d87450b5fbee",
+      "primary_target_period": "2022-12-31"
+    },
+    {
+      "id": "1218110511",
+      "status": "UNRESOLVED_REQUIRES_EVIDENCE",
+      "source_pages": [
+        2,
+        3,
+        4,
+        22
+      ],
+      "fields_compared": [
+        "NP",
+        "OCF",
+        "EQ"
+      ],
+      "version_basis": "All-image second-round auditor reply, audit special report 110A018482, inquiry 120104",
+      "reason": "Companion company reply is scoped, but all-image auditor text has not independently established full target-field exclusion. Cannot infer full equivalence from shared inquiry identity.",
+      "blocked_fields": [
+        "NP",
+        "OCF",
+        "EQ"
+      ],
+      "whole_document_equivalence": false,
+      "code": "000961",
+      "date": "2023-10-21",
+      "source_sha256": "d989780703a01055d0365266a7db87ab731dc596a84b7fff0c1b19b4a8d24bb8",
+      "primary_target_period": "2022-12-31"
+    },
+    {
+      "id": "1218110512",
+      "status": "VERIFIED_NO_TARGET_FIELD_EFFECT",
+      "source_pages": [
+        3,
+        4,
+        21,
+        22,
+        23,
+        24
+      ],
+      "fields_compared": [],
+      "version_basis": "Sole question 1 of second-round inquiry 120104: debt restructuring, presale fund usage, education investments and industry-policy eligibility",
+      "reason": "Whole body checked; no NP/OCF/EQ replacement or positive period-level amount. Not cleared from title or OCR no-hit alone. For October company reply, final three image pages are seal/declaration pages.",
+      "blocked_fields": [],
+      "whole_document_equivalence": false,
+      "code": "000961",
+      "date": "2023-10-21",
+      "source_sha256": "924250d7b46aa7d284a159e3b081f951b2d357ce14c37de6f64b5b78f0152503",
+      "primary_target_period": "2022-12-31"
+    }
+  ]
+}

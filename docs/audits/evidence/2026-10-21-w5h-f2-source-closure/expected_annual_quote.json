@@ -1,0 +1,24 @@
+{
+  "frozen_at_utc": "2026-10-21T15:14:37.305Z",
+  "method": "Full original physical pages 2 and 6, independent pypdf; quote precision retained",
+  "cases": [
+    {
+      "id": "1217361564",
+      "field": "NP",
+      "period": "2022-12-31",
+      "physical_page": 2,
+      "scope": "consolidated",
+      "value_CNY": "-9171000000",
+      "multiplier": 100000000
+    },
+    {
+      "id": "1217361564",
+      "field": "OCF",
+      "period": "2022-12-31",
+      "physical_page": 6,
+      "scope": "consolidated",
+      "value_CNY": "6253000000",
+      "multiplier": 100000000
+    }
+  ]
+}

@@ -1,0 +1,187 @@
+{
+    "id":  "1216741269",
+    "text":  "10 11 12 13 14 15 21 3270, 1301068.39 g6,D33T13721 6, 133,440.92 i 4254326 46 15.789222600.58",
+    "pit_qualified":  false,
+    "engine":  "Windows.Media.Ocr existing en-US",
+    "maximum_image_dimension":  10000,
+    "machine_seconds":  0.1226095,
+    "pixel_height":  1080,
+    "image_sha256":  "23a4359b93d161f4bdb0eead2de871cb86f4b75feed7aab7ecd449b80644d204",
+    "pixel_width":  2976,
+    "source_sha256":  "28f31493c52375f096a45ad326ad8421357f9e73252858ae236d6fa715aad2d2",
+    "physical_page":  9,
+    "lines":  [
+                  {
+                      "text":  "10",
+                      "words":  [
+                                    {
+                                        "y":  130,
+                                        "height":  30,
+                                        "width":  36,
+                                        "text":  "10",
+                                        "x":  1038
+                                    }
+                                ]
+                  },
+                  {
+                      "text":  "11",
+                      "words":  [
+                                    {
+                                        "y":  552,
+                                        "height":  32,
+                                        "width":  30,
+                                        "text":  "11",
+                                        "x":  1038
+                                    }
+                                ]
+                  },
+                  {
+                      "text":  "12",
+                      "words":  [
+                                    {
+                                        "y":  694,
+                                        "height":  32,
+                                        "width":  34,
+                                        "text":  "12",
+                                        "x":  1038
+                                    }
+                                ]
+                  },
+                  {
+                      "text":  "13",
+                      "words":  [
+                                    {
+                                        "y":  766,
+                                        "height":  30,
+                                        "width":  36,
+                                        "text":  "13",
+                                        "x":  1038
+                                    }
+                                ]
+                  },
+                  {
+                      "text":  "14",
+                      "words":  [
+                                    {
+                                        "y":  836,
+                                        "height":  30,
+                                        "width":  34,
+                                        "text":  "14",
+                                        "x":  1038
+                                    }
+                                ]
+                  },
+                  {
+                      "text":  "15",
+                      "words":  [
+                                    {
+                                        "y":  904,
+                                        "height":  32,
+                                        "width":  34,
+                                        "text":  "15",
+                                        "x":  1038
+                                    }
+                                ]
+                  },
+                  {
+                      "text":  "21",
+                      "words":  [
+                                    {
+                                        "y":  550,
+                                        "height":  32,
+                                        "width":  34,
+                                        "text":  "21",
+                                        "x":  1190
+                                    }
+                                ]
+                  },
+                  {
+                      "text":  "3270, 1301068.39",
+                      "words":  [
+                                    {
+                                        "y":  832,
+                                        "height":  38,
+                                        "width":  92,
+                                        "text":  "3270,",
+                                        "x":  1210
+                                    },
+                                    {
+                                        "y":  832,
+                                        "height":  38,
+                                        "width":  162,
+                                        "text":  "1301068.39",
+                                        "x":  1308
+                                    }
+                                ]
+                  },
+                  {
+                      "text":  "g6,D33T13721",
+                      "words":  [
+                                    {
+                                        "y":  902,
+                                        "height":  40,
+                                        "width":  214,
+                                        "text":  "g6,D33T13721",
+                                        "x":  1256
+                                    }
+                                ]
+                  },
+                  {
+                      "text":  "6, 133,440.92",
+                      "words":  [
+                                    {
+                                        "y":  128,
+                                        "height":  38,
+                                        "width":  26,
+                                        "text":  "6,",
+                                        "x":  1662
+                                    },
+                                    {
+                                        "y":  128,
+                                        "height":  36,
+                                        "width":  166,
+                                        "text":  "133,440.92",
+                                        "x":  1694
+                                    }
+                                ]
+                  },
+                  {
+                      "text":  "i 4254326 46",
+                      "words":  [
+                                    {
+                                        "y":  904,
+                                        "height":  30,
+                                        "width":  8,
+                                        "text":  "i",
+                                        "x":  1646
+                                    },
+                                    {
+                                        "y":  904,
+                                        "height":  38,
+                                        "width":  152,
+                                        "text":  "4254326",
+                                        "x":  1662
+                                    },
+                                    {
+                                        "y":  904,
+                                        "height":  30,
+                                        "width":  36,
+                                        "text":  "46",
+                                        "x":  1824
+                                    }
+                                ]
+                  },
+                  {
+                      "text":  "15.789222600.58",
+                      "words":  [
+                                    {
+                                        "y":  128,
+                                        "height":  38,
+                                        "width":  282,
+                                        "text":  "15.789222600.58",
+                                        "x":  1966
+                                    }
+                                ]
+                  }
+              ]
+}

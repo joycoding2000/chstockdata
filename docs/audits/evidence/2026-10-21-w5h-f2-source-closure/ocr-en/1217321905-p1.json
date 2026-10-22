@@ -1,0 +1,108 @@
+{
+    "id":  "1217321905",
+    "text":  "vanKe 33 g 2023 2023 20 ( ) AAA",
+    "pit_qualified":  false,
+    "engine":  "Windows.Media.Ocr existing en-US",
+    "maximum_image_dimension":  10000,
+    "machine_seconds":  0.093847599999999989,
+    "pixel_height":  2103,
+    "image_sha256":  "3ea1610951385008c5c633c1be471889504f2d85b78e99fcf7cf024e98998a0a",
+    "pixel_width":  1488,
+    "source_sha256":  "ec62521ca89aea1015d4a0237df8032b6c102ad53679824eb39988616bd48ccb",
+    "physical_page":  1,
+    "lines":  [
+                  {
+                      "text":  "vanKe",
+                      "words":  [
+                                    {
+                                        "y":  208,
+                                        "height":  88,
+                                        "width":  379,
+                                        "text":  "vanKe",
+                                        "x":  546
+                                    }
+                                ]
+                  },
+                  {
+                      "text":  "33 g",
+                      "words":  [
+                                    {
+                                        "y":  515,
+                                        "height":  25,
+                                        "width":  30,
+                                        "text":  "33",
+                                        "x":  843
+                                    },
+                                    {
+                                        "y":  511,
+                                        "height":  31,
+                                        "width":  28,
+                                        "text":  "g",
+                                        "x":  888
+                                    }
+                                ]
+                  },
+                  {
+                      "text":  "2023",
+                      "words":  [
+                                    {
+                                        "y":  685,
+                                        "height":  38,
+                                        "width":  106,
+                                        "text":  "2023",
+                                        "x":  793
+                                    }
+                                ]
+                  },
+                  {
+                      "text":  "2023",
+                      "words":  [
+                                    {
+                                        "y":  1811,
+                                        "height":  24,
+                                        "width":  69,
+                                        "text":  "2023",
+                                        "x":  681
+                                    }
+                                ]
+                  },
+                  {
+                      "text":  "20 ( )",
+                      "words":  [
+                                    {
+                                        "y":  1390,
+                                        "height":  28,
+                                        "width":  37,
+                                        "text":  "20",
+                                        "x":  942
+                                    },
+                                    {
+                                        "y":  1388,
+                                        "height":  30,
+                                        "width":  10,
+                                        "text":  "(",
+                                        "x":  1095
+                                    },
+                                    {
+                                        "y":  1388,
+                                        "height":  30,
+                                        "width":  10,
+                                        "text":  ")",
+                                        "x":  1159
+                                    }
+                                ]
+                  },
+                  {
+                      "text":  "AAA",
+                      "words":  [
+                                    {
+                                        "y":  1468,
+                                        "height":  27,
+                                        "width":  86,
+                                        "text":  "AAA",
+                                        "x":  969
+                                    }
+                                ]
+                  }
+              ]
+}

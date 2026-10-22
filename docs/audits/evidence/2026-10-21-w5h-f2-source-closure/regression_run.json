@@ -1,0 +1,89 @@
+{
+  "complete": true,
+  "stages": [
+    {
+      "stage": "run_auxiliary.py",
+      "machine_seconds": 14.510397300000477,
+      "exit": 0,
+      "stdout": "{'eps_facts': 8, 'notices': 9}\n",
+      "stderr": ""
+    },
+    {
+      "stage": "classify_index.py",
+      "machine_seconds": 0.3061784000019543,
+      "exit": 0,
+      "stdout": "{'metadata': 868, 'unread_financial_candidates': 23, 'counts': {'000002': 3, '000961': 18, '600518': 2}}\n",
+      "stderr": ""
+    },
+    {
+      "stage": "validate_values.py",
+      "machine_seconds": 0.23469520000071498,
+      "exit": 0,
+      "stdout": "{\"counts\": {\"PASS\": 89}, \"by_id\": {\"1219506510\": {\"PASS\": 9}, \"1219875828\": {\"PASS\": 6}, \"1219487237\": {\"PASS\": 9}, \"1219913619\": {\"PASS\": 6}, \"1219313047\": {\"PASS\": 9}, \"1219619642\": {\"PASS\": 6}, \"1219429144\": {\"PASS\": 9}, \"1219922891\": {\"PASS\": 8}, \"1219747877\": {\"PASS\": 9}, \"1219909136\": {\"PASS\": 6}, \"1216561621\": {\"PASS\": 3}, \"1217386817\": {\"PASS\": 3}, \"1217386818\": {}, \"1221331382\": {}, \"1204793690\": {\"PASS\": 3}, \"1206168283\": {}, \"1206168292\": {\"PASS\": 3}, \"1206201352\": {}}}\n",
+      "stderr": ""
+    },
+    {
+      "stage": "validate_new.py",
+      "machine_seconds": 0.22151550000126008,
+      "exit": 0,
+      "stdout": "{\"counts\": {\"PASS\": 68, \"PASS_UNKNOWN\": 2}, \"non_pass\": []}\n",
+      "stderr": ""
+    },
+    {
+      "stage": "version_legacy.py",
+      "machine_seconds": 0.9286218999986886,
+      "exit": 0,
+      "stdout": "{\"ledger_facts\": 69, \"catalog\": 85, \"paired_comparatives\": 15, \"changed_fields\": 8, \"replay_pass\": 46, \"replay_denominator\": 46}\n",
+      "stderr": ""
+    },
+    {
+      "stage": "check_quality.py",
+      "machine_seconds": 0.2331893000009586,
+      "exit": 0,
+      "stdout": "{\"pass\": true, \"checks\": 91, \"current_row_numeric_mismatches\": 2}\n",
+      "stderr": ""
+    },
+    {
+      "stage": "check_new_quality.py",
+      "machine_seconds": 0.6696742999993148,
+      "exit": 0,
+      "stdout": "{'checks': 70, 'all_pass': True}\n",
+      "stderr": ""
+    },
+    {
+      "stage": "version_f2.py",
+      "machine_seconds": 0.8377634999997099,
+      "exit": 0,
+      "stdout": "{'ledger': 127, 'paired': 22, 'transitions': 42, 'queries': 118}\n",
+      "stderr": ""
+    },
+    {
+      "stage": "validate_replay_f2.py",
+      "machine_seconds": 0.2851357999970787,
+      "exit": 0,
+      "stdout": "{'counts': {'PASS': 118}, 'eps': {'PASS': 3}, 'failed': []}\n",
+      "stderr": ""
+    },
+    {
+      "stage": "qualify_events.py",
+      "machine_seconds": 0.3086697999970056,
+      "exit": 0,
+      "stdout": "{'comparative_events': 11, 'document_updates': 1, 'changed_transitions_without_correction_title': 13}\n",
+      "stderr": ""
+    },
+    {
+      "stage": "unittest",
+      "machine_seconds": 2.3827072999993106,
+      "exit": 0,
+      "stdout": "",
+      "stderr": "test_conflicting_units_unknown (test_parser.ParserSafety.test_conflicting_units_unknown) ... ok\ntest_disagreeing_same_identity_is_not_certified (test_parser.ParserSafety.test_disagreeing_same_identity_is_not_certified) ... ok\ntest_equity_is_end_not_beginning (test_parser.ParserSafety.test_equity_is_end_not_beginning) ... ok\ntest_exact_field_identity (test_parser.ParserSafety.test_exact_field_identity) ... ok\ntest_explicit_parent_scope_is_separate (test_parser.ParserSafety.test_explicit_parent_scope_is_separate) ... ok\ntest_explicit_rounding_is_not_an_arbitrary_repair (test_parser.ParserSafety.test_explicit_rounding_is_not_an_arbitrary_repair) ... ok\ntest_explicit_units (test_parser.ParserSafety.test_explicit_units) ... ok\ntest_no_cross_page_without_aligned_table (test_parser.ParserSafety.test_no_cross_page_without_aligned_table) ... ok\ntest_parentheses_and_minus (test_parser.ParserSafety.test_parentheses_and_minus) ... ok\ntest_unit_must_not_look_forward (test_parser.ParserSafety.test_unit_must_not_look_forward) ... ok\ntest_later_value_never_overwrites_earlier_T (test_versions.ReplaySafety.test_later_value_never_overwrites_earlier_T) ... ok\ntest_missing_intermediate_report_unknown (test_versions.ReplaySafety.test_missing_intermediate_report_unknown) ... ok\ntest_missing_original_and_future_version_unknown (test_versions.ReplaySafety.test_missing_original_and_future_version_unknown) ... ok\ntest_other_issuer_or_period_not_mixed (test_versions.ReplaySafety.test_other_issuer_or_period_not_mixed) ... ok\ntest_true_same_time_source_conflict_unknown (test_versions.ReplaySafety.test_true_same_time_source_conflict_unknown) ... ok\ntest_moutai_two_equity_values_have_direct_proof (test_f2.F2KnownGaps.test_moutai_two_equity_values_have_direct_proof) ... ok\ntest_new_documents_unit_blocks_and_dash_do_not_hide_fields (test_f2.F2KnownGaps.test_new_documents_unit_blocks_and_dash_do_not_hide_fields) ... ok\ntest_nine_month_flow_header_is_not_beginning_equity (test_f2.F2KnownGaps.test_nine_month_flow_header_is_not_beginning_equity) ... ok\ntest_prior_ytd_header_is_prior_period (test_f2.F2KnownGaps.test_prior_ytd_header_is_prior_period) ... ok\ntest_before_adjustment_column_not_its_own_original (test_pipeline.PipelineGuards.test_before_adjustment_column_not_its_own_original) ... ok\ntest_current_structured_row_cannot_enter_ledger (test_pipeline.PipelineGuards.test_current_structured_row_cannot_enter_ledger) ... ok\ntest_future_report_period_rejected (test_pipeline.PipelineGuards.test_future_report_period_rejected) ... ok\ntest_missing_intermediate_original_blocks_old_carry (test_pipeline.PipelineGuards.test_missing_intermediate_original_blocks_old_carry) ... ok\ntest_missing_original_future_comparative_not_backdated (test_pipeline.PipelineGuards.test_missing_original_future_comparative_not_backdated) ... ok\ntest_missing_source_or_location_rejected (test_pipeline.PipelineGuards.test_missing_source_or_location_rejected) ... ok\ntest_parent_not_consolidated (test_pipeline.PipelineGuards.test_parent_not_consolidated) ... ok\ntest_single_quarter_does_not_replace_ytd (test_pipeline.PipelineGuards.test_single_quarter_does_not_replace_ytd) ... ok\ntest_source_conflict_not_hidden (test_pipeline.PipelineGuards.test_source_conflict_not_hidden) ... ok\ntest_unread_financial_filing_blocks_qualified_history (test_pipeline.PipelineGuards.test_unread_financial_filing_blocks_qualified_history) ... ok\ntest_unrelated_governance_does_not_replace_negative_value (test_pipeline.PipelineGuards.test_unrelated_governance_does_not_replace_negative_value) ... ok\ntest_unsupported_interval_rejected (test_pipeline.PipelineGuards.test_unsupported_interval_rejected) ... ok\ntest_wrong_issuer_rejected (test_pipeline.PipelineGuards.test_wrong_issuer_rejected) ... ok\ntest_wrong_unit_scope_rejected (test_pipeline.PipelineGuards.test_wrong_unit_scope_rejected) ... ok\ntest_full_denominator_and_positive_periodic_bodies (test_catalog.CatalogIdentity.test_full_denominator_and_positive_periodic_bodies) ... ok\ntest_request_sub_budgets_block_before_network (test_catalog.CatalogIdentity.test_request_sub_budgets_block_before_network) ... ok\ntest_supplement_is_not_full_report (test_catalog.CatalogIdentity.test_supplement_is_not_full_report) ... ok\n\n----------------------------------------------------------------------\nRan 36 tests in 2.077s\n\nOK\n"
+    }
+  ],
+  "inputs": "Unchanged SHA-bound archived parses; original 36 tests re-executed; output redirected",
+  "old_money": 89,
+  "new_money": 70,
+  "eps": 3,
+  "old_replay": 46,
+  "f2_replay": 118,
+  "quality": 161
+}

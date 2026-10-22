@@ -1,0 +1,15 @@
+{
+  "frozen_at_utc": "2026-10-21T15:13:13.717Z",
+  "cases": [
+    {
+      "id": "1216869636",
+      "field": "OCF",
+      "period": "2022-12-31",
+      "physical_page": 95,
+      "scope": "consolidated",
+      "value_CNY": "2750449500",
+      "multiplier": 10000
+    }
+  ],
+  "method": "Independent full physical page 95 pypdf dated annual sequence; no cross-page quarter join"
+}

@@ -1,0 +1,39 @@
+{
+    "id":  "1217321905",
+    "text":  "(Eid% 202",
+    "pit_qualified":  false,
+    "engine":  "Windows.Media.Ocr existing en-US",
+    "maximum_image_dimension":  10000,
+    "machine_seconds":  0.0743669,
+    "pixel_height":  2104,
+    "image_sha256":  "22a64d7e6968187969217bf764116d60baeb5e097746f73ebe377a04ebf8629c",
+    "pixel_width":  1489,
+    "source_sha256":  "ec62521ca89aea1015d4a0237df8032b6c102ad53679824eb39988616bd48ccb",
+    "physical_page":  314,
+    "lines":  [
+                  {
+                      "text":  "(Eid%",
+                      "words":  [
+                                    {
+                                        "y":  327,
+                                        "height":  28,
+                                        "width":  100,
+                                        "text":  "(Eid%",
+                                        "x":  217
+                                    }
+                                ]
+                  },
+                  {
+                      "text":  "202",
+                      "words":  [
+                                    {
+                                        "y":  1052,
+                                        "height":  21,
+                                        "width":  43,
+                                        "text":  "202",
+                                        "x":  1043
+                                    }
+                                ]
+                  }
+              ]
+}

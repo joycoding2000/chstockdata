@@ -1,0 +1,69 @@
+{
+  "frozen_at_utc": "2026-10-21T15:06:07.679Z",
+  "truth_method": "Independent pypdf full physical page and label/date/units review in summary_table_diagnostic.json; before edge repair",
+  "cases": [
+    {
+      "id": "1216741268",
+      "physical_page": 46,
+      "field": "NP",
+      "value_CNY": "-9170618100",
+      "period": "2022-12-31",
+      "scope": "consolidated",
+      "multiplier": 10000
+    },
+    {
+      "id": "1216741273",
+      "physical_page": 21,
+      "field": "NP",
+      "value_CNY": "-9170618100",
+      "period": "2022-12-31",
+      "scope": "consolidated",
+      "multiplier": 10000
+    },
+    {
+      "id": "1217078312",
+      "physical_page": 30,
+      "field": "NP",
+      "value_CNY": "-9170618100",
+      "period": "2022-12-31",
+      "scope": "consolidated",
+      "multiplier": 10000
+    },
+    {
+      "id": "1217078316",
+      "physical_page": 56,
+      "field": "NP",
+      "value_CNY": "-9170618100",
+      "period": "2022-12-31",
+      "scope": "consolidated",
+      "multiplier": 10000
+    },
+    {
+      "id": "1217949872",
+      "physical_page": 28,
+      "field": "NP",
+      "value_CNY": "-9170618100",
+      "period": "2022-12-31",
+      "scope": "consolidated",
+      "multiplier": 10000
+    },
+    {
+      "id": "1217949876",
+      "physical_page": 57,
+      "field": "NP",
+      "value_CNY": "-9170618100",
+      "period": "2022-12-31",
+      "scope": "consolidated",
+      "multiplier": 10000
+    },
+    {
+      "id": "1216741273",
+      "physical_page": 88,
+      "field": "OCF",
+      "value_CNY": "6253316300",
+      "period": "2022-12-31",
+      "scope": "consolidated",
+      "multiplier": 10000
+    }
+  ]
+}

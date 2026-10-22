@@ -1,0 +1,53 @@
+{
+    "id":  "1217321905",
+    "text":  "El 813 023 7",
+    "pit_qualified":  false,
+    "engine":  "Windows.Media.Ocr existing en-US",
+    "maximum_image_dimension":  10000,
+    "machine_seconds":  0.067767399999999992,
+    "pixel_height":  2103,
+    "image_sha256":  "914803db7ccbfda9dd65c06f24a480582ed65dfb602bffd2ffd496ff7be99d48",
+    "pixel_width":  1488,
+    "source_sha256":  "ec62521ca89aea1015d4a0237df8032b6c102ad53679824eb39988616bd48ccb",
+    "physical_page":  305,
+    "lines":  [
+                  {
+                      "text":  "El 813",
+                      "words":  [
+                                    {
+                                        "y":  1075,
+                                        "height":  28,
+                                        "width":  36,
+                                        "text":  "El",
+                                        "x":  1141
+                                    },
+                                    {
+                                        "y":  1075,
+                                        "height":  24,
+                                        "width":  41,
+                                        "text":  "813",
+                                        "x":  1183
+                                    }
+                                ]
+                  },
+                  {
+                      "text":  "023 7",
+                      "words":  [
+                                    {
+                                        "y":  1074,
+                                        "height":  21,
+                                        "width":  42,
+                                        "text":  "023",
+                                        "x":  1032
+                                    },
+                                    {
+                                        "y":  1074,
+                                        "height":  20,
+                                        "width":  13,
+                                        "text":  "7",
+                                        "x":  1118
+                                    }
+                                ]
+                  }
+              ]
+}

@@ -1,0 +1,71 @@
+{
+  "complete": true,
+  "code_sha256_start": {
+    "crop_probe.py": "cacd441755b4c95532797fed3c2d6b25a69e6b3340b07f1dc15ab4b47dc22c88",
+    "extract_facts.py": "175e692b382a17c266658dffb7de52f7ac434a215c0901bc093c4362f68b985f",
+    "fetch_named.py": "d57beda89b1de73a9a2b73e7312751b5a902d9a80976038c799bd029f3af85a1",
+    "inspect_tables.py": "228fe3bbbb90f752ff9de79abd0b0b9fd817a876ff9d1593d23de339e86cf4f5",
+    "prepare_images.py": "71793915a3c1092ceaadb544a7d05413f7193bd3574c9d94fed574f1fd5f4e93",
+    "qualify_sources.py": "567927af36c03cbe057c35db1bc474314a67f12520ac0901a72ce14cd0070b3a",
+    "replay_closure.py": "c2b5a79f9ed6c96911c1aa7ae5308d75424b4f5a463c5072d695d27936f96e04",
+    "run_closure.py": "9c1c2f48ca9671b57a7ab5320c890625daf57a2b0194d1f488c0aaaf8e15568d",
+    "run_regression.py": "116b8193e55ac2ab03fa1f5d3f74843ee7faf484320bc306d1dc6c3d9682036d",
+    "scan_text.py": "83dc61be5c83e16ceb9a4ac03a64aba33a20e931c218563f5bfbdec013be7fc5",
+    "test_closure_safety.py": "aa9b64c09bc0a8fec54dd548c7e319ea797e6bc9dac38d3d0c251ddfd37ee696",
+    "test_sources.py": "aecfa7fd365a13fbe7e5fb294f16ab8341b75843aed9982ad912c55b4a0dbe0d"
+  },
+  "code_sha256_end": {
+    "crop_probe.py": "cacd441755b4c95532797fed3c2d6b25a69e6b3340b07f1dc15ab4b47dc22c88",
+    "extract_facts.py": "175e692b382a17c266658dffb7de52f7ac434a215c0901bc093c4362f68b985f",
+    "fetch_named.py": "d57beda89b1de73a9a2b73e7312751b5a902d9a80976038c799bd029f3af85a1",
+    "inspect_tables.py": "228fe3bbbb90f752ff9de79abd0b0b9fd817a876ff9d1593d23de339e86cf4f5",
+    "prepare_images.py": "71793915a3c1092ceaadb544a7d05413f7193bd3574c9d94fed574f1fd5f4e93",
+    "qualify_sources.py": "567927af36c03cbe057c35db1bc474314a67f12520ac0901a72ce14cd0070b3a",
+    "replay_closure.py": "c2b5a79f9ed6c96911c1aa7ae5308d75424b4f5a463c5072d695d27936f96e04",
+    "run_closure.py": "9c1c2f48ca9671b57a7ab5320c890625daf57a2b0194d1f488c0aaaf8e15568d",
+    "run_regression.py": "116b8193e55ac2ab03fa1f5d3f74843ee7faf484320bc306d1dc6c3d9682036d",
+    "scan_text.py": "83dc61be5c83e16ceb9a4ac03a64aba33a20e931c218563f5bfbdec013be7fc5",
+    "test_closure_safety.py": "aa9b64c09bc0a8fec54dd548c7e319ea797e6bc9dac38d3d0c251ddfd37ee696",
+    "test_sources.py": "aecfa7fd365a13fbe7e5fb294f16ab8341b75843aed9982ad912c55b4a0dbe0d"
+  },
+  "stages": [
+    {
+      "args": [
+        "test_sources.py"
+      ],
+      "exit": 0,
+      "machine_seconds": 60.815786999999546,
+      "stdout": "{'id': '1216741269', 'grid_facts': 0}\n{'id': '1216814161', 'grid_facts': 0}\n{'id': '1216869640', 'grid_facts': 0}\n{'id': '1217078313', 'grid_facts': 0}\n{'id': '1217949874', 'grid_facts': 0}\n{'id': '1216741271', 'grid_facts': 0}\n{'id': '1216869636', 'grid_facts': 4}\n{'id': '1217078318', 'grid_facts': 0}\n{'id': '1217949875', 'grid_facts': 0}\n{'id': '1205169602', 'grid_facts': 28}\n{'id': '1205465511', 'grid_facts': 28}\n{'id': '1216741268', 'grid_facts': 6}\n{'id': '1216741273', 'grid_facts': 6}\n{'id': '1217078312', 'grid_facts': 10}\n{'id': '1217078316', 'grid_facts': 10}\n{'id': '1217170564', 'grid_facts': 0}\n{'id': '1217170566', 'grid_facts': 0}\n{'id': '1217321905', 'grid_facts': 21}\n{'id': '1217361564', 'grid_facts': 0}\n{'id': '1217949872', 'grid_facts': 10}\n{'id': '1217949876', 'grid_facts': 10}\n{'id': '1218110511', 'grid_facts': 0}\n{'id': '1218110512', 'grid_facts': 0}\n",
+      "stderr": "..\n----------------------------------------------------------------------\nRan 2 tests in 60.513s\n\nOK\n"
+    },
+    {
+      "args": [
+        "qualify_sources.py"
+      ],
+      "exit": 0,
+      "machine_seconds": 0.9130506000001333,
+      "stdout": "{'file_counts': {'UNRESOLVED_REQUIRES_EVIDENCE': 11, 'VERIFIED_DUPLICATE_OF_EXISTING_DISCLOSURE': 8, 'VERIFIED_NO_TARGET_FIELD_EFFECT': 3, 'DIFFERENT_ACCOUNTING_BASIS': 1}, 'facts': 176, 'fact_counts': {'UNVERIFIED_NOT_ACCEPTED': 68, 'VERIFIED_PRIOR_FACT_CORROBORATION': 62, 'DIFFERENT_SUBJECT_EXCLUDED': 12, 'UNKNOWN_SCOPE': 34}, 'truth_counts': {'PASS': 22, 'UNKNOWN': 2}}\n",
+      "stderr": ""
+    },
+    {
+      "args": [
+        "replay_closure.py"
+      ],
+      "exit": 0,
+      "machine_seconds": 0.6463536000010208,
+      "stdout": "{'new_assertions': 23, 'counts': {'PASS': 23}, 'old_status_changes': 1, 'all_outputs': {'SELECTED_KNOWN_SOURCE': 84, 'UNKNOWN': 57}}\n",
+      "stderr": ""
+    },
+    {
+      "args": [
+        "test_closure_safety.py"
+      ],
+      "exit": 0,
+      "machine_seconds": 0.3504190000021481,
+      "stdout": "",
+      "stderr": "test_mutually_exclusive_dispositions (__main__.ClosureSafety.test_mutually_exclusive_dispositions) ... ok\ntest_original_audit_requote_does_not_revert_adjustment (__main__.ClosureSafety.test_original_audit_requote_does_not_revert_adjustment) ... ok\ntest_parser_has_no_truth_or_issuer_patch_input (__main__.ClosureSafety.test_parser_has_no_truth_or_issuer_patch_input) ... ok\ntest_pre_network_budget_boundaries (__main__.ClosureSafety.test_pre_network_budget_boundaries) ... ok\ntest_real_budget_and_gap (__main__.ClosureSafety.test_real_budget_and_gap) ... ok\ntest_same_date_unqualified_companion_blocks (__main__.ClosureSafety.test_same_date_unqualified_companion_blocks) ... ok\ntest_source_conflict_not_silently_repaired (__main__.ClosureSafety.test_source_conflict_not_silently_repaired) ... ok\ntest_unknown_scope_not_certified_and_ocr_not_money (__main__.ClosureSafety.test_unknown_scope_not_certified_and_ocr_not_money) ... ok\n\n----------------------------------------------------------------------\nRan 8 tests in 0.098s\n\nOK\n"
+    }
+  ],
+  "network_requests": 0,
+  "old_regression_reused": true
+}

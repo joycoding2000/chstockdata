@@ -1,0 +1,58 @@
+{
+    "id":  "1216869640",
+    "text":  "name \u00270 103003 6-1-192",
+    "pit_qualified":  false,
+    "engine":  "Windows.Media.Ocr existing en-US",
+    "maximum_image_dimension":  10000,
+    "machine_seconds":  0.1405941,
+    "pixel_height":  2105,
+    "image_sha256":  "f9d2c809ad8ceedcb9194e99a9b1e884955afe9c052c24cff0c6601c57c98eb2",
+    "pixel_width":  1489,
+    "source_sha256":  "d6fecbc0aa8be3e9a8eb2837454af517e58ab29d9f9cbd3e85ac76cf9f752fb8",
+    "physical_page":  192,
+    "lines":  [
+                  {
+                      "text":  "name",
+                      "words":  [
+                                    {
+                                        "y":  1168,
+                                        "height":  21,
+                                        "width":  50,
+                                        "text":  "name",
+                                        "x":  567
+                                    }
+                                ]
+                  },
+                  {
+                      "text":  "\u00270 103003",
+                      "words":  [
+                                    {
+                                        "y":  1360,
+                                        "height":  16,
+                                        "width":  21,
+                                        "text":  "\u00270",
+                                        "x":  929
+                                    },
+                                    {
+                                        "y":  1360,
+                                        "height":  23,
+                                        "width":  84,
+                                        "text":  "103003",
+                                        "x":  957
+                                    }
+                                ]
+                  },
+                  {
+                      "text":  "6-1-192",
+                      "words":  [
+                                    {
+                                        "y":  1995,
+                                        "height":  37,
+                                        "width":  86,
+                                        "text":  "6-1-192",
+                                        "x":  924
+                                    }
+                                ]
+                  }
+              ]
+}
