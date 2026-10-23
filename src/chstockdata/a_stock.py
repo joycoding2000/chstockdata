@@ -5698,7 +5698,8 @@ _SUSPEND_PAGE_SIZE = 500
 _SUSPEND_MAX_PAGES = 12
 _SUSPEND_LABEL = "Eastmoney suspend/resume snapshot"
 
-# The source is a market-wide per-date snapshot.  Cache the completed
+# DATETIME filters a current/latest event list, not historical as-of state.
+# Cache the completed
 # aggregate, including an explicit failure, so four ETF lookups for one day
 # do not fan out into four identical full-market downloads.  The request
 # callable is part of the key to keep monkeypatched/test transports isolated;
@@ -5845,13 +5846,11 @@ def get_suspension_info(
     ticker: Annotated[str, "6-digit A-share code (e.g. 600519)"],
     curr_date: Annotated[str, "Snapshot date YYYY-MM-DD"],
 ) -> str:
-    """Return the stock's suspension record in that day's suspend/resume snapshot (停牌).
+    """Return current-day suspend/resume state in the legacy text envelope.
 
-    The source is a per-date market-wide snapshot: a matching row means the
-    stock was suspended (or had an announced suspension whose start time may
-    still be in the future, e.g. 刊登重要公告/重大资产重组).  Absence from the
-    snapshot is a normal empty — it means no suspension record on that date,
-    never "never suspended" and never a statement about liquidity quality.
+    Historical and future dates use the existing explicit failure envelope:
+    latest-event rows do not establish a complete historical as-of list.
+    Current-day absence remains normal-empty after complete acquisition.
     """
     from .suspension import fetch_suspension_info
 

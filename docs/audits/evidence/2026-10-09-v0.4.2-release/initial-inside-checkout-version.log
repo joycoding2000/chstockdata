@@ -1,0 +1,2 @@
+version consistency: PASS tag=v0.4.2 project=0.4.2
+release version check failed: runtime module resolved from the source checkout instead of the installed artifact: D:\Dev\Projects\chstockdata\build\v042-qualification\core\Lib\site-packages\chstockdata\__init__.py

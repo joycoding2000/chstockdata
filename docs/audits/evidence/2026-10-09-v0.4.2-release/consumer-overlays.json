@@ -1,0 +1,14 @@
+[
+  {
+    "file": "tests/test_phase2_step3_projection.py",
+    "sha256": "48f8d22bd9fd572942392727a6baeb88e4e63733667e5bff7441bf5d971fb8a5"
+  },
+  {
+    "file": "tests/test_phase2_step3_validation.py",
+    "sha256": "cfb393eb9f06e40cde31fb4b097a16549f3bfbb0ce665977ca89cc37258c71fd"
+  },
+  {
+    "file": "tradingagents/agents/utils/phase2_projection.py",
+    "sha256": "d29965e9d6a899b27448b0f7750981fd9aba9d3665cbcaa1588b3a2be3bd527e"
+  }
+]

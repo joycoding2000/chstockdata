@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="1" time="1.313" timestamp="2026-10-09T21:12:17.809206+08:00" hostname="CHINAMI-4QO1VLN"><testcase classname="tests.qualification.test_chstockdata_etf_gate.TestLiveEtfQualification" name="test_live_tradability_adjustment_and_freshness" time="1.033"><failure message="AssertionError: assert False&#10; +  where False = ProviderFailure(error_code=&lt;ProviderErrorCode.SCHEMA_DRIFT: 'SCHEMA_DRIFT'&gt;, message='vendor suspension snapshot faile...=ChStockDataSchemaDriftError('vendor suspension snapshot failed: failed_structure: historical_suspension_unavailable')).is_success">self = &lt;test_chstockdata_etf_gate.TestLiveEtfQualification object at 0x00000235D930D0A0&gt;
+
+    @live_qualification
+    def test_live_tradability_adjustment_and_freshness(self) -&gt; None:
+        from live_qualification import live_provider, matrix_requests
+    
+        provider = live_provider()
+        for request in matrix_requests(MATRIX):
+            tradability = provider.fetch_tradability(request.tradability_request)
+&gt;           assert tradability.is_success
+E           AssertionError: assert False
+E            +  where False = ProviderFailure(error_code=&lt;ProviderErrorCode.SCHEMA_DRIFT: 'SCHEMA_DRIFT'&gt;, message='vendor suspension snapshot faile...=ChStockDataSchemaDriftError('vendor suspension snapshot failed: failed_structure: historical_suspension_unavailable')).is_success
+
+tests\qualification\test_chstockdata_etf_gate.py:248: AssertionError</failure></testcase></testsuite></testsuites>

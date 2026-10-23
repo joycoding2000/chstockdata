@@ -1,8 +1,9 @@
-"""Structured Eastmoney suspension snapshot retrieval.
+"""Structured views of Eastmoney's current suspend/resume event list.
 
-The upstream endpoint is one market-wide snapshot per date.  Its provider
-observation is deliberately cached with the completed snapshot so a second
-ticker lookup reuses the original attempt rather than claiming a new fetch.
+DATETIME does not provide a historical as-of snapshot: latest events can
+replace earlier suspensions and include future starts. Historical requests
+therefore fail closed. Cache entries preserve raw transport provenance, not
+a certification of historical coverage.
 """
 
 from __future__ import annotations
@@ -207,6 +208,14 @@ def _result_from_snapshot(snapshot_date: str, snapshot: dict[str, Any], code: st
     if not provider_ok:
         outcome_status = snapshot["status"]
         data = {}
+    elif snapshot_date != astock._today().isoformat():
+        outcome_status = FETCH_FAILED_STRUCTURE
+        derivation_reason = (
+            "historical_suspension_unavailable"
+            if snapshot_date < astock._today().isoformat()
+            else "future_suspension_unavailable"
+        )
+        data = {}
     elif matched is None:
         data = {
             "suspended": False,
@@ -228,13 +237,19 @@ def _result_from_snapshot(snapshot_date: str, snapshot: dict[str, Any], code: st
                 matched, "SUSPEND_START_DATE", "suspend_start_date"
             )
         )
-        if start_date is None:
+        end_value = astock._dc_row_field(matched, "SUSPEND_END_TIME", "suspend_end_time")
+        end_date = astock._dc_row_date(end_value)
+        if start_date is None or (end_value is not None and end_date is None):
             outcome_status = FETCH_FAILED_STRUCTURE
             derivation_reason = "ValueError"
             data = {}
+        elif start_date > snapshot_date or (end_date is not None and end_date < start_date):
+            outcome_status = FETCH_FAILED_STRUCTURE
+            derivation_reason = "suspension_event_date_unusable"
+            data = {}
         else:
             data = {
-                "suspended": True,
+                "suspended": end_date is None or end_date >= snapshot_date,
                 "security_name": astock._dc_row_text(matched, "SECURITY_NAME_ABBR", "security_name_abbr", limit=20),
                 "suspend_start_date": start_date,
                 "suspend_start_time": astock._dc_row_text(matched, "SUSPEND_START_TIME", "suspend_start_time"),
@@ -252,7 +267,7 @@ def _result_from_snapshot(snapshot_date: str, snapshot: dict[str, Any], code: st
         final_provider=_PROVIDER if provider_ok else None,
         retrieved_at=snapshot["retrieved_at"],
         observed_at=None,
-        data_as_of=snapshot_date if provider_ok else None,
+        data_as_of=snapshot_date if data else None,
         limitations=[snapshot["reason"] or derivation_reason]
         if snapshot["reason"] or derivation_reason
         else [],
@@ -264,7 +279,7 @@ def _result_from_snapshot(snapshot_date: str, snapshot: dict[str, Any], code: st
 
 
 def fetch_suspension_info(ticker: str, curr_date: str) -> FetchResult[dict]:
-    """Return a structured per-ticker view of Eastmoney's date snapshot."""
+    """Return current-day state; historical/future coverage fails closed."""
     astock = _astock()
     try:
         code = astock._normalize_ticker(ticker)

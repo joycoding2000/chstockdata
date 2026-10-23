@@ -1,0 +1,10 @@
+{
+  "queried_at_utc": "2026-10-09",
+  "source_url": "https://static.cninfo.com.cn/finalpage/2016-07-02/1202445845.PDF",
+  "document": "万科企业股份有限公司发行股份购买资产暨关联交易预案（修订稿）",
+  "published": "2016-07-02",
+  "page": 112,
+  "verification": "The issuer records a suspension beginning 2015-12-18 13:00, followed by the restructuring suspension on 2015-12-21. The endpoint queried at 2016-01-04 returns only the later 2017-07-17 event for 000002. Filtering latest rows by event start/end therefore cannot reconstruct the earlier suspension. This primary disclosure is an independent falsification of the complete historical snapshot claim.",
+  "endpoint_raw_files": "raw-2016-01-04-page-*.json",
+  "classification": "CONFIRMED_DEFECT"
+}

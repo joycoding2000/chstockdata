@@ -1,0 +1,503 @@
+<!doctype html><html lang="zh-CN" class="graystyle"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>个人行情数据 - 通达信软件 - 深圳市财富趋势科技股份有限公司</title>
+  <meta name="referrer" content="always">
+  <meta name="baidu-site-verification" content="code-IVYSukvtq9">
+  <meta name="keywords" content="">
+  <meta name="description" content="1. 适用范围：适用于通达信个人版PC端软件的盘后数据下载。 2. 文件包含：沪深京日线数据完整包(A股、B股、交易所指数和板块指数、回购、可交易基金、可转债等)。 3. 适用场景：首次安装通达信PC">
+  <meta http-equiv="Cache-Controle:max-age=0">
+  <meta http-equiv="Pragma" content="no-cache">
+  <link rel="SHORTCUT ICON" href="/templates/tdxOfficial/images/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="/templates/tdxOfficial/css/share.css?v=24">
+<link href="/templates/tdxOfficial/css/article.css?v=3" rel="stylesheet">
+  <style>
+       .navlist .nav-item{
+           position:relative;
+       }
+       .nav-new {
+           position: absolute;
+           left:20px;
+           top:-15px;
+           cursor: pointer;
+       }
+       li[skey="个人版"] {
+           display: none;
+       }
+  </style>
+  
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?5c4c948b141e4d66943a8430c3d600d0";
+      var s = document.getElementsByTagName("script")[0]; 
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+  
+</head>
+
+<body>
+
+  <div class="main_head">
+    <div class="top">
+      <div class="topleft"></div>
+      <div class="right">
+        <ul>
+          <li><a href="/article/202.html" style="color:#f00;"><b>郑重声明：任何自称通达信的营销荐股电话均为假冒</b></a></li>
+          <li><span class="span"><a class="weibo" href="http://e.weibo.com/tongdaxin" target="_blank">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></span></li>
+          <li><span class="span Menuwx"><a class="weixin" href="javascript:void(0);">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a><img class="wx2wm" src="/templates/tdxOfficial/images/qrcode-info.jpg" width="90" height="90"></span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="navbar">
+    <div class="left">
+      <a class="logo" href="/"></a>
+    </div>
+
+    <div class="right" id="menu">
+      <ul class="navlist">
+        <li class="nav-item ">
+          <a href="/" target="_self">首页</a>
+        </li>
+        <li class="nav-item ">
+          <a href="/qs.html" target="_self">券商系统</a>
+          <ul class="pop-menu-ul" style="display:none;width:120px;" _tag="券商系统">
+            <li skey="券商软件下载"><a href="/qs.html" target="_self">券商软件下载</a></li>
+            <li skey="网上交易产品"><a href="/article/category/trade.html" target="_self">网上交易产品</a></li>
+            <li skey="券商移动平台"><a href="/article/category/mobile.html" target="_self">券商移动平台</a></li>
+            <li skey="复合资讯平台"><a href="/article/category/info.html" target="_self">复合资讯平台</a></li>
+            <li skey="全品类数据库"><a href="https://www.tdx.com.cn/tdxdata.html" target="_self">全品类数据库</a></li>
+          </ul>
+        </li>
+        <li class="nav-item ">
+          <a href="https://vip.tdx.com.cn/site/app/pc-mall/main.html" target="_blank">个人版商城</a>
+          <ul class="pop-menu-ul" style="display:none;width:120px;" _tag="个人版商城">
+            <li skey="个人版商城"><a href="https://vip.tdx.com.cn/site/app/pc-mall/main.html" target="_blank">个人版商城</a></li>
+            <li skey="普及版"><a href="https://vip.tdx.com.cn/site/app/pc-mall/main.html#/page_product_pj_cf?param={%22categoryId%22:%224%22}" target="_blank">普及版</a></li>
+            <li skey="普及增强版"><a href="https://vip.tdx.com.cn/site/app/pc-mall/main.html#/page_product_pj_cf?param={%22categoryId%22:%225%22}" target="_blank">普及增强版</a></li>
+            <li skey="财富版"><a href="https://vip.tdx.com.cn/site/app/pc-mall/main.html#/page_product_pj_cf?param=%7B%22categoryId%22%3A%2235%22%7D" target="_blank">财富版</a></li>
+            <li skey="专业版"><a href="https://vip.tdx.com.cn/site/app/pc-mall/main.html#/page_product_zyb?param={%22categoryId%22:%227%22}" target="_blank">专业版</a></li>
+            <li skey="研究版"><a href="https://vip.tdx.com.cn/site/app/pc-mall/main.html#/page_product_yjb?param={%22categoryId%22:%228%22}" target="_blank">研究版</a></li>
+            <li skey="MPV/MPV Pro"><a href="https://vip.tdx.com.cn/site/app/pc-mall/main.html#/page_product_mpv?pageName=MPV%E7%89%88" target="_blank">MPV/MPV Pro</a></li>
+            <li skey="实时港股"><a href="https://vip.tdx.com.cn/site/app/pc-mall/main.html#/page_product_gg" target="_blank">实时港股</a></li>
+            <li skey="美股通"><a href="https://vip.tdx.com.cn/site/app/pc-mall/main.html#/page_product_mg" target="_blank">美股通</a></li>
+            <li skey="手机版"><a href="https://vip.tdx.com.cn/site/app/pc-mall/main.html#/page_product_app" target="_blank">手机版</a></li>
+            <li skey="增值系列"><a href="https://vip.tdx.com.cn/site/app/pc-mall/main.html#/page_all_zzfw" target="_blank">增值系列</a></li>
+            <li skey="AI积分包"><a href="https://vip.tdx.com.cn/site/app/pc-mall/main.html#/page_product_ai_jfb" target="_blank">AI积分包</a></li>
+            <li skey="指标算力包"><a href="https://vip.tdx.com.cn/site/app/pc-mall/main.html#/page_product_zbsl" target="_blank">指标算力包</a></li>
+          </ul>
+        </li>
+        <li class="nav-item ">
+          <a href="https://www.tdx.com.cn/itendx/" target="_blank">研究终端</a>
+          <ul class="pop-menu-ul" style="display:none;width:120px;" _tag="研究终端">
+            <li skey="研究终端"><a href="https://www.tdx.com.cn/itendx/" target="_blank">研究终端</a></li>
+            <li skey="债券终端"><a href="https://www.tdx.com.cn/tdxb/" target="_blank">债券终端</a></li>
+          </ul>
+        </li>
+        <li class="nav-item ">
+          <a href="https://vip.tdx.com.cn/site/app/pc-mall/main.html#/page_product_ai_jfb" target="_blank">AI平台</a>
+          <ul class="pop-menu-ul" style="display:none;width:120px;" _tag="AI平台">
+            <li skey="问小达AI"><a href="https://wenda.tdx.com.cn/" target="_blank">问小达AI</a></li>
+            <li skey="智能体广场"><a href="https://agent.tdx.com.cn/" target="_blank">智能体广场</a></li>
+            <li skey="通达信MCP"><a href="https://vip.tdx.com.cn/site/app/pc-mall/main.html#/page_product_mcp" target="_blank">通达信MCP</a></li>
+            <li skey="Skills 广场"><a href="https://www.tdx.com.cn/skillhub/" target="_blank">Skills 广场</a></li>
+            <li skey="TdxClaw"><a href="https://www.tdx.com.cn/tdxclaw/" target="_blank">TdxClaw</a></li>
+          </ul>
+        </li>
+        <li class="nav-item ">
+          <a href="/data_center.html" target="_blank">数据资讯</a>
+          <ul class="pop-menu-ul" style="display:none;width:120px;" _tag="数据资讯">
+            <li skey="数据中心"><a href="/data_center.html" target="_blank">数据中心</a></li>
+            <li skey="资讯中心"><a href="/info_center.html" target="_blank">资讯中心</a></li>
+            <li skey="TdxQuant数据"><a href="https://help.tdx.com.cn/quant/" target="_blank">TdxQuant数据</a></li>
+          </ul>
+        </li>
+        <li class="nav-item ">
+          <a href="https://sns.tdx.com.cn/site/web-gmxy/page_index.html" target="_blank">投资学院</a>
+          <ul class="pop-menu-ul" style="display:none;width:120px;" _tag="投资学院">
+            <li skey="模拟炒股"><a href="https://mock.tdx.com.cn/" target="_blank">模拟炒股</a></li>
+            <li skey="投资基础知识"><a href="https://sns.tdx.com.cn/site/web-gmxy/page_index.html#/wz/?tabIndex=1&amp;navIndex=0" target="_blank">投资基础知识</a></li>
+            <li skey="港股基础知识"><a href="https://sns.tdx.com.cn/site/web-gmxy/page_index.html#/wz/gg?tabIndex=1&amp;navIndex=5" target="_blank">港股基础知识</a></li>
+            <li skey="教学视频"><a href="https://sns.tdx.com.cn/site/web-gmxy/page_index.html#/sp/?tabIndex=2&amp;navIndex=0" target="_blank">教学视频</a></li>
+            <li skey="防非专栏"><a href="https://sns.tdx.com.cn/site/web-gmxy/page_index.html#/tj/?tabIndex=4&amp;navIndex=1" target="_blank">防非专栏</a></li>
+          </ul>
+        </li>
+        <li class="nav-item ">
+          <a href="https://help.tdx.com.cn" target="_blank">帮助中心</a>
+          <ul class="pop-menu-ul" style="display:none;width:120px;" _tag="帮助中心">
+            <li skey="行情数据下载"><a href="/article/datacenter.html" target="_self">行情数据下载</a></li>
+            <li skey="帮助中心"><a href="https://help.tdx.com.cn/" target="_blank">帮助中心</a></li>
+            <li skey="用户红宝书"><a href="https://help.tdx.com.cn/book.html" target="_blank">用户红宝书</a></li>
+            <li skey="交易所休息日"><a href="https://www.tdx.com.cn/url/holiday/" target="_blank">交易所休息日</a></li>
+            <li skey="港股披露易"><a href="https://www.tdx.com.cn/url/hk/" target="_blank">港股披露易</a></li>
+          </ul>
+        </li>
+        <li class="nav-item ">
+          <a href="https://sns.tdx.com.cn/" target="_blank">财富圈</a>
+        </li>
+        <li class="nav-item ">
+          <a href="/soft.html" target="_self">下载中心</a>
+        </li>
+        <li class="nav-item ">
+          <a href="/partner.html" target="_self">合作伙伴</a>
+        </li>
+        <li class="nav-item ">
+          <a href="https://sns.tdx.com.cn/site/tdx_sns/page_index.html#/CircleAll?toggleLableId=5191" target="_blank">反馈</a>
+        </li>
+        <li class="nav-item ">
+          <a href="http://vip.tdx.com.cn/site/app/publish/open-account/open-account.html?advId=21&amp;advName=股票开户&amp;ver=20241029" target="_blank">开户</a>
+          <ul class="pop-menu-ul" style="display:none;width:120px;" _tag="开户">
+            <li skey="股票开户"><a href="http://vip.tdx.com.cn/site/app/publish/open-account/open-account.html?advId=21&amp;advName=股票开户&amp;ver=20241029" target="_blank">股票开户</a></li>
+            <li skey="期货开户"><a href="https://vip.tdx.com.cn/site/app/publish/open-account/open-account-qh.html?advId=21&amp;advName=期货开户&amp;ver=20241029" target="_blank">期货开户</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+
+<div>
+    <img class="banner-image" src="https://www.tdx.com.cn/images/top/banner.jpg">
+</div>
+
+<div class="article">
+    
+<div class="article-left" id="article-left-group">
+    <div class="article-left-warp" style="display:none;">
+        <div class="article-left-menu article-item-active">
+            <h3 class="article-left-title">公司资讯</h3>
+            <div class="article-left-item">
+                <a href="/article/category/notice.html" category-id="1">网站通知</a>
+            </div>
+            <div class="article-left-item">
+                <a href="/article/category/news.html" category-id="2">公司新闻</a>
+            </div>
+        </div>
+
+        <div class="article-left-menu article-item-active">
+            <h3 class="article-left-title">券商产品专题</h3>
+            <div class="article-left-item">
+                <a href="/article/category/trade.html" category-id="5">网上交易产品</a>
+            </div>
+            <div class="article-left-item">
+                <a href="/article/category/mobile.html" category-id="6">券商移动平台</a>
+            </div>
+            <div class="article-left-item">
+                <a href="/article/category/info.html" category-id="8">复合资讯平台</a>
+            </div>
+        </div>
+
+        <div class="article-left-menu article-item-active">
+            <h3 class="article-left-title">行情数据下载</h3>
+            <div class="article-left-item">
+                <a href="/article/datacenter.html" article-id="26">券商下载首页</a>
+            </div>
+            <div class="article-left-item">
+                <a href="/article/daydata.html" article-id="27">券商每日数据</a>
+            </div>
+            <div class="article-left-item">
+                <a href="/article/alldata.html" article-id="28">券商所有数据</a>
+            </div>
+            <div class="article-left-item">
+                <a href="/article/vipdata.html" article-id="182">个人行情数据</a>
+            </div>
+            <div class="article-left-item">
+                <a href="/article/stockfin.html" article-id="186">专业财务数据</a>
+            </div>
+            <div class="article-left-item">
+                <a href="/article/customdown.html" article-id="187">定制数据下载</a>
+            </div>
+        </div>
+
+        <div class="article-left-menu article-item-active">
+            <h3 class="article-left-title">投资者关系</h3>
+            <div class="article-left-item">
+                <a href="/article/ir_company.html" article-id="147">财富趋势简介</a>
+            </div>
+            <div class="article-left-item">
+                <a href="/article/ir_report.html" article-id="149">上市公司公告</a>
+            </div>
+            <div class="article-left-item">
+                <a href="/article/ir_contact.html" article-id="148">投关联系方式</a>
+            </div>
+        </div>
+
+        <div class="article-left-menu article-item-active">
+            <h3 class="article-left-title last">关于我们</h3>
+            <div class="article-left-item">
+                <a href="/article/about.html" article-id="19">公司介绍</a>
+            </div>
+            <div class="article-left-item">
+                <a href="/article/operations.html" article-id="21">公司经营</a>
+            </div>
+            <div class="article-left-item">
+                <a href="/article/qualifications.html" article-id="24">公司资质</a>
+            </div>
+            <div class="article-left-item">
+                <a href="/article/license.html" article-id="23">行情授权</a>
+            </div>
+            <div class="article-left-item">
+                <a href="/article/career.html" article-id="25">人才招聘</a>
+            </div>
+            <div class="article-left-item">
+                <a href="/article/contact.html" article-id="22">联系我们</a>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+    
+    <div class="article-right">
+        
+        <div class="dh">
+            <span><a href="/">首页</a></span>
+                 &gt; <span><a href="/article/category/data.html" category-id="11">行情数据下载</a></span>
+             &gt; <span><a href="/article/vipdata.html" article-id="182">个人行情数据</a></span>
+        </div>
+        
+        <div class="article-content">
+            <style type="text/css">.hsjday-table td{font-size:14px!important;}
+</style>
+<table border="0" cellpadding="0" cellspacing="1" class="pretty-table -update-table hsjday-table" id="_downtable" style="width:740px">
+	<caption>
+	<h4 style="text-align:left;font-size:15px;"><span style="color:#ff3300">1.&nbsp;适用范围：适用于通达信个人版PC端软件的盘后数据下载。<br>
+	2.&nbsp;文件包含：沪深京日线数据完整包(A股、B股、交易所指数和板块指数、回购、可交易基金、可转债等)。<br>
+	3.&nbsp;适用场景：首次安装通达信PC端软件或有较长时间没有下载日线时，可以下载此zip文件。<br>
+	4.&nbsp;使用方法：放置在客户端的vipdoc目录下，在vipdoc下解压文件覆盖。<br>
+	5.&nbsp;注意事项：如需下载包括当日的，请在更新日期变为当日之后再下载。</span></h4>
+
+	<p>&nbsp;</p>
+	</caption>
+	<tbody>
+		<tr>
+			<td>沪深京日线数据完整包</td>
+			<td id="hsjdayinfo">更新日期：</td>
+			<td class="down-td"><a href="//data.tdx.com.cn/vipdoc/hsjday.zip"><img alt="" src="https://www.tdx.com.cn/templates/tdxOfficial/images/down2.png"></a></td>
+		</tr>
+	</tbody>
+</table>
+<script>
+window.addEventListener('load', function() {
+    $.getScript('//data.tdx.com.cn/vipdoc/_hsjdayinfo.js?t=' + Math.floor(new Date().getTime()/10000), function() {
+        if(typeof window.HSJDAY_SOFT_SIZE == 'string') {
+            var n = new Date();
+            var y = n.getFullYear() + '';
+            var m = ((n.getMonth() + 101) + '').substring(1);
+            var d = ((n.getDate() + 100) + '').substring(1);
+            var today = [y,m,d].join('-');
+            var timecolor = '';
+            if(window.HSJDAY_SOFT_TIME.indexOf(today) == 0) {
+                timecolor = '#f00';
+            }
+            $('#hsjdayinfo').html('更新日期：<span style="color:' + timecolor + ';">' + window.HSJDAY_SOFT_TIME + '</span>');
+        }
+    })
+})
+</script>
+        </div>
+        
+    </div>
+    <div class="clear"></div>
+</div>
+  
+  <div class="qq"></div>
+  
+  <div class="clear"></div>
+
+  <div class="main_foot">
+    <div class="foot">
+      <ul class="foot-link">
+        <li><a href="http://www.csrc.gov.cn" target="_blank">中国证监会</a></li>
+        <li><a href="http://www.sse.com.cn" target="_blank">上海证券交易所</a></li>
+        <li><a href="http://www.szse.cn" target="_blank">深圳证券交易所</a></li>
+        <li><a href="http://www.bse.cn" target="_blank">北京证券交易所</a></li>
+        <li><a href="http://www.hkex.com.hk/" target="_blank">香港交易所</a></li>
+        <li><a href="http://www.shfe.com.cn/" target="_blank">上海期货交易所</a></li>
+        <li><a href="http://www.cffex.com.cn/" target="_blank">中国金融期货交易所</a></li>
+        <li><a href="http://www.sac.net.cn" target="_blank">中国证券业协会</a></li>
+      </ul>
+    </div>
+    
+    <p style="color:#939393;">地址：深圳市福田区梅林街道梅都社区中康路136号深圳新一代产业园5栋1801  客服电话：027-87788668</p>
+    
+    <p style="color:#939393;padding-top:4px;">
+	      投诉邮箱：<a href="mailto:tousu@tdx.com.cn">tousu@tdx.com.cn</a> 信函或现场投诉：武汉市光谷软件园C3栋9楼。
+	</p>
+    
+    <div class="us">
+
+      <span>©2026 All Rights Reserved By 深圳市财富趋势科技股份有限公司
+        <a class="a_icp" style="color:#939393;" href="https://beian.miit.gov.cn" target="_blank">粤ICP备14046812号</a>
+          <a class="a_icp2" style="color:#939393;" href="/article/qualifications.html" target="_blank">B2-20110213</a>
+      </span>
+	  
+	  <div style="margin:0 auto; padding:20px 0;">
+ 		<a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=44030402003588" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;">
+ 		    <img src="//data.tdx.com.cn/attachment/20200120/5486fc8ff03d4c4cb428f2417e9f4d2e.png" style="float:left;">
+ 		    <p style="float:left;height:20px;line-height:20px;margin: 0px 0px 0px 5px; color:#939393;">粤公网安备 44030402003588号</p>
+ 		</a>
+ 		<a class="a_private" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;" href="https://www.tdx.com.cn/about/yhxy/index.html?tabindex=1" target="_blank">
+ 		    <p style="float:left;height:20px;line-height:20px;margin: 0px 0px 0px 5px; color:#939393;">隐私政策</p></a>
+	  </div>
+		 
+    </div>
+    
+  </div>
+  <script src="/templates/tdxOfficial/js/jquery-1.11.2.min.js"></script>
+  <script src="/templates/tdxOfficial/js/share.js?v=21"></script>
+  <script src="//data.tdx.com.cn/web-res/layer-3.1.1/layer.js"></script>
+<script>
+    !function () {
+        $(function () {
+            var categoryCur = {};
+            var articleCur = {};
+            $('.article-right .dh a').each(function () {
+                var categoryId = $(this).attr('category-id');
+                var articleId = $(this).attr('article-id');
+                if (categoryId) {
+                    categoryCur[categoryId] = categoryId;
+                }
+                if (articleId) {
+                    articleCur[articleId] = articleId;
+                }
+            });
+            $('.article-left-menu').each(function () {
+                $(this).find('.article-left-title').click(function () {
+                    $('.article-item-active').removeClass('article-item-active');
+                    $(this).parent().addClass('article-item-active');
+                });
+                var find = false;
+                $(this).find('a').each(function () {
+                    var categoryId = $(this).attr('category-id');
+                    var articleId = $(this).attr('article-id');
+                    if (categoryCur[categoryId] || articleCur[articleId]) {
+                        find = true;
+                        hasFind = true;
+                        $(this).addClass('selected');
+                    }
+                });
+                if (!find) {
+                    $(this).removeClass('article-item-active');
+                }
+            });
+            $('.article-left-warp').show();
+        });
+
+
+        // 软件更新特殊跳转服务
+
+        !function () {
+
+            if (!/(softupdate|itendx_update)\.html/i.test(location.href)) {
+                return;
+            }
+
+            var getUrlParam = function (name) {
+                var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+                var r = window.location.search.substr(1).match(reg);
+                if (r != null) {
+                    return decodeURIComponent(r[2]);
+                } else {
+                    return null;
+                }
+            }
+
+            var beta = getUrlParam('beta');
+            var ver = getUrlParam('ver');
+            var as = $('.article-right-group li a');
+
+            if (/^[0-9]+\.[0-9]+$/.test(ver) && /^(0|1).test(beta)$/) {
+                ver = ver.replace('.', '_');
+
+                var tag = 'soft';
+                if (location.href.indexOf('itrend_update')) {
+                    tag = 'itendx';
+                }
+
+                var url = '/' + tag + (beta == 1 ? '_beta' : '') + '_' + ver + '.html';
+                for (var i = 0; i < as.length; i++) {
+                    var a = as[i];
+                    if (a.href.indexOf(url) != -1) {
+                        location.href = a.href;
+                        return;
+                    }
+                }
+            }
+
+            as.length > 0 && (location.href = as[0].href);
+
+        }();
+
+        // 人才招聘特殊处理，增加左侧浮动菜单
+        (function () {
+            if (!/(career)\.html/i.test(location.href)) {
+                return;
+            }
+            curContentItem = null;
+            curContentTag = null;
+            jumpToContent = function (i, a) {
+                var tar = document.getElementById('cont_item_' + i);
+                tar.scrollIntoView();
+                if (curContentItem) {
+                    $(curContentItem).removeClass('active-content');
+                }
+                $(tar.parentNode).addClass('active-content');
+                curContentItem = tar.parentNode;
+                if (curContentTag) {
+                    $(curContentTag).removeClass('active-content');
+                }
+                $(a).addClass('active-content');
+                curContentTag = a;
+            };
+            var items = [];
+            $('.article-content p').each(function () {
+                var $me = $(this);
+                var text = $me.text().trim();
+                if (/^[一二三四五六七八九十]+、/.test(text)) {
+                    $me.prepend('<span style="width:0;height:0;font-size:0;overflow:hidden;position:absolute;top:-100px;" id="cont_item_' + items.length + '"></span>');
+                    items.push($me);
+                    $me.css('position', 'relative');
+                }
+            });
+            if (items.length > 0) {
+                var html = '<div id="float-content-box">';
+                for (var i = 0; i < items.length; i++) {
+                    var item = items[i];
+                    html += '<p><a class="cont-item" href="javascript:" onclick="jumpToContent(' + i + ',this)">' + item.text().replace(/[一二三四五六七八九十]+、/, '') + '</a></p>';
+                }
+                html += '</div>';
+                $('body').append(html);
+                var left = $('.article-content').offset().left + $('.article-content').width() + 10;
+                $('#float-content-box').css('left', left + 'px');
+            }
+        })();
+
+    }();
+</script>
+  <script>
+      // 特殊日子样式控制
+      (function(){
+          var t = new Date();
+          var ymd = t.getFullYear() * 10000 + (t.getMonth() + 1) * 100 + t.getDate();
+          // 灰色调控制
+          if (ymd == 20221213){
+            $('html').addClass('graystyle');    
+          }
+          // 春节控制
+          if (ymd >= 20220131 && ymd <= 20220115){
+            $('body').addClass('spring');    
+          }
+      })();
+  </script>
+
+
+
+
+
+</body></html>

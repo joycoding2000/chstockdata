@@ -1,0 +1,49 @@
+{
+  "url": "https://query.sse.com.cn/security/stock/queryCompanyBulletin.do",
+  "params": {
+    "isPagination": "true",
+    "SECURITY_CODE": "688432",
+    "START_DATE": "2026-09-11",
+    "END_DATE": "2026-09-14",
+    "pageHelp.pageSize": "100",
+    "pageHelp.pageNo": "1"
+  },
+  "http_status": 200,
+  "sha256": "a76f53d18ed2b260d58c884d50b0a59fd4e9ab78b94ca128dcd85d87064faa5c",
+  "response": {
+    "BULLETIN_TYPE": null,
+    "END_DATE": "2026-09-14",
+    "SECURITY_CODE": "688432",
+    "START_DATE": "2026-09-11",
+    "TITLE": null,
+    "beginDate": "",
+    "endDate": "",
+    "isNew": null,
+    "isPagination": "true",
+    "jsonCallBack": null,
+    "keyWord": null,
+    "pageHelp": {
+      "beginPage": 1,
+      "cacheSize": 5,
+      "data": [],
+      "endDate": null,
+      "endPage": null,
+      "objectResult": null,
+      "pageCount": 0,
+      "pageNo": 1,
+      "pageSize": 100,
+      "pageSizeWithOutLimit": 100,
+      "searchDate": null,
+      "sort": null,
+      "startDate": null,
+      "total": 0
+    },
+    "productId": null,
+    "reportType": null,
+    "reportType2": null,
+    "result": [],
+    "secCodes": null,
+    "securityType": "0001",
+    "stockType": null
+  }
+}

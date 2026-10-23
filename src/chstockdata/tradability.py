@@ -280,9 +280,7 @@ def fetch_tradability(
         else None
     )
 
-    if suspension_status == FETCH_NORMAL_EMPTY or (
-        suspension_status == FETCH_SUCCESS and suspended is False
-    ):
+    if suspension_status in {FETCH_NORMAL_EMPTY, FETCH_SUCCESS} and suspended is False:
         return _result(
             _verdict(
                 ticker,

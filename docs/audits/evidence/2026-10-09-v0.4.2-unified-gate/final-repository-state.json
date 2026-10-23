@@ -1,0 +1,8 @@
+{
+  "head": "42bd44ef4d695aa3e88cfab4ebc3417660d0437a",
+  "status": " M CHANGELOG.md\n M MIGRATION.md\n M docs/releases/v0.4.2.md\n M src/chstockdata/a_stock.py\n M src/chstockdata/suspension.py\n M src/chstockdata/tradability.py\n M src/chstockdata/vipdoc_history.py\n M tests/test_astock_listing_status.py\n M tests/test_suspension_structured.py\n M tests/test_vipdoc_price_scale.py\n?? docs/audits/2026-10-09-v0.4.2-release-closeout.md\n?? docs/audits/2026-10-09-v0.4.2-unified-gate.md\n?? docs/audits/evidence/2026-10-09-v0.4.2-release/\n?? docs/audits/evidence/2026-10-09-v0.4.2-unified-gate/\n?? tests/test_suspension_source_semantics.py\n",
+  "diff_check_exit": 0,
+  "new_commit_created": false,
+  "local_merge_executed": false,
+  "published": false
+}

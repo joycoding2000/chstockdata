@@ -1,0 +1,82 @@
+{
+  "wheel_sha256": "b76b065a06cd1d91868880a7b57584f598b6fd4cb42931e9a33700bc99a88c7a",
+  "version": "0.4.2",
+  "import": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\09\\01a11feb-cbea-7790-a83e-57b1dd555e13\\v042-unified\\sios-candidate\\Lib\\site-packages\\chstockdata\\__init__.py",
+  "matched_runtime_members": 39,
+  "real_requests": [
+    {
+      "instrument": "XSHG:510300",
+      "date": "2026-09-11",
+      "is_success": false,
+      "result": "ProviderFailure(error_code=<ProviderErrorCode.SCHEMA_DRIFT: 'SCHEMA_DRIFT'>, message='vendor suspension snapshot failed: failed_structure: historical_suspension_unavailable', evidence=None, cause=ChStockDataSchemaDriftError('vendor suspension snapshot failed: failed_structure: historical_suspension_unavailable'))"
+    },
+    {
+      "instrument": "XSHE:159915",
+      "date": "2026-09-11",
+      "is_success": false,
+      "result": "ProviderFailure(error_code=<ProviderErrorCode.SCHEMA_DRIFT: 'SCHEMA_DRIFT'>, message='vendor suspension snapshot failed: failed_structure: historical_suspension_unavailable', evidence=None, cause=ChStockDataSchemaDriftError('vendor suspension snapshot failed: failed_structure: historical_suspension_unavailable'))"
+    },
+    {
+      "instrument": "XSHG:518880",
+      "date": "2026-09-11",
+      "is_success": false,
+      "result": "ProviderFailure(error_code=<ProviderErrorCode.SCHEMA_DRIFT: 'SCHEMA_DRIFT'>, message='vendor suspension snapshot failed: failed_structure: historical_suspension_unavailable', evidence=None, cause=ChStockDataSchemaDriftError('vendor suspension snapshot failed: failed_structure: historical_suspension_unavailable'))"
+    },
+    {
+      "instrument": "XSHG:511010",
+      "date": "2026-09-11",
+      "is_success": false,
+      "result": "ProviderFailure(error_code=<ProviderErrorCode.SCHEMA_DRIFT: 'SCHEMA_DRIFT'>, message='vendor suspension snapshot failed: failed_structure: historical_suspension_unavailable', evidence=None, cause=ChStockDataSchemaDriftError('vendor suspension snapshot failed: failed_structure: historical_suspension_unavailable'))"
+    },
+    {
+      "instrument": "XSHG:688432",
+      "date": "2026-08-31",
+      "is_success": false,
+      "result": "ProviderFailure(error_code=<ProviderErrorCode.SCHEMA_DRIFT: 'SCHEMA_DRIFT'>, message='vendor suspension snapshot failed: failed_structure: historical_suspension_unavailable', evidence=None, cause=ChStockDataSchemaDriftError('vendor suspension snapshot failed: failed_structure: historical_suspension_unavailable'))"
+    },
+    {
+      "instrument": "XSHG:688432",
+      "date": "2026-09-14",
+      "is_success": false,
+      "result": "ProviderFailure(error_code=<ProviderErrorCode.SCHEMA_DRIFT: 'SCHEMA_DRIFT'>, message='vendor suspension snapshot failed: failed_structure: historical_suspension_unavailable', evidence=None, cause=ChStockDataSchemaDriftError('vendor suspension snapshot failed: failed_structure: historical_suspension_unavailable'))"
+    },
+    {
+      "instrument": "XSHE:000002",
+      "date": "2016-01-04",
+      "is_success": false,
+      "result": "ProviderFailure(error_code=<ProviderErrorCode.SCHEMA_DRIFT: 'SCHEMA_DRIFT'>, message='vendor suspension snapshot failed: failed_structure: historical_suspension_unavailable', evidence=None, cause=ChStockDataSchemaDriftError('vendor suspension snapshot failed: failed_structure: historical_suspension_unavailable'))"
+    },
+    {
+      "instrument": "XSHE:000002",
+      "date": "2016-07-04",
+      "is_success": false,
+      "result": "ProviderFailure(error_code=<ProviderErrorCode.SCHEMA_DRIFT: 'SCHEMA_DRIFT'>, message='vendor suspension snapshot failed: failed_structure: historical_suspension_unavailable', evidence=None, cause=ChStockDataSchemaDriftError('vendor suspension snapshot failed: failed_structure: historical_suspension_unavailable'))"
+    }
+  ],
+  "mapper_diagnostics": [
+    {
+      "input": {
+        "observed_at": null,
+        "information_available_at": "2026-09-11T15:05:00+08:00"
+      },
+      "output": "Availability(information_available_at=datetime.datetime(2026, 9, 11, 9, 30, tzinfo=datetime.timezone(datetime.timedelta(seconds=28800))), retrieved_at=datetime.datetime(2026, 10, 9, 13, 6, 22, 317892, tzinfo=datetime.timezone.utc), availability_basis=<AvailabilityBasis.EXCHANGE_RULE: 'EXCHANGE_RULE'>)",
+      "diagnostic_only": true
+    },
+    {
+      "input": {
+        "observed_at": "2026-09-11T15:05:00+08:00",
+        "information_available_at": "2026-09-11T15:05:00+08:00"
+      },
+      "output": "Availability(information_available_at=datetime.datetime(2026, 9, 11, 15, 5, tzinfo=datetime.timezone(datetime.timedelta(seconds=28800))), retrieved_at=datetime.datetime(2026, 10, 9, 13, 6, 22, 317892, tzinfo=datetime.timezone.utc), availability_basis=<AvailabilityBasis.OBSERVED: 'OBSERVED'>)",
+      "diagnostic_only": true
+    },
+    {
+      "input": {
+        "observed_at": "2026-10-09T12:00:00+08:00",
+        "information_available_at": "2026-09-11T15:05:00+08:00"
+      },
+      "output": "Availability(information_available_at=datetime.datetime(2026, 9, 11, 9, 30, tzinfo=datetime.timezone(datetime.timedelta(seconds=28800))), retrieved_at=datetime.datetime(2026, 10, 9, 13, 6, 22, 317892, tzinfo=datetime.timezone.utc), availability_basis=<AvailabilityBasis.EXCHANGE_RULE: 'EXCHANGE_RULE'>)",
+      "diagnostic_only": true
+    }
+  ]
+}

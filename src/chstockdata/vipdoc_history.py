@@ -137,7 +137,7 @@ def parse_day_file(path: str | os.PathLike[str]) -> pd.DataFrame:
                 # Keep the existing stock conversion byte-for-byte compatible.
                 prices = tuple(value / 100.0 for value in raw_prices)
             else:
-                prices = tuple(value * multiplier for value in raw_prices)
+                prices = tuple(value / 1000.0 for value in raw_prices)
             rows.append(
                 (
                     stamp,

@@ -2,6 +2,8 @@
 
 from __future__ import annotations
 
+from datetime import date
+
 import pytest
 
 from chstockdata import (
@@ -50,7 +52,9 @@ def _snapshot(rows: list[dict], count: int | None = None) -> dict:
 
 
 @pytest.fixture(autouse=True)
-def _clean_health_and_snapshot_cache():
+def _clean_health_and_snapshot_cache(monkeypatch):
+    # Existing transport/renderer contracts use a current-day event list.
+    monkeypatch.setattr(a_stock, "_today", lambda: date(2026, 9, 10))
     from chstockdata import suspension
 
     reset_capability_health()

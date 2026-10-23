@@ -78,3 +78,24 @@ complete IPO or listing-lifecycle eligibility claim.
 The v0.4.1 release candidate does not add a `GenericFallbackRouter` and does
 not complete the `a_stock.py` decomposition. The candidate package version is
 `0.4.1`; publication requires separate RH3-B Owner authorization.
+
+## v0.4.2 source-semantics correction (unreleased)
+
+Eastmoney DATETIME-filtered suspension rows contain latest events per security,
+including events after a historical query date. They do not form a complete
+historical as-of snapshot, and predicted resumption is not an independent
+historical coverage guarantee. `fetch_suspension_info` and legacy
+`get_suspension_info` therefore report historical/future unavailability through
+the existing `failed_structure` outcome, with
+`historical_suspension_unavailable` / `future_suspension_unavailable` limitations.
+No historical boolean suspension fact or `data_as_of` is asserted.
+
+`fetch_tradability` propagates unknown suspension as `tradable=None`; complete
+market-closure evidence and effective official delisting dates retain their
+existing precedence. Current-day absence can support not-suspended only after
+complete successful acquisition. A normal-empty outcome without an explicit
+boolean `suspended=False` cannot prove tradability.
+
+This safety correction does not qualify the historical ability required by
+the frozen SIOS adapter. v0.4.2 remains blocked until an approved compatible
+path satisfies that contract; production consumer pins remain unchanged.

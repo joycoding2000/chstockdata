@@ -1,0 +1,27 @@
+{
+  "cutoff": "2026-09-11 09:30:00+08:00",
+  "cases": [
+    {
+      "label": "historical daily fact, actual observation now",
+      "payload": {
+        "observed_at": "2026-10-09T21:12:20.131478+08:00"
+      },
+      "mapped": "Availability(information_available_at=datetime.datetime(2026, 9, 11, 9, 30, tzinfo=datetime.timezone(datetime.timedelta(seconds=28800))), retrieved_at=datetime.datetime(2026, 10, 9, 21, 12, 20, 131478, tzinfo=datetime.timezone(datetime.timedelta(seconds=28800))), availability_basis=<AvailabilityBasis.EXCHANGE_RULE: 'EXCHANGE_RULE'>)",
+      "known_at_0930": true,
+      "diagnostic_only": true
+    },
+    {
+      "label": "declared final daily fact time",
+      "payload": {
+        "information_available_at": "2026-09-11T15:05:00+08:00"
+      },
+      "mapped": "Availability(information_available_at=datetime.datetime(2026, 9, 11, 9, 30, tzinfo=datetime.timezone(datetime.timedelta(seconds=28800))), retrieved_at=datetime.datetime(2026, 10, 9, 21, 12, 20, 131478, tzinfo=datetime.timezone(datetime.timedelta(seconds=28800))), availability_basis=<AvailabilityBasis.EXCHANGE_RULE: 'EXCHANGE_RULE'>)",
+      "known_at_0930": true,
+      "diagnostic_only": true
+    }
+  ],
+  "honest_unknown_known_at_cutoff": null,
+  "honest_close_known_at_cutoff": false,
+  "note": "15:05 is a diagnostic rule only, not a certified TDX publication time",
+  "verdict": "CONFIRMED_DEFECT if retrospective bars are routed into this suspension contract"
+}

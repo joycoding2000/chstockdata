@@ -1,0 +1,68 @@
+
+Traceback (most recent call last):
+  File "D:\Dev\Projects\chstockdata\build\v042-qualification\gate\Lib\site-packages\build\__main__.py", line 289, in _handle_build_error
+    yield
+  File "D:\Dev\Projects\chstockdata\build\v042-qualification\gate\Lib\site-packages\build\__main__.py", line 755, in main
+    built = run_build(args.srcdir, outdir)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Dev\Projects\chstockdata\build\v042-qualification\gate\Lib\site-packages\build\__main__.py", line 405, in build_package_via_sdist
+    sdist = _build(
+            ^^^^^^^
+  File "D:\Dev\Projects\chstockdata\build\v042-qualification\gate\Lib\site-packages\build\__main__.py", line 272, in _build
+    with _bootstrap_build_env(
+         ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\contextlib.py", line 137, in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+  File "D:\Dev\Projects\chstockdata\build\v042-qualification\gate\Lib\site-packages\build\__main__.py", line 233, in _bootstrap_build_env
+    install(builder.build_system_requires, _fresh=True)
+  File "D:\Dev\Projects\chstockdata\build\v042-qualification\gate\Lib\site-packages\build\env.py", line 234, in install
+    self._env_backend.install_dependencies(requirements, constraints, _fresh=_fresh)
+  File "D:\Dev\Projects\chstockdata\build\v042-qualification\gate\Lib\site-packages\build\env.py", line 436, in install_dependencies
+    run_subprocess(cmd, env=_pip_env())
+  File "D:\Dev\Projects\chstockdata\build\v042-qualification\gate\Lib\site-packages\build\_ctx.py", line 68, in run_subprocess
+    subprocess.run(cmd, capture_output=True, check=True, cwd=cwd, env=env)  # noqa: S603
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['D:\\Dev\\Projects\\chstockdata\\build\\v042-qualification\\gate\\Scripts\\python.exe', '-m', 'pip', '--python', 'D:\\Dev\\Projects\\chstockdata\\build\\v042-unified\\temp\\build-env-ul9qecrh\\Scripts\\python.exe', 'install', '--ignore-installed', '--use-pep517', '--no-warn-script-location', '--no-compile', '--no-input', '-r', 'D:\\Dev\\Projects\\chstockdata\\build\\v042-unified\\temp\\build-requirements-15vn3pdm.txt']' returned non-zero exit status 1.
+
+* Creating isolated environment: venv+pip...
+* Installing packages in isolated environment:
+  - setuptools>=80.0
+> D:\Dev\Projects\chstockdata\build\v042-qualification\gate\Scripts\python.exe
+  -m pip --python D:\Dev\Projects\chstockdata\build\v042-unified\temp\build-
+  env-ul9qecrh\Scripts\python.exe install --ignore-installed --use-pep517
+  --no-warn-script-location --no-compile --no-input -r
+  D:\Dev\Projects\chstockdata\build\v042-unified\temp\build-
+  requirements-15vn3pdm.txt
+< Looking in indexes: https://pypi.tuna.tsinghua.edu.cn/simple
+< WARNING: Retrying (Retry(total=4, connect=None, read=None, redirect=None,
+  status=None)) after connection broken by 'ProxyError('Cannot connect to
+  proxy.', NewConnectionError('<pip._vendor.urllib3.connection.HTTPSConnection
+  object at 0x000001E0359B6870>: Failed to establish a new connection:
+  [WinError 10013] 以一种访问权限不允许的方式做了一个访问套接字的尝试。'))': /simple/setuptools/
+< WARNING: Retrying (Retry(total=3, connect=None, read=None, redirect=None,
+  status=None)) after connection broken by 'ProxyError('Cannot connect to
+  proxy.', NewConnectionError('<pip._vendor.urllib3.connection.HTTPSConnection
+  object at 0x000001E035C3E8D0>: Failed to establish a new connection:
+  [WinError 10013] 以一种访问权限不允许的方式做了一个访问套接字的尝试。'))': /simple/setuptools/
+< WARNING: Retrying (Retry(total=2, connect=None, read=None, redirect=None,
+  status=None)) after connection broken by 'ProxyError('Cannot connect to
+  proxy.', NewConnectionError('<pip._vendor.urllib3.connection.HTTPSConnection
+  object at 0x000001E035C3E810>: Failed to establish a new connection:
+  [WinError 10013] 以一种访问权限不允许的方式做了一个访问套接字的尝试。'))': /simple/setuptools/
+< WARNING: Retrying (Retry(total=1, connect=None, read=None, redirect=None,
+  status=None)) after connection broken by 'ProxyError('Cannot connect to
+  proxy.', NewConnectionError('<pip._vendor.urllib3.connection.HTTPSConnection
+  object at 0x000001E035C3EB40>: Failed to establish a new connection:
+  [WinError 10013] 以一种访问权限不允许的方式做了一个访问套接字的尝试。'))': /simple/setuptools/
+< WARNING: Retrying (Retry(total=0, connect=None, read=None, redirect=None,
+  status=None)) after connection broken by 'ProxyError('Cannot connect to
+  proxy.', NewConnectionError('<pip._vendor.urllib3.connection.HTTPSConnection
+  object at 0x000001E035C3EEA0>: Failed to establish a new connection:
+  [WinError 10013] 以一种访问权限不允许的方式做了一个访问套接字的尝试。'))': /simple/setuptools/
+< ERROR: Could not find a version that satisfies the requirement
+  setuptools>=80.0 (from versions: none)
+< ERROR: No matching distribution found for setuptools>=80.0
+ERROR Command '['D:\\Dev\\Projects\\chstockdata\\build\\v042-qualification\\gate\\Scripts\\python.exe', '-m', 'pip', '--python', 'D:\\Dev\\Projects\\chstockdata\\build\\v042-unified\\temp\\build-env-ul9qecrh\\Scripts\\python.exe', 'install', '--ignore-installed', '--use-pep517', '--no-warn-script-location', '--no-compile', '--no-input', '-r', 'D:\\Dev\\Projects\\chstockdata\\build\\v042-unified\\temp\\build-requirements-15vn3pdm.txt']' returned non-zero exit status 1.

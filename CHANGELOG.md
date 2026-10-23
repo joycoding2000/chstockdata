@@ -3,9 +3,9 @@
 All notable changes to this project are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
-## [0.4.2] — Local release candidate (2026-10-08)
+## [0.4.2] — Unreleased (2026-10-09)
 
-This candidate contains only the approved VIPDOC Price Scale correctness fix
+This candidate contains the approved VIPDOC Price Scale correctness fix
 relative to the v0.4.1 baseline. It has not been published; consumer
 qualification and separate Owner release authorization are still required.
 
@@ -20,7 +20,11 @@ qualification and separate Owner release authorization are still required.
   legacy division by 100. This compatibility behavior does not certify their
   price precision. Volume and amount units are unchanged.
 
-Historical suspension semantics are not fixed in v0.4.2. No Provider,
+Historical/future suspension requests now fail closed because Eastmoney
+returns latest events, not historical as-of snapshots. Current-day future
+starts cannot establish suspension; completed records no longer block the
+resumption date. Tradability requires an explicit boolean not-suspended fact.
+The frozen consumer historical capability remains a release blocker. No Provider,
 architecture, dependency, frozen SIOS/M1 data or admission-rule changes are
 included. Existing v0.4.1 records and audit conclusions remain unchanged.
 

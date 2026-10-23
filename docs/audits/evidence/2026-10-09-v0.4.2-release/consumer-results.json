@@ -1,0 +1,66 @@
+{
+  "baseline_version": "0.3.0",
+  "candidate_version": "0.4.2",
+  "baseline_sha256": "be759128fcbe818d7ff782e09ea0b69a5ded06fa7a3a6b9a3ebd3038d5a2e627",
+  "candidate_sha256": "323c247acbea51a2d06be799237f7a0921e3a36973f83e25870697eb305eef6f",
+  "sios-baseline-offline": {
+    "total": 934,
+    "failed": [],
+    "skipped": 5
+  },
+  "sios-baseline-live": {
+    "total": 1,
+    "failed": [],
+    "skipped": 0
+  },
+  "sios-candidate-offline": {
+    "total": 934,
+    "failed": [],
+    "skipped": 5
+  },
+  "sios-candidate-live": {
+    "total": 1,
+    "failed": [
+      "tests.qualification.test_chstockdata_etf_gate.TestLiveEtfQualification::test_live_tradability_adjustment_and_freshness"
+    ],
+    "skipped": 0
+  },
+  "ta-baseline": {
+    "total": 130,
+    "failed": [
+      "tests.test_free_adjusted_bars::test_get_adjusted_bars_uses_existing_loader_and_rejects_stale",
+      "tests.test_phase2_step3_validation::test_basis_counts_distinct_result_store_roots_and_requires_two_effective_domains",
+      "tests.test_phase2_step3_validation::test_basis_excludes_boilerplate_domains_and_retains_event_risk_inputs_for_partial_work",
+      "tests.test_phase2_step3_validation::test_date_exemption_requires_exact_admitted_or_cited_metadata",
+      "tests.test_phase2_step3_validation::test_derived_metric_numeric_render_uses_its_closed_source_evidence",
+      "tests.test_phase2_step3_validation::test_full_output_numeric_scan_covers_conflict_risk_and_final_fields",
+      "tests.test_phase2_step3_validation::test_scoped_absence_requires_a_matching_normal_empty_datahealth_source"
+    ],
+    "skipped": 0
+  },
+  "ta-candidate": {
+    "total": 130,
+    "failed": [
+      "tests.test_free_adjusted_bars::test_get_adjusted_bars_uses_existing_loader_and_rejects_stale",
+      "tests.test_phase2_step3_validation::test_basis_counts_distinct_result_store_roots_and_requires_two_effective_domains",
+      "tests.test_phase2_step3_validation::test_basis_excludes_boilerplate_domains_and_retains_event_risk_inputs_for_partial_work",
+      "tests.test_phase2_step3_validation::test_date_exemption_requires_exact_admitted_or_cited_metadata",
+      "tests.test_phase2_step3_validation::test_derived_metric_numeric_render_uses_its_closed_source_evidence",
+      "tests.test_phase2_step3_validation::test_full_output_numeric_scan_covers_conflict_risk_and_final_fields",
+      "tests.test_phase2_step3_validation::test_scoped_absence_requires_a_matching_normal_empty_datahealth_source"
+    ],
+    "skipped": 0
+  },
+  "initial-sios-baseline-offline": {
+    "total": 934,
+    "failed": [
+      "tests.parity.test_reference_cases.TestParityReferenceCases::test_generated_report_matches_the_committed_parity_evidence",
+      "tests.qualification.test_chstockdata_etf_gate.TestOfflineEtfGate::test_generated_report_matches_the_committed_offline_evidence"
+    ],
+    "skipped": 5
+  },
+  "ta-failure-diff": {
+    "added": [],
+    "removed": []
+  }
+}
