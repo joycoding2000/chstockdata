@@ -1,0 +1,14 @@
+{
+  "checked_files": 5,
+  "sha256_checks": "PASS",
+  "audit_identity": "PASS",
+  "removed_owned_runtime_paths": [
+    "D:\\Dev\\Projects\\chstockdata\\.h01-repair-tmp",
+    "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-22-sios-h01-final-repair\\__pycache__",
+    "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-22-sios-h01-final-repair\\H01-delivery-repaired\\tools\\__pycache__",
+    "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-22-sios-h01-final-repair\\H01-delivery-repaired\\tools\\legacy\\__pycache__"
+  ],
+  "task_temp_absent": true,
+  "old_evidence_preserved": true,
+  "final_manifest_sha256": "8d2f2400b011891f17f6e9c9e2950c6608ab12d1759044cc06e04040e02be79a"
+}

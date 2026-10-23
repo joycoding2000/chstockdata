@@ -1,0 +1,12 @@
+{
+  "args": [
+    "-m",
+    "pytest",
+    "tests/test_sios_h01_final_repair.py",
+    "--basetemp=.h01-repair-tmp/final-new",
+    "--junitxml=D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-22-sios-h01-final-repair\\new-repair-tests.xml",
+    "-q",
+    "--tb=short"
+  ],
+  "returncode": 0
+}

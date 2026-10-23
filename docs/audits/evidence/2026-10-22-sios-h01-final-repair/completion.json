@@ -1,0 +1,49 @@
+{
+  "current_decision": "FIX_ONLY",
+  "verdict": "H01_DATA_PACKAGE_READY_FOR_CONSUMER_ACCEPTANCE",
+  "manifest_sha256": "8d2f2400b011891f17f6e9c9e2950c6608ab12d1759044cc06e04040e02be79a",
+  "validation_report_sha256": "1e874566aff98044227a24819d56b88762255dbf35afcfe71a096ad9b042fea4",
+  "zip_sha256": "82dd2f7258a410285f6be27be7232d35fa31b1fba32ad0bd0a31f7d903873c19",
+  "zip_bytes": 8971030,
+  "package_files": 123,
+  "old_manifest_sha256": "68ca0d4facc72b03f4828aae1b254fbd10beec4b456d7aa1ff80cea0e89f1dd0",
+  "old_zip_sha256": "18b3025a7380f4d1f7e510b41af435f08b5e8788314e1278c99c2429c4df7877",
+  "protected_original_files_verified": 197,
+  "old_tests": "87 passed in 6.18s",
+  "old_test_case_ids_identical": true,
+  "new_tests": "14 passed in 1.40s",
+  "receiver_exit_code": 0,
+  "receipt_checks": 29986,
+  "qualified_observations": 1875,
+  "qualified_observation_period_input_rows": 1275,
+  "qualified_warmup_per_etf": 200,
+  "raw_numerical_fields_unchanged": true,
+  "offline_reproduction_manifest_identical": true,
+  "official_suspension_sha256": "be01b505d9c05cf5c7bc58a231849379321d519d154f789b2ad3c5ae5bd81c28",
+  "network": {
+    "requests": 1,
+    "bytes": 76987,
+    "budget": [
+      12,
+      15000000
+    ]
+  },
+  "repositories": {
+    "producer": {
+      "head": "5584f5fcacccef9a9531a7a32b8463ea6771d312",
+      "tracked_diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "?? .h01-repair-tmp/\n?? docs/DR01-current-free-data-feasibility-2026-10-19.md\n?? docs/DR02-DR06-consolidated-gap-report.md\n?? docs/MISHI_RADAR_TO_CHSTOCKDATA_DR01_DR06_CONSUMER_REQUEST_2026-10-16.md\n?? docs/MISHI_RADAR_V0_1_SPEC_R3_2_SCOPE_APPROVED_DATA_PENDING_2026-10-16.md\n?? docs/SIOS-P2-to-chstockdata-handoff-2026-10-19.zip\n?? docs/audits/2026-10-09-v0.4.2-history-recovery-conclusion.md\n?? docs/audits/2026-10-09-v0.4.2-official-history-and-sios-final-decision.md\n?? docs/audits/2026-10-09-v0.4.2-release-closeout.md\n?? docs/audits/2026-10-09-v0.4.2-unified-gate.md\n?? docs/audits/2026-10-10-v0.4.2-tdx-historical-execution-feasibility.md\n?? docs/audits/2026-10-11-v0.4.2-opening-implementation.md\n?? docs/audits/2026-10-14-v0.4.2-controlled-release.md\n?? docs/audits/2026-10-18-dr04-p-implementation.md\n?? docs/audits/2026-10-18-dr04-p-preflight.md\n?? docs/audits/2026-10-18-dr04-p-regression-fix.md\n?? docs/audits/2026-10-18-dr04-p-regression-root-cause.md\n?? docs/audits/2026-10-19-sios-p2-producer-response.md\n?? docs/audits/2026-10-19-w5h-historical-financial-pit-feasibility.md\n?? docs/audits/2026-10-20-w5h-r2-alternative-source-qualification.md\n?? docs/audits/2026-10-22-mishi-s07-real-window-admission-preflight.md\n?? docs/audits/2026-10-22-mishi-s07-real-window-dependencies.json\n?? docs/audits/2026-10-22-s07-free-supply-decisive-screen.md\n?? docs/audits/2026-10-22-sios-h01-priority-delivery.md\n?? docs/audits/2026-10-22-w5h-f2-final-evidence-qualification.md\n?? docs/audits/DR01-current-free-data-feasibility-2026-10-19.md\n?? docs/audits/evidence/2026-10-09-v0.4.2-history-recovery/\n?? docs/audits/evidence/2026-10-09-v0.4.2-release/\n?? docs/audits/evidence/2026-10-09-v0.4.2-unified-gate/\n?? docs/audits/evidence/2026-10-10-v0.4.2-tdx-historical-execution/probe_tdx_history.py\n?? docs/audits/evidence/2026-10-10-v0.4.2-tdx-historical-execution/probe_tdx_opening_pages.py\n?? docs/audits/evidence/2026-10-10-v0.4.2-tdx-historical-execution/probe_tdx_opening_pages_final.py\n?? docs/audits/evidence/2026-10-10-v0.4.2-tdx-historical-execution/probe_tdx_opening_pages_followup.py\n?? docs/audits/evidence/2026-10-10-v0.4.2-tdx-historical-execution/tdx_history_manifest.json\n?? docs/audits/evidence/2026-10-10-v0.4.2-tdx-historical-execution/tdx_opening_page_final_manifest.json\n?? docs/audits/evidence/2026-10-10-v0.4.2-tdx-historical-execution/tdx_opening_page_followup_manifest.json\n?? docs/audits/evidence/2026-10-10-v0.4.2-tdx-historical-execution/tdx_opening_page_manifest.json\n?? docs/audits/evidence/2026-10-11-v0.4.2-opening-implementation/\n?? docs/audits/evidence/2026-10-14-v0.4.2-controlled-release/\n?? docs/audits/evidence/2026-10-18-dr04-p-failure-investigation/\n?? docs/audits/evidence/2026-10-18-dr04-p-implementation/\n?? docs/audits/evidence/2026-10-18-dr04-p-owner-acceptance/focused.stderr.txt\n?? docs/audits/evidence/2026-10-18-dr04-p-owner-acceptance/ruff.stderr.txt\n?? docs/audits/evidence/2026-10-18-dr04-p-owner-acceptance/worktree-before.json\n?? docs/audits/evidence/2026-10-18-dr04-p-preflight/\n?? docs/audits/evidence/2026-10-18-dr04-p-regression-fix-r2/before-test.py.txt\n?? docs/audits/evidence/2026-10-18-dr04-p-regression-fix-r2/before.diff\n?? docs/audits/evidence/2026-10-18-dr04-p-regression-fix-r2/before.json\n?? docs/audits/evidence/2026-10-18-dr04-p-regression-fix-r2/finalize.py\n?? docs/audits/evidence/2026-10-18-dr04-p-regression-fix-r2/focused.stderr.txt\n?? docs/audits/evidence/2026-10-18-dr04-p-regression-fix-r2/regression.stderr.txt\n?? docs/audits/evidence/2026-10-18-dr04-p-regression-fix-r2/resume.py\n?? docs/audits/evidence/2026-10-18-dr04-p-regression-fix-r2/verify.py\n?? docs/audits/evidence/2026-10-18-dr04-p-regression-fix/\n?? docs/audits/evidence/2026-10-18-dr04-p-type-identity-fix/before.json\n?? docs/audits/evidence/2026-10-18-dr04-p-type-identity-fix/finalize.py\n?? docs/audits/evidence/2026-10-18-dr04-p-type-identity-fix/focused.stderr.txt\n?? docs/audits/evidence/2026-10-18-dr04-p-type-identity-fix/full.stderr.txt\n?? docs/audits/evidence/2026-10-18-dr04-p-type-identity-fix/module-before.txt\n?? docs/audits/evidence/2026-10-18-dr04-p-type-identity-fix/red.stderr.txt\n?? docs/audits/evidence/2026-10-18-dr04-p-type-identity-fix/tests-before.txt\n?? docs/audits/evidence/2026-10-18-dr04-p-type-identity-fix/tracked-before.diff\n?? docs/audits/evidence/2026-10-18-dr04-p-type-identity-fix/verify.py\n?? docs/audits/evidence/2026-10-19-sios-p2-producer-response/\n?? docs/audits/evidence/2026-10-19-w5h/\n?? docs/audits/evidence/2026-10-20-w5h-r2/\n?? docs/audits/evidence/2026-10-22-s07-free-supply-decisive-screen/\n?? docs/audits/evidence/2026-10-22-sios-h01-final-repair/\n?? docs/audits/evidence/2026-10-22-sios-h01-priority-delivery/\n?? docs/audits/evidence/2026-10-22-w5h-f2-final-evidence-qualification/\n?? docs/dr04-minimum-consumer-contract-owner-review.md\n?? docs/plans/\n?? tests/test_sios_h01_delivery.py\n?? tests/test_sios_h01_final_repair.py\n"
+    },
+    "consumer": {
+      "head": "a46500441ff29c9c7807fdfef155c22cedb72b88",
+      "tracked_diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "?? docs/m1-r2/R2-external-long-history-mechanism-falsification-2026-10-22.md\n?? research/external-long-history-mechanism-2026-10-22/\n"
+    }
+  },
+  "remaining_necessary_gaps": [],
+  "owner_acceptance": "PENDING",
+  "strategy_backtests_executed": 0,
+  "production_adapter_integrated": false,
+  "git_commit": false,
+  "git_push": false
+}

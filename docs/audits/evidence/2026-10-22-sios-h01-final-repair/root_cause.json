@@ -1,0 +1,31 @@
+{
+  "classification": "CONFIRMED_DEFECT",
+  "producer_location": "build_delivery.py:196-208",
+  "receiver_location": "receive_delivery.py:100,105-106",
+  "actual_condition": "Every record was unconditionally marked NOT_ATTESTED/False/null after a successful no-event audit; the receiver required that failure state.",
+  "source_request_failure_was_not_the_reason_for_zero_signal_rows": true,
+  "no_literal_per_day_negative_certificate_test_or_publication_cutoff_comparison_existed": true,
+  "three_etfs": {
+    "513500": {
+      "blocked_rows": 625,
+      "base_reason": "HISTORICAL_EVENT_ASOF_COVERAGE_NOT_ATTESTED"
+    },
+    "513030": {
+      "blocked_rows": 625,
+      "base_reason": "HISTORICAL_EVENT_ASOF_COVERAGE_NOT_ATTESTED"
+    },
+    "513520": {
+      "blocked_rows": 625,
+      "base_reason": "HISTORICAL_EVENT_ASOF_COVERAGE_NOT_ATTESTED"
+    }
+  },
+  "original_api_normal_empty_and_request_error_semantics_preserved": true,
+  "later_reports_are_completeness_audit_not_signal_input": true,
+  "original_receiver_rejected_new_package_only_due_to_four_obsolete_assertion_categories": {
+    "unknown historical event coverage fails closed": 1875,
+    "zero turnover retained without suspension inference": 1,
+    "four named gaps retained": 1,
+    "no false acceptance or PASS": 1
+  },
+  "original_issuer_reports": 9
+}
