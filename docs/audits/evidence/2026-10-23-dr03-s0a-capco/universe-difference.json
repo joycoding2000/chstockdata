@@ -1,0 +1,93 @@
+{
+  "dr01": {
+    "snapshot_business_date": "2026-10-16",
+    "sh_raw_records": 2320,
+    "sz_raw_records": 2906,
+    "sh_after_cdr_exclusion": 2319,
+    "total_after_cdr_exclusion": 5225,
+    "cdr_excluded": [
+      "689009"
+    ],
+    "sources": [
+      {
+        "file": "official-SH-main.response.bin",
+        "path": "D:/Dev/Projects/mishi-radar/outputs/dr01-current-2026-10-18/evidence/reused/official-SH-main.response.bin",
+        "sha256": "743ba070a791d053d319c7ed30b889c23b51575373a73bf81f8aa2a995b8a201",
+        "bytes": 1946711
+      },
+      {
+        "file": "official-SH-star.response.bin",
+        "path": "D:/Dev/Projects/mishi-radar/outputs/dr01-current-2026-10-18/evidence/reused/official-SH-star.response.bin",
+        "sha256": "672da3dad4b8443c690ce116361645a55e7a3e9e204de5ad60a0e8beb8281e72",
+        "bytes": 715300
+      },
+      {
+        "file": "official-SZ-A.response.bin",
+        "path": "D:/Dev/Projects/mishi-radar/outputs/dr01-current-2026-10-18/evidence/reused/official-SZ-A.response.bin",
+        "sha256": "780b9f26515921b5f04c06bb6ffe5b25de57c283b1e87c993036c3ce0bc36332",
+        "bytes": 545403
+      }
+    ]
+  },
+  "dr03": {
+    "snapshot_date": "2026-10-22",
+    "sh_raw_records": 2318,
+    "sz_raw_records": 2907,
+    "sh_after_cdr_exclusion": 2317,
+    "sz_after_302132_exclusion": 2906,
+    "total_candidate_after_both_exclusions": 5223,
+    "cdr_excluded": [
+      "689009"
+    ],
+    "outside_a_family_excluded": [
+      "302132"
+    ],
+    "sources": [
+      {
+        "file": "sse-current-1.raw",
+        "sha256": "f9135be9dcbeff464ecacc7cbf8a1832949d4790c937d1315d701afae91eb20f",
+        "bytes": 1944405
+      },
+      {
+        "file": "sse-current-8.raw",
+        "sha256": "32cb90c706464a6e8502b652569a42eba265a9cc85e03a740193c6b3e322e2e4",
+        "bytes": 715278
+      },
+      {
+        "file": "szse-current.raw",
+        "sha256": "5ce958d8b34c099c9fb3dc8bdaf7f5d3a99868e98b159b1a73fa1cb6cd91442d",
+        "bytes": 545613
+      }
+    ]
+  },
+  "difference": {
+    "sh_dr01_only": [
+      "601059",
+      "601198"
+    ],
+    "sh_dr03_only": [],
+    "sz_dr01_only": [],
+    "sz_dr03_only": [
+      "301718"
+    ],
+    "sh_shared": 2318,
+    "sz_shared": 2906,
+    "601059": {
+      "name": "信达证券",
+      "delisting": "2026-10-19",
+      "dr03_source": "sse-delisted"
+    },
+    "601198": {
+      "name": "东兴证券",
+      "delisting": "2026-10-19",
+      "dr03_source": "sse-delisted"
+    },
+    "301718": {
+      "name": "N通则康威",
+      "listing": "2026-10-22",
+      "dr03_source": "szse-current"
+    },
+    "same_total_is_not_set_equality": true,
+    "note": "DR01 2319 is SH raw 2320 minus 689009; DR03 2318 is SH raw including 689009 (post-exclusion 2317). DR01 SZ 2906 and DR03 SZ 2907 both include 302132. The equal 5225 totals are not like-for-like compositions."
+  }
+}

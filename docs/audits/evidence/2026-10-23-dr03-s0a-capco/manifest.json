@@ -1,0 +1,161 @@
+{
+  "generated_at": "2026-10-23",
+  "files": [
+    {
+      "file": "capco-app-path-fallback.html",
+      "bytes": 2371,
+      "sha256": "0d21e9c9d7553350c41b06a9770bed8e475c6f72eff784791651b71fb88992e0"
+    },
+    {
+      "file": "capco-article-2025H1.js",
+      "bytes": 1857,
+      "sha256": "b408b41fd2c932c74e9704211ad82117458035483c933f722fca3ba85d0e1b8b"
+    },
+    {
+      "file": "capco-article-2025H2.js",
+      "bytes": 1301,
+      "sha256": "800821d377c1b29705aa371b20e9d8a2f84a9dda14442023d9f0d32f9a07cd65"
+    },
+    {
+      "file": "capco-article-2026H1.js",
+      "bytes": 1279,
+      "sha256": "e2e4ac866954985d1bbd2c501b16f288f0542b62b1963053cff41215443ef92a"
+    },
+    {
+      "file": "capco-article-detail-js.js",
+      "bytes": 5525,
+      "sha256": "1d56a203f9f920917688fc1b8af0b6f80e8ccfcc034dbdab9d173a0d90994e22"
+    },
+    {
+      "file": "capco-article-list-js.js",
+      "bytes": 7585,
+      "sha256": "ac86f330bb847ded5b7865f1453fd3529b78d191b983e225d7499b758894f49d"
+    },
+    {
+      "file": "capco-bse-code-map.json",
+      "bytes": 41403,
+      "sha256": "022e8026b4a7fe6478afb9a0c1aa3508d234133e74346caf5ab9956ce2526746"
+    },
+    {
+      "file": "capco-code-sets.json",
+      "bytes": 279058,
+      "sha256": "d5a5e40277ba71656a9aa51e643ee197b46db2068d0a2d50de51f825a1226a44"
+    },
+    {
+      "file": "capco-page.html",
+      "bytes": 2371,
+      "sha256": "0d21e9c9d7553350c41b06a9770bed8e475c6f72eff784791651b71fb88992e0"
+    },
+    {
+      "file": "capco-pdf-2025H2-by-code-classification.json",
+      "bytes": 648579,
+      "sha256": "782b29615d5a00d8118529f88400d1813c7d42588fafcc63ac36062d451e3df2"
+    },
+    {
+      "file": "capco-pdf-2025H2-by-code-industry.json",
+      "bytes": 395274,
+      "sha256": "d14cd023dd9c0f8234f12c9bc0c69572452e60e8175150eb3fe05d8e7435fae4"
+    },
+    {
+      "file": "capco-pdf-2025H2-by-code.pdf",
+      "bytes": 772144,
+      "sha256": "b1d0140572b20de11cd62ca478edb4da6e229928b216116df6345b3c2e461f58"
+    },
+    {
+      "file": "capco-pdf-2025H2-by-code.txt",
+      "bytes": 518791,
+      "sha256": "a9373b85b3001e4d0330cb2bfbb8c914305495bd135aeb8bd3b618ec9d1dbae2"
+    },
+    {
+      "file": "capco-pdf-2026H1-by-code-classification.json",
+      "bytes": 655089,
+      "sha256": "4cc5418f601035939d69a7324b31e63cb584e64021517846e71fed943b6e99cb"
+    },
+    {
+      "file": "capco-pdf-2026H1-by-code-industry.json",
+      "bytes": 399042,
+      "sha256": "0f21e80a487fd8c88080ff2d9f34d4e46eacbd56b07b332d9e3faa7b0d158a80"
+    },
+    {
+      "file": "capco-pdf-2026H1-by-code.pdf",
+      "bytes": 782339,
+      "sha256": "1f1862ae2199a82a3a35c62f16a7d576120bca97f3de608989c8897df9b6c8a6"
+    },
+    {
+      "file": "capco-pdf-2026H1-by-code.txt",
+      "bytes": 526407,
+      "sha256": "d6b97f80672cfcaabef71ca7612409a08827268a35b17275c30dc5574bc649df"
+    },
+    {
+      "file": "capco-pdf-bse-code-map.pdf",
+      "bytes": 190213,
+      "sha256": "f85a6691a74a8c7e4d2bb838277161b9d0496f52cc66ddde4ba0211153401c3d"
+    },
+    {
+      "file": "capco-pdf-bse-code-map.txt",
+      "bytes": 10708,
+      "sha256": "dd6b19d786111268594c1bb2395266c559ab0ea5933d169c02ab50af97daf5a4"
+    },
+    {
+      "file": "capco-pdf-by-code-classification.json",
+      "bytes": 642868,
+      "sha256": "a25583a70a6e01011cf9fab51d239c1fd76123adc27ef591e56600a0fac07660"
+    },
+    {
+      "file": "capco-pdf-by-code-industry.json",
+      "bytes": 391911,
+      "sha256": "ea5d10dfac09c61f3f53f54e8f3799f9aa7c2c3fa9968e55eedcb22fa9fa7775"
+    },
+    {
+      "file": "capco-pdf-by-code.pdf",
+      "bytes": 4626417,
+      "sha256": "b622b76b96d59611db36b01888cf6afd8cd711c5753a19ab8547e74bb0bb8228"
+    },
+    {
+      "file": "capco-pdf-by-code.txt",
+      "bytes": 516520,
+      "sha256": "4396c980188c22e72074d22e00e1ce31c7e87c5095cc9a7557785aa4043509df"
+    },
+    {
+      "file": "capco-pdf-by-industry.pdf",
+      "bytes": 1935787,
+      "sha256": "caa7d96b05ff9ec2165aa3b4cb69edd69c8b1a1a0f99198c4cfcf85727f1d7bc"
+    },
+    {
+      "file": "capco-pdf-by-industry.txt",
+      "bytes": 138064,
+      "sha256": "ede0a31b94a5b30056d3219045af87b212163f71f56897aabb0b2d163c6610c4"
+    },
+    {
+      "file": "capco-site-bundle.js",
+      "bytes": 1843472,
+      "sha256": "80d01e801cce51f91f14f8d8ab53e0ffa3a3140f4de639f535704a150d67d83d"
+    },
+    {
+      "file": "capco-taxonomy-guide.js",
+      "bytes": 1948,
+      "sha256": "b7ad99d947fad5b71b3464d55d19530012bd91ad5465574d82846ee519b4f584"
+    },
+    {
+      "file": "pdf-code-counts.json",
+      "bytes": 367,
+      "sha256": "079d28a12a60756c4f35891984f86fa13a9bfc38ca0b1e8fa1661472a8876eb9"
+    },
+    {
+      "file": "requests.json",
+      "bytes": 24921,
+      "sha256": "06f1cd2f9a796f0416bf715aae26d09643502968f9c725ea577a7ac77c7cf585"
+    },
+    {
+      "file": "summary.json",
+      "bytes": 5161,
+      "sha256": "6b471801489a9733af85806cb0b07133babee9dafa6c838bf80a467dbb491d40"
+    },
+    {
+      "file": "universe-difference.json",
+      "bytes": 2951,
+      "sha256": "8a29892ff97bb579954d66da219fd3c3a9d5c8664cf01a3749ce4b4ae7fdac54"
+    }
+  ],
+  "count": 31
+}
