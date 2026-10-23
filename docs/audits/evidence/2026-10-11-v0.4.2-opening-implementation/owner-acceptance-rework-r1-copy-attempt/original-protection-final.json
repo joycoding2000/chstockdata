@@ -1,0 +1,29 @@
+{
+  "exit_code": 0,
+  "original_chstockdata_head": "42bd44ef4d695aa3e88cfab4ebc3417660d0437a",
+  "original_chstockdata_files_checked": 758,
+  "original_chstockdata_baseline_differences": [
+    "docs/releases/v0.4.2/change-requests/CR-historical-opening-execution.md"
+  ],
+  "original_cr_prefix_preserved": true,
+  "original_sios_head": "fafdb6d3942ba52baa9480da7c8674dab1487f5d",
+  "original_sios_files_checked": 244,
+  "original_sios_baseline_differences": [
+    "docs/m1-r2/R2-product-assumption-and-universe-decision.md"
+  ],
+  "original_sios_current_status": "M docs/m1-r2/R2-product-assumption-and-universe-decision.md\n?? \"research/SIOS_ETF\\344\\270\\211\\345\\233\\240\\345\\255\\220\\350\\275\\256\\345\\212\\250\\347\\263\\273\\347\\273\\237_\\345\\244\\226\\351\\203\\250\\347\\255\\226\\347\\225\\245\\347\\240\\224\\347\\251\\266\\345\\244\\207\\345\\277\\230\\345\\275\\225_2026-10-13.md\"",
+  "original_sios_baseline_status": "",
+  "original_sios_product_source_unchanged": true,
+  "original_sios_changed_doc_sha256": {
+    "docs/m1-r2/R2-product-assumption-and-universe-decision.md": "923fbb253e89bcf9d8d378c998df407e6f5e119ac3e97fef38b1509dcfc6745f"
+  },
+  "original_sios_preservation_note": "Two concurrent document changes versus early baseline are retained; this REWORK issued no original SIOS writes. Isolated tested source is independently unchanged.",
+  "original_ta_head": "3f2704f3af572bf3f1b70fe0dc4ddd1c9972908c",
+  "original_ta_files_checked": 986,
+  "original_ta_source_and_working_tree_status_unchanged": true,
+  "old_isolated_source_files_unchanged": 765,
+  "original_wheel_sha256": "b76b065a06cd1d91868880a7b57584f598b6fd4cb42931e9a33700bc99a88c7a",
+  "previous_candidate_wheel_sha256": "3fd4f0b7334e310851495b8b13d4c7c55d21cde719acf9e00ff880ccb822f42e",
+  "previous_step4_zip_sha256": "a94de2c4ce72a4e98ffad9b0fa2dfdb93833623832078dcb5d2373b23d7e8b8d",
+  "claim": "Existing user source changes, old candidate and old acceptance ZIP preserved; concurrent original SIOS documents explicitly recorded."
+}

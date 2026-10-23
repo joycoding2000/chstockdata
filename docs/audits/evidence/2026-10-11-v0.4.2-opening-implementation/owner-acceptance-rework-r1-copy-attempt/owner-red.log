@@ -1,0 +1,223 @@
+..FFFFFFFFFFFFF.......                                                   [100%]
+================================== FAILURES ===================================
+_ test_owner_authenticated_resume_date_bounds_only_corresponding_halt[2016-07-04-UNKNOWN-False] _
+
+day = '2016-07-04', status = 'UNKNOWN', block = False
+
+    @pytest.mark.parametrize('day,status,block', [
+        ('2015-12-18', 'OPEN_ACTIVITY_CONFIRMED', False),
+        ('2016-01-04', 'UNKNOWN', True),
+        ('2016-07-04', 'UNKNOWN', False),
+        ('2016-07-05', 'OPEN_ACTIVITY_CONFIRMED', False),
+        ('2022-12-30', 'OPEN_ACTIVITY_CONFIRMED', False),
+    ])
+    def test_owner_authenticated_resume_date_bounds_only_corresponding_halt(day, status, block):
+        data = owner_interval_fetch(day).data
+        assert data['opening_status'] == status
+>       assert data['official_block_at_target'] is block
+E       assert True is False
+
+tests\test_historical_opening_evidence.py:433: AssertionError
+_ test_owner_authenticated_resume_date_bounds_only_corresponding_halt[2016-07-05-OPEN_ACTIVITY_CONFIRMED-False] _
+
+day = '2016-07-05', status = 'OPEN_ACTIVITY_CONFIRMED', block = False
+
+    @pytest.mark.parametrize('day,status,block', [
+        ('2015-12-18', 'OPEN_ACTIVITY_CONFIRMED', False),
+        ('2016-01-04', 'UNKNOWN', True),
+        ('2016-07-04', 'UNKNOWN', False),
+        ('2016-07-05', 'OPEN_ACTIVITY_CONFIRMED', False),
+        ('2022-12-30', 'OPEN_ACTIVITY_CONFIRMED', False),
+    ])
+    def test_owner_authenticated_resume_date_bounds_only_corresponding_halt(day, status, block):
+        data = owner_interval_fetch(day).data
+>       assert data['opening_status'] == status
+E       AssertionError: assert 'UNKNOWN' == 'OPEN_ACTIVITY_CONFIRMED'
+E         
+E         - OPEN_ACTIVITY_CONFIRMED
+E         + UNKNOWN
+
+tests\test_historical_opening_evidence.py:432: AssertionError
+_ test_owner_authenticated_resume_date_bounds_only_corresponding_halt[2022-12-30-OPEN_ACTIVITY_CONFIRMED-False] _
+
+day = '2022-12-30', status = 'OPEN_ACTIVITY_CONFIRMED', block = False
+
+    @pytest.mark.parametrize('day,status,block', [
+        ('2015-12-18', 'OPEN_ACTIVITY_CONFIRMED', False),
+        ('2016-01-04', 'UNKNOWN', True),
+        ('2016-07-04', 'UNKNOWN', False),
+        ('2016-07-05', 'OPEN_ACTIVITY_CONFIRMED', False),
+        ('2022-12-30', 'OPEN_ACTIVITY_CONFIRMED', False),
+    ])
+    def test_owner_authenticated_resume_date_bounds_only_corresponding_halt(day, status, block):
+        data = owner_interval_fetch(day).data
+>       assert data['opening_status'] == status
+E       AssertionError: assert 'UNKNOWN' == 'OPEN_ACTIVITY_CONFIRMED'
+E         
+E         - OPEN_ACTIVITY_CONFIRMED
+E         + UNKNOWN
+
+tests\test_historical_opening_evidence.py:432: AssertionError
+_______ test_owner_resume_day_unknown_without_positive_activity[empty] ________
+
+activity = 'empty'
+
+    @pytest.mark.parametrize('activity', ['empty', 'zero'])
+    def test_owner_resume_day_unknown_without_positive_activity(activity):
+        data = owner_interval_fetch('2016-07-04', activity=activity).data
+>       assert data['opening_status'] == 'UNKNOWN'
+E       AssertionError: assert 'BLOCKED_CONFIRMED' == 'UNKNOWN'
+E         
+E         - UNKNOWN
+E         + BLOCKED_CONFIRMED
+
+tests\test_historical_opening_evidence.py:446: AssertionError
+________ test_owner_resume_day_unknown_without_positive_activity[zero] ________
+
+activity = 'zero'
+
+    @pytest.mark.parametrize('activity', ['empty', 'zero'])
+    def test_owner_resume_day_unknown_without_positive_activity(activity):
+        data = owner_interval_fetch('2016-07-04', activity=activity).data
+>       assert data['opening_status'] == 'UNKNOWN'
+E       AssertionError: assert 'BLOCKED_CONFIRMED' == 'UNKNOWN'
+E         
+E         - UNKNOWN
+E         + BLOCKED_CONFIRMED
+
+tests\test_historical_opening_evidence.py:446: AssertionError
+____ test_owner_after_resume_still_requires_positive_tdx[empty-2016-07-05] ____
+
+day = '2016-07-05', activity = 'empty'
+
+    @pytest.mark.parametrize('day', ['2016-07-05', '2022-12-30'])
+    @pytest.mark.parametrize('activity', ['empty', 'zero'])
+    def test_owner_after_resume_still_requires_positive_tdx(day, activity):
+        data = owner_interval_fetch(day, activity=activity).data
+>       assert data['opening_status'] == 'UNKNOWN'
+E       AssertionError: assert 'BLOCKED_CONFIRMED' == 'UNKNOWN'
+E         
+E         - UNKNOWN
+E         + BLOCKED_CONFIRMED
+
+tests\test_historical_opening_evidence.py:455: AssertionError
+____ test_owner_after_resume_still_requires_positive_tdx[empty-2022-12-30] ____
+
+day = '2022-12-30', activity = 'empty'
+
+    @pytest.mark.parametrize('day', ['2016-07-05', '2022-12-30'])
+    @pytest.mark.parametrize('activity', ['empty', 'zero'])
+    def test_owner_after_resume_still_requires_positive_tdx(day, activity):
+        data = owner_interval_fetch(day, activity=activity).data
+>       assert data['opening_status'] == 'UNKNOWN'
+E       AssertionError: assert 'BLOCKED_CONFIRMED' == 'UNKNOWN'
+E         
+E         - UNKNOWN
+E         + BLOCKED_CONFIRMED
+
+tests\test_historical_opening_evidence.py:455: AssertionError
+____ test_owner_after_resume_still_requires_positive_tdx[zero-2016-07-05] _____
+
+day = '2016-07-05', activity = 'zero'
+
+    @pytest.mark.parametrize('day', ['2016-07-05', '2022-12-30'])
+    @pytest.mark.parametrize('activity', ['empty', 'zero'])
+    def test_owner_after_resume_still_requires_positive_tdx(day, activity):
+        data = owner_interval_fetch(day, activity=activity).data
+>       assert data['opening_status'] == 'UNKNOWN'
+E       AssertionError: assert 'BLOCKED_CONFIRMED' == 'UNKNOWN'
+E         
+E         - UNKNOWN
+E         + BLOCKED_CONFIRMED
+
+tests\test_historical_opening_evidence.py:455: AssertionError
+____ test_owner_after_resume_still_requires_positive_tdx[zero-2022-12-30] _____
+
+day = '2022-12-30', activity = 'zero'
+
+    @pytest.mark.parametrize('day', ['2016-07-05', '2022-12-30'])
+    @pytest.mark.parametrize('activity', ['empty', 'zero'])
+    def test_owner_after_resume_still_requires_positive_tdx(day, activity):
+        data = owner_interval_fetch(day, activity=activity).data
+>       assert data['opening_status'] == 'UNKNOWN'
+E       AssertionError: assert 'BLOCKED_CONFIRMED' == 'UNKNOWN'
+E         
+E         - UNKNOWN
+E         + BLOCKED_CONFIRMED
+
+tests\test_historical_opening_evidence.py:455: AssertionError
+__ test_owner_after_resume_still_requires_successful_complete_official[bad0] __
+
+bad = ConnectionError('injected fault')
+
+    @pytest.mark.parametrize('bad', [ConnectionError('injected fault'), b'<html>fault</html>',
+                                   {'announceCount': 26, 'data': []},
+                                   {'announceCount': 1, 'data': [{'title': 'uncertified stock halt'}]}])
+    def test_owner_after_resume_still_requires_successful_complete_official(bad):
+        result = owner_interval_fetch('2022-12-30', official=bad)
+        assert result.data['opening_status'] == 'UNKNOWN'
+        assert result.metadata.partial
+>       assert not result.data['official_block_at_target'] and not result.data['source_conflict']
+E       assert (not True)
+
+tests\test_historical_opening_evidence.py:466: AssertionError
+_ test_owner_after_resume_still_requires_successful_complete_official[<html>fault</html>] _
+
+bad = b'<html>fault</html>'
+
+    @pytest.mark.parametrize('bad', [ConnectionError('injected fault'), b'<html>fault</html>',
+                                   {'announceCount': 26, 'data': []},
+                                   {'announceCount': 1, 'data': [{'title': 'uncertified stock halt'}]}])
+    def test_owner_after_resume_still_requires_successful_complete_official(bad):
+        result = owner_interval_fetch('2022-12-30', official=bad)
+        assert result.data['opening_status'] == 'UNKNOWN'
+        assert result.metadata.partial
+>       assert not result.data['official_block_at_target'] and not result.data['source_conflict']
+E       assert (not True)
+
+tests\test_historical_opening_evidence.py:466: AssertionError
+__ test_owner_after_resume_still_requires_successful_complete_official[bad2] __
+
+bad = {'announceCount': 26, 'data': []}
+
+    @pytest.mark.parametrize('bad', [ConnectionError('injected fault'), b'<html>fault</html>',
+                                   {'announceCount': 26, 'data': []},
+                                   {'announceCount': 1, 'data': [{'title': 'uncertified stock halt'}]}])
+    def test_owner_after_resume_still_requires_successful_complete_official(bad):
+        result = owner_interval_fetch('2022-12-30', official=bad)
+        assert result.data['opening_status'] == 'UNKNOWN'
+        assert result.metadata.partial
+>       assert not result.data['official_block_at_target'] and not result.data['source_conflict']
+E       assert (not True)
+
+tests\test_historical_opening_evidence.py:466: AssertionError
+__ test_owner_after_resume_still_requires_successful_complete_official[bad3] __
+
+bad = {'announceCount': 1, 'data': [{'title': 'uncertified stock halt'}]}
+
+    @pytest.mark.parametrize('bad', [ConnectionError('injected fault'), b'<html>fault</html>',
+                                   {'announceCount': 26, 'data': []},
+                                   {'announceCount': 1, 'data': [{'title': 'uncertified stock halt'}]}])
+    def test_owner_after_resume_still_requires_successful_complete_official(bad):
+        result = owner_interval_fetch('2022-12-30', official=bad)
+        assert result.data['opening_status'] == 'UNKNOWN'
+        assert result.metadata.partial
+>       assert not result.data['official_block_at_target'] and not result.data['source_conflict']
+E       assert (not True)
+
+tests\test_historical_opening_evidence.py:466: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/test_historical_opening_evidence.py::test_owner_authenticated_resume_date_bounds_only_corresponding_halt[2016-07-04-UNKNOWN-False]
+FAILED tests/test_historical_opening_evidence.py::test_owner_authenticated_resume_date_bounds_only_corresponding_halt[2016-07-05-OPEN_ACTIVITY_CONFIRMED-False]
+FAILED tests/test_historical_opening_evidence.py::test_owner_authenticated_resume_date_bounds_only_corresponding_halt[2022-12-30-OPEN_ACTIVITY_CONFIRMED-False]
+FAILED tests/test_historical_opening_evidence.py::test_owner_resume_day_unknown_without_positive_activity[empty]
+FAILED tests/test_historical_opening_evidence.py::test_owner_resume_day_unknown_without_positive_activity[zero]
+FAILED tests/test_historical_opening_evidence.py::test_owner_after_resume_still_requires_positive_tdx[empty-2016-07-05]
+FAILED tests/test_historical_opening_evidence.py::test_owner_after_resume_still_requires_positive_tdx[empty-2022-12-30]
+FAILED tests/test_historical_opening_evidence.py::test_owner_after_resume_still_requires_positive_tdx[zero-2016-07-05]
+FAILED tests/test_historical_opening_evidence.py::test_owner_after_resume_still_requires_positive_tdx[zero-2022-12-30]
+FAILED tests/test_historical_opening_evidence.py::test_owner_after_resume_still_requires_successful_complete_official[bad0]
+FAILED tests/test_historical_opening_evidence.py::test_owner_after_resume_still_requires_successful_complete_official[<html>fault</html>]
+FAILED tests/test_historical_opening_evidence.py::test_owner_after_resume_still_requires_successful_complete_official[bad2]
+FAILED tests/test_historical_opening_evidence.py::test_owner_after_resume_still_requires_successful_complete_official[bad3]
+13 failed, 9 passed, 50 deselected in 1.71s

@@ -1,0 +1,132 @@
+{
+  "release": {
+    "CURRENT_DECISION": "CONTINUE",
+    "OWNER_ACCEPTANCE": "PASS",
+    "GIT_LANDING": "PASS",
+    "RELEASE_PREFLIGHT": "PASS",
+    "CH_LANDING_COMMIT": "17af23fe8183f740150dc01dd877473afe3911b7",
+    "SIOS_LANDING_COMMIT": "d77843cabdfd9246856dc33aa8db19ae0f4d8c38",
+    "CH_APPROVED_SOURCE_MATCH": "YES",
+    "SIOS_APPROVED_SOURCE_MATCH": "YES",
+    "RELEASE_VERSION": "0.4.2",
+    "RELEASE_COMMIT": "17af23fe8183f740150dc01dd877473afe3911b7",
+    "TAG_CREATED": "YES",
+    "TAG_PUSHED": "YES",
+    "TAG_TARGET": "17af23fe8183f740150dc01dd877473afe3911b7",
+    "GITHUB_ACTIONS_BUILD": "PASS",
+    "GITHUB_ACTIONS_PUBLISH": "PASS",
+    "PYPI_VERSION": "0.4.2",
+    "PYPI_WHEEL_SHA256": "a7f2f04f4ff46be4c428e2f0224ab8ea11efa357c66e500cbba7ff9599cea7a2",
+    "PYPI_SDIST_SHA256": "302632c96dc1f17b38b8fa2dd872e3d7b034e21c89ccabee75b46fbf57b0ce56",
+    "GITHUB_RELEASE": "PASS",
+    "GITHUB_RELEASE_URL": "https://github.com/joycoding2000/chstockdata/releases/tag/v0.4.2",
+    "GITHUB_RELEASE_ASSETS": "PASS",
+    "POST_RELEASE_INSTALL": "PASS",
+    "SIOS_LANDING_VERIFIED": "YES",
+    "SCOPE_EXPANSION": "NO",
+    "UNRESOLVED_BLOCKERS": "NONE",
+    "RELEASE_COMPLETE": "YES",
+    "NEXT_PRODUCT_PHASE_AUTHORIZED": "NO"
+  },
+  "junit": {
+    "ch_original_package": {
+      "tests": 797,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 1,
+      "junit_sha256": "8458da4674c217611deca798cb245e05ba82a26cd68ab24c2849cae950a842de"
+    },
+    "rh1_regressions": {
+      "tests": 2,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "junit_sha256": "d4b5fd153d45b16df9687c22e4113640bb1e6b03b7c1d852d13498a0c6860caa"
+    },
+    "sios_affected": {
+      "tests": 132,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "junit_sha256": "9b8adeac0e0f0d7a6566d69f2f705e5f90e136e5d2e4e15bd10a3328a44d545d"
+    },
+    "sios_offline": {
+      "tests": 1069,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 5,
+      "junit_sha256": "3549006607aa8bc469fea778dd5b2124fe4182cba2211904b7a4d3e3a7c7af53"
+    },
+    "sios_mandatory_live": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "junit_sha256": "a602e246b573fbcf7dfc0d8a11d21be025935f0106c5ec3aced58090a75b9a3f"
+    }
+  },
+  "local_preflight_commands": 26,
+  "local_preflight_all_exit_zero": true,
+  "post_release_commands": [
+    {
+      "name": "clean-venv",
+      "argv": [
+        "D:/Dev/Projects/chstockdata/build/v042-qualification/gate/Scripts/python.exe",
+        "-m",
+        "venv",
+        "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\14\\01a1385d-b4c1-7b41-8ddb-98c0b7bc5d0c\\post-release-install"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "pypi-install",
+      "argv": [
+        "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\14\\01a1385d-b4c1-7b41-8ddb-98c0b7bc5d0c\\post-release-install\\Scripts\\python.exe",
+        "-m",
+        "pip",
+        "install",
+        "--no-input",
+        "--index-url",
+        "https://pypi.org/simple",
+        "chstockdata==0.4.2"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "pip-check",
+      "argv": [
+        "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\14\\01a1385d-b4c1-7b41-8ddb-98c0b7bc5d0c\\post-release-install\\Scripts\\python.exe",
+        "-m",
+        "pip",
+        "check"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "installed-wheel-members-and-api",
+      "argv": [
+        "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\14\\01a1385d-b4c1-7b41-8ddb-98c0b7bc5d0c\\post-release-install\\Scripts\\python.exe",
+        "-c",
+        "import importlib.metadata as m, json, sys, zipfile, hashlib\nfrom pathlib import Path\nimport chstockdata\nassert chstockdata.__version__ == m.version('chstockdata') == '0.4.2'\npackage=Path(chstockdata.__file__).parent\nassert package.is_relative_to(Path(sys.prefix))\nwith zipfile.ZipFile(sys.argv[1]) as archive:\n    files=[n for n in archive.namelist() if n.startswith('chstockdata/') and not n.endswith('/')]\n    assert len(files)==41\n    for name in files:\n        assert (package.parent/name).read_bytes()==archive.read(name),name\nfor name in ('fetch_historical_opening_evidence','fetch_suspension_info','fetch_tradability','FetchResult','FetchAttempt','FetchMetadata'):\n    assert name in chstockdata.__all__ and callable(getattr(chstockdata,name))\nassert package.joinpath('opening_known_events.json').is_file()\nentry_points={p.name for p in m.entry_points(group='console_scripts')}\nassert {'chstockdata-mcp','chstockdata-refresh-vipdoc'} <= entry_points\nprint(json.dumps({'version':chstockdata.__version__,'installed_package':str(package),'wheel_members_match':len(files),'console_entry_points':sorted(entry_points & {'chstockdata-mcp','chstockdata-refresh-vipdoc'})}))\n",
+        "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\14\\01a1385d-b4c1-7b41-8ddb-98c0b7bc5d0c\\published-run-artifacts\\chstockdata-0.4.2-py3-none-any.whl"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "chstockdata-mcp",
+      "argv": [
+        "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\14\\01a1385d-b4c1-7b41-8ddb-98c0b7bc5d0c\\post-release-install\\Scripts\\chstockdata-mcp.exe",
+        "--help"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "chstockdata-refresh-vipdoc",
+      "argv": [
+        "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\14\\01a1385d-b4c1-7b41-8ddb-98c0b7bc5d0c\\post-release-install\\Scripts\\chstockdata-refresh-vipdoc.exe",
+        "--help"
+      ],
+      "exit_code": 0
+    }
+  ]
+}

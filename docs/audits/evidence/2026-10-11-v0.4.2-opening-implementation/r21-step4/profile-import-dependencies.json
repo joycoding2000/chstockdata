@@ -1,0 +1,70 @@
+{
+  "wheel_sha256": "3fd4f0b7334e310851495b8b13d4c7c55d21cde719acf9e00ff880ccb822f42e",
+  "profile_identities": {
+    "core": {
+      "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+      "executable": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\profiles\\r21-qualified\\core\\Scripts\\python.exe",
+      "library_import": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\profiles\\r21-qualified\\core\\Lib\\site-packages\\chstockdata\\__init__.py",
+      "version": "0.4.2",
+      "wheel_sha256": "3fd4f0b7334e310851495b8b13d4c7c55d21cde719acf9e00ff880ccb822f42e",
+      "all_installed_package_members_match": 41,
+      "venv": "home = C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\ninclude-system-site-packages = false\nversion = 3.12.14\nexecutable = C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe\ncommand = C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe -m venv C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\profiles\\r21-qualified\\core\n"
+    },
+    "sdist": {
+      "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+      "executable": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\profiles\\r21-qualified\\sdist\\Scripts\\python.exe",
+      "library_import": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\profiles\\r21-qualified\\sdist\\Lib\\site-packages\\chstockdata\\__init__.py",
+      "version": "0.4.2",
+      "wheel_sha256": "3fd4f0b7334e310851495b8b13d4c7c55d21cde719acf9e00ff880ccb822f42e",
+      "all_installed_package_members_match": 41,
+      "venv": "home = C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\ninclude-system-site-packages = false\nversion = 3.12.14\nexecutable = C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe\ncommand = C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe -m venv C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\profiles\\r21-qualified\\sdist\n"
+    },
+    "mcp": {
+      "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+      "executable": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\profiles\\r21-qualified\\mcp\\Scripts\\python.exe",
+      "library_import": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\profiles\\r21-qualified\\mcp\\Lib\\site-packages\\chstockdata\\__init__.py",
+      "version": "0.4.2",
+      "wheel_sha256": "3fd4f0b7334e310851495b8b13d4c7c55d21cde719acf9e00ff880ccb822f42e",
+      "all_installed_package_members_match": 41,
+      "venv": "home = C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\ninclude-system-site-packages = false\nversion = 3.12.14\nexecutable = C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe\ncommand = C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe -m venv C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\profiles\\r21-qualified\\mcp\n"
+    },
+    "baostock": {
+      "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+      "executable": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\profiles\\r21-qualified\\baostock\\Scripts\\python.exe",
+      "library_import": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\profiles\\r21-qualified\\baostock\\Lib\\site-packages\\chstockdata\\__init__.py",
+      "version": "0.4.2",
+      "wheel_sha256": "3fd4f0b7334e310851495b8b13d4c7c55d21cde719acf9e00ff880ccb822f42e",
+      "all_installed_package_members_match": 41,
+      "venv": "home = C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\ninclude-system-site-packages = false\nversion = 3.12.14\nexecutable = C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe\ncommand = C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe -m venv C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\profiles\\r21-qualified\\baostock\n"
+    },
+    "sios-candidate": {
+      "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+      "executable": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\profiles\\r21-qualified\\sios-candidate\\Scripts\\python.exe",
+      "library_import": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\profiles\\r21-qualified\\sios-candidate\\Lib\\site-packages\\chstockdata\\__init__.py",
+      "version": "0.4.2",
+      "wheel_sha256": "3fd4f0b7334e310851495b8b13d4c7c55d21cde719acf9e00ff880ccb822f42e",
+      "all_installed_package_members_match": 41,
+      "venv": "home = C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\ninclude-system-site-packages = false\nversion = 3.12.14\nexecutable = C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe\ncommand = C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe -m venv C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\profiles\\r21-qualified\\sios-candidate\n"
+    },
+    "ta-candidate": {
+      "python": "3.14.5 (tags/v3.14.5:5607950, May 10 2026, 10:43:50) [MSC v.1944 64 bit (AMD64)]",
+      "executable": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\profiles\\r21-qualified\\ta-candidate\\Scripts\\python.exe",
+      "library_import": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\profiles\\r21-qualified\\ta-candidate\\Lib\\site-packages\\chstockdata\\__init__.py",
+      "version": "0.4.2",
+      "wheel_sha256": "3fd4f0b7334e310851495b8b13d4c7c55d21cde719acf9e00ff880ccb822f42e",
+      "all_installed_package_members_match": 41,
+      "venv": "home = C:\\Users\\Administrator\\AppData\\Local\\Programs\\Python\\Python314\ninclude-system-site-packages = false\nversion = 3.14.5\nexecutable = C:\\Users\\Administrator\\AppData\\Local\\Programs\\Python\\Python314\\python.exe\ncommand = C:\\Users\\Administrator\\AppData\\Local\\Programs\\Python\\Python314\\python.exe -m venv C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\profiles\\r21-qualified\\ta-candidate\n"
+    }
+  },
+  "dependency_logs": {
+    "core": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\evidence\\r21-step4\\core-deps.log",
+    "sdist": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\evidence\\r21-step4\\sdist-deps.log",
+    "mcp": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\evidence\\r21-step4\\mcp-deps.log",
+    "baostock": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\evidence\\r21-step4\\baostock-deps.log",
+    "sios": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\evidence\\r21-step4\\sios-deps.log",
+    "ta": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\evidence\\r21-step4\\ta-deps.log"
+  },
+  "core_optional_dependencies_not_forced": true,
+  "ta_dependency_mode": "new Python314 venv, no-deps wheel; read-only original .venv site-packages via .pth",
+  "ta_metadata_constraint_known_risk": true
+}

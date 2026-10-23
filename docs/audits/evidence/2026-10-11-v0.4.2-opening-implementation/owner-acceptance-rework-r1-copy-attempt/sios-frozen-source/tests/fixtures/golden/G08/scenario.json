@@ -1,0 +1,65 @@
+{
+  "schema_version": "golden-scenario-v1",
+  "scenario_id": "G08",
+  "title": "Lower-limit rejected sell",
+  "calendar": {
+    "calendar_id": "XSHG",
+    "snapshot_version": "GOLDEN-CAL-1",
+    "open_sessions": ["2026-09-11", "2026-09-14", "2026-09-15"]
+  },
+  "master": {"mode": "default"},
+  "account_fees": {
+    "config_id": "RUN-GOLDEN",
+    "config_version": "1",
+    "broker_profiles": [
+      {
+        "profile_id": "ACCT:MAIN",
+        "version": "1",
+        "commission_rate": "0.0003",
+        "minimum_commission": "5",
+        "agreement_reference": "broker-agreement-2026",
+        "effective_from": "2022-01-04"
+      }
+    ]
+  },
+  "execution_model": {"slippage_rate_buy": "0.001", "slippage_rate_sell": "0.001"},
+  "clock": {
+    "timezone": "+00:00",
+    "activation_local_time": "09:15",
+    "execution_local_time": "09:30",
+    "decision_local_time": "15:30"
+  },
+  "runs": [
+    {
+      "name": "default",
+      "period": {"start_session": "2026-09-11", "end_session": "2026-09-14"},
+      "initial_cash": "100000",
+      "initial_positions": [
+        {
+          "instrument_id": "XSHE:000001",
+          "quantity": 1000,
+          "acquired_session": "2026-09-01",
+          "sellable_from": "2026-09-02",
+          "acquisition_price": "10.00"
+        }
+      ],
+      "bars": [
+        {"instrument_id": "XSHE:000001", "session_date": "2026-09-11", "open": "12.10", "close": "12.00"},
+        {"instrument_id": "XSHE:000001", "session_date": "2026-09-14", "open": "10.80", "close": "10.80", "pre_close": "12.00"}
+      ],
+      "tradability": [
+        {
+          "instrument_id": "XSHE:000001",
+          "session_date": "2026-09-14",
+          "status": "SELL_BLOCKED_LOWER_LIMIT",
+          "reason": "locked at the -10% limit"
+        }
+      ],
+      "targets": {
+        "2026-09-11": [
+          {"instrument_id": "XSHE:000001", "sleeve": "CORE", "target_weight": "0"}
+        ]
+      }
+    }
+  ]
+}

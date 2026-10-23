@@ -1,0 +1,17 @@
+{
+  "id": "ths-000002-benefit",
+  "url": "https://basic.10jqka.com.cn/basicapi/finance/index/v1/app_data/",
+  "params": {
+    "code": "000002",
+    "id": "client_stock_benefit",
+    "market": "33",
+    "type": "stock",
+    "page": "1",
+    "size": "50",
+    "period": "0"
+  },
+  "max_bytes": 5000000,
+  "registered_at": "2026-10-22T21:13:43.188681+08:00",
+  "method": "GET",
+  "retry_of": null
+}

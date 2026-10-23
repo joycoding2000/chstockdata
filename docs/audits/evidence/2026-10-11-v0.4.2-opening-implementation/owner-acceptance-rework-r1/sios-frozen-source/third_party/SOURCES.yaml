@@ -1,0 +1,128 @@
+# Third-party intake register.
+# Policy: docs/architecture/third-party-intake-policy.md
+# A source without a record here must not be merged or imported.
+schema_version: 1
+sources:
+  - id: chstockdata
+    source:
+      repo: https://github.com/joycoding2000/chstockdata
+      commit: 143eb5a61e11003a4b29461eeb78deec0ab8d8e5 # release commit for package __version__ 0.3.0 (no upstream tag)
+      path: .
+      author: joycoding2000
+      license_spdx: Apache-2.0
+      license_files: [LICENSE, NOTICE]
+      reviewed_at: 2026-09-17
+    integration:
+      destination: src/systematic_investing/adapters/chstockdata/provider.py
+      method: runtime_dependency
+      modified: false
+      pinned_version: "0.3.0"
+      # Intake lineage: M0 architecture gate 2026-09-14 approved v0.2.0
+      # (da3342099f840300db3502e5f00d5ee97f9bfa72); adapter intake 2026-09-15
+      # re-verified the v0.2.1 delta (c20b1a6, fundamentals-only); this
+      # re-intake on 2026-09-17 pins v0.3.0 (143eb5a), which adds exactly
+      # three capabilities that live controlled-environment qualification
+      # proved the 0.2.1 surface could not serve:
+      #   (1) get_fund_corporate_actions — ETF/fund cash distributions from
+      #       Eastmoney fund F10 (FHSP/FHGG), normalized to the same
+      #       per-10-shares envelope as the stock report; a truly empty
+      #       distribution table is a distinguishable normal_empty, never a
+      #       failure and never a silent omission;
+      #   (2) suspension snapshot pagination — historical market-wide
+      #       suspend/resume snapshots exceed the vendor's 500-row page cap
+      #       (4081 rows on 2015-01-05), so the client aggregates bounded
+      #       pages into one complete snapshot and keeps truncation as an
+      #       explicit failure;
+      #   (3) load_vipdoc_daily emits a vendor-declared `pre_close` column
+      #       derived inside the vendor from the file's prior session close
+      #       (the layout itself has no such field). The adapter treats it
+      #       as a declared vendor fact and never fabricates values; on an
+      #       ex-dividend session this raw prior close differs from the
+      #       exchange's adjusted previous close, which M0 tolerates because
+      #       no kernel path consumes pre_close (data-quality field only).
+      # PINNED_CHSTOCKDATA_VERSION fails closed on any other release until
+      # contract, ETF, golden, and smoke re-qualification.
+      documented_api:
+        # Methods the adapter may call. Everything else in the package is out of
+        # scope for M0 and must not be wrapped without a new recorded intake.
+        - method: chstockdata.load_vipdoc_daily(code, start_date, end_date)
+          raw_shape: >-
+            DataFrame | None with columns Date/Open/High/Low/Close/pre_close/
+            Volume/Amount (the package's documented TDX .day layout plus the
+            v0.3.0 vendor-declared `pre_close` derived from the file's prior
+            session close). `parse_day_file` documents prices as uint32/100
+            yuan, `volume` uint32 in shares (股), `amount` float32 in yuan
+            (元), which is the only unit contract this adapter treats as
+            proven; Volume maps to SHARE and Amount to CNY with a factor of
+            one. `None` means the local tree or window has no rows and fails
+            closed as unavailable.
+        - method: adapter boundary payloads
+          raw_shape: >-
+            `daily_bars`: {columns, rows[Date/Open/High/Low/Close/pre_close/
+            Volume/Amount], volume_unit, amount_unit, covered_start,
+            covered_end}. `trading_calendar`: {open_days, covered_start,
+            covered_end, source, stale, limitations}; the adapter additionally
+            emits explicitly inferred closed sessions inside the covered
+            window. `tradability`: {suspended, snapshot_date, as_of_date,
+            observed_at, suspend_start_date, suspend_expire, suspend_reason,
+            source} — historical snapshots are aggregated across bounded
+            vendor pages and stay complete-or-typed-failure.
+            `corporate_actions`: {status, coverage, source, items[...]} with
+            per-10-share `{value, unit: "per_10_shares", source_field,
+            tax_basis}` terms; the adapter normalizes to per-share cash and a
+            shares-per-share ratio exactly once and fails closed on rights
+            issues. ETF/fund distributions come from
+            `get_fund_corporate_actions(code, start, end, as_of_date, page,
+            page_size)` with the same envelope; the adapter routes by the
+            request's declared instrument_kind (Instrument-Master-resolved,
+            never inferred from the symbol). `rule_candidates`: {profiles[],
+            source}; the pinned package currently publishes none, so the
+            library client returns a normal empty result with a warning.
+        - method: reimported vendor exceptions (vendor-edge translation only)
+          raw_shape: >-
+            VendorNetworkError / VendorRateLimitError / VendorNoDataError map to
+            ChStockDataUnavailableError, VendorNotConfiguredError to
+            ChStockDataConfigurationError. The library import site is
+            `import_chstockdata_library()` and exists nowhere else in the repository.
+      scope: >-
+        Optional provider dependency imported only inside ChStockDataProvider
+        adapter construction (lazily, inside `import_chstockdata_library`);
+        never imported by domain, instrument_master, or any other core namespace.
+        Supplies A-share/ETF market data and candidate calendar/suspension/
+        corporate-action facts that the adapter maps into canonical contracts.
+        Candidate facts are never promoted to Instrument Master authority (P0-01);
+        `fetch_rule_candidates` returns advisory RuleCandidate values that the
+        approved Instrument Master either governs against or fails closed on.
+        No upstream code is copied into this repository.
+      tests_added:
+        - tests/contract/test_chstockdata_provider.py
+        - tests/unit/test_adapter_vendor_boundary.py
+        - tests/fixtures/chstockdata/daily_bars_vipdoc_xshg_510300.json
+        - tests/fixtures/chstockdata/trading_calendar_xshg_202609.json
+        - tests/fixtures/chstockdata/suspension_xshg_600519_20260911.json
+        - tests/fixtures/chstockdata/corporate_actions_xshg_600519_2026.json
+        - tests/fixtures/chstockdata/rule_candidates_xshg_600519_20260911.json
+      notices_retained: [] # runtime dependency; upstream LICENSE/NOTICE stay upstream.
+    reason: >-
+      The only planned domain-specific runtime dependency: first-party sibling
+      project providing free China A-share/ETF market data (daily bars,
+      calendar, suspension, corporate actions, provenance) without API keys.
+      The standard library cannot provide vendor market data, and wholesale
+      alternatives are prohibited by the intake policy. Offline core tests
+      must run without this package installed.
+    review:
+      provenance_reviewer: >-
+        joycoding2000 (owner approval via M0 architecture gate 2026-09-14 for
+        v0.2.0); adapter intake 2026-09-15 re-verified LICENSE/NOTICE and the
+        v0.2.1 commit delta before pinning.
+      license_status: approved # Apache-2.0 at pinned commit; NOTICE lineage all Apache-2.0.
+      security_status: >-
+        approved # first-party source; direct vendor HTTP/TCP, no credentials; the
+        adapter performs no network access by itself and its tests run offline.
+      known_limitations: >-
+        Online daily-bar fallback paths in the pinned package do not publish a
+        volume/amount unit contract, so the adapter uses only the local vipdoc
+        path and fails closed otherwise until ETF-DATA-GATE (Task 11)
+        qualifies those paths. Price-limit/upper-lower-limit tradability events
+        are not derivable from the suspension snapshot and remain explicit
+        fixture facts in M0.

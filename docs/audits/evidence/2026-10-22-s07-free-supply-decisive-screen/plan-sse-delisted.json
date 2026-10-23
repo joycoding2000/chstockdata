@@ -1,0 +1,23 @@
+{
+  "id": "sse-delisted",
+  "url": "https://query.sse.com.cn/commonQuery.do",
+  "params": {
+    "sqlId": "COMMON_SSE_CP_GPJCTPZ_GPLB_GP_L",
+    "isPagination": "true",
+    "STOCK_CODE": "",
+    "CSRC_CODE": "",
+    "REG_PROVINCE": "",
+    "STOCK_TYPE": "1,8",
+    "COMPANY_STATUS": "3",
+    "type": "inParams",
+    "pageHelp.cacheSize": 1,
+    "pageHelp.beginPage": 1,
+    "pageHelp.pageSize": 500,
+    "pageHelp.pageNo": 1,
+    "pageHelp.endPage": 1
+  },
+  "max_bytes": 5000000,
+  "registered_at": "2026-10-22T20:57:20.130013+08:00",
+  "method": "GET",
+  "retry_of": null
+}

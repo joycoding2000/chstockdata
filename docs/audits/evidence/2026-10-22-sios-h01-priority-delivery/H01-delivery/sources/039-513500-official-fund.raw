@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html class="" lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width">
+<meta name="copyright" content="本页版权归中国博时基金所有。all rights reserved">
+<meta name="version" content="2017版">
+<meta name="author" content="BOSERA FUNDS">
+<meta name="apple-itunes-app" content="app-id=672198904">
+<link rel="shortcut icon" href="/static/images/favicon.ico">
+		<title>博时基金-博时标普500ETF</title>
+		<meta name="keywords" content="513500,博时标普500ETF,博时标普500ETF">
+		<meta name="description" content="513500,博时标普500ETF,博时标普500ETF">
+		<meta name="WT.cg_n" content="000200020003" /> 
+		<meta name="WT.cg_s" content="000200020003_FUND_OPEN" /> 
+		<meta name="WT.cg_3" content="000200020003_FUND_OPEN_1111" /> 
+		<meta name="WT.cg_4" content="000200020003_FUND_OPEN_1111_513500" />
+<script src="/static/js/rev-manifest-b0e63394e1.js" charset="utf-8"></script>
+<script src="/static/js/assetsLoader-4acf7e81fe.js" charset="utf-8"></script>
+<!--[if IE 8]>
+<script>
+  window.BROWSER_IE8 = true;
+</script>
+<![endif]-->
+<script>
+  var __devConfig = {
+    debug: true,
+    jsBase: 'http://localhost:9000',
+    cssBase: 'http://localhost:8899/css'
+  };
+  var __revConfig = {
+    jsBase: '/static/js',
+    cssBase: '/static/css'
+  };
+  assetsLoader.setDefault(__revConfig);
+  assetsLoader({
+    css: [
+      'icon.css',
+      'main.css',
+      'ui.css'
+    ],
+    js: [
+      'boot.js',
+      'vendor.js',
+      'commons.js',
+      'ui.js',
+      'validate.methods.js',
+      'plugin.js',
+      'init.js'
+    ]
+  });
+</script>
+<script>
+	assetsLoader({
+		css : ['fund/fundDetail.css'],
+		js : []
+	});
+</script>
+</head>
+<body>
+	<div class="g-top">
+		<div class="container">
+			<div class="external-nav">
+				<a class="external-nav_link" href="http://capital.bosera.com/index.html" target="_blank"
+					rel="noopener">博时资本</a>
+				<a class="external-nav_link" href="https://www.boserawealth.com/index" target="_blank"
+					rel="noopener">博时财富</a>
+				<a class="external-nav_link" href="/english/index.html" target="_blank">English</a>
+			</div>
+			<div class="assistant-nav">
+				<span id="userNotice" data-trade-host="https://trade.bosera.com/indi/api/www/" style="display: none">
+					欢迎回来，<span id="userName"></span>&nbsp;&nbsp;
+					<span class="assistant-nav_link assistant-nav_link--highlight" id="logoutBtn">安全退出</span>
+				</span>
+				<a class="assistant-nav_link" href="/column/index.do?classid=00020002001100001" target="_blank">帮助中心</a>
+				<a class="assistant-nav_link last" id="onlineService" href="/service/webchat/robot.jsp"
+					target="_blank">在线客服</a>
+			</div>
+		</div>
+	</div>
+<div class="g-header">
+	<div class="container">
+		<h1 class="logo-wrap">
+		  <a class="logo" href="/index.html" title="博时基金">博时基金</a>
+		</h1>
+    <div class="nav-wrap" style="width: 930px;">
+      <ul class="nav" id="topNav" data-focus-id="fund">
+        <li><a class="nav_link" id="indexMenu" href="/index.html">首页</a></li
+          ><li><a class="nav_link" id="fundMenu" href="/fund/index.html">基金产品</a></li
+          ><li><a class="nav_link" href="https://trade.bosera.com/indi/pension/index" target="_blank" rel="noopener">养老专区</a></li
+          >
+          <!-- <li><a class="nav_link" href="https://trade.bosera.com/indi/specialfund/index" target="_blank" rel="noopener">高端理财</a></li> -->
+          <li><a class="nav_link" href="https://trade.bosera.com/indi/fundportfolio/propaganda" target="_blank" rel="noopener">博乐智投</a></li
+          ><li class="dropdown-nav J_dropdownNav">
+            <span class="nav_link J_rootNav">&nbsp;企业理财&nbsp;</span>
+          <ul class="sub-nav">
+            <li><a class="sub-nav_link" href="https://trade.bosera.com/corp/asset/share/list" target="_blank">企业法人</a></li>
+            <li><a class="sub-nav_link last-child" href="https://trade.bosera.com/pro/asset/share/list" target="_blank">专业投资者</a></li>
+          </ul>
+        </li
+        ><li class="dropdown-nav J_dropdownNav">
+          <span class="nav_link J_rootNav">专户与养老金</span>
+          <ul class="sub-nav">
+            <li><a class="sub-nav_link" id="netAccountMenu" href="/column/index.do?classid=00020002000700010004">专户理财</a></li>
+            <li><a class="sub-nav_link last-child" id="pensionFundMenu" href="/column/index.do?classid=00020002000600090001">养老基金</a></li>
+          </ul>
+        </li
+        ><li><a class="nav_link" id="aboutMenu" href="/column/index.do?classid=00020002000200010001" >关于博时</a></li>
+      </ul>
+      <div class="account-nav" id="accountNav" style="display: none">
+        <a class="btn-primary btn--middle" href="https://trade.bosera.com/indi/api/www/myaccturl.do">我的账户</a>
+      </div>
+      <div class="header-action" id="headerAction" style="display: none">
+        <a class="btn-primary btn--middle" href="https://trade.bosera.com/indi/login" target="_blank">登录</a>
+        <a class="btn-default btn--middle" href="https://trade.bosera.com/indi/openacct/mobilenoform" target="_blank">注册</a>
+      </div>
+    </div>
+    <!-- .nav-wrap -->
+  </div>
+  <!-- .container -->
+</div>
+<!-- .g-header -->
+	<div class="main" id="main">
+		<div class="container">
+<div id="topAdBanner" style="margin-bottom: 25px;">
+	<a href="/minisite/hehuib/index.html?id=001" 
+		target="_blank" 
+		style="position: relative;display: block;max-width:1180px;height: 70px;text-align: center;background: url(/static/images/promos/hehuib_20240627_1180x70.jpg) center no-repeat;">
+		  <div style="padding-top: 0;">
+		    <span style="display: inline-block;margin-left: 300px;color: #f5dbb2;font-size: 30px;"><span>1.301</span>%</span>
+		    <span style="display: inline-block;color: #fff;font-size: 12px;line-height: 14px;text-align: right;">7日年化收益率<br><span>2026-10-22</span></span>
+		  </div>
+		<span class="J_adCloseBtn" data-target-selector="#topAdBanner" title="关闭"
+      		style="position: absolute;z-index: 1;top: 0;right: 0;"><i class="icon" style="width:25px;height:25px;background: url(/static/images/promos/icon_close_25x25.png) center no-repeat;"></i></span>
+  </a>
+</div>
+<style>
+ .fund-essential_item { width: 30% }
+</style>
+<div class="fund-essential">
+  <div class="fund-essential_brief">
+    <div class="fund-essential_head">
+      <h2 class="name">博时标普500ETF</h2>
+      <span class="code">513500</span>
+      <span id="favoriteBtn" data-fund-code="513500" data-favorite="false" title="添加自选">
+        <i class="icon icon-favorite" style="margin-top: -3px"></i>
+      </span>
+    </div>
+    <ul class="fund-essential_list" style="min-height: 68px">
+      <li class="fund-essential_item">分类：<em>QDII</em></li>
+      <li class="fund-essential_item">风险等级：<em>中高</em></li>
+      <br />
+    </ul>
+  </div>
+  <div class="fund-essential_toolbox">
+        <div class="fund-essential_return">
+          <span class="num">
+            2.4659
+              <small>(<span class="rate-up">0.57%</span>)</small>
+          </span>
+          <span class="text">单位净值 / 日涨幅 (2026-10-21)</span>
+        </div>
+    <div class="fund-essential_action">
+	      <span class="btn-primary disabled">我要购买</span>
+          <span class="btn-default disabled">定投</span>
+    </div>
+  </div>
+</div>
+<!-- .fund-essential end -->
+<ul class="fund-info-nav" id="fundInfoNav">
+  <li class="highlight"><a class="fund-info-nav_link J_anchorNav" href="#fundNetValue">基金净值</a></li>
+    <li><a class="fund-info-nav_link J_anchorNav" href="#fundReturn">投资回报</a></li>
+  <li><a class="fund-info-nav_link J_anchorNav" href="#fundInfo">基金信息</a></li>
+  <li><a class="fund-info-nav_link J_anchorNav" href="#fundManager">基金经理</a></li>
+  <li><a class="fund-info-nav_link J_anchorNav" href="#fundDividend">分红信息</a></li>
+  <li><a class="fund-info-nav_link J_anchorNav" href="#fundFeeStructure">费率结构</a></li>
+  <li><a class="fund-info-nav_link J_anchorNav" href="#fundPortfolio">投资组合</a></li>
+  <li><a class="fund-info-nav_link" href="/column/index.do?classid=0002000200030004&fundCode=513500" target="_blank">法律文件</a></li>
+  <li><a class="fund-info-nav_link" href="/column/index.do?classid=0002000200030005&fundCode=513500" target="_blank">基金公告</a></li>
+  <li><a class="fund-info-nav_link" href="/service/fundSalesOrg.do?fundCode=513500" target="_blank">销售机构</a></li>
+  <li><a class="fund-info-nav_link" href="/column/index.do?classid=0002000200030006&fundCode=513500" target="_blank">专题报道</a></li>
+      <li><a class="fund-info-nav_link" href="/fund/etfList.do?fundCode=513500" target="_blank">申购赎回清单</a></li>
+</ul>
+<!-- .fund-info-nav end -->
+<div class="panel" id="fundNetValue">
+  <h3 class="h3"><span class="h3-title">基金净值</span></h3>
+  <div>
+	      <span class="fund-net-value_type highlight J_netValueType" data-value="TOTALNETVALUEPER">累计净值</span>
+        <span class="fund-net-value_type J_netValueType" data-value="NETVALUEPER">单位净值</span>
+    <label class="form-label">
+      <select class="J_selectSmall" id="fundNetValueYear" name="year" style="width: 100px">
+          <option value="2026">2026年</option>
+          <option value="2025">2025年</option>
+          <option value="2024">2024年</option>
+          <option value="2023">2023年</option>
+      </select>
+    </label>
+  </div>
+  <div 
+  	class="fund-net-value_chart"
+  	id="fundNetValueChart"
+  	data-fund-code="513500"
+      data-net-value-type="TOTALNETVALUEPER"
+  	data-url="/fund/fundNetValue.json"
+  	style="height: 360px">
+  </div>
+  <div id="fundHisCon">
+    <form id="fundHisForm" action="/fund/fundHisDetail.json" method="post" novalidate style="margin-bottom: 25px">
+      <input id="fundHisPageNo" type="hidden" name="pageNo" value="1">
+      <input type="hidden" name="pageSize" value="10">
+      <input type="hidden" name="fundCode" value="513500">
+      <span class="form-label date-range">历史明细：
+        <input class="form-text form-text--small J_startDate" data-max-date-range="365" type="text" name="startDate" value="2026-07-22" readonly>
+        <span class="divider">-</span>
+        <input class="form-text form-text--small J_endDate" type="text" name="endDate" value="2026-10-22" readonly>&nbsp;
+        <button class="btn-info btn--small" type="submit">查询</button>
+      </span>
+    </form>
+	      <table class="table-default table--border table--small">
+	        <thead class="thead-default">
+	          <tr>
+	            <td>日期</td>
+	            <td>单位净值（元）</td>
+	            <td>日涨跌</td>
+	            <td>最近7天的收益率</td>
+	            <td>最近30日的收益率 </td>
+	            <td>今年以来的收益率</td>
+	            <td>成立以来的收益率</td>
+	            <td>累计净值（元）</td>
+	            <td>资产净值（元）</td>
+	          </tr>
+	        </thead>
+	        <tbody class="tbody-default J_dataGrid" data-form="#fundHisForm" data-tpl="#fundHisTpl" data-mask="#fundHisCon" data-empty="#fundHisEmpty" data-paginator="#fundHisPaginator" data-page="#fundHisPageNo">
+	          <tr id="fundHisEmpty" style="display: none">
+	                <td class="col-empty" colspan="9">暂无数据</td>
+	          </tr>
+	        </tbody>
+	      </table>
+	      <div class="paginator J_paginator" id="fundHisPaginator" data-form="#fundHisForm" data-async="Y"></div>
+	      <script id="fundHisTpl" type="text/template">
+        {{#resultList}}
+          <tr class="J_render">
+            <td>{{date}}</td>
+            <td>{{netValuePer}}</td>
+            <td>{{#rate}}{{rate}}%{{/rate}}{{^rate}}--{{/rate}}</td>
+            <td>{{#weekYield}}{{weekYield}}%{{/weekYield}}{{^weekYield}}--{{/weekYield}}</td>
+            <td>{{#monthYield}}{{monthYield}}%{{/monthYield}}{{^monthYield}}--{{/monthYield}}</td>
+            <td>{{#thisYearYield}}{{thisYearYield}}%{{/thisYearYield}}{{^thisYearYield}}--{{/thisYearYield}}</td>
+            <td>{{#totalYield}}{{totalYield}}%{{/totalYield}}{{^totalYield}}--{{/totalYield}}</td>
+            <td>{{#totalNetValue}}{{totalNetValue}}{{/totalNetValue}}{{^totalNetValue}}--{{/totalNetValue}}</td>
+            <td>--</td>
+          </tr>
+        {{/resultList}}
+      </script>
+  </div>
+  <!-- #fundHisCon -->
+</div>
+<!-- #fundNav end -->
+	<div class="panel" id="fundReturn">
+	  <h3 class="h3"><span class="h3-title">投资回报</span><span class="h3-toolbox">风险提示：基金的过往业绩并不预示其未来表现</span></h3>
+	  <table class="table-default table--border">
+	    <thead class="thead-default">
+	      <tr>
+	        <td>最近七天</td>
+	        <td>最近一个月</td>
+	        <td>最近半年</td>
+	        <td>今年以来</td>
+	        <td>最近一年</td>
+	        <td>成立以来</td>
+	      </tr>
+	    </thead>
+	    <tbody class="tbody-default">
+	      <tr>
+	        <td>
+	            0.37%
+	        </td>
+	        <td>
+	            -0.55%
+	        </td>
+	        <td>
+	            7.67%
+	        </td>
+	        <td>
+	            8.39%
+	        </td>
+	        <td>
+	            9.21%
+	        </td>
+	        <td>
+	            393.18%
+	        </td>
+	      </tr>
+	    </tbody>
+	  </table>
+	</div>
+	<!-- #fundReturn end -->
+<div class="panel" id="fundInfo">
+  <h3 class="h3"><span class="h3-title">基金信息</span></h3>
+  <table class="table-default table--border table--fund">
+    <tbody class="tbody-default tbody--left">
+      <tr>
+        <td style="width: 150px">基金名称</td>
+        <td>博时标普500交易型开放式指数证券投资基金</td>
+      </tr>
+      <tr>
+        <td>基金简称</td>
+        <td>博时标普500ETF</td>
+      </tr>
+      <tr>
+        <td>基金代码</td>
+        <td>513500</td>
+      </tr>
+      <tr>
+        <td>基金类型</td>
+        <td>QDII</td>
+      </tr>
+      <tr>
+        <td>成立生效日期</td>
+        <td>2013年12月05日</td>
+      </tr>
+      <tr>
+        <td>基金存续期限</td>
+        <td>不定期</td>
+      </tr>
+      <tr>
+        <td>
+		       	 基金单位面值
+        </td>
+        <td>每份基金初始面值为1.00元人民币</td>
+      </tr>
+      <tr>
+        <td>投资目标</td>
+        <td>紧密跟踪标的指数，追求跟踪偏离度和跟踪误差的最小化。</td>
+      </tr>
+      <tr>
+        <td>投资范围</td>
+        <td>本基金主要投资于标的指数成份股、备选成份股、境外上市交易的跟踪同一标的指数的公募基金。 为了更好地实现投资目标，本基金还可投资于依法发行或上市的其他股票、固定收益类证券、银行存款、货币市场工具、跟踪同一标的指数的股指期货等金融衍生工具、法律法规或中国证监会允许基金投资的其他金融工具，但须符合中国证监会的相关规定。其中，本基金投资于标的指数成份股及备选成份股的比例不低于基金资产净值的90%。 本基金根据相关法律法规或中国证监会要求履行相关手续后，还可以投资于法律法规或中国证监会未来允许基金投资的其他金融工具，但须符合中国证监会的相关规定。</td>
+      </tr>
+      <tr>
+        <td>业绩比较基准</td>
+        <td>标普500指数（S&P 500 Index（NTR，Net total Return））（经估值汇率调整，以人民币计价）。</td>
+      </tr>
+      <tr>
+        <td>销售对象</td>
+        <td>符合法律法规规定的可投资于证券投资基金的个人投资者、机构投资者和合格境外机构投资者，以及法律法规或中国证监会允许购买证券投资基金的其他投资人。</td>
+      </tr>
+      <tr>
+        <td>基金经理</td>
+        <td>
+            万琼&nbsp;
+        </td>
+      </tr>
+      <tr>
+        <td>管理人</td>
+        <td>博时基金管理有限公司</td>
+      </tr>
+      <tr>
+        <td>注册登记人</td>
+        <td>中国证券登记结算有限责任公司</td>
+      </tr>
+      <tr>
+        <td>
+		       	  托管人
+        </td>
+        <td>中国工商银行股份有限公司</td>
+      </tr>
+      <tr>
+        <td>销售机构</td>
+        <td>博时基金管理有限公司、<a href="/service/fundSalesOrg.do?fundCode=513500" target="_blank">代销机构列表</a></td>
+      </tr>
+      <tr>
+        <td>客服电话</td>
+        <td>95105568(免长途话费)</td>
+      </tr>
+      <tr>
+        <td>风险收益特征</td>
+        <td>本基金属于股票型基金，其预期收益及预期风险水平高于混合型基金、债券型基金与货币市场基金，属于高预期风险和高预期收益的基金品种。  本基金主要采用完全复制策略跟踪标的指数的表现，其风险收益特征与标的指数相似。本基金主要投资于美国证券市场的股票，投资者需承担汇率风险。</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<!-- #fundInfo end -->
+<div class="panel fund-manager" id="fundManager">
+  <h3 class="h3"><span class="h3-title">基金经理</span></h3>
+  <div class="box fund-manager_content">
+    <!-- cyclic list fund manager -->
+      <dl class="fund-manager_item">
+        <dt>
+		       	 <img class="fund-manager_photo" src="/fund/fundManagerPic.do?mgrCode=wanq&photoSize=large">
+        </dt>
+        <dd> 
+	      <div class="fund-manager_detail">
+	        <h4>基金经理: 万琼</h4>
+	        <p>万琼女士，硕士。2004年起先后在中企动力科技股份有限公司、华夏基金工作。2011年加入博时基金管理有限公司。历任投资助理、基金经理助理、博时富时中国A股指数证券投资基金(2017年9月29日-2019年9月5日)、上证超级大盘交易型开放式指数证券投资基金(2015年6月8日-2019年10月11日)、博时上证超级大盘交易型开放式指数证券投资基金联接基金(2015年6月8日-2019年10月11日)、博时恒生沪深港通大湾区综合交易型开放式指数证券投资基金(2020年4月30日-2022年5月27日)、博时上证自然资源交易型开放式指数证券投资基金联接基金(2015年6月8日-2022年7月7日)、上证自然资源交易型开放式指数证券投资基金(2015年6月8日-2022年7月7日)、博时中证可持续发展100交易型开放式指数证券投资基金(2020年1月19日-2023年3月8日)、博时中证红利交易型开放式指数证券投资基金(2020年3月20日-2023年3月8日)、博时沪深300交易型开放式指数证券投资基金(2020年4月3日-2023年3月8日)、博时创业板指数证券投资基金(2021年4月2日-2023年3月8日)、博时纳斯达克100指数型发起式证券投资基金（QDII）(2022年7月26日-2023年9月25日)、博时中证港股通消费主题交易型开放式指数证券投资基金(2022年3月3日-2024年11月8日)的基金经理。现任指数与量化投资部投资总监助理兼博时标普500交易型开放式指数证券投资基金联接基金(2015年10月8日—至今)、博时标普500交易型开放式指数证券投资基金(2015年10月8日—至今)、博时中证500交易型开放式指数证券投资基金(2019年8月1日—至今)、博时中证500交易型开放式指数证券投资基金发起式联接基金(2019年12月30日—至今)、博时恒生医疗保健交易型开放式指数证券投资基金(QDII)(2021年3月18日—至今)、博时恒生港股通红利交易型开放式指数证券投资基金(2021年5月11日—至今)、博时恒生科技交易型开放式指数证券投资基金(QDII)(2021年5月17日—至今)、博时中证全球中国教育主题交易型开放式指数证券投资基金(QDII)(2021年6月8日—至今)、博时恒生科技交易型开放式指数证券投资基金发起式联接基金（QDII）(2021年12月21日—至今)、博时恒生医疗保健交易型开放式指数证券投资基金发起式联接基金(QDII)(2021年12月28日—至今)、博时恒生港股通红利交易型开放式指数证券投资基金发起式联接基金(2022年1月10日—至今)、博时纳斯达克100交易型开放式指数证券投资基金（QDII）(2023年4月19日—至今)、博时纳斯达克100交易型开放式指数证券投资基金发起式联接基金（QDII）(2023年9月26日—至今)、博时创业板综合交易型开放式指数证券投资基金(2025年8月15日—至今)、博时创业板综合交易型开放式指数证券投资基金联接基金(2025年12月2日—至今)、博时恒指港股通交易型开放式指数证券投资基金(2026年5月20日—至今)的基金经理。</p>
+	      </div>
+        </dd>
+      </dl>
+  </div>
+</div>
+<!-- #fundManager end -->
+<div class="panel" id="fundDividend">
+  <h3 class="h3"><span class="h3-title">分红信息</span></h3>
+      <table class="table-default table--border">
+        <thead class="thead-default">
+          <tr>
+            <td>权益登记日</td>
+            <td>除息日</td>
+            <td>红利发放日</td>
+            <td>每10份分红（元）</td>
+          </tr>
+        </thead>
+        <tbody class="tbody-default">
+            <tr>
+              <td class="col-empty" colspan="4">没有查询到分红信息</td>
+            </tr>
+        </tbody>
+      </table>
+</div>
+<!-- #fundDividend end -->
+<div class="panel" id="fundFeeStructure">
+  <h3 class="h3"><span class="h3-title">费率结构</span></h3>
+  <div class="box fee-structure">
+      <p><b>申购费用</b></p><p>投资人在申购基金份额时，代理券商可按照相应标准收取佣金，其中包含证券交易所、登记结算机构等收取的相关费用。最高不超过0.5%。</p><p><b>赎回费用</b></p><p>投资人在赎回基金份额时，代理券商可按照相应标准收取佣金，其中包含证券交易所、登记结算机构等收取的相关费用。最高不超过0.5%。</p><p><b>管理费、托管费及销售服务费</b></p><table width='100%'><tbody><tr><td bgcolor='#efebef' width='50%'>托管费</td><td bgcolor='#ffffff' width='50%'>0.20%</td></tr><tr><td bgcolor='#efebef' width='50%'>管理费</td><td bgcolor='#ffffff' width='50%'>0.6%</td></tr></tbody></table>
+  </div>
+</div>
+<!-- #fundFeeStructure end -->
+<div class="panel fund-portfolio" id="fundPortfolio">
+  <h3 class="h3">
+    <span class="h3-title">投资组合</span>
+      <span style="float: right">
+        <form id="fundPortfolioForm" action="/fund/portfolio.json" method="post" novalidate>
+          <input type="hidden" name="fundCode" value="513500">
+          <label class="form-label">
+            <select class="J_selectSmall" name="year" style="width: 100px">
+                <option value="2026">2026年</option>
+                <option value="2025">2025年</option>
+                <option value="2024">2024年</option>
+                <option value="2023">2023年</option>
+                <option value="2022">2022年</option>
+                <option value="2021">2021年</option>
+                <option value="2020">2020年</option>
+                <option value="2019">2019年</option>
+                <option value="2018">2018年</option>
+                <option value="2017">2017年</option>
+                <option value="2016">2016年</option>
+                <option value="2015">2015年</option>
+                <option value="2014">2014年</option>
+            </select>
+          </label>
+          <label class="form-label">
+            <select class="J_selectSmall" name="quarter" style="width: 100px">
+              <option value="1" >第1季度</option>
+              <option value="2" selected>第2季度</option>
+              <option value="3" >第3季度</option>
+              <option value="4" >第4季度</option>
+            </select>
+          </label>
+          <button class="btn-info btn--middle" type="submit">查询</button>
+        </form>
+      </span>
+  </h3>
+  <div class="box fund-portfolio_con" id="fundPortfolioCon"></div>
+  <script id="fundPortfolioTpl" type="text/template">
+    <p><b>1.投资组合</b></p>
+    <table class="table-default table--border">
+      <thead class="thead-default">
+        <tr>
+          <th style="width: 33.33%;">项目</th>
+          <th style="width: 33.33%;">金额（元）</th>
+          <th>占基金总资产的比例（%）</th>
+        </tr>
+      </thead>
+      <tbody class="tbody-default tbody--left">
+        {{#investGroupList}}
+          <tr>
+            <td>{{name}}</td>
+            <td>{{value}}</td>
+            <td>{{rate}}</td>
+          </tr>
+        {{/investGroupList}}
+      </tbody>
+    </table>
+    <p><b>2.按行业分类的股票投资组合</b></p>
+    <table class="table-default table--border">
+      <thead class="thead-default">
+        <tr>
+          <th style="width: 33.33%;">分类</th>
+          <th style="width: 33.33%;">市值(元)</th>
+          <th>占净值比例(%)</th>
+        </tr>
+      </thead>
+      <tbody class="tbody-default tbody--left">
+        {{#stockGroupList}}
+          <tr>
+            <td>{{classification}}</td>
+            <td>{{marketValue}}</td>
+            <td>{{ratioInNv}}</td>
+          </tr>
+        {{/stockGroupList}}
+      </tbody>
+    </table>
+    <p><b>3.基金投资前十名股票明细</b></p>
+    <table class="table-default table--border">
+      <thead class="thead-default">
+        <tr>
+          <th style="width: 25%;">股票代码</th>
+          <th style="width: 25%;">股票名称</th>
+          <th style="width: 25%;">市值（元）</th>
+          <th>净值比例（%）</th>
+        </tr>
+      </thead>
+      <tbody class="tbody-default tbody--left">
+        {{#stockDetailList}}
+          <tr>
+            <td>{{stockCode}}</td>
+            <td>{{stockName}}</td>
+            <td>{{marketValue}}</td>
+            <td>{{ratioInNv}}</td>
+          </tr>
+        {{/stockDetailList}}
+      </tbody>
+    </table>
+    <p><b>4.按券种分类的债券投资组合</b></p>
+    <table class="table-default table--border">
+      <thead class="thead-default">
+        <tr>
+          <th style="width: 33.33%;">名称</th>
+          <th style="width: 33.33%;">期末市值(元)</th>
+          <th>市值占基金资产净值比例(%)</th>
+        </tr>
+      </thead>
+      <tbody class="tbody-default tbody--left">
+        {{#bondGroupList}}
+          <tr>
+            <td>{{bondName}}</td>
+            <td>{{marketValue}}</td>
+            <td>{{ratioInNv}}</td>
+          </tr>
+        {{/bondGroupList}}
+      </tbody>
+    </table>
+    <p><b>5.按市值占基金资产净值比例大小排序的前五名债券明细</b></p>
+    <table class="table-default table--border">
+      <thead class="thead-default">
+        <tr>
+          <th style="width: 33.33%;">债券名称</th>
+          <th style="width: 33.33%;">期末市值(元)</th>
+          <th>市值占基金资产净值比例(%)</th>
+        </tr>
+      </tbody>
+      <tbody class="tbody-default tbody--left">
+        {{#bondDetailList}}
+          <tr>
+            <td>{{bondName}}</td>
+            <td>{{marketValue}}</td>
+            <td>{{ratioInNv}}</td>
+          </tr>
+        {{/bondDetailList}}
+      </tbody>
+    </table>
+  </script>
+</div>
+<!-- #fundPortfolio end -->
+<script>
+  assetsLoader({
+    js: ['echarts.js', 'fund/fundDetail.js']
+  });
+</script>
+		</div>
+	</div>
+<div class="g-footer">
+  <div class="container">
+    <div class="footer-nav-wrap">
+      <div class="footer-nav">
+        <dl class="footer-nav_list">
+          <dt>新手指南</dt>
+          <dd><a class="footer-nav_link" href="https://trade.bosera.com/indi/openacct/mobilenoform" target="_blank">个人开户</a></dd>
+          <dd><a class="footer-nav_link" href="/column/index.do?classid=00020002000500030001" target="_blank">投资者教育</a></dd>
+        </dl>
+        <dl class="footer-nav_list">
+          <dt>交易须知</dt>
+          <dd><a class="footer-nav_link" href="/column/index.do?classid=0002000200100001" target="_blank">业务规则</a></dd>
+          <dd><a class="footer-nav_link" href="/column/index.do?classid=00020002001100002" target="_blank">费率优惠</a></dd>
+          <dd><a class="footer-nav_link" href="/column/infoDetail.do?infoid=1415734&classid=000200020011000050001" target="_blank">风险提示</a></dd>
+          <dd><a class="footer-nav_link" href="/column/infoDetail.do?infoid=1415742&classid=000200020011000050001" target="_blank">权益须知</a></dd>
+        </dl>
+        <dl class="footer-nav_list">
+          <dt>法律条款</dt>
+          <dd><a class="footer-nav_link" href="/column/infoDetail.do?infoid=1415741&classid=000200020011000050001" target="_blank">免责条款</a></dd>
+          <dd><a class="footer-nav_link" href="/column/index.do?classid=000200020005000300030001" target="_blank">反洗钱专栏</a></dd>
+          <dd><a class="footer-nav_link" href="/column/index.do?classid=000200020005000300040001" target="_blank">防范证券欺诈活动</a></dd>
+          <dd><a class="footer-nav_link" href="/column/infoDetail.do?infoid=2737595&classid=000200020011000050001" target="_blank">隐私政策</a></dd>
+        </dl>
+        <dl class="footer-nav_list">
+          <dt>客户服务</dt>
+          <dd><a class="footer-nav_link" href="https://bosera.hotjob.cn" target="_blank">加入我们</a></dd>
+          <dd><a class="footer-nav_link" href="/column/index.do?classid=00020002001100003" target="_blank">下载中心</a></dd>
+          <dd><a class="footer-nav_link" href="/column/index.do?classid=0002000200020004" target="_blank">联系我们</a></dd>
+          <dd><a class="footer-nav_link" href="/column/infoDetail.do?infoid=12398&classid=0002000200110002" target="_blank">应急处理提示</a></dd>
+        </dl>
+      </div>
+      <div class="footer-qr">
+        <ul class="footer-qr_tab" id="footerQrTab">
+          <li class="text-primary" data-target="#footerAppQr">APP</li
+          ><li data-target="#footerWechatQr">微信</li>
+        </ul>
+        <div class="footer-qr_con"><img class="footer-qr_img" id="footerAppQr" src="/static/images/common/app_qr_code.png?v=20180124"><img class="footer-qr_img" id="footerWechatQr" src="/static/images/common/wechat_qr_code.png" style="display:none"></div>
+      </div>
+      <!-- .footer-qr end -->
+    </div>
+    <!-- .footer-nav-wrap end -->
+    <div class="footer-copyright">
+      <p>客服热线：95105568　客服邮箱：service@bosera.com&nbsp;&nbsp;
+        <span
+          class="J_popover"
+          data-placement="top-left"
+          data-width="156"
+          data-content="&lt;a class=&quot;footer-qr_popover-item&quot; href=&quot;http://www.weibo.com/bosera&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/static/images/common/weibo_qr_code.png&quot;&gt;点击关注微博&lt;/a&gt;"
+          ><i class="icon icon-weibo"></i></span>&nbsp;&nbsp;
+        <span
+          class="J_popover"
+          data-placement="top-left"
+          data-width="300"
+          data-content="&lt;span class=&quot;footer-qr_popover-item&quot;&gt;&lt;img src=&quot;/static/images/common/wechat_qr_code.png&quot;&gt;博时服务号&lt;/span&gt;&lt;span class=&quot;footer-qr_popover-item&quot;&gt;&lt;img src=&quot;/static/images/common/wechat_tzh_qr_code.png&quot;&gt;博时投资汇&lt;/span&gt;"
+          ><i class="icon icon-wechat"></i></span>
+      </p>
+      <p>人工服务时间：工作日9：00－21：00，公休日及法定节假日（十一和春节除外）9：00－17：00<p>
+	    <p><a class="footer-nav_link" target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=44030402003685"><img src="/static/images/common/beian.png"/>粤公网安备 44030402003685号</a> &copy;2026 博时基金管理有限公司 版权所有 <a class="footer-nav_link" href="https://beian.miit.gov.cn/#/Integrated/index" target="_blank" title="粤ICP备10063309号">粤ICP备10063309号</a>&nbsp;本网站支持IPv6</p>
+    </div>
+  </div>
+</div>
+<div class="container" id="sideToolbarContainer">
+  <div class="side-toolbar" id="sideToolbar">
+    <ul class="side-toolbar_list">
+      <li class="side-toolbar_item">
+        <span class="side-toolbar_link side-toolbar_link--qr" id="sideToolbarQr" title="扫描下载手机APP">
+	        <span class="side-toolbar_qr">
+	          <span class="side-toolbar_qr-title">扫描下载手机APP</span>
+	          <img src="/static/images/common/app_qr_code.png?v=20180124">
+	        </span>
+        </span>
+      </li>
+      <li class="side-toolbar_item">
+        <a class="side-toolbar_link side-toolbar_link--service" id="sideToolbarService" href="/service/webchat/robot.jsp" title="在线客服" target="_blank">在线客服</a>
+      </li>
+      <li class="side-toolbar_item">
+        <span class="side-toolbar_link side-toolbar_link--backtop" id="sideToolbarBackTop" title="返回顶部">返回顶部</span>
+      </li>
+    </ul>
+  </div>
+</div>
+<script>
+  // 百度统计代码
+  var _hmt = _hmt || [];
+  (function() {
+    var hm = document.createElement("script");
+    hm.src = "//hm.baidu.com/hm.js?3c5b5c9332a21f25e5643038564d17c1";
+    var s = document.getElementsByTagName("script")[0]; 
+    s.parentNode.insertBefore(hm, s);
+  })();
+</script>
+</body>
+</html>
+

@@ -1,0 +1,14 @@
+chstockdata
+Copyright 2026 joycoding2000
+
+This product includes software developed as part of TradingAgents-astock
+(https://github.com/joycoding2000/TradingAgents-astock), a fork of
+TradingAgents (https://github.com/TauricResearch/TradingAgents).
+Both are licensed under the Apache License, Version 2.0.
+
+Portions of the data-vendor correctness fixes were ported from
+a-stock-data (https://github.com/simonlin1212/a-stock-data),
+licensed under the Apache License, Version 2.0.
+
+This product includes the vipdoc daily-bar history layer, refreshed from
+the official TDX after-market archive (data.tdx.com.cn /vipdoc).

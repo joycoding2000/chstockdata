@@ -1,0 +1,50 @@
+{
+  "date": "2026-10-19",
+  "timezone": "Asia/Shanghai",
+  "kind": "Structured transcription of bounded web-tool observations; not a downloaded original response",
+  "budget_calls": 6,
+  "actual_calls": 4,
+  "calls": [
+    {"operation": "search", "queries": ["site.sse.com.cn 600518 2017 年报 前期会计差错更正 2019 货币资金", "site.finance.sina.com.cn 康美药业 2017 年年度报告 2018-04-26"]},
+    {"operation": "search", "queries": ["site.vip.stock.finance.sina.com.cn/corp 康美药业 前期会计差错更正 2019-04-30 600518", "site.eastmoney.com PE_TTM PE_LAR 市盈率 亏损 估值分析"]},
+    {"operation": "open", "urls": ["https://vip.stock.finance.sina.com.cn/corp/view/vCB_AllBulletinDetail.php?id=5335851&stockid=600518", "https://vip.stock.finance.sina.com.cn/corp/view/vCB_AllBulletinDetail.php?id=6376590", "https://data.eastmoney.com/gzfx/"]},
+    {"operation": "find", "items": [
+      {"url": "https://vip.stock.finance.sina.com.cn/corp/view/vCB_AllBulletinDetail.php?id=6376590", "pattern": "4,660", "found": false},
+      {"url": "https://vip.stock.finance.sina.com.cn/corp/view/vCB_AllBulletinDetail.php?id=6376590", "pattern": "公告日期", "found": true},
+      {"url": "https://data.eastmoney.com/gzfx/", "pattern": "PE(TTM)", "found": true},
+      {"url": "https://vip.stock.finance.sina.com.cn/corp/view/vCB_AllBulletinDetail.php?id=5335851&stockid=600518", "pattern": "2017年", "found": true}
+    ]}
+  ],
+  "observations": [
+    {
+      "url": "https://vip.stock.finance.sina.com.cn/corp/view/vCB_AllBulletinDetail.php?id=5335851&stockid=600518",
+      "title": "康美药业2018年年度报告摘要",
+      "announcement_date": "2019-04-30",
+      "locator": "§3.1, main accounting-data table, 2017 adjusted/unadjusted columns (web tool lines 67-78)",
+      "period_end": "2017-12-31",
+      "currency": "CNY",
+      "amount_unit": "yuan",
+      "2017_net_profit_attributable_to_parent": {"before": "4100926148.57", "after": "2149836281.41"},
+      "2017_net_operating_cashflow": {"before": "1842794237.84", "after": "-4840052606.46"},
+      "2017_equity_attributable_to_parent": {"before": "32032959807.76", "after": "28413344515.00"},
+      "2017_weighted_roe_percent": {"before": "14.02", "after": "7.68"},
+      "2018_net_profit_attributable_to_parent_as_published_2019": "1135188498.44",
+      "note": "This issuer disclosure corroborates revised totals independently of today's financial API; no exact intraday publication time or historical vendor ingestion log was provided. Correction bulletin 5335860 instead displays 7.20 for the revised weighted ROE: retain the discrepancy."
+    },
+    {
+      "url": "https://vip.stock.finance.sina.com.cn/corp/view/vCB_AllBulletinDetail.php?id=6376590",
+      "title": "ST康美关于前期会计差错更正的公告",
+      "announcement_date": "2020-06-18",
+      "locator": "heading and introductory description (web tool lines 50-53)",
+      "scope_observed": "Further retrospective adjustment affecting 2018 and 2017 consolidated statements; complete later version chain was not qualified."
+    },
+    {
+      "url": "https://data.eastmoney.com/gzfx/",
+      "locator": "stock valuation table headings and source label (web tool lines 270-295)",
+      "labels_observed": ["PE(TTM)", "PE(静)", "总市值(元)", "总股本(股)"],
+      "source_label": "东方财富Choice数据",
+      "limitations": "No historical-vintage, first-available timestamp or historical loss/restatement formula contract was established."
+    }
+  ],
+  "tool_limitations": "Web-tool underlying HTTP count and cached/live selection are not observable. Firecrawl status check reported fetch failed for account information; no Firecrawl data request, account repair or installation was attempted."
+}

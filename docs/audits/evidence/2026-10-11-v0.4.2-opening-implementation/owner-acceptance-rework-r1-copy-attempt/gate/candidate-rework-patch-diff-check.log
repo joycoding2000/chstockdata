@@ -1,0 +1,4 @@
+error: patch failed: src/chstockdata/opening_evidence.py:464
+error: src/chstockdata/opening_evidence.py: patch does not apply
+error: patch failed: tests/test_historical_opening_evidence.py:392
+error: tests/test_historical_opening_evidence.py: patch does not apply

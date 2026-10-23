@@ -1,0 +1,24 @@
+.F............                                                           [100%]
+================================== FAILURES ===================================
+_________________ test_execution_fact_only_changes_t_plus_one _________________
+
+make_engine = <function make_engine.<locals>.build at 0x0000029AEF2F6A20>
+bar_factory = <function bar_factory.<locals>.build at 0x0000029AEF2F6B60>
+target_contribution = <function target_contribution.<locals>.build at 0x0000029AEF2F6CA0>
+predetermined_targets = <class 'conftest.PredeterminedTargetSource'>
+
+    def test_execution_fact_only_changes_t_plus_one(make_engine,bar_factory,target_contribution,predetermined_targets):
+        inputs=(make_engine,bar_factory,target_contribution,predetermined_targets)
+        original=payload()
+        changed=copy.deepcopy(original);changed["opening_status"]="UNKNOWN";changed["reason"]="unknown_activity"
+        a,sa=run((mapped(original),),(gap(),),*inputs)
+        b,sb=run((mapped(seal(changed)),),(gap(),),*inputs)
+        assert a.session(S0).plans==b.session(S0).plans
+>       assert a.session(S0).target_portfolio==b.session(S0).target_portfolio
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       AttributeError: 'SessionResult' object has no attribute 'target_portfolio'
+
+tests\component\test_historical_opening_execution.py:77: AttributeError
+=========================== short test summary info ===========================
+FAILED tests/component/test_historical_opening_execution.py::test_execution_fact_only_changes_t_plus_one
+1 failed, 13 passed in 1.32s

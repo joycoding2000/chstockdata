@@ -1,0 +1,696 @@
+{
+  "cases": [
+    {
+      "case_id": "PARITY-A-SHARE-SELL-FEES-20230828",
+      "deltas": [
+        {
+          "delta": "0.00",
+          "expected": "5.00",
+          "key": "stamp_tax",
+          "matched": true,
+          "observed": "5.00"
+        },
+        {
+          "delta": "0.00",
+          "expected": "0.10",
+          "key": "transfer_fee",
+          "matched": true,
+          "observed": "0.10"
+        },
+        {
+          "delta": "0.00",
+          "expected": "3.00",
+          "key": "commission",
+          "matched": true,
+          "observed": "3.00"
+        },
+        {
+          "delta": "0.00",
+          "expected": "2.00",
+          "key": "minimum_commission_adjustment",
+          "matched": true,
+          "observed": "2.00"
+        },
+        {
+          "delta": "0.00",
+          "expected": "10.10",
+          "key": "total",
+          "matched": true,
+          "observed": "10.10"
+        }
+      ],
+      "expected": {
+        "commission": "3.00",
+        "minimum_commission_adjustment": "2.00",
+        "stamp_tax": "5.00",
+        "total": "10.10",
+        "transfer_fee": "0.10"
+      },
+      "kind": "fees",
+      "observed": {
+        "commission": "3.00",
+        "minimum_commission_adjustment": "2.00",
+        "stamp_tax": "5.00",
+        "total": "10.10",
+        "transfer_fee": "0.10"
+      },
+      "semantics": "SELL 1,000 shares at 10.00 CNY on an effective-dated A-share profile; broker commission 0.03% with a CNY 5 minimum",
+      "source": {
+        "accessed_on": "2026-09-15",
+        "authority": "MOF/STA + CSDC",
+        "reference": "Announcement [2023] No.39 halves the sell-side stamp duty to 0.05%; CSDC transfer fee 0.001% per side",
+        "rights": "public regulation; validation-only comparison"
+      },
+      "status": "PASS",
+      "title": "A-share sell costs after the 2023 stamp-duty halving",
+      "tolerance": "0"
+    },
+    {
+      "case_id": "PARITY-A-SHARE-BUY-FEES-20230828",
+      "deltas": [
+        {
+          "delta": "0.00",
+          "expected": "0",
+          "key": "stamp_tax",
+          "matched": true,
+          "observed": "0.00"
+        },
+        {
+          "delta": "0.00",
+          "expected": "0.10",
+          "key": "transfer_fee",
+          "matched": true,
+          "observed": "0.10"
+        },
+        {
+          "delta": "0.00",
+          "expected": "3.00",
+          "key": "commission",
+          "matched": true,
+          "observed": "3.00"
+        },
+        {
+          "delta": "0.00",
+          "expected": "2.00",
+          "key": "minimum_commission_adjustment",
+          "matched": true,
+          "observed": "2.00"
+        },
+        {
+          "delta": "0.00",
+          "expected": "5.10",
+          "key": "total",
+          "matched": true,
+          "observed": "5.10"
+        }
+      ],
+      "expected": {
+        "commission": "3.00",
+        "minimum_commission_adjustment": "2.00",
+        "stamp_tax": "0",
+        "total": "5.10",
+        "transfer_fee": "0.10"
+      },
+      "kind": "fees",
+      "observed": {
+        "commission": "3.00",
+        "minimum_commission_adjustment": "2.00",
+        "stamp_tax": "0.00",
+        "total": "5.10",
+        "transfer_fee": "0.10"
+      },
+      "semantics": "BUY 1,000 shares at 10.00 CNY; broker commission 0.03% with a CNY 5 minimum",
+      "source": {
+        "accessed_on": "2026-09-15",
+        "authority": "MOF/STA + CSDC",
+        "reference": "Stamp duty is sell-side only; CSDC transfer fee 0.001% applies per side",
+        "rights": "public regulation; validation-only comparison"
+      },
+      "status": "PASS",
+      "title": "A-share buy costs have no stamp duty",
+      "tolerance": "0"
+    },
+    {
+      "case_id": "PARITY-ETF-ZERO-STAMP-TRANSFER",
+      "deltas": [
+        {
+          "delta": "0.00",
+          "expected": "0",
+          "key": "stamp_tax",
+          "matched": true,
+          "observed": "0.00"
+        },
+        {
+          "delta": "0.00",
+          "expected": "0",
+          "key": "transfer_fee",
+          "matched": true,
+          "observed": "0.00"
+        },
+        {
+          "delta": "0.00",
+          "expected": "3.00",
+          "key": "commission",
+          "matched": true,
+          "observed": "3.00"
+        },
+        {
+          "delta": "0.00",
+          "expected": "2.00",
+          "key": "minimum_commission_adjustment",
+          "matched": true,
+          "observed": "2.00"
+        },
+        {
+          "delta": "0.00",
+          "expected": "5.00",
+          "key": "total",
+          "matched": true,
+          "observed": "5.00"
+        }
+      ],
+      "expected": {
+        "commission": "3.00",
+        "minimum_commission_adjustment": "2.00",
+        "stamp_tax": "0",
+        "total": "5.00",
+        "transfer_fee": "0"
+      },
+      "kind": "fees",
+      "observed": {
+        "commission": "3.00",
+        "minimum_commission_adjustment": "2.00",
+        "stamp_tax": "0.00",
+        "total": "5.00",
+        "transfer_fee": "0.00"
+      },
+      "semantics": "SELL 2,500 broad-based equity ETF shares at 4.00 CNY; broker commission 0.03% with a CNY 5 minimum",
+      "source": {
+        "accessed_on": "2026-09-15",
+        "authority": "MOF/STA + CSDC",
+        "reference": "Stamp duty covers stock transfer documents, not fund trades; CSDC transfer fee scope covers stocks only",
+        "rights": "public regulation; validation-only comparison"
+      },
+      "status": "PASS",
+      "title": "Domestic ETF trades carry no stamp duty and no transfer fee",
+      "tolerance": "0"
+    },
+    {
+      "case_id": "PARITY-PRICE-LIMIT-10PCT-A-SHARE",
+      "deltas": [
+        {
+          "delta": "0.00",
+          "expected": "0.10",
+          "key": "limit_percent",
+          "matched": true,
+          "observed": "0.10"
+        },
+        {
+          "delta": "0.00",
+          "expected": "0.01",
+          "key": "tick_size",
+          "matched": true,
+          "observed": "0.01"
+        },
+        {
+          "delta": null,
+          "expected": "PREVIOUS_CLOSE",
+          "key": "basis",
+          "matched": true,
+          "observed": "PREVIOUS_CLOSE"
+        },
+        {
+          "delta": "0.0000",
+          "expected": "13.20",
+          "key": "upper_limit",
+          "matched": true,
+          "observed": "13.2000"
+        },
+        {
+          "delta": "0.0000",
+          "expected": "10.80",
+          "key": "lower_limit",
+          "matched": true,
+          "observed": "10.8000"
+        }
+      ],
+      "expected": {
+        "basis": "PREVIOUS_CLOSE",
+        "limit_percent": "0.10",
+        "lower_limit": "10.80",
+        "tick_size": "0.01",
+        "upper_limit": "13.20"
+      },
+      "kind": "price_limit",
+      "observed": {
+        "basis": "PREVIOUS_CLOSE",
+        "limit_percent": "0.10",
+        "lower_limit": "10.8000",
+        "tick_size": "0.01",
+        "upper_limit": "13.2000"
+      },
+      "semantics": "Approved price-limit profile for a main-board A-share with previous close 12.00",
+      "source": {
+        "accessed_on": "2026-09-15",
+        "authority": "SSE/SZSE",
+        "reference": "Trading rules: +/-10% daily price limit computed from the previous close, tick 0.01 CNY",
+        "rights": "public exchange rules; validation-only comparison"
+      },
+      "status": "PASS",
+      "title": "A-share daily price limit of +/-10% versus previous close",
+      "tolerance": "0"
+    },
+    {
+      "case_id": "PARITY-PRICE-LIMIT-ETF-TICK",
+      "deltas": [
+        {
+          "delta": "0.00",
+          "expected": "0.10",
+          "key": "limit_percent",
+          "matched": true,
+          "observed": "0.10"
+        },
+        {
+          "delta": "0.000",
+          "expected": "0.001",
+          "key": "tick_size",
+          "matched": true,
+          "observed": "0.001"
+        },
+        {
+          "delta": null,
+          "expected": "PREVIOUS_CLOSE",
+          "key": "basis",
+          "matched": true,
+          "observed": "PREVIOUS_CLOSE"
+        },
+        {
+          "delta": "0.00000",
+          "expected": "4.400",
+          "key": "upper_limit",
+          "matched": true,
+          "observed": "4.40000"
+        },
+        {
+          "delta": "0.00000",
+          "expected": "3.600",
+          "key": "lower_limit",
+          "matched": true,
+          "observed": "3.60000"
+        }
+      ],
+      "expected": {
+        "basis": "PREVIOUS_CLOSE",
+        "limit_percent": "0.10",
+        "lower_limit": "3.600",
+        "tick_size": "0.001",
+        "upper_limit": "4.400"
+      },
+      "kind": "price_limit",
+      "observed": {
+        "basis": "PREVIOUS_CLOSE",
+        "limit_percent": "0.10",
+        "lower_limit": "3.60000",
+        "tick_size": "0.001",
+        "upper_limit": "4.40000"
+      },
+      "semantics": "Approved price-limit profile for a domestic ETF with previous close 4.000",
+      "source": {
+        "accessed_on": "2026-09-15",
+        "authority": "SSE/SZSE",
+        "reference": "ETF trading rules: +/-10% daily price limit with a 0.001 CNY tick",
+        "rights": "public exchange rules; validation-only comparison"
+      },
+      "status": "PASS",
+      "title": "ETF price limit tick is 0.001 CNY",
+      "tolerance": "0"
+    },
+    {
+      "case_id": "PARITY-PRICE-LIMIT-CHINEXT-20PCT",
+      "deltas": [
+        {
+          "delta": "0.00",
+          "expected": "0.20",
+          "key": "limit_percent",
+          "matched": true,
+          "observed": "0.20"
+        },
+        {
+          "delta": "0.000",
+          "expected": "0.001",
+          "key": "tick_size",
+          "matched": true,
+          "observed": "0.001"
+        },
+        {
+          "delta": null,
+          "expected": "PREVIOUS_CLOSE",
+          "key": "basis",
+          "matched": true,
+          "observed": "PREVIOUS_CLOSE"
+        },
+        {
+          "delta": "0.00000",
+          "expected": "2.640",
+          "key": "upper_limit",
+          "matched": true,
+          "observed": "2.64000"
+        },
+        {
+          "delta": "0.00000",
+          "expected": "1.760",
+          "key": "lower_limit",
+          "matched": true,
+          "observed": "1.76000"
+        }
+      ],
+      "expected": {
+        "basis": "PREVIOUS_CLOSE",
+        "limit_percent": "0.20",
+        "lower_limit": "1.760",
+        "tick_size": "0.001",
+        "upper_limit": "2.640"
+      },
+      "kind": "price_limit",
+      "observed": {
+        "basis": "PREVIOUS_CLOSE",
+        "limit_percent": "0.20",
+        "lower_limit": "1.76000",
+        "tick_size": "0.001",
+        "upper_limit": "2.64000"
+      },
+      "semantics": "Approved effective-dated price-limit profile for ChiNext ETF 159915 after the rule change",
+      "source": {
+        "accessed_on": "2026-09-17",
+        "authority": "SZSE",
+        "reference": "SZSE list of funds whose price limit increased to 20% on 2020-08-24 explicitly includes 159915",
+        "rights": "public exchange rules; validation-only comparison"
+      },
+      "status": "PASS",
+      "title": "ChiNext ETF price limit is 20% from 2020-08-24",
+      "tolerance": "0"
+    },
+    {
+      "case_id": "PARITY-SETTLEMENT-T-PLUS-ONE",
+      "deltas": [
+        {
+          "delta": null,
+          "expected": "1",
+          "key": "sessions_until_sellable",
+          "matched": true,
+          "observed": "1"
+        },
+        {
+          "delta": null,
+          "expected": "2026-09-15",
+          "key": "sellable_from",
+          "matched": true,
+          "observed": "2026-09-15"
+        }
+      ],
+      "expected": {
+        "sellable_from": "2026-09-15",
+        "sessions_until_sellable": 1
+      },
+      "kind": "settlement",
+      "observed": {
+        "sellable_from": "2026-09-15",
+        "sessions_until_sellable": "1"
+      },
+      "semantics": "Resolve sellability for an acquisition on 2026-09-14 with the approved settlement profile",
+      "source": {
+        "accessed_on": "2026-09-15",
+        "authority": "SSE/SZSE + CSDC",
+        "reference": "A-share quantity acquired on T is sellable from the next open session",
+        "rights": "public exchange rules; validation-only comparison"
+      },
+      "status": "PASS",
+      "title": "A-share acquisitions become sellable one open session later",
+      "tolerance": "exact"
+    },
+    {
+      "case_id": "PARITY-SETTLEMENT-GOLD-ETF-INTRADAY",
+      "deltas": [
+        {
+          "delta": null,
+          "expected": "0",
+          "key": "sessions_until_sellable",
+          "matched": true,
+          "observed": "0"
+        },
+        {
+          "delta": null,
+          "expected": "2022-12-30",
+          "key": "sellable_from",
+          "matched": true,
+          "observed": "2022-12-30"
+        }
+      ],
+      "expected": {
+        "sellable_from": "2022-12-30",
+        "sessions_until_sellable": 0
+      },
+      "kind": "settlement",
+      "observed": {
+        "sellable_from": "2022-12-30",
+        "sessions_until_sellable": "0"
+      },
+      "semantics": "Resolve sellability for XSHG:518880 with the approved intraday settlement profile",
+      "source": {
+        "accessed_on": "2026-09-17",
+        "authority": "SSE",
+        "reference": "2013 SSE Gold ETF Business Guidelines: gold ETF units bought that day may be sold that day",
+        "rights": "public exchange rules; validation-only comparison"
+      },
+      "status": "PASS",
+      "title": "Gold ETF acquisitions are sellable on the acquisition session",
+      "tolerance": "exact"
+    },
+    {
+      "case_id": "PARITY-SETTLEMENT-BOND-ETF-INTRADAY",
+      "deltas": [
+        {
+          "delta": null,
+          "expected": "0",
+          "key": "sessions_until_sellable",
+          "matched": true,
+          "observed": "0"
+        },
+        {
+          "delta": null,
+          "expected": "2022-12-30",
+          "key": "sellable_from",
+          "matched": true,
+          "observed": "2022-12-30"
+        }
+      ],
+      "expected": {
+        "sellable_from": "2022-12-30",
+        "sessions_until_sellable": 0
+      },
+      "kind": "settlement",
+      "observed": {
+        "sellable_from": "2022-12-30",
+        "sessions_until_sellable": "0"
+      },
+      "semantics": "Resolve sellability for XSHG:511010 with the approved intraday settlement profile",
+      "source": {
+        "accessed_on": "2026-09-17",
+        "authority": "SSE",
+        "reference": "2013 SSE Bond ETF Business Guidelines: bond ETF units bought that day may be sold that day",
+        "rights": "public exchange rules; validation-only comparison"
+      },
+      "status": "PASS",
+      "title": "Bond ETF acquisitions are sellable on the acquisition session",
+      "tolerance": "exact"
+    },
+    {
+      "case_id": "PARITY-PIT-UNKNOWN-BASIS",
+      "deltas": [
+        {
+          "delta": null,
+          "expected": "True",
+          "key": "early_fact_known_at_early_cutoff",
+          "matched": true,
+          "observed": "True"
+        },
+        {
+          "delta": null,
+          "expected": "False",
+          "key": "late_fact_known_at_early_cutoff",
+          "matched": true,
+          "observed": "False"
+        },
+        {
+          "delta": null,
+          "expected": "True",
+          "key": "late_fact_known_at_late_cutoff",
+          "matched": true,
+          "observed": "True"
+        },
+        {
+          "delta": null,
+          "expected": "None",
+          "key": "unknown_basis_known_at_early_cutoff",
+          "matched": true,
+          "observed": "None"
+        }
+      ],
+      "expected": {
+        "early_fact_known_at_early_cutoff": true,
+        "late_fact_known_at_early_cutoff": false,
+        "late_fact_known_at_late_cutoff": true,
+        "unknown_basis_known_at_early_cutoff": null
+      },
+      "kind": "availability",
+      "observed": {
+        "early_fact_known_at_early_cutoff": "True",
+        "late_fact_known_at_early_cutoff": "False",
+        "late_fact_known_at_late_cutoff": "True",
+        "unknown_basis_known_at_early_cutoff": "None"
+      },
+      "semantics": "Two facts retrieved at 17:00 with different information times, plus an UNKNOWN-basis fact",
+      "source": {
+        "accessed_on": "2026-09-15",
+        "authority": "M0 data-contract decisions (P0-02, OQ-05)",
+        "reference": "Canonical facts carry information_available_at/retrieved_at/availability_basis; UNKNOWN never fabricates an exact time",
+        "rights": "project architecture contract; semantics frozen by hand"
+      },
+      "status": "PASS",
+      "title": "Information time decides PIT access, not retrieval time",
+      "tolerance": "exact"
+    },
+    {
+      "case_id": "PARITY-EXECUTION-TICK-ROUNDING",
+      "deltas": [
+        {
+          "delta": "0.00",
+          "expected": "12.02",
+          "key": "XSHE:000001:BUY",
+          "matched": true,
+          "observed": "12.02"
+        },
+        {
+          "delta": "0.00",
+          "expected": "12.58",
+          "key": "XSHE:000001:SELL",
+          "matched": true,
+          "observed": "12.58"
+        },
+        {
+          "delta": "0.000",
+          "expected": "4.405",
+          "key": "XSHG:510300:BUY",
+          "matched": true,
+          "observed": "4.405"
+        },
+        {
+          "delta": "0.000",
+          "expected": "4.395",
+          "key": "XSHG:510300:SELL",
+          "matched": true,
+          "observed": "4.395"
+        }
+      ],
+      "expected": {
+        "XSHE:000001:BUY": "12.02",
+        "XSHE:000001:SELL": "12.58",
+        "XSHG:510300:BUY": "4.405",
+        "XSHG:510300:SELL": "4.395"
+      },
+      "kind": "execution_price",
+      "observed": {
+        "XSHE:000001:BUY": "12.02",
+        "XSHE:000001:SELL": "12.58",
+        "XSHG:510300:BUY": "4.405",
+        "XSHG:510300:SELL": "4.395"
+      },
+      "semantics": "M0 NEXT_SESSION_OPEN execution model with 0.1% buy/sell slippage and exchange ticks",
+      "source": {
+        "accessed_on": "2026-09-15",
+        "authority": "SSE/SZSE",
+        "reference": "Conservative model: buys round up and sells round down to the exchange tick after 0.1% side-aware slippage",
+        "rights": "public exchange tick rules plus the approved M0 execution convention; validation-only comparison"
+      },
+      "status": "PASS",
+      "title": "Side-aware execution price with exchange tick rounding",
+      "tolerance": "0"
+    },
+    {
+      "case_id": "PARITY-LOT-RULES-BOARD-LOT",
+      "deltas": [
+        {
+          "delta": null,
+          "expected": "100",
+          "key": "board_lot",
+          "matched": true,
+          "observed": "100"
+        },
+        {
+          "delta": null,
+          "expected": "100",
+          "key": "buy_increment",
+          "matched": true,
+          "observed": "100"
+        },
+        {
+          "delta": null,
+          "expected": "ALLOWED",
+          "key": "odd_lot_sell_policy",
+          "matched": true,
+          "observed": "ALLOWED"
+        }
+      ],
+      "expected": {
+        "board_lot": 100,
+        "buy_increment": 100,
+        "odd_lot_sell_policy": "ALLOWED"
+      },
+      "kind": "lot_rules",
+      "observed": {
+        "board_lot": "100",
+        "buy_increment": "100",
+        "odd_lot_sell_policy": "ALLOWED"
+      },
+      "semantics": "Approved lot profile for standard A-shares and domestic ETFs",
+      "source": {
+        "accessed_on": "2026-09-15",
+        "authority": "SSE/SZSE",
+        "reference": "Buy orders are placed in board lots of 100 shares; odd-lot sells are permitted",
+        "rights": "public exchange rules; validation-only comparison"
+      },
+      "status": "PASS",
+      "title": "Board lot and odd-lot sell policy",
+      "tolerance": "0"
+    }
+  ],
+  "cases_version": "m0-parity-2",
+  "commands": [
+    "python -m pytest tests/parity -q"
+  ],
+  "credentials_prerequisites": [
+    "offline parity: none; all evidence is frozen public-rule text and local computation",
+    "broader independent-engine parity (release environment): lawful access to the reference source and its data terms; no secret values are recorded"
+  ],
+  "evaluation_scope": "OFFLINE_FROZEN_PUBLIC_RULES",
+  "excluded_scope": [
+    "licensed independent engines (for example JoinQuant validation-only research access) are not embedded in this repository; the release environment may add broader parity samples under their own data terms",
+    "the approved ETF subtype matrix is limited to domestic broad-based equity, gold, and bond ETFs; no other subtype is compared or approved"
+  ],
+  "generated_at": "2026-09-17T16:30:00+08:00",
+  "report_digest": "sha256:d8b9cde55cfeb6eccd504ba23895d1b2f89000aa453a60199eec70930aa4b5c2",
+  "report_schema_version": "m0-parity-report-1",
+  "source_statement": "Every expected value below was frozen by hand from public regulations and exchange trading rules before running the kernel. The kernel is never its own oracle, and no comparison may be normalized away: any delta is recorded as expected/explained or as a defect.",
+  "summary": {
+    "case_count": 12,
+    "failed": 0,
+    "passed": 12
+  },
+  "tolerances": {
+    "availability_semantics": "exact",
+    "fee_and_tax_amounts": "0",
+    "rule_percentages": "0",
+    "settlement_dates": "exact",
+    "tick_prices": "0"
+  }
+}

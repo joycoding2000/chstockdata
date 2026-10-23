@@ -1,0 +1,82 @@
+{
+  "registered_at": "2026-10-22T20:59:46.949961+08:00",
+  "calendar_sha256": "153dd1b7c4d606a57df5c388b226050b22da42f71b77b508b227786f45fb6e3a",
+  "cases": [
+    {
+      "security": "SH:600519",
+      "dates": {
+        "2025-09-30": "first signal",
+        "2025-10-09": "window start",
+        "2025-10-30": "2025-09-30 disclosure date-only boundary; not yet permissible close",
+        "2025-10-31": "2025-09-30 first permissible close after date-only disclosure",
+        "2026-04-17": "2025-12-31 disclosure date-only boundary; not yet permissible close",
+        "2026-04-20": "2025-12-31 first permissible close after date-only disclosure",
+        "2026-10-21": "window end vicinity",
+        "2026-10-22": "window end"
+      },
+      "disclosures": [
+        {
+          "report_period": "2025-09-30",
+          "reported_actual_publish_date": "2025-10-30",
+          "date_precision": "DATE_ONLY_AGGREGATOR_NOT_ORIGINAL_NOTICE",
+          "before": "2025-10-30",
+          "after": "2025-10-31"
+        },
+        {
+          "report_period": "2025-12-31",
+          "reported_actual_publish_date": "2026-04-17",
+          "date_precision": "DATE_ONLY_AGGREGATOR_NOT_ORIGINAL_NOTICE",
+          "before": "2026-04-17",
+          "after": "2026-04-20"
+        }
+      ],
+      "expected_checks": [
+        "specified business day",
+        "parent TTM denominator",
+        "historical shares/cap",
+        "input available by T",
+        "revision policy and vintage",
+        "S07 compatibility"
+      ]
+    },
+    {
+      "security": "SZ:000002",
+      "dates": {
+        "2025-09-30": "first signal",
+        "2025-10-09": "window start",
+        "2025-10-31": "2025-09-30 disclosure date-only boundary; not yet permissible close",
+        "2025-11-03": "2025-09-30 first permissible close after date-only disclosure",
+        "2026-04-01": "2025-12-31 disclosure date-only boundary; not yet permissible close",
+        "2026-04-02": "2025-12-31 first permissible close after date-only disclosure",
+        "2026-10-21": "window end vicinity",
+        "2026-10-22": "window end"
+      },
+      "disclosures": [
+        {
+          "report_period": "2025-09-30",
+          "reported_actual_publish_date": "2025-10-31",
+          "date_precision": "DATE_ONLY_AGGREGATOR_NOT_ORIGINAL_NOTICE",
+          "before": "2025-10-31",
+          "after": "2025-11-03"
+        },
+        {
+          "report_period": "2025-12-31",
+          "reported_actual_publish_date": "2026-04-01",
+          "date_precision": "DATE_ONLY_AGGREGATOR_NOT_ORIGINAL_NOTICE",
+          "before": "2026-04-01",
+          "after": "2026-04-02"
+        }
+      ],
+      "expected_checks": [
+        "specified business day",
+        "parent TTM denominator",
+        "historical shares/cap",
+        "input available by T",
+        "revision policy and vintage",
+        "S07 compatibility"
+      ]
+    }
+  ],
+  "financial_pdfs": 0,
+  "new_deep_financial_securities": 0
+}

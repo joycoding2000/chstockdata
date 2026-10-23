@@ -1,0 +1,13 @@
+{
+  "argv": [
+    "C:/Users/Administrator/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe",
+    "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\evidence\\owner-acceptance-rework-r1\\verify_original_protection.py"
+  ],
+  "cwd": "D:\\Dev\\Projects\\chstockdata",
+  "exit": 0,
+  "mode": "authorized read-only elevated verification",
+  "script_sha256": "2cac99d517e6ffc3c79fa11dda1382ceda2c87f7b7e3c625a1e099572aa49246",
+  "log": "original-protection-final.log",
+  "result": "original-protection-final.json",
+  "note": "Actual command results independently returned exit 0; saved report also retained as stdout log."
+}

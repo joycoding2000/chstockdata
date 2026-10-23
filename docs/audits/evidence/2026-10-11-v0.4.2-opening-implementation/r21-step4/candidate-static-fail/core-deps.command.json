@@ -1,0 +1,24 @@
+{
+  "name": "core-deps",
+  "argv": [
+    "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\profiles\\r21-final\\core\\Scripts\\python.exe",
+    "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\evidence\\r21-step4\\dependencies.py"
+  ],
+  "cwd": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation",
+  "exit": 0,
+  "candidate_wheel_sha256": "d955ea4ef7c2bffaf5d30751fde88580911303b863a3120ac3d87337270267f8",
+  "log": "core-deps.log",
+  "exit_file": "core-deps.exit",
+  "command_started_at": "2026-10-12T21:30:31.297838+08:00",
+  "command_finished_at": "2026-10-12T21:30:31.749235+08:00",
+  "environment_overrides": {
+    "PYTHONPATH": null,
+    "PYTHONUTF8": "1",
+    "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+    "SIOS_CHSTOCKDATA_LIVE_QUALIFICATION": null,
+    "CHSTOCKDATA_VIPDOC_HISTORY_DIR": null,
+    "CHSTOCKDATA_CACHE_DIR": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\cache\\r21-data",
+    "TEMP": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\temp\\r21-step4",
+    "TMP": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\temp\\r21-step4"
+  }
+}

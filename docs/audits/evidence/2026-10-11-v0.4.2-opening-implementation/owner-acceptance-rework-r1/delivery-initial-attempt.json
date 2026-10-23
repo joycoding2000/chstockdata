@@ -1,0 +1,11 @@
+{
+  "exit": 1,
+  "cause": "shutil.copytree follows pytest current directory aliases",
+  "unique_original_files": 3096,
+  "extra_duplicate_alias_files": 1276,
+  "missing_files": 0,
+  "mismatched_files": 0,
+  "preserved_initial_copy": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-11-v0.4.2-opening-implementation\\owner-acceptance-rework-r1-copy-attempt",
+  "remedy": "Export exact unique inventory paths, without expanding directory aliases.",
+  "product_source_and_test_results_modified": false
+}

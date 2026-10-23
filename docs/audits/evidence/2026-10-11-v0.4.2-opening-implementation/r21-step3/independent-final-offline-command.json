@@ -1,0 +1,32 @@
+{
+  "executor": "root",
+  "python": "C:/Users/Administrator/.codex/visualizations/2026/10/09/01a11feb-cbea-7790-a83e-57b1dd555e13/v042-unified/sios-candidate/Scripts/python.exe",
+  "cwd": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os",
+  "pytest_argv": [
+    "tests/qualification/test_live_r21_contract.py",
+    "tests/qualification/test_chstockdata_etf_gate.py",
+    "-q",
+    "-p",
+    "no:cacheprovider",
+    "--basetemp",
+    "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\evidence\\r21-step3\\independent-final-offline-temp",
+    "--junitxml",
+    "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\evidence\\r21-step3\\independent-final-offline.xml"
+  ],
+  "environment": {
+    "PYTHONPATH": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\src;C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\chstockdata\\src",
+    "PYTHONUTF8": "1",
+    "PYTHONDONTWRITEBYTECODE": "1",
+    "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+    "SIOS_CHSTOCKDATA_LIVE_QUALIFICATION": null
+  },
+  "exit_code": 0,
+  "tests": 17,
+  "offline_live_skips": 5,
+  "qualification_source_sha256": {
+    "live_qualification.py": "9befce2f812b51fd0fc0044d6065d20668648e026a2f5aa29df749100fb2085b",
+    "test_live_r21_contract.py": "63a38154aa19db69b2ffd7aaf519d4efd356473e9dd66f1192494d838e3cee9b",
+    "test_chstockdata_etf_gate.py": "d8f960c905f92706cee814ccf35bbf996bcd62f501dbc4f99dbd572cf44ead29"
+  },
+  "claim": "offline regression only; mandatory live separately evidenced"
+}

@@ -1,0 +1,32 @@
+{
+  "python_executable": "D:\\Dev\\Projects\\chstockdata\\.venv\\Scripts\\python.exe",
+  "python_version": "3.14.5 (tags/v3.14.5:5607950, May 10 2026, 10:43:50) [MSC v.1944 64 bit (AMD64)]",
+  "pytest_version": "9.1.1",
+  "git_executable": "C:\\Program Files\\Git\\cmd\\git.EXE",
+  "cwd": "D:\\Dev\\Projects\\chstockdata",
+  "pytest_args": [
+    "-m",
+    "not network",
+    "tests/test_rh1_git_line_endings.py::test_crlf_preserves_added_line_discrimination[False]",
+    "tests/test_rh1_git_line_endings.py::test_crlf_preserves_added_line_discrimination[True]",
+    "-vv",
+    "--tb=short",
+    "-p",
+    "no:cacheprovider",
+    "--basetemp=D:\\Dev\\Projects\\chstockdata\\.pytest_cache\\dr04-p-investigation-d6edb4b21fba\\candidate-pytest-temp",
+    "--junitxml=D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-18-dr04-p-failure-investigation\\candidate.xml"
+  ],
+  "pytest_exit_code": 1,
+  "loaded_package_file": "D:\\Dev\\Projects\\chstockdata\\src\\chstockdata\\__init__.py",
+  "git_environment": {
+    "GIT_DIR": null,
+    "GIT_WORK_TREE": null,
+    "GIT_COMMON_DIR": null,
+    "GIT_CEILING_DIRECTORIES": null,
+    "GIT_CONFIG_COUNT": null,
+    "GIT_CONFIG_NOSYSTEM": null,
+    "GIT_CONFIG_GLOBAL": null,
+    "GIT_CONFIG_SYSTEM": null
+  },
+  "git_config_parameters_present": false
+}

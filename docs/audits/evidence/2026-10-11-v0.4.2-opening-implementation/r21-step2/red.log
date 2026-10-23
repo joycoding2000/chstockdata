@@ -1,0 +1,466 @@
+FFFFFFFFFFFFFF                                                           [100%]
+================================== FAILURES ===================================
+_______________ test_full_payload_adapter_hash_and_unknown_pit ________________
+
+    def test_full_payload_adapter_hash_and_unknown_pit():
+>       fact=mapped(payload())
+                    ^^^^^^^^^
+
+tests\component\test_historical_opening_execution.py:63: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\component\test_historical_opening_execution.py:22: in payload
+    return json.loads((W / "evidence/r21-step1/final-replay-stock-interval-dates" / f"{symbol}-{day}.json").read_text(encoding="utf-8"))["data"]
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\Administrator\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\pathlib.py:1027: in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = WindowsPath('C:/Users/Administrator/.codex/visualizations/2026/10/10/01a125dd-33f2-78d3-abe7-45e0928975d0/evidence/r21-step1/final-replay-stock-interval-dates/510300-2026-09-11.json')
+mode = 'r', buffering = -1, encoding = 'utf-8', errors = None, newline = None
+
+    def open(self, mode='r', buffering=-1, encoding=None,
+             errors=None, newline=None):
+        """
+        Open the file pointed to by this path and return a file object, as
+        the built-in open() function does.
+        """
+        if "b" not in mode:
+            encoding = io.text_encoding(encoding)
+>       return io.open(self, mode, buffering, encoding, errors, newline)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\evidence\\r21-step1\\final-replay-stock-interval-dates\\510300-2026-09-11.json'
+
+C:\Users\Administrator\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\pathlib.py:1013: FileNotFoundError
+_________________ test_execution_fact_only_changes_t_plus_one _________________
+
+make_engine = <function make_engine.<locals>.build at 0x0000013804846A20>
+bar_factory = <function bar_factory.<locals>.build at 0x0000013804846DE0>
+target_contribution = <function target_contribution.<locals>.build at 0x0000013804846FC0>
+predetermined_targets = <class 'conftest.PredeterminedTargetSource'>
+
+    def test_execution_fact_only_changes_t_plus_one(make_engine,bar_factory,target_contribution,predetermined_targets):
+        inputs=(make_engine,bar_factory,target_contribution,predetermined_targets)
+>       original=payload()
+                 ^^^^^^^^^
+
+tests\component\test_historical_opening_execution.py:72: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\component\test_historical_opening_execution.py:22: in payload
+    return json.loads((W / "evidence/r21-step1/final-replay-stock-interval-dates" / f"{symbol}-{day}.json").read_text(encoding="utf-8"))["data"]
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\Administrator\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\pathlib.py:1027: in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = WindowsPath('C:/Users/Administrator/.codex/visualizations/2026/10/10/01a125dd-33f2-78d3-abe7-45e0928975d0/evidence/r21-step1/final-replay-stock-interval-dates/510300-2026-09-11.json')
+mode = 'r', buffering = -1, encoding = 'utf-8', errors = None, newline = None
+
+    def open(self, mode='r', buffering=-1, encoding=None,
+             errors=None, newline=None):
+        """
+        Open the file pointed to by this path and return a file object, as
+        the built-in open() function does.
+        """
+        if "b" not in mode:
+            encoding = io.text_encoding(encoding)
+>       return io.open(self, mode, buffering, encoding, errors, newline)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\evidence\\r21-step1\\final-replay-stock-interval-dates\\510300-2026-09-11.json'
+
+C:\Users\Administrator\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\pathlib.py:1013: FileNotFoundError
+_ test_positive_does_not_override_other_unknown_or_blocks[UNKNOWN-generic_missing] _
+
+status = <TradabilityStatusKind.UNKNOWN: 'UNKNOWN'>, reason = 'generic_missing'
+make_engine = <function make_engine.<locals>.build at 0x0000013804847E20>
+bar_factory = <function bar_factory.<locals>.build at 0x0000013804846F20>
+target_contribution = <function target_contribution.<locals>.build at 0x0000013804847560>
+predetermined_targets = <class 'conftest.PredeterminedTargetSource'>
+
+    @pytest.mark.parametrize("status,reason",[(TradabilityStatusKind.UNKNOWN,"generic_missing"),(TradabilityStatusKind.NOT_LISTED,"not_listed"),(TradabilityStatusKind.DELISTED,"delisted"),(TradabilityStatusKind.BUY_BLOCKED_UPPER_LIMIT,"side_block"),(TradabilityStatusKind.SUSPENDED,"suspended")])
+    def test_positive_does_not_override_other_unknown_or_blocks(status,reason,make_engine,bar_factory,target_contribution,predetermined_targets):
+>       result,_=run((mapped(payload()),),(gap(status=status,reason=reason),),make_engine,bar_factory,target_contribution,predetermined_targets)
+                             ^^^^^^^^^
+
+tests\component\test_historical_opening_execution.py:86: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\component\test_historical_opening_execution.py:22: in payload
+    return json.loads((W / "evidence/r21-step1/final-replay-stock-interval-dates" / f"{symbol}-{day}.json").read_text(encoding="utf-8"))["data"]
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\Administrator\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\pathlib.py:1027: in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = WindowsPath('C:/Users/Administrator/.codex/visualizations/2026/10/10/01a125dd-33f2-78d3-abe7-45e0928975d0/evidence/r21-step1/final-replay-stock-interval-dates/510300-2026-09-11.json')
+mode = 'r', buffering = -1, encoding = 'utf-8', errors = None, newline = None
+
+    def open(self, mode='r', buffering=-1, encoding=None,
+             errors=None, newline=None):
+        """
+        Open the file pointed to by this path and return a file object, as
+        the built-in open() function does.
+        """
+        if "b" not in mode:
+            encoding = io.text_encoding(encoding)
+>       return io.open(self, mode, buffering, encoding, errors, newline)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\evidence\\r21-step1\\final-replay-stock-interval-dates\\510300-2026-09-11.json'
+
+C:\Users\Administrator\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\pathlib.py:1013: FileNotFoundError
+_ test_positive_does_not_override_other_unknown_or_blocks[NOT_LISTED-not_listed] _
+
+status = <TradabilityStatusKind.NOT_LISTED: 'NOT_LISTED'>, reason = 'not_listed'
+make_engine = <function make_engine.<locals>.build at 0x00000138049504A0>
+bar_factory = <function bar_factory.<locals>.build at 0x00000138049505E0>
+target_contribution = <function target_contribution.<locals>.build at 0x0000013804950720>
+predetermined_targets = <class 'conftest.PredeterminedTargetSource'>
+
+    @pytest.mark.parametrize("status,reason",[(TradabilityStatusKind.UNKNOWN,"generic_missing"),(TradabilityStatusKind.NOT_LISTED,"not_listed"),(TradabilityStatusKind.DELISTED,"delisted"),(TradabilityStatusKind.BUY_BLOCKED_UPPER_LIMIT,"side_block"),(TradabilityStatusKind.SUSPENDED,"suspended")])
+    def test_positive_does_not_override_other_unknown_or_blocks(status,reason,make_engine,bar_factory,target_contribution,predetermined_targets):
+>       result,_=run((mapped(payload()),),(gap(status=status,reason=reason),),make_engine,bar_factory,target_contribution,predetermined_targets)
+                             ^^^^^^^^^
+
+tests\component\test_historical_opening_execution.py:86: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\component\test_historical_opening_execution.py:22: in payload
+    return json.loads((W / "evidence/r21-step1/final-replay-stock-interval-dates" / f"{symbol}-{day}.json").read_text(encoding="utf-8"))["data"]
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\Administrator\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\pathlib.py:1027: in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = WindowsPath('C:/Users/Administrator/.codex/visualizations/2026/10/10/01a125dd-33f2-78d3-abe7-45e0928975d0/evidence/r21-step1/final-replay-stock-interval-dates/510300-2026-09-11.json')
+mode = 'r', buffering = -1, encoding = 'utf-8', errors = None, newline = None
+
+    def open(self, mode='r', buffering=-1, encoding=None,
+             errors=None, newline=None):
+        """
+        Open the file pointed to by this path and return a file object, as
+        the built-in open() function does.
+        """
+        if "b" not in mode:
+            encoding = io.text_encoding(encoding)
+>       return io.open(self, mode, buffering, encoding, errors, newline)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\evidence\\r21-step1\\final-replay-stock-interval-dates\\510300-2026-09-11.json'
+
+C:\Users\Administrator\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\pathlib.py:1013: FileNotFoundError
+_ test_positive_does_not_override_other_unknown_or_blocks[DELISTED-delisted] __
+
+status = <TradabilityStatusKind.DELISTED: 'DELISTED'>, reason = 'delisted'
+make_engine = <function make_engine.<locals>.build at 0x00000138049502C0>
+bar_factory = <function bar_factory.<locals>.build at 0x0000013804950400>
+target_contribution = <function target_contribution.<locals>.build at 0x0000013804950680>
+predetermined_targets = <class 'conftest.PredeterminedTargetSource'>
+
+    @pytest.mark.parametrize("status,reason",[(TradabilityStatusKind.UNKNOWN,"generic_missing"),(TradabilityStatusKind.NOT_LISTED,"not_listed"),(TradabilityStatusKind.DELISTED,"delisted"),(TradabilityStatusKind.BUY_BLOCKED_UPPER_LIMIT,"side_block"),(TradabilityStatusKind.SUSPENDED,"suspended")])
+    def test_positive_does_not_override_other_unknown_or_blocks(status,reason,make_engine,bar_factory,target_contribution,predetermined_targets):
+>       result,_=run((mapped(payload()),),(gap(status=status,reason=reason),),make_engine,bar_factory,target_contribution,predetermined_targets)
+                             ^^^^^^^^^
+
+tests\component\test_historical_opening_execution.py:86: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\component\test_historical_opening_execution.py:22: in payload
+    return json.loads((W / "evidence/r21-step1/final-replay-stock-interval-dates" / f"{symbol}-{day}.json").read_text(encoding="utf-8"))["data"]
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\Administrator\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\pathlib.py:1027: in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = WindowsPath('C:/Users/Administrator/.codex/visualizations/2026/10/10/01a125dd-33f2-78d3-abe7-45e0928975d0/evidence/r21-step1/final-replay-stock-interval-dates/510300-2026-09-11.json')
+mode = 'r', buffering = -1, encoding = 'utf-8', errors = None, newline = None
+
+    def open(self, mode='r', buffering=-1, encoding=None,
+             errors=None, newline=None):
+        """
+        Open the file pointed to by this path and return a file object, as
+        the built-in open() function does.
+        """
+        if "b" not in mode:
+            encoding = io.text_encoding(encoding)
+>       return io.open(self, mode, buffering, encoding, errors, newline)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\evidence\\r21-step1\\final-replay-stock-interval-dates\\510300-2026-09-11.json'
+
+C:\Users\Administrator\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\pathlib.py:1013: FileNotFoundError
+_ test_positive_does_not_override_other_unknown_or_blocks[BUY_BLOCKED_UPPER_LIMIT-side_block] _
+
+status = <TradabilityStatusKind.BUY_BLOCKED_UPPER_LIMIT: 'BUY_BLOCKED_UPPER_LIMIT'>
+reason = 'side_block'
+make_engine = <function make_engine.<locals>.build at 0x0000013804950CC0>
+bar_factory = <function bar_factory.<locals>.build at 0x0000013804950F40>
+target_contribution = <function target_contribution.<locals>.build at 0x0000013804951440>
+predetermined_targets = <class 'conftest.PredeterminedTargetSource'>
+
+    @pytest.mark.parametrize("status,reason",[(TradabilityStatusKind.UNKNOWN,"generic_missing"),(TradabilityStatusKind.NOT_LISTED,"not_listed"),(TradabilityStatusKind.DELISTED,"delisted"),(TradabilityStatusKind.BUY_BLOCKED_UPPER_LIMIT,"side_block"),(TradabilityStatusKind.SUSPENDED,"suspended")])
+    def test_positive_does_not_override_other_unknown_or_blocks(status,reason,make_engine,bar_factory,target_contribution,predetermined_targets):
+>       result,_=run((mapped(payload()),),(gap(status=status,reason=reason),),make_engine,bar_factory,target_contribution,predetermined_targets)
+                             ^^^^^^^^^
+
+tests\component\test_historical_opening_execution.py:86: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\component\test_historical_opening_execution.py:22: in payload
+    return json.loads((W / "evidence/r21-step1/final-replay-stock-interval-dates" / f"{symbol}-{day}.json").read_text(encoding="utf-8"))["data"]
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\Administrator\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\pathlib.py:1027: in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = WindowsPath('C:/Users/Administrator/.codex/visualizations/2026/10/10/01a125dd-33f2-78d3-abe7-45e0928975d0/evidence/r21-step1/final-replay-stock-interval-dates/510300-2026-09-11.json')
+mode = 'r', buffering = -1, encoding = 'utf-8', errors = None, newline = None
+
+    def open(self, mode='r', buffering=-1, encoding=None,
+             errors=None, newline=None):
+        """
+        Open the file pointed to by this path and return a file object, as
+        the built-in open() function does.
+        """
+        if "b" not in mode:
+            encoding = io.text_encoding(encoding)
+>       return io.open(self, mode, buffering, encoding, errors, newline)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\evidence\\r21-step1\\final-replay-stock-interval-dates\\510300-2026-09-11.json'
+
+C:\Users\Administrator\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\pathlib.py:1013: FileNotFoundError
+_ test_positive_does_not_override_other_unknown_or_blocks[SUSPENDED-suspended] _
+
+status = <TradabilityStatusKind.SUSPENDED: 'SUSPENDED'>, reason = 'suspended'
+make_engine = <function make_engine.<locals>.build at 0x0000013804951F80>
+bar_factory = <function bar_factory.<locals>.build at 0x0000013804952200>
+target_contribution = <function target_contribution.<locals>.build at 0x0000013804951940>
+predetermined_targets = <class 'conftest.PredeterminedTargetSource'>
+
+    @pytest.mark.parametrize("status,reason",[(TradabilityStatusKind.UNKNOWN,"generic_missing"),(TradabilityStatusKind.NOT_LISTED,"not_listed"),(TradabilityStatusKind.DELISTED,"delisted"),(TradabilityStatusKind.BUY_BLOCKED_UPPER_LIMIT,"side_block"),(TradabilityStatusKind.SUSPENDED,"suspended")])
+    def test_positive_does_not_override_other_unknown_or_blocks(status,reason,make_engine,bar_factory,target_contribution,predetermined_targets):
+>       result,_=run((mapped(payload()),),(gap(status=status,reason=reason),),make_engine,bar_factory,target_contribution,predetermined_targets)
+                             ^^^^^^^^^
+
+tests\component\test_historical_opening_execution.py:86: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\component\test_historical_opening_execution.py:22: in payload
+    return json.loads((W / "evidence/r21-step1/final-replay-stock-interval-dates" / f"{symbol}-{day}.json").read_text(encoding="utf-8"))["data"]
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\Administrator\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\pathlib.py:1027: in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = WindowsPath('C:/Users/Administrator/.codex/visualizations/2026/10/10/01a125dd-33f2-78d3-abe7-45e0928975d0/evidence/r21-step1/final-replay-stock-interval-dates/510300-2026-09-11.json')
+mode = 'r', buffering = -1, encoding = 'utf-8', errors = None, newline = None
+
+    def open(self, mode='r', buffering=-1, encoding=None,
+             errors=None, newline=None):
+        """
+        Open the file pointed to by this path and return a file object, as
+        the built-in open() function does.
+        """
+        if "b" not in mode:
+            encoding = io.text_encoding(encoding)
+>       return io.open(self, mode, buffering, encoding, errors, newline)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\evidence\\r21-step1\\final-replay-stock-interval-dates\\510300-2026-09-11.json'
+
+C:\Users\Administrator\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\pathlib.py:1013: FileNotFoundError
+___________________ test_positive_does_not_override_absence ___________________
+
+make_engine = <function make_engine.<locals>.build at 0x0000013804952840>
+bar_factory = <function bar_factory.<locals>.build at 0x0000013804952AC0>
+target_contribution = <function target_contribution.<locals>.build at 0x00000138049511C0>
+predetermined_targets = <class 'conftest.PredeterminedTargetSource'>
+
+    def test_positive_does_not_override_absence(make_engine,bar_factory,target_contribution,predetermined_targets):
+>       result,_=run((mapped(payload()),),(),make_engine,bar_factory,target_contribution,predetermined_targets)
+                             ^^^^^^^^^
+
+tests\component\test_historical_opening_execution.py:91: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\component\test_historical_opening_execution.py:22: in payload
+    return json.loads((W / "evidence/r21-step1/final-replay-stock-interval-dates" / f"{symbol}-{day}.json").read_text(encoding="utf-8"))["data"]
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\Administrator\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\pathlib.py:1027: in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = WindowsPath('C:/Users/Administrator/.codex/visualizations/2026/10/10/01a125dd-33f2-78d3-abe7-45e0928975d0/evidence/r21-step1/final-replay-stock-interval-dates/510300-2026-09-11.json')
+mode = 'r', buffering = -1, encoding = 'utf-8', errors = None, newline = None
+
+    def open(self, mode='r', buffering=-1, encoding=None,
+             errors=None, newline=None):
+        """
+        Open the file pointed to by this path and return a file object, as
+        the built-in open() function does.
+        """
+        if "b" not in mode:
+            encoding = io.text_encoding(encoding)
+>       return io.open(self, mode, buffering, encoding, errors, newline)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\evidence\\r21-step1\\final-replay-stock-interval-dates\\510300-2026-09-11.json'
+
+C:\Users\Administrator\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\pathlib.py:1013: FileNotFoundError
+_____________________ test_new_clock_rejects_utc_default ______________________
+
+make_engine = <function make_engine.<locals>.build at 0x0000013804953240>
+
+    def test_new_clock_rejects_utc_default(make_engine):
+        with pytest.raises(ValueError,match="Shanghai"):
+>           make_engine(execution_eligibility_mode=api().ExecutionEligibilityMode.HISTORICAL_OPENING_R21,historical_opening_evidence=(mapped(payload()),))
+                                                   ^^^^^
+
+tests\component\test_historical_opening_execution.py:97: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+    def api():
+>       from systematic_investing.domain import historical_opening as h
+E       ImportError: cannot import name 'historical_opening' from 'systematic_investing.domain' (C:\Users\Administrator\.codex\visualizations\2026\10\10\01a125dd-33f2-78d3-abe7-45e0928975d0\v042-opening-implementation\systematic-investing-os\src\systematic_investing\domain\__init__.py)
+
+tests\component\test_historical_opening_execution.py:33: ImportError
+________________ test_bad_target_rejected[2026-09-11T09:30:00] ________________
+
+target = '2026-09-11T09:30:00'
+
+    @pytest.mark.parametrize("target",["2026-09-11T09:30:00","2026-09-11T09:30:00+00:00"])
+    def test_bad_target_rejected(target):
+>       data=payload();data["target_execution_at"]=target
+             ^^^^^^^^^
+
+tests\component\test_historical_opening_execution.py:102: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\component\test_historical_opening_execution.py:22: in payload
+    return json.loads((W / "evidence/r21-step1/final-replay-stock-interval-dates" / f"{symbol}-{day}.json").read_text(encoding="utf-8"))["data"]
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\Administrator\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\pathlib.py:1027: in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = WindowsPath('C:/Users/Administrator/.codex/visualizations/2026/10/10/01a125dd-33f2-78d3-abe7-45e0928975d0/evidence/r21-step1/final-replay-stock-interval-dates/510300-2026-09-11.json')
+mode = 'r', buffering = -1, encoding = 'utf-8', errors = None, newline = None
+
+    def open(self, mode='r', buffering=-1, encoding=None,
+             errors=None, newline=None):
+        """
+        Open the file pointed to by this path and return a file object, as
+        the built-in open() function does.
+        """
+        if "b" not in mode:
+            encoding = io.text_encoding(encoding)
+>       return io.open(self, mode, buffering, encoding, errors, newline)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\evidence\\r21-step1\\final-replay-stock-interval-dates\\510300-2026-09-11.json'
+
+C:\Users\Administrator\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\pathlib.py:1013: FileNotFoundError
+_____________ test_bad_target_rejected[2026-09-11T09:30:00+00:00] _____________
+
+target = '2026-09-11T09:30:00+00:00'
+
+    @pytest.mark.parametrize("target",["2026-09-11T09:30:00","2026-09-11T09:30:00+00:00"])
+    def test_bad_target_rejected(target):
+>       data=payload();data["target_execution_at"]=target
+             ^^^^^^^^^
+
+tests\component\test_historical_opening_execution.py:102: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\component\test_historical_opening_execution.py:22: in payload
+    return json.loads((W / "evidence/r21-step1/final-replay-stock-interval-dates" / f"{symbol}-{day}.json").read_text(encoding="utf-8"))["data"]
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\Administrator\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\pathlib.py:1027: in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = WindowsPath('C:/Users/Administrator/.codex/visualizations/2026/10/10/01a125dd-33f2-78d3-abe7-45e0928975d0/evidence/r21-step1/final-replay-stock-interval-dates/510300-2026-09-11.json')
+mode = 'r', buffering = -1, encoding = 'utf-8', errors = None, newline = None
+
+    def open(self, mode='r', buffering=-1, encoding=None,
+             errors=None, newline=None):
+        """
+        Open the file pointed to by this path and return a file object, as
+        the built-in open() function does.
+        """
+        if "b" not in mode:
+            encoding = io.text_encoding(encoding)
+>       return io.open(self, mode, buffering, encoding, errors, newline)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\evidence\\r21-step1\\final-replay-stock-interval-dates\\510300-2026-09-11.json'
+
+C:\Users\Administrator\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\pathlib.py:1013: FileNotFoundError
+_____________________ test_utc_equivalent_target_accepted _____________________
+
+    def test_utc_equivalent_target_accepted():
+>       data=payload();data["target_execution_at"]="2026-09-11T01:30:00+00:00"
+             ^^^^^^^^^
+
+tests\component\test_historical_opening_execution.py:107: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\component\test_historical_opening_execution.py:22: in payload
+    return json.loads((W / "evidence/r21-step1/final-replay-stock-interval-dates" / f"{symbol}-{day}.json").read_text(encoding="utf-8"))["data"]
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\Administrator\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\pathlib.py:1027: in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = WindowsPath('C:/Users/Administrator/.codex/visualizations/2026/10/10/01a125dd-33f2-78d3-abe7-45e0928975d0/evidence/r21-step1/final-replay-stock-interval-dates/510300-2026-09-11.json')
+mode = 'r', buffering = -1, encoding = 'utf-8', errors = None, newline = None
+
+    def open(self, mode='r', buffering=-1, encoding=None,
+             errors=None, newline=None):
+        """
+        Open the file pointed to by this path and return a file object, as
+        the built-in open() function does.
+        """
+        if "b" not in mode:
+            encoding = io.text_encoding(encoding)
+>       return io.open(self, mode, buffering, encoding, errors, newline)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\evidence\\r21-step1\\final-replay-stock-interval-dates\\510300-2026-09-11.json'
+
+C:\Users\Administrator\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\pathlib.py:1013: FileNotFoundError
+____________ test_snapshot_full_partition_roundtrip_and_v2_compat _____________
+
+tmp_path = WindowsPath('C:/Users/Administrator/.codex/visualizations/2026/10/10/01a125dd-33f2-78d3-abe7-45e0928975d0/v042-opening-implementation/evidence/r21-step2/tmp/test_snapshot_full_partition_r0')
+bar_factory = <function bar_factory.<locals>.build at 0x0000013804846DE0>
+
+    def test_snapshot_full_partition_roundtrip_and_v2_compat(tmp_path,bar_factory):
+>       h=api();fact=mapped(payload())
+          ^^^^^
+
+tests\component\test_historical_opening_execution.py:112: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+    def api():
+>       from systematic_investing.domain import historical_opening as h
+E       ImportError: cannot import name 'historical_opening' from 'systematic_investing.domain' (C:\Users\Administrator\.codex\visualizations\2026\10\10\01a125dd-33f2-78d3-abe7-45e0928975d0\v042-opening-implementation\systematic-investing-os\src\systematic_investing\domain\__init__.py)
+
+tests\component\test_historical_opening_execution.py:33: ImportError
+_____________ test_old_availability_does_not_invent_exchange_rule _____________
+
+    def test_old_availability_does_not_invent_exchange_rule():
+        result=ChStockDataProvider._tradability_availability(payload={},session_date=S1,retrieved_at=datetime(2026,10,12,tzinfo=UTC))
+>       assert result.information_available_at is None
+E       AssertionError: assert datetime.datetime(2026, 9, 11, 9, 30, tzinfo=datetime.timezone(datetime.timedelta(seconds=28800))) is None
+E        +  where datetime.datetime(2026, 9, 11, 9, 30, tzinfo=datetime.timezone(datetime.timedelta(seconds=28800))) = Availability(information_available_at=datetime.datetime(2026, 9, 11, 9, 30, tzinfo=datetime.timezone(datetime.timedelt...26, 10, 12, 0, 0, tzinfo=datetime.timezone.utc), availability_basis=<AvailabilityBasis.EXCHANGE_RULE: 'EXCHANGE_RULE'>).information_available_at
+
+tests\component\test_historical_opening_execution.py:132: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/component/test_historical_opening_execution.py::test_full_payload_adapter_hash_and_unknown_pit
+FAILED tests/component/test_historical_opening_execution.py::test_execution_fact_only_changes_t_plus_one
+FAILED tests/component/test_historical_opening_execution.py::test_positive_does_not_override_other_unknown_or_blocks[UNKNOWN-generic_missing]
+FAILED tests/component/test_historical_opening_execution.py::test_positive_does_not_override_other_unknown_or_blocks[NOT_LISTED-not_listed]
+FAILED tests/component/test_historical_opening_execution.py::test_positive_does_not_override_other_unknown_or_blocks[DELISTED-delisted]
+FAILED tests/component/test_historical_opening_execution.py::test_positive_does_not_override_other_unknown_or_blocks[BUY_BLOCKED_UPPER_LIMIT-side_block]
+FAILED tests/component/test_historical_opening_execution.py::test_positive_does_not_override_other_unknown_or_blocks[SUSPENDED-suspended]
+FAILED tests/component/test_historical_opening_execution.py::test_positive_does_not_override_absence
+FAILED tests/component/test_historical_opening_execution.py::test_new_clock_rejects_utc_default
+FAILED tests/component/test_historical_opening_execution.py::test_bad_target_rejected[2026-09-11T09:30:00]
+FAILED tests/component/test_historical_opening_execution.py::test_bad_target_rejected[2026-09-11T09:30:00+00:00]
+FAILED tests/component/test_historical_opening_execution.py::test_utc_equivalent_target_accepted
+FAILED tests/component/test_historical_opening_execution.py::test_snapshot_full_partition_roundtrip_and_v2_compat
+FAILED tests/component/test_historical_opening_execution.py::test_old_availability_does_not_invent_exchange_rule
+14 failed in 0.64s

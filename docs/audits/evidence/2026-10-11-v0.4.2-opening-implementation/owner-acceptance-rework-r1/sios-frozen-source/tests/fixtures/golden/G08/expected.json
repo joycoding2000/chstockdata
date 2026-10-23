@@ -1,0 +1,50 @@
+{
+  "schema_version": "golden-expected-v1",
+  "runs": {
+    "default": {
+      "sessions": [
+        {
+          "session_date": "2026-09-11",
+          "cash": "100000",
+          "market_value": "12000.00",
+          "total_equity": "112000.00",
+          "nav": "1.12",
+          "valuation_status": "COMPLETE",
+          "decision_blocked_reason": null,
+          "orders": [],
+          "fills": [],
+          "rejections": [],
+          "plans": [
+            {"instrument_id": "XSHE:000001", "sleeve": "CORE", "side": "SELL", "order_quantity": 1000, "target_weight": "0", "sizing_reference_price": "12.00"}
+          ]
+        },
+        {
+          "session_date": "2026-09-14",
+          "cash": "100000",
+          "market_value": "10800.00",
+          "total_equity": "110800.00",
+          "nav": "1.108",
+          "valuation_status": "COMPLETE",
+          "decision_blocked_reason": null,
+          "fills": [],
+          "orders": [
+            {"instrument_id": "XSHE:000001", "side": "SELL", "planned_quantity": 1000, "submitted_quantity": null, "status": "REJECTED", "reason_codes": ["SELL_BLOCKED_LOWER_LIMIT"]}
+          ],
+          "rejections": [
+            {"instrument_id": "XSHE:000001", "side": "SELL", "code": "SELL_BLOCKED_LOWER_LIMIT"}
+          ],
+          "plans": [],
+          "target": null
+        }
+      ],
+      "final": {
+        "cash": "100000",
+        "equity": "110800.00",
+        "nav": "1.108",
+        "positions": [
+          {"instrument_id": "XSHE:000001", "total_quantity": 1000, "sellable_quantity": 1000, "average_cost": "10.00"}
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,93 @@
+...........................................FFFF...                       [100%]
+================================== FAILURES ===================================
+_ test_sse_stock_interval_dates_require_strict_format_validity_and_order[startStopDate-20260831junk] _
+
+field = 'startStopDate', bad_date = '20260831junk'
+
+    @pytest.mark.parametrize('field,bad_date',[
+        ('startStopDate','20260831junk'), ('endStopDate','20260911junk'),
+        ('startStopDate','20260912'), ('endStopDate','20260830'),
+        ('startStopDate','20260230'), ('endStopDate','20260931'),
+    ])
+    def test_sse_stock_interval_dates_require_strict_format_validity_and_order(field,bad_date):
+        payload=json.loads((OFFICIAL/'sse_688432_interval.bin').read_bytes())
+        payload['result'][0][field]=bad_date
+        payload['pageHelp']['data'][0][field]=bad_date
+        r=fetch('688432','2026-09-14',official=[payload])
+>       assert r.data['opening_status']=='UNKNOWN'
+E       AssertionError: assert 'OPEN_ACTIVITY_CONFIRMED' == 'UNKNOWN'
+E         
+E         - UNKNOWN
+E         + OPEN_ACTIVITY_CONFIRMED
+
+tests\test_historical_opening_evidence.py:382: AssertionError
+_ test_sse_stock_interval_dates_require_strict_format_validity_and_order[endStopDate-20260911junk] _
+
+field = 'endStopDate', bad_date = '20260911junk'
+
+    @pytest.mark.parametrize('field,bad_date',[
+        ('startStopDate','20260831junk'), ('endStopDate','20260911junk'),
+        ('startStopDate','20260912'), ('endStopDate','20260830'),
+        ('startStopDate','20260230'), ('endStopDate','20260931'),
+    ])
+    def test_sse_stock_interval_dates_require_strict_format_validity_and_order(field,bad_date):
+        payload=json.loads((OFFICIAL/'sse_688432_interval.bin').read_bytes())
+        payload['result'][0][field]=bad_date
+        payload['pageHelp']['data'][0][field]=bad_date
+        r=fetch('688432','2026-09-14',official=[payload])
+>       assert r.data['opening_status']=='UNKNOWN'
+E       AssertionError: assert 'OPEN_ACTIVITY_CONFIRMED' == 'UNKNOWN'
+E         
+E         - UNKNOWN
+E         + OPEN_ACTIVITY_CONFIRMED
+
+tests\test_historical_opening_evidence.py:382: AssertionError
+_ test_sse_stock_interval_dates_require_strict_format_validity_and_order[startStopDate-20260912] _
+
+field = 'startStopDate', bad_date = '20260912'
+
+    @pytest.mark.parametrize('field,bad_date',[
+        ('startStopDate','20260831junk'), ('endStopDate','20260911junk'),
+        ('startStopDate','20260912'), ('endStopDate','20260830'),
+        ('startStopDate','20260230'), ('endStopDate','20260931'),
+    ])
+    def test_sse_stock_interval_dates_require_strict_format_validity_and_order(field,bad_date):
+        payload=json.loads((OFFICIAL/'sse_688432_interval.bin').read_bytes())
+        payload['result'][0][field]=bad_date
+        payload['pageHelp']['data'][0][field]=bad_date
+        r=fetch('688432','2026-09-14',official=[payload])
+        assert r.data['opening_status']=='UNKNOWN'
+>       assert r.data['official_query']['status']=='failed_structure'
+E       AssertionError: assert 'success' == 'failed_structure'
+E         
+E         - failed_structure
+E         + success
+
+tests\test_historical_opening_evidence.py:383: AssertionError
+_ test_sse_stock_interval_dates_require_strict_format_validity_and_order[endStopDate-20260830] _
+
+field = 'endStopDate', bad_date = '20260830'
+
+    @pytest.mark.parametrize('field,bad_date',[
+        ('startStopDate','20260831junk'), ('endStopDate','20260911junk'),
+        ('startStopDate','20260912'), ('endStopDate','20260830'),
+        ('startStopDate','20260230'), ('endStopDate','20260931'),
+    ])
+    def test_sse_stock_interval_dates_require_strict_format_validity_and_order(field,bad_date):
+        payload=json.loads((OFFICIAL/'sse_688432_interval.bin').read_bytes())
+        payload['result'][0][field]=bad_date
+        payload['pageHelp']['data'][0][field]=bad_date
+        r=fetch('688432','2026-09-14',official=[payload])
+>       assert r.data['opening_status']=='UNKNOWN'
+E       AssertionError: assert 'OPEN_ACTIVITY_CONFIRMED' == 'UNKNOWN'
+E         
+E         - UNKNOWN
+E         + OPEN_ACTIVITY_CONFIRMED
+
+tests\test_historical_opening_evidence.py:382: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/test_historical_opening_evidence.py::test_sse_stock_interval_dates_require_strict_format_validity_and_order[startStopDate-20260831junk]
+FAILED tests/test_historical_opening_evidence.py::test_sse_stock_interval_dates_require_strict_format_validity_and_order[endStopDate-20260911junk]
+FAILED tests/test_historical_opening_evidence.py::test_sse_stock_interval_dates_require_strict_format_validity_and_order[startStopDate-20260912]
+FAILED tests/test_historical_opening_evidence.py::test_sse_stock_interval_dates_require_strict_format_validity_and_order[endStopDate-20260830]
+4 failed, 46 passed in 2.76s

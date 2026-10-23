@@ -1,0 +1,12 @@
+1216741268 108 consolidated non-OCF rows 16 matches 16
+1216741273 88 consolidated non-OCF rows 16 matches 16
+1217078312 97 consolidated non-OCF rows 16 matches 16
+1217078316 126 consolidated non-OCF rows 16 matches 16
+Traceback (most recent call last):
+  File "D:\Dev\Projects\chstockdata\docs\audits\evidence\2026-10-22-w5h-f2-final-evidence-qualification\qualify_reply_scope.py", line 136, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "D:\Dev\Projects\chstockdata\docs\audits\evidence\2026-10-22-w5h-f2-final-evidence-qualification\qualify_reply_scope.py", line 48, in main
+    target=next(t for t in tables if any('经营活动现金流入小计' in compact(str(r)) for r in table_rows(page,t)))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+StopIteration

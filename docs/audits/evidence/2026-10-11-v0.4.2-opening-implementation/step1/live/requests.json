@@ -1,0 +1,451 @@
+[
+  {
+    "id": "sse_688432_interval",
+    "method": "GET",
+    "url": "https://query.sse.com.cn/commonSoaQuery.do",
+    "params": {
+      "isPagination": "true",
+      "pageHelp.pageSize": 25,
+      "pageHelp.pageNo": 1,
+      "pageHelp.beginPage": 1,
+      "pageHelp.cacheSize": 1,
+      "pageHelp.endPage": 1,
+      "sqlId": "GW_PL_JYTS_TFPXX",
+      "productCode": "688432",
+      "keyWords": "",
+      "startStopDate": "20260911",
+      "endStopDate": "20260911"
+    },
+    "headers": {
+      "Referer": "https://www.sse.com.cn/disclosure/dealinstruc/suspension/stock/"
+    },
+    "actual_query_range": [
+      "2026-09-11",
+      "2026-09-11"
+    ],
+    "necessary_semantics": "must include intervals starting before queried session",
+    "requested_at": "2026-10-11T06:44:39.077495+00:00",
+    "timeout_seconds": [
+      4,
+      8
+    ],
+    "automatic_retry": false,
+    "tls_verify": true,
+    "redirects": false,
+    "coverage_qualification": "NOT_CERTIFIED",
+    "status": "response",
+    "http_status": 200,
+    "content_type": "application/json;charset=UTF-8",
+    "raw_file": "sse_688432_interval.bin",
+    "raw_bytes": 954,
+    "raw_sha256": "33147724bcee2f692e3de7a637c2490017a86c1399183c7f8ccf1f7fe017d924",
+    "pdf_magic": false,
+    "parsed_file": "sse_688432_interval.parsed.json",
+    "top_level_keys": [
+      "actionErrors",
+      "actionMessages",
+      "fieldErrors",
+      "isPagination",
+      "jsonCallBack",
+      "locale",
+      "pageHelp",
+      "pageNo",
+      "pageSize",
+      "queryDate",
+      "result",
+      "securityCode",
+      "sqlId",
+      "texts",
+      "type",
+      "validateCode"
+    ],
+    "page_metadata": {
+      "beginPage": 1,
+      "cacheSize": 1,
+      "data": [
+        {
+          "startStopDate": "20260831",
+          "stopReason": "拟筹划重大资产重组",
+          "productCode": "688432",
+          "endStopReason": "拟筹划重大资产重组",
+          "controlType": "TR",
+          "endStopDate": "20260911",
+          "stopTime": "",
+          "type": "LXTP",
+          "productName": "有研硅"
+        }
+      ],
+      "endDate": null,
+      "endPage": 1,
+      "objectResult": null,
+      "pageCount": 1,
+      "pageNo": 1,
+      "pageSize": 25,
+      "pageSizeWithOutLimit": 25,
+      "searchDate": null,
+      "sort": null,
+      "startDate": null,
+      "total": 1
+    },
+    "announceCount": null,
+    "parsed_row_count": 1,
+    "parsed_rows": [
+      {
+        "startStopDate": "20260831",
+        "stopReason": "拟筹划重大资产重组",
+        "productCode": "688432",
+        "endStopReason": "拟筹划重大资产重组",
+        "controlType": "TR",
+        "endStopDate": "20260911",
+        "stopTime": "",
+        "type": "LXTP",
+        "productName": "有研硅"
+      }
+    ],
+    "retrieved_at": "2026-10-11T06:44:39.499529+00:00",
+    "elapsed_seconds": 0.422
+  },
+  {
+    "id": "sse_688432_resume_session",
+    "method": "GET",
+    "url": "https://query.sse.com.cn/commonSoaQuery.do",
+    "params": {
+      "isPagination": "true",
+      "pageHelp.pageSize": 25,
+      "pageHelp.pageNo": 1,
+      "pageHelp.beginPage": 1,
+      "pageHelp.cacheSize": 1,
+      "pageHelp.endPage": 1,
+      "sqlId": "GW_PL_JYTS_TFPXX",
+      "productCode": "688432",
+      "keyWords": "",
+      "startStopDate": "20260914",
+      "endStopDate": "20260914"
+    },
+    "headers": {
+      "Referer": "https://www.sse.com.cn/disclosure/dealinstruc/suspension/stock/"
+    },
+    "actual_query_range": [
+      "2026-09-14",
+      "2026-09-14"
+    ],
+    "necessary_semantics": "empty row is not itself explicit resume at 09:30",
+    "requested_at": "2026-10-11T06:44:39.500574+00:00",
+    "timeout_seconds": [
+      4,
+      8
+    ],
+    "automatic_retry": false,
+    "tls_verify": true,
+    "redirects": false,
+    "coverage_qualification": "NOT_CERTIFIED",
+    "status": "response",
+    "http_status": 200,
+    "content_type": "application/json;charset=UTF-8",
+    "raw_file": "sse_688432_resume_session.bin",
+    "raw_bytes": 478,
+    "raw_sha256": "ab1fa084a62ae34d98a76d46c9029d3bea698e84d59ca4b7200fa0ac7f347e4b",
+    "pdf_magic": false,
+    "parsed_file": "sse_688432_resume_session.parsed.json",
+    "top_level_keys": [
+      "actionErrors",
+      "actionMessages",
+      "fieldErrors",
+      "isPagination",
+      "jsonCallBack",
+      "locale",
+      "pageHelp",
+      "pageNo",
+      "pageSize",
+      "queryDate",
+      "result",
+      "securityCode",
+      "sqlId",
+      "texts",
+      "type",
+      "validateCode"
+    ],
+    "page_metadata": {
+      "beginPage": 0,
+      "cacheSize": 1,
+      "data": [],
+      "endDate": null,
+      "endPage": 1,
+      "objectResult": null,
+      "pageCount": 0,
+      "pageNo": 1,
+      "pageSize": 25,
+      "pageSizeWithOutLimit": 25,
+      "searchDate": null,
+      "sort": null,
+      "startDate": null,
+      "total": 0
+    },
+    "announceCount": null,
+    "parsed_row_count": 0,
+    "parsed_rows": [],
+    "retrieved_at": "2026-10-11T06:44:39.589447+00:00",
+    "elapsed_seconds": 0.078
+  },
+  {
+    "id": "sse_688432_resume_pdf",
+    "method": "GET",
+    "url": "https://static.sse.com.cn/disclosure/listedinfo/announcement/c/new/2026-09-12/688432_20260912_QF57.pdf",
+    "necessary_semantics": "actual official PDF body must prove explicit 2026-09-14 resume; HTML cannot",
+    "requested_at": "2026-10-11T06:44:39.590985+00:00",
+    "timeout_seconds": [
+      4,
+      8
+    ],
+    "automatic_retry": false,
+    "tls_verify": true,
+    "redirects": false,
+    "coverage_qualification": "NOT_CERTIFIED",
+    "status": "response",
+    "http_status": 200,
+    "content_type": "text/html; charset=utf-8",
+    "raw_file": "sse_688432_resume_pdf.bin",
+    "raw_bytes": 7373,
+    "raw_sha256": "186f5ee5d558e601677cde30d55998b9e53098da13900986d7b55988f31dcc88",
+    "pdf_magic": false,
+    "json_parse_error": "JSONDecodeError",
+    "retrieved_at": "2026-10-11T06:44:39.901220+00:00",
+    "elapsed_seconds": 0.312
+  },
+  {
+    "id": "szse_159915_announcements",
+    "method": "POST",
+    "url": "https://www.szse.cn/api/disc/announcement/annList",
+    "json": {
+      "stock": [
+        "159915"
+      ],
+      "channelCode": [
+        "fundinfoNotice_disc"
+      ],
+      "seDate": [
+        "2026-08-01",
+        "2026-09-14"
+      ],
+      "pageSize": 50,
+      "pageNum": 1
+    },
+    "actual_query_range": [
+      "2026-08-01",
+      "2026-09-14"
+    ],
+    "necessary_semantics": "publication-date window is not certified persistent secondary-market interval coverage for 2026-09-11",
+    "requested_at": "2026-10-11T06:44:39.902310+00:00",
+    "timeout_seconds": [
+      4,
+      8
+    ],
+    "automatic_retry": false,
+    "tls_verify": true,
+    "redirects": false,
+    "coverage_qualification": "NOT_CERTIFIED",
+    "status": "response",
+    "http_status": 200,
+    "content_type": "application/json;charset=UTF-8",
+    "raw_file": "szse_159915_announcements.bin",
+    "raw_bytes": 2295,
+    "raw_sha256": "13c652bf1ce25aeaec1c58d705053fb10bf37d09128a3dd2b11c4585f24a9797",
+    "pdf_magic": false,
+    "parsed_file": "szse_159915_announcements.parsed.json",
+    "top_level_keys": [
+      "announceCount",
+      "data"
+    ],
+    "page_metadata": null,
+    "announceCount": 4,
+    "parsed_row_count": 4,
+    "parsed_rows": [
+      {
+        "id": "3c83d3fe-2048-40b4-b6ba-b160cfef8763",
+        "annId": 1225532088,
+        "title": "创业板ETF易方达：易方达创业板交易型开放式指数证券投资基金2026年中期报告",
+        "content": null,
+        "publishTime": "2026-08-31 00:00:00",
+        "attachPath": "/disc/disk03/finalpage/2026-08-31/22c71a78-d740-42e7-9f92-3078b33383a2.PDF",
+        "attachFormat": "PDF",
+        "attachSize": 1694,
+        "secCode": [
+          "159915"
+        ],
+        "secName": [
+          "创业板ETF易方达"
+        ],
+        "bondType": null,
+        "bigIndustryCode": null,
+        "bigCategoryId": null,
+        "smallCategoryId": null,
+        "channelCode": null,
+        "_index": "ows_disclosure-20180825"
+      },
+      {
+        "id": "54358181-0410-4681-8147-fbe7a6117ffc",
+        "annId": 1225469085,
+        "title": "创业板ETF易方达：易方达基金管理有限公司关于旗下部分基金获配江波龙（301308）非公开发行A股的公告",
+        "content": null,
+        "publishTime": "2026-08-12 00:00:00",
+        "attachPath": "/disc/disk03/finalpage/2026-08-12/a44b3444-a6d5-410e-94d5-1a7bab82cf32.PDF",
+        "attachFormat": "PDF",
+        "attachSize": 164,
+        "secCode": [
+          "159915"
+        ],
+        "secName": [
+          "创业板ETF易方达"
+        ],
+        "bondType": null,
+        "bigIndustryCode": null,
+        "bigCategoryId": null,
+        "smallCategoryId": null,
+        "channelCode": null,
+        "_index": "ows_disclosure-20180825"
+      },
+      {
+        "id": "a935b1e4-dec2-463f-ae8b-aecfcb624e4c",
+        "annId": 1225467502,
+        "title": "创业板ETF易方达：易方达创业板交易型开放式指数证券投资基金基金产品资料概要更新",
+        "content": null,
+        "publishTime": "2026-08-11 00:00:00",
+        "attachPath": "/disc/disk03/finalpage/2026-08-11/52fd60bf-a827-4ebb-a46e-c7249227855e.PDF",
+        "attachFormat": "PDF",
+        "attachSize": 820,
+        "secCode": [
+          "159915"
+        ],
+        "secName": [
+          "创业板ETF易方达"
+        ],
+        "bondType": null,
+        "bigIndustryCode": null,
+        "bigCategoryId": null,
+        "smallCategoryId": null,
+        "channelCode": null,
+        "_index": "ows_disclosure-20180825"
+      },
+      {
+        "id": "76e1c035-8b19-4849-90b5-9542bf89e906",
+        "annId": 1225463538,
+        "title": "创业板ETF易方达：易方达基金管理有限公司旗下部分ETF增加诚通证券为一级交易商的公告",
+        "content": null,
+        "publishTime": "2026-08-10 00:00:00",
+        "attachPath": "/disc/disk03/finalpage/2026-08-10/468eff84-522e-4c51-9385-93a1bddf39eb.PDF",
+        "attachFormat": "PDF",
+        "attachSize": 129,
+        "secCode": [
+          "159915"
+        ],
+        "secName": [
+          "创业板ETF易方达"
+        ],
+        "bondType": null,
+        "bigIndustryCode": null,
+        "bigCategoryId": null,
+        "smallCategoryId": null,
+        "channelCode": null,
+        "_index": "ows_disclosure-20180825"
+      }
+    ],
+    "retrieved_at": "2026-10-11T06:44:41.183080+00:00",
+    "elapsed_seconds": 1.282
+  },
+  {
+    "id": "szse_159509_announcements_control",
+    "method": "POST",
+    "url": "https://www.szse.cn/api/disc/announcement/annList",
+    "json": {
+      "stock": [
+        "159509"
+      ],
+      "channelCode": [
+        "fundinfoNotice_disc"
+      ],
+      "seDate": [
+        "2026-09-10",
+        "2026-09-11"
+      ],
+      "pageSize": 50,
+      "pageNum": 1
+    },
+    "actual_query_range": [
+      "2026-09-10",
+      "2026-09-11"
+    ],
+    "necessary_semantics": "positive announcement does not certify persistent interval query semantics",
+    "requested_at": "2026-10-11T06:44:41.183669+00:00",
+    "timeout_seconds": [
+      4,
+      8
+    ],
+    "automatic_retry": false,
+    "tls_verify": true,
+    "redirects": false,
+    "coverage_qualification": "NOT_CERTIFIED",
+    "status": "response",
+    "http_status": 200,
+    "content_type": "application/json;charset=UTF-8",
+    "raw_file": "szse_159509_announcements_control.bin",
+    "raw_bytes": 1280,
+    "raw_sha256": "1c799d8c18359ac482465556350b9b889e1c36689eda35f3d033edb5ec3a9813",
+    "pdf_magic": false,
+    "parsed_file": "szse_159509_announcements_control.parsed.json",
+    "top_level_keys": [
+      "announceCount",
+      "data"
+    ],
+    "page_metadata": null,
+    "announceCount": 2,
+    "parsed_row_count": 2,
+    "parsed_rows": [
+      {
+        "id": "39ad2a94-16ee-4019-a73c-a8046d9703bb",
+        "annId": 1225557465,
+        "title": "纳指科技ETF景顺：景顺长城纳斯达克科技市值加权交易型开放式指数证券投资基金（QDII）二级市场交易价格溢价风险提示及停复牌公告",
+        "content": null,
+        "publishTime": "2026-09-11 00:00:00",
+        "attachPath": "/disc/disk03/finalpage/2026-09-11/441bfc71-d5d9-4f67-aed6-05eeeec9aaf3.PDF",
+        "attachFormat": "PDF",
+        "attachSize": 95,
+        "secCode": [
+          "159509"
+        ],
+        "secName": [
+          "纳指科技ETF景顺"
+        ],
+        "bondType": null,
+        "bigIndustryCode": null,
+        "bigCategoryId": null,
+        "smallCategoryId": null,
+        "channelCode": null,
+        "_index": "ows_disclosure-20180825"
+      },
+      {
+        "id": "a6517a6e-e00d-4e3f-aea0-d948731cde7e",
+        "annId": 1225555382,
+        "title": "纳指科技ETF景顺：景顺长城纳斯达克科技市值加权交易型开放式指数证券投资基金（QDII）二级市场交易价格溢价风险提示及停复牌公告",
+        "content": null,
+        "publishTime": "2026-09-10 00:00:00",
+        "attachPath": "/disc/disk03/finalpage/2026-09-10/17ffad7b-60d9-4418-96b2-1e3b2f423283.PDF",
+        "attachFormat": "PDF",
+        "attachSize": 95,
+        "secCode": [
+          "159509"
+        ],
+        "secName": [
+          "纳指科技ETF景顺"
+        ],
+        "bondType": null,
+        "bigIndustryCode": null,
+        "bigCategoryId": null,
+        "smallCategoryId": null,
+        "channelCode": null,
+        "_index": "ows_disclosure-20180825"
+      }
+    ],
+    "retrieved_at": "2026-10-11T06:44:42.239587+00:00",
+    "elapsed_seconds": 1.062
+  }
+]

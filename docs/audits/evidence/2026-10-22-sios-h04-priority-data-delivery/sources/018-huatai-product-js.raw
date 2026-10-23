@@ -1,0 +1,1773 @@
+var NODATA = "获取数据异常";
+
+
+function scrollMenu(id) {
+    $(".bottom-nav-item").each(function() {
+        var dataId = $(this).attr("data-href");
+        if (id == dataId) {
+            $(this).addClass('active')
+        } else {
+            $(this).removeClass('active');
+        }
+    });
+}
+
+function changeYear() {
+    $('#year').show();
+    $('.select:first').css('background','rgba(242, 244, 246, 1)');
+}
+// 投资组合-资产净值数据来源点击事件
+function changeQuarter() {
+    $('#quarter').show();
+    $('.select:last').css('background','rgba(242, 244, 246, 1)');
+}
+
+
+function getTimeRemaining(startDate,endDate){
+    var total = Date.parse(endDate) - Date.parse(startDate);
+    var seconds = Math.floor( (total/1000) % 60 );
+    var minutes = Math.floor( (total/1000/60) % 60 );
+    var hours = Math.floor( (total/(1000*60*60)) % 24 );
+    var days = Math.floor( total/(1000*60*60*24) );
+    return{
+        total,
+        days,
+        hours,
+        minutes,
+        seconds
+    };
+}
+
+
+function getFundRate(fundcode){
+    $.ajax({
+        type: "get",
+        url: "/common-web/fundRate/queryByFundCode",
+        //url: "/htbr-002/common/003.json",
+        data: {
+            fundCode: fundcode
+        },
+        dataType: "json",
+        success: function(data) {
+
+            if(data.success){
+                if(data.declare.length>0){
+                    $(".rgfl>tbody").find('tr').eq(1).hide();
+                    var pensionValueShow = false;
+                    $.each(data.declare, function(i, e) {
+                        if(e.pensionValue !== undefined && e.pensionValue !== '' && e.pensionValue !== null){
+                            pensionValueShow = true;
+                        }
+                    });
+                    if(data.declare[0].no!='-1'){
+                        if(pensionValueShow){
+                            $(".rgfl>tbody").find('tr').eq(0).hide();
+                            $(".rgfl>tbody").append('<tr><th width="33.33%">认购金额（M）</th><th width="33.33%">认购费率</th><th width="33.33%">养老金特定认购费率</th></tr>');
+                            for(var i=0;i<data.declare.length;i++){
+                                $(".rgfl>tbody").append("<tr><td>"+data.declare[i].space+"</td><td>"+data.declare[i].value+"</td><td>"+(data.declare[i].pensionValue?data.declare[i].pensionValue:'--')+"</td></tr>");
+                            }
+                        }else{
+                            for(var i=0;i<data.declare.length;i++){
+                                $(".rgfl>tbody").append("<tr><td>"+data.declare[i].space+"</td><td>"+data.declare[i].value+"</td></tr>");
+                            }
+                        }
+                    }else{
+                        $(".rgfl>tbody").append("<tr><td colspan='2' class='notext'>"+data.declare[0].value+"</td></tr>");
+                    }
+                }
+
+                if(data.buy.length>0){
+                    $(".sgfl>tbody").find('tr').eq(1).hide();
+                    var pensionValueShow = false;
+                    $.each(data.buy, function(i, e) {
+                        if(e.pensionValue !== undefined && e.pensionValue !== '' && e.pensionValue !== null){
+                            pensionValueShow = true;
+                        }
+                    });
+                    if(data.buy[0].no!='-1'){
+                        if(pensionValueShow){
+                            $(".sgfl>tbody").find('tr').eq(0).hide();
+                            $(".sgfl>tbody").append('<tr><th width="33.33%">申购金额（M）</th><th width="33.33%">申购费率</th><th width="33.33%">养老金特定申购费率</th></tr>');
+                            for(var i=0;i<data.buy.length;i++){
+                                $(".sgfl>tbody").append("<tr><td>"+data.buy[i].space+"</td><td>"+data.buy[i].value+"</td><td>"+(data.buy[i].pensionValue?data.buy[i].pensionValue:'--')+"</td></tr>");
+                            }
+                        }else{
+                            for(var i=0;i<data.buy.length;i++){
+                                $(".sgfl>tbody").append("<tr><td>"+data.buy[i].space+"</td><td>"+data.buy[i].value+"</td></tr>");
+                            }
+                        }
+                    }else{
+                        $(".sgfl>tbody").append("<tr><td colspan='2' class='notext'>"+data.buy[0].value+"</td></tr>");
+                    }
+                    $(".sgshfl-value1").text(data.buy[0].space);
+
+                }
+
+                if(data.sale.length>0){
+                    $(".shfl>tbody").find('tr').eq(1).hide();
+                    if(data.sale[0].no!='-1'){
+                        for(var i=0;i<data.sale.length;i++){
+                            $(".shfl>tbody").append("<tr><td>"+data.sale[i].space+"</td><td>"+data.sale[i].value+"</td></tr>");
+                        }
+                    }else{
+                        $(".shfl>tbody").append("<tr><td colspan='2' class='notext'>"+data.sale[0].value+"</td></tr>");
+                    }
+                }
+
+                // 运作费率
+                if(data.manage.length>0){
+                    $("#yffl-gl").text(data.manage[0].value);
+                }
+
+                if(data.trust.length>0){
+                    $("#yffl-tg").text(data.trust[0].value);
+                }
+
+                if(data.salesServiceFee.length>0){
+                    $("#yffl-xs").text(data.salesServiceFee[0].value);
+                }
+
+                // 二级市场买卖费率
+                if(data.saleOutSite.length>0){
+                    $(".sgshfl-value2").text(data.saleOutSite[0].space);
+                }
+
+                //浮动管理费
+                if(data.floatingMgmt.length>0){
+                    var fdglfHTML = '';
+                    data.floatingMgmt.forEach(function(item,index){
+                        $(".fdglf-box").show();
+                        fdglfHTML += `<tr>
+                                        <th width="20%">`+ item.space +`</th>
+                                        <td style="text-align: left;padding:5px 20px;border-top: 1px solid rgba(161, 166, 176, 1);">`+ item.value +`</td>
+                                    </tr>`;
+                        // if(item.space == "固定管理费"){
+                        //     $("#fdglf-gy").text(item.value);
+                        // }else if(item.space == "或有管理费"){
+                        //     $("#fdglf-hy").text(item.value);
+                        // }else if(item.space == "超额管理费"){
+                        //     $("#fdglf-ce").text(item.value);
+                        // }
+                    });
+                    $(".fdglf-box tbody").html(fdglfHTML);
+                }else{
+                    $(".fdglf-box").hide();
+                }
+
+                // 浮动管理费规则
+                if(data.floatingMgmtRules.length>0){
+                    $(".flgz-box").show();
+		    $("#flgz").html(data.floatingMgmtRules[0].value.replace(/\n/g, "<br>"));
+                }else{
+                    $(".flgz-box").hide();
+                }
+            }
+
+        }
+    })
+
+}
+
+function getTable(fundcode, sDate1, sDate2, pages, isHuobi,bf) {
+    $.ajax({
+        type: "get",
+        url: "/common-web/chart/fundnettable/getFundNetTableJson",
+        data: {
+            fundcode: fundcode,
+            from: sDate1,
+            to: sDate2,
+            pages: pages,
+            siteId: siteId
+        },
+        dataType: "json",
+        success: function(data) {
+            var datalist = data.dataList;
+            var showassetvalue = false; //首页配置的显示资产净值
+            if (datalist.length > 0 && "1" == datalist[0].showassetvalue) {
+                showassetvalue = true;
+            }
+            var currentpage = data.currentPage;
+            var totalpage = data.totalPage;
+            if (isHuobi == 1) {
+                var bfname="";
+                if(bf==2){
+                    bfname="百";
+                }else{
+                    bfname="万";
+                }
+                var tableHtml ='<table width="100%" class="net-fund-value"><thead><tr><th width="33.33%">日期</th><th width="33.33%">'+bfname+'份收益</th><th width="33.33%">七日年化收益率</th>';
+            } else {
+                var tableHtml ='<table width="100%" class="net-fund-value"><thead><tr><th width="25%">日期</th><th width="25%">单位净值</th><th width="25%">累计净值</th><th width="25%">日涨跌</th>';
+            }
+
+            if (showassetvalue) {
+                tableHtml += '<th>资产净值</th>';
+            }
+            tableHtml += '</tr></thead><tbody>';
+            if (datalist.length > 0) {
+                for (var i = 0; i < datalist.length; i++) {
+                    if (isHuobi == 1) {
+                        tableHtml += '<tr><td>' + datalist[i].date +'</td><td style="padding:4px;text-align:center">' + parseFloat(datalist[i].incomeunit).toFixed(4) +'</td><td style="padding:4px;text-align:center">' + parseFloat(datalist[i].incomeratio).toFixed(3) + '%</td>';
+                    } else {
+                        tableHtml += '<tr><td>' + datalist[i].date +'</td><td style="padding:4px;text-align:center">' + datalist[i].netvalue +'</td><td style="padding:4px;text-align:center">' + datalist[i].totalnetvalue +'</td>';
+                        if(datalist[i].dayinc>0){
+                            tableHtml+='<td class="red" style="padding:4px;text-align:center">' + datalist[i].dayinc.toFixed(2) + '%</td>';
+                        }else if(datalist[i].dayinc<0){
+                            tableHtml+='<td class="green" style="padding:4px;text-align:center">' + datalist[i].dayinc.toFixed(2) + '%</td>';
+                        }else if(datalist[i].dayinc == 0 ){
+                            tableHtml+='<td class="red" style="padding:4px;text-align:center">0.00%</td>';
+                        }else {
+                            tableHtml+='<td style="padding:4px;text-align:center">--</td>';
+                        }
+                    }
+
+                    if (showassetvalue) {
+                        var lastasset = "";
+                        var valuedate = datalist[i].date.split("-");
+                        if (("06" == valuedate[1] && "30" == valuedate[2]) || ("12" == valuedate[1] &&
+                                "31" == valuedate[2])) { //6.30号或12.31号才显示资产净值
+                            lastasset = datalist[i].lastasset;
+                        }
+                        tableHtml += '<td style="padding:4px;">' + lastasset + '</td>';
+                    }
+                    tableHtml += '</tr>';
+                }
+            } else {
+                tableHtml += '<tr><td colspan="4" style="text-align:center">暂无数据</td></tr>';
+            }
+            tableHtml += '</tbody></table>';
+            if (totalpage > 1) {
+                var netvaluePage = '<span class="start-page inline">第<span class="red">' + currentpage +'</span>页</span>';
+                netvaluePage += '<span class="total-page inline">共' + totalpage + '页</span>';
+                if (currentpage != 1) {
+                    netvaluePage += '<span class="page inline" onclick="javascript:getTable(\'' + fundcode +'\',\'' + sDate1 + '\',\'' + sDate2 + '\',\'' + (currentpage - 1) +'-10\','+isHuobi+', '+ bf + ');">&lt;</span>';
+                } else {
+                    netvaluePage += '<span class="page inline">&lt;</span>';
+                }
+
+                if (currentpage == 1) {
+                    netvaluePage += '<span class="page inline active">1</span>';
+                } else {
+                    netvaluePage += '<span class="page inline" onclick="javascript:getTable(\'' + fundcode +'\',\'' + sDate1 + '\',\'' + sDate2 + '\',\'1-10\','+isHuobi+', '+ bf + ');">1</span>';
+                }
+
+                if (currentpage > 3) {
+                    netvaluePage += '<span class="page inline" onclick="javascript:getTable(\'' + fundcode +'\',\'' + sDate1 + '\',\'' + sDate2 + '\',\'' + (currentpage - 2) + '-10\','+isHuobi+', '+ bf + ');">' + (currentpage - 2) + '</span>';
+                }
+                if (currentpage > 2) {
+                    netvaluePage += '<span class="page inline" onclick="javascript:getTable(\'' + fundcode +'\',\'' + sDate1 + '\',\'' + sDate2 + '\',\'' + (currentpage - 1) + '-10\','+isHuobi+', '+ bf + ');">' + (currentpage - 1) + '</span>';
+                }
+
+                if (currentpage != 1 && currentpage != totalpage) {
+                    netvaluePage += '<span class="page inline active">' + currentpage + '</span>';
+                }
+
+                if (currentpage + 1 < totalpage) {
+                    netvaluePage = netvaluePage +'<span class="page inline" onclick="javascript:getTable(\'' + fundcode + '\',\'' +sDate1 + '\',\'' + sDate2 + '\',\'' + (currentpage + 1) + '-10\','+isHuobi+', '+ bf + ');">' + (currentpage + 1) + '</span>';
+                }
+                if (currentpage + 2 < totalpage) {
+                    netvaluePage = netvaluePage +'<span class="page inline" onclick="javascript:getTable(\'' + fundcode + '\',\'' +sDate1 + '\',\'' + sDate2 + '\',\'' + (currentpage + 2) + '-10\','+isHuobi+', '+ bf + ');">' + (currentpage + 2) + '</span>';
+                }
+                if (currentpage + 3 < totalpage) {
+                    netvaluePage = netvaluePage + '<span class="page inline">...</span>';
+                }
+
+                if(totalpage>1){
+                    if (currentpage == totalpage) {
+                        netvaluePage = netvaluePage + '<span class="page inline active">' + totalpage + '</span>';
+                    } else {
+                        netvaluePage = netvaluePage +'<span class="page inline" onclick="javascript:getTable(\'' + fundcode + '\',\'' +sDate1 + '\',\'' + sDate2 + '\',\'' + (totalpage) + '-10\','+isHuobi+', '+ bf + ');">' + totalpage +'</span>';
+
+                    }
+                }
+
+
+
+                if (currentpage < totalpage) {
+                    netvaluePage += '<span class="page inline" onclick="javascript:getTable(\'' + fundcode +'\',\'' + sDate1 + '\',\'' + sDate2 + '\',\'' + (currentpage + 1) +'-10\','+isHuobi+', '+ bf + ');">&gt;</span>';
+                } else {
+                    netvaluePage += '<span class="page inline">&gt;</span>';
+                }
+                netvaluePage +='<span class="search-page-box inline">前往<input id="valuePage" class="search-page inline" type="text">页</span>';
+            }
+            $('#page-box').html(netvaluePage);
+            $('#netvaluePage').html(tableHtml);
+
+
+
+
+            $("#valuePage").bind("keydown", function () {
+                if(event.keyCode==13){
+                    var tzPage=$(this).val();
+                    if(!checkNum(tzPage)){
+                        alert("页码只能输入数字")
+                        return;
+                    }
+                    if(tzPage>totalpage){
+                        tzPage=totalpage;
+                    }
+                    getTable(fundcode, sDate1, sDate2, tzPage+'-10', isHuobi,bf);
+                }
+            });
+        }
+    });
+}
+
+function getContents(pageNumber, categoryId, totalPage, pageSize, liebiaoID, pageID, totalNum) {
+    $("#categaryId2").val(categoryId);
+    if (totalPage == 0) {
+        $("#" + liebiaoID).empty();
+        $("#" + pageID).empty();
+        $("#" + liebiaoID).append('<div class="info-noData"><p>暂无内容</p></div>')
+        return;
+    }
+    if (pageNumber > totalPage) {
+        pageNumber = totalPage;
+    }
+    $.ajax({
+        type: "POST",
+        url: "/common-web/cms/content/getContents?noCache=" + new Date().getTime(),
+        data: {
+            "categoryId": categoryId,
+            "pageNumber": pageNumber,
+            "pageSize": pageSize
+        },
+        dataType: "json",
+        success: function(data) {
+            if (data != null) {
+                $("#" + liebiaoID).empty();
+                if (data.contents.length > 0) {
+                    totalPage = data.totalPage;
+                    for (var i = 0; i < data.contents.length; i++) {
+                        var content = data.contents[i];
+                        $("#" + liebiaoID).append('<li><a href="' + content.url + '" title="' + content.title + '" target="_blank">' +'<div class="news-content-item">' +'<p class="title"><span class="icon"></span>' + content.title + '</p>' +'<p class="date">' + new Date(parseInt(content.activationDate)).format("yyyy-MM-dd") + '</p>' +'</div>' +'</a></li>');
+                    }
+
+                    if (totalPage > 1) {
+                        bulidPageNavigator(pageNumber, categoryId, totalPage, pageSize, liebiaoID, pageID);
+                    }else{
+                        $("#" + pageID).empty();
+                    }
+                } else {
+                    $("#" + liebiaoID).append('<div class="info-noData"><p>暂无内容</p></div>')
+                }
+            }
+        }
+    });
+}
+
+
+function getAgencyByFundcode(fundcode, pageNumber, pageSize, pageId,type) {
+    $.ajax({
+        type: "POST",
+        url: "/common-web/agency/json/findAgency",
+        data: {
+            fundcode: fundcode,
+            pageNum: pageNumber,
+            pageSize: pageSize
+        },
+        dataType: "json",
+        success: function(data) {
+            if (data != null) {
+                if (data.hasOwnProperty("agencyFundTypeList")) {
+                    buildAgencyList(data.agencyFundTypeList, pageNumber,type);
+                    bulidPageNavigatorForAgency(fundcode, pageNumber, data.pageBean.totalPage, pageSize, pageId, type);
+                } else {
+                    if(type==1){
+                        $("#xgjg-list").append('<tr><td colspan="4"><div class="info-noData"><p>暂无内容</p></div></td></tr>')
+                    }else{
+                        $("#xgjg-list").append('<tr><td colspan="3"><div class="info-noData"><p>暂无内容</p></div></td></tr>')
+                    }
+                }
+               /* $('html,body').animate({
+                    scrollTop: document.getElementById('xsjg').offsetTop
+                }, 200);*/
+            }
+        }
+    });
+}
+
+function buildAgencyList(agencyFundTypeList, pageNumber,type) {
+    var agencyHtml="";
+    if(type==1){
+        agencyFundTypeList.forEach(function(item, i) {
+            // agencyHtml +="<tr><td>" + ((pageNumber - 1) * 10 + (i + 1)) + "</td><td>" + item.agencyName +"</td><td>" + item.phone + "</td><td>" + item.link + "</td></tr>";
+            agencyHtml +="<tr><td>" + ((pageNumber - 1) * 10 + (i + 1)) + "</td><td>" + item.agencyName +"</td><td>" + item.phone + "</td></tr>";
+        });
+    }else{
+        var listNum=agencyFundTypeList.length;
+        for(var i=0;i<listNum;i++){
+            if(i==0|| i%3==0){
+                agencyHtml+='<tr>';
+            }
+            agencyHtml+="<td>" + agencyFundTypeList[i].agencyName +"</td>";
+            if((i+1)%3==0){
+                agencyHtml+='</tr>';
+            }
+        }
+        var ys=listNum%3;
+        if(ys>0){
+            var needAddNum=3-ys;
+            for(var i=0;i<needAddNum;i++){
+                agencyHtml+="<td></td>";
+            }
+            agencyHtml+='</tr>';
+        }
+    }
+
+    $("#xgjg-list").html(agencyHtml);
+}
+
+function bulidPageNavigatorForAgency(fundcode, pageNumber, totalPage, pageSize, pageID, type) {
+    $("#" + pageID).empty();
+    var fenyes = "";
+    fenyes += '<span class="start-page inline">第<span class="red">' + pageNumber + '</span>页</span>';
+    fenyes += '<span class="total-page inline">/共' + totalPage + '页</span>';
+    if (pageNumber != 1) {
+        fenyes += "<span class='page inline' onclick='javascript:getAgencyByFundcode(\"" + fundcode + "\"," +
+            (pageNumber-1) + "," + pageSize + ",\"" + pageID + "\"," + type + ")'>&lt;</span>";
+    } else {
+        fenyes += '<span class="page inline">&lt;</span>';
+    }
+
+    if (pageNumber == 1) {
+        fenyes += '<span class="page inline active">1</span>';
+    } else {
+        fenyes += "<span class='page inline' onclick='javascript:getAgencyByFundcode(\"" + fundcode + "\"," +1+ "," + pageSize + ",\"" + pageID + "\"," + type + ")'>1</span>";
+    }
+
+
+    if (pageNumber > 4) {
+        fenyes += "<span class='page inline'>...</span>";
+    }
+
+    if (pageNumber > 3) {
+        fenyes += "<span class='page inline' onclick='javascript:getAgencyByFundcode(\"" + fundcode + "\"," + (pageNumber - 2) + "," + pageSize + ",\"" + pageID + "\"," + type + ")'>" + (pageNumber - 2) +"</span>";
+    }
+    if (pageNumber > 2) {
+        fenyes += "<span class='page inline' onclick='javascript:getAgencyByFundcode(\"" + fundcode + "\"," + (pageNumber - 2) + "," + pageSize + ",\"" + pageID + "\"," + type + ")'>" + (pageNumber - 1) +"</span>";
+    }
+
+    if (pageNumber != 1 && pageNumber != totalPage) {
+        fenyes += '<span class="page inline active">' + pageNumber + '</span>';
+    }
+
+    if (pageNumber + 1 < totalPage) {
+        fenyes += "<span class='page inline' onclick='javascript:getAgencyByFundcode(\"" + fundcode + "\"," + (pageNumber + 1) + "," + pageSize + ",\"" + pageID + "\"," + type + ")'>" + (pageNumber + 1) +"</span>";
+    }
+    if (pageNumber + 2 < totalPage) {
+        fenyes += "<span class='page inline' onclick='javascript:getAgencyByFundcode(\"" + fundcode + "\"," + (pageNumber + 2) + "," + pageSize + ",\"" + pageID + "\"," + type + ")'>" + (pageNumber + 2) +"</span>";
+    }
+    if (pageNumber + 3 < totalPage) {
+        fenyes += '<span class="page inline">...</span>';
+    }
+    if(totalPage>1){
+        if (pageNumber == totalPage) {
+            fenyes += '<span class="page inline active">' + totalPage + '</span>';
+        } else {
+            fenyes += "<span class='page inline' onclick='javascript:getAgencyByFundcode(\"" + fundcode + "\"," +totalPage + "," + pageSize + ",\"" + pageID + "\"," + type + ")'>" + totalPage + "</span>";
+
+        }
+    }
+
+    if (pageNumber < totalPage) {
+        fenyes += "<span class='page inline' onclick='javascript:getAgencyByFundcode(\"" + fundcode + "\"," + (pageNumber + 1) + "," + pageSize + ",\"" + pageID + "\"," + type + ")'>&gt;</span>";
+    } else {
+        fenyes += '<span class="page inline">&gt;</span>';
+    }
+
+    fenyes += '<span class="search-page-box inline">前往<input id="agencypage"  class="search-page inline" type="text">页</span>';
+    $("#" + pageID).html(fenyes);
+
+    $("#agencypage").bind("keydown", function () {
+        if(event.keyCode==13){
+            var tzPage=$(this).val();
+            if(!checkNum(tzPage)){
+                alert("页码只能输入数字")
+                return;
+            }
+            if(tzPage>totalPage){
+                tzPage=totalPage;
+            }
+            getAgencyByFundcode(fundcode, tzPage, pageSize, pageID, type);
+        }
+    });
+}
+
+
+
+
+function getEtfInfoByFundcode(fundcode, beginDate) {
+    $.ajax({
+        type: "POST",
+        url: "/etf-web/etf/index.json",
+        data: {
+            fundcode: fundcode,
+            beginDate: beginDate
+        },
+        dataType: "json",
+        success: function(data) {
+            if (data != null) {
+                if (data.status == 'success') {
+
+                    if(Object.keys(data.dayInfo).length == 0) {
+                        $("#sgshqd .nav-content").find(".news-title-box").siblings().hide()
+                        $("#sgshqd .nav-content").find(".no-mess-tip").show()
+			$(".download-file").attr("disabled", "disabled")
+                        return;
+                    }else {
+                        $("#sgshqd .nav-content").find(".news-title-box").siblings().show()
+                        $("#sgshqd .nav-content").find(".no-mess-tip").hide()
+                    }
+                    const etfNeedShowId = ['maxcashratio','estimatecashcomponent','publish','creationredemptionunit','creationredemption','netcreationlimitperuser','netredemptionlimitperuser','creationlimitperuser','redemptionlimitperuser','netcreationlimit','netredemptionlimit','creationlimit','redemptionlimit','lasttenminuteredemptionlimit','cashcomponent','navpercu','nav'];
+                    const eftNeedShowId = ['allcashflagstr','allcashamount','allcashpremiumrate','allcashdiscountrate','rtgsflag','creationredemptionmechanism'];
+
+                    etfNeedShowId.forEach((i,arr)=>{
+                        $("#etf-dayinfo-"+i).text('无');
+                    })
+                    eftNeedShowId.forEach((i,arr)=>{
+                        $("#eft-dayinfo-"+i).text('无');
+                    })
+
+                    $("#etf-noticedate").html(data.maxDate);
+                    $("#etf-fundcode").html(data.fundcode);
+                    $("#etf-fundname").html(data.fundname);
+                    $("#etf-managername").html("华泰柏瑞基金管理有限公司");
+                    $("#etf-yestodydate").html("<span class='badge inline'></span>" + data.yestoday +"日信息内容");
+                    if (Object.keys(data.dayInfo).length > 0) {
+                        $("#etf-dayinfo-cashcomponent").html(data.dayInfo.cashcomponent);
+                        $("#etf-dayinfo-navpercu").html(data.dayInfo.navpercu);
+                        $("#etf-dayinfo-nav").html(data.dayInfo.nav);
+                        $("#etf-maxdate").html("<span class='badge inline'></span>" + data.maxDate +"日信息内容");
+                        
+                        if(data.dayInfo.hasOwnProperty("securityidsource")){
+                            $("#etfType").val(data.dayInfo.securityidsource)
+                        }
+                        if(data.dayInfo.hasOwnProperty("allcashflagstr")){
+                            $("#allcashflagstr").val(data.dayInfo.allcashflagstr)
+                        }
+                        
+                        if(data.dayInfo.hasOwnProperty("maxcashratio")){
+                            // $("#etf-dayinfo-maxcashratio").parent().show();
+                            $("#etf-dayinfo-maxcashratio").html(data.dayInfo.maxcashratio+"%");
+                        }
+
+                        if(data.dayInfo.hasOwnProperty("estimatecashcomponent")){
+                            // $("#etf-dayinfo-estimatecashcomponent").parent().show();
+                            $("#etf-dayinfo-estimatecashcomponent").html(data.dayInfo.estimatecashcomponent);
+                        }
+
+                        if(data.dayInfo.hasOwnProperty("publish")){
+                            // $("#etf-dayinfo-publish").parent().show();
+                            $("#etf-dayinfo-publish").html(data.dayInfo.publish == '1' ? '是' : '否');
+                        }
+
+                        if(data.dayInfo.hasOwnProperty("creationredemptionunit")){
+                            // $("#etf-dayinfo-creationredemptionunit").parent().show();
+                            $("#etf-dayinfo-creationredemptionunit").html(data.dayInfo.creationredemptionunit);
+                        }
+
+                        if(data.dayInfo.hasOwnProperty("creationredemption")){
+                            // $("#etf-dayinfo-creationredemption").parent().show();
+                            var creationredemption="";
+                            if(data.dayInfo.creationredemption==undefined||data.dayInfo.creationredemption==null||data.dayInfo.creationredemption==''){
+                                creationredemption="";
+                            }else if(data.dayInfo.creationredemption=="1"){
+                                creationredemption="允许申购和赎回";
+                            }else if(data.dayInfo.creationredemption=="2"){
+                                creationredemption=" 允许申购、不允许赎回";
+                            }else if(data.dayInfo.creationredemption=="3"){
+                                creationredemption="不允许申购、允许赎回";
+                            }else{
+                                creationredemption="不允许申购和赎回";
+                            }
+                            $("#etf-dayinfo-creationredemption").html(creationredemption);
+                        }
+
+                        if(data.dayInfo.hasOwnProperty("netcreationlimitperuser")){
+                            // $("#etf-dayinfo-netcreationlimitperuser").parent().show();
+                            if(data.dayInfo.netcreationlimitperuser==null||data.dayInfo.netcreationlimitperuser=='0.00'||data.dayInfo.netcreationlimitperuser=='0'){
+                                $("#etf-dayinfo-netcreationlimitperuser").html('不设上限');
+                            }else{
+                                $("#etf-dayinfo-netcreationlimitperuser").html(data.dayInfo.netcreationlimitperuser);
+                            }
+                        }
+                        if(data.dayInfo.hasOwnProperty("netredemptionlimitperuser")){
+                            // $("#etf-dayinfo-netredemptionlimitperuser").parent().show();
+                            if(data.dayInfo.netredemptionlimitperuser==null||data.dayInfo.netredemptionlimitperuser=='0.00'||data.dayInfo.netredemptionlimitperuser=='0'){
+                                $("#etf-dayinfo-netredemptionlimitperuser").html('不设上限');
+                            }else{
+                                $("#etf-dayinfo-netredemptionlimitperuser").html(data.dayInfo.netredemptionlimitperuser);
+                            }
+                        }
+                     
+					var hasCLPU = data.dayInfo.hasOwnProperty("creationlimitperuser") && data.dayInfo.creationlimitperuser != null && data.dayInfo.creationlimitperuser !== '' && data.dayInfo.creationlimitperuser !== '0.00' && data.dayInfo.creationlimitperuser !== '0';
+					var hasCLPA = data.dayInfo.hasOwnProperty("creationlimitperacct") && data.dayInfo.creationlimitperacct != null && data.dayInfo.creationlimitperacct !== '' && data.dayInfo.creationlimitperacct !== '0.00' && data.dayInfo.creationlimitperacct !== '0';
+
+					if (!hasCLPU && !hasCLPA) {
+						$("#etf-dayinfo-creationlimitperuser").html('不设上限');
+					} else {
+						var val = hasCLPU ? data.dayInfo.creationlimitperuser : data.dayInfo.creationlimitperacct;
+						$("#etf-dayinfo-creationlimitperuser").html(parseFloat(val.toString().replace(/,/g, '')).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ','));
+					}
+						
+
+                        if(data.dayInfo.hasOwnProperty("redemptionlimitperuser")){
+                            // $("#etf-dayinfo-redemptionlimitperuser").parent().show();
+                            if(data.dayInfo.redemptionlimitperuser==null||data.dayInfo.redemptionlimitperuser=='0.00'||data.dayInfo.redemptionlimitperuser=='0'){
+                                $("#etf-dayinfo-redemptionlimitperuser").html('不设上限');
+                            }else{
+                                $("#etf-dayinfo-redemptionlimitperuser").html(data.dayInfo.redemptionlimitperuser);
+                            }
+                        }
+
+
+
+                        if(data.dayInfo.hasOwnProperty("netcreationlimit")){
+                            // $("#etf-dayinfo-netcreationlimit").parent().show();
+                            if(data.dayInfo.netcreationlimit==null||data.dayInfo.netcreationlimit=='0.00'||data.dayInfo.netcreationlimit=='0'){
+                                $("#etf-dayinfo-netcreationlimit").html('不设上限');
+                            }else{
+                                $("#etf-dayinfo-netcreationlimit").html(data.dayInfo.netcreationlimit);
+                            }
+                        }
+
+                        if(data.dayInfo.hasOwnProperty("netredemptionlimit")){
+                            // $("#etf-dayinfo-netredemptionlimit").parent().show();
+                            if(data.dayInfo.netredemptionlimit==null||data.dayInfo.netredemptionlimit=='0.00'||data.dayInfo.netredemptionlimit=='0'){
+                                $("#etf-dayinfo-netredemptionlimit").html('不设上限');
+                            }else{
+                                $("#etf-dayinfo-netredemptionlimit").html(data.dayInfo.netredemptionlimit);
+                            }
+                        }
+
+                        if(data.dayInfo.hasOwnProperty("creationlimit")){
+                            // $("#etf-dayinfo-creationlimit").parent().show();
+                            if(data.dayInfo.creationlimit==null||data.dayInfo.creationlimit=='0.00'||data.dayInfo.creationlimit=='0'){
+                                $("#etf-dayinfo-creationlimit").html('不设上限');
+                            }else{
+                                $("#etf-dayinfo-creationlimit").html(data.dayInfo.creationlimit);
+                            }
+                        }
+
+                        if(data.dayInfo.hasOwnProperty("redemptionlimit")){
+                            // $("#etf-dayinfo-redemptionlimit").parent().show();
+                            if(data.dayInfo.redemptionlimit==null||data.dayInfo.redemptionlimit=='0.00'||data.dayInfo.redemptionlimit=='0'){
+                                $("#etf-dayinfo-redemptionlimit").html('不设上限');
+                            }else{
+                                $("#etf-dayinfo-redemptionlimit").html(data.dayInfo.redemptionlimit);
+                            }
+                        }
+
+                        if(data.dayInfo.hasOwnProperty("lasttenminuteredemptionlimit")){
+                            // $("#etf-dayinfo-lasttenminuteredemptionlimit").parent().show();
+                            $("#etf-dayinfo-lasttenminuteredemptionlimit").html(data.dayInfo.lasttenminuteredemptionlimit+"%");
+
+                        }
+
+                        if(data.dayInfo.hasOwnProperty("allcashflagstr")){
+                            // $("#etf-dayinfo-allcashflagstr").parent().show();
+                            $("#eft-dayinfo-allcashflagstr").html(data.dayInfo.allcashflagstr == '1' ? '是' :'否');
+                        }
+
+                        if(data.dayInfo.hasOwnProperty("allcashamount")){
+                            // $("#etf-dayinfo-allcashamount").parent().show();
+                            $("#eft-dayinfo-allcashamount").html(data.dayInfo.allcashamount);
+                        }
+                        if(data.dayInfo.hasOwnProperty("allcashpremiumrate")){
+                            // $("#etf-dayinfo-allcashpremiumrate").parent().show();
+                            $("#etf-dayinfo-allcashpremiumrate").html(data.dayInfo.allcashpremiumrate+"%");
+
+                        }
+                        if(data.dayInfo.hasOwnProperty("allcashdiscountrate")){
+                            // $("#etf-dayinfo-allcashdiscountrate").parent().show();
+                            $("#etf-dayinfo-allcashdiscountrate").html(data.dayInfo.allcashdiscountrate+"%");
+
+                        }
+                        if(data.dayInfo.hasOwnProperty("rtgsflag")){
+                            // $("#etf-dayinfo-rtgsflag").parent().show();
+                            $("#eft-dayinfo-rtgsflag").html(data.dayInfo.rtgsflag == '1' ? '是' :'否');
+                        }
+		
+						if(data.dayInfo.hasOwnProperty("creationredemptionmechanism")){
+								if(data.dayInfo.creationredemptionmechanism==undefined||data.dayInfo.creationredemptionmechanism==null||data.dayInfo.creationredemptionmechanism==''){
+                                creationredemptionmechanism="";
+                            }else if(data.dayInfo.creationredemptionmechanism=="0"){
+                                creationredemptionmechanism="现金申赎";
+                            }else if(data.dayInfo.creationredemptionmechanism=="1"){
+                                creationredemptionmechanism=" 沪市成分证券实物对价";
+                            }
+							else if(data.dayInfo.creationredemptionmechanism=="2"){
+                                creationredemptionmechanism=" 沪市、深市成分证券实物对价";
+                            }
+							else if(data.dayInfo.creationredemptionmechanism=="3"){
+                                creationredemptionmechanism="银行间市场债券实物对价";
+                            }else{
+                                creationredemptionmechanism="无";
+                            }
+                            $("#eft-dayinfo-creationredemptionmechanism").html(creationredemptionmechanism);
+                        }
+					
+
+
+                        $("#etf-stockList").html("");
+                        var trHtml="";
+                        for (var i = 0; i < data.stockList.length; i++) {
+                            trHtml+="<tr>";
+                            var tdbz = data.stockList[i].tdbz;
+                            var tdbzName = "";
+                            if (tdbz == "0") {
+                                tdbzName = "禁止";
+                            } else if (tdbz == "1") {
+                                tdbzName = "允许";
+                            } else if (tdbz == "2") {
+                                tdbzName = "必须";
+                            } else if (tdbz == "3") {
+                                tdbzName = "深市或京市退补";
+                            } else if (tdbz == "4") {
+                                tdbzName = "深市或京市必须";
+                            } else if (tdbz == "5") {
+                                tdbzName = "非沪深市场退补";
+                            } else if (tdbz == "6") {
+                                tdbzName = "非沪深市场必须";
+                            } else if (tdbz == "7") {
+                                tdbzName = "港市退补";
+                            } else if (tdbz == "8") {
+                                tdbzName = "港市必须";
+                            }
+                            else  {
+                                tdbzName = "退补";
+                            }
+                            var gpsc = data.stockList[i].gpsc;
+                            var gpscName = "";
+                            if (gpsc == "XSHE") {
+                                gpscName = "深圳市场";
+                            } else if (gpsc == "XSHG") {
+                                gpscName = "上海市场";
+                            } else if (gpsc == "XHKG") {
+                                gpscName = "香港市场";
+                            } else {
+                                gpscName = "";
+                            }
+                            var tdje = data.stockList[i].tdje;
+                            if(tdje){
+                                if(tdje==0){
+                                    tdje=""
+
+                                }else {
+                                    tdje=tdje.toFixed(2)
+
+                                }
+                            }else{
+                                tdje="-"
+                            }
+                            var shtdje = data.stockList[i].shtdje;
+                            if(shtdje){
+                                if(shtdje==0){
+                                    shtdje=""
+                                }else {
+                                    shtdje=shtdje.toFixed(2)
+                                }
+                            }else{
+                                shtdje="-"
+                            }
+                            var sgtdje = data.stockList[i].sgtdje;
+                            if(sgtdje){
+                                if(sgtdje==0){
+                                    sgtdje=""
+                                }else {
+                                    sgtdje=sgtdje.toFixed(2)
+                                }
+                            }else{
+                                sgtdje="-"
+                            }
+                            var premiumrate= data.stockList[i].premiumrate;
+                            var yjbl= data.stockList[i].yjbl;
+
+                            if(premiumrate!=0){
+                                premiumrate=premiumrate.toFixed(1)+"%"
+                            }else if(yjbl!=0){
+                                premiumrate=yjbl.toFixed(1)+"%"
+                            }else{
+                                premiumrate="-"
+                            }
+                            var buyorsell="-";
+                            if(data.dayInfo.hasOwnProperty("buyorsell")){
+                                if("1"==data.dayInfo.hasOwnProperty("buyorsell")){
+                                    buyorsell="卖出开仓";
+                                }else if("0"==data.dayInfo.hasOwnProperty("buyorsell")){
+                                    buyorsell="买入开仓";
+                                }
+                            }
+                            var discountrate=data.stockList[i].discountrate
+                            if(discountrate!=0){
+                                discountrate=discountrate.toFixed(1)+"%"
+                            }else{
+                                discountrate="-"
+                            }
+                            if(data.dayInfo["securityidsource"]=='102'){
+                                $("#cfg1").hide();
+                                $("#cfg2").show();
+                                $("#cfg3").hide();
+                                trHtml+="<td>"+data.stockList[i].stockcode+"</td>";
+                                trHtml+="<td>"+data.stockList[i].stockshort+"</td>";
+                                trHtml+="<td>"+data.stockList[i].number+"</td>";
+                                trHtml+="<td>"+tdbzName +"</td>";
+                                trHtml+="<td>"+premiumrate+"</td>";
+                                trHtml+="<td>"+discountrate+"</td>";
+                                trHtml+="<td>"+sgtdje+"</td>";
+                                trHtml+="<td>"+shtdje+"</td>";
+                                trHtml+="<td>"+gpscName +"</td>";
+                                trHtml+="</tr>";
+                            }else if(data.dayInfo["securityidsource"]!='102' && '1'==data.dayInfo["allcashflagstr"] ){
+                                $("#cfg1").show();
+                                $("#cfg2").hide();
+                                $("#cfg3").hide()
+                                trHtml+="<td>"+data.stockList[i].stockcode+"</td>";
+                                trHtml+="<td>"+data.stockList[i].stockshort+"</td>";
+                                trHtml+="<td>"+data.stockList[i].number+"</td>";
+                                trHtml+="<td>"+tdbzName +"</td>";
+                                trHtml+="<td>"+premiumrate+"</td>";
+                                trHtml+="<td>"+discountrate+"</td>";
+                                // trHtml+="<td>"+sgtdje+"</td>";
+                                trHtml+="<td>"+tdje+"</td>";
+                                trHtml+="<td>"+buyorsell +"</td>";
+                                trHtml+="<td>"+gpscName +"</td>";
+                                trHtml+="</tr>";
+                            }else if(data.dayInfo["securityidsource"]!='102' && '1'!=data.dayInfo["allcashflagstr"] ){
+                                $("#cfg1").hide();
+                                $("#cfg2").hide();
+                                $("#cfg3").show();
+                                trHtml+="<td>"+data.stockList[i].stockcode+"</td>";
+                                trHtml+="<td>"+data.stockList[i].stockshort+"</td>";
+                                trHtml+="<td>"+data.stockList[i].number+"</td>";
+                                trHtml+="<td>"+tdbzName +"</td>";
+                                trHtml+="<td>"+premiumrate+"</td>";
+                                trHtml+="<td>"+tdje+"</td>";
+
+                            }
+
+                        }
+
+                        $("#etf-stockList").html(trHtml);
+                        $(".download-file").removeAttr( "disabled");
+                        $('.date-box .download-file').css({cursor: "pointer"})
+
+                    }else{
+                        $(".download-file").attr( "disabled", true );
+                        $('.date-box .download-file').css({cursor: "unset"})
+
+                        $("#etf-maxdate").html("<span class='badge inline'></span>" + data.maxDate +"日信息内容");
+                        $("#etfType").val("")
+                        $("#allcashflagstr").val("")
+
+                        var trHtml="";
+                        trHtml+="<tr>";
+                        trHtml+="<td>-</td>";
+                        trHtml+="<td>-</td>";
+                        trHtml+="<td>-</td>";
+                        trHtml+="<td>-</td>";
+                        trHtml+="<td>-</td>";
+                        trHtml+="<td>-</td>";
+                        trHtml+="<td>-</td>";
+                        trHtml+="<td>-</td>";
+                        trHtml+="<td>-</td>";
+                        trHtml+="</tr>";
+                        $("#etf-stockList").html("");
+                    }
+
+                } else {
+                    $("#etf-today").hide();
+                    $("#etf-today-list").hide();
+                }
+            }
+        }
+    });
+}
+
+function showFhTable(pageNumber,totalPage,pageSize,pageID){
+    $("#fhTbody>tr").addClass("hide");
+    $("#fhTbody>tr").each(function(i,e){
+        if(pageNumber==1){
+            if(i<pageNumber*pageSize){
+                $(this).removeClass("hide");
+            }
+        }else{
+            if(i>=(pageNumber-1)*pageSize &&i<pageNumber*pageSize){
+                $(this).removeClass("hide");
+            }
+        }
+    });
+
+    bulidFhTablePageNavigator(pageNumber,totalPage,pageSize,pageID);
+}
+
+
+function bulidFhTablePageNavigator(pageNumber,totalPage,pageSize,pageID){
+    $("#" + pageID).empty();
+    var fenyes = "";
+    fenyes += '<span class="start-page inline">第<span class="red">' + pageNumber + '</span>页</span>';
+    fenyes += '<span class="total-page inline">/共' + totalPage + '页</span>';
+
+
+
+    if (pageNumber != 1) {
+        fenyes += "<span class='page inline' onclick='javascript:showFhTable(" + "1" +totalPage + "," + pageSize + ",\"" + pageID + "\")'>&lt;</span>";
+    } else {
+        fenyes += '<span class="page inline">&lt;</span>';
+    }
+
+    if (pageNumber == 1) {
+        fenyes += '<span class="page inline active">1</span>';
+    } else {
+        fenyes += "<span class='page inline' onclick='javascript:showFhTable(" + (pageNumber - 1) + "," + totalPage + "," + pageSize + ",\"" + pageID + "\")'>1</span>";
+    }
+
+
+    if (pageNumber > 4) {
+        fenyes += "<span class='page inline'>...</span>";
+    }
+
+    if (pageNumber > 3) {
+        fenyes += "<span class='page inline' onclick='javascript:showFhTable(" + (pageNumber - 2) + "," + totalPage + "," + pageSize + ",\"" + pageID + "\")'>" + (pageNumber - 2) +"</span>";
+    }
+    if (pageNumber > 2) {
+        fenyes += "<span class='page inline' onclick='javascript:showFhTable(" + (pageNumber - 1) + "," + totalPage + "," + pageSize + ",\"" + pageID + "\")'>" + (pageNumber - 1) +"</span>";
+    }
+
+    if (pageNumber != 1 && pageNumber != totalPage) {
+        fenyes += '<span class="page inline active">' + pageNumber + '</span>';
+    }
+
+    if (pageNumber + 1 < totalPage) {
+        fenyes += "<span class='page inline' onclick='javascript:showFhTable(" + (pageNumber + 1) + "," + totalPage + "," + pageSize + ",\"" + pageID + "\")'>" + (pageNumber + 1) +"</span>";
+    }
+    if (pageNumber + 2 < totalPage) {
+        fenyes += "<span class='page inline' onclick='javascript:showFhTable(" + (pageNumber + 2) + "," + totalPage + "," + pageSize + ",\"" + pageID + "\")'>" + (pageNumber + 2) +"</span>";
+    }
+    if (pageNumber + 3 < totalPage) {
+        fenyes += '<span class="page inline">...</span>';
+    }
+
+    if(totalPage !=1){
+        if (pageNumber == totalPage) {
+            fenyes += '<span class="page inline active">' + totalPage + '</span>';
+        } else {
+            fenyes += "<span class='page inline' onclick='javascript:showFhTable(" + totalPage + "," + totalPage + "," + pageSize + ",\"" + pageID + "\")'>" + totalPage + "</span>";
+
+        }
+    }
+
+
+    if (pageNumber < totalPage) {
+        fenyes += "<span class='page inline' onclick='javascript:showFhTable(" + (pageNumber + 1) + "," + totalPage + "," + pageSize + ",\"" + pageID + "\")'>&gt;</span>";
+    } else {
+        fenyes += '<span class="page inline">&gt;</span>';
+    }
+
+    fenyes += '<span class="search-page-box inline">前往<input id="fhpage"  class="search-page inline" type="text">页</span>';
+    $("#" + pageID).html(fenyes);
+
+    $("#fhpage").bind("keydown", function () {
+        if(event.keyCode==13){
+            var tzPage=$(this).val();
+            if(!checkNum(tzPage)){
+                alert("页码只能输入数字")
+                return;
+            }
+            if(tzPage>totalPage){
+                tzPage=totalPage;
+            }
+            showFhTable(tzPage, totalPage, pageSize,pageID);
+        }
+    });
+}
+function checkNum(num) {
+    var ll=/^[0-9]*$/;
+    if(ll.test(num)){
+        return true;
+    }else{
+        return false;
+    }
+}
+
+function bulidPageNavigator(pageNumber, categoryId, totalPage, pageSize, liebiaoID, pageID) {
+    $("#" + pageID).empty();
+    var fenyes = "";
+    fenyes += '<span class="start-page inline">第<span class="red">' + pageNumber + '</span>页</span>';
+    fenyes += '<span class="total-page inline">/共' + totalPage + '页</span>';
+
+
+
+    if (pageNumber != 1) {
+        fenyes += "<span class='page inline' onclick='javascript:getContents(" + (pageNumber - 1) + ",\"" + categoryId + "\"," +totalPage + "," + pageSize + ",\"" + liebiaoID + "\",\"" + pageID + "\")'>&lt;</span>";
+    } else {
+        fenyes += '<span class="page inline">&lt;</span>';
+    }
+
+    if (pageNumber == 1) {
+        fenyes += '<span class="page inline active">1</span>';
+    } else {
+        fenyes += "<span class='page inline' onclick='javascript:getContents(" + "1,\"" + categoryId +"\"," + totalPage + "," + pageSize + ",\"" + liebiaoID + "\",\"" + pageID + "\")'>1</span>";
+    }
+
+
+    if (pageNumber > 4) {
+        fenyes += "<span class='page inline'>...</span>";
+    }
+
+    if (pageNumber > 3) {
+        fenyes += "<span class='page inline' onclick='javascript:getContents(" + (pageNumber - 2) + ",\"" + categoryId +"\"," + totalPage + "," + pageSize + ",\"" + liebiaoID + "\",\"" + pageID + "\")'>" + (pageNumber - 2) +"</span>";
+    }
+    if (pageNumber > 2) {
+        fenyes += "<span class='page inline' onclick='javascript:getContents(" + (pageNumber - 1) + ",\"" + categoryId +"\"," + totalPage + "," + pageSize + ",\"" + liebiaoID + "\",\"" + pageID + "\")'>" + (pageNumber - 1) +"</span>";
+    }
+
+    if (pageNumber != 1 && pageNumber != totalPage) {
+        fenyes += '<span class="page inline active">' + pageNumber + '</span>';
+    }
+
+    if (pageNumber + 1 < totalPage) {
+        fenyes += "<span class='page inline' onclick='javascript:getContents(" + (pageNumber + 1) + ",\"" + categoryId +"\"," + totalPage + "," + pageSize + ",\"" + liebiaoID + "\",\"" + pageID + "\")'>" + (pageNumber + 1) +"</span>";
+    }
+    if (pageNumber + 2 < totalPage) {
+        fenyes += "<span class='page inline' onclick='javascript:getContents(" + (pageNumber + 2) + ",\"" + categoryId +"\"," + totalPage + "," + pageSize + ",\"" + liebiaoID + "\",\"" + pageID + "\")'>" + (pageNumber + 2) +"</span>";
+    }
+    if (pageNumber + 3 < totalPage) {
+        fenyes += '<span class="page inline">...</span>';
+    }
+
+    if (pageNumber == totalPage) {
+        fenyes += '<span class="page inline active">' + totalPage + '</span>';
+    } else {
+        fenyes += "<span class='page inline' onclick='javascript:getContents(" + totalPage + ",\"" + categoryId +"\"," + totalPage + "," + pageSize + ",\"" + liebiaoID + "\",\"" + pageID + "\")'>" + totalPage + "</span>";
+
+    }
+
+    if (pageNumber < totalPage) {
+        fenyes += "<span class='page inline' onclick='javascript:getContents(" + (pageNumber + 1) + ",\"" + categoryId +"\"," + totalPage + "," + pageSize + ",\"" + liebiaoID + "\",\"" + pageID + "\")'>&gt;</span>";
+    } else {
+        fenyes += '<span class="page inline">&gt;</span>';
+    }
+
+    fenyes += '<span class="search-page-box inline">前往<input id="contentpage-'+categoryId+'"  class="search-page inline" type="text">页</span>';
+    $("#" + pageID).html(fenyes);
+
+    $("#contentpage-"+categoryId).bind("keydown", function () {
+        if(event.keyCode==13){
+            var tzPage=$(this).val();
+            if(!checkNum(tzPage)){
+                alert("页码只能输入数字")
+                return;
+            }
+            if(tzPage>totalPage){
+                tzPage=totalPage;
+            }
+            getContents(tzPage, categoryId, totalPage, pageSize, liebiaoID, pageID, totalPage);
+        }
+    });
+}
+
+
+// 资产分布饼图
+function bulidZcfb(assets, divid) {
+    var data = []
+    var xdata = []
+    var jes = []
+    assets.forEach((item) => {
+        xdata.push(item.name)
+    data.push(item.value)
+    jes.push(item.je)
+})
+    var chartPieDom = document.getElementById(divid);
+    var chartPie = echarts.init(chartPieDom);
+    var optionPie = {
+        tooltip: {
+            trigger: 'item',
+            padding: 0,
+            borderColor: 'transparent',
+            borderWidth: 0,
+            borderRadius: 0,
+            formatter: function(params) {
+                var type = xdata
+                var html =
+                    '<div class="echarts-pie-tooltips-box">' +
+                    '<div class="echarts-pie-tooltips"><p class="echarts-pie-tooltips-title">资产类型</p><p class="echarts-pie-value">' +type[params.dataIndex] + '</p></div>' +
+                    '<div class="echarts-pie-tooltips"><p class="echarts-pie-tooltips-title">金额（万元）</p><p class="echarts-pie-value">' +jes[params.dataIndex] + '</p></div>' +
+                    '<div class="echarts-pie-tooltips"><p class="echarts-pie-tooltips-title">占基金资产总比例</p><p class="echarts-pie-value">' +data[params.dataIndex]  + '%</p></div>' +
+                    '</div>'
+                return html
+            }
+        },
+        color: ['#198AF4', '#CD2B32', '#9E6EEA', '#FFB317', '#1869A0', '#08C8CD', '#00a8c2', '#6689ab', '#FACC14',
+                '#EBA676', '#DC83D5', '#8543E0'
+            ],
+        series: [{
+            type: 'pie',
+            radius: ['50%', '85%'],
+            center: ['30%', '50%'],
+            avoidLabelOverlap: false,
+            itemStyle: {
+                borderColor: '#fff',
+                borderWidth: 4
+            },
+            label: {
+                show: false,
+                position: 'center'
+            },
+            emphasis: {
+                scale: true,
+                scaleSize: 22,
+                label: {
+                    show: true,
+                    fontSize: 36,
+                    fontWeight: 'bold',
+                    formatter: '{c}'
+                }
+            },
+            minAngle:0,
+            labelLine: {
+                show: false
+            },
+            data: assets
+        }]
+    };
+    optionPie && chartPie.setOption(optionPie);
+}
+
+
+function colorRgb(color) {
+    // 16进制颜色值的正则
+    var reg = /^#([0-9a-fA-f]{3}|[0-9a-fA-f]{6})$/;
+    // 把颜色值变成小写
+    color = color.toLowerCase();
+    if (reg.test(color)) {
+        // 如果只有三位的值，需变成六位，如：#fff => #ffffff
+        if (color.length === 4) {
+            var colorNew = "#";
+            for (var i = 1; i < 4; i += 1) {
+                colorNew += color.slice(i, i + 1).concat(color.slice(i, i + 1));
+            }
+            color = colorNew;
+        }
+        // 处理六位的颜色值，转为RGB
+        var colorChange = [];
+        for (var i = 1; i < 7; i += 2) {
+            colorChange.push(parseInt("0x" + color.slice(i, i + 2)));
+        }
+        return "RGBA(" + colorChange.join(",") + ",.1)";
+    } else {
+        return color;
+    }
+}
+
+
+function queryajax(url, data, callback) {
+    $.ajax({
+        type: "post",
+        url: url,
+        data: data,
+        dataType: "json",
+        timeout: 30000,
+        success: function(jsonresult) {
+            callback && callback.call(this, jsonresult)
+        }
+    })
+}
+
+
+// 获取基金收益相关数据
+function queryNetIncChartJson(fundcode, fundname, from, to, queryDate, container, isTime) {
+    var data = {
+        fundcode: fundcode,
+    }
+    if (isTime == '1') {
+        data.queryDate = queryDate;
+    } else {
+        data.from = from;
+        data.to = to;
+    }
+    data.charttype = '2';
+    queryajax('/common-web/chart/fundnetincchart/getFundNetIncChartJson', data, function(res) {
+
+        //queryajax('/htbr-002/common/getFundNetChartJson2.json', data, function(res) {
+        var xAxisData = [];
+        var seriesData0 = [];
+        var seriesData1 = [];
+        if (res && null != res) {
+            if (res.xAxisData.length > 0) {
+                xAxisData = res.xAxisData;
+                seriesData0 = res.seriesData0;
+                var legendData = [{
+                    name: "本基金",
+                    data: seriesData0,
+                    color: '#BF0008'
+                }
+                ]
+                if(res.hasOwnProperty("seriesData1")){
+                    seriesData1 = res.seriesData1;
+                    legendData.push({
+                        name: '对比数据',
+                        data: seriesData1,
+                        color: '#1D2088'
+                    });
+                }
+
+                drawLineInc(legendData, xAxisData, container);
+            } else {
+
+            }
+        } else {
+
+        }
+    })
+}
+
+// 获取基金净值/收益相关数据
+function queryChart(fundcode, time, sDate1, sDate2, siteId, container, legendAll, isTime,bf,profitDateArr) {
+    var data = {
+        fundcode: fundcode,
+        charttype: "2",
+        siteId: siteId
+    }
+    if (isTime == '1') {
+        data.queryDate = time;
+    } else {
+        data.from = sDate1;
+        data.to = sDate2;
+    }
+
+    queryajax('/common-web/chart/fundnetchart/getFundNetChartJson', data, function(res) {
+
+        //queryajax('/htbr-002/common/getFundNetChartJson.json', data, function(res) {
+        var xAxisData = res.xAxisData;
+        var seriesData0 = res.seriesData0;
+        var seriesData1 = res.seriesData1;
+        var legend = res.legend;
+        //折线图start
+        if (xAxisData.length > 0) {
+            if (legendAll == '0') {
+                var legendData = [{
+                    name: bf==2?'百份收益率':legend[0],
+                    data: seriesData0,
+                    color: '#BF0008'
+                },
+                    {
+                        name: legend[1],
+                        data: seriesData1,
+                        color: '#1D2088'
+                    }
+                ]
+            } else if (legendAll == '1') {
+                var legendData = [{
+                    name: bf==2?'百份收益率':legend[0],
+                    data: seriesData0,
+                    color: '#BF0008'
+                }, ]
+            } else if (legendAll == '2') {
+                var legendData = [{
+                    name: legend[1],
+                    data: seriesData1,
+                    color: '#1D2088'
+                }]
+            }
+            drawJzLine(legendData, xAxisData, container, profitDateArr)
+        } else {
+
+        }
+    })
+}
+
+// 基金收益走势图
+function drawLineInc(datas, xAxisData, container) {
+    var chartLineDom = null;
+    if (!container) {
+        chartLineDom = document.getElementById(container);
+    } else {
+        chartLineDom = document.getElementById("fund-echarts-inczs");
+    }
+    var myChartLine = echarts.init(chartLineDom);
+    var colorArr = [];
+    var nameArr = [];
+    var seriesArr = [];
+    var datasArr = datas;
+    $.each(datasArr, function(i, item) {
+        colorArr.push(item.color);
+        nameArr.push(item.name);
+        if(i==0){
+            let syl=[]
+            var baseData=item.data[0];
+            for(var j=0;j<item.data.length;j++){
+                var tolInc=(((item.data[j]-baseData)/baseData)*100).toFixed(2);
+                syl.push(tolInc);
+            }
+            item.data=syl;
+        }
+        seriesArr.push({
+            name: item.name,
+            type: 'line',
+            symbol: "none",
+            areaStyle: {
+                color: {
+                    type: 'linear',
+                    x: 0,
+                    y: 0,
+                    x2: 0,
+                    y2: 1,
+                    colorStops: [{
+                        offset: 0,
+                        color: colorRgb(item.color) // 0% 处的颜色
+                    }, {
+                        offset: 1,
+                        color: '#FFFFFF' // 100% 处的颜色
+                    }],
+                }
+            },
+            data: item.data
+        })
+    })
+
+    var optionLine = {
+        color: colorArr,
+        // grid: {
+        // 	top: '80px',
+        // 	left: '108px',
+        // 	right: '108px',
+        // 	bottom: '40px',
+        // 	containLabel: true
+        // },
+        legend: {
+            left: 'center',
+            top: '14px',
+            itemHeight: 8,
+            itemWidth: 8,
+            icon: 'rect',
+            itemGap: 60,
+            textStyle: {
+                fontSize: 16,
+                color: '#333',
+                fontWeight: 400,
+                rich: {
+                    a: {
+                        verticalAlign: 'middle'
+                    }
+                },
+                padding: [0, 0, -4, 8],
+            },
+            data: nameArr
+        },
+        tooltip: {
+            show: true,
+            trigger: 'axis',
+            formatter: function(params) {
+                var html= '<div class="echarts-tooltips-box">' +
+                    '<p class="echarts-tooltips-title">' + params[0].name + '</p>' +
+                    '<p class="echarts-tooltips-body"><span class="echarts-badge inline"></span>本基金<span class="rose red">'+datas[0].data[params[0].dataIndex]+'%</span></p>';
+                if(seriesArr.length>1){
+                    html +='<p class="echarts-tooltips-body"><span class="echarts-badge inline default"></span>对比数据<span class="fall">'+datas[1].data[params[0].dataIndex]+'%</span></p>';
+                }
+                html +='</div>';
+                return html;
+            },
+            textStyle: { // 提示框浮层的文本样式。
+                color: '#6a6a6a',
+                fontStyle: 'normal',
+                fontWeight: 'normal',
+                fontFamily: 'sans-serif',
+                fontSize: 14,
+            },
+            extraCssText: 'box-shadow: rgba(0, 0, 0, 0.2) 1px 2px 10px;',
+            backgroundColor: 'rgb(255, 255, 255)',
+            axisPointer: {
+                lineStyle: {
+                    color: '#ecb3b5',
+                    width: 2,
+                    type: 'shadow'
+                }
+            }
+        },
+        xAxis: {
+            type: 'category',
+            boundaryGap: false,
+            data: xAxisData,
+            axisLine: {
+                lineStyle: {
+                    color: '#8D9198'
+                }
+            },
+            axisLabel: {
+                color: '#8D9198',
+                fontSize: 18,
+                fontWeight: 400,
+                padding: 16,
+            }
+        },
+        yAxis: {
+            type: 'value',
+            axisLabel: {
+                color: '#8D9198',
+                fontSize: 18,
+                fontWeight: 400,
+                formatter: function(value) {
+                    return Math.floor(value*100)/100 + '%'
+                }
+            },
+            axisLine: {//y轴线的颜色以及宽度
+                show: true,
+                lineStyle: {
+                    color: "#FFFFFF",
+                    width: 1,
+                    type: "solid"
+                },
+            },
+            splitLine: {//分割线配置
+                show:true,
+                lineStyle: {
+                    color: "#e3e3e3",
+                    width: 1,
+                    type: "solid"
+                }
+            },
+            min:function(value){
+                return value.min;
+            }
+        },
+        series: seriesArr
+    };
+    optionLine && myChartLine.setOption(optionLine);
+}
+
+// 基金净值走势图
+function drawJzLine(datas, xAxisData, container, profitDateArr) {
+
+    var myChartLine = echarts.init(document.getElementById(container));
+    var colorArr = [];
+    var nameArr = [];
+    var seriesArr = [];
+    var markPointData = [];
+    var datasA = datas[0].data;
+    if(profitDateArr !== undefined && (container == 'fund-echarts-dwjz' || container == 'fund-echarts-ljjz')){
+        $.each(profitDateArr,function(i,item){
+            if(xAxisData.indexOf(item.date) > -1){
+                markPointData.push({
+                    value: '红',
+                    xAxis: xAxisData[xAxisData.indexOf(item.date)],
+                    yAxis: datasA[xAxisData.indexOf(item.date)]
+                });
+            }
+        });
+        $.each(datas, function(i, item) {
+            colorArr.push(item.color);
+            nameArr.push(item.name);
+            seriesArr.push({
+                name: item.name,
+                type: 'line',
+                symbol: "none",
+                areaStyle: {
+                    color: {
+                        type: 'linear',
+                        x: 0,
+                        y: 0,
+                        x2: 0,
+                        y2: 1,
+                        colorStops: [{
+                            offset: 0,
+                            color: colorRgb(item.color) // 0% 处的颜色
+                        }, {
+                            offset: 1,
+                            color: '#FFFFFF' // 100% 处的颜色
+                        }],
+                    }
+                },
+                data: item.data,
+                markPoint: {
+                    data: markPointData
+                },
+            })
+        })
+    }else{
+        $.each(datas, function(i, item) {
+            colorArr.push(item.color);
+            nameArr.push(item.name);
+            seriesArr.push({
+                name: item.name,
+                type: 'line',
+                symbol: "none",
+                areaStyle: {
+                    color: {
+                        type: 'linear',
+                        x: 0,
+                        y: 0,
+                        x2: 0,
+                        y2: 1,
+                        colorStops: [{
+                            offset: 0,
+                            color: colorRgb(item.color) // 0% 处的颜色
+                        }, {
+                            offset: 1,
+                            color: '#FFFFFF' // 100% 处的颜色
+                        }],
+                    }
+                },
+                data: item.data
+            })
+        })
+    }
+
+    var optionLine = {
+        color: colorArr,
+        // grid: {
+        // 	top: '80px',
+        // 	left: '108px',
+        // 	right: '108px',
+        // 	bottom: '40px',
+        // 	containLabel: true
+        // },
+        legend: {
+            left: 'center',
+            top: '14px',
+            itemHeight: 8,
+            itemWidth: 8,
+            icon: 'rect',
+            itemGap: 60,
+            textStyle: {
+                fontSize: 16,
+                color: '#333',
+                fontWeight: 400,
+                rich: {
+                    a: {
+                        verticalAlign: 'middle'
+                    }
+                },
+                padding: [0, 0, -4, 8],
+            },
+            data: nameArr
+        },
+        tooltip: {
+            show: true,
+            trigger: 'axis',
+            formatter: function(params) {
+                var html= '<div class="echarts-tooltips-box">' +
+                    '<p class="echarts-tooltips-title">' + params[0].name + '</p>' +
+                    '<p class="echarts-tooltips-body"><span class="echarts-badge inline" style="color: black;"></span>'+nameArr[0]+'<span class="rose red">'+datas[0].data[params[0].dataIndex]+'</span></p>';
+                if(seriesArr.length>1){
+                    html +='<p class="echarts-tooltips-body"><span class="echarts-badge inline default"></span>'+nameArr[1]+'<span class="fall">'+datas[1].data[params[0].dataIndex]+'</span></p>';
+                }
+                var profitDateArrIndex;
+                if(profitDateArr !== undefined){
+                    profitDateArrIndex = profitDateArr.findIndex(v => v.date == params[0].name);
+                }
+                if(profitDateArr !== undefined && profitDateArrIndex > -1){
+                    html += '<p class="echarts-tooltips-title" style="height: 13px;"></p>' +
+                        '<p class="echarts-tooltips-body"><span class="echarts-badge inline" style="color: black;"></span>红利发放日<span class="rose red">'+profitDateArr[profitDateArrIndex].date+'</span></p>' +
+                        '<p class="echarts-tooltips-body"><span class="echarts-badge inline" style="color: black;"></span>每10份收益(元)<span class="rose red">'+profitDateArr[profitDateArrIndex].data+'</span></p>';
+                }
+                html +='</div>';
+                return html;
+            },
+            textStyle: { // 提示框浮层的文本样式。
+                color: '#6a6a6a',
+                fontStyle: 'normal',
+                fontWeight: 'normal',
+                fontFamily: 'sans-serif',
+                fontSize: 14,
+            },
+            extraCssText: 'box-shadow: rgba(0, 0, 0, 0.2) 1px 2px 10px;',
+            backgroundColor: 'rgb(255, 255, 255)',
+            axisPointer: {
+                lineStyle: {
+                    color: '#ecb3b5',
+                    width: 2,
+                    type: 'shadow'
+                }
+            }
+        },
+        xAxis: {
+            type: 'category',
+            boundaryGap: false,
+            data: xAxisData,
+            axisLine: {
+                lineStyle: {
+                    color: '#8D9198'
+                }
+            },
+
+            axisLabel: {
+                color: '#8D9198',
+                fontSize: 16,
+                fontWeight: 400,
+                margin: 20,
+                showMaxLabel: true,
+            }
+        },
+        yAxis: {
+            type: 'value',
+            axisLabel: {
+                color: '#8D9198',
+                fontSize: 16,
+                fontWeight: 400,
+                formatter: function(value) {
+                    return value.toFixed(4)
+                },
+            },
+            scale: true,	// 刻度自适应
+            axisLine: {		// y轴线的颜色以及宽度
+                show: true,
+                lineStyle: {
+                    color: "#FFFFFF",
+                    width: 1,
+                    type: "solid"
+                },
+            },
+            splitLine: {	// 分割线配置
+                show:true,
+                lineStyle: {
+                    color: "#e3e3e3",
+                    width: 1,
+                    type: "solid"
+                }
+            },
+        },
+        series: seriesArr
+    };
+    myChartLine.setOption(optionLine);
+}
+
+
+// 行业分布饼图
+function bulidhyfb(assets, divid) {
+    var data = []
+    var xdata = []
+    var jes = []
+    assets.forEach((item) => {
+        xdata.push(item.name)
+    data.push(item.value)
+    jes.push(item.je)
+})
+    var chartPieDom = document.getElementById(divid);
+    var chartPie = echarts.init(chartPieDom);
+    var optionPie = {
+        tooltip: {
+            trigger: 'item',
+            padding: 0,
+            borderColor: 'transparent',
+            borderWidth: 0,
+            borderRadius: 0,
+            formatter: function(params) {
+                var type = xdata
+                var html =
+                    '<div class="echarts-pie-tooltips-box">' +
+                    '<div class="echarts-pie-tooltips"><p class="echarts-pie-tooltips-title">资产类型</p><p class="echarts-pie-value">' +type[params.dataIndex] + '</p></div>' +
+                    '<div class="echarts-pie-tooltips"><p class="echarts-pie-tooltips-title">公允价值（万元）</p><p class="echarts-pie-value">' +jes[params.dataIndex] + '</p></div>' +
+                    '<div class="echarts-pie-tooltips"><p class="echarts-pie-tooltips-title">占基金资产净值比例</p><p class="echarts-pie-value">' +data[params.dataIndex] + '%</p></div>' +
+                    '</div>'
+                return html
+            }
+        },
+        color: ['#198AF4', '#CD2B32', '#9E6EEA', '#FFB317', '#1869A0', '#08C8CD', '#00a8c2', '#6689ab', '#FACC14',
+            '#EBA676', '#DC83D5', '#8543E0'
+        ],
+        series: [{
+            type: 'pie',
+            radius: ['50%', '85%'],
+            center: ['30%', '50%'],
+            avoidLabelOverlap: false,
+            itemStyle: {
+                borderColor: '#fff',
+                borderWidth: 4
+            },
+            label: {
+                show: false,
+                position: 'center'
+            },
+            emphasis: {
+                scale: true,
+                scaleSize: 22,
+                label: {
+                    show: true,
+                    fontSize: 36,
+                    fontWeight: 'bold',
+                    formatter: '{c}'
+                }
+            },
+            labelLine: {
+                show: false
+            },
+            minAngle:0,
+            data: assets
+        }]
+    };
+    optionPie && chartPie.setOption(optionPie);
+}
+
+$(".btn_top").hide();
+$(".rmenu a").hover(function() {
+    $(this).find(".sidebox").stop().animate({
+        "width": "120px"
+    }, 200).css({
+        "opacity": "1",
+        "filter": "Alpha(opacity=100)",
+        "background": "#fff"
+    })
+    $(this).css('overflow', 'inherit');
+}, function() {
+    $(this).find(".sidebox").stop().animate({
+        "width": "40px"
+    }, 200).css({
+        "opacity": "0",
+        "filter": "Alpha(opacity=0)",
+        "background": "#bd9126"
+    })
+    $(this).css('overflow', 'hidden');
+}, function() {
+    $(this).find(".sidebox").stop().animate({
+        "width": "40px"
+    }, 200).css({
+        "opacity": "0",
+        "filter": "Alpha(opacity=0)",
+        "background": "#bd9126"
+    })
+    $(this).css('overflow', 'hidden');
+});
+
+
+
+$(window).bind('scroll resize', function() {
+    if ($(window).scrollTop() <= 300) {
+        $(".btn_top").hide();
+    } else {
+        $(".btn_top").show();
+    }
+});
+
+/**
+ * 时间对象的格式化
+ */
+Date.prototype.format = function(format) {
+    /*
+     * format="yyyy-MM-dd hh:mm:ss";
+     */
+    var o = {
+        "M+": this.getMonth() + 1,
+        "d+": this.getDate(),
+        "h+": this.getHours(),
+        "m+": this.getMinutes(),
+        "s+": this.getSeconds(),
+        "q+": Math.floor((this.getMonth() + 3) / 3),
+        "S": this.getMilliseconds()
+    }
+
+    if (/(y+)/.test(format)) {
+        format = format.replace(RegExp.$1, (this.getFullYear() + "").substr(4 -
+            RegExp.$1.length));
+    }
+
+    for (var k in o) {
+        if (new RegExp("(" + k + ")").test(format)) {
+            format = format.replace(RegExp.$1, RegExp.$1.length == 1 ?
+                o[k] :
+                ("00" + o[k]).substr(("" + o[k]).length));
+        }
+    }
+    return format;
+}

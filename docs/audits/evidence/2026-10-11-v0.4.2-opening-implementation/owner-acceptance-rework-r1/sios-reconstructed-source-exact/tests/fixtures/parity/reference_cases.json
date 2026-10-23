@@ -1,0 +1,304 @@
+{
+  "schema_version": "m0-parity-cases-1",
+  "cases_version": "m0-parity-2",
+  "evaluated_at": "2026-09-17T16:30:00+08:00",
+  "source_statement": "Every expected value below was frozen by hand from public regulations and exchange trading rules before running the kernel. The kernel is never its own oracle, and no comparison may be normalized away: any delta is recorded as expected/explained or as a defect.",
+  "tolerances": {
+    "fee_and_tax_amounts": "0",
+    "rule_percentages": "0",
+    "tick_prices": "0",
+    "settlement_dates": "exact",
+    "availability_semantics": "exact"
+  },
+  "cases": [
+    {
+      "case_id": "PARITY-A-SHARE-SELL-FEES-20230828",
+      "title": "A-share sell costs after the 2023 stamp-duty halving",
+      "kind": "fees",
+      "source": {
+        "authority": "MOF/STA + CSDC",
+        "reference": "Announcement [2023] No.39 halves the sell-side stamp duty to 0.05%; CSDC transfer fee 0.001% per side",
+        "accessed_on": "2026-09-15",
+        "rights": "public regulation; validation-only comparison"
+      },
+      "semantics": "SELL 1,000 shares at 10.00 CNY on an effective-dated A-share profile; broker commission 0.03% with a CNY 5 minimum",
+      "inputs": {
+        "instrument_id": "XSHE:000001",
+        "session_date": "2026-09-14",
+        "side": "SELL",
+        "quantity": 1000,
+        "price": "10.00",
+        "broker": {"commission_rate": "0.0003", "minimum_commission": "5"}
+      },
+      "expected": {
+        "stamp_tax": "5.00",
+        "transfer_fee": "0.10",
+        "commission": "3.00",
+        "minimum_commission_adjustment": "2.00",
+        "total": "10.10"
+      },
+      "tolerance": "0"
+    },
+    {
+      "case_id": "PARITY-A-SHARE-BUY-FEES-20230828",
+      "title": "A-share buy costs have no stamp duty",
+      "kind": "fees",
+      "source": {
+        "authority": "MOF/STA + CSDC",
+        "reference": "Stamp duty is sell-side only; CSDC transfer fee 0.001% applies per side",
+        "accessed_on": "2026-09-15",
+        "rights": "public regulation; validation-only comparison"
+      },
+      "semantics": "BUY 1,000 shares at 10.00 CNY; broker commission 0.03% with a CNY 5 minimum",
+      "inputs": {
+        "instrument_id": "XSHE:000001",
+        "session_date": "2026-09-14",
+        "side": "BUY",
+        "quantity": 1000,
+        "price": "10.00",
+        "broker": {"commission_rate": "0.0003", "minimum_commission": "5"}
+      },
+      "expected": {
+        "stamp_tax": "0",
+        "transfer_fee": "0.10",
+        "commission": "3.00",
+        "minimum_commission_adjustment": "2.00",
+        "total": "5.10"
+      },
+      "tolerance": "0"
+    },
+    {
+      "case_id": "PARITY-ETF-ZERO-STAMP-TRANSFER",
+      "title": "Domestic ETF trades carry no stamp duty and no transfer fee",
+      "kind": "fees",
+      "source": {
+        "authority": "MOF/STA + CSDC",
+        "reference": "Stamp duty covers stock transfer documents, not fund trades; CSDC transfer fee scope covers stocks only",
+        "accessed_on": "2026-09-15",
+        "rights": "public regulation; validation-only comparison"
+      },
+      "semantics": "SELL 2,500 broad-based equity ETF shares at 4.00 CNY; broker commission 0.03% with a CNY 5 minimum",
+      "inputs": {
+        "instrument_id": "XSHG:510300",
+        "session_date": "2026-09-14",
+        "side": "SELL",
+        "quantity": 2500,
+        "price": "4.00",
+        "broker": {"commission_rate": "0.0003", "minimum_commission": "5"}
+      },
+      "expected": {
+        "stamp_tax": "0",
+        "transfer_fee": "0",
+        "commission": "3.00",
+        "minimum_commission_adjustment": "2.00",
+        "total": "5.00"
+      },
+      "tolerance": "0"
+    },
+    {
+      "case_id": "PARITY-PRICE-LIMIT-10PCT-A-SHARE",
+      "title": "A-share daily price limit of +/-10% versus previous close",
+      "kind": "price_limit",
+      "source": {
+        "authority": "SSE/SZSE",
+        "reference": "Trading rules: +/-10% daily price limit computed from the previous close, tick 0.01 CNY",
+        "accessed_on": "2026-09-15",
+        "rights": "public exchange rules; validation-only comparison"
+      },
+      "semantics": "Approved price-limit profile for a main-board A-share with previous close 12.00",
+      "inputs": {"instrument_id": "XSHE:000001", "session_date": "2026-09-14", "pre_close": "12.00"},
+      "expected": {
+        "limit_percent": "0.10",
+        "tick_size": "0.01",
+        "basis": "PREVIOUS_CLOSE",
+        "upper_limit": "13.20",
+        "lower_limit": "10.80"
+      },
+      "tolerance": "0"
+    },
+    {
+      "case_id": "PARITY-PRICE-LIMIT-ETF-TICK",
+      "title": "ETF price limit tick is 0.001 CNY",
+      "kind": "price_limit",
+      "source": {
+        "authority": "SSE/SZSE",
+        "reference": "ETF trading rules: +/-10% daily price limit with a 0.001 CNY tick",
+        "accessed_on": "2026-09-15",
+        "rights": "public exchange rules; validation-only comparison"
+      },
+      "semantics": "Approved price-limit profile for a domestic ETF with previous close 4.000",
+      "inputs": {"instrument_id": "XSHG:510300", "session_date": "2026-09-14", "pre_close": "4.000"},
+      "expected": {
+        "limit_percent": "0.10",
+        "tick_size": "0.001",
+        "basis": "PREVIOUS_CLOSE",
+        "upper_limit": "4.400",
+        "lower_limit": "3.600"
+      },
+      "tolerance": "0"
+    },
+    {
+      "case_id": "PARITY-PRICE-LIMIT-CHINEXT-20PCT",
+      "title": "ChiNext ETF price limit is 20% from 2020-08-24",
+      "kind": "price_limit",
+      "source": {
+        "authority": "SZSE",
+        "reference": "SZSE list of funds whose price limit increased to 20% on 2020-08-24 explicitly includes 159915",
+        "accessed_on": "2026-09-17",
+        "rights": "public exchange rules; validation-only comparison"
+      },
+      "semantics": "Approved effective-dated price-limit profile for ChiNext ETF 159915 after the rule change",
+      "inputs": {"instrument_id": "XSHE:159915", "session_date": "2022-12-30", "pre_close": "2.200"},
+      "expected": {
+        "limit_percent": "0.20",
+        "tick_size": "0.001",
+        "basis": "PREVIOUS_CLOSE",
+        "upper_limit": "2.640",
+        "lower_limit": "1.760"
+      },
+      "tolerance": "0"
+    },
+    {
+      "case_id": "PARITY-SETTLEMENT-T-PLUS-ONE",
+      "title": "A-share acquisitions become sellable one open session later",
+      "kind": "settlement",
+      "source": {
+        "authority": "SSE/SZSE + CSDC",
+        "reference": "A-share quantity acquired on T is sellable from the next open session",
+        "accessed_on": "2026-09-15",
+        "rights": "public exchange rules; validation-only comparison"
+      },
+      "semantics": "Resolve sellability for an acquisition on 2026-09-14 with the approved settlement profile",
+      "inputs": {
+        "instrument_id": "XSHE:000001",
+        "session_date": "2026-09-14",
+        "acquired_session": "2026-09-14",
+        "open_sessions": ["2026-09-11", "2026-09-14", "2026-09-15"]
+      },
+      "expected": {"sessions_until_sellable": 1, "sellable_from": "2026-09-15"},
+      "tolerance": "exact"
+    },
+    {
+      "case_id": "PARITY-SETTLEMENT-GOLD-ETF-INTRADAY",
+      "title": "Gold ETF acquisitions are sellable on the acquisition session",
+      "kind": "settlement",
+      "source": {
+        "authority": "SSE",
+        "reference": "2013 SSE Gold ETF Business Guidelines: gold ETF units bought that day may be sold that day",
+        "accessed_on": "2026-09-17",
+        "rights": "public exchange rules; validation-only comparison"
+      },
+      "semantics": "Resolve sellability for XSHG:518880 with the approved intraday settlement profile",
+      "inputs": {
+        "instrument_id": "XSHG:518880",
+        "session_date": "2022-12-30",
+        "acquired_session": "2022-12-30",
+        "open_sessions": ["2022-12-29", "2022-12-30"]
+      },
+      "expected": {"sessions_until_sellable": 0, "sellable_from": "2022-12-30"},
+      "tolerance": "exact"
+    },
+    {
+      "case_id": "PARITY-SETTLEMENT-BOND-ETF-INTRADAY",
+      "title": "Bond ETF acquisitions are sellable on the acquisition session",
+      "kind": "settlement",
+      "source": {
+        "authority": "SSE",
+        "reference": "2013 SSE Bond ETF Business Guidelines: bond ETF units bought that day may be sold that day",
+        "accessed_on": "2026-09-17",
+        "rights": "public exchange rules; validation-only comparison"
+      },
+      "semantics": "Resolve sellability for XSHG:511010 with the approved intraday settlement profile",
+      "inputs": {
+        "instrument_id": "XSHG:511010",
+        "session_date": "2022-12-30",
+        "acquired_session": "2022-12-30",
+        "open_sessions": ["2022-12-29", "2022-12-30"]
+      },
+      "expected": {"sessions_until_sellable": 0, "sellable_from": "2022-12-30"},
+      "tolerance": "exact"
+    },
+    {
+      "case_id": "PARITY-PIT-UNKNOWN-BASIS",
+      "title": "Information time decides PIT access, not retrieval time",
+      "kind": "availability",
+      "source": {
+        "authority": "M0 data-contract decisions (P0-02, OQ-05)",
+        "reference": "Canonical facts carry information_available_at/retrieved_at/availability_basis; UNKNOWN never fabricates an exact time",
+        "accessed_on": "2026-09-15",
+        "rights": "project architecture contract; semantics frozen by hand"
+      },
+      "semantics": "Two facts retrieved at 17:00 with different information times, plus an UNKNOWN-basis fact",
+      "inputs": {
+        "cutoff_early": "2026-09-15T15:30:00+08:00",
+        "cutoff_late": "2026-09-15T17:00:00+08:00",
+        "early_fact_information_at": "2026-09-15T15:05:00+08:00",
+        "late_fact_information_at": "2026-09-15T16:30:00+08:00",
+        "retrieved_at": "2026-09-15T17:00:00+08:00"
+      },
+      "expected": {
+        "early_fact_known_at_early_cutoff": true,
+        "late_fact_known_at_early_cutoff": false,
+        "late_fact_known_at_late_cutoff": true,
+        "unknown_basis_known_at_early_cutoff": null
+      },
+      "tolerance": "exact"
+    },
+    {
+      "case_id": "PARITY-EXECUTION-TICK-ROUNDING",
+      "title": "Side-aware execution price with exchange tick rounding",
+      "kind": "execution_price",
+      "source": {
+        "authority": "SSE/SZSE",
+        "reference": "Conservative model: buys round up and sells round down to the exchange tick after 0.1% side-aware slippage",
+        "accessed_on": "2026-09-15",
+        "rights": "public exchange tick rules plus the approved M0 execution convention; validation-only comparison"
+      },
+      "semantics": "M0 NEXT_SESSION_OPEN execution model with 0.1% buy/sell slippage and exchange ticks",
+      "inputs": {
+        "session_date": "2026-09-14",
+        "slippage_rate_buy": "0.001",
+        "slippage_rate_sell": "0.001",
+        "quotes": [
+          {"instrument_id": "XSHE:000001", "side": "BUY", "open": "12.00"},
+          {"instrument_id": "XSHE:000001", "side": "SELL", "open": "12.60"},
+          {"instrument_id": "XSHG:510300", "side": "BUY", "open": "4.40"},
+          {"instrument_id": "XSHG:510300", "side": "SELL", "open": "4.40"}
+        ]
+      },
+      "expected": {
+        "XSHE:000001:BUY": "12.02",
+        "XSHE:000001:SELL": "12.58",
+        "XSHG:510300:BUY": "4.405",
+        "XSHG:510300:SELL": "4.395"
+      },
+      "tolerance": "0"
+    },
+    {
+      "case_id": "PARITY-LOT-RULES-BOARD-LOT",
+      "title": "Board lot and odd-lot sell policy",
+      "kind": "lot_rules",
+      "source": {
+        "authority": "SSE/SZSE",
+        "reference": "Buy orders are placed in board lots of 100 shares; odd-lot sells are permitted",
+        "accessed_on": "2026-09-15",
+        "rights": "public exchange rules; validation-only comparison"
+      },
+      "semantics": "Approved lot profile for standard A-shares and domestic ETFs",
+      "inputs": {"instrument_id": "XSHE:000001", "session_date": "2026-09-14"},
+      "expected": {"board_lot": 100, "buy_increment": 100, "odd_lot_sell_policy": "ALLOWED"},
+      "tolerance": "0"
+    }
+  ],
+  "excluded_scope": [
+    "licensed independent engines (for example JoinQuant validation-only research access) are not embedded in this repository; the release environment may add broader parity samples under their own data terms",
+    "the approved ETF subtype matrix is limited to domestic broad-based equity, gold, and bond ETFs; no other subtype is compared or approved"
+  ],
+  "credentials_prerequisites": [
+    "offline parity: none; all evidence is frozen public-rule text and local computation",
+    "broader independent-engine parity (release environment): lawful access to the reference source and its data terms; no secret values are recorded"
+  ],
+  "commands": [
+    "python -m pytest tests/parity -q"
+  ]
+}

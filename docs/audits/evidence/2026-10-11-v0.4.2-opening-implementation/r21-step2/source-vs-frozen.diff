@@ -1,0 +1,1672 @@
+--- frozen/src/systematic_investing/adapters/chstockdata/provider.py
++++ current/src/systematic_investing/adapters/chstockdata/provider.py
+@@ -46,6 +46,7 @@
+     CorporateActionRequest,
+     DailyBarRequest,
+     TradabilityRequest,
++    HistoricalOpeningRequest,
+ )
+ from systematic_investing.domain.identifiers import InstrumentId, require_session_date
+ from systematic_investing.domain.market import (
+@@ -62,6 +63,10 @@
+     TradingSession,
+ )
+ from systematic_investing.domain.money import Money
++from systematic_investing.domain.historical_opening import (
++    HistoricalOpeningEvidence,
++    HISTORICAL_SUSPENSION_GAP,
++)
+ from systematic_investing.instrument_master.models import (
+     InvalidRuleProfileError,
+     LotRule,
+@@ -123,6 +128,14 @@
+ 
+ class ChStockDataSchemaDriftError(ChStockDataAdapterError):
+     """The vendor returned a shape or enum outside the documented contract."""
++
++
++class HistoricalSuspensionUnavailableError(ChStockDataSchemaDriftError):
++    """Only the vendor explicit historical-coverage failure, with provenance."""
++
++    def __init__(self, payload: Mapping[str, object]) -> None:
++        super().__init__("vendor:historical_suspension_unavailable")
++        self.payload = dict(payload)
+ 
+ 
+ class ChStockDataMalformedError(ChStockDataAdapterError):
+@@ -297,14 +310,17 @@
+     Supported methods and raw shapes are recorded in ``third_party/SOURCES.yaml``.
+     """
+ 
+-    def __init__(self, *, library: object | None = None) -> None:
++    def __init__(
++        self, *, library: object | None = None, historical_opening_candidate: bool = False
++    ) -> None:
+         resolved = library if library is not None else import_chstockdata_library()
+         version = getattr(resolved, "__version__", None)
+         if not isinstance(version, str) or not version:
+             raise ChStockDataConfigurationError(
+                 "chstockdata library did not report a version; refusing to proceed"
+             )
+-        validate_library_version(version)
++        if not (historical_opening_candidate and version == "0.4.2"):
++            validate_library_version(version)
+         self._library = resolved
+         self._version = version
+ 
+@@ -453,6 +469,23 @@
+             upstream_source=f"chstockdata.load_trading_calendar ({source})",
+         )
+ 
++    def historical_opening_evidence(
++        self, *, instrument_id: InstrumentId, session_date: date
++    ) -> RawVendorResponse:
++        result = self._vendor_function("fetch_historical_opening_evidence")(
++            instrument_id.symbol, session_date.isoformat()
++        )
++        data = getattr(result, "data", None)
++        if not isinstance(data, Mapping) or not data:
++            raise ChStockDataUnavailableError(
++                "historical opening source returned no execution evidence"
++            )
++        return RawVendorResponse(
++            capability="historical_opening_evidence",
++            payload=data,
++            upstream_source="chstockdata.fetch_historical_opening_evidence",
++        )
++
+     def suspension(
+         self, *, instrument_id: InstrumentId, session_date: date
+     ) -> RawVendorResponse:
+@@ -470,6 +503,8 @@
+         status = str(payload.get("status", "success"))
+         reason = payload.get("reason") or payload.get("error_summary")
+         if status.startswith("failed"):
++            if status == "failed_structure" and reason == "historical_suspension_unavailable":
++                raise HistoricalSuspensionUnavailableError(payload)
+             if "structure" in status:
+                 raise ChStockDataSchemaDriftError(
+                     f"vendor suspension snapshot failed: {status}: {reason}"
+@@ -679,6 +714,17 @@
+         except ChStockDataAdapterError as error:
+             translated = self._translate_exception(error)
+             assert translated is not None
++            if isinstance(error, HistoricalSuspensionUnavailableError):
++                return self._failure(
++                    error_code=translated[0],
++                    message=translated[1],
++                    capability=capability,
++                    request_digest=request_digest,
++                    payload=error.payload,
++                    upstream_source="chstockdata.get_suspension_info",
++                    retrieved_at=retrieved_at,
++                    cause=error,
++                )
+             return self._failure(
+                 error_code=translated[0],
+                 message=translated[1],
+@@ -861,6 +907,17 @@
+         except ChStockDataAdapterError as error:
+             translated = self._translate_exception(error)
+             assert translated is not None
++            if isinstance(error, HistoricalSuspensionUnavailableError):
++                return self._failure(
++                    error_code=translated[0],
++                    message=translated[1],
++                    capability=capability,
++                    request_digest=request_digest,
++                    payload=error.payload,
++                    upstream_source="chstockdata.get_suspension_info",
++                    retrieved_at=retrieved_at,
++                    cause=error,
++                )
+             return self._failure(
+                 error_code=translated[0],
+                 message=translated[1],
+@@ -945,6 +1002,17 @@
+         except ChStockDataAdapterError as error:
+             translated = self._translate_exception(error)
+             assert translated is not None
++            if isinstance(error, HistoricalSuspensionUnavailableError):
++                return self._failure(
++                    error_code=translated[0],
++                    message=translated[1],
++                    capability=capability,
++                    request_digest=request_digest,
++                    payload=error.payload,
++                    upstream_source="chstockdata.get_suspension_info",
++                    retrieved_at=retrieved_at,
++                    cause=error,
++                )
+             return self._failure(
+                 error_code=translated[0],
+                 message=translated[1],
+@@ -1004,6 +1072,17 @@
+         except ChStockDataAdapterError as error:
+             translated = self._translate_exception(error)
+             assert translated is not None
++            if isinstance(error, HistoricalSuspensionUnavailableError):
++                return self._failure(
++                    error_code=translated[0],
++                    message=translated[1],
++                    capability=capability,
++                    request_digest=request_digest,
++                    payload=error.payload,
++                    upstream_source="chstockdata.get_suspension_info",
++                    retrieved_at=retrieved_at,
++                    cause=error,
++                )
+             return self._failure(
+                 error_code=translated[0],
+                 message=translated[1],
+@@ -1032,8 +1111,8 @@
+         """Canonical point-in-time tradability for the requested universe.
+ 
+         The vendor snapshot must describe exactly the requested session; a
+-        same-day snapshot is observed evidence, while a historical session is
+-        known by the exchange's pre-open suspension-disclosure rule.
++        A same-day observation is evidence only at its observation time.
++        Missing information availability remains UNKNOWN.
+         """
+         capability = "tradability"
+         request_digest = _request_digest(
+@@ -1078,6 +1157,17 @@
+         except ChStockDataAdapterError as error:
+             translated = self._translate_exception(error)
+             assert translated is not None
++            if isinstance(error, HistoricalSuspensionUnavailableError):
++                return self._failure(
++                    error_code=translated[0],
++                    message=translated[1],
++                    capability=capability,
++                    request_digest=request_digest,
++                    payload=error.payload,
++                    upstream_source="chstockdata.get_suspension_info",
++                    retrieved_at=retrieved_at,
++                    cause=error,
++                )
+             return self._failure(
+                 error_code=translated[0],
+                 message=translated[1],
+@@ -1100,6 +1190,115 @@
+             evidence_id=evidence_id,
+         )
+         return ProviderSuccess(records=tuple(records), evidence=evidence)
++
++    def historical_suspension_gap(
++        self, request: TradabilityRequest, failure: ProviderFailure
++    ) -> tuple[TradabilityStatus, ...]:
++        """Expose one explicit legacy coverage constraint, never a PIT success."""
++        if (
++            not isinstance(failure, ProviderFailure)
++            or not isinstance(failure.cause, HistoricalSuspensionUnavailableError)
++            or failure.evidence is None
++            or failure.evidence.capability != "tradability"
++            or failure.evidence.request_digest
++            != _request_digest(
++                "tradability",
++                {
++                    "instrument_ids": ",".join(
++                        str(item) for item in sorted(request.instrument_ids)
++                    ),
++                    "session_date": request.session_date.isoformat(),
++                },
++            )
++        ):
++            raise ChStockDataConfigurationError(
++                "not a verified historical suspension coverage failure"
++            )
++        # A multi-instrument first failure cannot certify gaps for remaining requests.
++        if len(request.instrument_ids) != 1:
++            raise ChStockDataConfigurationError(
++                "historical gap requires a single-instrument failure"
++            )
++        return tuple(
++            TradabilityStatus(
++                item,
++                request.session_date,
++                TradabilityStatusKind.UNKNOWN,
++                HISTORICAL_SUSPENSION_GAP,
++                Availability(None, failure.evidence.retrieved_at, AvailabilityBasis.UNKNOWN),
++                failure.evidence.evidence_id + ":vendor:historical_suspension_unavailable",
++            )
++            for item in request.instrument_ids
++        )
++
++    def fetch_historical_opening_evidence(
++        self, request: HistoricalOpeningRequest
++    ) -> ProviderSuccess[HistoricalOpeningEvidence] | ProviderFailure:
++        capability = "historical_opening_evidence"
++        digest = _request_digest(
++            capability,
++            {
++                "instrument_ids": [str(item) for item in sorted(request.instrument_ids)],
++                "session_date": request.session_date.isoformat(),
++            },
++        )
++        if not callable(getattr(self._client, "historical_opening_evidence", None)):
++            return self._failure(
++                error_code=ProviderErrorCode.UNSUPPORTED_CAPABILITY,
++                message="client has no historical opening execution capability",
++                capability=capability,
++                request_digest=digest,
++            )
++        collected = self._collect_frames(
++            capability=capability,
++            request_digest=digest,
++            calls=[
++                (
++                    item,
++                    lambda item=item: self._client.historical_opening_evidence(
++                        instrument_id=item, session_date=request.session_date
++                    ),
++                )
++                for item in sorted(request.instrument_ids)
++            ],
++        )
++        if isinstance(collected, ProviderFailure):
++            return collected
++        frames, retrieved_at, warnings = collected
++        composite, upstream = self._composite(frames)
++        try:
++            records = tuple(
++                HistoricalOpeningEvidence.from_payload(frame["payload"]) for frame in frames
++            )
++            for record, frame in zip(records, frames):
++                if (
++                    str(record.instrument_id) != frame["instrument_id"]
++                    or record.session_date != request.session_date
++                ):
++                    raise ValueError("historical opening identity differs from request")
++        except (ValueError, KeyError, TypeError) as error:
++            return self._failure(
++                error_code=ProviderErrorCode.MALFORMED_DATA,
++                message=str(error),
++                capability=capability,
++                request_digest=digest,
++                payload=composite,
++                upstream_source=upstream,
++                retrieved_at=retrieved_at,
++                cause=error,
++            )
++        return ProviderSuccess(
++            records,
++            self._evidence(
++                capability=capability,
++                payload=composite,
++                upstream_source=upstream,
++                request_digest=digest,
++                record_count=len(records),
++                retrieved_at=retrieved_at,
++                warnings=tuple(warnings),
++            ),
++        )
+ 
+     def fetch_corporate_actions(
+         self, request: CorporateActionRequest
+@@ -1161,6 +1360,17 @@
+         except ChStockDataAdapterError as error:
+             translated = self._translate_exception(error)
+             assert translated is not None
++            if isinstance(error, HistoricalSuspensionUnavailableError):
++                return self._failure(
++                    error_code=translated[0],
++                    message=translated[1],
++                    capability=capability,
++                    request_digest=request_digest,
++                    payload=error.payload,
++                    upstream_source="chstockdata.get_suspension_info",
++                    retrieved_at=retrieved_at,
++                    cause=error,
++                )
+             return self._failure(
+                 error_code=translated[0],
+                 message=translated[1],
+@@ -1317,11 +1527,9 @@
+                     availability_basis=AvailabilityBasis.OBSERVED,
+                 )
+             return Availability(
+-                information_available_at=datetime.combine(
+-                    session_date, EXCHANGE_SESSION_OPEN, tzinfo=MARKET_TIMEZONE
+-                ),
++                information_available_at=None,
+                 retrieved_at=retrieved_at,
+-                availability_basis=AvailabilityBasis.EXCHANGE_RULE,
++                availability_basis=AvailabilityBasis.UNKNOWN,
+             )
+         except (MarketDataError, ValueError) as error:
+             raise ChStockDataMalformedError(str(error)) from error
+@@ -1528,6 +1736,17 @@
+         except ChStockDataAdapterError as error:
+             translated = self._translate_exception(error)
+             assert translated is not None
++            if isinstance(error, HistoricalSuspensionUnavailableError):
++                return self._failure(
++                    error_code=translated[0],
++                    message=translated[1],
++                    capability=capability,
++                    request_digest=request_digest,
++                    payload=error.payload,
++                    upstream_source="chstockdata.get_suspension_info",
++                    retrieved_at=retrieved_at,
++                    cause=error,
++                )
+             return self._failure(
+                 error_code=translated[0],
+                 message=translated[1],
+--- frozen/src/systematic_investing/backtest/engine.py
++++ current/src/systematic_investing/backtest/engine.py
+@@ -36,6 +36,12 @@
+ from typing import Protocol
+ 
+ from systematic_investing import DEFAULT_INITIAL_CAPITAL
++from systematic_investing.domain.historical_opening import (
++    HistoricalOpeningEvidence,
++    ExecutionEligibilityMode,
++    HISTORICAL_SUSPENSION_GAP,
++    SHANGHAI,
++)
+ from systematic_investing.backtest.accounting import (
+     AccountingSemantics,
+     apply_corporate_action,
+@@ -107,7 +113,7 @@
+     """Base class for deterministic engine contract errors."""
+ 
+ 
+-class InvalidEngineInputError(EngineError):
++class InvalidEngineInputError(EngineError, ValueError):
+     """Raised when frozen engine inputs are inconsistent or ambiguous."""
+ 
+ 
+@@ -143,6 +149,22 @@
+     activation_local_time: time = time(9, 15)
+     execution_local_time: time = time(9, 30)
+     decision_local_time: time = time(15, 30)
++
++    @classmethod
++    def shanghai(cls):
++        """R2.1 market clock; legacy construction keeps UTC defaults."""
++        return cls(timezone=SHANGHAI)
++
++    def validate_historical_opening(self):
++        day = date(2026, 9, 11)
++        expected = type(self).shanghai()
++        for method in ("activation_cutoff", "execution_at", "decision_cutoff"):
++            instant = getattr(self, method)(day)
++            _require_aware(instant, method)
++            if instant != getattr(expected, method)(day):
++                raise InvalidEngineInputError(
++                    "historical opening requires Shanghai 09:15/09:30/15:30 clock"
++                )
+ 
+     def activation_cutoff(self, session_date: date) -> datetime:
+         """Knowledge cutoff for facts needed to activate pending plans."""
+@@ -585,9 +607,7 @@
+         master: InstrumentMaster,
+         account_fees: AccountFeeConfig,
+         execution_model: ExecutionModel,
+-        accounting_semantics: AccountingSemantics = (
+-            AccountingSemantics.CURRENT_M0_ACCOUNTING_2
+-        ),
++        accounting_semantics: AccountingSemantics = (AccountingSemantics.CURRENT_M0_ACCOUNTING_2),
+         bars: tuple[DailyBar, ...],
+         tradability: tuple[TradabilityStatus, ...],
+         corporate_actions: tuple[CorporateAction, ...],
+@@ -595,6 +615,8 @@
+         initial_cash: Money | None = None,
+         initial_positions: tuple[Position, ...] = (),
+         risk_transformation: RiskTransformation | None = None,
++        historical_opening_evidence: tuple[HistoricalOpeningEvidence, ...] = (),
++        execution_eligibility_mode: ExecutionEligibilityMode = ExecutionEligibilityMode.LEGACY,
+     ) -> None:
+         if not isinstance(calendar, MarketCalendar):
+             raise InvalidEngineInputError("calendar must be a MarketCalendar")
+@@ -613,6 +635,22 @@
+         cash = initial_cash if initial_cash is not None else Money(DEFAULT_INITIAL_CAPITAL)
+         if not isinstance(cash, Money) or cash.amount < 0:
+             raise InvalidEngineInputError("initial_cash must be non-negative Money")
++        if not isinstance(execution_eligibility_mode, ExecutionEligibilityMode):
++            raise InvalidEngineInputError("execution_eligibility_mode must be explicit enum")
++        if execution_eligibility_mode is ExecutionEligibilityMode.HISTORICAL_OPENING_R21:
++            clock.validate_historical_opening()
++            if not historical_opening_evidence:
++                raise InvalidEngineInputError("historical opening mode requires execution evidence")
++        self._historical_opening_evidence = tuple(historical_opening_evidence)
++        self._execution_eligibility_mode = execution_eligibility_mode
++        seen_opening = set()
++        for fact in self._historical_opening_evidence:
++            if not isinstance(fact, HistoricalOpeningEvidence):
++                raise InvalidEngineInputError("invalid historical opening evidence")
++            key = (fact.instrument_id, fact.session_date)
++            if key in seen_opening:
++                raise InvalidEngineInputError("duplicate historical opening fact")
++            seen_opening.add(key)
+         self._calendar = calendar
+         self._clock = clock
+         self._master = master
+@@ -903,11 +941,21 @@
+         cutoff = self._clock.activation_cutoff(session_date)
+         tradability: dict[InstrumentId, TradabilityStatus] = {}
+         for record in self._tradability_by_session.get(session_date, ()):
+-            if record.availability.information_known_at(cutoff) is True:
++            if record.availability.information_known_at(cutoff) is True or (
++                self._execution_eligibility_mode is ExecutionEligibilityMode.HISTORICAL_OPENING_R21
++                and (record.status.value != "TRADABLE")
++            ):
+                 tradability[record.instrument_id] = record
+         rules = {}
+         for plan in plans:
+             try:
++                if self._execution_eligibility_mode is ExecutionEligibilityMode.HISTORICAL_OPENING_R21:
++                    instrument = self._master.resolve_instrument(plan.instrument_id, session_date)
++                    # Approved rules cannot authorize execution outside listing life.
++                    if instrument.list_date > session_date or (
++                        instrument.delist_date is not None and session_date >= instrument.delist_date
++                    ):
++                        continue
+                 rules[plan.instrument_id] = self._master.resolve_rules(
+                     plan.instrument_id, session_date
+                 )
+@@ -925,6 +973,12 @@
+             calendar=self._calendar,
+             execution_session=session_date,
+             recorded_at=self._clock.execution_at(session_date),
++            historical_opening_evidence={
++                fact.instrument_id: fact
++                for fact in self._historical_opening_evidence
++                if fact.session_date == session_date
++            },
++            execution_eligibility_mode=self._execution_eligibility_mode,
+         )
+ 
+     def _value_at_close(
+--- frozen/src/systematic_investing/backtest/execution.py
++++ current/src/systematic_investing/backtest/execution.py
+@@ -37,6 +37,11 @@
+     CashLedgerEntry,
+     HoldingsLedgerEntry,
+     Position,
++)
++from systematic_investing.domain.historical_opening import (
++    ExecutionEligibilityMode,
++    HISTORICAL_SUSPENSION_GAP,
++    SHANGHAI,
+ )
+ from systematic_investing.domain.market import TradeSide
+ from systematic_investing.domain.money import Money
+@@ -246,11 +251,34 @@
+ 
+ 
+ def _tradability_gate(
+-    plan: PendingPlan, tradability, side: TradeSide
++    plan: PendingPlan,
++    tradability,
++    side: TradeSide,
++    historical_opening_evidence=None,
++    execution_eligibility_mode=ExecutionEligibilityMode.LEGACY,
++    recorded_at=None,
+ ) -> RejectionCode | None:
+     status = tradability.get(plan.instrument_id)
+     if status is None:
+         return RejectionCode.TRADABILITY_UNKNOWN
++    gap = status.status.value == "UNKNOWN" and status.reason == HISTORICAL_SUSPENSION_GAP
++    if execution_eligibility_mode is ExecutionEligibilityMode.HISTORICAL_OPENING_R21:
++        if not status.permits(side) and not gap:
++            return _REJECTION_BY_STATUS[status.status.value]
++        fact = (historical_opening_evidence or {}).get(plan.instrument_id)
++        if (
++            fact is None
++            or recorded_at is None
++            or recorded_at.tzinfo is None
++            or fact.target_execution_at != recorded_at
++            or fact.session_date != recorded_at.astimezone(SHANGHAI).date()
++        ):
++            return RejectionCode.TRADABILITY_UNKNOWN
++        if fact.opening_status == "BLOCKED_CONFIRMED":
++            return RejectionCode.SUSPENDED
++        if fact.opening_status != "OPEN_ACTIVITY_CONFIRMED":
++            return RejectionCode.TRADABILITY_UNKNOWN
++        return None
+     if not status.permits(side):
+         return _REJECTION_BY_STATUS[status.status.value]
+     return None
+@@ -269,6 +297,8 @@
+     calendar,
+     execution_session: date,
+     recorded_at: datetime,
++    historical_opening_evidence=None,
++    execution_eligibility_mode: ExecutionEligibilityMode = ExecutionEligibilityMode.LEGACY,
+ ) -> ActivationResult:
+     """Globally affordable, deterministic T+1 activation.
+ 
+@@ -314,7 +344,14 @@
+         if bundle is None:
+             reject(plan, RejectionCode.MISSING_RULE, "no approved rule bundle")
+             continue
+-        rejection_code = _tradability_gate(plan, tradability, TradeSide.SELL)
++        rejection_code = _tradability_gate(
++            plan,
++            tradability,
++            TradeSide.SELL,
++            historical_opening_evidence,
++            execution_eligibility_mode,
++            recorded_at,
++        )
+         if rejection_code is not None:
+             reject(
+                 plan,
+@@ -388,7 +425,14 @@
+         if bundle is None:
+             reject(plan, RejectionCode.MISSING_RULE, "no approved rule bundle")
+             continue
+-        rejection_code = _tradability_gate(plan, tradability, TradeSide.BUY)
++        rejection_code = _tradability_gate(
++            plan,
++            tradability,
++            TradeSide.BUY,
++            historical_opening_evidence,
++            execution_eligibility_mode,
++            recorded_at,
++        )
+         if rejection_code is not None:
+             reject(
+                 plan,
+--- frozen/src/systematic_investing/data/ports.py
++++ current/src/systematic_investing/data/ports.py
+@@ -23,6 +23,7 @@
+     TradabilityStatus,
+     TradingSession,
+ )
++from systematic_investing.domain.historical_opening import HistoricalOpeningEvidence
+ 
+ 
+ class InvalidPortRequestError(ValueError):
+@@ -92,6 +93,16 @@
+ 
+ 
+ @dataclass(frozen=True)
++class HistoricalOpeningRequest:
++    instrument_ids: tuple[InstrumentId, ...]
++    session_date: date
++
++    def __post_init__(self):
++        _validated_universe(self.instrument_ids)
++        require_session_date(self.session_date)
++
++
++@dataclass(frozen=True)
+ class CorporateActionRequest:
+     """Corporate actions and adjustment metadata for a universe over a range.
+ 
+@@ -148,3 +159,14 @@
+     ) -> ProviderSuccess[CorporateAction] | ProviderFailure:
+         """Versioned corporate actions and adjustment metadata."""
+         ...
++
++
++@runtime_checkable
++class HistoricalOpeningProviderPort(Protocol):
++    """Explicit optional historical execution capability."""
++
++    def fetch_historical_opening_evidence(
++        self, request: HistoricalOpeningRequest
++    ) -> ProviderSuccess[HistoricalOpeningEvidence] | ProviderFailure:
++        """Execution facts independent of PIT tradability."""
++        ...
+--- frozen/src/systematic_investing/data/quality.py
++++ current/src/systematic_investing/data/quality.py
+@@ -19,6 +19,7 @@
+ from types import MappingProxyType
+ 
+ from systematic_investing.domain.identifiers import InstrumentId, require_session_date
++from systematic_investing.domain.historical_opening import HistoricalOpeningEvidence
+ from systematic_investing.domain.market import (
+     CANONICAL_RECORD_SCHEMA_VERSION,
+     Availability,
+@@ -127,8 +128,15 @@
+     tradability: tuple[TradabilityStatus, ...]
+     corporate_actions: tuple[CorporateAction, ...]
+     rule_candidates: tuple[RuleCandidate, ...]
++    historical_opening_evidence: tuple[HistoricalOpeningEvidence, ...] = ()
+ 
+     def __post_init__(self) -> None:
++        if not isinstance(self.historical_opening_evidence, tuple) or not all(
++            isinstance(item, HistoricalOpeningEvidence) for item in self.historical_opening_evidence
++        ):
++            raise QualityGateError(
++                "historical_opening_evidence must contain HistoricalOpeningEvidence"
++            )
+         if not isinstance(self.daily_bars, tuple) or not all(
+             isinstance(item, DailyBar) for item in self.daily_bars
+         ):
+@@ -163,6 +171,14 @@
+         ):
+             for record in sorted(records, key=repr):
+                 lines.append(f"{kind}={record!r}")
++        if self.historical_opening_evidence:
++            lines.append("historical_opening_evidence_v1")
++            lines.extend(
++                "historical_opening_evidence=" + fact.payload_json
++                for fact in sorted(
++                    self.historical_opening_evidence, key=lambda item: item.payload_json
++                )
++            )
+         return _digest(lines)
+ 
+ 
+--- frozen/src/systematic_investing/data/snapshots.py
++++ current/src/systematic_investing/data/snapshots.py
+@@ -35,7 +35,17 @@
+     AvailabilityBasis,
+ )
+ 
++from systematic_investing.domain.historical_opening import (
++    HistoricalOpeningEvidence,
++    ExecutionEligibilityMode,
++    OPENING_POLICY,
++    OPENING_SCHEMA,
++    OPENING_CLOCK_ID,
++    opening_evidence_digest,
++)
++
+ SNAPSHOT_SCHEMA_VERSION: Final[str] = "v2"
++HISTORICAL_OPENING_SNAPSHOT_VERSION: Final[str] = "v3-historical-opening"
+ ADJUSTMENT_POLICY_RAW_WITH_PIT_FACTORS: Final[str] = "RAW_WITH_POINT_IN_TIME_FACTORS"
+ 
+ 
+@@ -132,13 +142,17 @@
+     artifacts: tuple[SnapshotArtifact, ...],
+     quality_report_id: str | None,
+     quality_status: str | None,
++    snapshot_schema_version: str = SNAPSHOT_SCHEMA_VERSION,
++    execution_policy: str | None = None,
++    execution_clock: str | None = None,
++    execution_evidence_digest: str | None = None,
+ ) -> str:
+     """Content digest over data semantics: deliberately excludes the
+     wall-clock ``created_at``/``retrieved_at`` so identical content acquired
+     at different times shares one identity, while any data, metadata,
+     availability-semantics, or artifact change yields a new id."""
+     lines = [
+-        f"snapshot_schema_version={SNAPSHOT_SCHEMA_VERSION}",
++        f"snapshot_schema_version={snapshot_schema_version}",
+         f"knowledge_cutoff={knowledge_cutoff.isoformat()}",
+         f"provider={provider_name},{provider_version}",
+         f"adapter_version={adapter_version}",
+@@ -151,6 +165,14 @@
+         f"quality_report_id={quality_report_id}",
+         f"quality_status={quality_status}",
+     ]
++    if snapshot_schema_version == HISTORICAL_OPENING_SNAPSHOT_VERSION:
++        lines.extend(
++            (
++                f"execution_policy={execution_policy}",
++                f"execution_clock={execution_clock}",
++                f"execution_evidence_digest={execution_evidence_digest}",
++            )
++        )
+     for artifact in sorted(artifacts, key=lambda item: item.render()):
+         lines.append(f"artifact={artifact.render()}")
+     return _digest(lines)
+@@ -177,13 +199,50 @@
+     quality_status: str | None = None
+     snapshot_schema_version: str = SNAPSHOT_SCHEMA_VERSION
+     snapshot_id: str | None = None
++    execution_policy: str | None = None
++    execution_clock: str | None = None
++    execution_evidence_digest: str | None = None
+ 
+     def __post_init__(self) -> None:
+         object.__setattr__(self, "schemas", MappingProxyType(dict(self.schemas)))
+-        if self.snapshot_schema_version != SNAPSHOT_SCHEMA_VERSION:
++        if self.snapshot_schema_version not in (
++            SNAPSHOT_SCHEMA_VERSION,
++            HISTORICAL_OPENING_SNAPSHOT_VERSION,
++        ):
+             raise InvalidSnapshotManifestError(
+                 f"unsupported snapshot manifest schema version "
+                 f"{self.snapshot_schema_version!r}"
++            )
++        if self.snapshot_schema_version == HISTORICAL_OPENING_SNAPSHOT_VERSION:
++            if (
++                self.execution_policy != OPENING_POLICY
++                or self.execution_clock != OPENING_CLOCK_ID
++                or not self.execution_evidence_digest
++            ):
++                raise InvalidSnapshotManifestError(
++                    "historical opening snapshot requires policy/Shanghai clock/evidence identity"
++                )
++            if (
++                self.schemas.get("historical_opening_evidence") != OPENING_SCHEMA
++                or sum(a.logical_partition == "historical_opening_evidence" for a in self.artifacts)
++                != 1
++            ):
++                raise InvalidSnapshotManifestError(
++                    "historical opening snapshot requires execution partition"
++                )
++        elif (
++            any(
++                value is not None
++                for value in (
++                    self.execution_policy,
++                    self.execution_clock,
++                    self.execution_evidence_digest,
++                )
++            )
++            or "historical_opening_evidence" in self.schemas
++        ):
++            raise InvalidSnapshotManifestError(
++                "legacy v2 cannot carry historical opening semantics"
+             )
+         _require_aware(self.created_at, "created_at")
+         _require_aware(self.knowledge_cutoff, "knowledge_cutoff")
+@@ -236,6 +295,10 @@
+             artifacts=self.artifacts,
+             quality_report_id=self.quality_report_id,
+             quality_status=self.quality_status,
++            snapshot_schema_version=self.snapshot_schema_version,
++            execution_policy=self.execution_policy,
++            execution_clock=self.execution_clock,
++            execution_evidence_digest=self.execution_evidence_digest,
+         )
+         if self.snapshot_id is None:
+             object.__setattr__(self, "snapshot_id", computed)
+@@ -262,6 +325,10 @@
+ }
+ 
+ _RECORD_KINDS: Final[tuple[str, ...]] = tuple(_RECORD_SERIALIZERS)
++_RECORD_SERIALIZERS["historical_opening_evidence"] = (
++    lambda fact: fact.payload,
++    HistoricalOpeningEvidence.from_payload,
++)
+ 
+ 
+ def _records_of_kind(dataset: CanonicalDataset, kind: str) -> tuple:
+@@ -270,11 +337,12 @@
+         "trading_session": dataset.sessions,
+         "tradability_status": dataset.tradability,
+         "corporate_action": dataset.corporate_actions,
++        "historical_opening_evidence": dataset.historical_opening_evidence,
+     }[kind]
+ 
+ 
+ def manifest_to_dict(manifest: DataSnapshotManifest) -> dict:
+-    return {
++    payload = {
+         "snapshot_schema_version": manifest.snapshot_schema_version,
+         "snapshot_id": manifest.snapshot_id,
+         "created_at": manifest.created_at.isoformat(),
+@@ -305,6 +373,13 @@
+         "quality_report_id": manifest.quality_report_id,
+         "quality_status": manifest.quality_status,
+     }
++    if manifest.snapshot_schema_version == HISTORICAL_OPENING_SNAPSHOT_VERSION:
++        payload.update(
++            execution_policy=manifest.execution_policy,
++            execution_clock=manifest.execution_clock,
++            execution_evidence_digest=manifest.execution_evidence_digest,
++        )
++    return payload
+ 
+ 
+ def manifest_from_dict(data) -> DataSnapshotManifest:
+@@ -343,6 +418,10 @@
+             quality_report_id=data.get("quality_report_id"),
+             quality_status=data.get("quality_status"),
+             snapshot_id=data["snapshot_id"],
++            snapshot_schema_version=data["snapshot_schema_version"],
++            execution_policy=data.get("execution_policy"),
++            execution_clock=data.get("execution_clock"),
++            execution_evidence_digest=data.get("execution_evidence_digest"),
+         )
+     except SnapshotError:
+         raise
+@@ -368,11 +447,19 @@
+         retrieved_at: datetime,
+         quality_report_id: str | None = "sha256:" + "0" * 64,
+         quality_status: str | None = "PASS",
++        execution_eligibility_mode: ExecutionEligibilityMode = ExecutionEligibilityMode.LEGACY,
+     ) -> DataSnapshotManifest:
+         if not dataset.daily_bars:
+             raise InvalidSnapshotManifestError(
+                 "a snapshot requires at least one daily bar to scope its identity"
+             )
++        historical = (
++            bool(dataset.historical_opening_evidence)
++            or execution_eligibility_mode is ExecutionEligibilityMode.HISTORICAL_OPENING_R21
++        )
++        if historical and not dataset.historical_opening_evidence:
++            raise InvalidSnapshotManifestError("historical opening mode requires execution facts")
++        kinds = (*_RECORD_KINDS, "historical_opening_evidence") if historical else _RECORD_KINDS
+         directory = Path(snapshot_dir)
+         manifest_path = directory / "manifest.json"
+         if manifest_path.exists():
+@@ -382,7 +469,7 @@
+         artifacts_dir = directory / "artifacts"
+         artifacts_dir.mkdir(parents=True, exist_ok=True)
+         artifacts: list[SnapshotArtifact] = []
+-        for kind in _RECORD_KINDS:
++        for kind in kinds:
+             to_dict, _ = _RECORD_SERIALIZERS[kind]
+             records = _records_of_kind(dataset, kind)
+             lines = sorted(_canonical_json(to_dict(record)) for record in records)
+@@ -402,7 +489,20 @@
+             provider_name=self.provider_name,
+             provider_version=self.provider_version,
+             adapter_version=self.adapter_version,
+-            schemas={kind: CANONICAL_RECORD_SCHEMA_VERSION for kind in _RECORD_KINDS},
++            schemas={
++                kind: OPENING_SCHEMA
++                if kind == "historical_opening_evidence"
++                else CANONICAL_RECORD_SCHEMA_VERSION
++                for kind in kinds
++            },
++            snapshot_schema_version=HISTORICAL_OPENING_SNAPSHOT_VERSION
++            if historical
++            else SNAPSHOT_SCHEMA_VERSION,
++            execution_policy=OPENING_POLICY if historical else None,
++            execution_clock=OPENING_CLOCK_ID if historical else None,
++            execution_evidence_digest=opening_evidence_digest(dataset.historical_opening_evidence)
++            if historical
++            else None,
+             scope_instrument_ids=tuple(sorted({bar.instrument_id for bar in dataset.daily_bars})),
+             scope_start=min(bar.session_date for bar in dataset.daily_bars),
+             scope_end=max(bar.session_date for bar in dataset.daily_bars),
+@@ -426,6 +526,7 @@
+         *dataset.daily_bars,
+         *dataset.tradability,
+         *dataset.corporate_actions,
++        *dataset.historical_opening_evidence,
+     ):
+         bases.add(record.availability.availability_basis)
+     return sorted(bases, key=lambda basis: basis.value)
+@@ -435,13 +536,33 @@
+ class SnapshotReader:
+     """Load a snapshot directory, verifying content against the manifest."""
+ 
+-    def load(self, snapshot_dir) -> tuple[DataSnapshotManifest, CanonicalDataset]:
++    def load(
++        self,
++        snapshot_dir,
++        *,
++        execution_eligibility_mode: ExecutionEligibilityMode = ExecutionEligibilityMode.LEGACY,
++    ) -> tuple[DataSnapshotManifest, CanonicalDataset]:
+         directory = Path(snapshot_dir)
+         manifest_path = directory / "manifest.json"
+         if not manifest_path.exists():
+             raise SnapshotIntegrityError(f"no manifest at {manifest_path}")
+         manifest = manifest_from_dict(json.loads(manifest_path.read_text(encoding="utf-8")))
+-        records_by_kind: dict[str, list] = {kind: [] for kind in _RECORD_KINDS}
++        if (
++            execution_eligibility_mode is ExecutionEligibilityMode.HISTORICAL_OPENING_R21
++            and manifest.snapshot_schema_version != HISTORICAL_OPENING_SNAPSHOT_VERSION
++        ):
++            raise SnapshotIntegrityError("legacy snapshot lacks historical execution identity")
++        kinds = (
++            (*_RECORD_KINDS, "historical_opening_evidence")
++            if manifest.snapshot_schema_version == HISTORICAL_OPENING_SNAPSHOT_VERSION
++            else _RECORD_KINDS
++        )
++        if set(a.logical_partition for a in manifest.artifacts) != set(kinds) or len(
++            manifest.artifacts
++        ) != len(kinds):
++            raise SnapshotIntegrityError("snapshot partitions do not match schema")
++        records_by_kind: dict[str, list] = {kind: [] for kind in kinds}
++        verified = []
+         for artifact in manifest.artifacts:
+             file_path = directory / "artifacts" / f"{artifact.logical_partition}.jsonl"
+             if not file_path.exists():
+@@ -452,6 +573,8 @@
+                     f"artifact checksum mismatch for {file_path}: manifest records "
+                     f"{artifact.checksum}"
+                 )
++            verified.append((artifact, file_path, content))
++        for artifact, file_path, content in verified:
+             _, from_dict = _RECORD_SERIALIZERS[artifact.logical_partition]
+             for line in content.decode("utf-8").splitlines():
+                 if not line:
+@@ -469,5 +592,19 @@
+             tradability=tuple(records_by_kind["tradability_status"]),
+             corporate_actions=tuple(records_by_kind["corporate_action"]),
+             rule_candidates=(),
+-        )
++            historical_opening_evidence=tuple(
++                records_by_kind.get("historical_opening_evidence", ())
++            ),
++        )
++        if (
++            manifest.snapshot_schema_version == HISTORICAL_OPENING_SNAPSHOT_VERSION
++            and opening_evidence_digest(dataset.historical_opening_evidence)
++            != manifest.execution_evidence_digest
++        ):
++            raise SnapshotIntegrityError("historical opening evidence digest mismatch")
++        if (
++            execution_eligibility_mode is ExecutionEligibilityMode.HISTORICAL_OPENING_R21
++            and not dataset.historical_opening_evidence
++        ):
++            raise SnapshotIntegrityError("historical opening snapshot has no execution facts")
+         return manifest, dataset
+--- frozen/src/systematic_investing/domain/historical_opening.py
++++ current/src/systematic_investing/domain/historical_opening.py
+@@ -0,0 +1,178 @@
++"""Execution-only historical opening facts; never strategy PIT tradability."""
++
++import json
++from dataclasses import dataclass
++from datetime import date, datetime, time, timedelta, timezone
++from enum import StrEnum
++from hashlib import sha256
++from systematic_investing.domain.identifiers import InstrumentId
++from systematic_investing.domain.market import Availability, AvailabilityBasis
++
++HISTORICAL_SUSPENSION_GAP = "HISTORICAL_SUSPENSION_COVERAGE_UNAVAILABLE"
++OPENING_POLICY = "R2.1"
++OPENING_SCHEMA = "historical-opening-evidence/1"
++SHANGHAI = timezone(timedelta(hours=8), "Asia/Shanghai")
++OPENING_CLOCK_ID = "Asia/Shanghai|09:15:00|09:30:00|15:30:00"
++
++
++class ExecutionEligibilityMode(StrEnum):
++    LEGACY = "LEGACY"
++    HISTORICAL_OPENING_R21 = "HISTORICAL_OPENING_R21"
++
++
++def _aware(text):
++    value = datetime.fromisoformat(text)
++    if value.tzinfo is None or value.utcoffset() is None:
++        raise ValueError("historical opening timestamps must be aware")
++    return value
++
++
++def _json(data):
++    return json.dumps(
++        data, sort_keys=True, separators=(",", ":"), ensure_ascii=False, allow_nan=False
++    )
++
++
++@dataclass(frozen=True)
++class HistoricalOpeningEvidence:
++    """Immutable full source payload. Accessors return copies, preserving hashes."""
++
++    payload_json: str
++
++    def __post_init__(self):
++        data = json.loads(self.payload_json)
++        expected = data.pop("evidence_hash")
++        if expected != sha256(_json(data).encode("utf-8")).hexdigest():
++            raise ValueError("historical opening evidence_hash mismatch")
++        data["evidence_hash"] = expected
++        if (
++            data["schema_version"] != OPENING_SCHEMA
++            or data["policy_version"] != OPENING_POLICY
++            or data["purpose"] != "historical_opening_execution_constraint"
++        ):
++            raise ValueError("unsupported historical opening policy/schema/purpose")
++        self.instrument_id
++        day = self.session_date
++        target = self.target_execution_at
++        expected_target = datetime.combine(day, time(9, 30), tzinfo=SHANGHAI)
++        window = data["execution_effect_window"]
++        if (
++            target != expected_target
++            or _aware(window["start"]) != target
++            or _aware(window["end"]) != target + timedelta(minutes=1)
++        ):
++            raise ValueError("historical opening target must be Shanghai [09:30,09:31)")
++        self.availability
++        if data["opening_status"] not in (
++            "OPEN_ACTIVITY_CONFIRMED",
++            "BLOCKED_CONFIRMED",
++            "UNKNOWN",
++        ):
++            raise ValueError("unknown opening_status")
++        if not isinstance(data["source_conflict"], bool) or not isinstance(
++            data["official_block_at_target"], bool
++        ):
++            raise ValueError("opening block/conflict flags must be boolean")
++        if data["opening_status"] == "OPEN_ACTIVITY_CONFIRMED":
++            query = data["official_query"]
++            tdx = data["tdx_activity"]
++            if data["source_conflict"] or data["official_block_at_target"]:
++                raise ValueError("positive opening evidence conflicts with official block")
++            if (
++                query["status"] not in ("success", "normal_empty")
++                or query["pagination_complete"] is not True
++                or query["all_returned_rows_considered"] is not True
++                or query["instrument"] != data["instrument"]
++                or query["market"] != data["market"]
++                or query["query_range"] != [day.isoformat(), day.isoformat()]
++                or not query.get("range_kind")
++            ):
++                raise ValueError("opening evidence needs successful bounded official query")
++            if (
++                tdx["qualified"] is not True
++                or tdx["instrument"] != data["instrument"]
++                or tdx["session_date"] != day.isoformat()
++                or tdx["opening_volume_lots"] <= 0
++                or tdx["command"] != "0x0fb5"
++                or tdx.get("opening_crosscheck_complete") is not True
++            ):
++                raise ValueError("opening evidence needs certified positive TDX activity")
++            for event in data["official_events"]:
++                if (
++                    event["instrument"] != data["instrument"]
++                    or event["market"] != data["market"]
++                    or event.get("secondary_market") is not True
++                ):
++                    raise ValueError("official interval identity/scope unknown")
++                start = _aware(event["effective_start"])
++                end = _aware(event["effective_end"]) if event["effective_end"] else None
++                if target < start < target + timedelta(minutes=1) or (
++                    end is not None and target < end < target + timedelta(minutes=1)
++                ):
++                    raise ValueError("official boundary inside activity window cannot be ordered")
++                if start <= target and (end is None or target < end):
++                    raise ValueError("official interval vetoes opening execution")
++        object.__setattr__(self, "payload_json", _json(data))
++
++    @classmethod
++    def from_payload(cls, payload):
++        return cls(_json(dict(payload)))
++
++    @property
++    def payload(self):
++        return json.loads(self.payload_json)
++
++    @property
++    def instrument_id(self):
++        data = self.payload
++        market = {"SSE": "XSHG", "SZSE": "XSHE"}.get(data["market"])
++        if market is None:
++            raise ValueError("unknown opening market")
++        return InstrumentId.parse(market + ":" + data["instrument"])
++
++    @property
++    def session_date(self):
++        return date.fromisoformat(self.payload["session_date"])
++
++    @property
++    def target_execution_at(self):
++        return _aware(self.payload["target_execution_at"])
++
++    @property
++    def availability(self):
++        data = self.payload
++        return Availability(
++            _aware(data["information_available_at"]) if data["information_available_at"] else None,
++            _aware(data["retrieved_at"]),
++            AvailabilityBasis(data["information_basis"]),
++        )
++
++    @property
++    def opening_status(self):
++        return self.payload["opening_status"]
++
++    @property
++    def evidence_hash(self):
++        return self.payload["evidence_hash"]
++
++
++def opening_evidence_digest(facts):
++    return sha256(
++        "\n".join(sorted(fact.payload_json for fact in facts)).encode("utf-8")
++    ).hexdigest()
++
++
++def execution_identity(base, mode, facts, clock_id=OPENING_CLOCK_ID):
++    if mode is ExecutionEligibilityMode.LEGACY:
++        return base
++    return (
++        base
++        + "|"
++        + mode.value
++        + "|"
++        + OPENING_POLICY
++        + "|"
++        + clock_id
++        + "|"
++        + opening_evidence_digest(facts)
++    )
+--- frozen/src/systematic_investing/research/cli.py
++++ current/src/systematic_investing/research/cli.py
+@@ -31,6 +31,8 @@
+ imports the owner materializer, and has no bypass flags: there is no way to
+ skip a gate, rewrite an artifact, force a verdict, or un-freeze a candidate.
+ """
++
++from systematic_investing.domain.historical_opening import ExecutionEligibilityMode
+ 
+ import argparse
+ import hashlib
+@@ -671,6 +673,8 @@
+         execution_model=wiring.execution_model,
+         bars=wiring.bars,
+         tradability=wiring.tradability,
++        historical_opening_evidence=wiring.historical_opening_evidence,
++        execution_eligibility_mode=wiring.execution_eligibility_mode,
+         corporate_actions=wiring.corporate_actions,
+         target_source=source,
+         initial_cash=wiring.initial_cash,
+@@ -820,6 +824,9 @@
+ 
+ 
+ def command_basic_backtest(args: argparse.Namespace) -> Mapping[str, object]:
++    execution_eligibility_mode = ExecutionEligibilityMode(
++        getattr(args, "execution_eligibility_mode", "LEGACY")
++    )
+     root = Path(args.root)
+     intent = _load_intent(Path(args.intent))
+     _require_screen_pass(root, intent)
+@@ -835,15 +842,15 @@
+             status=RUN_STATUS_RUN_FAILED_DATA,
+         )
+     try:
+-        loaded_manifest, loaded_dataset = SnapshotReader().load(snapshot_path.parent)
++        loaded_manifest, loaded_dataset = SnapshotReader().load(
++            snapshot_path.parent, execution_eligibility_mode=execution_eligibility_mode
++        )
+     except SnapshotIntegrityError as error:
+         _raise_retained_basic_failure(
+             root,
+             intent,
+             stage="snapshot-load",
+-            reason=(
+-                f"SNAPSHOT_INTEGRITY_INVALID: snapshot failed integrity verification: {error}"
+-            ),
++            reason=(f"SNAPSHOT_INTEGRITY_INVALID: snapshot failed integrity verification: {error}"),
+             status=RUN_STATUS_RUN_FAILED_DATA,
+         )
+     except Exception as error:
+@@ -896,8 +903,12 @@
+         )
+     try:
+         wiring = build_basic_wiring(
+-            loaded_dataset, intent, receipt, master=master,
++            loaded_dataset,
++            intent,
++            receipt,
++            master=master,
+             instrument_reference_digest=instrument_reference_digest,
++            execution_eligibility_mode=execution_eligibility_mode,
+         )
+     except RunWiringError as error:
+         _raise_retained_basic_failure(
+@@ -1147,6 +1158,9 @@
+ 
+ 
+ def command_oos_freeze(args: argparse.Namespace) -> Mapping[str, object]:
++    execution_eligibility_mode = ExecutionEligibilityMode(
++        getattr(args, "execution_eligibility_mode", "LEGACY")
++    )
+     root = Path(args.root)
+     intent_path = _resolve_candidate_path(root, args.candidate_id)
+     payload = read_json(intent_path)
+@@ -1184,6 +1198,7 @@
+             freeze,
+             intent,
+             unsupported_reason=REASON_FREEZE_KERNEL_UNSUPPORTED,
++            execution_eligibility_mode=execution_eligibility_mode,
+         )
+         reject_contaminated_oos_request(root, freeze)
+     except OosError as error:
+@@ -1231,6 +1246,9 @@
+ 
+ 
+ def command_oos_run(args: argparse.Namespace) -> Mapping[str, object]:
++    execution_eligibility_mode = ExecutionEligibilityMode(
++        getattr(args, "execution_eligibility_mode", "LEGACY")
++    )
+     """Run the frozen OOS candidate once and record its single verdict.
+ 
+     A failed oos-run retains only its reveal evidence — no result and no
+@@ -1277,10 +1295,10 @@
+     # under the old identity.
+     try:
+         selected_variant_id = enforce_freeze_strategy_identity(
+-            freeze_payload, intent
++            freeze_payload, intent, execution_eligibility_mode=execution_eligibility_mode
+         )
+         kernel_profile = resolve_freeze_kernel_replay_profile(
+-            freeze_payload, intent
++            freeze_payload, intent, execution_eligibility_mode=execution_eligibility_mode
+         )
+     except OosError as error:
+         raise _wrap_oos_failure(error) from error
+@@ -1296,7 +1314,7 @@
+             )
+         try:
+             warm_up_manifest, warm_up_loaded = SnapshotReader().load(
+-                warm_up_path.parent
++                warm_up_path.parent, execution_eligibility_mode=execution_eligibility_mode
+             )
+         except SnapshotIntegrityError as error:
+             raise CliFailure(
+@@ -1340,7 +1358,7 @@
+     try:
+         try:
+             loaded_manifest, loaded_dataset = SnapshotReader().load(
+-                snapshot_path.parent
++                snapshot_path.parent, execution_eligibility_mode=execution_eligibility_mode
+             )
+         except SnapshotIntegrityError as error:
+             raise CliFailure(
+@@ -1357,6 +1375,7 @@
+             warm_up_dataset=warm_up_dataset,
+             warm_up_snapshot_digest=warm_up_digest,
+             kernel_profile=kernel_profile,
++            execution_eligibility_mode=execution_eligibility_mode,
+         )
+         benchmark_total_return = oos_benchmark_total_return(wiring)
+         outcome = run_oos_variant(
+@@ -1600,6 +1619,14 @@
+     )
+     oos_run.add_argument("--root", required=True, help="experiments root directory")
+ 
++    for command in (basic, oos_freeze, oos_run):
++        command.add_argument(
++            "--execution-eligibility-mode",
++            choices=[mode.value for mode in ExecutionEligibilityMode],
++            default=ExecutionEligibilityMode.LEGACY.value,
++            help="explicit historical opening execution eligibility; legacy is the default",
++        )
++
+     select_oos = subparsers.add_parser(
+         "select-oos",
+         help="select the priority-qualified Basic candidate without opening OOS data",
+--- frozen/src/systematic_investing/research/intake.py
++++ current/src/systematic_investing/research/intake.py
+@@ -90,6 +90,9 @@
+     instrument_ids: tuple[InstrumentId, ...]
+     quality_status: str | None
+     annual_schedule: AnnualUniverseSchedule | None = None
++    execution_policy: str | None = None
++    execution_clock: str | None = None
++    execution_evidence_digest: str | None = None
+ 
+ 
+ def validate_basic_snapshot(
+@@ -158,6 +161,9 @@
+         )
+     bar_instruments = {bar.instrument_id for bar in dataset.daily_bars}
+     annual_schedule: AnnualUniverseSchedule | None = None
++    execution_policy: str | None = None
++    execution_clock: str | None = None
++    execution_evidence_digest: str | None = None
+     if intent.asset_class.value == "STOCK":
+         if master is None:
+             raise BasicSnapshotBoundaryError(
+@@ -225,6 +231,9 @@
+         instrument_ids=tuple(sorted(bar_instruments)),
+         quality_status=manifest.quality_status,
+         annual_schedule=annual_schedule,
++        execution_policy=manifest.execution_policy,
++        execution_clock=manifest.execution_clock,
++        execution_evidence_digest=manifest.execution_evidence_digest,
+     )
+ 
+ 
+--- frozen/src/systematic_investing/research/oos.py
++++ current/src/systematic_investing/research/oos.py
+@@ -49,6 +49,14 @@
+ )
+ from systematic_investing.backtest.execution import ExecutionModel
+ from systematic_investing.data.quality import CanonicalDataset
++from systematic_investing.domain.historical_opening import (
++    HistoricalOpeningEvidence,
++    ExecutionEligibilityMode,
++    OPENING_POLICY,
++    OPENING_CLOCK_ID,
++    opening_evidence_digest,
++    execution_identity,
++)
+ from systematic_investing.data.snapshots import DataSnapshotManifest
+ from systematic_investing.domain.execution import AccountFeeConfig, BrokerFeeProfile
+ from systematic_investing.domain.identifiers import InstrumentId
+@@ -96,6 +104,7 @@
+     UnsupportedKernelReplayError,
+     current_kernel_replay_profile,
+     resolve_kernel_replay_profile,
++    SUPPORTED_KERNEL_REPLAY_PROFILES,
+ )
+ from systematic_investing.research.runner import (
+     DEPENDENCY_DIGEST,
+@@ -763,9 +772,14 @@
+     intent: CandidateIntent,
+     *,
+     profile: KernelReplayProfile = current_kernel_replay_profile,
++    execution_eligibility_mode: ExecutionEligibilityMode = ExecutionEligibilityMode.LEGACY,
+ ) -> str:
+     """The selected kernel identity for an intent's frozen cost conventions."""
+-    return kernel_identity_digest(_intent_execution_model(intent), profile=profile)
++    return kernel_identity_digest(
++        _intent_execution_model(intent),
++        profile=profile,
++        execution_eligibility_mode=execution_eligibility_mode,
++    )
+ 
+ 
+ def resolve_freeze_kernel_replay_profile(
+@@ -773,6 +787,7 @@
+     intent: CandidateIntent,
+     *,
+     unsupported_reason: str = REASON_FREEZE_KERNEL_MISMATCH,
++    execution_eligibility_mode: ExecutionEligibilityMode = ExecutionEligibilityMode.LEGACY,
+ ) -> KernelReplayProfile:
+     """Resolve and validate the exact executable profile bound by a freeze."""
+     digest = freeze_payload.get("kernel_identity_digest")
+@@ -781,6 +796,20 @@
+             f"{unsupported_reason}: the freeze has no kernel identity digest"
+         )
+     try:
++        if execution_eligibility_mode is ExecutionEligibilityMode.HISTORICAL_OPENING_R21:
++            for profile in SUPPORTED_KERNEL_REPLAY_PROFILES:
++                if (
++                    oos_kernel_identity_digest(
++                        intent,
++                        profile=profile,
++                        execution_eligibility_mode=execution_eligibility_mode,
++                    )
++                    == digest
++                ):
++                    return profile
++            raise UnsupportedKernelReplayError(
++                "no historical opening replay profile matches the explicitly selected mode"
++            )
+         return resolve_kernel_replay_profile(
+             digest, _intent_execution_model(intent)
+         )
+@@ -794,6 +823,8 @@
+ def enforce_freeze_strategy_identity(
+     freeze_payload: Mapping[str, object],
+     intent: CandidateIntent,
++    *,
++    execution_eligibility_mode: ExecutionEligibilityMode = ExecutionEligibilityMode.LEGACY,
+ ) -> str:
+     """Enforce the freeze-bound strategy/kernel identity against the CURRENT
+     code, before any OOS data is opened.
+@@ -840,8 +871,12 @@
+             f"({freeze_payload.get('strategy_version')!r}); the implementation "
+             "changed after the freeze"
+         )
+-    kernel_profile = resolve_freeze_kernel_replay_profile(freeze_payload, intent)
+-    kernel_digest = kernel_profile.identity_digest(_intent_execution_model(intent))
++    kernel_profile = resolve_freeze_kernel_replay_profile(
++        freeze_payload, intent, execution_eligibility_mode=execution_eligibility_mode
++    )
++    kernel_digest = oos_kernel_identity_digest(
++        intent, profile=kernel_profile, execution_eligibility_mode=execution_eligibility_mode
++    )
+     if kernel_digest != freeze_payload.get("kernel_identity_digest"):
+         raise OosFreezeError(
+             f"{REASON_FREEZE_KERNEL_MISMATCH}: the running kernel identity "
+@@ -1185,6 +1220,9 @@
+     quality_status: str | None
+     universe: UniverseView
+     universe_schedule_digest: str
++    execution_policy: str | None = None
++    execution_clock: str | None = None
++    execution_evidence_digest: str | None = None
+ 
+ 
+ def validate_oos_snapshot(
+@@ -1292,6 +1330,9 @@
+         quality_status=quality,
+         universe=universe,
+         universe_schedule_digest=universe_view_digest(universe.instrument_ids),
++        execution_policy=manifest.execution_policy,
++        execution_clock=manifest.execution_clock,
++        execution_evidence_digest=manifest.execution_evidence_digest,
+     )
+ 
+ 
+@@ -1326,6 +1367,8 @@
+     code_commit: str
+     dependency_digest: str
+     kernel_profile: KernelReplayProfile = current_kernel_replay_profile
++    historical_opening_evidence: tuple[HistoricalOpeningEvidence, ...] = ()
++    execution_eligibility_mode: ExecutionEligibilityMode = ExecutionEligibilityMode.LEGACY
+ 
+ 
+ def _merged_oos_dataset(
+@@ -1395,6 +1438,10 @@
+         tradability=(*warm_up_dataset.tradability, *dataset.tradability),
+         corporate_actions=(*warm_up_dataset.corporate_actions, *dataset.corporate_actions),
+         rule_candidates=(),
++        historical_opening_evidence=(
++            *warm_up_dataset.historical_opening_evidence,
++            *dataset.historical_opening_evidence,
++        ),
+     )
+ 
+ 
+@@ -1425,6 +1472,7 @@
+     warm_up_dataset: CanonicalDataset | None = None,
+     warm_up_snapshot_digest: str | None = None,
+     kernel_profile: KernelReplayProfile = current_kernel_replay_profile,
++    execution_eligibility_mode: ExecutionEligibilityMode = ExecutionEligibilityMode.LEGACY,
+ ) -> OosWiring:
+     """Freeze the full OOS run wiring from the verified snapshot and intent.
+ 
+@@ -1439,6 +1487,18 @@
+             f"{REASON_STOCK_OOS_UNSUPPORTED}: Stock OOS runs are not "
+             "supported by the M1 OOS boundary"
+         )
++    if execution_eligibility_mode is ExecutionEligibilityMode.HISTORICAL_OPENING_R21:
++        if (
++            not dataset.historical_opening_evidence
++            or receipt.execution_policy != OPENING_POLICY
++            or receipt.execution_clock != OPENING_CLOCK_ID
++            or receipt.execution_evidence_digest
++            != opening_evidence_digest(dataset.historical_opening_evidence)
++            or receipt.dataset_digest != dataset.content_digest()
++        ):
++            raise OosExposureError(
++                "historical opening wiring requires verified snapshot policy/clock/evidence identity"
++            )
+     merged = _merged_oos_dataset(intent, dataset, warm_up_dataset)
+     if not merged.sessions:
+         raise OosExposureError(
+@@ -1493,7 +1553,11 @@
+         master=master,
+         account_fees=_account_fee_config(intent),
+         execution_model=_intent_execution_model(intent),
+-        clock=EngineClock(),
++        clock=EngineClock.shanghai()
++        if execution_eligibility_mode is ExecutionEligibilityMode.HISTORICAL_OPENING_R21
++        else EngineClock(),
++        historical_opening_evidence=merged.historical_opening_evidence,
++        execution_eligibility_mode=execution_eligibility_mode,
+         bars=tuple(merged.daily_bars),
+         tradability=tuple(merged.tradability),
+         corporate_actions=tuple(merged.corporate_actions),
+@@ -1536,6 +1600,8 @@
+         accounting_semantics=wiring.kernel_profile.accounting_semantics,
+         bars=wiring.bars,
+         tradability=wiring.tradability,
++        historical_opening_evidence=wiring.historical_opening_evidence,
++        execution_eligibility_mode=wiring.execution_eligibility_mode,
+         corporate_actions=wiring.corporate_actions,
+         target_source=source,
+         initial_cash=wiring.initial_cash,
+@@ -1659,6 +1725,8 @@
+             accounting_semantics=wiring.kernel_profile.accounting_semantics,
+             bars=wiring.bars,
+             tradability=wiring.tradability,
++            historical_opening_evidence=wiring.historical_opening_evidence,
++            execution_eligibility_mode=wiring.execution_eligibility_mode,
+             corporate_actions=wiring.corporate_actions,
+             target_source=adapter,
+             initial_cash=wiring.initial_cash,
+@@ -1722,11 +1790,11 @@
+         implementation_digest=identity.implementation_digest,
+         parameters_digest=identity.parameters_digest,
+         actual_snapshot_digest=wiring.snapshot_digest,
+-        actual_universe_schedule_digest=universe_view_digest(
+-            wiring.universe.instrument_ids
+-        ),
++        actual_universe_schedule_digest=universe_view_digest(wiring.universe.instrument_ids),
+         kernel_identity_digest=kernel_identity_digest(
+-            wiring.execution_model, profile=wiring.kernel_profile
++            wiring.execution_model,
++            profile=wiring.kernel_profile,
++            execution_eligibility_mode=wiring.execution_eligibility_mode,
+         ),
+         code_commit=wiring.code_commit,
+     )
+--- frozen/src/systematic_investing/research/runner.py
++++ current/src/systematic_investing/research/runner.py
+@@ -45,6 +45,14 @@
+     ExecutionModel,
+ )
+ from systematic_investing.data.quality import CanonicalDataset
++from systematic_investing.domain.historical_opening import (
++    HistoricalOpeningEvidence,
++    ExecutionEligibilityMode,
++    OPENING_POLICY,
++    OPENING_CLOCK_ID,
++    opening_evidence_digest,
++    execution_identity,
++)
+ from systematic_investing.domain.execution import (
+     AccountFeeConfig,
+     BrokerFeeProfile,
+@@ -393,9 +401,18 @@
+     execution_model: ExecutionModel,
+     *,
+     profile: KernelReplayProfile = current_kernel_replay_profile,
++    execution_eligibility_mode: ExecutionEligibilityMode = ExecutionEligibilityMode.LEGACY,
+ ) -> str:
+     """Content digest of a selected frozen kernel replay profile."""
+-    return profile.identity_digest(execution_model)
++    base = profile.identity_digest(execution_model)
++    if execution_eligibility_mode is ExecutionEligibilityMode.LEGACY:
++        return base
++    return (
++        "sha256:"
++        + sha256(
++            execution_identity(base, execution_eligibility_mode, ()).encode("utf-8")
++        ).hexdigest()
++    )
+ 
+ 
+ @dataclass(frozen=True)
+@@ -426,6 +443,8 @@
+     code_commit: str
+     dependency_digest: str
+     kernel_profile: KernelReplayProfile = current_kernel_replay_profile
++    historical_opening_evidence: tuple[HistoricalOpeningEvidence, ...] = ()
++    execution_eligibility_mode: ExecutionEligibilityMode = ExecutionEligibilityMode.LEGACY
+     instrument_reference_digest: str | None = None
+ 
+ 
+@@ -454,6 +473,7 @@
+     *,
+     master: InstrumentMaster,
+     instrument_reference_digest: str | None = None,
++    execution_eligibility_mode: ExecutionEligibilityMode = ExecutionEligibilityMode.LEGACY,
+ ) -> BasicWiring:
+     """Freeze the full Basic run wiring from snapshot and intent.
+ 
+@@ -461,6 +481,18 @@
+     provider delivery and fails closed: a shorter window can never silently
+     become a successful run.
+     """
++    if execution_eligibility_mode is ExecutionEligibilityMode.HISTORICAL_OPENING_R21:
++        if (
++            not dataset.historical_opening_evidence
++            or receipt.execution_policy != OPENING_POLICY
++            or receipt.execution_clock != OPENING_CLOCK_ID
++            or receipt.execution_evidence_digest
++            != opening_evidence_digest(dataset.historical_opening_evidence)
++            or receipt.dataset_digest != dataset.content_digest()
++        ):
++            raise RunWiringError(
++                "historical opening wiring requires verified snapshot policy/clock/evidence identity"
++            )
+     if not dataset.sessions:
+         raise RunWiringError(
+             "the canonical snapshot carries no calendar sessions"
+@@ -533,7 +565,11 @@
+         master=master,
+         account_fees=_account_fee_config(intent),
+         execution_model=execution_model,
+-        clock=EngineClock(),
++        clock=EngineClock.shanghai()
++        if execution_eligibility_mode is ExecutionEligibilityMode.HISTORICAL_OPENING_R21
++        else EngineClock(),
++        execution_eligibility_mode=execution_eligibility_mode,
++        historical_opening_evidence=dataset.historical_opening_evidence,
+         bars=tuple(dataset.daily_bars),
+         tradability=tuple(dataset.tradability),
+         corporate_actions=tuple(dataset.corporate_actions),
+@@ -685,6 +721,8 @@
+             accounting_semantics=wiring.kernel_profile.accounting_semantics,
+             bars=wiring.bars,
+             tradability=wiring.tradability,
++            historical_opening_evidence=wiring.historical_opening_evidence,
++            execution_eligibility_mode=wiring.execution_eligibility_mode,
+             corporate_actions=wiring.corporate_actions,
+             target_source=adapter,
+             initial_cash=wiring.initial_cash,
+@@ -752,7 +790,8 @@
+         snapshot_digest=(
+             wiring.snapshot_digest
+             if wiring.instrument_reference_digest is None
+-            else "sha256:" + sha256(
++            else "sha256:"
++            + sha256(
+                 (wiring.snapshot_digest + "|" + wiring.instrument_reference_digest).encode()
+             ).hexdigest()
+         ),
+@@ -761,7 +800,9 @@
+         cost_spec_digest=cost_spec_digest(intent),
+         metric_convention_digest=MetricConventions().digest(),
+         kernel_identity_digest=kernel_identity_digest(
+-            wiring.execution_model, profile=wiring.kernel_profile
++            wiring.execution_model,
++            profile=wiring.kernel_profile,
++            execution_eligibility_mode=wiring.execution_eligibility_mode,
+         ),
+         output_scope=BASIC_OUTPUT_SCOPE,
+         random_seed=0,
+@@ -844,15 +885,12 @@
+         intent_digest=intent.intent_digest,
+         strategy_id=intent.strategy_id,
+         strategy_version="unresolved",
+-        strategy_identity_digest="sha256:" + sha256(
+-            f"failed-strategy:{variant_id}".encode()
+-        ).hexdigest(),
+-        implementation_digest="sha256:" + sha256(
+-            f"failed-implementation:{variant_id}".encode()
+-        ).hexdigest(),
+-        parameters_digest="sha256:" + sha256(
+-            json.dumps(dict(variant_parameters), sort_keys=True).encode("utf-8")
+-        ).hexdigest(),
++        strategy_identity_digest="sha256:"
++        + sha256(f"failed-strategy:{variant_id}".encode()).hexdigest(),
++        implementation_digest="sha256:"
++        + sha256(f"failed-implementation:{variant_id}".encode()).hexdigest(),
++        parameters_digest="sha256:"
++        + sha256(json.dumps(dict(variant_parameters), sort_keys=True).encode("utf-8")).hexdigest(),
+         code_commit=wiring.code_commit,
+         dependency_digest=wiring.dependency_digest,
+         split_digest=split_digest_of(
+@@ -863,14 +901,14 @@
+             intent.oos_end,
+         ),
+         snapshot_digest=snapshot_digest,
+-        universe_schedule_digest=universe_schedule_identity_digest(
+-            wiring.universe
+-        ),
++        universe_schedule_digest=universe_schedule_identity_digest(wiring.universe),
+         benchmark_spec_digest=wiring.benchmark_spec.digest(),
+         cost_spec_digest=cost_spec_digest(intent),
+         metric_convention_digest=MetricConventions().digest(),
+         kernel_identity_digest=kernel_identity_digest(
+-            wiring.execution_model, profile=wiring.kernel_profile
++            wiring.execution_model,
++            profile=wiring.kernel_profile,
++            execution_eligibility_mode=wiring.execution_eligibility_mode,
+         ),
+         output_scope=BASIC_OUTPUT_SCOPE,
+         random_seed=0,

@@ -1,0 +1,97 @@
+{
+    "id":  "1217949874",
+    "text":  "归 于 母 公 瓦 股 东 权 益 合 计",
+    "pit_qualified":  false,
+    "engine":  "Windows.Media.Ocr existing zh-Hans-CN",
+    "maximum_image_dimension":  10000,
+    "machine_seconds":  0.020727199999999998,
+    "pixel_height":  114,
+    "image_sha256":  "5e7d1be720835a77aeb996b4ef21ab6b90833d7dfe93de0b568d27f823484386",
+    "pixel_width":  1353,
+    "source_sha256":  "5cefd1e1ef733ef5887b619e09ce792d52bd33e2710580616be5736da03cd33c",
+    "physical_page":  10,
+    "lines":  [
+                  {
+                      "text":  "归 于 母 公 瓦 股 东 权 益 合 计",
+                      "words":  [
+                                    {
+                                        "y":  41,
+                                        "height":  56,
+                                        "width":  46,
+                                        "text":  "归",
+                                        "x":  178
+                                    },
+                                    {
+                                        "y":  40,
+                                        "height":  55,
+                                        "width":  54,
+                                        "text":  "于",
+                                        "x":  297
+                                    },
+                                    {
+                                        "y":  37,
+                                        "height":  56,
+                                        "width":  53,
+                                        "text":  "母",
+                                        "x":  359
+                                    },
+                                    {
+                                        "y":  37,
+                                        "height":  51,
+                                        "width":  57,
+                                        "text":  "公",
+                                        "x":  416
+                                    },
+                                    {
+                                        "y":  35,
+                                        "height":  56,
+                                        "width":  37,
+                                        "text":  "瓦",
+                                        "x":  487
+                                    },
+                                    {
+                                        "y":  33,
+                                        "height":  57,
+                                        "width":  60,
+                                        "text":  "股",
+                                        "x":  535
+                                    },
+                                    {
+                                        "y":  31,
+                                        "height":  57,
+                                        "width":  52,
+                                        "text":  "东",
+                                        "x":  602
+                                    },
+                                    {
+                                        "y":  29,
+                                        "height":  58,
+                                        "width":  55,
+                                        "text":  "权",
+                                        "x":  661
+                                    },
+                                    {
+                                        "y":  31,
+                                        "height":  56,
+                                        "width":  51,
+                                        "text":  "益",
+                                        "x":  725
+                                    },
+                                    {
+                                        "y":  25,
+                                        "height":  60,
+                                        "width":  49,
+                                        "text":  "合",
+                                        "x":  785
+                                    },
+                                    {
+                                        "y":  25,
+                                        "height":  59,
+                                        "width":  55,
+                                        "text":  "计",
+                                        "x":  842
+                                    }
+                                ]
+                  }
+              ]
+}

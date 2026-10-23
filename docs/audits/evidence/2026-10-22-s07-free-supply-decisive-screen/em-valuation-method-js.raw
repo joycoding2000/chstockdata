@@ -1,0 +1,2114 @@
+/******/ (function(modules) { // webpackBootstrap
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
+/******/
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId]) {
+/******/ 			return installedModules[moduleId].exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			i: moduleId,
+/******/ 			l: false,
+/******/ 			exports: {}
+/******/ 		};
+/******/
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+/******/
+/******/ 		// Flag the module as loaded
+/******/ 		module.l = true;
+/******/
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/
+/******/
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = modules;
+/******/
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = installedModules;
+/******/
+/******/ 	// define getter function for harmony exports
+/******/ 	__webpack_require__.d = function(exports, name, getter) {
+/******/ 		if(!__webpack_require__.o(exports, name)) {
+/******/ 			Object.defineProperty(exports, name, { enumerable: true, get: getter });
+/******/ 		}
+/******/ 	};
+/******/
+/******/ 	// define __esModule on exports
+/******/ 	__webpack_require__.r = function(exports) {
+/******/ 		if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 			Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 		}
+/******/ 		Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 	};
+/******/
+/******/ 	// create a fake namespace object
+/******/ 	// mode & 1: value is a module id, require it
+/******/ 	// mode & 2: merge all properties of value into the ns
+/******/ 	// mode & 4: return value when already ns object
+/******/ 	// mode & 8|1: behave like require
+/******/ 	__webpack_require__.t = function(value, mode) {
+/******/ 		if(mode & 1) value = __webpack_require__(value);
+/******/ 		if(mode & 8) return value;
+/******/ 		if((mode & 4) && typeof value === 'object' && value && value.__esModule) return value;
+/******/ 		var ns = Object.create(null);
+/******/ 		__webpack_require__.r(ns);
+/******/ 		Object.defineProperty(ns, 'default', { enumerable: true, value: value });
+/******/ 		if(mode & 2 && typeof value != 'string') for(var key in value) __webpack_require__.d(ns, key, function(key) { return value[key]; }.bind(null, key));
+/******/ 		return ns;
+/******/ 	};
+/******/
+/******/ 	// getDefaultExport function for compatibility with non-harmony modules
+/******/ 	__webpack_require__.n = function(module) {
+/******/ 		var getter = module && module.__esModule ?
+/******/ 			function getDefault() { return module['default']; } :
+/******/ 			function getModuleExports() { return module; };
+/******/ 		__webpack_require__.d(getter, 'a', getter);
+/******/ 		return getter;
+/******/ 	};
+/******/
+/******/ 	// Object.prototype.hasOwnProperty.call
+/******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
+/******/
+/******/ 	// __webpack_public_path__
+/******/ 	__webpack_require__.p = "";
+/******/
+/******/
+/******/ 	// Load entry module and return exports
+/******/ 	return __webpack_require__(__webpack_require__.s = 274);
+/******/ })
+/************************************************************************/
+/******/ ({
+
+/***/ 0:
+/***/ (function(module, exports) {
+
+module.exports = moment;
+
+/***/ }),
+
+/***/ 1:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+/**
+ * 数据字段常用公用方法
+ */
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+exports.__esModule = true;
+var moment_1 = __importDefault(__webpack_require__(0));
+var weeks = ['日', '一', '二', '三', '四', '五', '六'];
+var quarters = ['1', '1', '1', '2', '2', '2', '3', '3', '3', '4', '4', '4'];
+var quarters_z = ['一', '一', '一', '二', '二', '二', '三', '三', '三', '四', '四', '四'];
+var quarters0 = ['1', '1', '1', '1-2', '1-2', '1-2', '1-3', '1-3', '1-3', '1-4', '1-4', '1-4'];
+var quarters0_z = ['一', '一', '一', '一-二', '一-二', '一-二', '一-三', '一-三', '一-三', '一-四', '一-四', '一-四'];
+var reports = ['1季', '1季', '1季', '中', '中', '中', '3季', '3季', '3季', '年', '年', '年'];
+var reports_z = ['一季', '一季', '一季', '中', '中', '中', '三季', '三季', '三季', '年', '年', '年'];
+var defaultfmtconfig = {
+    def: '-',
+    omit: true,
+    trim: undefined,
+    strfmt: undefined,
+    num: 432,
+    smart: false,
+    fix: '',
+    zoom: 0,
+    showcolor: false,
+    showabs: false,
+    qfw: false,
+    colorfmt: '<span class="{color}">{value}</span>',
+    gtcolor: 'red',
+    ltcolor: 'green',
+    colorzero: 0
+};
+exports["default"] = {
+    /**
+     * 数据字段展示格式化方法(支持数字和日期处理)
+     *@param {string} value:字段,一般为字符串或数字
+     *@param {string} config:配置数据
+     *@param {fmtconfig} config {
+         
+   ```
+            def?: string;// 缺省值默认 ‘-’ 优先级最高，不受其他参数影响
+            datefmt?: string;//日期展示格式，如果有值的话做日期处理，有值的话除def外其他字段全部作废 优先级小于def (详见日期处理方法dateformat)
+            strfmt?: any;//作为字符串处理的参数，如果有值的话做字符串处理，优先级小于def,datefmt(详见字符串处理方法strformat)
+            omit?: boolean;//是否自动改为省略格式【xxxx万|xxxx亿|xxxx万亿】默认true
+            trim?: boolean;//是否自动省略末尾的0，默认不省略,smart有值时候则默认为true，可单独配置
+            num?: any;//保留小数位，默认值为 432（3位数保留一位小数，2位和1位数保留两位小数），可以设置保留小数规则（"5421" 代表
+                五位数字及以上保存0位小数，
+                四位数字及以上保留一位小数，
+                二位数字及以上保留2位小数，
+                一位数字保留3位小数）
+            smart?: number;//是否自动精简结果【最多保留多少位有效数字】配合omit=true时使用 有值的话小数位数小于num，>1时生效
+            fix?: string;//显示单位 默认空   举例 【‘%’，‘只’】
+            zoom?: number;//缩放倍数（指数幂） 默认0【不放大+】  举例 【1就是放大10倍】
+            showabs?: boolean//是否展示为绝对值 默认不展示
+            showcolor?: boolean//是否展示颜色 默认不展示
+            colorfmt?: string;//带颜色的返回模板 默认<span class="{color}">{value}</span>
+            gtcolor?: string;//大于标准值的样式 默认red
+            ltcolor?: string;//小于标准值的样式 默认green
+            colorvalue?: number;//颜色比较使用的值，默认使用value字段
+            colorzero?: number;//颜色比较标准值 默认0  与零比较
+            
+   ```
+        }
+     **/
+    fieldfmt: function (value, config) {
+        if (this.isEmpty(value)) {
+            return (config && config.def != undefined) ? config.def : defaultfmtconfig.def;
+        }
+        //无配置时尝试按数据类型转换
+        if ($.isEmptyObject(config)) {
+            if (/^\d{2,4}(\-|\/|\.)\d{1,2}\1\d{1,2}|^\d{13}$/.test(value)) { // 有bug
+                return this.dateformat(value, 'YYYY-MM-DD');
+            }
+            if (!$.isNumeric(value)) {
+                return value;
+            }
+        }
+        config = $.extend({}, defaultfmtconfig, config);
+        if (config && config.datefmt) {
+            return this.dateformat(value, config.datefmt, config.def);
+        }
+        if (config && config.strfmt) {
+            return this.strformat(value, config.strfmt, config.def);
+        }
+        if (isNaN(value) || !isFinite(value)) {
+            return config.def;
+        }
+        var oldvalue = parseFloat(value);
+        var fix = "";
+        var num = 2;
+        //@ts-ignore
+        value = oldvalue * Math.pow(10, config.zoom).toFixed(Math.abs(config.zoom));
+        if (config.showabs)
+            value = Math.abs(value);
+        var f = config.trim ? parseFloat : function (v) { return v; };
+        var abslength = Math.abs(parseInt(value)).toString().length;
+        if (config.omit) {
+            if (abslength > 12) {
+                value = value / 1000000000000;
+                abslength -= 12;
+                fix = '万亿';
+            }
+            else if (abslength > 8) {
+                value = value / 100000000;
+                abslength -= 8;
+                fix = '亿';
+            }
+            else if (abslength > 4) {
+                value = value / 10000;
+                abslength -= 4;
+                fix = '万';
+            }
+        }
+        if (-1 < value && value < 1)
+            abslength = 0;
+        if (config.smart) {
+            f = parseFloat;
+            config.num = "43220";
+        }
+        if ($.isNumeric(config.num) && config.num < 10)
+            num = config.num;
+        else {
+            var numstr = config.num.toString();
+            num = numstr.length - 1;
+            for (var i = 0; i < numstr.length; i++) {
+                if (abslength >= numstr[i]) {
+                    num = i;
+                    break;
+                }
+            }
+        }
+        value = f(this.toFixed(value, num));
+        value += fix + config.fix;
+        if (config.showcolor) {
+            var bz = config.colorvalue;
+            if (!$.isNumeric(bz))
+                bz = oldvalue;
+            var color = bz == config.colorzero ? '' : bz > config.colorzero ? config.gtcolor : config.ltcolor;
+            //修正数字过小造成的正负号丢失问题
+            if (oldvalue < 0 && config.showabs == false && value[0] != '-')
+                value = '-' + value;
+            value = config.colorfmt.replace('{color}', color).replace('{value}', value);
+        }
+        if (config.qfw)
+            return value.replace(/\d+/, function (n) {
+                return n.replace(/(\d)(?=(\d{3})+$)/g, function ($1) {
+                    return $1 + ",";
+                });
+            });
+        return value;
+    },
+    /**
+     * 日期字段展示格式化方法
+     * @param {string} str:字段值+
+     * @param {string} fmt：日期格式 根据nomentjs 文档http://momentjs.cn/docs/
+     *                  添加 {W:"星期，['日', '一', '二', '三', '四', '五', '六']
+     *                  添加 {Q|q:"季度，如3月为'一|1'；6月为'二|2'"；9月为'三|3'"；12月为'四|4'"}
+     *                  添加 {J|j:"季度跨度，如3月为'一|1'；6月为'一-二|1-2'"；9月为'一-三|1-3'"；12月为示'一-四|1-4'"}
+     *                  添加 {B|b:"报告期，如3月为'一季|1季'；6月为'中'"；9月为'三季|3季'"；12月为'年'"}
+     **/
+    dateformat: function (str, fmt, def) {
+        if (fmt === void 0) { fmt = 'YYYY-MM-DD'; }
+        if (def === void 0) { def = '-'; }
+        if (this.isEmpty(str)) {
+            return def;
+        }
+        try {
+            if (/^\d*$/.test(str)) {
+                str = parseInt(str);
+            }
+            var ret = moment_1["default"](str);
+            if (ret.isValid()) {
+                var value = ret.format(fmt);
+                var o = {
+                    "W": weeks[ret.day()],
+                    "Q": quarters_z[ret.month()],
+                    "q": quarters[ret.month()],
+                    "J": quarters0_z[ret.month()],
+                    "j": quarters0[ret.month()],
+                    "B": reports_z[ret.month()],
+                    "b": reports[ret.month()]
+                };
+                for (var k in o) {
+                    if (new RegExp("(" + k + ")").test(value)) {
+                        value = value.replace(RegExp.$1, o[k]);
+                    }
+                }
+                return value;
+            }
+            return def;
+        }
+        catch (err) {
+            return def;
+        }
+    },
+    /**
+     * 字符串展示格式化方法
+     * @param {string} str:字段值
+     * @param {any} fmt：格式化参数，数组或对象
+     **/
+    strformat: function (str, fmt, def) {
+        if (def === void 0) { def = '-'; }
+        if (this.isEmpty(str)) {
+            return def;
+        }
+        str = str.toString();
+        if (typeof (fmt) == "object") {
+            if (fmt.len && fmt.ellipsis) {
+                str = this.cutstr(str, fmt.len, fmt.ellipsis, def);
+            }
+            for (var key in fmt) {
+                if (fmt[key] !== undefined) {
+                    var reg = new RegExp("({" + key + "})", "g");
+                    str = str.replace(reg, fmt[key]);
+                }
+            }
+        }
+        else if (Array.isArray(fmt)) {
+            fmt.forEach(function (s, i) {
+                var reg = new RegExp("({)" + i + "(})", "g");
+                str = str.replace(reg, s);
+            });
+        }
+        return str;
+    },
+    /**
+    * js截取字符串，中英文都能用
+    * @param {string} str: 需要截取的字符串
+    * @param {number} len: 需要截取的长度【中文算两个】
+    * @param {string} ellipsis: 溢出文字
+    * @returns {string} 截取后的字符串
+    */
+    cutstr: function (str, len, ellipsis, def) {
+        if (def === void 0) { def = '-'; }
+        if (this.isEmpty(str)) {
+            return def;
+        }
+        if (typeof ellipsis != "string")
+            ellipsis = "...";
+        var str_length = 0;
+        var str_len = 0;
+        var a;
+        for (var i = 0; i < str.length; i++) {
+            a = str.charAt(i);
+            str_length++;
+            if (escape(a).length > 4) {
+                //中文字符的长度经编码之后大于4  
+                str_length++;
+            }
+            if (str_length <= len) {
+                str_len++;
+            }
+        }
+        //如果给定字符串小于指定长度，则返回源字符串；  
+        if (str_length <= len) {
+            return str.toString();
+        }
+        else {
+            return str.substr(0, str_len).concat(ellipsis);
+        }
+    },
+    /**
+    * html标签转义
+    * @param {string} str: 需要处理的字符串
+    * @returns {string} 处理后的字符串
+    */
+    escapeHTML: function (text) {
+        if (typeof text === 'string') {
+            return text
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;')
+                .replace(/"/g, '&quot;')
+                .replace(/'/g, '&#039;')
+                .replace(/`/g, '&#x60;');
+        }
+        return text;
+    },
+    /**
+     * 验证数据是否存在
+     * @param data
+     */
+    isEmpty: function (data) {
+        if (data === '' || data === '-' || data === undefined || data === null || typeof data === "undefined" || data === false) {
+            return true;
+        }
+        return false;
+    },
+    /**
+     *
+     * 分割数据转json,三期|f10
+     */
+    splitdatatojson: function (data, fields) {
+        //console.info(fields);
+        var ret = {};
+        var datas = [];
+        var SplitSymbol = data.SplitSymbol;
+        var fs = data.FieldName.split(',');
+        if (!fields)
+            fields = fs;
+        var _loop_1 = function () {
+            itemstr = data.Data[i];
+            var model = {};
+            var arr = itemstr.split(SplitSymbol);
+            arr.forEach(function (v, i) {
+                var field = fs[i];
+                if (fields.indexOf(field) > -1)
+                    model[fs[i]] = v;
+            });
+            datas.push(model);
+        };
+        var itemstr;
+        for (var i = 0; i < data.Data.length; i++) {
+            _loop_1();
+        }
+        Object.keys(data).forEach(function (key) {
+            if (key != "Data")
+                ret[key] = data[key];
+        });
+        ret.datas = datas;
+        //console.info(ret);
+        return ret;
+    },
+    /**
+     *
+     * 数据转行情code(仅支持沪深京港)
+     * 数据平台接口尽量传对象使用
+     * 多层逻辑
+     * obj 情况 有 SECURITY_CODE(或其他),TRADE_MARKET_CODE
+     * obj 情况 有 SECUCODE
+     * obj 情况 只有 SECURITY_CODE
+     * string 情况  带市场格式   如   “605199.SH"
+     * string 情况  6位数字    如  "300059"
+     * string 情况  5位数字    如  "00001"
+     *
+     *
+     * 都不成立的情况用第二个参数（尽量不用）
+     */
+    datatoquotecode: function (item, scode) {
+        if (scode === void 0) { scode = ''; }
+        if (typeof item === "object") {
+            var code = (item === null || item === void 0 ? void 0 : item.SECURITY_CODE) || (item === null || item === void 0 ? void 0 : item.SECURITYCODE) || (item === null || item === void 0 ? void 0 : item.SCODE) || (item === null || item === void 0 ? void 0 : item.SCode) || (item === null || item === void 0 ? void 0 : item.scode) || (item === null || item === void 0 ? void 0 : item.code) || (item === null || item === void 0 ? void 0 : item.securitycode) || (item === null || item === void 0 ? void 0 : item.securityCode);
+            if ((item === null || item === void 0 ? void 0 : item.TRADE_MARKET_CODE) && code.length && code.length == 6) {
+                //沪
+                if (item.TRADE_MARKET_CODE == "069001001001" || item.TRADE_MARKET_CODE == "069001001003" || item.TRADE_MARKET_CODE == "069001001006") {
+                    return "1." + code;
+                }
+                //深
+                else if (item.TRADE_MARKET_CODE == "069001002001" || item.TRADE_MARKET_CODE == "069001002002" || item.TRADE_MARKET_CODE == "069001002005") {
+                    return "0." + code;
+                }
+                //京
+                else if (item.TRADE_MARKET_CODE == "069001017") {
+                    return "0." + code;
+                }
+                //新三板，老三版
+                else if (item.TRADE_MARKET_CODE == "069001004001" || item.TRADE_MARKET_CODE == "069001004002") {
+                    return "0." + code;
+                }
+            }
+            if (item === null || item === void 0 ? void 0 : item.SECUCODE) {
+                item = item.SECUCODE;
+            }
+            else if (code) {
+                item = code;
+            }
+            else {
+                item = scode;
+            }
+        }
+        if (typeof item === "string") {
+            var codes = item.split('.');
+            if (codes.length == 2) {
+                var mkt = '';
+                if (codes[1].toUpperCase() == "SH")
+                    mkt = '1';
+                else if (codes[1].toUpperCase() == "SZ")
+                    mkt = '0';
+                else if (codes[1].toUpperCase() == "BJ")
+                    mkt = '0';
+                else if (codes[1].toUpperCase() == "NQ")
+                    mkt = '0';
+                else if (codes[1].toUpperCase() == "HK")
+                    mkt = '116';
+                return mkt + "." + codes[0];
+            }
+            if (/\d{6}/.test(item)) {
+                item = /\d{6}/.exec(item)[0];
+                var one = item.substr(0, 1);
+                var three = item.substr(0, 3);
+                if (one == "4" || one == "8" || three == "920") {
+                    //沪
+                    return "0." + item;
+                }
+                else if (one == "5" || one == "6" || one == "9") {
+                    //京
+                    return "1." + item;
+                }
+                else {
+                    if (three == "009" || three == "126" || three == "110" || three == "201" || three == "202" || three == "203" || three == "204") {
+                        //沪
+                        return "1." + item;
+                    }
+                    else {
+                        //深   其它
+                        return "0." + item;
+                    }
+                }
+            }
+            else if (/^\d{5}/.test(item)) {
+                item = /^\d{5}/.exec(item)[0];
+                //港
+                return "116." + item;
+            }
+        }
+    },
+    fmtsname: function (name, len) {
+        if (len === void 0) { len = 8; }
+        return "<span title=\"" + this.escapeHTML(this.strformat(name)) + "\">" + this.cutstr(name, len) + "</span>";
+    },
+    getUrlParam: function (name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+        var r = window.location.search.substr(1).match(reg);
+        if (r != null)
+            return decodeURIComponent(r[2]);
+        return null;
+    },
+    toFixed: function (value, num) {
+        var power = Math.pow(10, num);
+        return (Math.round(value * power) / power).toFixed(num);
+    },
+    enhancedXSSCheck: function (input) {
+        if (typeof input !== 'string') {
+            return null;
+        }
+        // 检测HTML标签和script标签的正则表达式
+        var htmlTagRegex = /<[^>]+>/i;
+        var scriptTagRegex = /<script\b[^>]*>([\s\S]*?)<\/script>/gi;
+        // 检测到任何HTML标签或script标签就返回null
+        if (htmlTagRegex.test(input) || scriptTagRegex.test(input)) {
+            console.log(input);
+            return false;
+        }
+        // 安全的内容直接返回
+        return true;
+        // return xssPatterns.some(pattern => pattern.test(input)) ? false : true;
+    }
+};
+
+
+/***/ }),
+
+/***/ 10:
+/***/ (function(module, exports) {
+
+module.exports = emdataview;
+
+/***/ }),
+
+/***/ 2:
+/***/ (function(module, exports) {
+
+function getUrlParam(name){
+    var urlpara = location.search;
+    var par = {};
+    if (urlpara != "") {
+      urlpara = urlpara.substring(1, urlpara.length);
+      var para = urlpara.split("&");
+      var parname;
+      var parvalue;
+      for (var i = 0; i < para.length; i++) {
+        parname = para[i].substring(0, para[i].indexOf("="));
+        parvalue = para[i].substring(para[i].indexOf("=") + 1, para[i].length);
+        par[parname] = parvalue;
+      }
+    }
+    if(typeof (par[name]) != "undefined"){
+      return par[name];
+    }
+    else{
+      return null;
+    }
+  }
+
+module.exports = {
+  development: {
+    dataurl: function(){
+      // return '//reportapi.uat.emapd.com/'
+      return '//reportapi-uat.eastmoney.com/'
+    },
+    quoteurl: function(){
+      let env = getUrlParam('myenv') || '';
+      if(env == 'prod') {
+        return '//push2.eastmoney.com/'
+      }
+      return '//push2test.eastmoney.com/'
+      // return '//push2-uatfj.eastmoney.com/'
+    },
+    quotehisurl: function(){
+      // return '//push2test.eastmoney.com/'
+      return '//push2his-uatfj.eastmoney.com/'
+    },    
+    dcfmurl: function(){
+      return '//dcfm.eastmoney.com/' 
+    }, 
+    anoticeurl: function(){
+      // return '//np-anotice-stock.eastmoney.com/'
+      return '//np-anotice-stock-test.eastmoney.com/'
+    },
+    cnoticeurl: function(){
+      return '//np-cnotice-stock-test.eastmoney.com/'
+    },
+    datacenter: function(){
+      // return '//datacenter-web.eastmoney.com/'
+      return '//testdatacenter.eastmoney.com/'
+      // return '//betadatacenter.eastmoney.com/'
+      let env = getUrlParam('myenv') || '';
+      if(env == 'prod') {
+        return '//datacenter-web.eastmoney.com/'
+      }
+      return '//betadatacenter.eastmoney.com/'
+      // return '//testdatacenter.eastmoney.com/'
+    },
+    datacenter2: function(){
+      // return '//datacenter-web.eastmoney.com/'
+      return '//testdatacenter.eastmoney.com/'
+      // return '//betadatacenter.eastmoney.com/'
+      // let env = getUrlParam('myenv') || '';
+      // if(env == 'prod') {
+      //   return '//datacenter-web.eastmoney.com/'
+      // }
+      // return '//testdatacenter.eastmoney.com/'
+    },
+    soapi: function(){
+      return '//searchapi.eastmoney.com/'
+    }, 
+    cmsdataapi: function(){
+      return '//cmsdataapi.eastmoney.com/'
+    },
+    newsinfo: function(){
+      return '//newsinfo.eastmoney.com/'
+    },
+    url: function(){
+      return ''
+    },
+    cmsapi : function () {
+      return '//np-listapi.eastmoney.com//'
+    },
+    futsseapi: function () {
+      // return '//futsseapi.eastmoney.com/'
+      return '//futssetest.eastmoney.com/'
+    },
+    futssstatic: function () {
+      // return '//futsse-static.eastmoney.com/'
+      return '//static.futssetest.eastmoney.com/'
+    }
+  },
+  zptest: {
+    dataurl: function(){
+      // return '//reportapi.eastmoney.com/'
+      // return '//reportapi.uat.emapd.com/'
+      return '//reportapi-uat.eastmoney.com/'
+
+    },
+    quoteurl: function(){
+      let env = getUrlParam('myenv') || '';
+      if(env == 'prod') {
+        return '//push2.eastmoney.com/'
+      }
+      return '//push2test.eastmoney.com/'
+      // return '//push2test.eastmoney.com/'
+      // return '//push2-uatfj.eastmoney.com/'
+    },
+    quotehisurl: function(){
+      // return '//push2test.eastmoney.com/'
+      return '//push2his-uatfj.eastmoney.com/'
+    }, 
+    dcfmurl: function(){
+      return '//dcfm.eastmoney.com/'
+    },
+    anoticeurl: function(){
+      return '//np-anotice-stock-test.eastmoney.com/'
+    },
+    cnoticeurl: function(){
+      // return '//np-cnotice-stock-test.emapd.com/'
+      return '//np-cnotice-stock-test.eastmoney.com/'
+    },
+    datacenter: function(){
+      return '//testdatacenter.eastmoney.com/'
+      // return '//betadatacenter.eastmoney.com/'
+      // return '//datacenter-web.eastmoney.com/'
+      let env = getUrlParam('myenv') || '';
+      if(env == 'prod') {
+        return '//datacenter-web.eastmoney.com/'
+      }
+      return '//betadatacenter.eastmoney.com/'
+      // return '//testdatacenter.eastmoney.com/'
+    },
+    datacenter2: function(){
+      // return '//datacenter-web.eastmoney.com/'
+      return '//testdatacenter.eastmoney.com/'
+      // return '//betadatacenter.eastmoney.com/'
+      // let env = getUrlParam('myenv') || '';
+      // if(env == 'prod') {
+      //   return '//datacenter-web.eastmoney.com/'
+      // }
+      // return '//testdatacenter.eastmoney.com/'
+    },
+    soapi: function(){
+      return '//searchapi.eastmoney.com/'
+    },    
+    cmsdataapi: function(){
+      return '//cmsdataapi.eastmoney.com/'
+    },
+    newsinfo: function(){
+      return '//newsinfo.eastmoney.com/'
+    },
+    url: function(){
+      return ''
+    },
+    cmsapi : function () {
+      return '//np-listapi.eastmoney.com//'
+    },
+    futsseapi: function () {
+       return '//futssetest.eastmoney.com/'
+      // return '//futsseapi.eastmoney.com/'
+    },
+    futssstatic: function () {
+      // return '//futsse-static.eastmoney.com/'
+      return '//static.futssetest.eastmoney.com/'
+    }
+  },
+  gray: {
+    dataurl: function(){
+      return '//reportapi.eastmoney.com/'
+    },
+    quoteurl: function(){
+      return '//push2.eastmoney.com/'
+    },
+    quotehisurl: function(){
+      return '//push2his-uatfj.eastmoney.com/'
+    },      
+    dcfmurl: function(){
+      return '//dcfm.eastmoney.com/'
+    },
+    anoticeurl: function(){
+      return '//np-anotice-stock.eastmoney.com/'
+    },
+    cnoticeurl: function(){
+      return '//np-cnotice-stock.eastmoney.com/'
+    },
+    datacenter: function(){
+      return '//graydatacenter.eastmoney.com/web/'
+    },
+    datacenter2: function(){
+      return '//graydatacenter.eastmoney.com/web/'
+    },
+    soapi: function(){
+      return '//searchapi.eastmoney.com/'
+    },      
+    cmsdataapi: function(){
+      return '//cmsdataapi.eastmoney.com/'
+    },
+    newsinfo: function(){
+      return '//newsinfo.eastmoney.com/'
+    },
+    url: function(){
+      return ''
+    },
+    cmsapi : function () {
+      return '//np-listapi.eastmoney.com//'
+    },
+    futsseapi: function () {
+       return '//futssetest.eastmoney.com/'
+      // return '//futsseapi.eastmoney.com/'
+    },
+    futssstatic: function () {
+      // return '//futsse-static.eastmoney.com/'
+      return '//static.futssetest.eastmoney.com/'
+    }
+  },
+  production: {
+    dataurl: function(){
+      return '//reportapi.eastmoney.com/'
+    },
+    quoteurl: function(){
+      return '//push2.eastmoney.com/'
+    },
+    quotehisurl: function(){
+      return '//push2his.eastmoney.com/'
+    },      
+    dcfmurl: function(){
+      return '//dcfm.eastmoney.com/'
+    },
+    anoticeurl: function(){
+      return '//np-anotice-stock.eastmoney.com/'
+    },
+    cnoticeurl: function(){
+      return '//np-cnotice-stock.eastmoney.com/'
+    },
+    datacenter: function(){
+      return '//datacenter-web.eastmoney.com/'
+    },
+    datacenter2: function(){
+      return '//datacenter-web.eastmoney.com/'
+    },
+    soapi: function(){
+      return '//searchapi.eastmoney.com/'
+    },      
+    cmsdataapi: function(){
+      return '//cmsdataapi.eastmoney.com/'
+    },
+    newsinfo: function(){
+      return '//newsinfo.eastmoney.com/'
+    },
+    url: function(){
+      return ''
+    },
+    cmsapi : function () {
+      return '//np-listapi.eastmoney.com//'
+    },
+    futsseapi: function () {
+      return '//futsseapi.eastmoney.com/'
+    },
+    futssstatic: function () {
+      return '//futsse-static.eastmoney.com/'
+    }
+  },
+  getParam: function(name){
+    var urlpara = location.search;
+    var par = {};
+    if (urlpara != "") {
+      urlpara = urlpara.substring(1, urlpara.length);
+      var para = urlpara.split("&");
+      var parname;
+      var parvalue;
+      for (var i = 0; i < para.length; i++) {
+        parname = para[i].substring(0, para[i].indexOf("="));
+        parvalue = para[i].substring(para[i].indexOf("=") + 1, para[i].length);
+        par[parname] = parvalue;
+      }
+    }
+    if(typeof (par[name]) != "undefined"){
+      return par[name];
+    }
+    else{
+      return null;
+    }
+  },
+  getWebPath: function (name) {
+    var env=(window.service&&service.ENV)||this.getParam('env');
+
+    // env = "production"
+
+    if (env&&this[env]) {
+      return this[env][name]()
+    }
+    return this.production[name]()
+  }
+}
+
+
+
+/***/ }),
+
+/***/ 274:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+var __generator = (this && this.__generator) || function (thisArg, body) {
+    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
+    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
+    function verb(n) { return function (v) { return step([n, v]); }; }
+    function step(op) {
+        if (f) throw new TypeError("Generator is already executing.");
+        while (_) try {
+            if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
+            if (y = 0, t) op = [op[0] & 2, t.value];
+            switch (op[0]) {
+                case 0: case 1: t = op; break;
+                case 4: _.label++; return { value: op[1], done: false };
+                case 5: _.label++; y = op[1]; op = [0]; continue;
+                case 7: op = _.ops.pop(); _.trys.pop(); continue;
+                default:
+                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
+                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
+                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
+                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
+                    if (t[2]) _.ops.pop();
+                    _.trys.pop(); continue;
+            }
+            op = body.call(thisArg, _);
+        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
+        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
+    }
+};
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+exports.__esModule = true;
+/**
+ * 个股估值分析详情页
+ */
+__webpack_require__(9);
+__webpack_require__(10);
+var utils_1 = __importDefault(__webpack_require__(3));
+var webconfig = __webpack_require__(2);
+var base_1 = __importDefault(__webpack_require__(47));
+var fieldtools_1 = __importDefault(__webpack_require__(1));
+;
+(function ($) {
+    var markLine = {
+        data: [
+            {
+                name: "最大值",
+                type: "max",
+                lineStyle: {
+                    color: "#8148BD"
+                }
+            },
+            {
+                name: "最小值",
+                type: "min",
+                lineStyle: {
+                    color: "#FFC048"
+                }
+            },
+            {
+                name: "平均值",
+                type: "average",
+                lineStyle: {
+                    color: "#487D38"
+                }
+            },
+        ],
+        label: {
+            position: "middle"
+        }
+    };
+    var detailObj = {
+        init: function () {
+            var that = this;
+            this.type = "PE_TTM";
+            this._stockData = null;
+            this._geguData = [];
+            this._rankIndex = 1;
+            this.pxIndex = 2;
+            this.isMuch = (this.type === "TOTAL_MARKET_CAP" || this.type === "NOTLIMITED_MARKETCAP_A" || this.type === "TOTAL_SHARES");
+            this.typeName = "PE(TTM)";
+            this.line_chart = echarts.init(document.getElementById('emchart-k'));
+            this.getTopStockData();
+            this.getChartData();
+            this.getHyData();
+            this.loadHygzData();
+            $('#hypm_table').on('click', '.sortable', function () {
+                that.type = $(this).data("sortname");
+                that.typeName = $(this).text();
+                var index = $(this).parent("th").index();
+                that.isMuch = (that.type === "TOTAL_MARKET_CAP" || that.type === "NOTLIMITED_MARKETCAP_A" || that.type === "TOTAL_SHARES");
+                if (index != that.pxIndex) {
+                    that.pxIndex = index;
+                    that.refresh();
+                }
+            });
+        },
+        refresh: function () {
+            var that = this;
+            this._geguData = [];
+            that.getHyTabData(function () {
+                that.loadHtml();
+                that.getChartData();
+            });
+        },
+        getTopStockData: function () {
+            var that = this;
+            // const sortType = that.isMuch ? "-1" : "1";
+            // const sortName = that.type 
+            $.ajax({
+                url: webconfig.getWebPath('datacenter') + "api/data/v1/get",
+                type: 'get',
+                dataType: 'jsonp',
+                data: {
+                    reportName: "RPT_VALUEANALYSIS_DET",
+                    columns: "ALL",
+                    quoteColumns: "",
+                    pageNumber: 1,
+                    pageSize: 1,
+                    sortColumns: "TRADE_DATE",
+                    sortTypes: -1,
+                    source: "WEB",
+                    client: "WEB",
+                    filter: "(SECURITY_CODE=\"" + stockInfo.code + "\")"
+                }
+            }).then(function (json) {
+                var res = json && json.result && json.result.data;
+                if (res.length > 0) {
+                    var data = res[0];
+                    var html = "";
+                    html += "<li data-zd='TOTAL_MARKET_CAP'>总市值 " + utils_1["default"].FixAmt(data.TOTAL_MARKET_CAP) + "</li>" +
+                        "<li data-zd='PE_TTM'>PE(TTM) " + utils_1["default"].toFixed2(data.PE_TTM) + "</li>" +
+                        "<li data-zd='PE_LAR'>PE静 " + utils_1["default"].toFixed2(data.PE_LAR) + "</li>" +
+                        "<li data-zd='PB_MRQ'>市净率 " + utils_1["default"].toFixed2(data.PB_MRQ) + "</li>" +
+                        "<li data-zd='TOTAL_SHARES'>总股本 " + utils_1["default"].FixAmt(data.TOTAL_SHARES) + "</li>" +
+                        "<li data-zd='PCF_OCF_TTM'>市现率 " + utils_1["default"].toFixed2(data.PCF_OCF_TTM) + "</li>" +
+                        "<li data-zd='PS_TTM'>市销率 " + utils_1["default"].toFixed2(data.PS_TTM) + "</li>" +
+                        "<li data-zd='PEG_CAR'>PEG " + utils_1["default"].toFixed2(data.PEG_CAR, 4) + "</li>";
+                    $("#stockInfo").html(html);
+                }
+            }).fail(function (err) {
+                console.log(err);
+            });
+        },
+        getChartData: function () {
+            return __awaiter(this, void 0, void 0, function () {
+                var that, gghy_fieldMap, gglist, hylist;
+                return __generator(this, function (_a) {
+                    that = this;
+                    gghy_fieldMap = {
+                        "TOTAL_MARKET_CAP": "MARKET_CAP_VAG",
+                        "NOTLIMITED_MARKETCAP_A": "NOMARKETCAP_A_VAG",
+                        "TOTAL_SHARES": "TOTAL_SHARES_VAG"
+                    };
+                    gglist = [], hylist = [];
+                    return [2 /*return*/, $.ajax({
+                            url: webconfig.getWebPath('datacenter') + "api/data/v1/get",
+                            type: 'get',
+                            dataType: 'jsonp',
+                            data: {
+                                reportName: 'RPT_VALUEANALYSIS_DET',
+                                columns: "ALL",
+                                quoteColumns: "",
+                                pageNumber: 1,
+                                pageSize: 5000,
+                                sortColumns: "TRADE_DATE",
+                                sortTypes: 1,
+                                source: "WEB",
+                                client: "WEB",
+                                filter: "(SECURITY_CODE=\"" + stockInfo.code + "\")"
+                            }
+                        }).then(function (json) {
+                            gglist = json && json.result && json.result.data;
+                            if (gglist && gglist.length > 0) {
+                                var sdate = fieldtools_1["default"].dateformat(gglist[0].TRADE_DATE);
+                                $.ajax({
+                                    url: webconfig.getWebPath('datacenter') + "api/data/v1/get",
+                                    type: 'get',
+                                    dataType: 'jsonp',
+                                    data: {
+                                        reportName: 'RPT_VALUEINDUSTRY_DET',
+                                        columns: "ALL",
+                                        quoteColumns: "",
+                                        pageNumber: 1,
+                                        pageSize: 5000,
+                                        sortColumns: "TRADE_DATE",
+                                        sortTypes: 1,
+                                        source: "WEB",
+                                        client: "WEB",
+                                        filter: "(BOARD_CODE=\"" + hyInfo.hyCode + "\")(TRADE_DATE>='" + sdate + "')"
+                                    }
+                                }).then(function (hyjson) {
+                                    hylist = hyjson && hyjson.result && hyjson.result.data;
+                                    that.XData = [], that.YData = { gegu: [], hy: [] };
+                                    var allData = {};
+                                    if (gglist && hylist) {
+                                        that.line_chart.showLoading({
+                                            text: '图表加载中...' //loading
+                                        });
+                                        var zoom_1 = that.isMuch == true ? 1e8 : 1;
+                                        gglist.forEach(function (item) {
+                                            var date = fieldtools_1["default"].dateformat(item.TRADE_DATE, 'YYYY/MM/DD');
+                                            if (allData[date]) {
+                                                allData[date].gegu = utils_1["default"].toFixed2(parseFloat(item[that.type]) / zoom_1);
+                                            }
+                                            else {
+                                                allData[date] = {
+                                                    date: date,
+                                                    gegu: utils_1["default"].toFixed2(parseFloat(item[that.type]) / zoom_1),
+                                                    hy: ''
+                                                };
+                                            }
+                                        });
+                                        hylist.forEach(function (item) {
+                                            var date = fieldtools_1["default"].dateformat(item.TRADE_DATE, 'YYYY/MM/DD');
+                                            if (allData[date]) {
+                                                var field = fieldtools_1["default"].isEmpty(gghy_fieldMap[that.type]) ? that.type : gghy_fieldMap[that.type];
+                                                allData[date].hy = utils_1["default"].toFixed2(parseFloat(item[field]) / zoom_1);
+                                            }
+                                        });
+                                        for (var key in allData) {
+                                            that.XData.push(key);
+                                            that.YData.gegu.push(allData[key].gegu);
+                                            that.YData.hy.push(allData[key].hy);
+                                        }
+                                        that.drawChart();
+                                    }
+                                }).fail(function (err) {
+                                    console.log(err);
+                                });
+                            }
+                        }).fail(function (err) {
+                            console.log(err);
+                        })];
+                });
+            });
+        },
+        drawChart: function () {
+            var that = this;
+            var name = that.typeName.replace(/\(([元|股])\)/, "(亿$1)");
+            var option = {
+                tooltip: {
+                    trigger: 'axis'
+                },
+                legend: {
+                    left: 20,
+                    selectedMode: false
+                },
+                grid: {
+                    x: '6%',
+                    y: '12%',
+                    width: '88%',
+                    height: '70%'
+                },
+                dataZoom: [
+                    {
+                        type: "slider",
+                        show: true,
+                        showDetail: false,
+                        start: 70,
+                        end: 100
+                    },
+                    { type: "inside" }
+                ],
+                xAxis: {
+                    type: 'category',
+                    data: that.XData,
+                    axisLine: {
+                        lineStyle: {
+                            color: '#4488BB',
+                            width: 2
+                        }
+                    },
+                    axisTick: { show: false },
+                    splitLine: {
+                        show: false
+                    },
+                    axisLabel: {
+                        textStyle: {
+                            color: '#000'
+                        }
+                    }
+                },
+                yAxis: [
+                    {
+                        type: 'value',
+                        scale: true,
+                        //name: '单位：' + danwei,
+                        nameTextStyle: {
+                            color: '#000'
+                        },
+                        axisLine: {
+                            lineStyle: {
+                                color: '#4488BB',
+                                width: 2
+                            }
+                        },
+                        axisTick: { show: false },
+                        splitLine: {
+                            show: true,
+                            lineStyle: {
+                                type: 'dotted',
+                                color: "#E6E6E6"
+                            }
+                        },
+                        axisLabel: {
+                            textStyle: {
+                                color: '#000'
+                            }
+                        }
+                    },
+                    {
+                        type: 'value',
+                        scale: true,
+                        axisLine: {
+                            lineStyle: {
+                                color: '#4488BB',
+                                width: 2
+                            }
+                        },
+                        axisTick: { show: false },
+                        splitLine: {
+                            show: false
+                        },
+                        axisLabel: {
+                            textStyle: {
+                                color: '#000'
+                            }
+                        }
+                    }
+                ],
+                series: [
+                    {
+                        type: 'line',
+                        name: stockInfo.name + name,
+                        data: that.YData.gegu,
+                        connectNulls: true,
+                        symbol: "circle",
+                        showSymbol: false,
+                        itemStyle: {
+                            color: '#2fade6',
+                            normal: {
+                                color: '#2fade6',
+                                borderColor: "#2fade6"
+                            }
+                        },
+                        markLine: markLine
+                    },
+                    {
+                        name: hyInfo.hyName + '行业' + name,
+                        data: that.YData.hy,
+                        //yAxisIndex: 1,
+                        connectNulls: true,
+                        symbol: "circle",
+                        showSymbol: false,
+                        itemStyle: {
+                            color: '#E04527',
+                            normal: {
+                                color: '#E04527',
+                                borderColor: "#E04527"
+                            }
+                        },
+                        type: 'line'
+                    }
+                ]
+            };
+            that.line_chart.setOption(option);
+            that.line_chart.hideLoading();
+        },
+        getHyTabData: function (callback) {
+            var that = this;
+            var sortType = that.isMuch ? "-1" : "1";
+            var sortName = that.type;
+            $.ajax({
+                url: webconfig.getWebPath('datacenter') + "api/data/v1/get",
+                type: 'get',
+                dataType: 'jsonp',
+                data: {
+                    reportName: "RPT_VALUEANALYSIS_DET",
+                    columns: "ALL",
+                    quoteColumns: "",
+                    source: "WEB",
+                    client: "WEB",
+                    sortColumns: sortName,
+                    sortTypes: sortType,
+                    filter: "(TRADE_DATE='" + currentDate + "')(BOARD_CODE=\"" + hyInfo.hyCode + "\")"
+                }
+            }).then(function (json) {
+                var data = json && json.result && json.result.data;
+                if (!that.isMuch) {
+                    data.sort(function (a, b) {
+                        return 1 / b[that.type] - 1 / a[that.type];
+                    });
+                    // data.sort(function (a, b) {
+                    //     if(b[that.type] < 0 && a[that.type] < 0 ){
+                    //         return 1 / a[that.type] - 1 / b[that.type];
+                    //     }
+                    //     return 1 / b[that.type] - 1 / a[that.type];
+                    // })
+                }
+                var count = 0;
+                for (var i = 0; i < data.length; i++) {
+                    var item = data[i];
+                    // console.log(i ,item.PE_TTM)
+                    if (item.SECURITY_CODE === stockInfo.code) {
+                        that._stockData = item;
+                        that._rankIndex = i * 1 + 1;
+                    }
+                    if (count < 10 && item.SECURITY_CODE != stockInfo.code && item[that.type] > 0) {
+                        item.rank = i * 1 + 1;
+                        that._geguData.push(item);
+                        count++;
+                    }
+                }
+                callback && callback();
+            }).fail(function (err) {
+                console.log(err);
+            });
+        },
+        getHyData: function () {
+            var that = this;
+            $.ajax({
+                url: webconfig.getWebPath('datacenter') + "api/data/v1/get",
+                type: 'get',
+                dataType: 'jsonp',
+                data: {
+                    reportName: 'RPT_VALUEINDUSTRY_STA',
+                    columns: "ALL",
+                    quoteColumns: "",
+                    source: "WEB",
+                    client: "WEB",
+                    pageNumber: 1,
+                    filter: "(BOARD_CODE=\"" + hyInfo.hyCode + "\")"
+                }
+            }).then(function (json) {
+                that._hyData = json && json.result && json.result.data;
+                that.getHyTabData(function () {
+                    that.loadHtml();
+                });
+            }).fail(function (err) {
+                console.log(err);
+            });
+        },
+        getStockHtml: function (data) {
+            var html = "";
+            if (this._stockData) {
+                var item = this._stockData;
+                html += "<tr><td>" + this._rankIndex + "</td><td><a href='/gzfx/detail/" + item.SECURITY_CODE + ".html' target='_blank'>" + fieldtools_1["default"].fmtsname(item.SECURITY_NAME_ABBR) + "</a></td>" + this.getHtml(item, true) + "</tr>";
+            }
+            $('#stockInfo li[data-zd="' + this.type + '"]').addClass("active").siblings().removeClass("active");
+            return html;
+        },
+        getGeguHtml: function (data) {
+            var html = "";
+            if (this._geguData) {
+                var data_1 = this._geguData;
+                for (var i = 0; i < data_1.length; i++) {
+                    html += "<tr><td>" + data_1[i].rank + "</td><td><a href='/gzfx/detail/" + data_1[i].SECURITY_CODE + ".html' target='_blank'>" + fieldtools_1["default"].fmtsname(data_1[i].SECURITY_NAME_ABBR) + "</a></td>" + this.getHtml(data_1[i]) + "</tr>";
+                }
+            }
+            return html;
+        },
+        getHtml: function (data, isBold) {
+            var html = [];
+            var str = isBold ? "style='font-weight: bold;'" : "";
+            html.push("<td><span " + str + ">" + utils_1["default"].toFixed2(data.PE_TTM) + "</span></td>"); //PE动
+            html.push("<td><span " + str + ">" + utils_1["default"].toFixed2(data.PE_LAR) + "</span></td>"); //PE静
+            html.push("<td><span " + str + ">" + utils_1["default"].toFixed2(data.PB_MRQ) + "</span></td>"); //市净率
+            html.push("<td><span " + str + ">" + utils_1["default"].toFixed2(data.PEG_CAR, 4) + "</span></td>"); //PEG
+            html.push("<td><span " + str + ">" + utils_1["default"].toFixed2(data.PCF_OCF_TTM) + "</span></td>"); //市现率
+            html.push("<td><span " + str + ">" + (data.INDUSTRY_TYPE == "行业平均" ? utils_1["default"].FixAmt(data.MARKET_CAP_VAG) : utils_1["default"].FixAmt(data.TOTAL_MARKET_CAP)) + "</span></td>"); //总市值 只有行业平均所用的字段不一样
+            html.push("<td><span " + str + ">" + (data.INDUSTRY_TYPE == "行业平均" ? utils_1["default"].FixAmt(data.NOMARKETCAP_A_VAG) : utils_1["default"].FixAmt(data.NOTLIMITED_MARKETCAP_A)) + "</span></td>"); //流通市值 
+            html.push("<td><span " + str + ">" + (data.INDUSTRY_TYPE == "行业平均" ? utils_1["default"].FixAmt(data.TOTAL_SHARES_VAG) : utils_1["default"].FixAmt(data.TOTAL_SHARES)) + "</span></td>"); //总股本 
+            if (this.pxIndex >= 2) {
+                var index = this.pxIndex - 2;
+                html[index] = html[index].replace(/<td>/g, "<td class='asc_col'>");
+            }
+            return html.join("");
+        },
+        getHyHtml: function (data) {
+            var html = "";
+            if (this._hyData) {
+                var data_2 = this._hyData;
+                for (var i = 0; i < data_2.length; i++) {
+                    html += "<tr><td colspan='2'>" + data_2[i].INDUSTRY_TYPE + "</td>" + this.getHtml(data_2[i], true) + "<tr/>";
+                }
+            }
+            return html;
+        },
+        loadHtml: function () {
+            var that = this;
+            var html = this.getStockHtml() + this.getHyHtml() + this.getGeguHtml();
+            if (html) {
+                $("#hypm_table tbody").html(html);
+            }
+        },
+        loadHygzData: function () {
+            var opt = {
+                dataurl: {
+                    hostname: "datacenter",
+                    url: "api/data/v1/get",
+                    params: {
+                        reportName: "RPT_VALUEANALYSIS_DET",
+                        columns: "ALL",
+                        quoteColumns: "",
+                        pageSize: 50,
+                        source: "WEB",
+                        client: "WEB",
+                        filter: "(SECURITY_CODE=\"" + stockInfo.code + "\")"
+                    }
+                },
+                urlkeyvalues: base_1["default"].urlkeyvalues,
+                sortname: "TRADE_DATE",
+                totalpagesfield: 'result.pages',
+                datafield: 'result.data',
+                pagination: true,
+                columns: base_1["default"].columns.gggz,
+                formatter: { num: 2 }
+            };
+            $("#hygz_table").emdataview(opt);
+        }
+    };
+    detailObj.init();
+})(jQuery);
+
+
+/***/ }),
+
+/***/ 3:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+/**
+ * 常用公用方法
+ */
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+exports.__esModule = true;
+var moment_1 = __importDefault(__webpack_require__(0));
+var util = {
+    //获取几tian之前时间
+    timeForMatPreDay: function (num) {
+        return moment_1["default"]().add({ "days": 0 - num }).format("YYYY-MM-DD");
+    },
+    //获取几天之后时间
+    timeForMatNextDay: function (num) {
+        return moment_1["default"]().add({ "days": num }).format("YYYY-MM-DD");
+    },
+    //获取几个月之前时间
+    timeForMatPreMon: function (num) {
+        return moment_1["default"]().add({ "months": num }).format("YYYY-MM-DD");
+    },
+    //获取几年之前时间
+    timeForMatPreYear: function (num) {
+        return moment_1["default"]().add({ "years": num }).format("YYYY-MM-DD");
+    },
+    timeForMatPreStr: function (type, num) {
+        var that = this;
+        var backtime = "";
+        if (type == 'year') {
+            backtime = that.timeForMatPreYear(num);
+        }
+        else if (type == 'month') {
+            backtime = that.timeForMatPreMon(num);
+        }
+        else if (type == 'day') {
+            backtime = that.timeForMatPreDay(0 - num);
+        }
+        return backtime;
+    },
+    // //获取时间差
+    //获取时间差:该方法只能取当前时间及之前时间
+    getDateStr: function (preYear, preMonth, preDay) {
+        return moment_1["default"]().add({ "years": preYear, "months": preMonth, "days": preDay }).format("YYYY-MM-DD");
+    },
+    //将标注时间格式转为中文年月日
+    getchinesedate: function (str) {
+        return moment_1["default"](str).format("YYYY年MM月DD日");
+    },
+    getUrlParams: function (name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+        var r = window.location.search.substr(1).match(reg);
+        // if (r != null) return unescape(r[2]); return null;
+        if (r != null)
+            return decodeURIComponent(r[2]);
+        return null;
+    },
+    //去除数组重复元素
+    uniqueArr: function (arr) {
+        var tmp = new Array();
+        for (var i in arr) {
+            if (tmp.indexOf(arr[i]) == -1) {
+                tmp.push(arr[i]);
+            }
+        }
+        return tmp;
+    },
+    uniqueArr2: function (arr) {
+        var ret = [];
+        var hash = {};
+        for (var i = 0; i < arr.length; i++) {
+            var item = arr[i];
+            var key = typeof (item) + item;
+            if (hash[key] !== 1) {
+                ret.push(item);
+                hash[key] = 1;
+            }
+        }
+        return ret;
+    },
+    getstockmarket: function (code) {
+        if (code.Length < 3)
+            return "sh";
+        var one = code.substr(0, 1);
+        var three = code.substr(0, 3);
+        if (one == "5" || one == "6" || one == "9") {
+            return "sh";
+        }
+        else if (one == "4" || one == "8") {
+            return "bj";
+        }
+        else {
+            if (three == "009" || three == "126" || three == "110" || three == "201" || three == "202" || three == "203" || three == "204") {
+                return "sh";
+            }
+            else {
+                return "sz";
+            }
+        }
+    },
+    formatquteid: function (stockcode, market) {
+        if (!stockcode || !market)
+            return '';
+        var marketcode = '';
+        switch (market) {
+            case 'SHENZHEN':
+                marketcode = 'SZ' + stockcode;
+                break;
+            case 'SHEN':
+                marketcode = 'SZ' + stockcode;
+                break;
+            case 'SHANGHAI':
+                marketcode = 'SH' + stockcode;
+                break;
+            case 'HU':
+                marketcode = 'SH' + stockcode;
+                break;
+        }
+        ;
+        return marketcode;
+    },
+    formatcodeMk: function (stockcode, market) {
+        var codeMk = '';
+        if (!stockcode || !market)
+            return '';
+        if (market.indexOf('SHEN') > -1 || market.indexOf('SHENZHEN') > -1) {
+            codeMk = stockcode ? stockcode + '2' : '';
+        }
+        if (market.indexOf('HU') > -1 || market.indexOf('SHANGHAI') > -1) {
+            codeMk = stockcode ? stockcode + '1' : '';
+        }
+        return codeMk;
+    },
+    formatMarketcode: function (stockcode, market) {
+        var codeMk = '';
+        if (!stockcode || !market)
+            return '';
+        if (market.indexOf('SHEN') > -1 || market.indexOf('SHENZHEN') > -1) {
+            codeMk = stockcode ? '0.' + stockcode : '';
+        }
+        if (market.indexOf('HU') > -1 || market.indexOf('SHANGHAI') > -1) {
+            codeMk = stockcode ? '1.' + stockcode : '';
+        }
+        return codeMk;
+    },
+    //字符串截取
+    txtLeft: function (txt, n, needtip) {
+        if (txt == null || txt == "") {
+            return "-";
+        }
+        var len = 0;
+        for (var i = 0; i < txt.length; i++) {
+            if (txt.charCodeAt(i) > 255) {
+                len += 2;
+            }
+            else {
+                len++;
+            }
+            if (len > n + 3) {
+                if (needtip) {
+                    return '<span title="' + txt + '">' + txt.substring(0, i) + "...</span>";
+                }
+                else {
+                    return txt.substring(0, i) + "..";
+                }
+                break;
+            }
+        }
+        return txt;
+    },
+    // 将对象转为params形式的string
+    dataToParams: function (data) {
+        var arr = [];
+        for (var k in data) {
+            var value = data[k];
+            if (typeof (value) === 'string')
+                value = value.replace(/'/g, "%27").replace(/"/g, "%22").replace(/>/g, "%3E").replace(/</g, "%3C").replace(/=/g, "%3D");
+            arr.push(k + "=" + value);
+        }
+        return arr.join("&");
+    },
+    // 判断字体的颜色，涨：红；跌：绿；无涨跌：黑
+    fontColor: function (val) {
+        val = ('' + val).replace('%', '');
+        if (val > 0) {
+            return 'red';
+        }
+        else if (val < 0) {
+            return 'green';
+        }
+    },
+    // 过滤接口返回回来的时间
+    changeDate: function (val) {
+        var arr = val.split(' ')[0].split('/');
+        arr = arr.map(function (item) { return item >= 10 ? item : '0' + item; });
+        return arr.join('-');
+    },
+    // 判断是否是数值，是数值保留两位小数
+    toFixed2: function (val, fixed) {
+        if (fixed === void 0) { fixed = 2; }
+        if (val === '' || val == '-')
+            return '-';
+        val = parseFloat(val);
+        if (isNaN(val))
+            return "-";
+        return typeof (val) == "number" ? val.toFixed(fixed) : val;
+    },
+    numFormat: function (value, fixed, unit) {
+        if (fixed === void 0) { fixed = 2; }
+        if (unit === void 0) { unit = 'auto'; }
+        if (value === '' || value == '-')
+            return '-';
+        value = parseFloat(value);
+        if (isNaN(value))
+            return "-";
+        fixed = typeof fixed == 'undefined' && 2 || fixed;
+        var add = '';
+        if (unit == "万") {
+            value = value / 10000;
+        }
+        else if (unit == "亿") {
+            value = value / 100000000;
+        }
+        else if (unit == "%") {
+            value = value;
+            add = '%';
+        }
+        else if (unit == "auto") {
+            if (Math.abs(value) >= 1000000000000) {
+                value = value / 1000000000000;
+                add = "万亿";
+            }
+            else if (Math.abs(value) >= 100000000) {
+                value = value / 100000000;
+                add = "亿";
+            }
+            else if (Math.abs(value) >= 10000) {
+                value = value / 10000;
+                add = "万";
+            }
+        }
+        else {
+            value = value;
+            add = unit;
+        }
+        value = value.toFixed(fixed);
+        return value + add;
+    },
+    // 取值范围
+    getValRegion: function (minVal, maxVal, fixed) {
+        if (fixed === void 0) { fixed = 2; }
+        var result = "-";
+        if (minVal == null) {
+            result = this.numFormat(maxVal, fixed);
+        }
+        else {
+            if (maxVal != null) {
+                result = minVal == maxVal ? this.numFormat(minVal, fixed) : this.numFormat(minVal, fixed) + "~" + this.numFormat(maxVal, fixed);
+            }
+            else {
+                result = this.numFormat(minVal, fixed);
+            }
+        }
+        return result;
+    },
+    dateFormat: function (str, type) {
+        if (str === '' || str === undefined || str === null || str === '-') {
+            return '-';
+        }
+        try {
+            if (/^\d*$/.test(str)) {
+                str = parseInt(str);
+            }
+            type = !!type ? type : 'YYYY-MM-DD';
+            var retDate = new Date(str);
+            if (isNaN(retDate))
+                retDate = this.parseISO8601(str);
+            return moment_1["default"](retDate).format(type);
+        }
+        catch (err) {
+            return '-';
+        }
+    },
+    parseISO8601: function (dateStringInRange) {
+        var isoExp = /^\s*(\d{4})-(\d\d)-(\d\d)\s*/, date = new Date(NaN), month, parts = isoExp.exec(dateStringInRange);
+        if (parts) {
+            month = +parts[2];
+            date.setFullYear(parts[1], month - 1, parts[3]);
+            if (month != date.getMonth() + 1) {
+                date.setTime(NaN);
+            }
+        }
+        return date;
+    },
+    getQueryString: function (name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+        var r = decodeURIComponent(window.location.search).substr(1).match(reg);
+        if (r != null)
+            return unescape(r[2]);
+        return null;
+    },
+    Substr: function (str, num) {
+        var ss;
+        // 声明变量。
+        if (str.length > num)
+            ss = str.substr(0, num) + "...";
+        else {
+            ss = str;
+        }
+        // 获取子字符串。
+        return ss; // 返回 "Spain"。
+    },
+    /*
+    *判断值是否非空
+    */
+    getTextValOrEmpty: function (value) {
+        if (value != '' && value != undefined && value != null) {
+            return value;
+        }
+        else {
+            return '-';
+        }
+    },
+    getDescribe: function (data, num, fix, divide, abs, arr) {
+        if (arr === void 0) { arr = null; }
+        try {
+            if (data === '' || data === undefined || data === null || data === '-' || isNaN(data)) {
+                return '<span>-</span>';
+            }
+            data = parseFloat(data);
+            if (data == 0) {
+                return "无变化";
+            }
+            var retult = '';
+            if (!arr) {
+                arr = ['上升', '下降'];
+            }
+            if (!divide) {
+                retult = this.numFormat(data, num, fix);
+            }
+            else {
+                num = !!parseFloat(num) ? parseFloat(num) : 2;
+                if (abs) {
+                    retult = Math.abs((data / parseInt(divide))).toFixed(num) + fix;
+                }
+                else {
+                    retult = (data / parseInt(divide)).toFixed(num) + fix;
+                }
+            }
+            var color = '';
+            var desc = '';
+            color = !!data ? (data == 0 ? '' : data > 0 ? 'red' : 'green') : '';
+            desc = !!data ? (data >= 0 ? arr[0] : arr[1]) : '';
+            retult = desc + '<span class="' + color + '">' + retult + '</span>';
+            return retult;
+        }
+        catch (err) {
+            return '-';
+        }
+    },
+    getColor: function (data) {
+        data = parseFloat(data);
+        return !!data ? (data == 0 ? '' : data > 0 ? 'red' : 'green') : '';
+    },
+    getColorByData: function (data, num, fix, divide) {
+        try {
+            if (data === '' || data === undefined || data === null || data === '-' || isNaN(data)) {
+                return '<span>-</span>';
+            }
+            data = parseFloat(data);
+            var retult = '';
+            if (!divide) {
+                retult = this.FixAmt(data, num, fix);
+            }
+            else {
+                num = !!parseFloat(num) ? parseFloat(num) : 2;
+                retult = (data / parseInt(divide)).toFixed(num) + fix;
+            }
+            var color = '';
+            color = !!data ? (data == 0 ? '' : data > 0 ? 'red' : 'green') : '';
+            retult = '<span class="' + color + '">' + retult + '</span>';
+            return retult;
+        }
+        catch (err) {
+            return '-';
+        }
+    },
+    /*
+    *单位自动换算
+    */
+    FixAmt: function (str, num, fix, ride) {
+        try {
+            if (str === '' || str === undefined || str === null || str === '-' || isNaN(str)) {
+                return '-';
+            }
+            var result;
+            fix = !!fix ? fix : '';
+            num = isNaN(parseFloat(num)) ? 2 : parseFloat(num);
+            ride = !!ride ? ride : 1;
+            str = parseFloat(str) * parseInt(ride);
+            var intStr = Math.abs(parseInt(str));
+            if (intStr.toString().length > 12) {
+                result = (parseFloat(str) / 1000000000000).toFixed(num) + '万亿' + fix;
+            }
+            else if (intStr.toString().length > 8) {
+                result = (parseFloat(str) / 100000000).toFixed(num) + '亿' + fix;
+            }
+            else if (intStr.toString().length > 4) {
+                result = (parseFloat(str) / 10000).toFixed(num) + '万' + fix;
+            }
+            else {
+                result = parseFloat(str).toFixed(num) + fix;
+            }
+            // console.log(result)
+            return result;
+        }
+        catch (err) {
+            return '-';
+        }
+    },
+    /**
+     * 静态行情图
+     * @param nid
+     * @returns
+     */
+    getWebquotepic: function (nid) {
+        var env = this.getUrlParams('myenv') || "";
+        if (env == "test") {
+            return "https://webquotepictest.eastmoney.com/GetPic.aspx?nid=" + nid + "&imageType=FFRST&type=ffr&token=3a965a43f705cf1d9ad7e1a3e429d622&" + Math.random();
+        }
+        return "https://webquotepic.eastmoney.com/GetPic.aspx?nid=" + nid + "&imageType=FFRST&type=ffr&token=3a965a43f705cf1d9ad7e1a3e429d622&" + Math.random();
+    }
+};
+exports["default"] = util;
+
+
+/***/ }),
+
+/***/ 47:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+exports.__esModule = true;
+//@ts-nocheck
+/**
+ * pageopt
+ */
+var fieldtools_1 = __importDefault(__webpack_require__(1));
+var pageopt = {
+    urlkeyvalues: {
+        pagenumber: "pageNumber",
+        pagesize: "pageSize",
+        sortname: "sortColumns",
+        sortorder: "sortTypes"
+    },
+    columns: {
+        scgz: {
+            TRADE_DATE: emfield.date,
+            XG: {
+                formatter: function (value, item, i, field) {
+                    var date = fieldtools_1["default"].dateformat(item.TRADE_DATE);
+                    var detailLink = "/gzfx/list.html?date=" + date;
+                    return ("<a class=\"red\" href=" + detailLink + " style='color:red;'>\u8BE6\u7EC6</a>");
+                },
+            },
+            PE_TTM_AVG: {
+                formatter: { num: 2 }
+            },
+            TOTAL_SHARES: {
+                formatter: { zoom: 4, num: 2 }
+            },
+            FREE_SHARES: {
+                formatter: { zoom: 4, num: 2 }
+            },
+            TOTAL_MARKET_CAP: {
+                formatter: { zoom: 4, num: 2 }
+            },
+            FREE_MARKET_CAP: {
+                formatter: { zoom: 4, num: 2 }
+            },
+            LISTING_ORG_NUM: {
+                formatter: { num: 0 }
+            },
+            CLOSE_PRICE: {
+                formatter: function (value, item, i, field) {
+                    return fieldtools_1["default"].fieldfmt(value, { showcolor: true, colorvalue: item.CHANGE_RATE, num: 2, omit: false });
+                }
+            },
+            CHANGE_RATE: {
+                formatter: { showcolor: true }
+            }
+        },
+        gggz: {
+            TRADE_DATE: emfield.date,
+            SECURITY_CODE: emfield.code,
+            SECURITY_NAME_ABBR: emfield.name,
+            XG: {
+                formatter: function (value, item, i, field) {
+                    var detailLink = "/gzfx/detail/" + item.SECURITY_CODE + ".html";
+                    var gb_Link = "//guba.eastmoney.com/topic," + item.SECURITY_CODE + ".html";
+                    var gg_Link = "/stockdata/" + item.SECURITY_CODE + ".html";
+                    return "\n                    <a href=" + detailLink + " style='color:red;cursor:pointer;'>\u8BE6\u7EC6</a>\n                    <a href=" + gg_Link + ">\u6570\u636E</a>\n                    <a href=" + gb_Link + ">\u80A1\u5427</a>\n                    ";
+                },
+            },
+            CLOSE_PRICE: {
+                formatter: function (value, item, i, field) {
+                    return fieldtools_1["default"].fieldfmt(value, { showcolor: true, colorvalue: item.CHANGE_RATE, num: 2, omit: false });
+                }
+            },
+            CHANGE_RATE: { formatter: { showcolor: true } },
+            PE_TTM: {
+                formatter: function (value, item, i, field) {
+                    return value < 0 ? "-" : fieldtools_1["default"].fieldfmt(value, { num: 2 });
+                }
+            },
+            PE_LAR: {
+                formatter: function (value, item, i, field) {
+                    return value < 0 ? "-" : fieldtools_1["default"].fieldfmt(value, { num: 2 });
+                }
+            },
+            PB_MRQ: {
+                formatter: { num: 2 }
+            },
+            PEG_CAR: {
+                formatter: function (value, item, i, field) {
+                    return value < 0 ? "-" : fieldtools_1["default"].fieldfmt(value, { num: 2 });
+                }
+            },
+            PS_TTM: {
+                formatter: { num: 2 }
+            },
+            PCF_OCF_TTM: {
+                formatter: { num: 2 }
+            },
+            BOARD_NAME: {
+                formatter: function (value, item, i, field) {
+                    if (value) {
+                        return "<a href=\"/gzfx/list.html?hyName=" + encodeURIComponent(value) + "\" target=\"_blank\">" + value + "</a>";
+                    }
+                    return '-';
+                }
+            }
+        },
+        hygz: {
+            TRADE_DATE: emfield.date,
+            XG: {
+                formatter: function (value, item, i, field) {
+                    var detailLink = "/gzfx/hy/" + item.BOARD_CODE + ".html";
+                    var gb_Link = "//guba.eastmoney.com/list,BK" + (item.ORIGINALCODE.length == 4 ? item.ORIGINALCODE : ('0' + item.ORIGINALCODE)) + ".html";
+                    var hy_detail_Link = "//quote.eastmoney.com/center/boardlist.html#boards-BK" + (item.ORIGINALCODE.length == 4 ? item.ORIGINALCODE : ('0' + item.ORIGINALCODE)) + "1";
+                    return "\n                    <a href=" + detailLink + " style='color:red;cursor:pointer;'>\u8BE6\u7EC6</a>\n                    <a href=" + hy_detail_Link + ">\u884C\u4E1A\u884C\u60C5</a>\n                    <a href=" + gb_Link + ">\u80A1\u5427</a>\n                    ";
+                }
+            },
+            PE_TTM: {
+                formatter: function (value, item, i, field) {
+                    return value < 0 ? "-" : fieldtools_1["default"].fieldfmt(value, { num: 2 });
+                }
+            },
+            PE_LAR: {
+                formatter: function (value, item, i, field) {
+                    return value < 0 ? "-" : fieldtools_1["default"].fieldfmt(value, { num: 2 });
+                }
+            },
+            PB_MRQ: {
+                formatter: { num: 2 }
+            },
+            PEG_CAR: {
+                formatter: function (value, item, i, field) {
+                    return value < 0 ? "-" : fieldtools_1["default"].fieldfmt(value, { num: 2 });
+                }
+            },
+            PCF_OCF_TTM: {
+                formatter: { num: 2 }
+            },
+            PS_TTM: {
+                formatter: { num: 2 }
+            },
+            MARKET_CAP_VAG: {
+                formatter: { zoom: -8, num: 2 }
+            },
+            NUM: { formatter: { num: 0 } },
+            LOSS_COUNT: { formatter: { num: 0 } }
+        }
+    }
+};
+window.pageopt = pageopt;
+exports["default"] = pageopt;
+
+
+/***/ }),
+
+/***/ 9:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+exports.__esModule = true;
+/****
+ * 前端个股单页头部通用组件
+ *
+ *  */
+var fieldtools_1 = __importDefault(__webpack_require__(1));
+var webconfig = __webpack_require__(2);
+var code = stockInfo.code;
+var hqcode = stockInfo.hqCode;
+gettopqute();
+getstockdatastate();
+setInterval(gettopqute, 30000);
+//获取当前个股数据状态信息,主要用于处理状态变化:  数据四期接口  周康
+function getstockdatastate() {
+    $.ajax({
+        url: webconfig.getWebPath('datacenter') + 'api/data/v1/get',
+        type: 'GET',
+        dataType: 'jsonp',
+        data: {
+            reportName: 'RPT_STOCK_HEADERCHANGE',
+            columns: 'ALL',
+            filter: "(SECURITY_CODE=\"" + code + "\")",
+            pageNumber: 1,
+            pageSize: 10,
+            source: "WEB",
+            client: "WEB"
+        }
+    }).then(function (json) {
+        var _a;
+        var list = ((_a = json === null || json === void 0 ? void 0 : json.result) === null || _a === void 0 ? void 0 : _a.data) || [];
+        if ((list === null || list === void 0 ? void 0 : list.length) > 0) {
+            var $box = $(".sinstock-filter-wrap");
+            var html = '';
+            var i = 0;
+            var item = list === null || list === void 0 ? void 0 : list[0];
+            item.BILLBOARD_CODE == 1 ? i = i + 1 : $('td[data-page="gglhb"]', $box).remove(); //龙虎榜单
+            item.BLOCKTRADE_CODE == 1 ? i = i + 1 : $('td[data-page="dzjy"]', $box).remove(); //大宗交易
+            item.MARGIN_CODE == 1 ? i = i + 1 : $('td[data-page="rzrq"]', $box).remove(); //融资融券
+            item.MUTUAL_CODE == 1 ? i = i + 1 : $('td[data-page="hsgtcg"]', $box).remove(); //沪深港通
+            var hyLink = "/report/industry.jshtml?hyid=" + item.INDUSTRY_CODE + "&hyname=" + item.INDUSTRY_NAME;
+            var htmls = [
+                '<td data-page="gdzjc"><a href="//data.eastmoney.com/executive/gdzjc/' + code + '.html">股东增减持</a></td>',
+                '<td data-page="hyyb"><a href="' + hyLink + '">行业研报</a></td>',
+                '<td data-page="wdm"><a href="//guba.eastmoney.com/qa/qa_search.aspx?company=' + code + '&keyword=&questioner=&qatype=1">问董秘</a></td>',
+                '<td data-page="zx"><a href="//so.eastmoney.com/web/s?keyword=' + code + '">资讯</a></td>'
+            ];
+            html = htmls.slice(0, 4 - i).join(' ');
+            $("tr", $box).eq(1).append(html);
+            //是否显示new标识
+            var new_img = '<span class="icon icon_new valign-ttop" alt="新"></span>';
+            item.BILLBOARD_CODE_NEW == 1 ? $('td[data-page="gglhb"] a', $box).append(new_img) : ""; //龙虎榜单
+            item.BLOCKTRADE_CODE_NEW == 1 ? $('td[data-page="dzjy"] a', $box).append(new_img) : ""; //大宗交易
+            item.NOTICE_CODE == 1 ? $('td[data-page="notices"] a', $box).append(new_img) : ""; //公告大全
+            item.HOLDER_SUM_CODE == 1 ? $('td[data-page="gdhs"] a', $box).append(new_img) : ""; //股东户数
+            item.ORG_SURVEY_CODE == 1 ? $('td[data-page="jgdy"] a', $box).append(new_img) : ""; //机构调研
+            item.GM_CODE == 1 ? $('td[data-page="gddh"] a', $box).append(new_img) : ""; //股东大会
+            item.EXEUTIVE_STOCK_CODE == 1 ? $('td[data-page="ggcg"] a', $box).append(new_img) : ""; //高管持股
+            item.SALE_LIFT_CODE == 1 ? $('td[data-page="xsjj"] a', $box).append(new_img) : ""; //限售解禁
+            item.STOCK_RESERCH_CODE == 1 ? $('td[data-page="ggyb"] a', $box).append(new_img) : ""; //个股研报
+            item.CAPSTOCK_STRUCTURE_CODE == 1 ? $('td[data-page="gbjg"] a', $box).append(new_img) : ""; //股本结构
+            item.HOLDER_CHANGE_CODE == 1 ? $('td[data-page="gdzjc"] a', $box).append(new_img) : ""; //股东增减持、
+            $('td[data-page="hsgtcg"]', $box).remove(); // 去掉沪深港通持股入口
+        }
+        else {
+            $('td[data-page="hsgtcg"]', $box).remove(); // 去掉沪深港通持股入口
+            // $("tr", $box).eq(1).append(`<td data-page="gdzjc"><a href="//data.eastmoney.com/executive/gdzjc/${code}.html">股东增减持</a></td>`);
+        }
+    });
+}
+//获取行情信息 ：行情接口 马文豹
+function gettopqute() {
+    $.ajax({
+        url: webconfig.getWebPath('quoteurl') + 'api/qt/stock/get',
+        type: 'GET',
+        dataType: 'jsonp',
+        jsonp: 'cb',
+        data: {
+            fltt: "2",
+            invt: "2",
+            secid: hqcode,
+            fields: "f57,f58,f43,f47,f48,f168,f169,f170,f152",
+            ut: "b2884a393a59ad64002292a3e90d46a5"
+        },
+    }).then(function (json) {
+        if (json && (json === null || json === void 0 ? void 0 : json.data)) {
+            var data = json === null || json === void 0 ? void 0 : json.data;
+            $("#newPrice").html(fieldtools_1["default"].fieldfmt(data.f43, { showcolor: true, colorvalue: data.f169, num: data.f152 })); //最新价
+            $("#zd").html(fieldtools_1["default"].fieldfmt(data.f169, { showcolor: true, num: data.f152 })); //涨跌
+            $("#zdf").html(fieldtools_1["default"].fieldfmt(data.f170, { showcolor: true, num: data.f152, fix: "%" })); //涨跌幅
+            $("#hs").html(fieldtools_1["default"].fieldfmt(data.f168, { fix: "%", num: 2 })); //换手率
+            $("#sum").html(fieldtools_1["default"].fieldfmt(data.f47, { fix: "手", num: 2 })); //总手
+            $("#totalPrice").html(fieldtools_1["default"].fieldfmt(data.f48, { num: 2 })); //金额
+        }
+    });
+}
+
+
+/***/ })
+
+/******/ });
+//# sourceMappingURL=detail.js.map

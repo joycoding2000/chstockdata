@@ -1,0 +1,1199 @@
+{
+  "test": "test_live_tradability_adjustment_and_freshness",
+  "outcomes": [
+    {
+      "instrument_id": "XSHG:510300",
+      "capability": "LEGACY_PIT_FAIL_CLOSED",
+      "started_at": "2026-10-12T17:15:09.855723+08:00",
+      "finished_at": "2026-10-12T17:15:09.855723+08:00",
+      "status": "FAIL",
+      "error": {
+        "type": "RuntimeError",
+        "message": "deterministic injected source failure"
+      },
+      "error_locations": [
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\live_qualification.py",
+          "line": 70,
+          "function": "check"
+        },
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\test_chstockdata_etf_gate.py",
+          "line": 277,
+          "function": "<lambda>"
+        },
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\live_qualification.py",
+          "line": 104,
+          "function": "historical_gap"
+        },
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\test_live_r21_contract.py",
+          "line": 49,
+          "function": "invoke"
+        }
+      ]
+    },
+    {
+      "instrument_id": "XSHG:510300",
+      "capability": "HISTORICAL_OPENING_R21",
+      "started_at": "2026-10-12T17:15:09.855723+08:00",
+      "finished_at": "2026-10-12T17:15:09.855723+08:00",
+      "status": "FAIL",
+      "error": {
+        "type": "RuntimeError",
+        "message": "deterministic injected source failure"
+      },
+      "error_locations": [
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\live_qualification.py",
+          "line": 70,
+          "function": "check"
+        },
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\test_chstockdata_etf_gate.py",
+          "line": 279,
+          "function": "<lambda>"
+        },
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\live_qualification.py",
+          "line": 117,
+          "function": "opening_fact"
+        },
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\test_live_r21_contract.py",
+          "line": 49,
+          "function": "invoke"
+        }
+      ]
+    },
+    {
+      "instrument_id": "XSHG:510300",
+      "capability": "ADJUSTMENT_ACTIONS",
+      "started_at": "2026-10-12T17:15:09.855723+08:00",
+      "finished_at": "2026-10-12T17:15:09.855723+08:00",
+      "status": "FAIL",
+      "error": {
+        "type": "RuntimeError",
+        "message": "deterministic injected source failure"
+      },
+      "error_locations": [
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\live_qualification.py",
+          "line": 70,
+          "function": "check"
+        },
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\test_chstockdata_etf_gate.py",
+          "line": 281,
+          "function": "<lambda>"
+        },
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\test_live_r21_contract.py",
+          "line": 49,
+          "function": "invoke"
+        }
+      ]
+    },
+    {
+      "instrument_id": "XSHG:510300",
+      "capability": "RAW_AVAILABILITY",
+      "started_at": "2026-10-12T17:15:09.855723+08:00",
+      "finished_at": "2026-10-12T17:15:09.855723+08:00",
+      "status": "FAIL",
+      "error": {
+        "type": "RuntimeError",
+        "message": "deterministic injected source failure"
+      },
+      "error_locations": [
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\live_qualification.py",
+          "line": 70,
+          "function": "check"
+        },
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\test_chstockdata_etf_gate.py",
+          "line": 282,
+          "function": "<lambda>"
+        },
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\test_chstockdata_etf_gate.py",
+          "line": 266,
+          "function": "raw_bars"
+        },
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\test_live_r21_contract.py",
+          "line": 49,
+          "function": "invoke"
+        }
+      ]
+    },
+    {
+      "instrument_id": "XSHG:510300",
+      "capability": "EXECUTION_CALENDAR",
+      "started_at": "2026-10-12T17:15:09.855723+08:00",
+      "finished_at": "2026-10-12T17:15:09.855723+08:00",
+      "status": "FAIL",
+      "error": {
+        "type": "RuntimeError",
+        "message": "deterministic injected source failure"
+      },
+      "error_locations": [
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\live_qualification.py",
+          "line": 70,
+          "function": "check"
+        },
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\test_chstockdata_etf_gate.py",
+          "line": 284,
+          "function": "<lambda>"
+        },
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\test_live_r21_contract.py",
+          "line": 49,
+          "function": "invoke"
+        }
+      ]
+    },
+    {
+      "instrument_id": "XSHG:510300",
+      "capability": "FRESHNESS_STALE_MISSING",
+      "started_at": "2026-10-12T17:15:09.855723+08:00",
+      "finished_at": "2026-10-12T17:15:09.868737+08:00",
+      "status": "FAIL",
+      "error": {
+        "type": "AssertionError",
+        "message": "None"
+      },
+      "error_locations": [
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\live_qualification.py",
+          "line": 70,
+          "function": "check"
+        },
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\test_chstockdata_etf_gate.py",
+          "line": 287,
+          "function": "<lambda>"
+        },
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\live_qualification.py",
+          "line": 141,
+          "function": "freshness_proof"
+        },
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\live_qualification.py",
+          "line": 94,
+          "function": "require_success"
+        }
+      ]
+    },
+    {
+      "instrument_id": "XSHG:510300",
+      "capability": "SNAPSHOT_ENGINE_RAW_FILL_IDENTITY",
+      "started_at": "2026-10-12T17:15:09.868737+08:00",
+      "finished_at": "2026-10-12T17:15:09.937988+08:00",
+      "status": "FAIL",
+      "error": {
+        "type": "AssertionError",
+        "message": "None"
+      },
+      "error_locations": [
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\live_qualification.py",
+          "line": 70,
+          "function": "check"
+        },
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\test_chstockdata_etf_gate.py",
+          "line": 289,
+          "function": "<lambda>"
+        },
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\live_qualification.py",
+          "line": 193,
+          "function": "execution_proof"
+        },
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\live_qualification.py",
+          "line": 94,
+          "function": "require_success"
+        }
+      ]
+    },
+    {
+      "instrument_id": "XSHE:159915",
+      "capability": "LEGACY_PIT_FAIL_CLOSED",
+      "started_at": "2026-10-12T17:15:09.937988+08:00",
+      "finished_at": "2026-10-12T17:15:09.938988+08:00",
+      "status": "FAIL",
+      "error": {
+        "type": "RuntimeError",
+        "message": "deterministic injected source failure"
+      },
+      "error_locations": [
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\live_qualification.py",
+          "line": 70,
+          "function": "check"
+        },
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\test_chstockdata_etf_gate.py",
+          "line": 277,
+          "function": "<lambda>"
+        },
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\live_qualification.py",
+          "line": 104,
+          "function": "historical_gap"
+        },
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\test_live_r21_contract.py",
+          "line": 49,
+          "function": "invoke"
+        }
+      ]
+    },
+    {
+      "instrument_id": "XSHE:159915",
+      "capability": "HISTORICAL_OPENING_R21",
+      "started_at": "2026-10-12T17:15:09.938988+08:00",
+      "finished_at": "2026-10-12T17:15:09.938988+08:00",
+      "status": "FAIL",
+      "error": {
+        "type": "RuntimeError",
+        "message": "deterministic injected source failure"
+      },
+      "error_locations": [
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\live_qualification.py",
+          "line": 70,
+          "function": "check"
+        },
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\test_chstockdata_etf_gate.py",
+          "line": 279,
+          "function": "<lambda>"
+        },
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\live_qualification.py",
+          "line": 117,
+          "function": "opening_fact"
+        },
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\test_live_r21_contract.py",
+          "line": 49,
+          "function": "invoke"
+        }
+      ]
+    },
+    {
+      "instrument_id": "XSHE:159915",
+      "capability": "ADJUSTMENT_ACTIONS",
+      "started_at": "2026-10-12T17:15:09.938988+08:00",
+      "finished_at": "2026-10-12T17:15:09.938988+08:00",
+      "status": "FAIL",
+      "error": {
+        "type": "RuntimeError",
+        "message": "deterministic injected source failure"
+      },
+      "error_locations": [
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\live_qualification.py",
+          "line": 70,
+          "function": "check"
+        },
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\test_chstockdata_etf_gate.py",
+          "line": 281,
+          "function": "<lambda>"
+        },
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\test_live_r21_contract.py",
+          "line": 49,
+          "function": "invoke"
+        }
+      ]
+    },
+    {
+      "instrument_id": "XSHE:159915",
+      "capability": "RAW_AVAILABILITY",
+      "started_at": "2026-10-12T17:15:09.938988+08:00",
+      "finished_at": "2026-10-12T17:15:09.938988+08:00",
+      "status": "FAIL",
+      "error": {
+        "type": "RuntimeError",
+        "message": "deterministic injected source failure"
+      },
+      "error_locations": [
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\live_qualification.py",
+          "line": 70,
+          "function": "check"
+        },
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\test_chstockdata_etf_gate.py",
+          "line": 282,
+          "function": "<lambda>"
+        },
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\test_chstockdata_etf_gate.py",
+          "line": 266,
+          "function": "raw_bars"
+        },
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\test_live_r21_contract.py",
+          "line": 49,
+          "function": "invoke"
+        }
+      ]
+    },
+    {
+      "instrument_id": "XSHE:159915",
+      "capability": "EXECUTION_CALENDAR",
+      "started_at": "2026-10-12T17:15:09.938988+08:00",
+      "finished_at": "2026-10-12T17:15:09.938988+08:00",
+      "status": "FAIL",
+      "error": {
+        "type": "RuntimeError",
+        "message": "deterministic injected source failure"
+      },
+      "error_locations": [
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\live_qualification.py",
+          "line": 70,
+          "function": "check"
+        },
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\test_chstockdata_etf_gate.py",
+          "line": 284,
+          "function": "<lambda>"
+        },
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\test_live_r21_contract.py",
+          "line": 49,
+          "function": "invoke"
+        }
+      ]
+    },
+    {
+      "instrument_id": "XSHE:159915",
+      "capability": "FRESHNESS_STALE_MISSING",
+      "started_at": "2026-10-12T17:15:09.938988+08:00",
+      "finished_at": "2026-10-12T17:15:09.938988+08:00",
+      "status": "FAIL",
+      "error": {
+        "type": "AssertionError",
+        "message": "None"
+      },
+      "error_locations": [
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\live_qualification.py",
+          "line": 70,
+          "function": "check"
+        },
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\test_chstockdata_etf_gate.py",
+          "line": 287,
+          "function": "<lambda>"
+        },
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\live_qualification.py",
+          "line": 141,
+          "function": "freshness_proof"
+        },
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\live_qualification.py",
+          "line": 94,
+          "function": "require_success"
+        }
+      ]
+    },
+    {
+      "instrument_id": "XSHE:159915",
+      "capability": "SNAPSHOT_ENGINE_RAW_FILL_IDENTITY",
+      "started_at": "2026-10-12T17:15:09.938988+08:00",
+      "finished_at": "2026-10-12T17:15:09.938988+08:00",
+      "status": "FAIL",
+      "error": {
+        "type": "AssertionError",
+        "message": "None"
+      },
+      "error_locations": [
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\live_qualification.py",
+          "line": 70,
+          "function": "check"
+        },
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\test_chstockdata_etf_gate.py",
+          "line": 289,
+          "function": "<lambda>"
+        },
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\live_qualification.py",
+          "line": 193,
+          "function": "execution_proof"
+        },
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\live_qualification.py",
+          "line": 94,
+          "function": "require_success"
+        }
+      ]
+    },
+    {
+      "instrument_id": "XSHG:518880",
+      "capability": "LEGACY_PIT_FAIL_CLOSED",
+      "started_at": "2026-10-12T17:15:09.938988+08:00",
+      "finished_at": "2026-10-12T17:15:09.938988+08:00",
+      "status": "FAIL",
+      "error": {
+        "type": "RuntimeError",
+        "message": "deterministic injected source failure"
+      },
+      "error_locations": [
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\live_qualification.py",
+          "line": 70,
+          "function": "check"
+        },
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\test_chstockdata_etf_gate.py",
+          "line": 277,
+          "function": "<lambda>"
+        },
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\live_qualification.py",
+          "line": 104,
+          "function": "historical_gap"
+        },
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\test_live_r21_contract.py",
+          "line": 49,
+          "function": "invoke"
+        }
+      ]
+    },
+    {
+      "instrument_id": "XSHG:518880",
+      "capability": "HISTORICAL_OPENING_R21",
+      "started_at": "2026-10-12T17:15:09.938988+08:00",
+      "finished_at": "2026-10-12T17:15:09.938988+08:00",
+      "status": "FAIL",
+      "error": {
+        "type": "RuntimeError",
+        "message": "deterministic injected source failure"
+      },
+      "error_locations": [
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\live_qualification.py",
+          "line": 70,
+          "function": "check"
+        },
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\test_chstockdata_etf_gate.py",
+          "line": 279,
+          "function": "<lambda>"
+        },
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\live_qualification.py",
+          "line": 117,
+          "function": "opening_fact"
+        },
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\test_live_r21_contract.py",
+          "line": 49,
+          "function": "invoke"
+        }
+      ]
+    },
+    {
+      "instrument_id": "XSHG:518880",
+      "capability": "ADJUSTMENT_ACTIONS",
+      "started_at": "2026-10-12T17:15:09.938988+08:00",
+      "finished_at": "2026-10-12T17:15:09.938988+08:00",
+      "status": "FAIL",
+      "error": {
+        "type": "RuntimeError",
+        "message": "deterministic injected source failure"
+      },
+      "error_locations": [
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\live_qualification.py",
+          "line": 70,
+          "function": "check"
+        },
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\test_chstockdata_etf_gate.py",
+          "line": 281,
+          "function": "<lambda>"
+        },
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\test_live_r21_contract.py",
+          "line": 49,
+          "function": "invoke"
+        }
+      ]
+    },
+    {
+      "instrument_id": "XSHG:518880",
+      "capability": "RAW_AVAILABILITY",
+      "started_at": "2026-10-12T17:15:09.938988+08:00",
+      "finished_at": "2026-10-12T17:15:09.938988+08:00",
+      "status": "FAIL",
+      "error": {
+        "type": "RuntimeError",
+        "message": "deterministic injected source failure"
+      },
+      "error_locations": [
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\live_qualification.py",
+          "line": 70,
+          "function": "check"
+        },
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\test_chstockdata_etf_gate.py",
+          "line": 282,
+          "function": "<lambda>"
+        },
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\test_chstockdata_etf_gate.py",
+          "line": 266,
+          "function": "raw_bars"
+        },
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\test_live_r21_contract.py",
+          "line": 49,
+          "function": "invoke"
+        }
+      ]
+    },
+    {
+      "instrument_id": "XSHG:518880",
+      "capability": "EXECUTION_CALENDAR",
+      "started_at": "2026-10-12T17:15:09.938988+08:00",
+      "finished_at": "2026-10-12T17:15:09.938988+08:00",
+      "status": "FAIL",
+      "error": {
+        "type": "RuntimeError",
+        "message": "deterministic injected source failure"
+      },
+      "error_locations": [
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\live_qualification.py",
+          "line": 70,
+          "function": "check"
+        },
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\test_chstockdata_etf_gate.py",
+          "line": 284,
+          "function": "<lambda>"
+        },
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\test_live_r21_contract.py",
+          "line": 49,
+          "function": "invoke"
+        }
+      ]
+    },
+    {
+      "instrument_id": "XSHG:518880",
+      "capability": "FRESHNESS_STALE_MISSING",
+      "started_at": "2026-10-12T17:15:09.938988+08:00",
+      "finished_at": "2026-10-12T17:15:09.938988+08:00",
+      "status": "FAIL",
+      "error": {
+        "type": "AssertionError",
+        "message": "None"
+      },
+      "error_locations": [
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\live_qualification.py",
+          "line": 70,
+          "function": "check"
+        },
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\test_chstockdata_etf_gate.py",
+          "line": 287,
+          "function": "<lambda>"
+        },
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\live_qualification.py",
+          "line": 141,
+          "function": "freshness_proof"
+        },
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\live_qualification.py",
+          "line": 94,
+          "function": "require_success"
+        }
+      ]
+    },
+    {
+      "instrument_id": "XSHG:518880",
+      "capability": "SNAPSHOT_ENGINE_RAW_FILL_IDENTITY",
+      "started_at": "2026-10-12T17:15:09.938988+08:00",
+      "finished_at": "2026-10-12T17:15:09.938988+08:00",
+      "status": "FAIL",
+      "error": {
+        "type": "AssertionError",
+        "message": "None"
+      },
+      "error_locations": [
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\live_qualification.py",
+          "line": 70,
+          "function": "check"
+        },
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\test_chstockdata_etf_gate.py",
+          "line": 289,
+          "function": "<lambda>"
+        },
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\live_qualification.py",
+          "line": 193,
+          "function": "execution_proof"
+        },
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\live_qualification.py",
+          "line": 94,
+          "function": "require_success"
+        }
+      ]
+    },
+    {
+      "instrument_id": "XSHG:511010",
+      "capability": "LEGACY_PIT_FAIL_CLOSED",
+      "started_at": "2026-10-12T17:15:09.938988+08:00",
+      "finished_at": "2026-10-12T17:15:09.938988+08:00",
+      "status": "FAIL",
+      "error": {
+        "type": "RuntimeError",
+        "message": "deterministic injected source failure"
+      },
+      "error_locations": [
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\live_qualification.py",
+          "line": 70,
+          "function": "check"
+        },
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\test_chstockdata_etf_gate.py",
+          "line": 277,
+          "function": "<lambda>"
+        },
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\live_qualification.py",
+          "line": 104,
+          "function": "historical_gap"
+        },
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\test_live_r21_contract.py",
+          "line": 49,
+          "function": "invoke"
+        }
+      ]
+    },
+    {
+      "instrument_id": "XSHG:511010",
+      "capability": "HISTORICAL_OPENING_R21",
+      "started_at": "2026-10-12T17:15:09.938988+08:00",
+      "finished_at": "2026-10-12T17:15:09.938988+08:00",
+      "status": "FAIL",
+      "error": {
+        "type": "RuntimeError",
+        "message": "deterministic injected source failure"
+      },
+      "error_locations": [
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\live_qualification.py",
+          "line": 70,
+          "function": "check"
+        },
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\test_chstockdata_etf_gate.py",
+          "line": 279,
+          "function": "<lambda>"
+        },
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\live_qualification.py",
+          "line": 117,
+          "function": "opening_fact"
+        },
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\test_live_r21_contract.py",
+          "line": 49,
+          "function": "invoke"
+        }
+      ]
+    },
+    {
+      "instrument_id": "XSHG:511010",
+      "capability": "ADJUSTMENT_ACTIONS",
+      "started_at": "2026-10-12T17:15:09.938988+08:00",
+      "finished_at": "2026-10-12T17:15:09.938988+08:00",
+      "status": "FAIL",
+      "error": {
+        "type": "RuntimeError",
+        "message": "deterministic injected source failure"
+      },
+      "error_locations": [
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\live_qualification.py",
+          "line": 70,
+          "function": "check"
+        },
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\test_chstockdata_etf_gate.py",
+          "line": 281,
+          "function": "<lambda>"
+        },
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\test_live_r21_contract.py",
+          "line": 49,
+          "function": "invoke"
+        }
+      ]
+    },
+    {
+      "instrument_id": "XSHG:511010",
+      "capability": "RAW_AVAILABILITY",
+      "started_at": "2026-10-12T17:15:09.938988+08:00",
+      "finished_at": "2026-10-12T17:15:09.940003+08:00",
+      "status": "FAIL",
+      "error": {
+        "type": "RuntimeError",
+        "message": "deterministic injected source failure"
+      },
+      "error_locations": [
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\live_qualification.py",
+          "line": 70,
+          "function": "check"
+        },
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\test_chstockdata_etf_gate.py",
+          "line": 282,
+          "function": "<lambda>"
+        },
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\test_chstockdata_etf_gate.py",
+          "line": 266,
+          "function": "raw_bars"
+        },
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\test_live_r21_contract.py",
+          "line": 49,
+          "function": "invoke"
+        }
+      ]
+    },
+    {
+      "instrument_id": "XSHG:511010",
+      "capability": "EXECUTION_CALENDAR",
+      "started_at": "2026-10-12T17:15:09.940003+08:00",
+      "finished_at": "2026-10-12T17:15:09.940003+08:00",
+      "status": "FAIL",
+      "error": {
+        "type": "RuntimeError",
+        "message": "deterministic injected source failure"
+      },
+      "error_locations": [
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\live_qualification.py",
+          "line": 70,
+          "function": "check"
+        },
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\test_chstockdata_etf_gate.py",
+          "line": 284,
+          "function": "<lambda>"
+        },
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\test_live_r21_contract.py",
+          "line": 49,
+          "function": "invoke"
+        }
+      ]
+    },
+    {
+      "instrument_id": "XSHG:511010",
+      "capability": "FRESHNESS_STALE_MISSING",
+      "started_at": "2026-10-12T17:15:09.940003+08:00",
+      "finished_at": "2026-10-12T17:15:09.940003+08:00",
+      "status": "FAIL",
+      "error": {
+        "type": "AssertionError",
+        "message": "None"
+      },
+      "error_locations": [
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\live_qualification.py",
+          "line": 70,
+          "function": "check"
+        },
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\test_chstockdata_etf_gate.py",
+          "line": 287,
+          "function": "<lambda>"
+        },
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\live_qualification.py",
+          "line": 141,
+          "function": "freshness_proof"
+        },
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\live_qualification.py",
+          "line": 94,
+          "function": "require_success"
+        }
+      ]
+    },
+    {
+      "instrument_id": "XSHG:511010",
+      "capability": "SNAPSHOT_ENGINE_RAW_FILL_IDENTITY",
+      "started_at": "2026-10-12T17:15:09.940003+08:00",
+      "finished_at": "2026-10-12T17:15:09.940003+08:00",
+      "status": "FAIL",
+      "error": {
+        "type": "AssertionError",
+        "message": "None"
+      },
+      "error_locations": [
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\live_qualification.py",
+          "line": 70,
+          "function": "check"
+        },
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\test_chstockdata_etf_gate.py",
+          "line": 289,
+          "function": "<lambda>"
+        },
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\live_qualification.py",
+          "line": 193,
+          "function": "execution_proof"
+        },
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\live_qualification.py",
+          "line": 94,
+          "function": "require_success"
+        }
+      ]
+    },
+    {
+      "instrument_id": "XSHG:513100",
+      "capability": "CONTROL_LEGACY_PIT",
+      "started_at": "2026-10-12T17:15:09.940003+08:00",
+      "finished_at": "2026-10-12T17:15:09.940003+08:00",
+      "status": "FAIL",
+      "error": {
+        "type": "RuntimeError",
+        "message": "deterministic injected source failure"
+      },
+      "error_locations": [
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\live_qualification.py",
+          "line": 70,
+          "function": "check"
+        },
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\test_chstockdata_etf_gate.py",
+          "line": 298,
+          "function": "<lambda>"
+        },
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\live_qualification.py",
+          "line": 104,
+          "function": "historical_gap"
+        },
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\test_live_r21_contract.py",
+          "line": 49,
+          "function": "invoke"
+        }
+      ]
+    },
+    {
+      "instrument_id": "XSHG:513100",
+      "capability": "OFFICIAL_HALT_CONTROL",
+      "started_at": "2026-10-12T17:15:09.940003+08:00",
+      "finished_at": "2026-10-12T17:15:09.940003+08:00",
+      "status": "FAIL",
+      "error": {
+        "type": "RuntimeError",
+        "message": "deterministic injected source failure"
+      },
+      "error_locations": [
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\live_qualification.py",
+          "line": 70,
+          "function": "check"
+        },
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\test_chstockdata_etf_gate.py",
+          "line": 300,
+          "function": "<lambda>"
+        },
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\live_qualification.py",
+          "line": 117,
+          "function": "opening_fact"
+        },
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\test_live_r21_contract.py",
+          "line": 49,
+          "function": "invoke"
+        }
+      ]
+    },
+    {
+      "instrument_id": "XSHG:513100",
+      "capability": "CONTROL_RAW_BARS",
+      "started_at": "2026-10-12T17:15:09.940003+08:00",
+      "finished_at": "2026-10-12T17:15:09.940003+08:00",
+      "status": "FAIL",
+      "error": {
+        "type": "RuntimeError",
+        "message": "deterministic injected source failure"
+      },
+      "error_locations": [
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\live_qualification.py",
+          "line": 70,
+          "function": "check"
+        },
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\test_chstockdata_etf_gate.py",
+          "line": 302,
+          "function": "<lambda>"
+        },
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\test_live_r21_contract.py",
+          "line": 49,
+          "function": "invoke"
+        }
+      ]
+    },
+    {
+      "instrument_id": "XSHG:513100",
+      "capability": "CONTROL_CALENDAR",
+      "started_at": "2026-10-12T17:15:09.940003+08:00",
+      "finished_at": "2026-10-12T17:15:09.940003+08:00",
+      "status": "FAIL",
+      "error": {
+        "type": "RuntimeError",
+        "message": "deterministic injected source failure"
+      },
+      "error_locations": [
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\live_qualification.py",
+          "line": 70,
+          "function": "check"
+        },
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\test_chstockdata_etf_gate.py",
+          "line": 305,
+          "function": "<lambda>"
+        },
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\test_live_r21_contract.py",
+          "line": 49,
+          "function": "invoke"
+        }
+      ]
+    },
+    {
+      "instrument_id": "XSHG:513100",
+      "capability": "CONTROL_ENGINE_NO_FILL_NO_RETRY",
+      "started_at": "2026-10-12T17:15:09.940003+08:00",
+      "finished_at": "2026-10-12T17:15:09.940003+08:00",
+      "status": "FAIL",
+      "error": {
+        "type": "AssertionError",
+        "message": "None"
+      },
+      "error_locations": [
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\live_qualification.py",
+          "line": 70,
+          "function": "check"
+        },
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\test_chstockdata_etf_gate.py",
+          "line": 308,
+          "function": "<lambda>"
+        },
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\live_qualification.py",
+          "line": 193,
+          "function": "execution_proof"
+        },
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\live_qualification.py",
+          "line": 94,
+          "function": "require_success"
+        }
+      ]
+    },
+    {
+      "instrument_id": "XSHE:159509",
+      "capability": "CONTROL_LEGACY_PIT",
+      "started_at": "2026-10-12T17:15:09.940003+08:00",
+      "finished_at": "2026-10-12T17:15:09.940003+08:00",
+      "status": "FAIL",
+      "error": {
+        "type": "RuntimeError",
+        "message": "deterministic injected source failure"
+      },
+      "error_locations": [
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\live_qualification.py",
+          "line": 70,
+          "function": "check"
+        },
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\test_chstockdata_etf_gate.py",
+          "line": 298,
+          "function": "<lambda>"
+        },
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\live_qualification.py",
+          "line": 104,
+          "function": "historical_gap"
+        },
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\test_live_r21_contract.py",
+          "line": 49,
+          "function": "invoke"
+        }
+      ]
+    },
+    {
+      "instrument_id": "XSHE:159509",
+      "capability": "OFFICIAL_HALT_CONTROL",
+      "started_at": "2026-10-12T17:15:09.940003+08:00",
+      "finished_at": "2026-10-12T17:15:09.940003+08:00",
+      "status": "FAIL",
+      "error": {
+        "type": "RuntimeError",
+        "message": "deterministic injected source failure"
+      },
+      "error_locations": [
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\live_qualification.py",
+          "line": 70,
+          "function": "check"
+        },
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\test_chstockdata_etf_gate.py",
+          "line": 300,
+          "function": "<lambda>"
+        },
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\live_qualification.py",
+          "line": 117,
+          "function": "opening_fact"
+        },
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\test_live_r21_contract.py",
+          "line": 49,
+          "function": "invoke"
+        }
+      ]
+    },
+    {
+      "instrument_id": "XSHE:159509",
+      "capability": "CONTROL_RAW_BARS",
+      "started_at": "2026-10-12T17:15:09.940003+08:00",
+      "finished_at": "2026-10-12T17:15:09.940003+08:00",
+      "status": "FAIL",
+      "error": {
+        "type": "RuntimeError",
+        "message": "deterministic injected source failure"
+      },
+      "error_locations": [
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\live_qualification.py",
+          "line": 70,
+          "function": "check"
+        },
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\test_chstockdata_etf_gate.py",
+          "line": 302,
+          "function": "<lambda>"
+        },
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\test_live_r21_contract.py",
+          "line": 49,
+          "function": "invoke"
+        }
+      ]
+    },
+    {
+      "instrument_id": "XSHE:159509",
+      "capability": "CONTROL_CALENDAR",
+      "started_at": "2026-10-12T17:15:09.940003+08:00",
+      "finished_at": "2026-10-12T17:15:09.940003+08:00",
+      "status": "FAIL",
+      "error": {
+        "type": "RuntimeError",
+        "message": "deterministic injected source failure"
+      },
+      "error_locations": [
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\live_qualification.py",
+          "line": 70,
+          "function": "check"
+        },
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\test_chstockdata_etf_gate.py",
+          "line": 305,
+          "function": "<lambda>"
+        },
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\test_live_r21_contract.py",
+          "line": 49,
+          "function": "invoke"
+        }
+      ]
+    },
+    {
+      "instrument_id": "XSHE:159509",
+      "capability": "CONTROL_ENGINE_NO_FILL_NO_RETRY",
+      "started_at": "2026-10-12T17:15:09.940003+08:00",
+      "finished_at": "2026-10-12T17:15:09.940003+08:00",
+      "status": "FAIL",
+      "error": {
+        "type": "AssertionError",
+        "message": "None"
+      },
+      "error_locations": [
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\live_qualification.py",
+          "line": 70,
+          "function": "check"
+        },
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\test_chstockdata_etf_gate.py",
+          "line": 308,
+          "function": "<lambda>"
+        },
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\live_qualification.py",
+          "line": 193,
+          "function": "execution_proof"
+        },
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\live_qualification.py",
+          "line": 94,
+          "function": "require_success"
+        }
+      ]
+    }
+  ]
+}

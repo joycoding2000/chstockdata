@@ -1,0 +1,42 @@
+{
+  "argv": [
+    "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\profiles\\owner-rework-r1\\sios-candidate\\Scripts\\python.exe",
+    "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-11-v0.4.2-opening-implementation\\owner-acceptance-rework-r2\\run_live.py"
+  ],
+  "pytest_argv": [
+    "tests/qualification/test_chstockdata_etf_gate.py::TestLiveEtfQualification",
+    "-q",
+    "-p",
+    "no:cacheprovider",
+    "--basetemp",
+    "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-11-v0.4.2-opening-implementation\\owner-acceptance-rework-r2\\live\\live-temp",
+    "--junitxml",
+    "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-11-v0.4.2-opening-implementation\\owner-acceptance-rework-r2\\live\\live.xml"
+  ],
+  "cwd": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\13\\01a135d1-a42d-73a3-b19f-dc0968e4ca6c\\owner-rework-r2\\systematic-investing-os",
+  "source_identity": "11079b6ea487765f2af30a52e5c4572af10d1487f75aa04c889ef0b24f9175cb",
+  "environment_overrides": {
+    "PYTHONPATH": "C:/Users/Administrator/.codex/visualizations/2026/10/13/01a135d1-a42d-73a3-b19f-dc0968e4ca6c/owner-rework-r2/systematic-investing-os/src;C:/Users/Administrator/.codex/visualizations/2026/10/13/01a135d1-a42d-73a3-b19f-dc0968e4ca6c/owner-rework-r2/wheel",
+    "PYTHONUTF8": "1",
+    "PYTHONDONTWRITEBYTECODE": "1",
+    "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+    "SIOS_CHSTOCKDATA_LIVE_QUALIFICATION": "1",
+    "CHSTOCKDATA_VIPDOC_HISTORY_DIR": "D:/Dev/Projects/chstockdata/.rh3a2-vipdoc",
+    "CHSTOCKDATA_CACHE_DIR": "C:/Users/Administrator/.codex/visualizations/2026/10/13/01a135d1-a42d-73a3-b19f-dc0968e4ca6c/owner-rework-r2/cache-live",
+    "SIOS_LIVE_EVIDENCE_DIR": "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-11-v0.4.2-opening-implementation\\owner-acceptance-rework-r2\\live\\capabilities",
+    "SIOS_LIVE_SOURCE_ID": "11079b6ea487765f2af30a52e5c4572af10d1487f75aa04c889ef0b24f9175cb"
+  },
+  "started_at": "2026-10-14T02:39:12.505589+00:00",
+  "legacy_calendar_policy": "original public current-date staleness and original labelled online fallback retained",
+  "bounded_new_source_policy": {
+    "host": [
+      "110.41.147.114",
+      7709
+    ],
+    "timeout_seconds": 4,
+    "tdx_pages": 9,
+    "official_pages": 4,
+    "retries": false,
+    "discovery": false
+  }
+}

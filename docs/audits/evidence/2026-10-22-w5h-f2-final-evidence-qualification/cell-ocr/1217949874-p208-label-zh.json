@@ -1,0 +1,118 @@
+{
+    "id":  "1217949874",
+    "text":  "[ 归 属 于 母 公 司 所 有 者 权 益 合 计",
+    "pit_qualified":  false,
+    "engine":  "Windows.Media.Ocr existing zh-Hans-CN",
+    "maximum_image_dimension":  10000,
+    "machine_seconds":  0.020446,
+    "pixel_height":  114,
+    "image_sha256":  "661651b0278cf657a05099fe3e9c9735e0ae3773a8481b06485ff5de7432a19b",
+    "pixel_width":  1617,
+    "source_sha256":  "5cefd1e1ef733ef5887b619e09ce792d52bd33e2710580616be5736da03cd33c",
+    "physical_page":  208,
+    "lines":  [
+                  {
+                      "text":  "[ 归 属 于 母 公 司 所 有 者 权 益 合 计",
+                      "words":  [
+                                    {
+                                        "y":  0,
+                                        "height":  114,
+                                        "width":  9,
+                                        "text":  "[",
+                                        "x":  182
+                                    },
+                                    {
+                                        "y":  26,
+                                        "height":  65,
+                                        "width":  60,
+                                        "text":  "归",
+                                        "x":  204
+                                    },
+                                    {
+                                        "y":  26,
+                                        "height":  65,
+                                        "width":  61,
+                                        "text":  "属",
+                                        "x":  273
+                                    },
+                                    {
+                                        "y":  26,
+                                        "height":  63,
+                                        "width":  65,
+                                        "text":  "于",
+                                        "x":  343
+                                    },
+                                    {
+                                        "y":  26,
+                                        "height":  64,
+                                        "width":  63,
+                                        "text":  "母",
+                                        "x":  416
+                                    },
+                                    {
+                                        "y":  26,
+                                        "height":  64,
+                                        "width":  65,
+                                        "text":  "公",
+                                        "x":  486
+                                    },
+                                    {
+                                        "y":  26,
+                                        "height":  64,
+                                        "width":  55,
+                                        "text":  "司",
+                                        "x":  561
+                                    },
+                                    {
+                                        "y":  24,
+                                        "height":  66,
+                                        "width":  67,
+                                        "text":  "所",
+                                        "x":  629
+                                    },
+                                    {
+                                        "y":  24,
+                                        "height":  67,
+                                        "width":  65,
+                                        "text":  "有",
+                                        "x":  703
+                                    },
+                                    {
+                                        "y":  26,
+                                        "height":  64,
+                                        "width":  63,
+                                        "text":  "者",
+                                        "x":  776
+                                    },
+                                    {
+                                        "y":  24,
+                                        "height":  67,
+                                        "width":  67,
+                                        "text":  "权",
+                                        "x":  846
+                                    },
+                                    {
+                                        "y":  24,
+                                        "height":  64,
+                                        "width":  64,
+                                        "text":  "益",
+                                        "x":  920
+                                    },
+                                    {
+                                        "y":  24,
+                                        "height":  65,
+                                        "width":  65,
+                                        "text":  "合",
+                                        "x":  991
+                                    },
+                                    {
+                                        "y":  26,
+                                        "height":  64,
+                                        "width":  65,
+                                        "text":  "计",
+                                        "x":  1064
+                                    }
+                                ]
+                  }
+              ]
+}

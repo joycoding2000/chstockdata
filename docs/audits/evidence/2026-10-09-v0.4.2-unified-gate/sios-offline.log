@@ -1,0 +1,1034 @@
+........................................................................ [  7%]
+........................................................................ [ 15%]
+........................................................................ [ 23%]
+........................................................................ [ 30%]
+........................................................................ [ 38%]
+........................................................................ [ 46%]
+.................sssss.................................................. [ 53%]
+........................................................................ [ 61%]
+........................................................................ [ 69%]
+........................................................................ [ 77%]
+........................................................................ [ 84%]
+........................................................................ [ 92%]
+......................................................................   [100%]
+=================================== PASSES ====================================
+_______________ test_screen_nonzero_exit_on_unparseable_intent ________________
+---------------------------- Captured stderr call -----------------------------
+{"schema_version": "research-cli-output-1", "command": "screen", "error": "INTENT_UNREADABLE: artifact D:\\Dev\\Projects\\chstockdata\\build\\v042-unified\\sios-offline-tmp\\test_screen_nonzero_exit_on_un0\\broken.json is not valid JSON: Expecting property name enclosed in double quotes: line 1 column 2 (char 1)"}
+__________ test_basic_backtest_runs_variants_and_selects_by_priority __________
+---------------------------- Captured stdout setup ----------------------------
+{"catalog_sequence":1,"command":"screen","intent_digest":"sha256:f2b0922a3461081c28e01ce9d59fc669b4686e46ecbdc94547fbe769fe26d545","lineage_id":"test-etf-absolute-trend","reason_codes":[],"schema_version":"research-cli-output-1","screen_digest":"sha256:49d1033407edc42a785971c4474a4eeb228f04bbc5fe3033f419139bb0a44f81","verdict":"SCREEN_PASS"}
+_________ test_basic_snapshot_failure_after_attempt_start_is_retained _________
+---------------------------- Captured stdout setup ----------------------------
+{"catalog_sequence":1,"command":"screen","intent_digest":"sha256:f2b0922a3461081c28e01ce9d59fc669b4686e46ecbdc94547fbe769fe26d545","lineage_id":"test-etf-absolute-trend","reason_codes":[],"schema_version":"research-cli-output-1","screen_digest":"sha256:49d1033407edc42a785971c4474a4eeb228f04bbc5fe3033f419139bb0a44f81","verdict":"SCREEN_PASS"}
+_______ test_report_persistence_failure_becomes_complete_failed_attempt _______
+---------------------------- Captured stdout setup ----------------------------
+{"catalog_sequence":1,"command":"screen","intent_digest":"sha256:f2b0922a3461081c28e01ce9d59fc669b4686e46ecbdc94547fbe769fe26d545","lineage_id":"test-etf-absolute-trend","reason_codes":[],"schema_version":"research-cli-output-1","screen_digest":"sha256:49d1033407edc42a785971c4474a4eeb228f04bbc5fe3033f419139bb0a44f81","verdict":"SCREEN_PASS"}
+__________ test_catalog_persistence_failure_leaves_explained_marker ___________
+---------------------------- Captured stdout setup ----------------------------
+{"catalog_sequence":1,"command":"screen","intent_digest":"sha256:f2b0922a3461081c28e01ce9d59fc669b4686e46ecbdc94547fbe769fe26d545","lineage_id":"test-etf-absolute-trend","reason_codes":[],"schema_version":"research-cli-output-1","screen_digest":"sha256:49d1033407edc42a785971c4474a4eeb228f04bbc5fe3033f419139bb0a44f81","verdict":"SCREEN_PASS"}
+______________ test_clean_basic_run_passes_catalog_verification _______________
+---------------------------- Captured stdout setup ----------------------------
+{"catalog_sequence":1,"command":"screen","intent_digest":"sha256:f2b0922a3461081c28e01ce9d59fc669b4686e46ecbdc94547fbe769fe26d545","lineage_id":"test-etf-absolute-trend","reason_codes":[],"schema_version":"research-cli-output-1","screen_digest":"sha256:49d1033407edc42a785971c4474a4eeb228f04bbc5fe3033f419139bb0a44f81","verdict":"SCREEN_PASS"}
+______ test_run_artifacts_are_catalogued_per_file_with_their_own_digests ______
+---------------------------- Captured stdout setup ----------------------------
+{"catalog_sequence":1,"command":"screen","intent_digest":"sha256:f2b0922a3461081c28e01ce9d59fc669b4686e46ecbdc94547fbe769fe26d545","lineage_id":"test-etf-absolute-trend","reason_codes":[],"schema_version":"research-cli-output-1","screen_digest":"sha256:49d1033407edc42a785971c4474a4eeb228f04bbc5fe3033f419139bb0a44f81","verdict":"SCREEN_PASS"}
+__________ test_basic_backtest_requires_the_screened_intent_to_match __________
+---------------------------- Captured stdout setup ----------------------------
+{"catalog_sequence":1,"command":"screen","intent_digest":"sha256:f2b0922a3461081c28e01ce9d59fc669b4686e46ecbdc94547fbe769fe26d545","lineage_id":"test-etf-absolute-trend","reason_codes":[],"schema_version":"research-cli-output-1","screen_digest":"sha256:49d1033407edc42a785971c4474a4eeb228f04bbc5fe3033f419139bb0a44f81","verdict":"SCREEN_PASS"}
+---------------------------- Captured stderr call -----------------------------
+{"schema_version": "research-cli-output-1", "command": "basic-backtest", "error": "CHEAP_SCREEN_PASS_REQUIRED: lineage test-etf-absolute-trend has no SCREEN_PASS artifact; candidates rejected before implementation cannot run a Basic backtest"}
+_______ test_priority_first_pass_wins_even_when_other_return_is_higher ________
+---------------------------- Captured stdout setup ----------------------------
+{"catalog_sequence":1,"command":"screen","intent_digest":"sha256:f2b0922a3461081c28e01ce9d59fc669b4686e46ecbdc94547fbe769fe26d545","lineage_id":"test-etf-absolute-trend","reason_codes":[],"schema_version":"research-cli-output-1","screen_digest":"sha256:49d1033407edc42a785971c4474a4eeb228f04bbc5fe3033f419139bb0a44f81","verdict":"SCREEN_PASS"}
+_______ test_re_run_same_manifest_creates_new_attempt_with_same_digest ________
+---------------------------- Captured stdout setup ----------------------------
+{"catalog_sequence":1,"command":"screen","intent_digest":"sha256:f2b0922a3461081c28e01ce9d59fc669b4686e46ecbdc94547fbe769fe26d545","lineage_id":"test-etf-absolute-trend","reason_codes":[],"schema_version":"research-cli-output-1","screen_digest":"sha256:49d1033407edc42a785971c4474a4eeb228f04bbc5fe3033f419139bb0a44f81","verdict":"SCREEN_PASS"}
+_______________ test_basic_backtest_requires_cheap_screen_pass ________________
+---------------------------- Captured stderr call -----------------------------
+{"schema_version": "research-cli-output-1", "command": "basic-backtest", "error": "CHEAP_SCREEN_PASS_REQUIRED: no screen artifact exists for test-etf-absolute-trend; run 'screen' before 'basic-backtest'"}
+____________ test_basic_backtest_rejects_post_basic_snapshot_rows _____________
+---------------------------- Captured stdout setup ----------------------------
+{"catalog_sequence":1,"command":"screen","intent_digest":"sha256:f2b0922a3461081c28e01ce9d59fc669b4686e46ecbdc94547fbe769fe26d545","lineage_id":"test-etf-absolute-trend","reason_codes":[],"schema_version":"research-cli-output-1","screen_digest":"sha256:49d1033407edc42a785971c4474a4eeb228f04bbc5fe3033f419139bb0a44f81","verdict":"SCREEN_PASS"}
+---------------------------- Captured stderr call -----------------------------
+{"schema_version": "research-cli-output-1", "command": "basic-backtest", "error": "BASIC_SNAPSHOT_BOUNDARY_REJECTED: BASIC_END_EXCEEDED: the Basic snapshot contains rows after the Basic end 2024-03-29 (latest row 2024-04-01); a Basic run may never see out-of-sample rows"}
+______________ test_basic_backtest_retains_all_rejected_attempts ______________
+---------------------------- Captured stdout call -----------------------------
+{"catalog_sequence":1,"command":"screen","intent_digest":"sha256:8da36327db917892e52b86deb5ddfed390dd4050c6237f75fa50c31fd803650d","lineage_id":"test-etf-absolute-trend","reason_codes":[],"schema_version":"research-cli-output-1","screen_digest":"sha256:16b839a0f2b766d6982d2ebac55969f5d8c53456592e599824e63460ee5a7334","verdict":"SCREEN_PASS"}
+{"attempts":[{"reason_codes":["REJECTED_BASIC"],"result_digest":"sha256:a737e60d1a889a51675d7ac11857206d0084014e433c664c73cee03b1949d9d3","run_id":"run-b55359a628fab5da","status":"REJECTED_BASIC","variant_id":"sma-2"},{"reason_codes":["REJECTED_BASIC"],"result_digest":"sha256:af6a1c76a66d17e10a442ec8b04b04f58744fc41e70a7b1ffce6c4469e438934","run_id":"run-05788c0bd1a06ac1","status":"REJECTED_BASIC","variant_id":"sma-3"}],"catalog_sequence":8,"command":"basic-backtest","intent_digest":"sha256:8da36327db917892e52b86deb5ddfed390dd4050c6237f75fa50c31fd803650d","lineage_id":"test-etf-absolute-trend","schema_version":"research-cli-output-1","selected_variant":null,"selection_status":"NO_BASIC_PASS","snapshot_digest":"sha256:4899ffed9e4c53f30426055fdd81e1acf768dee41ef14b67611ffb8dca8b5bda","status":"COMPLETED"}
+____________________ test_verify_passes_on_consistent_root ____________________
+---------------------------- Captured stdout setup ----------------------------
+{"catalog_sequence":1,"command":"screen","intent_digest":"sha256:f2b0922a3461081c28e01ce9d59fc669b4686e46ecbdc94547fbe769fe26d545","lineage_id":"test-etf-absolute-trend","reason_codes":[],"schema_version":"research-cli-output-1","screen_digest":"sha256:49d1033407edc42a785971c4474a4eeb228f04bbc5fe3033f419139bb0a44f81","verdict":"SCREEN_PASS"}
+---------------------------- Captured stdout call -----------------------------
+{"command":"verify","findings":[],"schema_version":"research-cli-output-1","status":"PASS"}
+___________________ test_verify_fails_on_tampered_artifact ____________________
+---------------------------- Captured stdout setup ----------------------------
+{"catalog_sequence":1,"command":"screen","intent_digest":"sha256:f2b0922a3461081c28e01ce9d59fc669b4686e46ecbdc94547fbe769fe26d545","lineage_id":"test-etf-absolute-trend","reason_codes":[],"schema_version":"research-cli-output-1","screen_digest":"sha256:49d1033407edc42a785971c4474a4eeb228f04bbc5fe3033f419139bb0a44f81","verdict":"SCREEN_PASS"}
+---------------------------- Captured stdout call -----------------------------
+{"command":"verify","findings":["digest mismatch for test-etf-absolute-trend/runs/run-10a4be877b7ca66a/result.json (result.json): recorded sha256:1d763d26424476a74824548dd7e3018c9adcfba496020df9cf07310926ac249f, content sha256:88b2396fc4348fe891295c2fbdc50201c04de9c39559b5cda2fac411a06a69d6"],"schema_version":"research-cli-output-1","status":"FAIL"}
+{"command":"verify","findings":["digest mismatch for test-etf-absolute-trend/runs/run-10a4be877b7ca66a/result.json (result.json): recorded sha256:1d763d26424476a74824548dd7e3018c9adcfba496020df9cf07310926ac249f, content sha256:88b2396fc4348fe891295c2fbdc50201c04de9c39559b5cda2fac411a06a69d6"],"schema_version":"research-cli-output-1","status":"FAIL"}
+_____________________ test_oos_freeze_requires_basic_pass _____________________
+---------------------------- Captured stdout setup ----------------------------
+{"catalog_sequence":1,"command":"screen","intent_digest":"sha256:f2b0922a3461081c28e01ce9d59fc669b4686e46ecbdc94547fbe769fe26d545","lineage_id":"test-etf-absolute-trend","reason_codes":[],"schema_version":"research-cli-output-1","screen_digest":"sha256:49d1033407edc42a785971c4474a4eeb228f04bbc5fe3033f419139bb0a44f81","verdict":"SCREEN_PASS"}
+---------------------------- Captured stderr call -----------------------------
+{"schema_version": "research-cli-output-1", "command": "oos-freeze", "error": "OOS_FREEZE_REQUIRES_BASIC_PASS: lineage test-etf-absolute-trend has no Basic selection artifact; run 'basic-backtest' before 'oos-freeze'"}
+______________ test_oos_freeze_requires_selected_basic_candidate ______________
+---------------------------- Captured stdout call -----------------------------
+{"catalog_sequence":1,"command":"screen","intent_digest":"sha256:8da36327db917892e52b86deb5ddfed390dd4050c6237f75fa50c31fd803650d","lineage_id":"test-etf-absolute-trend","reason_codes":[],"schema_version":"research-cli-output-1","screen_digest":"sha256:16b839a0f2b766d6982d2ebac55969f5d8c53456592e599824e63460ee5a7334","verdict":"SCREEN_PASS"}
+{"attempts":[{"reason_codes":["REJECTED_BASIC"],"result_digest":"sha256:a737e60d1a889a51675d7ac11857206d0084014e433c664c73cee03b1949d9d3","run_id":"run-b55359a628fab5da","status":"REJECTED_BASIC","variant_id":"sma-2"},{"reason_codes":["REJECTED_BASIC"],"result_digest":"sha256:af6a1c76a66d17e10a442ec8b04b04f58744fc41e70a7b1ffce6c4469e438934","run_id":"run-05788c0bd1a06ac1","status":"REJECTED_BASIC","variant_id":"sma-3"}],"catalog_sequence":8,"command":"basic-backtest","intent_digest":"sha256:8da36327db917892e52b86deb5ddfed390dd4050c6237f75fa50c31fd803650d","lineage_id":"test-etf-absolute-trend","schema_version":"research-cli-output-1","selected_variant":null,"selection_status":"NO_BASIC_PASS","snapshot_digest":"sha256:4899ffed9e4c53f30426055fdd81e1acf768dee41ef14b67611ffb8dca8b5bda","status":"COMPLETED"}
+---------------------------- Captured stderr call -----------------------------
+{"schema_version": "research-cli-output-1", "command": "oos-freeze", "error": "OOS_FREEZE_REQUIRES_BASIC_PASS: lineage test-etf-absolute-trend has no BASIC_PASS selected variant (selection status 'NO_BASIC_PASS'); OOS is only reachable for a promoted candidate"}
+_____________ test_oos_freeze_persists_immutable_freeze_artifact ______________
+---------------------------- Captured stdout call -----------------------------
+{"command":"verify","findings":[],"schema_version":"research-cli-output-1","status":"PASS"}
+__________________ test_oos_run_records_exactly_one_verdict ___________________
+---------------------------- Captured stderr call -----------------------------
+{"schema_version": "research-cli-output-1", "command": "oos-run", "error": "OOS_ASSET_OUTCOME_ALREADY_RECORDED: asset class ETF already has a terminal outcome"}
+______ test_oos_run_reveal_intent_persists_before_the_snapshot_is_opened ______
+---------------------------- Captured stderr call -----------------------------
+{"schema_version": "research-cli-output-1", "command": "oos-run", "error": "OOS_SNAPSHOT_MISSING: OOS snapshot manifest does not exist: D:\\Dev\\Projects\\chstockdata\\build\\v042-unified\\sios-offline-tmp\\test_oos_run_reveal_intent_per0\\missing-oos\\manifest.json"}
+_______________ test_oos_run_refuses_contaminated_oos_snapshot ________________
+---------------------------- Captured stderr call -----------------------------
+{"schema_version": "research-cli-output-1", "command": "oos-run", "error": "OOS_ROWS_BEFORE_OOS_START: the OOS snapshot contains rows from 2024-01-02, before the OOS start 2024-04-01; the Basic window ending 2024-03-29 stays closed to the OOS runner"}
+______________ test_oos_run_refuses_mismatched_warm_up_snapshot _______________
+---------------------------- Captured stderr call -----------------------------
+{"schema_version": "research-cli-output-1", "command": "oos-run", "error": "OOS_WARM_UP_SNAPSHOT_MISMATCH: the warm-up snapshot sha256:3bf5c9f733caae0be6222e939c73908522cb3b71d2cd265e88d2e0ad140813ac does not match the freeze-bound Basic snapshot sha256:4899ffed9e4c53f30426055fdd81e1acf768dee41ef14b67611ffb8dca8b5bda"}
+_______ test_no_oos_eligible_refuses_when_an_eligible_candidate_exists ________
+---------------------------- Captured stderr call -----------------------------
+{"schema_version": "research-cli-output-1", "command": "no-oos-eligible", "error": "OOS_ELIGIBLE_CANDIDATE_EXISTS: lineage test-etf-absolute-trend holds the selected Basic candidate; NO_OOS_ELIGIBLE_CANDIDATE cannot be recorded for ETF"}
+=========================== short test summary info ===========================
+PASSED tests/component/test_corporate_actions.py::TestCashDividend::test_dividend_credits_cash_exactly_once
+PASSED tests/component/test_corporate_actions.py::TestCashDividend::test_holdings_are_unchanged_and_valued_at_the_raw_close
+PASSED tests/component/test_corporate_actions.py::TestQuantityChangingActions::test_split_scales_lots_and_preserves_sellability
+PASSED tests/component/test_corporate_actions.py::TestQuantityChangingActions::test_action_unknown_at_activation_is_applied_when_first_known
+PASSED tests/component/test_corporate_actions.py::TestInterveningActionInvalidation::test_pending_sell_is_invalidated_without_a_substitute
+PASSED tests/component/test_corporate_actions.py::TestInterveningActionInvalidation::test_locked_target_is_untouched_by_the_intervening_action
+PASSED tests/component/test_corporate_actions.py::TestNonQuantityChangingAction::test_cash_dividend_does_not_invalidate_a_pending_buy
+PASSED tests/component/test_corporate_actions.py::TestInvalidatedPrice::test_quantity_change_invalidates_a_pre_action_price
+PASSED tests/component/test_corporate_actions.py::TestFractionalShareGrant::test_fractional_grant_floors_and_pays_cash_in_lieu
+PASSED tests/component/test_corporate_actions.py::TestFractionalShareGrant::test_fractional_cash_folds_into_the_dividend_entry
+PASSED tests/component/test_corporate_actions.py::TestFractionalShareGrant::test_missing_fraction_price_still_fails_closed
+PASSED tests/component/test_corporate_actions.py::TestFractionalShareGrant::test_small_lot_floors_and_pays_the_remainder
+PASSED tests/component/test_corporate_actions.py::TestFractionalShareGrant::test_integral_ratio_behavior_is_unchanged
+PASSED tests/component/test_corporate_actions.py::TestFractionalShareGrant::test_legacy_accounting_rejects_fractional_grant_even_with_price
+PASSED tests/component/test_corporate_actions.py::TestFractionalShareGrant::test_current_accounting_selection_keeps_floor_and_cash_in_lieu
+PASSED tests/component/test_corporate_actions.py::TestFractionalShareGrant::test_integral_grant_is_identical_for_both_accounting_profiles
+PASSED tests/component/test_event_order.py::TestTCloseSizing::test_decision_sizes_from_the_finalized_t_close
+PASSED tests/component/test_event_order.py::TestTCloseSizing::test_target_locks_the_t_decision_identity_and_cash_weight
+PASSED tests/component/test_event_order.py::TestTCloseSizing::test_no_order_fills_on_the_decision_session
+PASSED tests/component/test_event_order.py::TestNextSessionOpenActivation::test_pending_order_fills_at_the_next_open_slippage_price
+PASSED tests/component/test_event_order.py::TestNextSessionOpenActivation::test_fill_precedes_close_valuation
+PASSED tests/component/test_event_order.py::TestNextSessionOpenActivation::test_next_decision_valued_on_post_fill_equity
+PASSED tests/component/test_event_order.py::TestGlobalAffordabilityGap::test_gap_reduces_submitted_quantity_not_the_plan
+PASSED tests/component/test_event_order.py::TestFrozenInputContract::test_duplicate_bar_keys_fail_closed
+PASSED tests/component/test_event_order.py::TestDeterminism::test_repeated_runs_and_input_ordering_match
+PASSED tests/component/test_execution_accounting.py::TestGlobalAffordabilityGap::test_planned_quantities_are_reduced_by_complete_lots_globally
+PASSED tests/component/test_execution_accounting.py::TestGlobalAffordabilityGap::test_per_order_constraint_reasons_record_the_gap
+PASSED tests/component/test_execution_accounting.py::TestGlobalAffordabilityGap::test_fills_are_all_or_none_at_the_execution_price
+PASSED tests/component/test_execution_accounting.py::TestGlobalAffordabilityGap::test_itemized_costs_and_holdings_ledger
+PASSED tests/component/test_execution_accounting.py::TestGlobalAffordabilityGap::test_input_ordering_does_not_change_the_activation
+PASSED tests/component/test_execution_accounting.py::TestSellSideActivation::test_sell_fills_at_floor_ticked_slippage_price
+PASSED tests/component/test_execution_accounting.py::TestSellSideActivation::test_selling_beyond_sellable_quantity_is_rejected
+PASSED tests/component/test_execution_accounting.py::TestTradabilityRejections::test_suspended_instrument_is_rejected_without_a_fill
+PASSED tests/component/test_execution_accounting.py::TestTradabilityRejections::test_missing_tradability_fails_closed_as_unknown
+PASSED tests/component/test_execution_accounting.py::TestValuation::test_suspended_position_uses_last_valid_close_with_stale_mark
+PASSED tests/component/test_execution_accounting.py::TestValuation::test_incomplete_valuation_is_recorded_with_its_reason
+PASSED tests/component/test_execution_accounting.py::TestValuation::test_unpriceable_holding_makes_the_valuation_incomplete
+PASSED tests/component/test_execution_accounting.py::TestValuation::test_nav_point_relates_equity_to_the_initial_capital
+PASSED tests/component/test_foundation_adversarial_boundaries.py::test_risk_transform_rejects_adversarial_rule_outcomes[forged-before]
+PASSED tests/component/test_foundation_adversarial_boundaries.py::test_risk_transform_rejects_adversarial_rule_outcomes[negative-weight]
+PASSED tests/component/test_foundation_adversarial_boundaries.py::test_risk_transform_rejects_adversarial_rule_outcomes[missing-exposure]
+PASSED tests/component/test_foundation_adversarial_boundaries.py::test_risk_transform_rejects_adversarial_rule_outcomes[pass-mutation]
+PASSED tests/component/test_foundation_adversarial_boundaries.py::test_risk_transform_rejects_adversarial_rule_outcomes[duplicate-weight]
+PASSED tests/component/test_foundation_adversarial_boundaries.py::test_risk_transform_rejects_adversarial_rule_outcomes[mismatched-identity]
+PASSED tests/component/test_foundation_adversarial_boundaries.py::test_current_portfolio_copies_caller_owned_holdings
+PASSED tests/component/test_foundation_adversarial_boundaries.py::test_decision_context_rejects_future_tradability_and_corporate_actions
+PASSED tests/component/test_no_lookahead.py::TestNoLookahead::test_mutating_all_data_after_t_leaves_the_t_decision_identical
+PASSED tests/component/test_no_lookahead.py::TestNoLookahead::test_next_open_change_moves_the_fill_not_the_plan
+PASSED tests/component/test_no_lookahead.py::TestDecisionContextContract::test_context_rejects_a_bar_that_is_not_knowable_at_the_cutoff
+PASSED tests/component/test_no_lookahead.py::TestDecisionContextContract::test_context_rejects_a_bar_after_the_decision_session
+PASSED tests/component/test_no_lookahead.py::TestDecisionSlice::test_future_slice_request_fails_loudly
+PASSED tests/component/test_no_lookahead.py::TestDecisionSlice::test_fact_unavailable_at_the_cutoff_is_not_in_the_slice
+PASSED tests/component/test_tradability.py::TestSuspendedAndUnknown::test_suspended_buy_is_rejected_without_a_fill
+PASSED tests/component/test_tradability.py::TestSuspendedAndUnknown::test_unknown_status_blocks_exposure
+PASSED tests/component/test_tradability.py::TestSuspendedAndUnknown::test_missing_tradability_fact_fails_closed_as_unknown
+PASSED tests/component/test_tradability.py::TestSuspendedAndUnknown::test_fact_not_knowable_at_the_activation_cutoff_is_unknown
+PASSED tests/component/test_tradability.py::TestPriceLimits::test_upper_limit_buy_is_rejected
+PASSED tests/component/test_tradability.py::TestPriceLimits::test_lower_limit_sell_is_rejected_and_position_is_retained
+PASSED tests/component/test_tradability.py::TestSettlementSellability::test_acquisition_is_not_sellable_on_its_own_session
+PASSED tests/component/test_tradability.py::TestSettlementSellability::test_exit_fills_on_the_next_session_once_sellable
+PASSED tests/component/test_tradability.py::TestStaleMarkValuation::test_suspended_holding_is_marked_at_last_valid_close
+PASSED tests/component/test_tradability.py::TestStaleMarkValuation::test_missing_finalized_close_blocks_the_next_decision
+PASSED tests/contract/test_canonical_market_contracts.py::TestDailyBarConstruction::test_canonical_bar_retains_all_declared_fields
+PASSED tests/contract/test_canonical_market_contracts.py::TestDailyBarConstruction::test_canonical_execution_bar_is_raw
+PASSED tests/contract/test_canonical_market_contracts.py::TestDailyBarConstruction::test_datetimes_are_rejected_as_session_dates
+PASSED tests/contract/test_canonical_market_contracts.py::TestDailyBarConstruction::test_bar_is_immutable
+PASSED tests/contract/test_canonical_market_contracts.py::TestDailyBarPriceInvariants::test_non_positive_ohlc_price_is_rejected[open]
+PASSED tests/contract/test_canonical_market_contracts.py::TestDailyBarPriceInvariants::test_non_positive_ohlc_price_is_rejected[high]
+PASSED tests/contract/test_canonical_market_contracts.py::TestDailyBarPriceInvariants::test_non_positive_ohlc_price_is_rejected[low]
+PASSED tests/contract/test_canonical_market_contracts.py::TestDailyBarPriceInvariants::test_non_positive_ohlc_price_is_rejected[close]
+PASSED tests/contract/test_canonical_market_contracts.py::TestDailyBarPriceInvariants::test_low_above_open_is_rejected
+PASSED tests/contract/test_canonical_market_contracts.py::TestDailyBarPriceInvariants::test_close_above_high_is_rejected
+PASSED tests/contract/test_canonical_market_contracts.py::TestDailyBarPriceInvariants::test_open_above_high_is_rejected
+PASSED tests/contract/test_canonical_market_contracts.py::TestDailyBarPriceInvariants::test_low_above_close_is_rejected
+PASSED tests/contract/test_canonical_market_contracts.py::TestDailyBarPriceInvariants::test_touching_extremes_are_valid
+PASSED tests/contract/test_canonical_market_contracts.py::TestDailyBarPreCloseNullVersusZero::test_pre_close_is_optional_without_defaulting_to_zero
+PASSED tests/contract/test_canonical_market_contracts.py::TestDailyBarPreCloseNullVersusZero::test_zero_pre_close_is_rejected_because_zero_is_not_a_close
+PASSED tests/contract/test_canonical_market_contracts.py::TestDailyBarPreCloseNullVersusZero::test_negative_pre_close_is_rejected
+PASSED tests/contract/test_canonical_market_contracts.py::TestDailyBarVolumeAmountUnits::test_genuine_zero_volume_is_preserved_not_nulled
+PASSED tests/contract/test_canonical_market_contracts.py::TestDailyBarVolumeAmountUnits::test_negative_volume_is_rejected
+PASSED tests/contract/test_canonical_market_contracts.py::TestDailyBarVolumeAmountUnits::test_negative_amount_is_rejected
+PASSED tests/contract/test_canonical_market_contracts.py::TestDailyBarVolumeAmountUnits::test_float_volume_is_rejected
+PASSED tests/contract/test_canonical_market_contracts.py::TestDailyBarVolumeAmountUnits::test_missing_unit_names_are_rejected
+PASSED tests/contract/test_canonical_market_contracts.py::TestDailyBarVolumeAmountUnits::test_non_cny_currency_is_rejected_in_m0
+PASSED tests/contract/test_canonical_market_contracts.py::TestDailyBarAvailability::test_information_time_and_retrieval_time_stay_distinct
+PASSED tests/contract/test_canonical_market_contracts.py::TestDailyBarAvailability::test_naive_retrieval_time_is_rejected
+PASSED tests/contract/test_canonical_market_contracts.py::TestDailyBarAvailability::test_unknown_basis_requires_no_information_time
+PASSED tests/contract/test_canonical_market_contracts.py::TestDailyBarAvailability::test_unknown_basis_never_acquires_a_fabricated_time
+PASSED tests/contract/test_canonical_market_contracts.py::TestDailyBarAvailability::test_known_bases_require_the_information_time[OBSERVED]
+PASSED tests/contract/test_canonical_market_contracts.py::TestDailyBarAvailability::test_known_bases_require_the_information_time[EXCHANGE_RULE]
+PASSED tests/contract/test_canonical_market_contracts.py::TestDailyBarAvailability::test_known_bases_require_the_information_time[INFERRED]
+PASSED tests/contract/test_canonical_market_contracts.py::TestDailyBarAvailability::test_information_time_after_retrieval_time_is_rejected
+PASSED tests/contract/test_canonical_market_contracts.py::TestDailyBarAvailability::test_pit_access_uses_information_availability_only
+PASSED tests/contract/test_canonical_market_contracts.py::TestDailyBarAvailability::test_pit_access_of_unknown_basis_stays_unknown
+PASSED tests/contract/test_canonical_market_contracts.py::TestDailyBarAvailability::test_naive_cutoff_is_rejected_for_pit_access
+PASSED tests/contract/test_canonical_market_contracts.py::TestDailyBarAdjustmentFactor::test_optional_point_in_time_factor_is_retained
+PASSED tests/contract/test_canonical_market_contracts.py::TestDailyBarAdjustmentFactor::test_non_positive_factor_is_rejected
+PASSED tests/contract/test_canonical_market_contracts.py::TestTradingSession::test_session_retains_identity_and_status
+PASSED tests/contract/test_canonical_market_contracts.py::TestTradingSession::test_session_date_rejects_datetimes
+PASSED tests/contract/test_canonical_market_contracts.py::TestTradingSession::test_calendar_identity_is_required
+PASSED tests/contract/test_canonical_market_contracts.py::TestTradingSession::test_snapshot_version_is_required
+PASSED tests/contract/test_canonical_market_contracts.py::TestMarketCalendar::test_calendar_rejects_foreign_calendar_sessions
+PASSED tests/contract/test_canonical_market_contracts.py::TestMarketCalendar::test_calendar_rejects_duplicate_session_dates
+PASSED tests/contract/test_canonical_market_contracts.py::TestMarketCalendar::test_calendar_rejects_unsorted_sessions
+PASSED tests/contract/test_canonical_market_contracts.py::TestMarketCalendar::test_next_session_skips_closed_sessions_in_the_snapshot
+PASSED tests/contract/test_canonical_market_contracts.py::TestMarketCalendar::test_next_session_is_resolved_from_the_snapshot_not_weekday_math
+PASSED tests/contract/test_canonical_market_contracts.py::TestMarketCalendar::test_next_session_after_snapshot_end_fails_closed
+PASSED tests/contract/test_canonical_market_contracts.py::TestMarketCalendar::test_next_session_rejects_datetime_argument
+PASSED tests/contract/test_canonical_market_contracts.py::TestMarketCalendar::test_session_lookup_on_the_snapshot
+PASSED tests/contract/test_canonical_market_contracts.py::TestTradabilityStatus::test_tradable_status_permits_both_sides
+PASSED tests/contract/test_canonical_market_contracts.py::TestTradabilityStatus::test_suspension_blocks_both_sides_and_keeps_the_reason
+PASSED tests/contract/test_canonical_market_contracts.py::TestTradabilityStatus::test_unknown_status_is_a_real_value_and_permits_nothing
+PASSED tests/contract/test_canonical_market_contracts.py::TestTradabilityStatus::test_upper_limit_blocks_buys_but_allows_sells
+PASSED tests/contract/test_canonical_market_contracts.py::TestTradabilityStatus::test_lower_limit_blocks_sells_but_allows_buys
+PASSED tests/contract/test_canonical_market_contracts.py::TestTradabilityStatus::test_not_listed_and_delisted_block_both_sides
+PASSED tests/contract/test_canonical_market_contracts.py::TestTradabilityStatus::test_provenance_is_required
+PASSED tests/contract/test_canonical_market_contracts.py::TestTradabilityStatus::test_availability_is_required
+PASSED tests/contract/test_canonical_market_contracts.py::TestCorporateAction::test_action_retains_declared_fields
+PASSED tests/contract/test_canonical_market_contracts.py::TestCorporateAction::test_split_carries_share_ratio_without_cash
+PASSED tests/contract/test_canonical_market_contracts.py::TestCorporateAction::test_action_without_economic_terms_is_rejected
+PASSED tests/contract/test_canonical_market_contracts.py::TestCorporateAction::test_non_positive_ratio_is_rejected
+PASSED tests/contract/test_canonical_market_contracts.py::TestCorporateAction::test_revision_must_be_positive
+PASSED tests/contract/test_canonical_market_contracts.py::TestCorporateAction::test_correction_creates_a_new_record_instead_of_mutating
+PASSED tests/contract/test_canonical_market_contracts.py::TestCorporateAction::test_record_is_immutable
+PASSED tests/contract/test_canonical_market_contracts.py::TestCorporateAction::test_provenance_is_required
+PASSED tests/contract/test_canonical_market_contracts.py::TestCorporateAction::test_unknown_availability_is_expressible
+PASSED tests/contract/test_canonical_market_contracts.py::TestProviderEvidence::test_evidence_retains_provider_and_request_identity
+PASSED tests/contract/test_canonical_market_contracts.py::TestProviderEvidence::test_naive_retrieval_time_is_rejected
+PASSED tests/contract/test_canonical_market_contracts.py::TestProviderEvidence::test_negative_record_count_is_rejected
+PASSED tests/contract/test_canonical_market_contracts.py::TestProviderEvidence::test_missing_checksum_is_rejected
+PASSED tests/contract/test_canonical_market_contracts.py::TestProviderEvidence::test_warnings_are_immutable
+PASSED tests/contract/test_canonical_market_contracts.py::TestProviderResults::test_empty_success_is_a_success_not_a_failure
+PASSED tests/contract/test_canonical_market_contracts.py::TestProviderResults::test_success_carries_canonical_records_and_evidence
+PASSED tests/contract/test_canonical_market_contracts.py::TestProviderResults::test_failure_carries_typed_error_code_and_cause
+PASSED tests/contract/test_canonical_market_contracts.py::TestProviderResults::test_every_documented_error_category_exists
+PASSED tests/contract/test_canonical_market_contracts.py::TestCanonicalSerialization::test_daily_bar_round_trip_preserves_decimal_date_time_enum_schema
+PASSED tests/contract/test_canonical_market_contracts.py::TestCanonicalSerialization::test_daily_bar_rejects_unknown_schema_version
+PASSED tests/contract/test_canonical_market_contracts.py::TestCanonicalSerialization::test_daily_bar_rejects_missing_required_keys
+PASSED tests/contract/test_canonical_market_contracts.py::TestCanonicalSerialization::test_trading_session_round_trip
+PASSED tests/contract/test_canonical_market_contracts.py::TestCanonicalSerialization::test_tradability_round_trip
+PASSED tests/contract/test_canonical_market_contracts.py::TestCanonicalSerialization::test_corporate_action_round_trip
+PASSED tests/contract/test_chstockdata_provider.py::TestDailyBarMapping::test_maps_canonical_identity_session_and_decimal_prices
+PASSED tests/contract/test_chstockdata_provider.py::TestDailyBarMapping::test_normalizes_declared_vendor_units_exactly_once
+PASSED tests/contract/test_chstockdata_provider.py::TestDailyBarMapping::test_declares_exchange_rule_close_availability_with_retrieval_time
+PASSED tests/contract/test_chstockdata_provider.py::TestDailyBarMapping::test_attaches_requested_identity_and_normalizes_input_ordering
+PASSED tests/contract/test_chstockdata_provider.py::TestProviderEvidence::test_evidence_records_identity_counts_and_stable_checksums
+PASSED tests/contract/test_chstockdata_provider.py::TestProviderEvidence::test_evidence_checksum_changes_with_payload_content
+PASSED tests/contract/test_chstockdata_provider.py::TestProviderEvidence::test_provider_failure_is_a_value_with_typed_code
+PASSED tests/contract/test_chstockdata_provider.py::TestClientBoundary::test_client_protocol_is_structural
+PASSED tests/contract/test_chstockdata_provider.py::TestDailyBarFailureModes::test_empty_rows_with_complete_coverage_are_an_empty_success
+PASSED tests/contract/test_chstockdata_provider.py::TestDailyBarFailureModes::test_partial_coverage_fails_closed_as_partial_result
+PASSED tests/contract/test_chstockdata_provider.py::TestDailyBarFailureModes::test_missing_required_column_is_schema_drift
+PASSED tests/contract/test_chstockdata_provider.py::TestDailyBarFailureModes::test_additive_columns_are_recorded_and_ignored
+PASSED tests/contract/test_chstockdata_provider.py::TestDailyBarFailureModes::test_unusable_required_value_is_malformed_data[None]
+PASSED tests/contract/test_chstockdata_provider.py::TestDailyBarFailureModes::test_unusable_required_value_is_malformed_data[not-a-number]
+PASSED tests/contract/test_chstockdata_provider.py::TestDailyBarFailureModes::test_duplicate_session_rows_are_malformed_data
+PASSED tests/contract/test_chstockdata_provider.py::TestDailyBarFailureModes::test_datetime_session_values_are_rejected
+PASSED tests/contract/test_chstockdata_provider.py::TestDailyBarFailureModes::test_unknown_unit_token_is_schema_drift
+PASSED tests/contract/test_chstockdata_provider.py::TestDailyBarFailureModes::test_unproven_unit_contract_fails_closed
+PASSED tests/contract/test_chstockdata_provider.py::TestDailyBarFailureModes::test_declared_vendor_unavailability_is_typed
+PASSED tests/contract/test_chstockdata_provider.py::TestDailyBarFailureModes::test_declared_misconfiguration_is_typed
+PASSED tests/contract/test_chstockdata_provider.py::TestDailyBarFailureModes::test_vendor_schema_error_is_typed_schema_drift
+PASSED tests/contract/test_chstockdata_provider.py::TestDailyBarFailureModes::test_bar_whose_session_close_is_after_retrieval_is_malformed
+PASSED tests/contract/test_chstockdata_provider.py::TestDailyBarAvailabilityEdgeCases::test_explicit_unknown_availability_stays_explicit
+PASSED tests/contract/test_chstockdata_provider.py::TestDailyBarAvailabilityEdgeCases::test_vendor_observed_information_time_is_preserved
+PASSED tests/contract/test_chstockdata_provider.py::TestDailyBarAvailabilityEdgeCases::test_unknown_availability_basis_token_is_schema_drift
+PASSED tests/contract/test_chstockdata_provider.py::TestLibraryClientBoundary::test_rejects_a_library_release_other_than_the_pin
+PASSED tests/contract/test_chstockdata_provider.py::TestLibraryClientBoundary::test_accepts_the_pinned_release
+PASSED tests/contract/test_chstockdata_provider.py::TestLibraryClientBoundary::test_maps_canonical_identity_to_the_vipdoc_call[instrument_id0-510300-sh]
+PASSED tests/contract/test_chstockdata_provider.py::TestLibraryClientBoundary::test_maps_canonical_identity_to_the_vipdoc_call[instrument_id1-159915-sz]
+PASSED tests/contract/test_chstockdata_provider.py::TestLibraryClientBoundary::test_missing_local_history_fails_closed
+PASSED tests/contract/test_chstockdata_provider.py::TestLibraryClientBoundary::test_unexpected_library_errors_propagate_to_the_adapter
+PASSED tests/contract/test_chstockdata_provider.py::TestLibraryClientBoundary::test_missing_optional_dependency_is_a_configuration_failure
+PASSED tests/contract/test_chstockdata_provider.py::TestCorporateActionRouting::test_etf_requests_bind_the_kind_into_the_request_digest_and_client_call
+PASSED tests/contract/test_chstockdata_provider.py::TestCorporateActionRouting::test_request_kinds_share_the_port_but_not_the_request_digest
+PASSED tests/contract/test_chstockdata_provider.py::TestCalendarMapping::test_marks_open_and_inferred_closed_sessions
+PASSED tests/contract/test_chstockdata_provider.py::TestCalendarMapping::test_partial_coverage_fails_closed
+PASSED tests/contract/test_chstockdata_provider.py::TestCalendarMapping::test_stale_calendar_source_is_recorded_as_a_warning
+PASSED tests/contract/test_chstockdata_provider.py::TestCalendarMapping::test_open_day_outside_the_covered_window_is_malformed
+PASSED tests/contract/test_chstockdata_provider.py::TestTradabilityMapping::test_same_day_suspension_snapshot_is_observed
+PASSED tests/contract/test_chstockdata_provider.py::TestTradabilityMapping::test_historical_session_uses_the_exchange_rule_open_time
+PASSED tests/contract/test_chstockdata_provider.py::TestTradabilityMapping::test_absent_suspension_record_is_tradable
+PASSED tests/contract/test_chstockdata_provider.py::TestTradabilityMapping::test_snapshot_for_a_different_session_fails_closed
+PASSED tests/contract/test_chstockdata_provider.py::TestTradabilityMapping::test_non_boolean_suspension_flag_is_malformed
+PASSED tests/contract/test_chstockdata_provider.py::TestCorporateActionMapping::test_cash_dividend_maps_per_share_amount_and_dates
+PASSED tests/contract/test_chstockdata_provider.py::TestCorporateActionMapping::test_stock_dividend_maps_to_a_split_share_ratio
+PASSED tests/contract/test_chstockdata_provider.py::TestCorporateActionMapping::test_items_are_ordered_canonically_regardless_of_input_order
+PASSED tests/contract/test_chstockdata_provider.py::TestCorporateActionMapping::test_partial_coverage_fails_closed
+PASSED tests/contract/test_chstockdata_provider.py::TestCorporateActionMapping::test_item_without_an_ex_date_fails_closed
+PASSED tests/contract/test_chstockdata_provider.py::TestCorporateActionMapping::test_rights_issues_are_unsupported_in_m0
+PASSED tests/contract/test_chstockdata_provider.py::TestCorporateActionMapping::test_empty_items_is_an_empty_success
+PASSED tests/contract/test_chstockdata_provider.py::TestRuleCandidateAdjudication::test_vendor_rule_profiles_map_to_canonical_candidates
+PASSED tests/contract/test_chstockdata_provider.py::TestRuleCandidateAdjudication::test_conflicting_candidate_never_overrides_the_approved_master
+PASSED tests/contract/test_chstockdata_provider.py::TestRuleCandidateAdjudication::test_candidate_for_an_unapproved_instrument_fails_closed
+PASSED tests/contract/test_chstockdata_provider.py::TestRuleCandidateAdjudication::test_unknown_rule_kind_fails_closed
+PASSED tests/contract/test_chstockdata_provider.py::TestRuleCandidateAdjudication::test_unknown_rule_value_key_fails_closed
+PASSED tests/contract/test_chstockdata_provider.py::TestProviderPortConformance::test_adapter_satisfies_the_provider_port
+PASSED tests/contract/test_chstockdata_provider.py::TestProviderPortConformance::test_capability_evidence_reports_version_and_capabilities
+PASSED tests/contract/test_chstockdata_provider.py::TestProviderPortConformance::test_library_rule_candidates_are_an_empty_advisory_result
+PASSED tests/contract/test_provider_port.py::TestDataProviderPort::test_canonical_stub_satisfies_the_port_protocol
+PASSED tests/contract/test_provider_port.py::TestDataProviderPort::test_capability_evidence_returns_provider_evidence
+PASSED tests/contract/test_provider_port.py::TestDataProviderPort::test_daily_bar_result_carries_canonical_bars
+PASSED tests/contract/test_provider_port.py::TestDataProviderPort::test_empty_success_stays_distinct_from_typed_failure
+PASSED tests/contract/test_provider_port.py::TestDataProviderPort::test_typed_failure_is_a_value_not_an_exception
+PASSED tests/contract/test_provider_port.py::TestPortRequestContracts::test_request_requires_a_universe
+PASSED tests/contract/test_provider_port.py::TestPortRequestContracts::test_request_rejects_inverted_date_range
+PASSED tests/contract/test_provider_port.py::TestPortRequestContracts::test_request_rejects_datetimes_as_session_dates
+PASSED tests/contract/test_provider_port.py::TestPortRequestContracts::test_request_declares_adjustment_intent
+PASSED tests/golden/test_foundation_state_sequences.py::test_state_sequence_ledgers_reconstruct_terminal_account[G02-default]
+PASSED tests/golden/test_foundation_state_sequences.py::test_state_sequence_ledgers_reconstruct_terminal_account[G03-default]
+PASSED tests/golden/test_foundation_state_sequences.py::test_state_sequence_ledgers_reconstruct_terminal_account[G04-default]
+PASSED tests/golden/test_foundation_state_sequences.py::test_state_sequence_ledgers_reconstruct_terminal_account[G09-default]
+PASSED tests/golden/test_foundation_state_sequences.py::test_state_sequence_ledgers_reconstruct_terminal_account[G14-default]
+PASSED tests/golden/test_foundation_state_sequences.py::test_state_sequence_ledgers_reconstruct_terminal_account[G16-default]
+PASSED tests/golden/test_foundation_state_sequences.py::test_state_sequence_ledgers_reconstruct_terminal_account[G19-default]
+PASSED tests/golden/test_foundation_state_sequences.py::test_state_sequence_ledgers_reconstruct_terminal_account[G20-stale_mark]
+PASSED tests/golden/test_foundation_state_sequences.py::test_state_sequence_ledgers_reconstruct_terminal_account[G21-split_pending_exit]
+PASSED tests/golden/test_foundation_state_sequences.py::test_state_sequence_order_outcomes_and_fee_postings_are_one_to_one[G02-default]
+PASSED tests/golden/test_foundation_state_sequences.py::test_state_sequence_order_outcomes_and_fee_postings_are_one_to_one[G03-default]
+PASSED tests/golden/test_foundation_state_sequences.py::test_state_sequence_order_outcomes_and_fee_postings_are_one_to_one[G04-default]
+PASSED tests/golden/test_foundation_state_sequences.py::test_state_sequence_order_outcomes_and_fee_postings_are_one_to_one[G09-default]
+PASSED tests/golden/test_foundation_state_sequences.py::test_state_sequence_order_outcomes_and_fee_postings_are_one_to_one[G14-default]
+PASSED tests/golden/test_foundation_state_sequences.py::test_state_sequence_order_outcomes_and_fee_postings_are_one_to_one[G16-default]
+PASSED tests/golden/test_foundation_state_sequences.py::test_state_sequence_order_outcomes_and_fee_postings_are_one_to_one[G19-default]
+PASSED tests/golden/test_foundation_state_sequences.py::test_state_sequence_order_outcomes_and_fee_postings_are_one_to_one[G20-stale_mark]
+PASSED tests/golden/test_foundation_state_sequences.py::test_state_sequence_order_outcomes_and_fee_postings_are_one_to_one[G21-split_pending_exit]
+PASSED tests/golden/test_foundation_state_sequences.py::test_state_sequence_replay_is_digest_stable[G02-default]
+PASSED tests/golden/test_foundation_state_sequences.py::test_state_sequence_replay_is_digest_stable[G03-default]
+PASSED tests/golden/test_foundation_state_sequences.py::test_state_sequence_replay_is_digest_stable[G04-default]
+PASSED tests/golden/test_foundation_state_sequences.py::test_state_sequence_replay_is_digest_stable[G09-default]
+PASSED tests/golden/test_foundation_state_sequences.py::test_state_sequence_replay_is_digest_stable[G14-default]
+PASSED tests/golden/test_foundation_state_sequences.py::test_state_sequence_replay_is_digest_stable[G16-default]
+PASSED tests/golden/test_foundation_state_sequences.py::test_state_sequence_replay_is_digest_stable[G19-default]
+PASSED tests/golden/test_foundation_state_sequences.py::test_state_sequence_replay_is_digest_stable[G20-stale_mark]
+PASSED tests/golden/test_foundation_state_sequences.py::test_state_sequence_replay_is_digest_stable[G21-split_pending_exit]
+PASSED tests/golden/test_foundation_state_sequences.py::test_pending_exit_is_invalidated_instead_of_rescaled_after_split
+PASSED tests/golden/test_foundation_state_sequences.py::test_stale_mark_never_fabricates_an_execution_price
+PASSED tests/golden/test_golden_scenarios.py::test_scenario_index_covers_g01_through_g21
+PASSED tests/golden/test_golden_scenarios.py::test_golden_driver_is_documented_as_a_non_strategy
+PASSED tests/golden/test_golden_scenarios.py::test_scenario_manifest_and_expected_outputs_are_complete[G01]
+PASSED tests/golden/test_golden_scenarios.py::test_scenario_manifest_and_expected_outputs_are_complete[G02]
+PASSED tests/golden/test_golden_scenarios.py::test_scenario_manifest_and_expected_outputs_are_complete[G03]
+PASSED tests/golden/test_golden_scenarios.py::test_scenario_manifest_and_expected_outputs_are_complete[G04]
+PASSED tests/golden/test_golden_scenarios.py::test_scenario_manifest_and_expected_outputs_are_complete[G05]
+PASSED tests/golden/test_golden_scenarios.py::test_scenario_manifest_and_expected_outputs_are_complete[G06]
+PASSED tests/golden/test_golden_scenarios.py::test_scenario_manifest_and_expected_outputs_are_complete[G07]
+PASSED tests/golden/test_golden_scenarios.py::test_scenario_manifest_and_expected_outputs_are_complete[G08]
+PASSED tests/golden/test_golden_scenarios.py::test_scenario_manifest_and_expected_outputs_are_complete[G09]
+PASSED tests/golden/test_golden_scenarios.py::test_scenario_manifest_and_expected_outputs_are_complete[G10]
+PASSED tests/golden/test_golden_scenarios.py::test_scenario_manifest_and_expected_outputs_are_complete[G11]
+PASSED tests/golden/test_golden_scenarios.py::test_scenario_manifest_and_expected_outputs_are_complete[G12]
+PASSED tests/golden/test_golden_scenarios.py::test_scenario_manifest_and_expected_outputs_are_complete[G13]
+PASSED tests/golden/test_golden_scenarios.py::test_scenario_manifest_and_expected_outputs_are_complete[G14]
+PASSED tests/golden/test_golden_scenarios.py::test_scenario_manifest_and_expected_outputs_are_complete[G15]
+PASSED tests/golden/test_golden_scenarios.py::test_scenario_manifest_and_expected_outputs_are_complete[G16]
+PASSED tests/golden/test_golden_scenarios.py::test_scenario_manifest_and_expected_outputs_are_complete[G17]
+PASSED tests/golden/test_golden_scenarios.py::test_scenario_manifest_and_expected_outputs_are_complete[G18]
+PASSED tests/golden/test_golden_scenarios.py::test_scenario_manifest_and_expected_outputs_are_complete[G19]
+PASSED tests/golden/test_golden_scenarios.py::test_scenario_manifest_and_expected_outputs_are_complete[G20]
+PASSED tests/golden/test_golden_scenarios.py::test_scenario_manifest_and_expected_outputs_are_complete[G21]
+PASSED tests/golden/test_golden_scenarios.py::test_scenario_matches_its_hand_calculated_expectations[G01]
+PASSED tests/golden/test_golden_scenarios.py::test_scenario_matches_its_hand_calculated_expectations[G02]
+PASSED tests/golden/test_golden_scenarios.py::test_scenario_matches_its_hand_calculated_expectations[G03]
+PASSED tests/golden/test_golden_scenarios.py::test_scenario_matches_its_hand_calculated_expectations[G04]
+PASSED tests/golden/test_golden_scenarios.py::test_scenario_matches_its_hand_calculated_expectations[G05]
+PASSED tests/golden/test_golden_scenarios.py::test_scenario_matches_its_hand_calculated_expectations[G06]
+PASSED tests/golden/test_golden_scenarios.py::test_scenario_matches_its_hand_calculated_expectations[G07]
+PASSED tests/golden/test_golden_scenarios.py::test_scenario_matches_its_hand_calculated_expectations[G08]
+PASSED tests/golden/test_golden_scenarios.py::test_scenario_matches_its_hand_calculated_expectations[G09]
+PASSED tests/golden/test_golden_scenarios.py::test_scenario_matches_its_hand_calculated_expectations[G10]
+PASSED tests/golden/test_golden_scenarios.py::test_scenario_matches_its_hand_calculated_expectations[G11]
+PASSED tests/golden/test_golden_scenarios.py::test_scenario_matches_its_hand_calculated_expectations[G12]
+PASSED tests/golden/test_golden_scenarios.py::test_scenario_matches_its_hand_calculated_expectations[G13]
+PASSED tests/golden/test_golden_scenarios.py::test_scenario_matches_its_hand_calculated_expectations[G14]
+PASSED tests/golden/test_golden_scenarios.py::test_scenario_matches_its_hand_calculated_expectations[G15]
+PASSED tests/golden/test_golden_scenarios.py::test_scenario_matches_its_hand_calculated_expectations[G16]
+PASSED tests/golden/test_golden_scenarios.py::test_scenario_matches_its_hand_calculated_expectations[G17]
+PASSED tests/golden/test_golden_scenarios.py::test_scenario_matches_its_hand_calculated_expectations[G18]
+PASSED tests/golden/test_golden_scenarios.py::test_scenario_matches_its_hand_calculated_expectations[G19]
+PASSED tests/golden/test_golden_scenarios.py::test_scenario_matches_its_hand_calculated_expectations[G20]
+PASSED tests/golden/test_golden_scenarios.py::test_scenario_matches_its_hand_calculated_expectations[G21]
+PASSED tests/golden/test_golden_scenarios.py::test_scenario_runs_are_deterministic_in_process[G01]
+PASSED tests/golden/test_golden_scenarios.py::test_scenario_runs_are_deterministic_in_process[G02]
+PASSED tests/golden/test_golden_scenarios.py::test_scenario_runs_are_deterministic_in_process[G03]
+PASSED tests/golden/test_golden_scenarios.py::test_scenario_runs_are_deterministic_in_process[G04]
+PASSED tests/golden/test_golden_scenarios.py::test_scenario_runs_are_deterministic_in_process[G05]
+PASSED tests/golden/test_golden_scenarios.py::test_scenario_runs_are_deterministic_in_process[G06]
+PASSED tests/golden/test_golden_scenarios.py::test_scenario_runs_are_deterministic_in_process[G07]
+PASSED tests/golden/test_golden_scenarios.py::test_scenario_runs_are_deterministic_in_process[G08]
+PASSED tests/golden/test_golden_scenarios.py::test_scenario_runs_are_deterministic_in_process[G09]
+PASSED tests/golden/test_golden_scenarios.py::test_scenario_runs_are_deterministic_in_process[G10]
+PASSED tests/golden/test_golden_scenarios.py::test_scenario_runs_are_deterministic_in_process[G11]
+PASSED tests/golden/test_golden_scenarios.py::test_scenario_runs_are_deterministic_in_process[G12]
+PASSED tests/golden/test_golden_scenarios.py::test_scenario_runs_are_deterministic_in_process[G13]
+PASSED tests/golden/test_golden_scenarios.py::test_scenario_runs_are_deterministic_in_process[G14]
+PASSED tests/golden/test_golden_scenarios.py::test_scenario_runs_are_deterministic_in_process[G15]
+PASSED tests/golden/test_golden_scenarios.py::test_scenario_runs_are_deterministic_in_process[G16]
+PASSED tests/golden/test_golden_scenarios.py::test_scenario_runs_are_deterministic_in_process[G17]
+PASSED tests/golden/test_golden_scenarios.py::test_scenario_runs_are_deterministic_in_process[G18]
+PASSED tests/golden/test_golden_scenarios.py::test_scenario_runs_are_deterministic_in_process[G19]
+PASSED tests/golden/test_golden_scenarios.py::test_scenario_runs_are_deterministic_in_process[G20]
+PASSED tests/golden/test_golden_scenarios.py::test_scenario_runs_are_deterministic_in_process[G21]
+PASSED tests/golden/test_golden_scenarios.py::test_scenario_runs_never_produce_negative_cash[G01]
+PASSED tests/golden/test_golden_scenarios.py::test_scenario_runs_never_produce_negative_cash[G02]
+PASSED tests/golden/test_golden_scenarios.py::test_scenario_runs_never_produce_negative_cash[G03]
+PASSED tests/golden/test_golden_scenarios.py::test_scenario_runs_never_produce_negative_cash[G04]
+PASSED tests/golden/test_golden_scenarios.py::test_scenario_runs_never_produce_negative_cash[G05]
+PASSED tests/golden/test_golden_scenarios.py::test_scenario_runs_never_produce_negative_cash[G06]
+PASSED tests/golden/test_golden_scenarios.py::test_scenario_runs_never_produce_negative_cash[G07]
+PASSED tests/golden/test_golden_scenarios.py::test_scenario_runs_never_produce_negative_cash[G08]
+PASSED tests/golden/test_golden_scenarios.py::test_scenario_runs_never_produce_negative_cash[G09]
+PASSED tests/golden/test_golden_scenarios.py::test_scenario_runs_never_produce_negative_cash[G10]
+PASSED tests/golden/test_golden_scenarios.py::test_scenario_runs_never_produce_negative_cash[G11]
+PASSED tests/golden/test_golden_scenarios.py::test_scenario_runs_never_produce_negative_cash[G12]
+PASSED tests/golden/test_golden_scenarios.py::test_scenario_runs_never_produce_negative_cash[G13]
+PASSED tests/golden/test_golden_scenarios.py::test_scenario_runs_never_produce_negative_cash[G14]
+PASSED tests/golden/test_golden_scenarios.py::test_scenario_runs_never_produce_negative_cash[G15]
+PASSED tests/golden/test_golden_scenarios.py::test_scenario_runs_never_produce_negative_cash[G16]
+PASSED tests/golden/test_golden_scenarios.py::test_scenario_runs_never_produce_negative_cash[G17]
+PASSED tests/golden/test_golden_scenarios.py::test_scenario_runs_never_produce_negative_cash[G18]
+PASSED tests/golden/test_golden_scenarios.py::test_scenario_runs_never_produce_negative_cash[G19]
+PASSED tests/golden/test_golden_scenarios.py::test_scenario_runs_never_produce_negative_cash[G20]
+PASSED tests/golden/test_golden_scenarios.py::test_scenario_runs_never_produce_negative_cash[G21]
+PASSED tests/golden/test_golden_scenarios.py::TestG03ResidualCash::test_residual_cash_and_executable_weight_are_explicit
+PASSED tests/golden/test_golden_scenarios.py::TestG04StockCosts::test_itemized_cash_entries_and_effective_dated_market_provenance
+PASSED tests/golden/test_golden_scenarios.py::TestG05EtfFeeProfiles::test_each_subtype_uses_its_own_approved_market_fee_family
+PASSED tests/golden/test_golden_scenarios.py::TestG09Settlement::test_sellable_dates_are_profile_driven
+PASSED tests/golden/test_golden_scenarios.py::TestG10NoLookahead::test_mutating_future_bars_cannot_change_the_t_decision
+PASSED tests/golden/test_golden_scenarios.py::TestG11CorporateAction::test_dividend_is_credited_once_and_adjustment_never_double_counts
+PASSED tests/golden/test_golden_scenarios.py::TestG13TerminalModes::test_terminal_modes_have_distinct_identity_and_costs
+PASSED tests/golden/test_golden_scenarios.py::TestG14InputOrdering::test_reordered_facts_do_not_change_the_run
+PASSED tests/golden/test_golden_scenarios.py::TestG15TargetCompleteness::test_explicit_zero_exits_and_explicit_unchanged_has_no_delta
+PASSED tests/golden/test_golden_scenarios.py::TestG15TargetCompleteness::test_absent_held_instrument_fails_the_complete_target_boundary
+PASSED tests/golden/test_golden_scenarios.py::TestG16GapReduction::test_affordable_open_keeps_the_t_decision_identical
+PASSED tests/golden/test_golden_scenarios.py::TestG17PointInTime::test_decision_slice_uses_information_time_only
+PASSED tests/golden/test_golden_scenarios.py::TestG18Authority::test_provider_candidates_never_become_authority
+PASSED tests/golden/test_golden_scenarios.py::TestG19Sleeves::test_sleeves_come_only_from_explicit_fields
+PASSED tests/golden/test_golden_scenarios.py::TestG20Valuation::test_stale_nav_is_reportable_but_incomplete_nav_blocks_metrics
+PASSED tests/golden/test_golden_scenarios.py::TestG21InterveningAction::test_intervening_split_keeps_the_locked_target_identity
+PASSED tests/integration/test_foundation_digest_binding.py::test_snapshot_identity_binds_quality_receipt_and_status
+PASSED tests/integration/test_foundation_digest_binding.py::test_portfolio_snapshot_digest_binds_acquisition_lot_schedule
+PASSED tests/integration/test_foundation_digest_binding.py::test_backtest_digest_binds_ledger_source_identity
+PASSED tests/integration/test_manifest_identity.py::test_every_replay_input_change_creates_a_new_manifest_identity[data_snapshot_digest-sha256:c45654cb3e52974cc12fc37c985d7c55e0f47ba63e9b12adb66b3814e5886bd1]
+PASSED tests/integration/test_manifest_identity.py::test_every_replay_input_change_creates_a_new_manifest_identity[fee_config_digest-sha256:3d57f2f82a78f1b03da118692dba8ccfd06eecdacda4c7deb2e91654bf4de615]
+PASSED tests/integration/test_manifest_identity.py::test_every_replay_input_change_creates_a_new_manifest_identity[calendar_digest-sha256:0a40a62ee4f13822160d8662f730b706e79e753c03fa541a4f308070f49eeb67]
+PASSED tests/integration/test_manifest_identity.py::test_every_replay_input_change_creates_a_new_manifest_identity[execution_model_version-NEXT_SESSION_OPEN-v2]
+PASSED tests/integration/test_manifest_identity.py::test_every_replay_input_change_creates_a_new_manifest_identity[dependency_lock_digest-sha256:bdf0869d1366b0dd474b37381894565fdce0c5df07743453bd4accae304e8cd4]
+PASSED tests/integration/test_manifest_identity.py::test_every_replay_input_change_creates_a_new_manifest_identity[rule_versions-changed_value5]
+PASSED tests/integration/test_manifest_identity.py::test_missing_replay_identity_or_unapproved_benchmark_fails_closed[code_commit-]
+PASSED tests/integration/test_manifest_identity.py::test_missing_replay_identity_or_unapproved_benchmark_fails_closed[dependency_lock_digest-]
+PASSED tests/integration/test_manifest_identity.py::test_missing_replay_identity_or_unapproved_benchmark_fails_closed[data_snapshot_digest-]
+PASSED tests/integration/test_manifest_identity.py::test_missing_replay_identity_or_unapproved_benchmark_fails_closed[benchmark_identity-CSI300]
+PASSED tests/integration/test_reproducibility.py::test_scenario_replays_identically_from_two_isolated_snapshots[G01]
+PASSED tests/integration/test_reproducibility.py::test_scenario_replays_identically_from_two_isolated_snapshots[G02]
+PASSED tests/integration/test_reproducibility.py::test_scenario_replays_identically_from_two_isolated_snapshots[G03]
+PASSED tests/integration/test_reproducibility.py::test_scenario_replays_identically_from_two_isolated_snapshots[G04]
+PASSED tests/integration/test_reproducibility.py::test_scenario_replays_identically_from_two_isolated_snapshots[G05]
+PASSED tests/integration/test_reproducibility.py::test_scenario_replays_identically_from_two_isolated_snapshots[G06]
+PASSED tests/integration/test_reproducibility.py::test_scenario_replays_identically_from_two_isolated_snapshots[G07]
+PASSED tests/integration/test_reproducibility.py::test_scenario_replays_identically_from_two_isolated_snapshots[G08]
+PASSED tests/integration/test_reproducibility.py::test_scenario_replays_identically_from_two_isolated_snapshots[G09]
+PASSED tests/integration/test_reproducibility.py::test_scenario_replays_identically_from_two_isolated_snapshots[G10]
+PASSED tests/integration/test_reproducibility.py::test_scenario_replays_identically_from_two_isolated_snapshots[G11]
+PASSED tests/integration/test_reproducibility.py::test_scenario_replays_identically_from_two_isolated_snapshots[G12]
+PASSED tests/integration/test_reproducibility.py::test_scenario_replays_identically_from_two_isolated_snapshots[G13]
+PASSED tests/integration/test_reproducibility.py::test_scenario_replays_identically_from_two_isolated_snapshots[G14]
+PASSED tests/integration/test_reproducibility.py::test_scenario_replays_identically_from_two_isolated_snapshots[G15]
+PASSED tests/integration/test_reproducibility.py::test_scenario_replays_identically_from_two_isolated_snapshots[G16]
+PASSED tests/integration/test_reproducibility.py::test_scenario_replays_identically_from_two_isolated_snapshots[G17]
+PASSED tests/integration/test_reproducibility.py::test_scenario_replays_identically_from_two_isolated_snapshots[G18]
+PASSED tests/integration/test_reproducibility.py::test_scenario_replays_identically_from_two_isolated_snapshots[G19]
+PASSED tests/integration/test_reproducibility.py::test_scenario_replays_identically_from_two_isolated_snapshots[G20]
+PASSED tests/integration/test_reproducibility.py::test_scenario_replays_identically_from_two_isolated_snapshots[G21]
+PASSED tests/integration/test_reproducibility.py::test_snapshot_persistence_is_immutable
+PASSED tests/integration/test_research_cli.py::test_cli_has_screen_basic_backtest_and_verify_commands
+PASSED tests/integration/test_research_cli.py::test_cli_has_no_bypass_flags
+PASSED tests/integration/test_research_cli.py::test_screen_accepts_frozen_intent_and_persists_artifact
+PASSED tests/integration/test_research_cli.py::test_screen_rejects_missing_benchmark_with_typed_artifact
+PASSED tests/integration/test_research_cli.py::test_screen_nonzero_exit_on_unparseable_intent
+PASSED tests/integration/test_research_cli.py::test_basic_backtest_runs_variants_and_selects_by_priority
+PASSED tests/integration/test_research_cli.py::test_basic_snapshot_failure_after_attempt_start_is_retained
+PASSED tests/integration/test_research_cli.py::test_report_persistence_failure_becomes_complete_failed_attempt
+PASSED tests/integration/test_research_cli.py::test_catalog_persistence_failure_leaves_explained_marker
+PASSED tests/integration/test_research_cli.py::test_clean_basic_run_passes_catalog_verification
+PASSED tests/integration/test_research_cli.py::test_run_artifacts_are_catalogued_per_file_with_their_own_digests
+PASSED tests/integration/test_research_cli.py::test_failed_run_result_digest_matches_persisted_bytes
+PASSED tests/integration/test_research_cli.py::test_basic_backtest_requires_the_screened_intent_to_match
+PASSED tests/integration/test_research_cli.py::test_priority_first_pass_wins_even_when_other_return_is_higher
+PASSED tests/integration/test_research_cli.py::test_re_run_same_manifest_creates_new_attempt_with_same_digest
+PASSED tests/integration/test_research_cli.py::test_basic_backtest_requires_cheap_screen_pass
+PASSED tests/integration/test_research_cli.py::test_basic_backtest_rejects_post_basic_snapshot_rows
+PASSED tests/integration/test_research_cli.py::test_basic_backtest_retains_all_rejected_attempts
+PASSED tests/integration/test_research_cli.py::test_verify_passes_on_consistent_root
+PASSED tests/integration/test_research_cli.py::test_verify_fails_on_tampered_artifact
+PASSED tests/integration/test_research_cli.py::test_oos_run_refuses_freeze_bound_implementation_drift
+PASSED tests/integration/test_research_cli.py::test_oos_run_refuses_freeze_bound_kernel_drift
+PASSED tests/integration/test_research_cli.py::test_oos_run_unknown_kernel_never_opens_the_snapshot
+PASSED tests/integration/test_research_cli.py::test_oos_freeze_refuses_unsupported_kernel_before_persistence
+PASSED tests/integration/test_research_cli.py::test_oos_run_refuses_corrupt_oos_snapshot_with_typed_error
+PASSED tests/integration/test_research_cli.py::test_cli_has_oos_commands_and_no_bypass_flags
+PASSED tests/integration/test_research_cli.py::test_oos_freeze_requires_basic_pass
+PASSED tests/integration/test_research_cli.py::test_oos_freeze_requires_selected_basic_candidate
+PASSED tests/integration/test_research_cli.py::test_oos_freeze_persists_immutable_freeze_artifact
+PASSED tests/integration/test_research_cli.py::test_oos_freeze_is_idempotent_for_identical_content
+PASSED tests/integration/test_research_cli.py::test_oos_run_records_exactly_one_verdict
+PASSED tests/integration/test_research_cli.py::test_oos_run_without_warm_up_snapshot_still_evaluates_short_lookback
+PASSED tests/integration/test_research_cli.py::test_oos_run_reveal_intent_persists_before_the_snapshot_is_opened
+PASSED tests/integration/test_research_cli.py::test_new_intent_version_cannot_freeze_an_already_revealed_lineage_window
+PASSED tests/integration/test_research_cli.py::test_oos_run_refuses_contaminated_oos_snapshot
+PASSED tests/integration/test_research_cli.py::test_oos_run_refuses_mismatched_warm_up_snapshot
+PASSED tests/integration/test_research_cli.py::test_no_oos_eligible_records_honest_outcome_without_materialization
+PASSED tests/integration/test_research_cli.py::test_no_oos_eligible_refuses_when_an_eligible_candidate_exists
+PASSED tests/integration/test_snapshot_replay.py::TestSnapshotRoundTrip::test_persist_then_replay_preserves_records_and_checksums
+PASSED tests/integration/test_snapshot_replay.py::TestSnapshotIdentity::test_identical_runs_in_two_directories_yield_identical_manifest_bytes
+PASSED tests/integration/test_snapshot_replay.py::TestSnapshotIdentity::test_record_ordering_does_not_change_the_snapshot_identity
+PASSED tests/integration/test_snapshot_replay.py::TestSnapshotIdentity::test_mutating_one_price_yields_a_new_snapshot_id
+PASSED tests/integration/test_snapshot_replay.py::TestSnapshotIntegrity::test_corrupted_artifact_is_detected_on_replay
+PASSED tests/integration/test_snapshot_replay.py::TestSnapshotIntegrity::test_manifest_snapshot_id_mismatch_is_detected_on_replay
+PASSED tests/integration/test_snapshot_replay.py::TestSnapshotIntegrity::test_writer_refuses_to_overwrite_an_existing_manifest
+PASSED tests/integration/test_snapshot_replay.py::TestQualityEvidenceBinding::test_persist_binds_gate_evidence_into_manifest_and_replay
+PASSED tests/integration/test_snapshot_replay.py::TestQualityEvidenceBinding::test_quality_evidence_is_part_of_the_snapshot_identity
+PASSED tests/parity/test_reference_cases.py::TestParityReferenceCases::test_case_matches_frozen_independent_evidence[PARITY-A-SHARE-SELL-FEES-20230828]
+PASSED tests/parity/test_reference_cases.py::TestParityReferenceCases::test_case_matches_frozen_independent_evidence[PARITY-A-SHARE-BUY-FEES-20230828]
+PASSED tests/parity/test_reference_cases.py::TestParityReferenceCases::test_case_matches_frozen_independent_evidence[PARITY-ETF-ZERO-STAMP-TRANSFER]
+PASSED tests/parity/test_reference_cases.py::TestParityReferenceCases::test_case_matches_frozen_independent_evidence[PARITY-PRICE-LIMIT-10PCT-A-SHARE]
+PASSED tests/parity/test_reference_cases.py::TestParityReferenceCases::test_case_matches_frozen_independent_evidence[PARITY-PRICE-LIMIT-ETF-TICK]
+PASSED tests/parity/test_reference_cases.py::TestParityReferenceCases::test_case_matches_frozen_independent_evidence[PARITY-PRICE-LIMIT-CHINEXT-20PCT]
+PASSED tests/parity/test_reference_cases.py::TestParityReferenceCases::test_case_matches_frozen_independent_evidence[PARITY-SETTLEMENT-T-PLUS-ONE]
+PASSED tests/parity/test_reference_cases.py::TestParityReferenceCases::test_case_matches_frozen_independent_evidence[PARITY-SETTLEMENT-GOLD-ETF-INTRADAY]
+PASSED tests/parity/test_reference_cases.py::TestParityReferenceCases::test_case_matches_frozen_independent_evidence[PARITY-SETTLEMENT-BOND-ETF-INTRADAY]
+PASSED tests/parity/test_reference_cases.py::TestParityReferenceCases::test_case_matches_frozen_independent_evidence[PARITY-PIT-UNKNOWN-BASIS]
+PASSED tests/parity/test_reference_cases.py::TestParityReferenceCases::test_case_matches_frozen_independent_evidence[PARITY-EXECUTION-TICK-ROUNDING]
+PASSED tests/parity/test_reference_cases.py::TestParityReferenceCases::test_case_matches_frozen_independent_evidence[PARITY-LOT-RULES-BOARD-LOT]
+PASSED tests/parity/test_reference_cases.py::TestParityReferenceCases::test_no_case_is_missing_its_source_semantics_or_tolerance
+PASSED tests/parity/test_reference_cases.py::TestParityReferenceCases::test_report_is_immutable_and_reproducible
+PASSED tests/parity/test_reference_cases.py::TestParityReferenceCases::test_generated_report_matches_the_committed_parity_evidence
+PASSED tests/parity/test_reference_cases.py::TestParityReferenceCases::test_report_records_sources_excluded_scope_and_zero_unexplained_delta
+PASSED tests/qualification/test_chstockdata_etf_gate.py::TestQualificationScope::test_matrix_declares_only_the_three_approved_m0_subtypes
+PASSED tests/qualification/test_chstockdata_etf_gate.py::TestQualificationScope::test_matrix_instruments_use_canonical_ids_and_vendor_symbols
+PASSED tests/qualification/test_chstockdata_etf_gate.py::TestQualificationScope::test_rejected_scope_is_explicit_and_never_approved
+PASSED tests/qualification/test_chstockdata_etf_gate.py::TestQualificationScope::test_unverified_subtypes_are_not_even_expressible
+PASSED tests/qualification/test_chstockdata_etf_gate.py::TestOfflineEtfGate::test_gate_passes_every_check_for_every_approved_instrument
+PASSED tests/qualification/test_chstockdata_etf_gate.py::TestOfflineEtfGate::test_every_subtype_carries_the_full_capability_check_set
+PASSED tests/qualification/test_chstockdata_etf_gate.py::TestOfflineEtfGate::test_recorded_edge_events_are_qualified
+PASSED tests/qualification/test_chstockdata_etf_gate.py::TestOfflineEtfGate::test_a_broken_capability_fails_only_its_own_subtype
+PASSED tests/qualification/test_chstockdata_etf_gate.py::TestOfflineEtfGate::test_report_is_capability_scoped_and_records_evidence
+PASSED tests/qualification/test_chstockdata_etf_gate.py::TestOfflineEtfGate::test_report_generation_is_deterministic
+PASSED tests/qualification/test_chstockdata_etf_gate.py::TestOfflineEtfGate::test_generated_report_matches_the_committed_offline_evidence
+PASSED tests/qualification/test_chstockdata_etf_gate.py::TestOfflineEtfGate::test_report_path_is_outside_the_core_package
+PASSED tests/qualification/test_m0_real_data_vertical_smoke.py::test_owner_snapshot_passes_the_real_data_vertical_smoke
+PASSED tests/research/test_ai_source_flight.py::test_source_screen_records_real_source_provenance_and_verdict
+PASSED tests/research/test_ai_source_flight.py::test_source_screen_rejects_missing_rights_before_any_implementation
+PASSED tests/research/test_ai_source_flight.py::test_source_screen_requires_a_declared_falsifiable_hypothesis
+PASSED tests/research/test_ai_source_flight.py::test_committed_real_source_flight_record_is_screenable
+PASSED tests/research/test_artifact_retention.py::test_write_new_json_is_create_new_with_canonical_digest
+PASSED tests/research/test_artifact_retention.py::test_existing_artifact_paths_are_never_overwritten
+PASSED tests/research/test_artifact_retention.py::test_next_attempt_counts_complete_runs_per_manifest_identity
+PASSED tests/research/test_artifact_retention.py::test_run_id_is_deterministic_and_attempt_scoped
+PASSED tests/research/test_artifact_retention.py::test_next_attempt_fails_closed_when_run_directory_missing_result
+PASSED tests/research/test_artifact_retention.py::test_next_attempt_fails_closed_when_run_directory_missing_report
+PASSED tests/research/test_artifact_retention.py::test_half_persisted_run_is_detected_not_silently_counted
+PASSED tests/research/test_artifact_retention.py::test_catalog_gap_non_numeric_and_misrecorded_entries_fail_closed
+PASSED tests/research/test_artifact_retention.py::test_failed_catalog_append_never_reuses_or_skips_sequences
+PASSED tests/research/test_artifact_retention.py::test_verify_catalog_fails_on_missing_and_mutated_artifacts
+PASSED tests/research/test_artifact_retention.py::test_failed_run_is_retained_as_immutable_artifacts_and_catalog_entries
+PASSED tests/research/test_artifact_retention.py::test_deleting_a_failed_experiment_breaks_verification
+PASSED tests/research/test_artifact_retention.py::test_failed_run_and_successful_run_are_retained_side_by_side
+PASSED tests/research/test_asset_class_outcomes.py::test_select_oos_reports_no_candidate_without_materializing_oos
+PASSED tests/research/test_asset_class_outcomes.py::test_select_oos_exposes_the_priority_selected_variant
+PASSED tests/research/test_asset_class_outcomes.py::test_select_oos_refuses_two_independent_eligible_lineages
+PASSED tests/research/test_asset_class_outcomes.py::test_no_oos_eligible_is_idempotent_and_catalogues_one_outcome
+PASSED tests/research/test_asset_class_outcomes.py::test_asset_class_outcome_is_immutable_after_first_canonical_verdict
+PASSED tests/research/test_basic_snapshot_boundary.py::test_basic_snapshot_at_basic_end_is_accepted
+PASSED tests/research/test_basic_snapshot_boundary.py::test_basic_snapshot_row_after_basic_end_fails_closed
+PASSED tests/research/test_basic_snapshot_boundary.py::test_basic_snapshot_short_coverage_fails_closed
+PASSED tests/research/test_basic_snapshot_boundary.py::test_basic_snapshot_outside_approved_asset_class_fails
+PASSED tests/research/test_basic_snapshot_boundary.py::test_snapshot_covering_more_than_intent_universe_is_accepted
+PASSED tests/research/test_basic_snapshot_boundary.py::test_universe_instrument_ending_before_basic_end_fails_closed
+PASSED tests/research/test_basic_snapshot_boundary.py::test_run_artifacts_and_directories_cannot_be_overwritten
+PASSED tests/research/test_basic_snapshot_boundary.py::test_catalog_is_append_only_with_unique_sequences
+PASSED tests/research/test_basic_snapshot_boundary.py::test_catalog_verification_detects_content_mutation
+PASSED tests/research/test_basic_snapshot_boundary.py::test_stock_snapshot_forms_the_annual_pit_schedule
+PASSED tests/research/test_basic_snapshot_boundary.py::test_stock_snapshot_row_after_basic_end_fails_closed
+PASSED tests/research/test_basic_snapshot_boundary.py::test_stock_schedule_below_minimum_year_fails_closed
+PASSED tests/research/test_basic_snapshot_boundary.py::test_stock_snapshot_without_instrument_reference_fails
+PASSED tests/research/test_basic_snapshot_boundary.py::test_stock_snapshot_unregistered_instrument_fails
+PASSED tests/research/test_benchmarks.py::test_benchmark_spec_rejects_contract_violations
+PASSED tests/research/test_benchmarks.py::test_spec_digest_is_content_derived
+PASSED tests/research/test_benchmarks.py::test_fixed_spec_weights_are_equal_and_canonical
+PASSED tests/research/test_benchmarks.py::test_inception_target_addresses_each_instrument_once
+PASSED tests/research/test_benchmarks.py::test_inception_source_contributes_once_then_stays_silent
+PASSED tests/research/test_benchmarks.py::test_benchmark_runs_through_the_same_kernel_with_the_same_costs
+PASSED tests/research/test_benchmarks.py::test_stock_annual_inception_sessions_picks_first_open_session_per_year
+PASSED tests/research/test_benchmarks.py::test_stock_annual_source_targets_cohort_and_exits_departed_holdings
+PASSED tests/research/test_benchmarks.py::test_stock_annual_source_requires_annual_spec_kind
+PASSED tests/research/test_benchmarks.py::test_cash_0_is_exactly_zero_and_not_a_kernel_participant
+PASSED tests/research/test_candidate_intent.py::test_candidate_intent_accepts_full_precode_contract
+PASSED tests/research/test_candidate_intent.py::test_candidate_intent_rejects_runtime_digest_fields
+PASSED tests/research/test_candidate_intent.py::test_candidate_intent_rejects_incomplete_priority_list
+PASSED tests/research/test_candidate_intent.py::test_candidate_intent_rejects_unqualified_etf_universe
+PASSED tests/research/test_candidate_intent.py::test_candidate_intent_rejects_missing_benchmark_and_gates
+PASSED tests/research/test_candidate_intent.py::test_research_run_manifest_requires_runtime_digests
+PASSED tests/research/test_candidate_intent.py::test_research_run_manifest_identity_mutation_matrix
+PASSED tests/research/test_candidate_intent.py::test_research_run_manifest_identity_ignores_output_path
+PASSED tests/research/test_candidate_intent.py::test_research_run_manifest_rejects_bad_digest_shape
+PASSED tests/research/test_code_commit_identity.py::test_clean_worktree_binds_the_head_commit
+PASSED tests/research/test_code_commit_identity.py::test_dirty_worktree_identity_is_content_derived_and_distinct
+PASSED tests/research/test_code_commit_identity.py::test_untracked_files_change_the_worktree_identity
+PASSED tests/research/test_code_commit_identity.py::test_untracked_content_change_changes_the_identity
+PASSED tests/research/test_dependency_identity.py::test_identical_declared_inputs_have_identical_dependency_identity
+PASSED tests/research/test_dependency_identity.py::test_material_declared_input_or_provider_change_changes_identity
+PASSED tests/research/test_dependency_identity.py::test_runner_identity_binds_checked_in_dependency_declarations
+PASSED tests/research/test_etf_absolute_trend_flight.py::test_typed_evaluations_match_hand_audited_expectations
+PASSED tests/research/test_etf_absolute_trend_flight.py::test_targets_evaluation_becomes_m0_planned_order
+PASSED tests/research/test_etf_absolute_trend_flight.py::test_planned_order_fills_at_t1_open_with_fees
+PASSED tests/research/test_etf_absolute_trend_flight.py::test_nav_series_matches_hand_audited_expectations
+PASSED tests/research/test_etf_absolute_trend_flight.py::test_final_account_state_matches_hand_audited_expectations
+PASSED tests/research/test_etf_absolute_trend_flight.py::test_metrics_match_hand_audited_expectations
+PASSED tests/research/test_etf_absolute_trend_flight.py::test_identical_run_is_deterministic
+PASSED tests/research/test_etf_candidate_specs.py::test_absolute_trend_intent_matches_frozen_contract
+PASSED tests/research/test_etf_candidate_specs.py::test_relative_momentum_intent_matches_frozen_contract
+PASSED tests/research/test_etf_candidate_specs.py::test_absolute_trend_no_decision_outside_month_end
+PASSED tests/research/test_etf_candidate_specs.py::test_absolute_trend_uptrend_targets_full_weight
+PASSED tests/research/test_etf_candidate_specs.py::test_absolute_trend_downtrend_is_explicit_cash_target
+PASSED tests/research/test_etf_candidate_specs.py::test_absolute_trend_insufficient_history_is_typed_no_decision
+PASSED tests/research/test_etf_candidate_specs.py::test_absolute_trend_identity_and_determinism
+PASSED tests/research/test_etf_candidate_specs.py::test_relative_momentum_selects_top1_by_return
+PASSED tests/research/test_etf_candidate_specs.py::test_relative_momentum_rank_ties_break_by_instrument_id
+PASSED tests/research/test_etf_candidate_specs.py::test_relative_momentum_trend_gate_falls_back_to_cash
+PASSED tests/research/test_etf_candidate_specs.py::test_relative_momentum_insufficient_history_is_typed_no_decision
+PASSED tests/research/test_etf_candidate_specs.py::test_relative_momentum_exits_held_instruments_outside_top1
+PASSED tests/research/test_kernel_replay.py::test_legacy_profile_reproduces_the_frozen_basic_digest
+PASSED tests/research/test_kernel_replay.py::test_current_profile_preserves_the_current_digest
+PASSED tests/research/test_kernel_replay.py::test_unknown_digest_has_no_replay_profile
+PASSED tests/research/test_kernel_replay.py::test_research_wiring_defaults_to_the_current_replay_profile
+PASSED tests/research/test_kernel_replay.py::test_runner_identity_wrapper_accepts_a_legacy_profile
+PASSED tests/research/test_oos_exposure_gate.py::test_same_lineage_revealed_window_overlap_is_contaminated[same]
+PASSED tests/research/test_oos_exposure_gate.py::test_same_lineage_revealed_window_overlap_is_contaminated[partial]
+PASSED tests/research/test_oos_exposure_gate.py::test_same_lineage_revealed_window_overlap_is_contaminated[contained]
+PASSED tests/research/test_oos_exposure_gate.py::test_same_lineage_revealed_window_overlap_is_contaminated[superset]
+PASSED tests/research/test_oos_exposure_gate.py::test_revealed_window_ledger_uses_stable_lineage_not_candidate_name
+PASSED tests/research/test_oos_exposure_gate.py::test_nonoverlapping_or_different_lineage_oos_request_is_not_contaminated
+PASSED tests/research/test_oos_exposure_gate.py::test_same_freeze_retry_remains_legal_after_its_reveal
+PASSED tests/research/test_oos_exposure_gate.py::test_basic_snapshot_row_after_basic_end_still_fails_closed
+PASSED tests/research/test_oos_exposure_gate.py::test_oos_snapshot_with_basic_window_rows_fails_closed
+PASSED tests/research/test_oos_exposure_gate.py::test_oos_snapshot_row_after_oos_end_fails_closed
+PASSED tests/research/test_oos_exposure_gate.py::test_oos_snapshot_ending_before_oos_end_fails_closed
+PASSED tests/research/test_oos_exposure_gate.py::test_oos_snapshot_with_failing_quality_status_fails_closed
+PASSED tests/research/test_oos_exposure_gate.py::test_stock_oos_snapshot_intake_is_refused
+PASSED tests/research/test_oos_exposure_gate.py::test_oos_snapshot_receipt_binds_actual_content
+PASSED tests/research/test_oos_exposure_gate.py::test_warm_up_snapshot_with_rows_after_basic_end_fails_closed
+PASSED tests/research/test_oos_exposure_gate.py::test_oos_wiring_with_empty_sessions_fails_typed
+PASSED tests/research/test_oos_exposure_gate.py::test_materializer_refuses_missing_freeze
+PASSED tests/research/test_oos_exposure_gate.py::test_materializer_refuses_mutated_freeze
+PASSED tests/research/test_oos_exposure_gate.py::test_materializer_refuses_freeze_intent_mismatch
+PASSED tests/research/test_oos_exposure_gate.py::test_materializer_refuses_scope_reaching_into_basic_window
+PASSED tests/research/test_oos_exposure_gate.py::test_materializer_refuses_existing_output_directory
+PASSED tests/research/test_oos_exposure_gate.py::test_materializer_refuses_stock_oos_materialization
+PASSED tests/research/test_oos_exposure_gate.py::test_materializer_fetches_and_writes_only_the_requested_oos_scope
+PASSED tests/research/test_oos_exposure_gate.py::test_materialized_oos_snapshot_passes_oos_intake
+PASSED tests/research/test_oos_exposure_gate.py::test_oos_snapshot_output_is_immutable
+PASSED tests/research/test_oos_verifier.py::test_pre_freeze_oos_access_is_historical_validation
+PASSED tests/research/test_oos_verifier.py::test_verified_freeze_classifies_controlled_oos
+PASSED tests/research/test_oos_verifier.py::test_freeze_binds_intent_implementation_parameters_scope_and_specs
+PASSED tests/research/test_oos_verifier.py::test_freeze_carries_no_oos_snapshot_digest
+PASSED tests/research/test_oos_verifier.py::test_verifier_accepts_well_formed_freeze
+PASSED tests/research/test_oos_verifier.py::test_verifier_rejects_mutated_freeze
+PASSED tests/research/test_oos_verifier.py::test_verifier_rejects_wrong_freeze_id
+PASSED tests/research/test_oos_verifier.py::test_verifier_rejects_intent_digest_mismatch
+PASSED tests/research/test_oos_verifier.py::test_freeze_bindings_must_match_the_intent
+PASSED tests/research/test_oos_verifier.py::test_freeze_identity_enforcement_accepts_the_running_code
+PASSED tests/research/test_oos_verifier.py::test_supported_legacy_freeze_resolves_to_the_historical_profile
+PASSED tests/research/test_oos_verifier.py::test_freeze_identity_enforcement_refuses_implementation_drift
+PASSED tests/research/test_oos_verifier.py::test_freeze_identity_enforcement_refuses_kernel_drift
+PASSED tests/research/test_oos_verifier.py::test_freeze_identity_enforcement_refuses_unknown_variant
+PASSED tests/research/test_oos_verifier.py::test_oos_scope_overlapping_basic_window_fails_closed
+PASSED tests/research/test_oos_verifier.py::test_oos_scope_outside_the_declared_window_fails_closed
+PASSED tests/research/test_oos_verifier.py::test_exact_declared_oos_scope_is_accepted
+PASSED tests/research/test_oos_verifier.py::test_oos_gate_survivor_requires_every_rule_criterion
+PASSED tests/research/test_oos_verifier.py::test_oos_gate_rejects_below_floor_drawdown
+PASSED tests/research/test_oos_verifier.py::test_oos_gate_rejects_excess_below_threshold
+PASSED tests/research/test_oos_verifier.py::test_oos_gate_refuses_unrecognized_criterion
+PASSED tests/research/test_oos_verifier.py::test_oos_run_manifest_binds_actual_digests_with_oos_scope
+PASSED tests/research/test_reporting.py::test_yearly_and_half_year_metrics_are_deterministic_and_not_regime_based
+PASSED tests/research/test_research_reproducibility.py::test_empty_snapshot_fails_typed
+PASSED tests/research/test_research_reproducibility.py::test_no_open_sessions_inside_basic_window_fails_typed
+PASSED tests/research/test_research_reproducibility.py::test_partial_snapshot_stopping_inside_basic_window_fails_typed
+PASSED tests/research/test_research_reproducibility.py::test_provider_data_failure_is_retained_as_run_failed_data
+PASSED tests/research/test_research_reproducibility.py::test_provider_failure_is_never_recorded_as_a_successful_run
+PASSED tests/research/test_research_reproducibility.py::test_compile_failure_is_retained_as_run_failed_kernel
+PASSED tests/research/test_research_reproducibility.py::test_same_kernel_rerun_produces_identical_result_digest
+PASSED tests/research/test_research_reproducibility.py::test_rerun_persists_a_new_attempt_and_retains_both_runs
+PASSED tests/research/test_research_reproducibility.py::test_every_manifest_identity_field_mutation_changes_the_run_identity
+PASSED tests/research/test_research_reproducibility.py::test_manifest_round_trips_through_its_payload
+PASSED tests/research/test_research_reproducibility.py::test_manifest_fails_closed_on_missing_or_invalid_fields
+PASSED tests/research/test_stock_candidate_specs.py::test_relative_strength_intent_matches_frozen_contract
+PASSED tests/research/test_stock_candidate_specs.py::test_breakout_intent_matches_frozen_contract
+PASSED tests/research/test_stock_candidate_specs.py::test_stock_intent_requires_dividend_tax_limitation
+PASSED tests/research/test_stock_candidate_specs.py::test_relative_strength_targets_top_n_equal_weight
+PASSED tests/research/test_stock_candidate_specs.py::test_relative_strength_exits_held_non_picks
+PASSED tests/research/test_stock_candidate_specs.py::test_relative_strength_rank_ties_break_by_instrument_id
+PASSED tests/research/test_stock_candidate_specs.py::test_relative_strength_insufficient_history_is_typed_no_decision
+PASSED tests/research/test_stock_candidate_specs.py::test_relative_strength_no_decision_outside_month_end
+PASSED tests/research/test_stock_candidate_specs.py::test_relative_strength_identity_declares_satellite_and_history
+PASSED tests/research/test_stock_candidate_specs.py::test_breakout_targets_new_highs_by_liquidity_rank
+PASSED tests/research/test_stock_candidate_specs.py::test_breakout_prior_high_window_excludes_the_decision_session
+PASSED tests/research/test_stock_candidate_specs.py::test_breakout_without_picks_exits_held_positions
+PASSED tests/research/test_stock_candidate_specs.py::test_breakout_insufficient_history_is_typed_no_decision
+PASSED tests/research/test_stock_candidate_specs.py::test_breakout_no_decision_outside_month_end
+PASSED tests/research/test_stock_candidate_specs.py::test_breakout_identity_declares_satellite_and_history
+PASSED tests/research/test_stock_candidate_specs.py::test_canonical_registry_names_both_stock_strategies
+PASSED tests/research/test_stock_relative_strength_flight.py::test_real_policy_cohort_is_flown_for_the_year
+PASSED tests/research/test_stock_relative_strength_flight.py::test_typed_evaluations_match_hand_audited_expectations
+PASSED tests/research/test_stock_relative_strength_flight.py::test_every_contribution_respects_the_resolved_view
+PASSED tests/research/test_stock_relative_strength_flight.py::test_satellite_plans_match_hand_audited_lot_sizing
+PASSED tests/research/test_stock_relative_strength_flight.py::test_all_planned_quantities_are_complete_lots
+PASSED tests/research/test_stock_relative_strength_flight.py::test_first_buy_fills_at_t1_open_with_fees
+PASSED tests/research/test_stock_relative_strength_flight.py::test_suspended_target_is_rejected_not_filled
+PASSED tests/research/test_stock_relative_strength_flight.py::test_t1_settlement_gates_each_rotation_sell
+PASSED tests/research/test_stock_relative_strength_flight.py::test_global_affordability_keeps_cash_non_negative
+PASSED tests/research/test_stock_relative_strength_flight.py::test_nav_series_matches_hand_audited_expectations
+PASSED tests/research/test_stock_relative_strength_flight.py::test_final_account_state_matches_hand_audited_expectations
+PASSED tests/research/test_stock_relative_strength_flight.py::test_metrics_match_hand_audited_expectations
+PASSED tests/research/test_stock_relative_strength_flight.py::test_identical_run_is_deterministic
+PASSED tests/research/test_stock_relative_strength_flight.py::test_cross_year_schedule_rotates_at_the_year_end_cutoff
+PASSED tests/research/test_stock_relative_strength_flight.py::test_cross_year_run_exits_the_left_cohort_holding
+PASSED tests/research/test_stock_universe_schedule.py::test_standard_policy_uses_real_m1_thresholds
+PASSED tests/research/test_stock_universe_schedule.py::test_future_records_cannot_change_prior_year_cohort
+PASSED tests/research/test_stock_universe_schedule.py::test_newly_eligible_stock_can_enter_next_year
+PASSED tests/research/test_stock_universe_schedule.py::test_cohort_is_frozen_for_the_whole_calendar_year
+PASSED tests/research/test_stock_universe_schedule.py::test_ranking_uses_median_desc_with_instrument_id_tie_breaker
+PASSED tests/research/test_stock_universe_schedule.py::test_ranked_median_is_over_the_trailing_window
+PASSED tests/research/test_stock_universe_schedule.py::test_input_order_does_not_change_schedule
+PASSED tests/research/test_stock_universe_schedule.py::test_schedule_does_not_retain_caller_collections
+PASSED tests/research/test_stock_universe_schedule.py::test_identity_and_tradability_conditions_are_enforced
+PASSED tests/research/test_stock_universe_schedule.py::test_incomplete_trailing_window_is_not_eligible
+PASSED tests/research/test_stock_universe_schedule.py::test_future_dated_amounts_fail_closed
+PASSED tests/research/test_stock_universe_schedule.py::test_duplicate_instrument_in_one_formation_year_fails
+PASSED tests/research/test_stock_universe_schedule.py::test_mixed_formation_sessions_in_one_year_fail
+PASSED tests/research/test_stock_universe_schedule.py::test_view_for_year_without_formation_fails
+PASSED tests/research/test_stock_universe_schedule.py::test_year_below_minimum_cohort_fails_closed
+PASSED tests/research/test_stock_universe_schedule.py::test_standard_policy_takes_the_real_top_fifty
+PASSED tests/research/test_stock_universe_schedule.py::test_top_fifty_boundary_tie_breaks_by_instrument_id
+PASSED tests/research/test_stock_universe_schedule.py::test_standard_policy_requires_minimum_listing_and_window
+PASSED tests/research/test_stock_universe_schedule.py::test_invalid_policy_fails_closed
+PASSED tests/research/test_stock_universe_schedule.py::test_schedule_type_contract
+PASSED tests/research/test_strategy_contract.py::test_insufficient_history_is_typed_no_decision
+PASSED tests/research/test_strategy_contract.py::test_explicit_cash_target_is_not_no_decision
+PASSED tests/research/test_strategy_contract.py::test_same_slice_same_targets_regardless_of_input_order
+PASSED tests/research/test_strategy_contract.py::test_universe_view_is_canonical_order_free_and_validated
+PASSED tests/research/test_strategy_contract.py::test_identity_digests_change_with_content
+PASSED tests/research/test_strategy_contract.py::test_identity_freezes_parameters_against_external_mutation
+PASSED tests/research/test_strategy_contract.py::test_identity_rejects_mismatched_parameters_digest
+PASSED tests/research/test_strategy_contract.py::test_adapter_maps_no_decision_to_none_and_retains_evaluation
+PASSED tests/research/test_strategy_contract.py::test_adapter_rejects_contribution_outside_universe
+PASSED tests/research/test_strategy_contract.py::test_adapter_rejects_identity_change_during_run
+PASSED tests/research/test_strategy_contract.py::test_adapter_rejects_foreign_identity_contributions
+PASSED tests/research/test_strategy_contract.py::test_engine_preserves_no_decision_without_target_or_block
+PASSED tests/research/test_strategy_contract.py::test_incomplete_targets_result_fails_the_m0_complete_target_boundary
+PASSED tests/research/test_strategy_purity.py::test_canonical_strategy_modules_do_not_access_external_state
+PASSED tests/research/test_strategy_source_identity.py::test_canonical_builder_uses_current_module_bytes[etf-absolute-trend-etf_absolute_trend-parameters0]
+PASSED tests/research/test_strategy_source_identity.py::test_canonical_builder_uses_current_module_bytes[etf-relative-momentum-etf_relative_momentum-parameters1]
+PASSED tests/research/test_strategy_source_identity.py::test_canonical_builder_uses_current_module_bytes[stock-relative-strength-stock_relative_strength-parameters2]
+PASSED tests/research/test_strategy_source_identity.py::test_canonical_builder_uses_current_module_bytes[stock-breakout-stock_breakout-parameters3]
+PASSED tests/unit/test_adapter_vendor_boundary.py::TestVendorImportBoundary::test_only_the_adapter_imports_the_vendor_library
+PASSED tests/unit/test_adapter_vendor_boundary.py::TestVendorImportBoundary::test_vendor_import_is_lazy_inside_adapter_construction
+PASSED tests/unit/test_adapter_vendor_boundary.py::TestVendorImportBoundary::test_core_packages_never_import_the_adapter
+PASSED tests/unit/test_adapter_vendor_boundary.py::TestCanonicalRecordsCarryNoVendorTypes::test_mapped_bars_expose_only_canonical_and_standard_types
+PASSED tests/unit/test_adapter_vendor_boundary.py::test_core_package_has_no_vendor_import_text[domain]
+PASSED tests/unit/test_adapter_vendor_boundary.py::test_core_package_has_no_vendor_import_text[data]
+PASSED tests/unit/test_adapter_vendor_boundary.py::test_core_package_has_no_vendor_import_text[instrument_master]
+PASSED tests/unit/test_adapter_vendor_boundary.py::test_core_package_has_no_vendor_import_text[portfolio]
+PASSED tests/unit/test_adapter_vendor_boundary.py::test_core_package_has_no_vendor_import_text[risk]
+PASSED tests/unit/test_adapter_vendor_boundary.py::test_core_package_has_no_vendor_import_text[backtest]
+PASSED tests/unit/test_adapter_vendor_boundary.py::test_core_package_has_no_vendor_import_text[metrics]
+PASSED tests/unit/test_adapter_vendor_boundary.py::test_core_package_has_no_vendor_import_text[boundaries]
+PASSED tests/unit/test_allocation.py::TestTCloseSizingContract::test_sizing_uses_and_records_the_finalized_t_close_price
+PASSED tests/unit/test_allocation.py::TestTCloseSizingContract::test_market_and_broker_fees_are_reserved_separately
+PASSED tests/unit/test_allocation.py::TestTCloseSizingContract::test_residual_cash_is_explicit_after_exact_affordability
+PASSED tests/unit/test_allocation.py::TestCompleteLotsAndResidual::test_amount_not_lot_divisible_keeps_theoretical_weight_and_floors_quantity
+PASSED tests/unit/test_allocation.py::TestReductionsFirst::test_sell_releases_cash_before_buys_are_sized
+PASSED tests/unit/test_allocation.py::TestBuyRanking::test_equal_deficits_use_canonical_instrument_id_tie_breaker
+PASSED tests/unit/test_allocation.py::TestBuyRanking::test_larger_target_weight_deficit_is_funded_before_the_canonical_first
+PASSED tests/unit/test_allocation.py::TestBuyRanking::test_input_ordering_does_not_change_the_executable_output
+PASSED tests/unit/test_allocation.py::TestCashNeverNegative::test_unaffordable_full_target_reduces_to_affordable_lots
+PASSED tests/unit/test_allocation.py::TestCashNeverNegative::test_residual_cash_is_never_negative_across_fixtures
+PASSED tests/unit/test_allocation.py::TestHoldsAndExits::test_delta_below_one_lot_becomes_hold_with_reason
+PASSED tests/unit/test_allocation.py::TestHoldsAndExits::test_exit_sells_odd_lot_remainder_when_profile_allows
+PASSED tests/unit/test_allocation.py::TestHoldsAndExits::test_exit_keeps_odd_lot_when_profile_prohibits_odd_lot_sells
+PASSED tests/unit/test_allocation.py::TestInputValidation::test_held_instrument_without_t_close_price_fails_closed
+PASSED tests/unit/test_allocation.py::TestInputValidation::test_current_portfolio_rejects_duplicate_holdings
+PASSED tests/unit/test_chstockdata_library_client.py::test_bridge_declares_the_full_documented_capability_surface
+PASSED tests/unit/test_chstockdata_library_client.py::test_daily_bars_pass_the_pure_six_digit_code_and_explicit_market
+PASSED tests/unit/test_chstockdata_library_client.py::test_calendar_maps_the_vendor_trading_calendar_payload
+PASSED tests/unit/test_chstockdata_library_client.py::test_calendar_unavailable_fails_closed
+PASSED tests/unit/test_chstockdata_library_client.py::test_suspension_success_maps_the_labeled_json_payload
+PASSED tests/unit/test_chstockdata_library_client.py::test_suspension_normal_empty_maps_to_a_not_suspended_snapshot
+PASSED tests/unit/test_chstockdata_library_client.py::test_suspension_network_failure_maps_to_unavailable
+PASSED tests/unit/test_chstockdata_library_client.py::test_suspension_snapshot_truncation_maps_to_schema_drift
+PASSED tests/unit/test_chstockdata_library_client.py::test_suspension_invalid_input_maps_to_configuration
+PASSED tests/unit/test_chstockdata_library_client.py::test_suspension_malformed_vendor_text_fails_as_schema_drift
+PASSED tests/unit/test_chstockdata_library_client.py::test_corporate_actions_success_maps_the_labeled_json_payload
+PASSED tests/unit/test_chstockdata_library_client.py::test_corporate_actions_failure_maps_to_unavailable
+PASSED tests/unit/test_chstockdata_library_client.py::test_missing_vendor_capability_fails_closed_as_configuration
+PASSED tests/unit/test_chstockdata_library_client.py::test_corporate_actions_route_by_declared_instrument_kind
+PASSED tests/unit/test_chstockdata_library_client.py::test_provider_end_to_end_maps_bridge_outputs_to_canonical_records
+PASSED tests/unit/test_data_quality.py::TestCoreChecks::test_clean_dataset_passes_for_a_new_target_decision
+PASSED tests/unit/test_data_quality.py::TestCoreChecks::test_duplicate_instrument_session_bar_key_fails_closed
+PASSED tests/unit/test_data_quality.py::TestCoreChecks::test_missing_required_pre_close_field_fails_without_zero_conversion
+PASSED tests/unit/test_data_quality.py::TestCoreChecks::test_bar_on_closed_calendar_session_fails
+PASSED tests/unit/test_data_quality.py::TestCoreChecks::test_unsupported_bar_schema_version_fails_closed
+PASSED tests/unit/test_data_quality.py::TestCoreChecks::test_pre_close_mismatch_with_prior_close_without_action_fails
+PASSED tests/unit/test_data_quality.py::TestCoreChecks::test_pre_close_mismatch_is_allowed_when_a_corporate_action_is_effective
+PASSED tests/unit/test_data_quality.py::TestCoreChecks::test_missing_calendar_snapshot_fails_closed
+PASSED tests/unit/test_data_quality.py::TestCoreChecks::test_gate_purpose_must_be_a_declared_run_purpose
+PASSED tests/unit/test_data_quality.py::TestInformationTime::test_fact_not_knowable_at_decision_cutoff_fails
+PASSED tests/unit/test_data_quality.py::TestInformationTime::test_same_retrieval_time_with_earlier_information_remains_knowable
+PASSED tests/unit/test_data_quality.py::TestUnknownAvailability::test_unknown_availability_basis_is_rejected_for_a_decision
+PASSED tests/unit/test_data_quality.py::TestFreshness::test_information_older_than_policy_age_fails_with_injected_cutoff
+PASSED tests/unit/test_data_quality.py::TestFreshness::test_information_within_policy_age_passes
+PASSED tests/unit/test_data_quality.py::TestFreshness::test_information_from_a_session_after_the_intended_session_fails
+PASSED tests/unit/test_data_quality.py::TestInstrumentMasterAuthority::test_conflicting_provider_rule_candidate_is_adjudicated_by_the_authority
+PASSED tests/unit/test_data_quality.py::TestInstrumentMasterAuthority::test_rule_candidate_without_an_approved_profile_fails_closed
+PASSED tests/unit/test_data_quality.py::TestInstrumentMasterAuthority::test_bar_for_an_unregistered_instrument_fails_closed
+PASSED tests/unit/test_data_quality.py::TestInstrumentMasterAuthority::test_instrument_with_an_uncovered_rule_profile_fails_closed
+PASSED tests/unit/test_data_quality.py::TestPurposeSpecificActions::test_pre_open_critical_failure_blocks_risk_increase_but_allows_reduction
+PASSED tests/unit/test_data_quality.py::TestPurposeSpecificActions::test_reduction_without_complete_evidence_emits_no_order_and_escalates
+PASSED tests/unit/test_data_quality.py::TestPurposeSpecificActions::test_reduction_with_complete_evidence_proceeds
+PASSED tests/unit/test_data_quality.py::TestGateIdentity::test_gate_result_digest_is_deterministic_and_input_sensitive
+PASSED tests/unit/test_fees.py::TestFeeComposition::test_small_buy_hits_the_minimum_commission
+PASSED tests/unit/test_fees.py::TestFeeComposition::test_large_buy_commission_exceeds_the_minimum
+PASSED tests/unit/test_fees.py::TestFeeComposition::test_stock_sell_carries_stamp_tax
+PASSED tests/unit/test_fees.py::TestFeeComposition::test_etf_profile_has_no_stamp_tax_or_transfer_fee
+PASSED tests/unit/test_fees.py::TestFeeComposition::test_behavior_follows_the_rule_profile_not_the_instrument_type
+PASSED tests/unit/test_fees.py::TestFeeComposition::test_monetary_rounding_is_half_up_to_cents
+PASSED tests/unit/test_fees.py::TestFeeComposition::test_stamp_tax_is_zero_for_buys
+PASSED tests/unit/test_fees.py::TestAccountFeeConfig::test_effective_dated_broker_profile_resolution
+PASSED tests/unit/test_fees.py::TestAccountFeeConfig::test_uncovered_broker_profile_date_fails_closed
+PASSED tests/unit/test_fees.py::TestAccountFeeConfig::test_config_digest_is_deterministic_and_input_sensitive
+PASSED tests/unit/test_fees.py::TestAuthoritySeparation::test_instrument_master_market_rules_never_own_broker_fees
+PASSED tests/unit/test_foundation_immutability.py::test_decision_context_copies_caller_owned_market_sequences
+PASSED tests/unit/test_foundation_immutability.py::test_snapshot_manifest_copies_nested_identity_collections
+PASSED tests/unit/test_foundation_immutability.py::test_gate_result_copies_nested_collections_and_keeps_digest_stable
+PASSED tests/unit/test_foundation_immutability.py::test_run_manifest_copies_rule_versions_and_keeps_identity_stable
+PASSED tests/unit/test_foundation_immutability.py::test_target_contribution_copies_evidence_and_keeps_digest_stable
+PASSED tests/unit/test_foundation_immutability.py::test_order_copies_reason_codes
+PASSED tests/unit/test_foundation_immutability.py::test_provider_success_copies_records
+PASSED tests/unit/test_foundation_immutability.py::test_nav_point_copies_stale_and_incomplete_collections
+PASSED tests/unit/test_identifiers.py::TestInstrumentId::test_canonical_form_is_exchange_colon_symbol
+PASSED tests/unit/test_identifiers.py::TestInstrumentId::test_parse_accepts_canonical_form
+PASSED tests/unit/test_identifiers.py::TestInstrumentId::test_bare_six_digit_symbol_is_rejected
+PASSED tests/unit/test_identifiers.py::TestInstrumentId::test_unknown_exchange_code_is_rejected
+PASSED tests/unit/test_identifiers.py::TestInstrumentId::test_wrong_symbol_shape_is_rejected
+PASSED tests/unit/test_identifiers.py::TestInstrumentId::test_lowercase_exchange_is_rejected
+PASSED tests/unit/test_identifiers.py::TestInstrumentId::test_non_exchange_enum_is_rejected_at_construction
+PASSED tests/unit/test_identifiers.py::TestInstrumentId::test_ids_are_value_objects_and_immutble
+PASSED tests/unit/test_identifiers.py::TestInstrumentId::test_canonical_ordering_is_exchange_then_symbol
+PASSED tests/unit/test_identifiers.py::TestSleeveId::test_m0_values_are_exactly_core_and_satellite
+PASSED tests/unit/test_identifiers.py::TestSleeveId::test_sleeve_cannot_be_created_from_arbitrary_name
+PASSED tests/unit/test_identifiers.py::TestSleeveId::test_sleeve_is_never_derived_from_a_strategy_name_prefix
+PASSED tests/unit/test_identifiers.py::TestSessionDate::test_calendar_date_is_accepted_and_returned
+PASSED tests/unit/test_identifiers.py::TestSessionDate::test_datetime_is_rejected_even_when_timezone_aware
+PASSED tests/unit/test_identifiers.py::TestSessionDate::test_plain_string_is_rejected
+PASSED tests/unit/test_import_boundaries.py::test_repository_obeys_import_boundaries
+PASSED tests/unit/test_import_boundaries.py::test_vendor_import_is_allowed_only_in_chstockdata_adapter
+PASSED tests/unit/test_import_boundaries.py::test_core_and_production_cannot_import_research_llm_or_adapters
+PASSED tests/unit/test_import_boundaries.py::test_promoted_bundle_requires_owner_audit_and_matching_immutable_digest
+PASSED tests/unit/test_import_boundaries.py::test_invalid_promotion_controls_fail_closed[changes0]
+PASSED tests/unit/test_import_boundaries.py::test_invalid_promotion_controls_fail_closed[changes1]
+PASSED tests/unit/test_instrument_master_authority.py::TestRegistrationAndInstrumentResolution::test_registered_instrument_resolves_by_valid_interval
+PASSED tests/unit/test_instrument_master_authority.py::TestRegistrationAndInstrumentResolution::test_unknown_instrument_is_typed_error
+PASSED tests/unit/test_instrument_master_authority.py::TestRegistrationAndInstrumentResolution::test_reference_data_versions_select_by_valid_interval
+PASSED tests/unit/test_instrument_master_authority.py::TestRegistrationAndInstrumentResolution::test_gap_in_instrument_versions_fails_closed
+PASSED tests/unit/test_instrument_master_authority.py::TestRegistrationAndInstrumentResolution::test_overlapping_instrument_versions_are_rejected
+PASSED tests/unit/test_instrument_master_authority.py::TestEffectiveDateRuleSelection::test_profile_version_is_selected_by_session_date
+PASSED tests/unit/test_instrument_master_authority.py::TestEffectiveDateRuleSelection::test_resolved_bundle_reports_session_and_all_four_rules
+PASSED tests/unit/test_instrument_master_authority.py::TestEffectiveDateRuleSelection::test_date_not_covered_by_any_version_fails_closed
+PASSED tests/unit/test_instrument_master_authority.py::TestEffectiveDateRuleSelection::test_overlapping_rule_versions_are_rejected
+PASSED tests/unit/test_instrument_master_authority.py::TestEffectiveDateRuleSelection::test_missing_family_profile_fails_closed_for_that_instrument_only
+PASSED tests/unit/test_instrument_master_authority.py::TestDefaultM0EtfHistory::test_approved_etf_history_covers_the_m1_basic_window[XSHG:510300-BROAD_BASED_EQUITY-1]
+PASSED tests/unit/test_instrument_master_authority.py::TestDefaultM0EtfHistory::test_approved_etf_history_covers_the_m1_basic_window[XSHE:159915-BROAD_BASED_EQUITY-1]
+PASSED tests/unit/test_instrument_master_authority.py::TestDefaultM0EtfHistory::test_approved_etf_history_covers_the_m1_basic_window[XSHG:518880-GOLD-0]
+PASSED tests/unit/test_instrument_master_authority.py::TestDefaultM0EtfHistory::test_approved_etf_history_covers_the_m1_basic_window[XSHG:511010-BOND-0]
+PASSED tests/unit/test_instrument_master_authority.py::TestDefaultM0EtfHistory::test_bond_etf_uses_its_exchange_listing_date
+PASSED tests/unit/test_instrument_master_authority.py::TestDefaultM0EtfHistory::test_chinext_etf_price_limit_changes_to_twenty_percent_on_2020_08_24
+PASSED tests/unit/test_instrument_master_authority.py::TestDefaultM0EtfHistory::test_pre_correction_seed_reproduces_the_phase4_unknown_classification
+PASSED tests/unit/test_instrument_master_authority.py::TestClassificationFailClosed::test_etf_without_explicit_approved_subtype_is_refused
+PASSED tests/unit/test_instrument_master_authority.py::TestClassificationFailClosed::test_etf_with_each_approved_subtype_is_accepted
+PASSED tests/unit/test_instrument_master_authority.py::TestClassificationFailClosed::test_unapproved_subtype_cannot_be_constructed_at_all
+PASSED tests/unit/test_instrument_master_authority.py::TestProviderCandidateAdjudication::test_conflicting_candidate_does_not_override_approved_profile
+PASSED tests/unit/test_instrument_master_authority.py::TestProviderCandidateAdjudication::test_candidate_without_approved_coverage_fails_closed
+PASSED tests/unit/test_instrument_master_authority.py::TestProviderCandidateAdjudication::test_candidate_for_unknown_instrument_fails_closed
+PASSED tests/unit/test_instrument_master_authority.py::TestDefaultM0Seed::test_all_seed_instruments_resolve_rules_on_a_recent_session_date
+PASSED tests/unit/test_instrument_master_authority.py::TestDefaultM0Seed::test_seed_uses_effective_dated_stamp_tax_history
+PASSED tests/unit/test_instrument_master_authority.py::TestDefaultM0Seed::test_each_approved_etf_subtype_has_its_own_fee_profile_family
+PASSED tests/unit/test_instrument_master_authority.py::TestDefaultM0Seed::test_seed_rule_profiles_carry_authoritative_sources
+PASSED tests/unit/test_instrument_rules.py::TestInstrumentConstruction::test_identity_fields_are_retained
+PASSED tests/unit/test_instrument_rules.py::TestInstrumentConstruction::test_instrument_is_immutable
+PASSED tests/unit/test_instrument_rules.py::TestInstrumentConstruction::test_a_share_must_not_declare_a_fund_subtype
+PASSED tests/unit/test_instrument_rules.py::TestInstrumentConstruction::test_etf_declares_an_explicit_approved_subtype
+PASSED tests/unit/test_instrument_rules.py::TestInstrumentConstruction::test_unapproved_subtype_concepts_cannot_be_expressed
+PASSED tests/unit/test_instrument_rules.py::TestInstrumentConstruction::test_invalid_session_date_fields_are_rejected
+PASSED tests/unit/test_instrument_rules.py::TestProfileReferences::test_references_all_four_market_regulatory_profiles
+PASSED tests/unit/test_instrument_rules.py::TestProfileReferences::test_instrument_never_references_broker_or_account_fees
+PASSED tests/unit/test_instrument_rules.py::TestRuleProfiles::test_market_fee_tax_rule_carries_source_and_effective_interval
+PASSED tests/unit/test_instrument_rules.py::TestRuleProfiles::test_rule_profiles_are_immutable
+PASSED tests/unit/test_instrument_rules.py::TestRuleProfiles::test_rule_effective_dates_reject_datetimes
+PASSED tests/unit/test_instrument_rules.py::TestRuleProfiles::test_open_ended_interval_must_not_end_before_it_starts
+PASSED tests/unit/test_instrument_rules.py::TestRuleProfiles::test_standard_lot_rule_fields
+PASSED tests/unit/test_instrument_rules.py::TestRuleProfiles::test_settlement_rule_records_sessions_until_sellable
+PASSED tests/unit/test_instrument_rules.py::TestRuleProfiles::test_price_limit_rule_records_basis_percent_and_tick
+PASSED tests/unit/test_instrument_rules.py::TestRuleProfiles::test_negative_rate_is_rejected
+PASSED tests/unit/test_materializer_gate_receipt.py::test_basic_mode_refuses_end_past_intent_basic_end
+PASSED tests/unit/test_materializer_gate_receipt.py::test_basic_mode_refuses_start_after_warmup_start
+PASSED tests/unit/test_materializer_gate_receipt.py::test_basic_mode_refuses_unknown_mode_and_asset_class_mismatch
+PASSED tests/unit/test_materializer_gate_receipt.py::test_gate_receipt_binds_the_snapshot_and_the_gate_decision
+PASSED tests/unit/test_materializer_gate_receipt.py::test_gate_receipt_is_written_once_and_never_overwritten
+PASSED tests/unit/test_materializer_gate_receipt.py::test_instrument_master_preflight_names_every_failed_lookup
+PASSED tests/unit/test_materializer_gate_receipt.py::test_materializer_gate_failure_preserves_typed_check_diagnostics
+PASSED tests/unit/test_materializer_gate_receipt.py::test_static_preflight_passes_without_creating_output
+PASSED tests/unit/test_materializer_gate_receipt.py::test_static_preflight_rejects_instrument_scope_expansion
+PASSED tests/unit/test_materializer_gate_receipt.py::test_master_failure_happens_before_provider_construction
+PASSED tests/unit/test_materializer_gate_receipt.py::test_preflight_only_cli_never_constructs_provider
+PASSED tests/unit/test_materializer_gate_receipt.py::test_materialization_binds_the_gate_decision_into_the_snapshot_manifest
+PASSED tests/unit/test_money.py::TestMoneyConstruction::test_decimal_amount_and_default_cny_currency
+PASSED tests/unit/test_money.py::TestMoneyConstruction::test_explicit_currency_is_retained
+PASSED tests/unit/test_money.py::TestMoneyConstruction::test_binary_float_is_rejected
+PASSED tests/unit/test_money.py::TestMoneyConstruction::test_integer_is_rejected_even_when_exact
+PASSED tests/unit/test_money.py::TestMoneyConstruction::test_non_finite_decimal_is_rejected
+PASSED tests/unit/test_money.py::TestMoneyConstruction::test_infinity_is_rejected
+PASSED tests/unit/test_money.py::TestMoneyConstruction::test_empty_currency_is_rejected
+PASSED tests/unit/test_money.py::TestMoneyConstruction::test_money_is_immutable
+PASSED tests/unit/test_money.py::TestMoneyArithmetic::test_decimal_arithmetic_is_exact_without_implicit_rounding
+PASSED tests/unit/test_money.py::TestMoneyArithmetic::test_subtraction_is_exact
+PASSED tests/unit/test_money.py::TestMoneyArithmetic::test_adding_mismatched_currencies_is_typed_error
+PASSED tests/unit/test_money.py::TestMoneyArithmetic::test_subtracting_mismatched_currencies_is_typed_error
+PASSED tests/unit/test_money.py::TestMoneyArithmetic::test_scaling_by_integer_quantity_is_exact
+PASSED tests/unit/test_money.py::TestMoneyArithmetic::test_scaling_by_decimal_rate_is_exact
+PASSED tests/unit/test_money.py::TestMoneyArithmetic::test_scaling_by_float_is_rejected
+PASSED tests/unit/test_money.py::TestMoneyArithmetic::test_negation_keeps_currency
+PASSED tests/unit/test_money.py::TestMoneyArithmetic::test_ordering_requires_same_currency
+PASSED tests/unit/test_money.py::TestExplicitRounding::test_rounding_never_happens_implicitly
+PASSED tests/unit/test_money.py::TestExplicitRounding::test_half_up_quantization_to_cents
+PASSED tests/unit/test_money.py::TestExplicitRounding::test_round_down_quantization_to_cents
+PASSED tests/unit/test_money.py::TestExplicitRounding::test_quantization_does_not_mutate_original
+PASSED tests/unit/test_package_contract.py::test_default_initial_capital_is_exactly_cny_100000
+PASSED tests/unit/test_performance_metrics.py::TestDailyCloseReturns::test_maps_consecutive_close_to_close_observations
+PASSED tests/unit/test_performance_metrics.py::TestDailyCloseReturns::test_result_is_independent_of_input_ordering
+PASSED tests/unit/test_performance_metrics.py::TestDailyCloseReturns::test_duplicate_sessions_are_rejected
+PASSED tests/unit/test_performance_metrics.py::TestDailyCloseReturns::test_incomplete_portfolio_nav_is_refused
+PASSED tests/unit/test_performance_metrics.py::TestReturnStatistics::test_total_return_is_ending_over_beginning_minus_one
+PASSED tests/unit/test_performance_metrics.py::TestReturnStatistics::test_cagr_annualizes_over_actual_calendar_days
+PASSED tests/unit/test_performance_metrics.py::TestReturnStatistics::test_cagr_refuses_single_observation_history
+PASSED tests/unit/test_performance_metrics.py::TestReturnStatistics::test_sample_volatility_is_annualized_by_252_sessions
+PASSED tests/unit/test_performance_metrics.py::TestReturnStatistics::test_volatility_refuses_a_single_return
+PASSED tests/unit/test_performance_metrics.py::TestReturnStatistics::test_sharpe_uses_zero_risk_free_and_252_annualization
+PASSED tests/unit/test_performance_metrics.py::TestReturnStatistics::test_sharpe_is_undefined_without_volatility
+PASSED tests/unit/test_performance_metrics.py::TestReturnStatistics::test_sortino_uses_zero_target_and_downside_deviation
+PASSED tests/unit/test_performance_metrics.py::TestReturnStatistics::test_sortino_is_undefined_without_downside_deviation
+PASSED tests/unit/test_performance_metrics.py::TestDrawdownAndUnderwater::test_drawdown_series_measures_decline_from_the_running_peak
+PASSED tests/unit/test_performance_metrics.py::TestDrawdownAndUnderwater::test_max_drawdown_is_the_deepest_running_peak_decline
+PASSED tests/unit/test_performance_metrics.py::TestDrawdownAndUnderwater::test_underwater_duration_reports_sessions_and_calendar_days
+PASSED tests/unit/test_performance_metrics.py::TestDrawdownAndUnderwater::test_underwater_duration_of_a_never_recovered_tail_runs_to_the_end
+PASSED tests/unit/test_performance_metrics.py::TestDrawdownAndUnderwater::test_calmar_divides_cagr_by_absolute_max_drawdown
+PASSED tests/unit/test_performance_metrics.py::TestDrawdownAndUnderwater::test_calmar_is_undefined_without_a_drawdown
+PASSED tests/unit/test_performance_metrics.py::TestTurnover::test_turnover_is_half_gross_notional_over_average_equity
+PASSED tests/unit/test_performance_metrics.py::TestTurnover::test_average_equity_is_the_mean_of_observed_equity
+PASSED tests/unit/test_performance_metrics.py::TestTurnover::test_cost_entries_do_not_change_gross_traded_notional
+PASSED tests/unit/test_performance_metrics.py::TestTurnover::test_non_positive_nav_history_is_refused
+PASSED tests/unit/test_performance_metrics.py::TestCostDrag::test_compares_gross_and_net_performance_under_the_same_fills
+PASSED tests/unit/test_performance_metrics.py::TestCostDrag::test_costs_recorded_after_the_final_observation_are_excluded
+PASSED tests/unit/test_performance_metrics.py::TestCostDrag::test_no_modeled_costs_means_no_drag
+PASSED tests/unit/test_performance_metrics.py::TestStaleAndIncompleteValuation::test_stale_mark_nav_is_retained_and_reported
+PASSED tests/unit/test_performance_metrics.py::TestStaleAndIncompleteValuation::test_truly_incomplete_nav_is_refused_with_its_reasons
+PASSED tests/unit/test_performance_metrics.py::TestConventionsAndIdentity::test_defaults_match_the_m0_metric_decisions
+PASSED tests/unit/test_performance_metrics.py::TestConventionsAndIdentity::test_benchmark_identity_accepts_only_the_m0_values
+PASSED tests/unit/test_performance_metrics.py::TestConventionsAndIdentity::test_convention_digest_changes_with_any_convention_change
+PASSED tests/unit/test_performance_metrics.py::TestConventionsAndIdentity::test_manifest_fields_record_benchmark_and_terminal_mode
+PASSED tests/unit/test_performance_metrics.py::TestMetricsReport::test_report_statistics_match_hand_calculated_values
+PASSED tests/unit/test_performance_metrics.py::TestMetricsReport::test_report_refuses_short_history
+PASSED tests/unit/test_performance_metrics.py::TestMetricsReport::test_report_includes_cost_drag_over_the_supplied_ledger
+PASSED tests/unit/test_performance_metrics.py::TestMetricsReport::test_report_records_the_declared_terminal_mode
+PASSED tests/unit/test_performance_metrics.py::TestMetricsReport::test_report_threads_declared_annualization_into_statistics
+PASSED tests/unit/test_risk_decisions.py::TestSleeveCapRule::test_cap_within_limit_passes_unchanged
+PASSED tests/unit/test_risk_decisions.py::TestSleeveCapRule::test_cap_reduces_largest_positions_first_until_budget_exhausted
+PASSED tests/unit/test_risk_decisions.py::TestSleeveCapRule::test_cap_leaves_other_sleeves_untouched
+PASSED tests/unit/test_risk_decisions.py::TestRiskTransformation::test_approved_weights_never_exceed_theoretical_exposure
+PASSED tests/unit/test_risk_decisions.py::TestRiskTransformation::test_rule_returning_an_increase_is_refused
+PASSED tests/unit/test_risk_decisions.py::TestRiskTransformation::test_block_vetoes_the_target_without_an_approved_output
+PASSED tests/unit/test_risk_decisions.py::TestRiskTransformation::test_rule_order_and_versions_are_recorded_in_output
+PASSED tests/unit/test_risk_decisions.py::TestRiskTransformation::test_transformation_is_deterministic
+PASSED tests/unit/test_risk_decisions.py::TestRiskTransformation::test_approved_target_retains_source_identity
+PASSED tests/unit/test_settlement.py::TestSellableFromSettlement::test_t_plus_one_acquisition_becomes_sellable_next_session
+PASSED tests/unit/test_settlement.py::TestSellableFromSettlement::test_same_day_rule_makes_the_acquisition_immediately_sellable
+PASSED tests/unit/test_settlement.py::TestSellableFromSettlement::test_settlement_beyond_the_calendar_snapshot_fails_closed
+PASSED tests/unit/test_settlement.py::TestPositionSellability::test_acquired_quantity_is_not_sellable_on_the_acquisition_session
+PASSED tests/unit/test_settlement.py::TestPositionSellability::test_sellable_quantity_distinguishes_available_from_total
+PASSED tests/unit/test_settlement.py::TestPositionSellability::test_holding_ledger_entry_carries_settlement_dates
+PASSED tests/unit/test_settlement.py::TestPositionSellability::test_selling_beyond_sellable_quantity_raises_typed_error
+PASSED tests/unit/test_settlement.py::TestPositionSellability::test_fifo_consumption_removes_the_earliest_sellable_lots
+PASSED tests/unit/test_settlement.py::TestPositionSellability::test_average_cost_is_the_weighted_acquisition_price
+PASSED tests/unit/test_settlement.py::TestSideSpecificLots::test_buys_accept_only_complete_lots
+PASSED tests/unit/test_settlement.py::TestSideSpecificLots::test_odd_lot_sells_follow_the_profile_policy
+PASSED tests/unit/test_target_portfolio.py::TestTargetContribution::test_contribution_retains_strategy_sleeve_and_weight
+PASSED tests/unit/test_target_portfolio.py::TestTargetContribution::test_sleeve_is_never_inferred_from_strategy_name
+PASSED tests/unit/test_target_portfolio.py::TestTargetContribution::test_negative_weight_is_rejected
+PASSED tests/unit/test_target_portfolio.py::TestTargetContribution::test_float_weight_is_rejected
+PASSED tests/unit/test_target_portfolio.py::TestTargetContribution::test_empty_strategy_identity_is_rejected
+PASSED tests/unit/test_target_portfolio.py::TestTheoreticalWeightsAndCash::test_instrument_weights_plus_cash_sum_to_exactly_one
+PASSED tests/unit/test_target_portfolio.py::TestTheoreticalWeightsAndCash::test_multiple_strategies_aggregate_on_one_instrument
+PASSED tests/unit/test_target_portfolio.py::TestTheoreticalWeightsAndCash::test_core_and_satellite_aggregate_from_explicit_sleeves
+PASSED tests/unit/test_target_portfolio.py::TestTheoreticalWeightsAndCash::test_one_instrument_must_not_belong_to_two_sleeves
+PASSED tests/unit/test_target_portfolio.py::TestTheoreticalWeightsAndCash::test_total_exposure_above_100_percent_is_rejected
+PASSED tests/unit/test_target_portfolio.py::TestTheoreticalWeightsAndCash::test_exposure_within_declared_tolerance_is_accepted
+PASSED tests/unit/test_target_portfolio.py::TestZeroVersusAbsent::test_explicit_zero_is_an_addressed_exit_target
+PASSED tests/unit/test_target_portfolio.py::TestZeroVersusAbsent::test_absent_instrument_is_not_addressed
+PASSED tests/unit/test_target_portfolio.py::TestLongOnlyAndConstruction::test_empty_contributions_is_an_all_cash_target
+PASSED tests/unit/test_target_portfolio.py::TestLongOnlyAndConstruction::test_identity_fields_are_retained
+PASSED tests/unit/test_target_portfolio.py::TestLongOnlyAndConstruction::test_naive_generated_at_is_rejected
+PASSED tests/unit/test_target_portfolio.py::TestLongOnlyAndConstruction::test_information_cutoff_after_generation_is_rejected
+PASSED tests/unit/test_target_portfolio.py::TestLongOnlyAndConstruction::test_target_is_immutable
+PASSED tests/unit/test_target_portfolio.py::TestLockAndRevisionIdentity::test_supersede_creates_new_revision_and_keeps_the_original
+PASSED tests/unit/test_target_portfolio.py::TestLockAndRevisionIdentity::test_identical_inputs_produce_identical_digests
+PASSED tests/unit/test_target_portfolio.py::TestLockAndRevisionIdentity::test_input_ordering_does_not_change_the_digest
+PASSED tests/unit/test_target_portfolio.py::TestLockAndRevisionIdentity::test_content_change_changes_the_digest
+PASSED tests/unit/test_target_portfolio.py::TestHeldInstrumentCompleteness::test_missing_held_instrument_is_never_silently_hold_or_sell
+PASSED tests/unit/test_target_portfolio.py::TestHeldInstrumentCompleteness::test_explicit_zero_target_satisfies_completeness
+PASSED tests/unit/test_target_portfolio.py::TestHeldInstrumentCompleteness::test_held_instruments_absent_from_target_fail_closed
+PASSED tests/unit/test_target_portfolio.py::TestHeldInstrumentCompleteness::test_complete_target_passes
+SKIPPED [1] tests\qualification\test_chstockdata_etf_gate.py:206: opt-in live qualification: set SIOS_CHSTOCKDATA_LIVE_QUALIFICATION=1 and install the pinned chstockdata release with a local vipdoc tree
+SKIPPED [1] tests\qualification\test_chstockdata_etf_gate.py:223: opt-in live qualification: set SIOS_CHSTOCKDATA_LIVE_QUALIFICATION=1 and install the pinned chstockdata release with a local vipdoc tree
+SKIPPED [1] tests\qualification\test_chstockdata_etf_gate.py:241: opt-in live qualification: set SIOS_CHSTOCKDATA_LIVE_QUALIFICATION=1 and install the pinned chstockdata release with a local vipdoc tree
+SKIPPED [1] tests\qualification\test_chstockdata_etf_gate.py:263: opt-in live qualification: set SIOS_CHSTOCKDATA_LIVE_QUALIFICATION=1 and install the pinned chstockdata release with a local vipdoc tree
+SKIPPED [1] tests\qualification\test_chstockdata_etf_gate.py:274: opt-in live qualification: set SIOS_CHSTOCKDATA_LIVE_QUALIFICATION=1 and install the pinned chstockdata release with a local vipdoc tree
+929 passed, 5 skipped in 22.20s

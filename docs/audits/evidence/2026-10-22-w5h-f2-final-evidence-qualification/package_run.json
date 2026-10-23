@@ -1,0 +1,117 @@
+{
+  "complete": true,
+  "stages": [
+    {
+      "stage": "qualify_reply_scope.py",
+      "exit": 0,
+      "seconds": 3.3082074000012653,
+      "stdout": "1216741268 108 consolidated non-OCF rows 16 matches 16\n1216741273 88 consolidated non-OCF rows 16 matches 16\n1217078312 97 consolidated non-OCF rows 16 matches 16\n1217078316 126 consolidated non-OCF rows 16 matches 16\n1217949872 107 consolidated non-OCF rows 16 matches 16\n1217949876 138 consolidated non-OCF rows 16 matches 16\n",
+      "stderr": ""
+    },
+    {
+      "stage": "verify_images_and_reply.py",
+      "exit": 0,
+      "seconds": 1.2860104000028514,
+      "stdout": "{'identical_page_pairs': 14, 'auditor_reply': 'VERIFIED_NO_TARGET_EFFECT'}\n",
+      "stderr": ""
+    },
+    {
+      "stage": "qualify_scan_fields.py",
+      "exit": 0,
+      "seconds": 0.3608964000013657,
+      "stdout": "{'probed_field_sites': 27, 'counts': {'UNRESOLVED_MATERIAL': 23, 'VERIFIED_EXISTING_VERSION': 3, 'UNRESOLVED_NON_MATERIAL_FOR_FIXED_T': 1}}\n[('1216869640', 203, 'NP', '2023-03-31'), ('1217078313', 209, 'NP', '2023-03-31'), ('1217949874', 209, 'NP', '2023-06-30')]\n",
+      "stderr": ""
+    },
+    {
+      "stage": "build_qualification.py",
+      "exit": 0,
+      "seconds": 0.15557370000169612,
+      "stdout": "{'records': 91, 'material_slots': 18, 'nonmaterial_records': 28, 'document_counts': {'UNRESOLVED_MATERIAL': 4, 'VERIFIED_EXISTING_VERSION': 6, 'VERIFIED_NO_TARGET_EFFECT': 1}}\n",
+      "stderr": ""
+    },
+    {
+      "stage": "replay_final.py",
+      "exit": 0,
+      "seconds": 1.42696629999773,
+      "stdout": "{'preserved_outputs': 141, 'counts': {'SELECTED_KNOWN_SOURCE': 84, 'UNKNOWN': 57}, 'deltas': 0, 'new_assertions': 33, 'pass': True}\n",
+      "stderr": ""
+    },
+    {
+      "stage": "connect_field_T_impact.py",
+      "exit": 0,
+      "seconds": 0.23077000000193948,
+      "stdout": "{'source_records': 91, 'actual_outputs': 162, 'statuses': {'SELECTED_KNOWN_SOURCE': 87, 'UNKNOWN': 75}}\n",
+      "stderr": ""
+    },
+    {
+      "stage": "UNITTEST",
+      "exit": 0,
+      "seconds": 0.18643349999911152,
+      "stdout": "",
+      "stderr": "test_audit_number_alone_is_not_duplicate (test_qualification.QualificationTests.test_audit_number_alone_is_not_duplicate) ... ok\ntest_fingerprint_requires_non_ocf_rows_and_multiple_periods (test_qualification.QualificationTests.test_fingerprint_requires_non_ocf_rows_and_multiple_periods) ... ok\ntest_fy2021_conflict_blocks_only_dependency (test_qualification.QualificationTests.test_fy2021_conflict_blocks_only_dependency) ... ok\ntest_object_match_with_page_overlay_is_not_page_duplicate (test_qualification.QualificationTests.test_object_match_with_page_overlay_is_not_page_duplicate) ... ok\ntest_same_page_pixels (test_qualification.QualificationTests.test_same_page_pixels) ... ok\ntest_single_ocf_match_does_not_prove_scope (test_qualification.QualificationTests.test_single_ocf_match_does_not_prove_scope) ... ok\ntest_valid_cell (test_qualification.QualificationTests.test_valid_cell) ... ok\ntest_wrong_column (test_qualification.QualificationTests.test_wrong_column) ... ok\ntest_wrong_multiplier (test_qualification.QualificationTests.test_wrong_multiplier) ... ok\ntest_wrong_period (test_qualification.QualificationTests.test_wrong_period) ... ok\ntest_wrong_sign (test_qualification.QualificationTests.test_wrong_sign) ... ok\ntest_wrong_subject (test_qualification.QualificationTests.test_wrong_subject) ... ok\ntest_actual_accepted_cells (test_real_evidence.ActualEvidenceTests.test_actual_accepted_cells) ... ok\ntest_critical_unknowns_have_no_accepted_value (test_real_evidence.ActualEvidenceTests.test_critical_unknowns_have_no_accepted_value) ... ok\ntest_explicit_h1_opening_is_not_prior_year_end (test_real_evidence.ActualEvidenceTests.test_explicit_h1_opening_is_not_prior_year_end) ... ok\ntest_matching_money_without_header_is_rejected (test_real_evidence.ActualEvidenceTests.test_matching_money_without_header_is_rejected) ... ok\ntest_wrong_actual_column_rejected (test_real_evidence.ActualEvidenceTests.test_wrong_actual_column_rejected) ... ok\ntest_wrong_actual_multiplier_rejected (test_real_evidence.ActualEvidenceTests.test_wrong_actual_multiplier_rejected) ... ok\ntest_wrong_actual_subject_rejected (test_real_evidence.ActualEvidenceTests.test_wrong_actual_subject_rejected) ... ok\n\n----------------------------------------------------------------------\nRan 19 tests in 0.010s\n\nOK\n"
+    },
+    {
+      "stage": "check_final_quality.py",
+      "exit": 0,
+      "seconds": 0.4526726999974926,
+      "stdout": "{'quality_checks': 542, 'passed': 542, 'ocr_calls': 480}\n",
+      "stderr": ""
+    }
+  ],
+  "code_sha256_start": {
+    "build_qualification.py": "056ae69a738fd24268dbd98905126d80ddacea19745f7cd9a6165538cf2ba425",
+    "check_final_quality.py": "6d74c35d3511b19c9242b502bc9fe92c6462c855fef738466d1771b77a9aa274",
+    "common.py": "b05c3e0d95015e34b9e0ec66b6c1628225481fe1d3db32c7e298d849a30b4755",
+    "connect_field_T_impact.py": "3df3493fb1693fc4aea9ec9b04d1215e460860ecd18af2e35ec0a7a7416f4aa7",
+    "glyph_probe.py": "c00855709f7bb814ad23bccc4a9a648290e8939da38b50c1228d1e69fe22b018",
+    "inspect_structure.py": "bc187e62594497072baaf4424c9a2059e49133f7a1b4fc159eb5b3fd12211b46",
+    "plan_scan_cells.py": "843254a489c984e30edd14151a514175d2f2cdcd84f9805c1e970f6bc15911a7",
+    "prepare_cell_ocr.py": "95788b727c855d382e156cf789989cdc733462dd3c17cd6c93e5bd944916e0b4",
+    "prepare_column_ocr.py": "1dc12d4bdefb6c44b8621d40eeb4b0dc3a5cebe09e6b900da916665a184d96ae",
+    "probe_field_image_equivalence.py": "909fe772d846e49652e28dfd8d2875f4b5d7714b5da07c28fba55b92d81a1d8e",
+    "probe_tables.py": "b019785f83878fbf0fe6f59b660f4ca1bd28abf55810c3412a728e7bad71271f",
+    "qualification_rules.py": "67bfddfb09bd42d784030dd021eda34649b1a0511b26a40f1acab32b825dba0b",
+    "qualify_reply_scope.py": "5ae9c3723c7a17bd951dfa093a3cdd710fa8f85f0aa3dcd53dd4209e71fe412d",
+    "qualify_scan_fields.py": "25f474df784c2b16229bc1f6f55ce9800bb9a7ff7ee53860ccbaee10cd6f8dcc",
+    "recover.py": "8b1bcebff849a9924e23da16848b2167aa37a92a5b25d2cb329ba01039ef58ad",
+    "repair_cell_bounds.py": "76142e4a33cc7bd5a182c6bc3ac998469c0a8c2266ffe209d75deb08ce867e55",
+    "replay_final.py": "19c8927183a8691477017fc053a1e263b3a7e19620dabe661e8db36cd7146cca",
+    "run_package.py": "db0c2e88396466984fb890638c68b4daaa8da8ff7602465dd09e85baf57c3a2d",
+    "run_regressions.py": "03de43c8de94d1cd446dda4c369bd5b112e94e789546d21b175da50708d00204",
+    "seal_delivery.py": "b29beab8c1f9f618960bb9635992099bfb703fa80c1120262fdaab27245cbfd8",
+    "test_qualification.py": "c3526c56c0b6fa1c7b2b8174add4781e409d2523d4246ba62ef1df5c77647aa1",
+    "test_real_evidence.py": "5dc2a7bdbe491c0977c5a88ed19cab743ec732a27122a8d51aa6f68bff696ae2",
+    "verify_images_and_reply.py": "f1ac9d1c22a1cdc0efb0918275049013bdb0049f2673fa21d060fdac83492da2"
+  },
+  "code_sha256_end": {
+    "build_qualification.py": "056ae69a738fd24268dbd98905126d80ddacea19745f7cd9a6165538cf2ba425",
+    "check_final_quality.py": "6d74c35d3511b19c9242b502bc9fe92c6462c855fef738466d1771b77a9aa274",
+    "common.py": "b05c3e0d95015e34b9e0ec66b6c1628225481fe1d3db32c7e298d849a30b4755",
+    "connect_field_T_impact.py": "3df3493fb1693fc4aea9ec9b04d1215e460860ecd18af2e35ec0a7a7416f4aa7",
+    "glyph_probe.py": "c00855709f7bb814ad23bccc4a9a648290e8939da38b50c1228d1e69fe22b018",
+    "inspect_structure.py": "bc187e62594497072baaf4424c9a2059e49133f7a1b4fc159eb5b3fd12211b46",
+    "plan_scan_cells.py": "843254a489c984e30edd14151a514175d2f2cdcd84f9805c1e970f6bc15911a7",
+    "prepare_cell_ocr.py": "95788b727c855d382e156cf789989cdc733462dd3c17cd6c93e5bd944916e0b4",
+    "prepare_column_ocr.py": "1dc12d4bdefb6c44b8621d40eeb4b0dc3a5cebe09e6b900da916665a184d96ae",
+    "probe_field_image_equivalence.py": "909fe772d846e49652e28dfd8d2875f4b5d7714b5da07c28fba55b92d81a1d8e",
+    "probe_tables.py": "b019785f83878fbf0fe6f59b660f4ca1bd28abf55810c3412a728e7bad71271f",
+    "qualification_rules.py": "67bfddfb09bd42d784030dd021eda34649b1a0511b26a40f1acab32b825dba0b",
+    "qualify_reply_scope.py": "5ae9c3723c7a17bd951dfa093a3cdd710fa8f85f0aa3dcd53dd4209e71fe412d",
+    "qualify_scan_fields.py": "25f474df784c2b16229bc1f6f55ce9800bb9a7ff7ee53860ccbaee10cd6f8dcc",
+    "recover.py": "8b1bcebff849a9924e23da16848b2167aa37a92a5b25d2cb329ba01039ef58ad",
+    "repair_cell_bounds.py": "76142e4a33cc7bd5a182c6bc3ac998469c0a8c2266ffe209d75deb08ce867e55",
+    "replay_final.py": "19c8927183a8691477017fc053a1e263b3a7e19620dabe661e8db36cd7146cca",
+    "run_package.py": "db0c2e88396466984fb890638c68b4daaa8da8ff7602465dd09e85baf57c3a2d",
+    "run_regressions.py": "03de43c8de94d1cd446dda4c369bd5b112e94e789546d21b175da50708d00204",
+    "seal_delivery.py": "b29beab8c1f9f618960bb9635992099bfb703fa80c1120262fdaab27245cbfd8",
+    "test_qualification.py": "c3526c56c0b6fa1c7b2b8174add4781e409d2523d4246ba62ef1df5c77647aa1",
+    "test_real_evidence.py": "5dc2a7bdbe491c0977c5a88ed19cab743ec732a27122a8d51aa6f68bff696ae2",
+    "verify_images_and_reply.py": "f1ac9d1c22a1cdc0efb0918275049013bdb0049f2673fa21d060fdac83492da2"
+  },
+  "new_unit_test_methods": 19,
+  "network_requests": 0,
+  "legacy_regression_reused": true,
+  "raw_ocr_cache_binding": "All 480 source/image SHA bindings checked; earlier failed attempts retained",
+  "source_qualification_gate": "FIXED_WINDOW_PARTIAL_WITH_PROVEN_GAPS",
+  "product_gate": "NOT_PASSED"
+}

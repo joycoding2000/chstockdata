@@ -1,0 +1,16 @@
+{
+  "downloaded_at": "2026-10-13T13:47:17Z",
+  "max_bar_date": {
+    "000001": "2026-09-09",
+    "600519": "2026-09-09"
+  },
+  "record_counts": {
+    "bj": 0,
+    "sh": 2,
+    "sz": 1
+  },
+  "schema_version": 1,
+  "source_last_modified": "Fri, 10 Sep 2026 07:58:52 GMT",
+  "source_url": "https://example.test/hsjday.zip",
+  "zip_sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+}

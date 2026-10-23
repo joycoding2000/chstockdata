@@ -1,0 +1,15 @@
+{
+  "checked_at": "2026-10-22T23:02:30.882254+08:00",
+  "manifest_sha256": "8d2f2400b011891f17f6e9c9e2950c6608ab12d1759044cc06e04040e02be79a",
+  "integrity_and_recomputation": "PASS",
+  "checks_executed": 29986,
+  "errors": [],
+  "consumer_receipt": "PASS_FOR_RESEARCH_CONSUMER_ACCEPTANCE",
+  "consumer_acceptance": true,
+  "qualified_historical_signal_rows": 1875,
+  "retrospective_observation_rows": 1875,
+  "required_gaps": [],
+  "real_event_transition_test": "NOT_APPLICABLE: nine issuer reports authenticate no implemented cash or split event",
+  "strategy_backtests_executed": 0,
+  "consumer_repository_executed_or_modified": false
+}

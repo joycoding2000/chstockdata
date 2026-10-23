@@ -1,0 +1,88 @@
+{
+  "package-tests": {
+    "xml_sha256": "f35ef6ad9c36222034dadbc165bdc4b0e6fcd7deb6931aea96ec02bfb2c95c89",
+    "counts": {
+      "tests": 725,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 1
+    },
+    "exit": "0",
+    "retained_evidence_not_rerun": true
+  },
+  "sios-provider-contract": {
+    "xml_sha256": "e9a970369aba52f8cd08e7acc04d5dba19cea83694d1ab9b9a88b7a8c69dc127",
+    "counts": {
+      "tests": 67,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "exit": "0",
+    "retained_evidence_not_rerun": true
+  },
+  "sios-etf-golden-smoke": {
+    "xml_sha256": "be5ef1d67668b0d6b74f7d6e7d8042282e5a360de407e830da92145827f4fd9b",
+    "counts": {
+      "tests": 165,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 5
+    },
+    "exit": "0",
+    "retained_evidence_not_rerun": true
+  },
+  "sios-offline": {
+    "xml_sha256": "0e0f3059d6bda14de117e87431a8c8b2ab948c0141e9da22632a6efea1704872",
+    "counts": {
+      "tests": 934,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 5
+    },
+    "exit": "0",
+    "retained_evidence_not_rerun": true
+  },
+  "sios-required-live": {
+    "xml_sha256": "ac27787c631ce9d5f2d6312342634059ed99c4f3d089c5b2ca438fe606d6995e",
+    "counts": {
+      "tests": 5,
+      "failures": 1,
+      "errors": 0,
+      "skipped": 0
+    },
+    "exit": "1",
+    "retained_evidence_not_rerun": true
+  },
+  "ta-candidate": {
+    "xml_sha256": "2fd8a6a127d8498c46b420b488cabfbb01e83405aae2913e20ee015766cc2f70",
+    "counts": {
+      "tests": 130,
+      "failures": 7,
+      "errors": 0,
+      "skipped": 0
+    },
+    "exit": "1",
+    "retained_evidence_not_rerun": true
+  },
+  "sios-business-contract-unchanged": true,
+  "sios-frozen-files": {
+    "files": 238,
+    "matched_original_or_authorized_overlay": 236,
+    "changed": [
+      "src/systematic_investing/adapters/chstockdata/provider.py",
+      "tests/qualification/test_chstockdata_etf_gate.py"
+    ]
+  },
+  "ta-frozen-files": {
+    "files": 957,
+    "matched_original_or_authorized_overlay": 957,
+    "changed": []
+  },
+  "fresh-history-probe": {
+    "requested": 8,
+    "success": 0,
+    "all_fail_closed": true,
+    "wheel_sha256": "b76b065a06cd1d91868880a7b57584f598b6fd4cb42931e9a33700bc99a88c7a"
+  }
+}

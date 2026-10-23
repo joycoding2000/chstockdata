@@ -1,0 +1,14 @@
+{
+  "id": "szse-delisted",
+  "url": "https://www.szse.cn/api/report/ShowReport",
+  "params": {
+    "SHOWTYPE": "xlsx",
+    "CATALOGID": "1793_ssgs",
+    "TABKEY": "tab2",
+    "random": "0.6935816432433362"
+  },
+  "max_bytes": 5000000,
+  "registered_at": "2026-10-22T20:57:27.026100+08:00",
+  "method": "GET",
+  "retry_of": null
+}

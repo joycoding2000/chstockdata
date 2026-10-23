@@ -1,0 +1,39 @@
+......................F.......                                           [100%]
+================================== FAILURES ===================================
+________ test_actual_legacy_failure_constructs_only_unknown_constraint ________
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x000002536BA21C70>
+
+    def test_actual_legacy_failure_constructs_only_unknown_constraint(monkeypatch):
+        import chstockdata
+        from chstockdata import a_stock,suspension
+        from chstockdata.fetch_result import FetchAttempt
+        snapshot={"rows":[],"reported_count":0,"snapshot_pages":1,"retrieved_at":NOW.isoformat(),"status":"success","reason":None,"attempts":[FetchAttempt("eastmoney","eastmoney:suspension","normal_empty",NOW.isoformat(),0,record_count=0)]}
+        monkeypatch.setattr(suspension,"_load_suspension_snapshot",lambda _:snapshot)
+        monkeypatch.setattr(a_stock,"_load_suspension_snapshot",lambda _:snapshot)
+        monkeypatch.setattr(a_stock,"_today",lambda:date(2026,10,12))
+        provider=ChStockDataProvider(client=LibraryChStockDataClient(library=chstockdata,historical_opening_candidate=True),clock=lambda:NOW)
+        request=TradabilityRequest((I,),DAY)
+        failure=provider.fetch_tradability(request)
+        assert isinstance(failure,ProviderFailure)
+        assert isinstance(failure.cause,HistoricalSuspensionUnavailableError)
+>       constraints=provider.historical_suspension_gap(request,failure)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\unit\test_historical_opening_provider.py:37: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <systematic_investing.adapters.chstockdata.provider.ChStockDataProvider object at 0x000002536BA21640>
+request = TradabilityRequest(instrument_ids=(InstrumentId(exchange=<Exchange.XSHG: 'XSHG'>, symbol='510300'),), session_date=datetime.date(2026, 9, 11))
+failure = ProviderFailure(error_code=<ProviderErrorCode.SCHEMA_DRIFT: 'SCHEMA_DRIFT'>, message='vendor:historical_suspension_unavailable', evidence=None, cause=HistoricalSuspensionUnavailableError('vendor:historical_suspension_unavailable'))
+
+    def historical_suspension_gap(self, request: TradabilityRequest, failure: ProviderFailure) -> tuple[TradabilityStatus, ...]:
+        """Expose one explicit legacy coverage constraint, never a PIT success."""
+        if not isinstance(failure, ProviderFailure) or not isinstance(failure.cause, HistoricalSuspensionUnavailableError) or failure.evidence is None or failure.evidence.capability != "tradability" or failure.evidence.request_digest != _request_digest("tradability", {"instrument_ids": ",".join(str(item) for item in sorted(request.instrument_ids)), "session_date": request.session_date.isoformat()}):
+>           raise ChStockDataConfigurationError("not a verified historical suspension coverage failure")
+E           systematic_investing.adapters.chstockdata.provider.ChStockDataConfigurationError: not a verified historical suspension coverage failure
+
+src\systematic_investing\adapters\chstockdata\provider.py:1123: ChStockDataConfigurationError
+=========================== short test summary info ===========================
+FAILED tests/unit/test_historical_opening_provider.py::test_actual_legacy_failure_constructs_only_unknown_constraint
+1 failed, 29 passed in 1.73s

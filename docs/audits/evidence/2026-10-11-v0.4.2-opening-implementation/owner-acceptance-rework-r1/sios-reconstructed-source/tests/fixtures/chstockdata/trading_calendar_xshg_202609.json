@@ -1,0 +1,14 @@
+{
+  "capability": "trading_calendar",
+  "upstream_source": "chstockdata.load_trading_calendar (vipdoc local index days)",
+  "observed_at": null,
+  "warnings": [],
+  "payload": {
+    "open_days": ["2026-09-10", "2026-09-11", "2026-09-14"],
+    "covered_start": "2026-09-01",
+    "covered_end": "2026-09-30",
+    "source": "vipdoc local index days",
+    "stale": false,
+    "limitations": []
+  }
+}

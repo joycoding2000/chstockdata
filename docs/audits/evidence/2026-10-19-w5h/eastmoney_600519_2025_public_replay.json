@@ -1,0 +1,103 @@
+{
+  "as_of_date": "2025-12-31",
+  "board_name": "白酒Ⅱ",
+  "boundary": "估值为东财数据中心日线序列（老股自 2018 年起），分位为最新值在窗口样本中的历史相对位置；不构成买卖信号、目标价或收益预测；样本不足或最新值非正的窗口必须在报告中如实披露。",
+  "close_price": 1377.18,
+  "float_market_cap_yi": 17246.0149,
+  "history": {
+    "fetched_rows": 243,
+    "first_date": "2025-01-02",
+    "last_date": "2025-12-31",
+    "min_samples": 60,
+    "provider_count": 243,
+    "sample_count": 243,
+    "truncated": false
+  },
+  "latest_date": "2025-12-31",
+  "market_cap_yi": 17246.0149,
+  "metrics": {
+    "pb_mrq": 7.04961137,
+    "pcf_ocf_ttm": 19.99790504,
+    "pe_static": 20.94995249,
+    "pe_ttm": 19.15641932,
+    "peg_car": -4.62241276,
+    "ps_ttm": 9.47971715
+  },
+  "observed_at": "2026-10-19T19:57:51+08:00",
+  "percentiles": {
+    "pb_mrq": {
+      "all_quantiles": {
+        "p10": 6.94,
+        "p25": 7.1145,
+        "p50": 7.5389,
+        "p75": 7.7763,
+        "p90": 7.9834
+      },
+      "latest": 7.04961137,
+      "windows": {
+        "3y": {
+          "non_positive_samples": 0,
+          "percentile": 19.75,
+          "reliability": "limited_samples",
+          "sample_count": 243,
+          "window_end": "2025-12-31",
+          "window_start": "2025-01-02"
+        },
+        "5y": {
+          "non_positive_samples": 0,
+          "percentile": 19.75,
+          "reliability": "limited_samples",
+          "sample_count": 243,
+          "window_end": "2025-12-31",
+          "window_start": "2025-01-02"
+        },
+        "all": {
+          "non_positive_samples": 0,
+          "percentile": 19.75,
+          "reliability": "limited_samples",
+          "sample_count": 243,
+          "window_end": "2025-12-31",
+          "window_start": "2025-01-02"
+        }
+      }
+    },
+    "pe_ttm": {
+      "all_quantiles": {
+        "p10": 19.8775,
+        "p25": 20.0821,
+        "p50": 20.6153,
+        "p75": 22.3085,
+        "p90": 22.8474
+      },
+      "latest": 19.15641932,
+      "windows": {
+        "3y": {
+          "non_positive_samples": 0,
+          "percentile": 0.41,
+          "reliability": "limited_samples",
+          "sample_count": 243,
+          "window_end": "2025-12-31",
+          "window_start": "2025-01-02"
+        },
+        "5y": {
+          "non_positive_samples": 0,
+          "percentile": 0.41,
+          "reliability": "limited_samples",
+          "sample_count": 243,
+          "window_end": "2025-12-31",
+          "window_start": "2025-01-02"
+        },
+        "all": {
+          "non_positive_samples": 0,
+          "percentile": 0.41,
+          "reliability": "limited_samples",
+          "sample_count": 243,
+          "window_end": "2025-12-31",
+          "window_start": "2025-01-02"
+        }
+      }
+    }
+  },
+  "source": "Eastmoney datacenter RPT_VALUEANALYSIS_DET",
+  "status": "success"
+}

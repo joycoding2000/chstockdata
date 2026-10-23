@@ -1,0 +1,543 @@
+{
+  "manifest": {
+    "schema_version": 1,
+    "source_url": "https://data.tdx.com.cn/vipdoc/hsjday.zip",
+    "source_last_modified": "Tue, 22 Sep 2026 07:56:47 GMT",
+    "downloaded_at": "2026-09-23T06:19:31Z",
+    "zip_sha256": "72bf25fb6dd5fbdb1a83c64a37d8ad7c4d9652f7036919b6694ba955b643e968"
+  },
+  "queries": [
+    {
+      "market": "sh",
+      "code": "510300",
+      "date": "2026-09-11",
+      "file_exists": true,
+      "file_sha256": "56db5fb84ac0965428748b6fa6228622d7e86021e37e2ecc4b0f79d1e88743ab",
+      "file_records": 3483,
+      "record_fields": [
+        "date",
+        "open",
+        "high",
+        "low",
+        "close",
+        "amount",
+        "volume",
+        "reserved_unqualified"
+      ],
+      "raw_rows": [
+        [
+          20260911,
+          4592,
+          4592,
+          4532,
+          4579,
+          4409406976.0,
+          966665182,
+          65536
+        ]
+      ],
+      "parsed_rows": [
+        {
+          "Date": "2026-09-11T00:00:00.000",
+          "Open": 4.592,
+          "High": 4.592,
+          "Low": 4.532,
+          "Close": 4.579,
+          "pre_close": 4.617,
+          "Volume": 966665182,
+          "Amount": 4409406976.0
+        }
+      ],
+      "previous_record_date": 20260910,
+      "next_record_date": 20260914,
+      "market_open": true,
+      "trade_occurred": true,
+      "suspension_from_bar": "UNKNOWN (positive volume does not exclude intraday suspension)",
+      "pit_preopen": "UNPROVEN",
+      "local_read_at": "2026-10-09T13:13:25.416715+00:00"
+    },
+    {
+      "market": "sh",
+      "code": "518880",
+      "date": "2026-09-11",
+      "file_exists": true,
+      "file_sha256": "f73b02ec305007cef07cc77ae08b49c7b583cdad3c3a71c4f3e6f127f2201eef",
+      "file_records": 3200,
+      "record_fields": [
+        "date",
+        "open",
+        "high",
+        "low",
+        "close",
+        "amount",
+        "volume",
+        "reserved_unqualified"
+      ],
+      "raw_rows": [
+        [
+          20260911,
+          8895,
+          8963,
+          8852,
+          8943,
+          5504843776.0,
+          617832329,
+          65536
+        ]
+      ],
+      "parsed_rows": [
+        {
+          "Date": "2026-09-11T00:00:00.000",
+          "Open": 8.895,
+          "High": 8.963,
+          "Low": 8.852,
+          "Close": 8.943,
+          "pre_close": 9.083,
+          "Volume": 617832329,
+          "Amount": 5504843776.0
+        }
+      ],
+      "previous_record_date": 20260910,
+      "next_record_date": 20260914,
+      "market_open": true,
+      "trade_occurred": true,
+      "suspension_from_bar": "UNKNOWN (positive volume does not exclude intraday suspension)",
+      "pit_preopen": "UNPROVEN",
+      "local_read_at": "2026-10-09T13:13:25.548605+00:00"
+    },
+    {
+      "market": "sh",
+      "code": "511010",
+      "date": "2026-09-11",
+      "file_exists": true,
+      "file_sha256": "3f4225663778f898ef36a8562f4d8774b1a20eae08ea9d1caf7d8d3a5548a78d",
+      "file_records": 3282,
+      "record_fields": [
+        "date",
+        "open",
+        "high",
+        "low",
+        "close",
+        "amount",
+        "volume",
+        "reserved_unqualified"
+      ],
+      "raw_rows": [
+        [
+          20260911,
+          141180,
+          141185,
+          141133,
+          141146,
+          2728766464.0,
+          19331300,
+          65536
+        ]
+      ],
+      "parsed_rows": [
+        {
+          "Date": "2026-09-11T00:00:00.000",
+          "Open": 141.18,
+          "High": 141.185,
+          "Low": 141.133,
+          "Close": 141.146,
+          "pre_close": 141.185,
+          "Volume": 19331300,
+          "Amount": 2728766464.0
+        }
+      ],
+      "previous_record_date": 20260910,
+      "next_record_date": 20260914,
+      "market_open": true,
+      "trade_occurred": true,
+      "suspension_from_bar": "UNKNOWN (positive volume does not exclude intraday suspension)",
+      "pit_preopen": "UNPROVEN",
+      "local_read_at": "2026-10-09T13:13:25.679524+00:00"
+    },
+    {
+      "market": "sz",
+      "code": "159915",
+      "date": "2026-09-11",
+      "file_exists": true,
+      "file_sha256": "caf336760dfe6317f5117f88eee05e366e1bb970459eeb7f1fd53999c38ae9a3",
+      "file_records": 3591,
+      "record_fields": [
+        "date",
+        "open",
+        "high",
+        "low",
+        "close",
+        "amount",
+        "volume",
+        "reserved_unqualified"
+      ],
+      "raw_rows": [
+        [
+          20260911,
+          3323,
+          3354,
+          3280,
+          3341,
+          6320258048.0,
+          1905297197,
+          65536
+        ]
+      ],
+      "parsed_rows": [
+        {
+          "Date": "2026-09-11T00:00:00.000",
+          "Open": 3.323,
+          "High": 3.354,
+          "Low": 3.28,
+          "Close": 3.341,
+          "pre_close": 3.358,
+          "Volume": 1905297197,
+          "Amount": 6320258048.0
+        }
+      ],
+      "previous_record_date": 20260910,
+      "next_record_date": 20260914,
+      "market_open": true,
+      "trade_occurred": true,
+      "suspension_from_bar": "UNKNOWN (positive volume does not exclude intraday suspension)",
+      "pit_preopen": "UNPROVEN",
+      "local_read_at": "2026-10-09T13:13:25.817009+00:00"
+    },
+    {
+      "market": "sh",
+      "code": "688432",
+      "date": "2026-08-31",
+      "file_exists": true,
+      "file_sha256": "c6b2669041cde3007e8faad66daeb8d9cc1688c8c66740180a42e0527c91d8d2",
+      "file_records": 930,
+      "record_fields": [
+        "date",
+        "open",
+        "high",
+        "low",
+        "close",
+        "amount",
+        "volume",
+        "reserved_unqualified"
+      ],
+      "raw_rows": [],
+      "parsed_rows": [],
+      "previous_record_date": 20260828,
+      "next_record_date": 20260914,
+      "market_open": true,
+      "trade_occurred": null,
+      "suspension_from_bar": "UNKNOWN (positive volume does not exclude intraday suspension)",
+      "pit_preopen": "UNPROVEN",
+      "local_read_at": "2026-10-09T13:13:25.931657+00:00"
+    },
+    {
+      "market": "sh",
+      "code": "688432",
+      "date": "2026-09-11",
+      "file_exists": true,
+      "file_sha256": "c6b2669041cde3007e8faad66daeb8d9cc1688c8c66740180a42e0527c91d8d2",
+      "file_records": 930,
+      "record_fields": [
+        "date",
+        "open",
+        "high",
+        "low",
+        "close",
+        "amount",
+        "volume",
+        "reserved_unqualified"
+      ],
+      "raw_rows": [],
+      "parsed_rows": [],
+      "previous_record_date": 20260828,
+      "next_record_date": 20260914,
+      "market_open": true,
+      "trade_occurred": null,
+      "suspension_from_bar": "UNKNOWN (positive volume does not exclude intraday suspension)",
+      "pit_preopen": "UNPROVEN",
+      "local_read_at": "2026-10-09T13:13:26.045264+00:00"
+    },
+    {
+      "market": "sh",
+      "code": "688432",
+      "date": "2026-09-14",
+      "file_exists": true,
+      "file_sha256": "c6b2669041cde3007e8faad66daeb8d9cc1688c8c66740180a42e0527c91d8d2",
+      "file_records": 930,
+      "record_fields": [
+        "date",
+        "open",
+        "high",
+        "low",
+        "close",
+        "amount",
+        "volume",
+        "reserved_unqualified"
+      ],
+      "raw_rows": [
+        [
+          20260914,
+          4300,
+          5287,
+          3766,
+          4615,
+          3692995072.0,
+          79062151,
+          65536
+        ]
+      ],
+      "parsed_rows": [
+        {
+          "Date": "2026-09-14T00:00:00.000",
+          "Open": 43.0,
+          "High": 52.87,
+          "Low": 37.66,
+          "Close": 46.15,
+          "pre_close": 45.22,
+          "Volume": 79062151,
+          "Amount": 3692995072.0
+        }
+      ],
+      "previous_record_date": 20260828,
+      "next_record_date": 20260915,
+      "market_open": true,
+      "trade_occurred": true,
+      "suspension_from_bar": "UNKNOWN (positive volume does not exclude intraday suspension)",
+      "pit_preopen": "UNPROVEN",
+      "local_read_at": "2026-10-09T13:13:26.156935+00:00"
+    },
+    {
+      "market": "sz",
+      "code": "000002",
+      "date": "2016-01-04",
+      "file_exists": true,
+      "file_sha256": "5e3edbce3f5ca9ae5a321de128c4438391fd631ca9cf3fc3eecb5ba243f40d47",
+      "file_records": 8485,
+      "record_fields": [
+        "date",
+        "open",
+        "high",
+        "low",
+        "close",
+        "amount",
+        "volume",
+        "reserved_unqualified"
+      ],
+      "raw_rows": [],
+      "parsed_rows": [],
+      "previous_record_date": 20151218,
+      "next_record_date": 20160704,
+      "market_open": true,
+      "trade_occurred": null,
+      "suspension_from_bar": "UNKNOWN (positive volume does not exclude intraday suspension)",
+      "pit_preopen": "UNPROVEN",
+      "local_read_at": "2026-10-09T13:13:26.332007+00:00"
+    },
+    {
+      "market": "sz",
+      "code": "000002",
+      "date": "2016-07-04",
+      "file_exists": true,
+      "file_sha256": "5e3edbce3f5ca9ae5a321de128c4438391fd631ca9cf3fc3eecb5ba243f40d47",
+      "file_records": 8485,
+      "record_fields": [
+        "date",
+        "open",
+        "high",
+        "low",
+        "close",
+        "amount",
+        "volume",
+        "reserved_unqualified"
+      ],
+      "raw_rows": [
+        [
+          20160704,
+          2199,
+          2199,
+          2199,
+          2199,
+          93815000.0,
+          4266300,
+          0
+        ]
+      ],
+      "parsed_rows": [
+        {
+          "Date": "2016-07-04T00:00:00.000",
+          "Open": 21.99,
+          "High": 21.99,
+          "Low": 21.99,
+          "Close": 21.99,
+          "pre_close": 24.43,
+          "Volume": 4266300,
+          "Amount": 93815000.0
+        }
+      ],
+      "previous_record_date": 20151218,
+      "next_record_date": 20160705,
+      "market_open": true,
+      "trade_occurred": true,
+      "suspension_from_bar": "UNKNOWN (positive volume does not exclude intraday suspension)",
+      "pit_preopen": "UNPROVEN",
+      "local_read_at": "2026-10-09T13:13:26.526264+00:00"
+    },
+    {
+      "market": "sz",
+      "code": "000002",
+      "date": "2015-12-18",
+      "file_exists": true,
+      "file_sha256": "5e3edbce3f5ca9ae5a321de128c4438391fd631ca9cf3fc3eecb5ba243f40d47",
+      "file_records": 8485,
+      "record_fields": [
+        "date",
+        "open",
+        "high",
+        "low",
+        "close",
+        "amount",
+        "volume",
+        "reserved_unqualified"
+      ],
+      "raw_rows": [
+        [
+          20151218,
+          2240,
+          2443,
+          2166,
+          2443,
+          5288949760.0,
+          223898400,
+          0
+        ]
+      ],
+      "parsed_rows": [
+        {
+          "Date": "2015-12-18T00:00:00.000",
+          "Open": 22.4,
+          "High": 24.43,
+          "Low": 21.66,
+          "Close": 24.43,
+          "pre_close": 22.21,
+          "Volume": 223898400,
+          "Amount": 5288949760.0
+        }
+      ],
+      "previous_record_date": 20151217,
+      "next_record_date": 20160704,
+      "market_open": true,
+      "trade_occurred": true,
+      "suspension_from_bar": "UNKNOWN (positive volume does not exclude intraday suspension)",
+      "pit_preopen": "UNPROVEN",
+      "local_read_at": "2026-10-09T13:13:26.701595+00:00"
+    },
+    {
+      "market": "sh",
+      "code": "510300",
+      "date": "2026-09-13",
+      "file_exists": true,
+      "file_sha256": "56db5fb84ac0965428748b6fa6228622d7e86021e37e2ecc4b0f79d1e88743ab",
+      "file_records": 3483,
+      "record_fields": [
+        "date",
+        "open",
+        "high",
+        "low",
+        "close",
+        "amount",
+        "volume",
+        "reserved_unqualified"
+      ],
+      "raw_rows": [],
+      "parsed_rows": [],
+      "previous_record_date": 20260911,
+      "next_record_date": 20260914,
+      "market_open": false,
+      "trade_occurred": null,
+      "suspension_from_bar": "UNKNOWN (positive volume does not exclude intraday suspension)",
+      "pit_preopen": "UNPROVEN",
+      "local_read_at": "2026-10-09T13:13:26.846123+00:00"
+    },
+    {
+      "market": "sh",
+      "code": "510300",
+      "date": "2000-01-03",
+      "file_exists": true,
+      "file_sha256": "56db5fb84ac0965428748b6fa6228622d7e86021e37e2ecc4b0f79d1e88743ab",
+      "file_records": 3483,
+      "record_fields": [
+        "date",
+        "open",
+        "high",
+        "low",
+        "close",
+        "amount",
+        "volume",
+        "reserved_unqualified"
+      ],
+      "raw_rows": [],
+      "parsed_rows": [],
+      "previous_record_date": null,
+      "next_record_date": 20120528,
+      "market_open": false,
+      "trade_occurred": null,
+      "suspension_from_bar": "UNKNOWN (positive volume does not exclude intraday suspension)",
+      "pit_preopen": "UNPROVEN",
+      "local_read_at": "2026-10-09T13:13:26.985064+00:00"
+    },
+    {
+      "market": "sh",
+      "code": "510300",
+      "date": "2000-01-04",
+      "file_exists": true,
+      "file_sha256": "56db5fb84ac0965428748b6fa6228622d7e86021e37e2ecc4b0f79d1e88743ab",
+      "file_records": 3483,
+      "record_fields": [
+        "date",
+        "open",
+        "high",
+        "low",
+        "close",
+        "amount",
+        "volume",
+        "reserved_unqualified"
+      ],
+      "raw_rows": [],
+      "parsed_rows": [],
+      "previous_record_date": null,
+      "next_record_date": 20120528,
+      "market_open": true,
+      "trade_occurred": null,
+      "suspension_from_bar": "UNKNOWN (positive volume does not exclude intraday suspension)",
+      "pit_preopen": "UNPROVEN",
+      "local_read_at": "2026-10-09T13:13:27.116764+00:00"
+    },
+    {
+      "market": "sz",
+      "code": "999990",
+      "date": "2026-09-11",
+      "file_exists": false,
+      "file_sha256": null,
+      "file_records": 0,
+      "record_fields": [
+        "date",
+        "open",
+        "high",
+        "low",
+        "close",
+        "amount",
+        "volume",
+        "reserved_unqualified"
+      ],
+      "raw_rows": [],
+      "parsed_rows": [],
+      "previous_record_date": null,
+      "next_record_date": null,
+      "market_open": true,
+      "trade_occurred": null,
+      "suspension_from_bar": "UNKNOWN (positive volume does not exclude intraday suspension)",
+      "pit_preopen": "UNPROVEN",
+      "local_read_at": "2026-10-09T13:13:27.217937+00:00"
+    }
+  ]
+}

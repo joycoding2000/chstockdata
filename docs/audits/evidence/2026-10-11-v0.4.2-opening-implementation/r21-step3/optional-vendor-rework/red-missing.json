@@ -1,0 +1,32 @@
+{
+  "argv": [
+    "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\09\\01a11feb-cbea-7790-a83e-57b1dd555e13\\v042-unified\\sios-candidate\\Scripts\\python.exe",
+    "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\evidence\\r21-step3\\optional-vendor-rework\\run_offline.py",
+    "red",
+    "missing"
+  ],
+  "pytest_argv": [
+    "tests/qualification/test_live_r21_contract.py::test_actual_candidate_client_is_explicit_and_pin_remains_legacy",
+    "-q",
+    "-p",
+    "no:cacheprovider",
+    "--basetemp",
+    "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\evidence\\r21-step3\\optional-vendor-rework\\red-missing-temp",
+    "--junitxml",
+    "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\evidence\\r21-step3\\optional-vendor-rework\\red-missing.xml"
+  ],
+  "cwd": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os",
+  "vendor_environment": "missing",
+  "simulation": "sys.modules missing marker or minimal legacy module; no installed package modification",
+  "test_sha256": "63a38154aa19db69b2ffd7aaf519d4efd356473e9dd66f1192494d838e3cee9b",
+  "environment_overrides": {
+    "PYTHONPATH": "C:/Users/Administrator/.codex/visualizations/2026/10/10/01a125dd-33f2-78d3-abe7-45e0928975d0/v042-opening-implementation/systematic-investing-os/src;C:/Users/Administrator/.codex/visualizations/2026/10/10/01a125dd-33f2-78d3-abe7-45e0928975d0/v042-opening-implementation/chstockdata/src",
+    "PYTHONUTF8": "1",
+    "PYTHONDONTWRITEBYTECODE": "1",
+    "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+    "SIOS_CHSTOCKDATA_LIVE_QUALIFICATION": null
+  },
+  "started_at": "2026-10-12T09:27:54.177934+00:00",
+  "exit_code": 1,
+  "finished_at": "2026-10-12T09:27:54.528091+00:00"
+}

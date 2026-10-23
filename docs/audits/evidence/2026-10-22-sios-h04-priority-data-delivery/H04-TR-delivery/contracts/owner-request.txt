@@ -1,0 +1,286 @@
+# chstockdata — SIOS H04 优先免费数据交付
+
+## Owner 授权与任务目标
+
+```ini
+CURRENT_DECISION = INVESTIGATE
+TASK = SIOS_H04_PRIORITY_FREE_DATA_DELIVERY
+
+PRIORITY = P1_AFTER_H01
+H01_DATA_SUPPLY = CLOSED_PASS_BOUNDED
+P2 = QUEUED_AFTER_H04
+
+FREE_SOURCES_ONLY = YES
+PAID_DATA = NO
+
+BOUNDARY = EXISTING_H04_CONSUMER_REQUEST
+PRODUCTION_PROVIDER_CHANGE = NO
+NEW_DATABASE_OR_FRAMEWORK = NO
+SIOS_STRATEGY_CHANGE = NO
+STRATEGY_BACKTEST = NO
+GIT_COMMIT = NO
+GIT_PUSH = NO
+```
+
+Owner 已接受 H01 数据交付，本次开始 H04 独立供数任务。
+
+H04 机制研究实例仍为：
+
+`STOP_CURRENT_INSTANCE`
+
+本任务不自动重新开启该研究实例。
+
+目标是尽快判断并交付 H04 原定的两类必要数据：
+
+**A. ETF 真实历史总回报；B. 支持公平归因的历史指数和风格输入。**
+
+不重启 H01，不处理 P2，不建设通用港股数据库。
+
+## 一、恢复消费者原始合同
+
+读取：
+
+- chstockdata `AGENTS.md`
+- SIOS `AGENTS.md`
+- `R2-H01-H04-parallel-exploratory-admission-2026-10-19.md`
+- 其中 H04 原始目标及 §6 交接
+- `R2-parallel-economic-falsification-handoff-2026-10-20.md`
+- H01 最终交付包及修复后的离线资格程序
+- chstockdata 基金公司行动实现
+- 已有 ETF 原始日线缓存、基金公告和指数资料
+
+禁止因 H01 获得 PASS 而复制其“无权益事件”结论。
+
+H04 的两只基金必须按自己的原始披露独立判定。
+
+## 二、固定对象与窗口
+
+ETF：
+
+- `SH:513530`：红利风格 ETF
+- `SH:513990`：港股通对照 ETF
+
+历史指数与归因：
+
+- `930914` 对应指数；
+- 513990 实际跟踪的对照指数；
+- 两者各自真正适用的历史指数方法和成员来源。
+
+调查使用原 H04 已暴露的 2024—2025 共同历史区间。
+
+可以以 2024-01-01 至 2025-12-31 为来源覆盖调查边界，实际可比较交易日必须依据原研究合同和真实上市/交易记录确定。不得把这个取数边界擅自变成新的策略实验冻结窗口。
+
+不得更换 ETF、指数或事后挑选更有利的区间。
+
+## 三、第一交付：H04 历史总回报
+
+优先复用：
+
+```text
+.rh3a2-vipdoc/sh/lday/sh513530.day
+.rh3a2-vipdoc/sh/lday/sh513990.day
+```
+
+独立核验：
+
+1. 原始 OHLC、Volume、Amount 及单位；
+2. 共同交易日期和缺失记录；
+3. 现金分红与份额事件；
+4. 公告、登记、除息、支付及现金可用时间；
+5. 来源身份、版本和可知时点；
+6. 真实分红对总回报的影响；
+7. 有无未来分红或最新复权因子回填；
+8. 预热及观察期数据覆盖。
+
+优先检查现有 `get_fund_corporate_actions`、官方基金年报、分红公告、基金管理人及交易所免费公开资料。
+
+2026-10-19 已记录的东财请求错误必须保留为真实访问失败，不能解释为该基金没有分红。
+
+复用 H01 的离线数据构建和接收模式，但只复用通用的来源、时间和验证逻辑。
+
+如果存在真实现金分红，必须按照权益生效与财富守恒正确计算总回报；不得将 H01 的价格即总回报特例推广至 H04。
+
+交付：
+
+```text
+H04-TR-delivery/
+    manifest.json
+    raw_market_data.*
+    fund_actions.*
+    total_return_observations.*
+    coverage_and_unknowns.json
+    provenance.json
+    validation_report.json
+```
+
+每只基金单独验收，两个数据包全部合格才有资格声明 H04 总回报输入完成。
+
+## 四、第二交付：历史归因输入
+
+这是 H04 的独立阻断，不得省略。
+
+针对 930914 及 513990 对应指数，检查免费来源能否提供：
+
+- 历史指数方法及版本生效区间；
+- 历史母池；
+- 成分证券身份；
+- 成分及权重的真实历史截面；
+- 指数调整、样本进入退出与发布时间；
+- 一致行业分类与行业聚合权重；
+- 市场与行业集中度；
+- 已有可获得的价值、质量及利率风险解释输入；
+- 不能取得的部分及其具体经济归因影响。
+
+重点注意：
+
+**930914 与 513990 对照指数并非同一母池。**
+
+因此不能把两只基金收益差直接宣称是纯股息因子收益。
+
+不能使用最新指数成分、当前权重或未来季报持仓倒填过去。
+
+后发披露可以用于事后归因，但必须保留其实际观察期和披露时点；不可以伪装为历史决策时已知。
+
+允许从已有官方季报和指数方法取得经过版本标注的低成本历史截面。
+
+如果只能恢复若干具名历史截面，应交付部分归因输入并说明覆盖，不为了得到全历史而自动建设港股因子平台。
+
+不能因为缺少某一项风格解释就把对应风险贡献计为零。
+
+## 五、任务内连续修复
+
+授权在本任务已有离线范围内连续修复：
+
+- ETF 权益事件解析；
+- 财报/分红披露与有效日期连接；
+- 源单位和金额精度；
+- 历史总回报重建；
+- 历史指数成分与权重的离线格式解析；
+- 独立数据一致性测试；
+- 消费者研究数据包导出。
+
+不逐项要求 Owner 批准普通解析缺陷。
+
+但以下行为不获授权：
+
+- 新生产 Provider；
+- 通用港股个股财务平台；
+- 大规模因子挖掘；
+- 新增历史交易回测器；
+- 更换 H04 ETF 或原始机制；
+- 无限制抓取或购买历史数据；
+- 修改 SIOS 策略、运行收益实验。
+
+## 六、受控免费来源预算
+
+Owner 转发并批准本任务 Prompt 时，以下网络额度作为本工作包的最高预算：
+
+```ini
+MAX_HTTP_REQUESTS = 80
+MAX_TOTAL_BYTES = 60000000
+MAX_SINGLE_RESPONSE_BYTES = 15000000
+MAX_RETRIES_PER_REQUEST = 1
+
+FULL_HK_STOCK_MARKET_CRAWL = NO
+FULL_FINANCIAL_PDF_DATABASE = NO
+NEW_SECURITIES_OUTSIDE_SOURCE_MEMBERS = NO
+```
+
+开始前优先读取现存缓存，保存每项网络请求与证据身份。
+
+对于历史成分和权重，允许下载既定指数范围内的官方历史文件；不允许因此扩展为全港股采集。
+
+如果明确触及付费数据、不可访问来源或预算上限，停止受影响路径，保留其他独立子任务成果。
+
+不能通过缩短窗口、更换指数或只保留成功日期来提高完成率。
+
+## 七、真正的 Gate
+
+H04 存在两个独立验收条件：
+
+```ini
+H04_TOTAL_RETURN_DATA_GATE =
+H04_ATTRIBUTION_DATA_GATE =
+```
+
+允许：
+
+- `PASS_FOR_CONSUMER_REVIEW`
+- `PARTIAL_WITH_NAMED_GAPS`
+- `BLOCKED_WITH_EVIDENCE`
+
+需要严格区分：
+
+1. 原始数据存在；
+2. 数值、单位和版本经过核验；
+3. 真实历史时间语义合格；
+4. 原定窗口覆盖完整；
+5. SIOS 是否能够独立接收。
+
+只有两项均有足够证据，且 SIOS 完成独立消费者验收后，才能请求 Owner 考虑恢复 H04 原机制实例。
+
+如果只有总回报通过，输出：
+
+`H04_TR_READY_ATTRIBUTION_BLOCKED`
+
+不要声称 H04 数据 Gate 全部通过。
+
+如果归因输入需要新增大型平台才能取得，应结束该来源路径，并给出实际证据及最小替代决策；不要无限循环寻源。
+
+## 八、交付物及收口
+
+新增一份交付审计报告、真实数据文件、来源证据、离线验证和 manifest。
+
+交付报告建议：
+
+`docs/audits/2026-10-22-sios-h04-priority-data-delivery.md`
+
+证据目录：
+
+`docs/audits/evidence/2026-10-22-sios-h04-priority-data-delivery/`
+
+最终输出：
+
+```ini
+CURRENT_DECISION =
+
+H04_SECURITIES = 513530,513990
+H04_TOTAL_RETURN_DATA_GATE =
+H04_ATTRIBUTION_DATA_GATE =
+
+RAW_ETF_COVERAGE =
+FUND_DISTRIBUTION_EVIDENCE =
+TOTAL_RETURN_QUALIFIED_ROWS =
+PIT_QUALIFICATION =
+
+INDEX_METHOD_VERSIONS =
+HISTORICAL_CONSTITUENTS_COVERAGE =
+HISTORICAL_WEIGHTS_COVERAGE =
+INDUSTRY_ATTRIBUTION_COVERAGE =
+OTHER_RISK_ATTRIBUTION_EVIDENCE =
+
+ACTUAL_NETWORK_BUDGET_USED =
+INDEPENDENT_VALIDATION =
+DELIVERY_PATH =
+MANIFEST_SHA256 =
+
+REMAINING_NAMED_GAPS =
+SIOS_CONSUMER_ACCEPTANCE_READY =
+H04_RESEARCH_RESUMPTION_AUTHORIZED = NO
+
+H01_DATA_SUPPLY = CLOSED_PASS_BOUNDED
+P2 = QUEUED
+
+PRODUCTION_IMPLEMENTATION_AUTHORIZED = NO
+GIT_COMMIT = NO
+GIT_PUSH = NO
+OWNER_REVIEW_REQUIRED = YES
+```
+
+本次任务结束时必须回答：
+
+**H04 已获得哪些能够实际用于验证红利机制的数据？还缺什么？免费来源是否能在既定范围内填补这些缺口？**
+
+优先交付真实可核验的数据，不再以反复扩大来源调查取代交付。
+
+停止于 Owner Review，不运行 H04 研究收益、不自动启动 P2。

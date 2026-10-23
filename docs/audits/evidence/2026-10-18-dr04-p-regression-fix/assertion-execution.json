@@ -1,0 +1,24 @@
+{
+  "pytest_args": [
+    "-m",
+    "not network",
+    "tests/test_rh1_git_line_endings.py::test_crlf_preserves_added_line_discrimination[False]",
+    "tests/test_rh1_git_line_endings.py::test_crlf_preserves_added_line_discrimination[True]",
+    "-vv",
+    "--tb=short",
+    "--basetemp=D:\\Dev\\Projects\\chstockdata\\.pytest_cache\\dr04-p-git-fix-642ab812aa7f\\focused",
+    "--junitxml=D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-18-dr04-p-regression-fix\\focused.xml"
+  ],
+  "pytest_exit_code": 1,
+  "original_assertions_ast_unchanged": true,
+  "assertion_lines": [
+    53,
+    56,
+    59
+  ],
+  "executed_lines": {
+    "False": [],
+    "True": []
+  },
+  "all_three_assertions_reached_per_case": false
+}

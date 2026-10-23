@@ -1,0 +1,542 @@
+{
+  "network_calls": 0,
+  "financial": {
+    "lrb": {
+      "report_count": "104",
+      "returned_periods": 60,
+      "first_period": "20110930",
+      "last_period": "20260630",
+      "same_period_keys": [
+        "20171231"
+      ],
+      "metadata": {
+        "rType": "合并期末",
+        "rCurrency": "CNY",
+        "data_source": "定期报告",
+        "is_audit": "是",
+        "audit_opinion": "标准无保留审计意见",
+        "publish_date": "20190430",
+        "update_time": 1584086440,
+        "is_exist_yoy": true
+      },
+      "update_time_interpretation_if_unix_seconds": "2020-03-13T16:00:40+08:00",
+      "field": "营业收入",
+      "value": "17578618640.060000",
+      "visibility_of_actual_current_row": {
+        "2018-04-24": {
+          "visible": [],
+          "excluded": 1
+        },
+        "2018-04-27": {
+          "visible": [],
+          "excluded": 1
+        },
+        "2019-05-06": {
+          "visible": [
+            {
+              "end_date": "20171231",
+              "publish_date": "20190430",
+              "营业收入": "17578618640.060000"
+            }
+          ],
+          "excluded": 0
+        }
+      }
+    },
+    "llb": {
+      "report_count": "100",
+      "returned_periods": 60,
+      "first_period": "20110930",
+      "last_period": "20260630",
+      "same_period_keys": [
+        "20171231"
+      ],
+      "metadata": {
+        "rType": "合并期末",
+        "rCurrency": "CNY",
+        "data_source": "定期报告",
+        "is_audit": "是",
+        "audit_opinion": "标准无保留审计意见",
+        "publish_date": "20190430",
+        "update_time": 1584082728,
+        "is_exist_yoy": true
+      },
+      "update_time_interpretation_if_unix_seconds": "2020-03-13T14:58:48+08:00",
+      "field": "经营活动产生的现金流量净额",
+      "value": "-4840052606.460000",
+      "visibility_of_actual_current_row": {
+        "2018-04-24": {
+          "visible": [],
+          "excluded": 1
+        },
+        "2018-04-27": {
+          "visible": [],
+          "excluded": 1
+        },
+        "2019-05-06": {
+          "visible": [
+            {
+              "end_date": "20171231",
+              "publish_date": "20190430",
+              "经营活动产生的现金流量净额": "-4840052606.460000"
+            }
+          ],
+          "excluded": 0
+        }
+      }
+    }
+  },
+  "valuation": {
+    "eastmoney_600518_2025": {
+      "provider_count": 243,
+      "pages": 1,
+      "rows": 243,
+      "unique_dates": 243,
+      "first_date": "2025-01-02",
+      "last_date": "2025-12-31",
+      "security_ids": [
+        "600518"
+      ],
+      "pe_nonpositive": 0,
+      "pe_missing": 0,
+      "raw_fields": [
+        "BOARD_CODE",
+        "BOARD_NAME",
+        "CHANGE_RATE",
+        "CLOSE_PRICE",
+        "FREE_SHARES_A",
+        "NOTLIMITED_MARKETCAP_A",
+        "ORG_CODE",
+        "ORIG_BOARD_CODE",
+        "PB_MRQ",
+        "PCF_OCF_LAR",
+        "PCF_OCF_TTM",
+        "PEG_CAR",
+        "PE_LAR",
+        "PE_TTM",
+        "PS_TTM",
+        "SECUCODE",
+        "SECURITY_CODE",
+        "SECURITY_NAME_ABBR",
+        "TOTAL_MARKET_CAP",
+        "TOTAL_SHARES",
+        "TRADE_DATE",
+        "TRADE_MARKET"
+      ],
+      "decimal_endpoint_rows": [
+        {
+          "TRADE_DATE": "2025-01-02 00:00:00",
+          "SECURITY_CODE": "600518",
+          "CLOSE_PRICE": "2.3",
+          "PE_TTM": "124.77952158",
+          "PE_LAR": "3719.16815382",
+          "PB_MRQ": "4.44465914",
+          "TOTAL_MARKET_CAP": "31886893387"
+        },
+        {
+          "TRADE_DATE": "2025-12-31 00:00:00",
+          "SECURITY_CODE": "600518",
+          "CLOSE_PRICE": "1.91",
+          "PE_TTM": "1587.2898495",
+          "PE_LAR": "2557.43593929",
+          "PB_MRQ": "3.62320575",
+          "TOTAL_MARKET_CAP": "26413192677.9"
+        }
+      ],
+      "maximum_pe_ttm_decimal_places": 8
+    },
+    "eastmoney_600519_2025": {
+      "provider_count": 243,
+      "pages": 1,
+      "rows": 243,
+      "unique_dates": 243,
+      "first_date": "2025-01-02",
+      "last_date": "2025-12-31",
+      "security_ids": [
+        "600519"
+      ],
+      "pe_nonpositive": 0,
+      "pe_missing": 0,
+      "raw_fields": [
+        "BOARD_CODE",
+        "BOARD_NAME",
+        "CHANGE_RATE",
+        "CLOSE_PRICE",
+        "FREE_SHARES_A",
+        "NOTLIMITED_MARKETCAP_A",
+        "ORG_CODE",
+        "ORIG_BOARD_CODE",
+        "PB_MRQ",
+        "PCF_OCF_LAR",
+        "PCF_OCF_TTM",
+        "PEG_CAR",
+        "PE_LAR",
+        "PE_TTM",
+        "PS_TTM",
+        "SECUCODE",
+        "SECURITY_CODE",
+        "SECURITY_NAME_ABBR",
+        "TOTAL_MARKET_CAP",
+        "TOTAL_SHARES",
+        "TRADE_DATE",
+        "TRADE_MARKET"
+      ],
+      "decimal_endpoint_rows": [
+        {
+          "TRADE_DATE": "2025-01-02 00:00:00",
+          "SECURITY_CODE": "600519",
+          "CLOSE_PRICE": "1488",
+          "PE_TTM": "22.60643568",
+          "PE_LAR": "21.67763548",
+          "PB_MRQ": "8.01876593",
+          "TOTAL_MARKET_CAP": "1869222326400"
+        },
+        {
+          "TRADE_DATE": "2025-12-31 00:00:00",
+          "SECURITY_CODE": "600519",
+          "CLOSE_PRICE": "1377.18",
+          "PE_TTM": "19.15641932",
+          "PE_LAR": "20.94995249",
+          "PB_MRQ": "7.04961137",
+          "TOTAL_MARKET_CAP": "1724601494693.7"
+        }
+      ],
+      "maximum_pe_ttm_decimal_places": 8
+    },
+    "eastmoney_600518_2020": {
+      "provider_count": 243,
+      "pages": 1,
+      "rows": 243,
+      "unique_dates": 243,
+      "first_date": "2020-01-02",
+      "last_date": "2020-12-31",
+      "security_ids": [
+        "600518"
+      ],
+      "pe_nonpositive": 243,
+      "pe_missing": 0,
+      "raw_fields": [
+        "BOARD_CODE",
+        "BOARD_NAME",
+        "CHANGE_RATE",
+        "CLOSE_PRICE",
+        "FREE_SHARES_A",
+        "NOTLIMITED_MARKETCAP_A",
+        "ORG_CODE",
+        "ORIG_BOARD_CODE",
+        "PB_MRQ",
+        "PCF_OCF_LAR",
+        "PCF_OCF_TTM",
+        "PEG_CAR",
+        "PE_LAR",
+        "PE_TTM",
+        "PS_TTM",
+        "SECUCODE",
+        "SECURITY_CODE",
+        "SECURITY_NAME_ABBR",
+        "TOTAL_MARKET_CAP",
+        "TOTAL_SHARES",
+        "TRADE_DATE",
+        "TRADE_MARKET"
+      ],
+      "decimal_endpoint_rows": [
+        {
+          "TRADE_DATE": "2020-01-02 00:00:00",
+          "SECURITY_CODE": "600518",
+          "CLOSE_PRICE": "3.76",
+          "PE_TTM": "-66.43773195",
+          "PE_LAR": "-4.01266335",
+          "PB_MRQ": "1.06577239",
+          "TOTAL_MARKET_CAP": "18701719898"
+        },
+        {
+          "TRADE_DATE": "2020-12-31 00:00:00",
+          "SECURITY_CODE": "600518",
+          "CLOSE_PRICE": "2.68",
+          "PE_TTM": "-1.88665634",
+          "PE_LAR": "-0.48060198",
+          "PB_MRQ": "-1.31284156",
+          "TOTAL_MARKET_CAP": "13329949289"
+        }
+      ],
+      "maximum_pe_ttm_decimal_places": 8
+    }
+  },
+  "public_api_replay": {
+    "lrb": {
+      "input": "captured 60-period response, not the public API's default 20-period fetch",
+      "output_type": "str",
+      "contains_target_period": true,
+      "contains_target_value": true
+    },
+    "llb": {
+      "input": "captured 60-period response, not the public API's default 20-period fetch",
+      "output_type": "str",
+      "contains_target_period": true,
+      "contains_target_value": true
+    },
+    "eastmoney_600518_2025": {
+      "status": "success",
+      "keys": [
+        "as_of_date",
+        "board_name",
+        "boundary",
+        "close_price",
+        "float_market_cap_yi",
+        "history",
+        "latest_date",
+        "market_cap_yi",
+        "metrics",
+        "observed_at",
+        "percentiles",
+        "source",
+        "status"
+      ],
+      "has_daily_rows": false,
+      "history": {
+        "fetched_rows": 243,
+        "first_date": "2025-01-02",
+        "last_date": "2025-12-31",
+        "min_samples": 60,
+        "provider_count": 243,
+        "sample_count": 243,
+        "truncated": false
+      },
+      "latest_pe_ttm": 1587.2898495,
+      "latest_pe_reliability": "limited_samples"
+    },
+    "eastmoney_600519_2025": {
+      "status": "success",
+      "keys": [
+        "as_of_date",
+        "board_name",
+        "boundary",
+        "close_price",
+        "float_market_cap_yi",
+        "history",
+        "latest_date",
+        "market_cap_yi",
+        "metrics",
+        "observed_at",
+        "percentiles",
+        "source",
+        "status"
+      ],
+      "has_daily_rows": false,
+      "history": {
+        "fetched_rows": 243,
+        "first_date": "2025-01-02",
+        "last_date": "2025-12-31",
+        "min_samples": 60,
+        "provider_count": 243,
+        "sample_count": 243,
+        "truncated": false
+      },
+      "latest_pe_ttm": 19.15641932,
+      "latest_pe_reliability": "limited_samples"
+    },
+    "eastmoney_600518_2020": {
+      "status": "success",
+      "keys": [
+        "as_of_date",
+        "board_name",
+        "boundary",
+        "close_price",
+        "float_market_cap_yi",
+        "history",
+        "latest_date",
+        "market_cap_yi",
+        "metrics",
+        "observed_at",
+        "percentiles",
+        "source",
+        "status"
+      ],
+      "has_daily_rows": false,
+      "history": {
+        "fetched_rows": 243,
+        "first_date": "2020-01-02",
+        "last_date": "2020-12-31",
+        "min_samples": 60,
+        "provider_count": 243,
+        "sample_count": 243,
+        "truncated": false
+      },
+      "latest_pe_ttm": -1.88665634,
+      "latest_pe_reliability": "unavailable"
+    }
+  },
+  "disclosure": {
+    "original_date_present": true,
+    "correction_date_present": true,
+    "original_2017_profit_present": true,
+    "original_2017_ocf_present": true,
+    "correction_tables": [
+      [
+        [
+          "受影响的期间报表项目名称",
+          "2017 年 12 月 31 日/2017  年度"
+        ],
+        [
+          "更正前金额",
+          "差错更正累计影响金额",
+          "更正后金额"
+        ],
+        [
+          "货币资金",
+          "34,151,434,208.68",
+          "-29,944,309,821.45",
+          "4,207,124,387.23"
+        ],
+        [
+          "应收账款",
+          "4,351,011,323.40",
+          "641,073,222.34",
+          "4,992,084,545.74"
+        ],
+        [
+          "应收利息",
+          "47,190,356.13",
+          "-47,190,356.13",
+          "-"
+        ],
+        [
+          "其他应收款",
+          "180,323,027.94",
+          "5,713,820,971.90",
+          "5,894,143,999.84"
+        ],
+        [
+          "存货",
+          "15,700,188,439.34",
+          "19,546,349,940.99",
+          "35,246,538,380.33"
+        ],
+        [
+          "在建工程",
+          "1,084,519,812.47",
+          "631,600,108.35",
+          "1,716,119,920.82"
+        ],
+        [
+          "递延所得税资产",
+          "261,001,505.68",
+          "29,586,632.91",
+          "290,588,138.59"
+        ],
+        [
+          "其他应付款",
+          "1,603,455,877.02",
+          "190,545,991.67",
+          "1,794,001,868.69"
+        ],
+        [
+          "盈余公积",
+          "1,882,478,621.90",
+          "-361,961,529.28",
+          "1,520,517,092.62"
+        ],
+        [
+          "未分配利润",
+          "10,985,258,959.65",
+          "-3,257,653,763.48",
+          "7,727,605,196.17"
+        ],
+        [
+          "营业收入",
+          "26,476,970,977.57",
+          "-8,898,352,337.51",
+          "17,578,618,640.06"
+        ],
+        [
+          "营业成本",
+          "18,450,146,871.00",
+          "-7,662,129,445.53",
+          "10,788,017,425.47"
+        ],
+        [
+          "销售费用",
+          "740,581,081.08",
+          "497,164,407.18",
+          "1,237,745,488.26"
+        ]
+      ],
+      [
+        [
+          "受影响的期间报表项目名称",
+          "2017 年 12 月 31 日/2017  年度"
+        ],
+        [
+          "更正前金额",
+          "差错更正累计影响金额",
+          "更正后金额"
+        ],
+        [
+          "财务费用",
+          "969,264,876.00",
+          "228,239,962.83",
+          "1,197,504,838.83"
+        ],
+        [
+          "资产减值损失",
+          "92,280,215.15",
+          "-12,396,935.10",
+          "79,883,280.05"
+        ],
+        [
+          "所得税费用",
+          "732,053,848.25",
+          "1,859,540.27",
+          "733,913,388.52"
+        ],
+        [
+          "销售商品、提供劳务收到的现金",
+          "28,766,131,827.76",
+          "-10,299,860,158.51",
+          "18,466,271,669.25"
+        ],
+        [
+          "收到其他与经营活动有关的现金",
+          "943,030,295.93",
+          "137,667,804.27",
+          "1,080,698,100.20"
+        ],
+        [
+          "购买商品、接受劳务支付的现金",
+          "24,324,394,786.49",
+          "-7,301,340,657.76",
+          "17,023,054,128.73"
+        ],
+        [
+          "支付其他与经营活动有关的现金",
+          "924,659,143.70",
+          "3,821,995,147.82",
+          "4,746,654,291.52"
+        ],
+        [
+          "购建固定资产、无形资产和其他长期资产支付的现金",
+          "1,795,351,236.12",
+          "352,392,491.73",
+          "2,147,743,727.85"
+        ],
+        [
+          "收到其他与筹资活动有关的现金",
+          "361,587,400.00",
+          "-360,457,000.00",
+          "1,130,400.00"
+        ]
+      ]
+    ]
+  },
+  "valuation_denominator_check": {
+    "trade_date": "2020-01-02 00:00:00",
+    "pe_static": -4.01266335,
+    "market_cap_yuan": 18701719898,
+    "implied_profit_yuan": "-4660675034.699833465969678219",
+    "later_2019_profit_yuan": "-4660675038.430000",
+    "later_row_publish_date": "20210428",
+    "absolute_difference_yuan": "3.730166534030321781",
+    "relative_difference": "8.003489844867771958296067338E-10",
+    "interpretation": "Numerical match is an inference of retrospective denominator use; source supplies no vintage or formula history."
+  }
+}

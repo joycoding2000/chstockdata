@@ -1,0 +1,187 @@
+{
+  "network_requests": 0,
+  "uses_existing_production_implementation": true,
+  "does_not_modify_provider": true,
+  "evidence_role": "Captured vendor replay, cross-check only; official reports/notices determine completeness and time qualification",
+  "results": {
+    "513530": {
+      "status": "success",
+      "coverage": "complete",
+      "items": [
+        {
+          "source_identifier": "AN202512091797060056",
+          "source_identifier_kind": "provider_identifier",
+          "announcement_date": "2025-12-10",
+          "ex_dividend_date": "2025-12-15",
+          "equity_record_date": "2025-12-12",
+          "payment_date": "2025-12-22",
+          "cash_dividend": {
+            "value": 0.1,
+            "unit": "per_10_shares",
+            "source_field": "每10份分红",
+            "tax_basis": "unknown"
+          },
+          "stock_dividend": null,
+          "capital_reserve_transfer": null,
+          "rights_issue": null
+        },
+        {
+          "source_identifier": "AN202511111779404334",
+          "source_identifier_kind": "provider_identifier",
+          "announcement_date": "2025-11-12",
+          "ex_dividend_date": "2025-11-17",
+          "equity_record_date": "2025-11-14",
+          "payment_date": "2025-11-24",
+          "cash_dividend": {
+            "value": 0.1,
+            "unit": "per_10_shares",
+            "source_field": "每10份分红",
+            "tax_basis": "unknown"
+          },
+          "stock_dividend": null,
+          "capital_reserve_transfer": null,
+          "rights_issue": null
+        },
+        {
+          "source_identifier": "AN202510141762064282",
+          "source_identifier_kind": "provider_identifier",
+          "announcement_date": "2025-10-15",
+          "ex_dividend_date": "2025-10-20",
+          "equity_record_date": "2025-10-17",
+          "payment_date": "2025-10-27",
+          "cash_dividend": {
+            "value": 0.1,
+            "unit": "per_10_shares",
+            "source_field": "每10份分红",
+            "tax_basis": "unknown"
+          },
+          "stock_dividend": null,
+          "capital_reserve_transfer": null,
+          "rights_issue": null
+        },
+        {
+          "source_identifier": "AN202509091740789452",
+          "source_identifier_kind": "provider_identifier",
+          "announcement_date": "2025-09-10",
+          "ex_dividend_date": "2025-09-15",
+          "equity_record_date": "2025-09-12",
+          "payment_date": "2025-09-22",
+          "cash_dividend": {
+            "value": 0.1,
+            "unit": "per_10_shares",
+            "source_field": "每10份分红",
+            "tax_basis": "unknown"
+          },
+          "stock_dividend": null,
+          "capital_reserve_transfer": null,
+          "rights_issue": null
+        },
+        {
+          "source_identifier": "AN202508131726352796",
+          "source_identifier_kind": "provider_identifier",
+          "announcement_date": "2025-08-13",
+          "ex_dividend_date": "2025-08-18",
+          "equity_record_date": "2025-08-15",
+          "payment_date": "2025-08-25",
+          "cash_dividend": {
+            "value": 0.1,
+            "unit": "per_10_shares",
+            "source_field": "每10份分红",
+            "tax_basis": "unknown"
+          },
+          "stock_dividend": null,
+          "capital_reserve_transfer": null,
+          "rights_issue": null
+        },
+        {
+          "source_identifier": "AN202507081705257127",
+          "source_identifier_kind": "provider_identifier",
+          "announcement_date": "2025-07-09",
+          "ex_dividend_date": "2025-07-14",
+          "equity_record_date": "2025-07-11",
+          "payment_date": "2025-07-21",
+          "cash_dividend": {
+            "value": 0.2,
+            "unit": "per_10_shares",
+            "source_field": "每10份分红",
+            "tax_basis": "unknown"
+          },
+          "stock_dividend": null,
+          "capital_reserve_transfer": null,
+          "rights_issue": null
+        },
+        {
+          "source_identifier": "AN202506101688338600",
+          "source_identifier_kind": "provider_identifier",
+          "announcement_date": "2025-06-11",
+          "ex_dividend_date": "2025-06-16",
+          "equity_record_date": "2025-06-13",
+          "payment_date": "2025-06-19",
+          "cash_dividend": {
+            "value": 0.2,
+            "unit": "per_10_shares",
+            "source_field": "每10份分红",
+            "tax_basis": "unknown"
+          },
+          "stock_dividend": null,
+          "capital_reserve_transfer": null,
+          "rights_issue": null
+        }
+      ],
+      "source": "eastmoney_fund_f10:FHSP+FHGG",
+      "fetched_at": "2026-10-23T01:55:09.343798+00:00",
+      "failure_kind": null,
+      "error_summary": null,
+      "metadata": {
+        "query": {
+          "start": "2023-03-09",
+          "end": "2025-12-31",
+          "as_of_date": "2025-12-31"
+        },
+        "pagination": {
+          "page": 1,
+          "page_size": 100,
+          "total": 7,
+          "truncated": false
+        },
+        "duplicate_count": 0,
+        "skipped_row_count": 0,
+        "excluded_after_cutoff_count": 10,
+        "missing_fields": [],
+        "limitations": [
+          "分红表来自基金 F10；公告日来自 FHGG，若两者无法匹配则覆盖度为 partial。",
+          "基金现金分红的税务扣缴口径由来源未提供，tax_basis 保留为 unknown。"
+        ]
+      }
+    },
+    "513990": {
+      "status": "normal_empty",
+      "coverage": "complete",
+      "items": [],
+      "source": "eastmoney_fund_f10:FHSP+FHGG",
+      "fetched_at": "2026-10-23T01:55:09.350413+00:00",
+      "failure_kind": null,
+      "error_summary": null,
+      "metadata": {
+        "query": {
+          "start": "2023-03-09",
+          "end": "2025-12-31",
+          "as_of_date": "2025-12-31"
+        },
+        "pagination": {
+          "page": 1,
+          "page_size": 100,
+          "total": 0,
+          "truncated": false
+        },
+        "duplicate_count": 0,
+        "skipped_row_count": 0,
+        "excluded_after_cutoff_count": 0,
+        "missing_fields": [],
+        "limitations": [
+          "无记录表示该基金 F10 分红表及指定窗口内无匹配记录。"
+        ]
+      }
+    }
+  }
+}

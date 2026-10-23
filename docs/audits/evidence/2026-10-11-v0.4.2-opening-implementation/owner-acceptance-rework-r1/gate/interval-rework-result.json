@@ -1,0 +1,30 @@
+{
+  "status": "PASS",
+  "owner_regression_cases": [
+    "tests.test_historical_opening_evidence::test_owner_authenticated_resume_date_bounds_only_corresponding_halt[2015-12-18-OPEN_ACTIVITY_CONFIRMED-False]",
+    "tests.test_historical_opening_evidence::test_owner_authenticated_resume_date_bounds_only_corresponding_halt[2016-01-04-UNKNOWN-True]",
+    "tests.test_historical_opening_evidence::test_owner_authenticated_resume_date_bounds_only_corresponding_halt[2016-07-04-UNKNOWN-False]",
+    "tests.test_historical_opening_evidence::test_owner_authenticated_resume_date_bounds_only_corresponding_halt[2016-07-05-OPEN_ACTIVITY_CONFIRMED-False]",
+    "tests.test_historical_opening_evidence::test_owner_authenticated_resume_date_bounds_only_corresponding_halt[2022-12-30-OPEN_ACTIVITY_CONFIRMED-False]",
+    "tests.test_historical_opening_evidence::test_owner_resume_day_unknown_without_positive_activity[empty]",
+    "tests.test_historical_opening_evidence::test_owner_resume_day_unknown_without_positive_activity[zero]",
+    "tests.test_historical_opening_evidence::test_owner_after_resume_still_requires_positive_tdx[empty-2016-07-05]",
+    "tests.test_historical_opening_evidence::test_owner_after_resume_still_requires_positive_tdx[empty-2022-12-30]",
+    "tests.test_historical_opening_evidence::test_owner_after_resume_still_requires_positive_tdx[zero-2016-07-05]",
+    "tests.test_historical_opening_evidence::test_owner_after_resume_still_requires_positive_tdx[zero-2022-12-30]",
+    "tests.test_historical_opening_evidence::test_owner_after_resume_still_requires_successful_complete_official[bad0]",
+    "tests.test_historical_opening_evidence::test_owner_after_resume_still_requires_successful_complete_official[<html>fault</html>]",
+    "tests.test_historical_opening_evidence::test_owner_after_resume_still_requires_successful_complete_official[bad2]",
+    "tests.test_historical_opening_evidence::test_owner_after_resume_still_requires_successful_complete_official[bad3]",
+    "tests.test_historical_opening_evidence::test_owner_new_ongoing_halt_cannot_be_erased_by_old_resume_date[caller]",
+    "tests.test_historical_opening_evidence::test_owner_new_ongoing_halt_cannot_be_erased_by_old_resume_date[current]",
+    "tests.test_historical_opening_evidence::test_owner_caller_resume_provenance_cannot_self_authenticate[earlier_date]",
+    "tests.test_historical_opening_evidence::test_owner_caller_resume_provenance_cannot_self_authenticate[source_sha]",
+    "tests.test_historical_opening_evidence::test_owner_caller_resume_provenance_cannot_self_authenticate[source_url]",
+    "tests.test_historical_opening_evidence::test_owner_caller_resume_provenance_cannot_self_authenticate[marker]",
+    "tests.test_historical_opening_evidence::test_owner_caller_resume_provenance_cannot_self_authenticate[date_only]"
+  ],
+  "same_new_installed_wheel": "1dd58350678fbb07d3b545165708d814f93fb94f965dc2da33bad2fab7ff779c",
+  "whole_package_junit": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\evidence\\owner-acceptance-rework-r1\\gate\\package-tests.xml",
+  "local_red_green_evidence": "../owner-red.xml and ../owner-green.xml; retained original13FAIL9PASS then22PASS, not rerun"
+}

@@ -1,0 +1,26 @@
+..F..                                                                    [100%]
+================================== FAILURES ===================================
+___ TestLiveEtfQualification.test_live_tradability_adjustment_and_freshness ___
+
+self = <test_chstockdata_etf_gate.TestLiveEtfQualification object at 0x00000266665DD190>
+
+    @live_qualification
+    def test_live_tradability_adjustment_and_freshness(self) -> None:
+        from live_qualification import live_provider, matrix_requests
+    
+        provider = live_provider()
+        for request in matrix_requests(MATRIX):
+            tradability = provider.fetch_tradability(request.tradability_request)
+>           assert tradability.is_success
+E           AssertionError: assert False
+E            +  where False = ProviderFailure(error_code=<ProviderErrorCode.SCHEMA_DRIFT: 'SCHEMA_DRIFT'>, message='vendor suspension snapshot faile...=ChStockDataSchemaDriftError('vendor suspension snapshot failed: failed_structure: historical_suspension_unavailable')).is_success
+
+tests\qualification\test_chstockdata_etf_gate.py:248: AssertionError
+=================================== PASSES ====================================
+=========================== short test summary info ===========================
+PASSED tests/qualification/test_chstockdata_etf_gate.py::TestLiveEtfQualification::test_live_routing_and_ohlcv_pre_close
+PASSED tests/qualification/test_chstockdata_etf_gate.py::TestLiveEtfQualification::test_live_units_calendar_and_history_coverage
+PASSED tests/qualification/test_chstockdata_etf_gate.py::TestLiveEtfQualification::test_live_provider_version_evidence
+PASSED tests/qualification/test_chstockdata_etf_gate.py::TestLiveEtfQualification::test_live_client_requires_the_pinned_release
+FAILED tests/qualification/test_chstockdata_etf_gate.py::TestLiveEtfQualification::test_live_tradability_adjustment_and_freshness
+1 failed, 4 passed, 12 deselected in 107.67s (0:01:47)

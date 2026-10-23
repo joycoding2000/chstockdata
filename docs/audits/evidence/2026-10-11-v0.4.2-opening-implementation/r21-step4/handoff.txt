@@ -1,0 +1,13 @@
+Step4 unified candidate: PASS_CANDIDATE; Owner Acceptance PENDING.
+CH base commit 42bd44ef4d695aa3e88cfab4ebc3417660d0437a; isolated snapshot has no .git/no new commit.
+Source-only SHA256 5a5c9097abe4703d9bd709b55d824b7d41a954b89a1f053e6fd6385e7a18516c (not Git commit); immutable prebuild envelope 3c3c28fd696c9e4f66149cd3cf386b645ba603c03736cb9fab31ab863474779c.
+Wheel SHA256 3fd4f0b7334e310851495b8b13d4c7c55d21cde719acf9e00ff880ccb822f42e; sdist SHA256 306c07dd3a9534720cd2f93c6edb5b1a7a0e4a4a1f1d40ca3a71ba42d5bbf88b.
+Package 774 PASS,1 optional MCP skip,15 default network deselected; SIOS offline 973 PASS,5 default optin skip; provider67; Golden/ETF/parity165+5skip.
+Actual final-live 5PASS0skip,54 capabilities PASS,111 complete raw calls; actual installed final wheel import identity and six v3 snapshot/new-policy/Shanghai-clock/full-payload run identities saved.
+TA123PASS/7 identical baseline failures (failure identities/messages exact); legacy5; TA pipcheck exit1 frozen metadata limitation retained. Four ETF Decimal exact price cases PASS.
+Necessary changes this step: MANIFEST.in includes 9 fixture members; safe lint in reader/test, public exception/status behavior preserved. 128 local source tests + root independent128; full final wheel matrix rerun.
+No new source or runtime bytes changed after final wheel build; source-only identity removes generated cache/archived artifacts from retained build envelope, with two cache-drift entries explicit.
+All commands/exits/logs/JUnit: commands.json and referenced files. Runtime live: final-live/. A1-A11: A1-A11-evidence-map.json. Source changes: source-vs-baseline.patch, step4-lint-only.patch.
+Frozen SIOS var 6007 files before/after unchanged; old b76b065a... wheel unchanged. Original repositories untouched by this agent.
+Mandatory blockers none. Scope expansion NO. Keep bounded coverage/old historical PIT limitation and TA dependency metadata mismatch visible.
+Next: root independent fresh review and Owner Acceptance only. Release/publish/tag/upload/push/merge/nextPhase NO.

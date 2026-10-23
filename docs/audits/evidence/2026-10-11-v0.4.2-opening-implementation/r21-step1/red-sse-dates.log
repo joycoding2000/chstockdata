@@ -1,0 +1,42 @@
+......................................FF                                 [100%]
+================================== FAILURES ===================================
+_ test_sse_single_session_etf_rule_rejects_stale_or_cross_day_interval[20260910] _
+
+end_date = '20260910'
+
+    @pytest.mark.parametrize('end_date',['20260910','20260911'])
+    def test_sse_single_session_etf_rule_rejects_stale_or_cross_day_interval(end_date):
+        # Synthetic identity/date fault using the actual SSE LSTP/915 field contract.
+        row={'secCode':'510300','startStopDate':'20260910','endStopDate':end_date,
+             'dateSource':'2','startStopType':'LSTP','stopTime':'915'}
+        payload={'result':[row],'pageHelp':{'pageNo':1,'pageCount':1,'pageSize':25,'total':1,'data':[row]}}
+        r=fetch(official=[payload])
+>       assert r.data['opening_status']=='UNKNOWN'
+E       AssertionError: assert 'OPEN_ACTIVITY_CONFIRMED' == 'UNKNOWN'
+E         
+E         - UNKNOWN
+E         + OPEN_ACTIVITY_CONFIRMED
+
+tests\test_historical_opening_evidence.py:358: AssertionError
+_ test_sse_single_session_etf_rule_rejects_stale_or_cross_day_interval[20260911] _
+
+end_date = '20260911'
+
+    @pytest.mark.parametrize('end_date',['20260910','20260911'])
+    def test_sse_single_session_etf_rule_rejects_stale_or_cross_day_interval(end_date):
+        # Synthetic identity/date fault using the actual SSE LSTP/915 field contract.
+        row={'secCode':'510300','startStopDate':'20260910','endStopDate':end_date,
+             'dateSource':'2','startStopType':'LSTP','stopTime':'915'}
+        payload={'result':[row],'pageHelp':{'pageNo':1,'pageCount':1,'pageSize':25,'total':1,'data':[row]}}
+        r=fetch(official=[payload])
+>       assert r.data['opening_status']=='UNKNOWN'
+E       AssertionError: assert 'OPEN_ACTIVITY_CONFIRMED' == 'UNKNOWN'
+E         
+E         - UNKNOWN
+E         + OPEN_ACTIVITY_CONFIRMED
+
+tests\test_historical_opening_evidence.py:358: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/test_historical_opening_evidence.py::test_sse_single_session_etf_rule_rejects_stale_or_cross_day_interval[20260910]
+FAILED tests/test_historical_opening_evidence.py::test_sse_single_session_etf_rule_rejects_stale_or_cross_day_interval[20260911]
+2 failed, 38 passed in 2.48s

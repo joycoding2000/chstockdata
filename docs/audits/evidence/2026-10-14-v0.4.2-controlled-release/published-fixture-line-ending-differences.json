@@ -1,0 +1,34 @@
+[
+  {
+    "path": "tests/fixtures/block_trades/eastmoney-600519-2025-12-12-sanitized.json",
+    "owner_sha256": "cae3496a6a4911dfebb6e265cc2d3abd6cf234a139b372145e496507f75831f4",
+    "artifact_sha256": "dc61dd9207c9b976957ae803e6ad491017d5e3f2ee14f524884a02c0a63752da",
+    "matches_git_blob": true,
+    "only_crlf_difference": true,
+    "same_json_value": true
+  },
+  {
+    "path": "tests/fixtures/market_breadth/real_2026-09-04_close.json",
+    "owner_sha256": "f8d111e681b6c39baea208eaaf5c98ad0a8561c78ec70db917b1b38463d30e80",
+    "artifact_sha256": "b71496e0255f35ef6293171b3c73f3caad6ec100d5d8b30a47cacb5d0cd7badd",
+    "matches_git_blob": true,
+    "only_crlf_difference": true,
+    "same_json_value": true
+  },
+  {
+    "path": "tests/fixtures/market_breadth/real_2026-09-07_intraday.json",
+    "owner_sha256": "799ae4255daa93051b2e0726adacf145055564848c0009ce21029b3409d7fe83",
+    "artifact_sha256": "182c92cf4c814572240f24c607618023a978e1b3e6c1e76544c195be2e425b0f",
+    "matches_git_blob": true,
+    "only_crlf_difference": true,
+    "same_json_value": true
+  },
+  {
+    "path": "tests/fixtures/vipdoc/price_scale_20221230.json",
+    "owner_sha256": "33c9af0dc659fa3a1ed253440a37f3d000f39861a1db972f324a2137093100da",
+    "artifact_sha256": "4701c3d46cb72942259c798b4f33922444f3a571ba2d810e1c4928d5cefd3667",
+    "matches_git_blob": true,
+    "only_crlf_difference": true,
+    "same_json_value": true
+  }
+]

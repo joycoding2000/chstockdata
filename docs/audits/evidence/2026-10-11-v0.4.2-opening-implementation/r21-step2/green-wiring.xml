@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="2" skipped="0" tests="17" time="1.624" timestamp="2026-10-12T09:56:10.771661+08:00" hostname="CHINAMI-4QO1VLN"><testcase classname="tests.component.test_historical_opening_execution" name="test_full_payload_adapter_hash_and_unknown_pit" time="0.959" /><testcase classname="tests.component.test_historical_opening_execution" name="test_execution_fact_only_changes_t_plus_one" time="0.007"><failure message="AssertionError: assert [DecisionCont...e_actions=())] == [DecisionCont...e_actions=())]&#10;  &#10;  At index 1 diff: DecisionContext(session_date=datetime.date(2026, 9, 11), decision_for_trade_date=datetime.date(2026, 9, 14), information_cutoff=datetime.datetime(2026, 9, 11, 15, 30, tzinfo=datetime.timezone(datetime.timedelta(seconds=28800), 'Asia/Shanghai')), cash=Money(amount=Decimal('89985.000'), currency='CNY'), valuation_equity=Money(amount=Decimal('99985.000'), currency='CNY'), positions=(Position(instrument_id=InstrumentId(exchange=&lt;Exchange.XSHG: 'XSHG'&gt;, symbol='510300'), lots=(AcquisitionLot(quantity=2500, acquired_session=datetime.date(2026, 9, 11), sellabl...&#10;  &#10;  ...Full output truncated (2 lines hidden), use '-vv' to show">make_engine = &lt;function make_engine.&lt;locals&gt;.build at 0x000001AF697C0E00&gt;
+bar_factory = &lt;function bar_factory.&lt;locals&gt;.build at 0x000001AF697C0F40&gt;
+target_contribution = &lt;function target_contribution.&lt;locals&gt;.build at 0x000001AF697C1080&gt;
+predetermined_targets = &lt;class 'conftest.PredeterminedTargetSource'&gt;
+
+    def test_execution_fact_only_changes_t_plus_one(make_engine,bar_factory,target_contribution,predetermined_targets):
+        inputs=(make_engine,bar_factory,target_contribution,predetermined_targets)
+        original=payload()
+        changed=copy.deepcopy(original);changed["opening_status"]="UNKNOWN";changed["reason"]="unknown_activity"
+        a,sa=run((mapped(original),),(gap(),),*inputs)
+        b,sb=run((mapped(seal(changed)),),(gap(),),*inputs)
+        assert a.session(S0).plans==b.session(S0).plans
+        assert a.session(S0).target==b.session(S0).target
+&gt;       assert sa.contexts==sb.contexts
+E       AssertionError: assert [DecisionCont...e_actions=())] == [DecisionCont...e_actions=())]
+E         
+E         At index 1 diff: DecisionContext(session_date=datetime.date(2026, 9, 11), decision_for_trade_date=datetime.date(2026, 9, 14), information_cutoff=datetime.datetime(2026, 9, 11, 15, 30, tzinfo=datetime.timezone(datetime.timedelta(seconds=28800), 'Asia/Shanghai')), cash=Money(amount=Decimal('89985.000'), currency='CNY'), valuation_equity=Money(amount=Decimal('99985.000'), currency='CNY'), positions=(Position(instrument_id=InstrumentId(exchange=&lt;Exchange.XSHG: 'XSHG'&gt;, symbol='510300'), lots=(AcquisitionLot(quantity=2500, acquired_session=datetime.date(2026, 9, 11), sellabl...
+E         
+E         ...Full output truncated (2 lines hidden), use '-vv' to show
+
+tests\component\test_historical_opening_execution.py:78: AssertionError</failure></testcase><testcase classname="tests.component.test_historical_opening_execution" name="test_positive_does_not_override_other_unknown_or_blocks[UNKNOWN-generic_missing]" time="0.004" /><testcase classname="tests.component.test_historical_opening_execution" name="test_positive_does_not_override_other_unknown_or_blocks[NOT_LISTED-not_listed]" time="0.004" /><testcase classname="tests.component.test_historical_opening_execution" name="test_positive_does_not_override_other_unknown_or_blocks[DELISTED-delisted]" time="0.004" /><testcase classname="tests.component.test_historical_opening_execution" name="test_positive_does_not_override_other_unknown_or_blocks[BUY_BLOCKED_UPPER_LIMIT-side_block]" time="0.004" /><testcase classname="tests.component.test_historical_opening_execution" name="test_positive_does_not_override_other_unknown_or_blocks[SUSPENDED-suspended]" time="0.004" /><testcase classname="tests.component.test_historical_opening_execution" name="test_positive_does_not_override_absence" time="0.004" /><testcase classname="tests.component.test_historical_opening_execution" name="test_new_clock_rejects_utc_default" time="0.003" /><testcase classname="tests.component.test_historical_opening_execution" name="test_bad_target_rejected[2026-09-11T09:30:00]" time="0.002" /><testcase classname="tests.component.test_historical_opening_execution" name="test_bad_target_rejected[2026-09-11T09:30:00+00:00]" time="0.002" /><testcase classname="tests.component.test_historical_opening_execution" name="test_utc_equivalent_target_accepted" time="0.002" /><testcase classname="tests.component.test_historical_opening_execution" name="test_snapshot_full_partition_roundtrip_and_v2_compat" time="0.033" /><testcase classname="tests.component.test_historical_opening_execution" name="test_old_availability_does_not_invent_exchange_rule" time="0.000" /><testcase classname="tests.research.test_historical_opening_wiring" name="test_basic_explicit_clock_engine_path_and_manifest_identity" time="0.056"><failure message="AttributeError: 'BasicRunOutcome' object has no attribute 'manifest'">monkeypatch = &lt;_pytest.monkeypatch.MonkeyPatch object at 0x000001AF684B1D30&gt;
+
+    def test_basic_explicit_clock_engine_path_and_manifest_identity(monkeypatch):
+        dataset=replace(_dataset(_basic_sessions()),historical_opening_evidence=(fact(),))
+        receipt=replace(_receipt(dataset),dataset_digest=dataset.content_digest(),execution_policy=OPENING_POLICY,execution_clock=OPENING_CLOCK_ID,execution_evidence_digest=opening_evidence_digest(dataset.historical_opening_evidence))
+        monkeypatch.setattr(runner,"resolve_code_commit",lambda:"84fd54fae0740bc06b1d250afa4578be29556956")
+        legacy=runner.build_basic_wiring(dataset,_basic_intent(),receipt,master=default_m0_master())
+        new=runner.build_basic_wiring(dataset,_basic_intent(),receipt,master=default_m0_master(),execution_eligibility_mode=MODE)
+        assert legacy.clock.execution_at(date(2026,9,11)).hour==9
+        assert new.clock.execution_at(date(2026,9,11))==datetime(2026,9,11,1,30,tzinfo=UTC)
+        captured=[]; real=runner.DailyBarEngine
+        def observe(**kw):
+            captured.append(kw)
+            return real(**kw)
+        monkeypatch.setattr(runner,"DailyBarEngine",observe)
+        a=_run_variant(legacy,_basic_intent());b=_run_variant(new,_basic_intent())
+        assert captured[-1]["execution_eligibility_mode"] is MODE
+        assert captured[-1]["historical_opening_evidence"]==dataset.historical_opening_evidence
+&gt;       assert a.manifest.kernel_identity_digest!=b.manifest.kernel_identity_digest
+               ^^^^^^^^^^
+E       AttributeError: 'BasicRunOutcome' object has no attribute 'manifest'
+
+tests\research\test_historical_opening_wiring.py:39: AttributeError</failure></testcase><testcase classname="tests.research.test_historical_opening_wiring" name="test_basic_new_mode_refuses_legacy_receipt" time="0.003" /><testcase classname="tests.research.test_historical_opening_wiring" name="test_oos_explicit_clock_actual_engine_path_and_identity" time="0.028" /></testsuite></testsuites>

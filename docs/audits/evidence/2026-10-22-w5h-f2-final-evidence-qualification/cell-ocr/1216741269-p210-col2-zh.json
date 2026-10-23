@@ -1,0 +1,69 @@
+{
+    "id":  "1216741269",
+    "text":  "16 ， 771 ， 98 伍 4",
+    "pit_qualified":  false,
+    "engine":  "Windows.Media.Ocr existing zh-Hans-CN",
+    "maximum_image_dimension":  10000,
+    "machine_seconds":  0.016734,
+    "pixel_height":  96,
+    "image_sha256":  "eaf1d8c23bc0eab348b54af50d4e0d89dec9cfcdf273aaa7533191a093d0743d",
+    "pixel_width":  492,
+    "source_sha256":  "28f31493c52375f096a45ad326ad8421357f9e73252858ae236d6fa715aad2d2",
+    "physical_page":  210,
+    "lines":  [
+                  {
+                      "text":  "16 ， 771 ， 98 伍 4",
+                      "words":  [
+                                    {
+                                        "y":  40,
+                                        "height":  46,
+                                        "width":  55,
+                                        "text":  "16",
+                                        "x":  170
+                                    },
+                                    {
+                                        "y":  70,
+                                        "height":  22,
+                                        "width":  13,
+                                        "text":  "，",
+                                        "x":  228
+                                    },
+                                    {
+                                        "y":  35,
+                                        "height":  49,
+                                        "width":  85,
+                                        "text":  "771",
+                                        "x":  241
+                                    },
+                                    {
+                                        "y":  66,
+                                        "height":  22,
+                                        "width":  14,
+                                        "text":  "，",
+                                        "x":  335
+                                    },
+                                    {
+                                        "y":  33,
+                                        "height":  44,
+                                        "width":  57,
+                                        "text":  "98",
+                                        "x":  348
+                                    },
+                                    {
+                                        "y":  31,
+                                        "height":  51,
+                                        "width":  41,
+                                        "text":  "伍",
+                                        "x":  411
+                                    },
+                                    {
+                                        "y":  32,
+                                        "height":  44,
+                                        "width":  24,
+                                        "text":  "4",
+                                        "x":  456
+                                    }
+                                ]
+                  }
+              ]
+}

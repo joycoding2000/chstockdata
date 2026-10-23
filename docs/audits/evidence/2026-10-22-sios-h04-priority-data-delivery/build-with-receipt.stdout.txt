@@ -1,0 +1,10 @@
+{
+  "raw_rows": 1370,
+  "qualified_rows": 1370,
+  "events": 7,
+  "gates": {
+    "H04_TOTAL_RETURN_DATA_GATE": "PASS_FOR_CONSUMER_REVIEW",
+    "H04_ATTRIBUTION_DATA_GATE": "PARTIAL_WITH_NAMED_GAPS"
+  },
+  "manifest_sha256": "7fda9f7e32fda4460889e5823628a9a8575dcea09679b07f523c24a6070e93fa"
+}

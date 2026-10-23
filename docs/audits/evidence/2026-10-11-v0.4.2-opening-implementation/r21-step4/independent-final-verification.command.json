@@ -1,0 +1,12 @@
+{
+  "executor": "root",
+  "argv": [
+    "C:/Users/Administrator/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe",
+    "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\evidence\\r21-step4\\verify_final_independent.py"
+  ],
+  "script_sha256": "a6471b934976fdc4fc5e6a25c1d7fe53821e2877c611e0dd25abeea973606678",
+  "exit_code": 0,
+  "result_file": "independent-final-verification.json",
+  "log_file": "independent-final-verification.log",
+  "scope": "read-only evidence/artifact verification; writes only its own new proof files"
+}

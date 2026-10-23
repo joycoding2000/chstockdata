@@ -1,0 +1,51 @@
+{
+  "head": "0dc85e3e43588c5781771486a3c6f80c4be7714f",
+  "baseline_sha": "17af23fe8183f740150dc01dd877473afe3911b7",
+  "baseline_dir": "D:\\Dev\\Projects\\chstockdata\\.pytest_cache\\dr04-p-investigation-d6edb4b21fba\\baseline-v0.4.2",
+  "work_dir": "D:\\Dev\\Projects\\chstockdata\\.pytest_cache\\dr04-p-investigation-d6edb4b21fba",
+  "file_identities": {
+    "tests/test_rh1_git_line_endings.py": {
+      "published_sha256": "3fbc738858e92b8b03a98a1520a701082255ce854e61fdef738b3bd9dc7039b4",
+      "baseline_sha256": "e03100f535c30d374e27fa275ed57c4fe70f31b7343cdc2779ad34727615befb",
+      "candidate_sha256": "e03100f535c30d374e27fa275ed57c4fe70f31b7343cdc2779ad34727615befb",
+      "baseline_candidate_byte_equal": true,
+      "normalized_equal_to_published": true
+    },
+    "scripts/check_rh1_static.py": {
+      "published_sha256": "7b6b454cd303a6b694dd4ab6985a33b756c4692b25b6b12cfe89c18a787abba9",
+      "baseline_sha256": "5fe432c5006b4f0d0387350eb87997c6ee90d761b963f69e93036c0cc94dd190",
+      "candidate_sha256": "5fe432c5006b4f0d0387350eb87997c6ee90d761b963f69e93036c0cc94dd190",
+      "baseline_candidate_byte_equal": true,
+      "normalized_equal_to_published": true
+    },
+    "tests/conftest.py": {
+      "published_sha256": "bc758809a12251731566b8f40a15a3ae2a77dc98a497fb4bc69767fee62232db",
+      "baseline_sha256": "bc758809a12251731566b8f40a15a3ae2a77dc98a497fb4bc69767fee62232db",
+      "candidate_sha256": "bc758809a12251731566b8f40a15a3ae2a77dc98a497fb4bc69767fee62232db",
+      "baseline_candidate_byte_equal": true,
+      "normalized_equal_to_published": true
+    },
+    "pyproject.toml": {
+      "published_sha256": "8894f1a0bbfea85c41502d75ec697814af213e0b459df320e0276a5e191db2ba",
+      "baseline_sha256": "47bb4d1e929be9d61586ddb67c5fab27cd2477881b0bd41f77819fb7b0f5afb6",
+      "candidate_sha256": "47bb4d1e929be9d61586ddb67c5fab27cd2477881b0bd41f77819fb7b0f5afb6",
+      "baseline_candidate_byte_equal": true,
+      "normalized_equal_to_published": true
+    }
+  },
+  "config_hashes": {
+    "D:\\Dev\\Projects\\chstockdata\\.git\\config": "e24c7fe806ca4d751798baf573ee39f3b9d2b548d0dc52a10aa0c48d7f747742",
+    "C:\\Users\\Administrator\\.gitconfig": "d6b52fe4731e002e958b55d34decf87d68c61581010803a3f6c5d684e0094a16",
+    "C:\\Program Files\\Git\\etc\\gitconfig": "703e9bfbb78eb76c844038959271fd25bbad3ac02537775bc6738b4b7fa014d6"
+  },
+  "protected_hashes": {
+    "D:\\Dev\\Projects\\chstockdata\\README.md": "6db38768974ce5cb5eb44e0b6daa87c91e216af6b05482e37e83d0e75c334418",
+    "D:\\Dev\\Projects\\chstockdata\\src\\chstockdata\\__init__.py": "e137402d5fb21e187dc88b181a04db699ed4effa8c7e452ce0e0da40e6093dc9",
+    "D:\\Dev\\Projects\\chstockdata\\src\\chstockdata\\daily_fund_flow.py": "155b316c49e6e0a22edd319b3cfe5991c882740985ffaf6e28e08b8ab64d045c",
+    "D:\\Dev\\Projects\\chstockdata\\tests\\test_daily_fund_flow.py": "6a673f1b867d84150ccac75006d275f121612e7edff553c893e86e143d34e157",
+    "D:\\Dev\\Projects\\chstockdata\\tests\\test_rh1_git_line_endings.py": "e03100f535c30d374e27fa275ed57c4fe70f31b7343cdc2779ad34727615befb",
+    "D:\\Dev\\Projects\\chstockdata\\scripts\\check_rh1_static.py": "5fe432c5006b4f0d0387350eb87997c6ee90d761b963f69e93036c0cc94dd190",
+    "D:\\Dev\\Projects\\chstockdata\\tests\\conftest.py": "bc758809a12251731566b8f40a15a3ae2a77dc98a497fb4bc69767fee62232db",
+    "D:\\Dev\\Projects\\chstockdata\\pyproject.toml": "47bb4d1e929be9d61586ddb67c5fab27cd2477881b0bd41f77819fb7b0f5afb6"
+  }
+}

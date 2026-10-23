@@ -1,0 +1,53 @@
+{
+  "gate": "PARTIAL_WITH_NAMED_GAPS",
+  "paired_snapshot_dates": [
+    "2024-06-30",
+    "2024-12-31",
+    "2025-06-30",
+    "2025-12-31"
+  ],
+  "fund_snapshots": 8,
+  "holdings_rows": 868,
+  "industry_rows": 88,
+  "true_historical_index_weight_snapshots": 0,
+  "true_historical_parent_pool_snapshots": 0,
+  "optional_field_limits": [
+    "Huatai wrapped bilingual quantity/name cells not qualified in structured holdings; security identity and reported market value/weight are qualified and originals preserved. Quantity remains null, never zero or a fabricated integer.",
+    "CMF 2024-06-30 includes HK:09930 active residual CNY506.54; not dropped or mislabeled as an index constituent."
+  ],
+  "named_gaps": [
+    {
+      "id": "H04-INDEX-VERSION-EFFECTIVE-CHAIN",
+      "impact": "Cannot assign 930914 payout/selection rule and all H50069 amendments to each historical decision date; confirmed 930914 source discrepancy",
+      "free_source_result": "Dated official methods and historical prospectuses delivered; effective chain not established"
+    },
+    {
+      "id": "H04-HISTORICAL-PARENT-UNIVERSE",
+      "impact": "Cannot distinguish dividend screen from different investable universe or selection/survivorship effects",
+      "free_source_result": "Definitions available, historical CSI HK300 and SSE Connect membership/event versions not delivered"
+    },
+    {
+      "id": "H04-TRUE-INDEX-CONSTITUENTS-WEIGHTS",
+      "impact": "Cannot reconstruct daily index, rebalance entry/exit and sector matched comparator; fund holdings are a disclosed proxy only",
+      "free_source_result": "Eight actual fund snapshots delivered; zero true-index historical weight snapshots; direct generic weight link returned HTTP404"
+    },
+    {
+      "id": "H04-INDUSTRY-CONTINUOUS-HISTORY",
+      "impact": "Four paired snapshots cannot identify time-varying industry contribution across all 485 sessions",
+      "free_source_result": "88 named sector observations in matching Bloomberg broad crosswalk, raw taxonomy labels retained; taxonomy release and between-snapshot changes unknown"
+    },
+    {
+      "id": "H04-VALUE-QUALITY-RATE-EXPLANATORY-SERIES",
+      "impact": "Value, quality and equity interest-rate sensitivity remain omitted-variable explanations; contribution unknown, not zero",
+      "free_source_result": "Issuer market/FX/rate accounting sensitivities delivered; no qualified PIT valuation/quality factor or interest-rate attribution series"
+    },
+    {
+      "id": "H04-HISTORICAL-INDEX-MARKET-CONTROL",
+      "impact": "Fund TR is not an independently qualified historical market/sector index return control",
+      "free_source_result": "No continuous index return/sector benchmark package qualified in this bounded task"
+    }
+  ],
+  "missing_factor_contributions": null,
+  "free_source_decision": "Free issuer files can fill these disclosed point-in-time product snapshots and real cash events. Tested paths have not filled continuous true index/universe and style series. Stop expanding; no evidence that all free sources are universally impossible. A larger platform is not authorized.",
+  "minimum_alternative": "Owner may accept this partial product-exposure packet and preserve STOP; any descriptive two-product comparison must retain universe/style confounding and would require separate research authorization."
+}

@@ -1,0 +1,126 @@
+{
+  "schema_version": "golden-expected-v1",
+  "runs": {
+    "stale_mark": {
+      "sessions": [
+        {
+          "session_date": "2026-09-11",
+          "cash": "1000",
+          "market_value": "12000.00",
+          "total_equity": "13000.00",
+          "nav": "0.13",
+          "valuation_status": "COMPLETE",
+          "decision_blocked_reason": null,
+          "orders": [],
+          "fills": [],
+          "rejections": [],
+          "stale_marks": [],
+          "plans": [],
+          "target": null
+        },
+        {
+          "session_date": "2026-09-14",
+          "cash": "1500.00",
+          "market_value": "12000.00",
+          "total_equity": "13500.00",
+          "nav": "0.135",
+          "valuation_status": "COMPLETE",
+          "decision_blocked_reason": "MISSING_T_CLOSE_PRICE",
+          "orders": [],
+          "fills": [],
+          "rejections": [],
+          "corporate_action_effects": [
+            {
+              "action_id": "ca:cash-dividend:2026-09-14",
+              "instrument_id": "XSHE:000001",
+              "action_kind": "CASH_DIVIDEND",
+              "cash_delta": "500.00",
+              "quantity_delta": 0
+            }
+          ],
+          "stale_marks": [
+            {"instrument_id": "XSHE:000001", "marked_price": "12.00", "last_valid_session": "2026-09-11", "age_sessions": 1}
+          ],
+          "plans": [],
+          "target": {
+            "target_id": "target:2026-09-14",
+            "revision": 1,
+            "decision_for_trade_date": "2026-09-15",
+            "valuation_equity": "13500.00",
+            "cash_weight": "0.85",
+            "addressed_instruments": ["XSHE:000001"]
+          }
+        },
+        {
+          "session_date": "2026-09-15",
+          "cash": "1500.00",
+          "market_value": "12000.00",
+          "total_equity": "13500.00",
+          "nav": "0.135",
+          "valuation_status": "COMPLETE",
+          "decision_blocked_reason": null,
+          "orders": [],
+          "fills": [],
+          "rejections": [],
+          "stale_marks": [
+            {"instrument_id": "XSHE:000001", "marked_price": "12.00", "last_valid_session": "2026-09-11", "age_sessions": 2}
+          ],
+          "plans": [],
+          "target": null
+        }
+      ],
+      "final": {
+        "cash": "1500.00",
+        "equity": "13500.00",
+        "nav": "0.135",
+        "positions": [
+          {"instrument_id": "XSHE:000001", "total_quantity": 1000, "sellable_quantity": 1000, "average_cost": "10.00"}
+        ]
+      }
+    },
+    "unpriceable": {
+      "sessions": [
+        {
+          "session_date": "2026-09-11",
+          "cash": "1000",
+          "market_value": "0",
+          "total_equity": "1000",
+          "nav": "0.01",
+          "valuation_status": "INCOMPLETE",
+          "incomplete_reasons": ["NO_DEFENSIBLE_PRICE"],
+          "decision_blocked_reason": "INCOMPLETE_VALUATION",
+          "orders": [],
+          "fills": [],
+          "rejections": [],
+          "stale_marks": [],
+          "plans": [],
+          "target": null
+        },
+        {
+          "session_date": "2026-09-14",
+          "cash": "1000",
+          "market_value": "0",
+          "total_equity": "1000",
+          "nav": "0.01",
+          "valuation_status": "INCOMPLETE",
+          "incomplete_reasons": ["NO_DEFENSIBLE_PRICE"],
+          "decision_blocked_reason": "INCOMPLETE_VALUATION",
+          "orders": [],
+          "fills": [],
+          "rejections": [],
+          "stale_marks": [],
+          "plans": [],
+          "target": null
+        }
+      ],
+      "final": {
+        "cash": "1000",
+        "equity": "1000",
+        "nav": "0.01",
+        "positions": [
+          {"instrument_id": "XSHG:510300", "total_quantity": 1000, "sellable_quantity": 1000, "average_cost": "4.00"}
+        ]
+      }
+    }
+  }
+}

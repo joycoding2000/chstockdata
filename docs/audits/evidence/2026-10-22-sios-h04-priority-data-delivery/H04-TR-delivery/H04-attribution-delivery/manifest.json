@@ -1,0 +1,39 @@
+{
+  "schema_version": "H04-OFFLINE-1",
+  "name": "H04 partial attribution inputs",
+  "source_investigation_boundary": [
+    "2024-01-01",
+    "2025-12-31"
+  ],
+  "research_window_newly_frozen": false,
+  "research_resumption_authorized": false,
+  "gates": {
+    "H04_ATTRIBUTION_DATA_GATE": "PARTIAL_WITH_NAMED_GAPS"
+  },
+  "files": {
+    "coverage_and_unknowns.json": {
+      "sha256": "05cceae7f05d505b726bcbaece44d94f8f3d2b1fe6ab4ac4f5d6c1437ba87fb1",
+      "bytes": 3402
+    },
+    "fund_holdings_snapshots.json": {
+      "sha256": "fca3991e1a759a572692942ca0ed11ffbdf30473aafcfa5028f02b3b9ba67d6f",
+      "bytes": 9554
+    },
+    "historical_holdings.json": {
+      "sha256": "733efd2049790e02ad1da06f754ac1aec76b65c576f1534c767ad346466ba70e",
+      "bytes": 733182
+    },
+    "index_method_versions.json": {
+      "sha256": "39b958141b404b32e679e7d2492644f3d0bdaaeac87317fe75ceb6d0945c153c",
+      "bytes": 35840
+    },
+    "industry_weights.json": {
+      "sha256": "7ef444444859964216eef9ff1a134f0eef2cbd88bea04084b0764c618dc80782",
+      "bytes": 69800
+    },
+    "other_risk_disclosures.json": {
+      "sha256": "2e96984ab9293bfd3167256678fd4391eb629ebc523aa206b7f12396c7b12374",
+      "bytes": 63404
+    }
+  }
+}

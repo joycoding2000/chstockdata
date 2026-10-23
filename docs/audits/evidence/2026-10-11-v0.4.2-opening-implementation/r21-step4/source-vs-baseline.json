@@ -1,0 +1,90 @@
+{
+  "identity": "full_source_tree_sha256",
+  "base_commit": "42bd44ef4d695aa3e88cfab4ebc3417660d0437a",
+  "candidate_source_sha256": "3c3c28fd696c9e4f66149cd3cf386b645ba603c03736cb9fab31ab863474779c",
+  "changes": {
+    ".ruff_cache/.gitignore": {
+      "baseline_sha256": null,
+      "candidate_sha256": "9e3a60f1e6ec4ae60215c11d54b171392745ec25e9dded433d5bd921363af316"
+    },
+    ".ruff_cache/0.16.10/8278518251727861953": {
+      "baseline_sha256": null,
+      "candidate_sha256": "dbc40169efea6248d845b5be28c12ed8296160e7b7a0d8ed813e11d7186d0360"
+    },
+    ".ruff_cache/0.16.10/8995226985175637564": {
+      "baseline_sha256": null,
+      "candidate_sha256": "bb57879f974404750e2ca213b83286f96ff412f1a91244f55e59375b806668e0"
+    },
+    ".ruff_cache/CACHEDIR.TAG": {
+      "baseline_sha256": null,
+      "candidate_sha256": "5953156d7e0c564a427251316eaf26f8870e6483ae2197f916b630e4f93e31ae"
+    },
+    "MANIFEST.in": {
+      "baseline_sha256": null,
+      "candidate_sha256": "971f77186b91926fc1c52eae66ccd3ac096958dfc6c65ba29a8d5adf1dcec630"
+    },
+    "dist/v042-unified/chstockdata-0.4.2-py3-none-any.whl": {
+      "baseline_sha256": null,
+      "candidate_sha256": "b76b065a06cd1d91868880a7b57584f598b6fd4cb42931e9a33700bc99a88c7a"
+    },
+    "docs/audits/2026-10-11-v0.4.2-opening-implementation.md": {
+      "baseline_sha256": null,
+      "candidate_sha256": "76ac886421b08c7857fad9e37bf3f9f97e4d7801aa3dc3758271188a530be4cb"
+    },
+    "docs/historical-opening-evidence.md": {
+      "baseline_sha256": null,
+      "candidate_sha256": "30a67740c8fae30364a9a9d414eb80558a88ecce5907b845384230c865ff8b36"
+    },
+    "docs/releases/v0.4.2/change-requests/CR-historical-opening-execution.md": {
+      "baseline_sha256": "611e9c214233ce8ecab64fed167ea8d30bd1ce582117c6d93233d7c3badb2e07",
+      "candidate_sha256": "e3bc7d08137908566262fea14c0e1c4a96599a05688efbfb101d6f56eed3cdd6"
+    },
+    "pyproject.toml": {
+      "baseline_sha256": "8ef3c26f7b9f7ef60df51ffabdc86b39ecf4afcd38faa8d2f0aaa8969661b63d",
+      "candidate_sha256": "8894f1a0bbfea85c41502d75ec697814af213e0b459df320e0276a5e191db2ba"
+    },
+    "src/chstockdata/__init__.py": {
+      "baseline_sha256": "72744d6571dfe69055a7b95aeaf09f68ae0be0dea22eb4a81f5e66d33fc7cd0e",
+      "candidate_sha256": "1df1d07ce517fa0d466e525d648d92c4397c0f6def9f0e7f8e1ae130ed82540c"
+    },
+    "src/chstockdata/opening_evidence.py": {
+      "baseline_sha256": null,
+      "candidate_sha256": "28c0a538832425f81227becf9bc965cc44faec0292ceac6a457727f4ac27e278"
+    },
+    "src/chstockdata/opening_known_events.json": {
+      "baseline_sha256": null,
+      "candidate_sha256": "a464e9fd2695f6cdb3a76c4ca87ce070702bec71fec504f496dfc2228044b95b"
+    },
+    "tests/fixtures/opening/159509-20260911.pdf": {
+      "baseline_sha256": null,
+      "candidate_sha256": "18cf4d821cd8f4de15d515ce0ceef828be5aff3beea30128d4b2049d39647fcd"
+    },
+    "tests/fixtures/opening/manifest.json": {
+      "baseline_sha256": null,
+      "candidate_sha256": "6f05e41ae20a7cfcdf0c13db2013b408d0be657df761f517f2a7b69ba800fc64"
+    },
+    "tests/fixtures/opening/sse_688432_interval.bin": {
+      "baseline_sha256": null,
+      "candidate_sha256": "33147724bcee2f692e3de7a637c2490017a86c1399183c7f8ccf1f7fe017d924"
+    },
+    "tests/fixtures/opening/szse_159509_announcements_control.bin": {
+      "baseline_sha256": null,
+      "candidate_sha256": "1c799d8c18359ac482465556350b9b889e1c36689eda35f3d033edb5ec3a9813"
+    },
+    "tests/fixtures/opening/szse_159915_announcements.bin": {
+      "baseline_sha256": null,
+      "candidate_sha256": "13c652bf1ce25aeaec1c58d705053fb10bf37d09128a3dd2b11c4585f24a9797"
+    },
+    "tests/test_historical_opening_evidence.py": {
+      "baseline_sha256": null,
+      "candidate_sha256": "09f230f20f5fd3bd323cf9434f7ff54577fa1b6e48b6d245141790cb7ef0f205"
+    }
+  },
+  "packaging_fix": {
+    "file": "MANIFEST.in",
+    "content": "recursive-include tests/fixtures *",
+    "root_cause": "default setuptools sdist includes test modules but omits their fixture data",
+    "preliminary_artifacts_retained": "dist/r21-unified",
+    "runtime_package_unchanged": true
+  }
+}

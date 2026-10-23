@@ -1,0 +1,106 @@
+{
+  "wheel_sha256": "1dd58350678fbb07d3b545165708d814f93fb94f965dc2da33bad2fab7ff779c",
+  "installed_import": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\profiles\\owner-rework-r1\\sios-candidate\\Lib\\site-packages\\chstockdata\\__init__.py",
+  "purpose": "final installed-wheel replay of 74 actual NEW public reader responses; no network",
+  "argv": [
+    "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\evidence\\owner-acceptance-rework-r1\\gate\\run_replay.py",
+    "installed-wheel-replay"
+  ],
+  "cwd": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\chstockdata-owner-rework",
+  "actual_live_source_sha256": {
+    "src\\chstockdata\\opening_evidence.py": "80034dd19056702155105610873a8012db8da0e3bd7533400404699374d7d432",
+    "src\\chstockdata\\opening_known_events.json": "16cb9df03879accfe982874553ba3814c4b4f3dc4c1e63316e9576ae6820d9ca"
+  },
+  "final_source_sha256": {
+    "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\profiles\\owner-rework-r1\\sios-candidate\\Lib\\site-packages\\chstockdata\\opening_evidence.py": "2c98aec52248148db3c09c436abba8b35303bf935e610bfa7d2087e4e4e59ac5",
+    "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\profiles\\owner-rework-r1\\sios-candidate\\Lib\\site-packages\\chstockdata\\opening_known_events.json": "2b5b4e27a078ead39e4262238d8ab1e81e5e2e3a85a79c5467d03c0f559cec90"
+  },
+  "original_new_live_manifest_sha256": "9d096d3911aecdda5082f1a32d0d09f4e9e024197983b59aadb0170f2d99dcb3",
+  "results": [
+    {
+      "instrument": "510300",
+      "session_date": "2026-09-11",
+      "actual_live_status": "OPEN_ACTIVITY_CONFIRMED",
+      "final_replay_status": "OPEN_ACTIVITY_CONFIRMED",
+      "pass": true
+    },
+    {
+      "instrument": "159915",
+      "session_date": "2026-09-11",
+      "actual_live_status": "OPEN_ACTIVITY_CONFIRMED",
+      "final_replay_status": "OPEN_ACTIVITY_CONFIRMED",
+      "pass": true
+    },
+    {
+      "instrument": "518880",
+      "session_date": "2026-09-11",
+      "actual_live_status": "OPEN_ACTIVITY_CONFIRMED",
+      "final_replay_status": "OPEN_ACTIVITY_CONFIRMED",
+      "pass": true
+    },
+    {
+      "instrument": "511010",
+      "session_date": "2026-09-11",
+      "actual_live_status": "OPEN_ACTIVITY_CONFIRMED",
+      "final_replay_status": "OPEN_ACTIVITY_CONFIRMED",
+      "pass": true
+    },
+    {
+      "instrument": "513100",
+      "session_date": "2026-09-11",
+      "actual_live_status": "BLOCKED_CONFIRMED",
+      "final_replay_status": "BLOCKED_CONFIRMED",
+      "pass": true
+    },
+    {
+      "instrument": "159509",
+      "session_date": "2026-09-11",
+      "actual_live_status": "BLOCKED_CONFIRMED",
+      "final_replay_status": "BLOCKED_CONFIRMED",
+      "pass": true
+    },
+    {
+      "instrument": "688432",
+      "session_date": "2026-08-31",
+      "actual_live_status": "BLOCKED_CONFIRMED",
+      "final_replay_status": "BLOCKED_CONFIRMED",
+      "pass": true
+    },
+    {
+      "instrument": "688432",
+      "session_date": "2026-09-14",
+      "actual_live_status": "OPEN_ACTIVITY_CONFIRMED",
+      "final_replay_status": "OPEN_ACTIVITY_CONFIRMED",
+      "pass": true
+    },
+    {
+      "instrument": "000002",
+      "session_date": "2015-12-18",
+      "actual_live_status": "OPEN_ACTIVITY_CONFIRMED",
+      "final_replay_status": "OPEN_ACTIVITY_CONFIRMED",
+      "pass": true
+    },
+    {
+      "instrument": "000002",
+      "session_date": "2016-01-04",
+      "actual_live_status": "BLOCKED_CONFIRMED",
+      "final_replay_status": "BLOCKED_CONFIRMED",
+      "pass": true
+    },
+    {
+      "instrument": "510300",
+      "session_date": "2016-12-30",
+      "actual_live_status": "OPEN_ACTIVITY_CONFIRMED",
+      "final_replay_status": "OPEN_ACTIVITY_CONFIRMED",
+      "pass": true
+    },
+    {
+      "instrument": "510300",
+      "session_date": "2022-12-30",
+      "actual_live_status": "OPEN_ACTIVITY_CONFIRMED",
+      "final_replay_status": "OPEN_ACTIVITY_CONFIRMED",
+      "pass": true
+    }
+  ],
+  "exit_code": 0
+}

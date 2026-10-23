@@ -1,0 +1,13 @@
+{
+  "name": "old-wheel-owner-repro",
+  "argv": [
+    "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\09\\01a11feb-cbea-7790-a83e-57b1dd555e13\\v042-unified\\sios-candidate\\Scripts\\python.exe",
+    "-c",
+    "import sys, importlib.util, json\nsys.path.insert(0, 'C:\\\\Users\\\\Administrator\\\\.codex\\\\visualizations\\\\2026\\\\10\\\\10\\\\01a125dd-33f2-78d3-abe7-45e0928975d0\\\\v042-opening-implementation\\\\evidence\\\\owner-acceptance-rework-r1\\\\old-wheel-unpacked')\nspec=importlib.util.spec_from_file_location('owner_regression', 'C:\\\\Users\\\\Administrator\\\\.codex\\\\visualizations\\\\2026\\\\10\\\\10\\\\01a125dd-33f2-78d3-abe7-45e0928975d0\\\\v042-opening-implementation\\\\chstockdata-owner-rework\\\\tests\\\\test_historical_opening_evidence.py')\nmodule=importlib.util.module_from_spec(spec); spec.loader.exec_module(module)\nrows=[]\nfor day in ('2015-12-18','2016-07-04','2016-07-05','2022-12-30'):\n    data=module.owner_interval_fetch(day).data\n    rows.append({k:data[k] for k in ('session_date','opening_status','source_conflict','official_block_at_target','reason')})\nprint(json.dumps({'qualification':'offline injected reproduction against extracted unchanged old wheel','wheel_sha256':'3fd4f0b7334e310851495b8b13d4c7c55d21cde719acf9e00ff880ccb822f42e','results':rows},indent=2))\nassert [r['opening_status'] for r in rows]==['OPEN_ACTIVITY_CONFIRMED','UNKNOWN','UNKNOWN','UNKNOWN']\nassert all(r['source_conflict'] and r['official_block_at_target'] for r in rows[1:])\n"
+  ],
+  "cwd": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\chstockdata-owner-rework",
+  "exit": 0,
+  "log": "old-wheel-owner-repro.log",
+  "log_sha256": "30fc7c3669fc178b49d9054dfd4f469b6005275ffa6a923fe7864a031ed7c370",
+  "offline_injected": true
+}

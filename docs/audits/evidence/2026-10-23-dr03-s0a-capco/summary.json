@@ -1,0 +1,171 @@
+{
+  "generated_at": "2026-10-23T00:00:00+08:00",
+  "source_page": {
+    "url": "https://www.capco.org.cn/pub/zgssgsxh/xhgg/hyfl/hyfljg/202509/20250930/j_2025093014371200017592143530187679.html",
+    "http_status": 200,
+    "bytes": 2371,
+    "sha256": "0d21e9c9d7553350c41b06a9770bed8e475c6f72eff784791651b71fb88992e0",
+    "note": "SPA shell; article content is served from the official /dataFile/ path."
+  },
+  "article_data_2025H1": {
+    "url": "https://www.capco.org.cn/dataFile/zsxfb/hyfl/hyfljg/29adc9e66d844d6fba0001bb2cdc529c.js",
+    "bytes": 1857,
+    "sha256": "b408b41fd2c932c74e9704211ad82117458035483c933f722fca3ba85d0e1b8b",
+    "date": "2025-09-30",
+    "title": "2025年上半年上市公司行业分类结果"
+  },
+  "publications": [
+    {
+      "report": "2025H1",
+      "page_date": "2025-09-30",
+      "pdf_file": "capco-pdf-by-code.pdf",
+      "pdf_bytes": 4626417,
+      "pdf_sha256": "b622b76b96d59611db36b01888cf6afd8cd711c5753a19ab8547e74bb0bb8228",
+      "pdf_creation": "2025-09-29T08:23:17+08:00",
+      "http_last_modified": "2026-03-27T12:14:12Z",
+      "pages": 114,
+      "unique_codes": 5413,
+      "prefix_counts": {
+        "60": 1688,
+        "00": 1483,
+        "30": 1380,
+        "68": 587,
+        "83": 173,
+        "87": 54,
+        "92": 25,
+        "43": 15,
+        "20": 5,
+        "90": 3
+      }
+    },
+    {
+      "report": "2025H2",
+      "page_date": "2026-04-03",
+      "pdf_file": "capco-pdf-2025H2-by-code.pdf",
+      "pdf_bytes": 772144,
+      "pdf_sha256": "b1d0140572b20de11cd62ca478edb4da6e229928b216116df6345b3c2e461f58",
+      "pdf_creation": "2026-03-31T09:54:43+08:00",
+      "http_last_modified": "2026-04-03T06:49:48Z",
+      "pages": 158,
+      "unique_codes": 5463,
+      "prefix_counts": {
+        "60": 1697,
+        "00": 1487,
+        "30": 1389,
+        "68": 598,
+        "92": 285,
+        "20": 4,
+        "90": 3
+      }
+    },
+    {
+      "report": "2026H1",
+      "page_date": "2026-09-30",
+      "pdf_file": "capco-pdf-2026H1-by-code.pdf",
+      "pdf_bytes": 782339,
+      "pdf_sha256": "1f1862ae2199a82a3a35c62f16a7d576120bca97f3de608989c8897df9b6c8a6",
+      "pdf_creation": "2026-09-28T11:21:41+08:00",
+      "http_last_modified": "2026-09-30T06:19:30Z",
+      "pages": 160,
+      "unique_codes": 5521,
+      "prefix_counts": {
+        "60": 1698,
+        "00": 1491,
+        "30": 1398,
+        "68": 609,
+        "92": 318,
+        "20": 4,
+        "90": 3
+      }
+    }
+  ],
+  "cross_checks": {
+    "by_code_vs_by_industry_2025H1": "SAME_5413_CODES; NO_DUPLICATES",
+    "all_rows_have_menlei": true,
+    "all_rows_have_dajia": true,
+    "explicit_total_statement": false,
+    "explicit_exchange_column": false,
+    "bse_code_map_rows": 246,
+    "bse_old_codes_in_2025H1": 242,
+    "bse_old_codes_mapped": 240,
+    "bse_unmapped_old_codes": [
+      "835305",
+      "839680"
+    ],
+    "set_diff_2025H1_to_2025H2_raw": {
+      "added": 301,
+      "removed": 251
+    },
+    "set_diff_2025H1_to_2025H2_after_bse_map": {
+      "added": 61,
+      "removed": 11
+    },
+    "set_diff_2025H2_to_2026H1": {
+      "added": 75,
+      "removed": 17
+    },
+    "set_diff_2025H1_to_2026H1_after_bse_map": {
+      "added": 135,
+      "removed": 27
+    },
+    "industry_change_2025H1_to_2025H2": {
+      "common": 5402,
+      "exact": 5396,
+      "menlei_changes": 3,
+      "dajia_changes_same_menlei": 3
+    },
+    "industry_change_2025H2_to_2026H1": {
+      "common": 5446,
+      "exact": 5401,
+      "menlei_changes": 19,
+      "dajia_changes_same_menlei": 26
+    },
+    "industry_change_2025H1_to_2026H1": {
+      "common": 5386,
+      "exact": 5335,
+      "menlei_changes": 22,
+      "dajia_changes_same_menlei": 29
+    }
+  },
+  "taxonomy": {
+    "guide_title": "中国上市公司协会上市公司行业统计分类指引",
+    "guide_page_date": "2023-05-21",
+    "guide_article_bytes": 1948,
+    "guide_article_sha256": "b7ad99d947fad5b71b3464d55d19530012bd91ad5465574d82846ee519b4f584",
+    "pdf_columns": [
+      "上市公司代码",
+      "上市公司简称",
+      "门类代码",
+      "门类简称",
+      "次类代码",
+      "次类简称",
+      "大类代码",
+      "大类简称"
+    ],
+    "observed_dajia_codes": 83,
+    "pdf_explicit_version_year": false
+  },
+  "time_semantics": {
+    "report_period": "2025年上半年",
+    "page_date": "2025-09-30",
+    "pdf_creation": "2025-09-29T08:23:17+08:00",
+    "http_last_modified": "2026-03-27T12:14:12Z",
+    "effective_date_stated": false,
+    "known_at_proven": false,
+    "note": "Page date, PDF creation metadata and HTTP object timestamp differ; current bytes' first-known availability is not proven."
+  },
+  "request_ledger": {
+    "attempts": 21,
+    "http_200": 21,
+    "failures": 0,
+    "bytes_read": 10191206,
+    "retries": 0
+  },
+  "gates": {
+    "DR03_CURRENT_GATE": "NOT_PASSED",
+    "DR03_HISTORICAL_GATE": "NOT_PASSED",
+    "IMPLEMENTATION_AUTHORIZED": "NO",
+    "PUSH_AUTHORIZED": "NO",
+    "OWNER_REVIEW_REQUIRED": "YES"
+  }
+}

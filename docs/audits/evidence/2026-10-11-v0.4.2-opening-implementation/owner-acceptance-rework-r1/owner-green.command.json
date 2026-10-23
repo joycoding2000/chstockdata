@@ -1,0 +1,15 @@
+{
+  "name": "owner-green",
+  "argv": [
+    "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\09\\01a11feb-cbea-7790-a83e-57b1dd555e13\\v042-unified\\sios-candidate\\Scripts\\python.exe",
+    "-c",
+    "import sys; sys.path.insert(0,'C:\\\\Users\\\\Administrator\\\\.codex\\\\visualizations\\\\2026\\\\10\\\\10\\\\01a125dd-33f2-78d3-abe7-45e0928975d0\\\\v042-opening-implementation\\\\chstockdata-owner-rework\\\\src'); sys.path.append('C:/Users/Administrator/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/Lib/site-packages'); import pytest; raise SystemExit(pytest.main(['tests/test_historical_opening_evidence.py', '-k', 'owner_', '-q', '-p', 'no:cacheprovider', '--basetemp=C:\\\\Users\\\\Administrator\\\\.codex\\\\visualizations\\\\2026\\\\10\\\\10\\\\01a125dd-33f2-78d3-abe7-45e0928975d0\\\\v042-opening-implementation\\\\evidence\\\\owner-acceptance-rework-r1\\\\temp\\\\owner-green', '--junitxml=C:\\\\Users\\\\Administrator\\\\.codex\\\\visualizations\\\\2026\\\\10\\\\10\\\\01a125dd-33f2-78d3-abe7-45e0928975d0\\\\v042-opening-implementation\\\\evidence\\\\owner-acceptance-rework-r1\\\\owner-green.xml']))"
+  ],
+  "cwd": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\chstockdata-owner-rework",
+  "exit": 0,
+  "log": "owner-green.log",
+  "log_sha256": "8053ba548050b63575090aab2a5e3f3448a6c73c36ab192460920c8d807d9b83",
+  "offline_injected": true,
+  "junit": "owner-green.xml",
+  "junit_sha256": "fd1919f51a51c5d8f9e8c01f12217d745743b678f2f2d8bbbbcf0a9479ff4070"
+}

@@ -1,0 +1,19 @@
+{
+  "id": "pe-em-600519",
+  "url": "https://datacenter-web.eastmoney.com/api/data/v1/get",
+  "params": {
+    "reportName": "RPT_VALUEANALYSIS_DET",
+    "columns": "ALL",
+    "filter": "(SECURITY_CODE=\"600519\")(TRADE_DATE>='2025-09-30')(TRADE_DATE<='2026-10-22')",
+    "pageSize": 1000,
+    "pageNumber": 1,
+    "sortColumns": "TRADE_DATE",
+    "sortTypes": "1",
+    "source": "WEB",
+    "client": "WEB"
+  },
+  "max_bytes": 5000000,
+  "registered_at": "2026-10-22T20:59:47.322503+08:00",
+  "method": "GET",
+  "retry_of": null
+}

@@ -1,0 +1,16 @@
+[
+  {
+    "name": "shfe_20210104",
+    "url": "https://www.shfe.com.cn/data/tradedata/future/dailydata/kx20210104.dat",
+    "method": "GET",
+    "payload": null,
+    "requested_at": "2026-10-19T08:32:06.466018+00:00",
+    "status_code": 200,
+    "content_type": "application/json",
+    "bytes": 106371,
+    "sha256": "e35cbaee341b4aef46d8960c9a30dc907d6690ee1ca00e34a247ee6ea8ef5a85",
+    "raw_file": "shfe_20210104.raw",
+    "outcome": "HTTP_SUCCESS_UNVALIDATED",
+    "completed_at": "2026-10-19T08:32:06.888655+00:00"
+  }
+]

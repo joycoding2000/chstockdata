@@ -1,0 +1,79 @@
+{
+  "securities": [
+    "513500",
+    "513030",
+    "513520"
+  ],
+  "observation_start": "2024-01-02",
+  "observation_end": "2025-09-30",
+  "warmup_start": "2023-03-09",
+  "warmup_end": "2023-12-29",
+  "required_prior_observations": 200,
+  "return_rule": "126 observations, current / observation[-126] - 1 (125 intervals)",
+  "sma_rule": "arithmetic mean of latest 200 observations, including current",
+  "per_instrument": {
+    "513500": {
+      "raw_rows": 625,
+      "warmup_rows": 200,
+      "observation_rows": 425,
+      "missing_dates": [],
+      "zero_turnover_dates": [],
+      "raw_source_first": "2014-01-15",
+      "raw_source_last": "2026-09-22",
+      "raw_source_sha256": "0d5033b5ac2b2704e1e2488b75fcefcedda683af3d277ae1403849d10c5ef5b6",
+      "cash_event_facts": "normal_empty_verified_ex_post",
+      "split_event_facts": "normal_empty_verified_ex_post",
+      "retrospective_inputs_complete": true,
+      "qualified_pit_signal_rows": 625,
+      "qualified_warmup_rows": 200,
+      "complete_observation_period_signal_inputs": 425,
+      "event_qualification_status": "CONFIRMED_NO_EVENT_IN_SCOPE"
+    },
+    "513030": {
+      "raw_rows": 625,
+      "warmup_rows": 200,
+      "observation_rows": 425,
+      "missing_dates": [],
+      "zero_turnover_dates": [
+        "2025-01-23"
+      ],
+      "raw_source_first": "2014-09-05",
+      "raw_source_last": "2026-09-22",
+      "raw_source_sha256": "90271330201f787c2400b88c0e0d635bb4902fcd8276cd8a360fb0e484a0b27e",
+      "cash_event_facts": "normal_empty_verified_ex_post",
+      "split_event_facts": "normal_empty_verified_ex_post",
+      "retrospective_inputs_complete": true,
+      "qualified_pit_signal_rows": 625,
+      "qualified_warmup_rows": 200,
+      "complete_observation_period_signal_inputs": 425,
+      "event_qualification_status": "CONFIRMED_NO_EVENT_IN_SCOPE"
+    },
+    "513520": {
+      "raw_rows": 625,
+      "warmup_rows": 200,
+      "observation_rows": 425,
+      "missing_dates": [],
+      "zero_turnover_dates": [],
+      "raw_source_first": "2019-06-25",
+      "raw_source_last": "2026-09-22",
+      "raw_source_sha256": "96a617c03c1e631a9b1ace2db2f2c99ed435d8d467f157b946454ba99f3049a3",
+      "cash_event_facts": "normal_empty_verified_ex_post",
+      "split_event_facts": "normal_empty_verified_ex_post",
+      "retrospective_inputs_complete": true,
+      "qualified_pit_signal_rows": 625,
+      "qualified_warmup_rows": 200,
+      "complete_observation_period_signal_inputs": 425,
+      "event_qualification_status": "CONFIRMED_NO_EVENT_IN_SCOPE"
+    }
+  },
+  "unresolved_required_gaps": [],
+  "acceptance": "PASS_FOR_RESEARCH_CONSUMER_ACCEPTANCE",
+  "production_adapter_integrated": false,
+  "observation_policy": "INCLUDE_KNOWN_REPORTED_DAILY_BAR",
+  "superseded_false_gaps": [
+    "H01-513500-EVENT-ASOF",
+    "H01-513030-EVENT-ASOF",
+    "H01-513030-2025-01-23-NO-TRADE",
+    "H01-513520-EVENT-ASOF"
+  ]
+}

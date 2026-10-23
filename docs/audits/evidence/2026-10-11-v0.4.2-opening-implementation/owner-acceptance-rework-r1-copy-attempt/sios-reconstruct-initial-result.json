@@ -1,0 +1,10 @@
+{
+  "exit_code": 1,
+  "reason": "Git apply inherited core.autocrlf and converted three LF qualification files to CRLF; patch content and original candidate remain unchanged",
+  "mismatched_files": [
+    "tests/qualification/live_qualification.py",
+    "tests/qualification/test_chstockdata_etf_gate.py",
+    "tests/qualification/test_live_r21_contract.py"
+  ],
+  "next_action": "explicit per-command core.autocrlf=false; new reconstruction directory"
+}

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="2" skipped="0" tests="5" time="0.885" timestamp="2026-10-12T10:05:53.505512+08:00" hostname="CHINAMI-4QO1VLN"><testcase classname="tests.research.test_historical_opening_wiring" name="test_basic_explicit_clock_engine_path_and_manifest_identity" time="0.044" /><testcase classname="tests.research.test_historical_opening_wiring" name="test_basic_new_mode_refuses_legacy_receipt" time="0.004" /><testcase classname="tests.research.test_historical_opening_wiring" name="test_oos_explicit_clock_actual_engine_path_and_identity" time="0.462" /><testcase classname="tests.research.test_historical_opening_wiring" name="test_new_freeze_mode_is_explicit_and_old_digest_cannot_be_reinterpreted" time="0.038"><failure message="TypeError: oos_kernel_identity_digest() got an unexpected keyword argument 'execution_eligibility_mode'">def test_new_freeze_mode_is_explicit_and_old_digest_cannot_be_reinterpreted():
+        from test_oos_verifier import _current_freeze_payload, _intent
+        frozen=_current_freeze_payload();intent=_intent()
+&gt;       new_digest=oos.oos_kernel_identity_digest(intent,execution_eligibility_mode=MODE)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       TypeError: oos_kernel_identity_digest() got an unexpected keyword argument 'execution_eligibility_mode'
+
+tests\research\test_historical_opening_wiring.py:72: TypeError</failure></testcase><testcase classname="tests.research.test_historical_opening_wiring" name="test_public_cli_mode_is_explicit_and_legacy_default" time="0.015"><failure message="AttributeError: 'Namespace' object has no attribute 'execution_eligibility_mode'">def test_public_cli_mode_is_explicit_and_legacy_default():
+        from systematic_investing.research.cli import build_parser
+        parser=build_parser()
+        for args in (("basic-backtest","--intent","x","--snapshot","x","--root","x"),("oos-freeze","--candidate-id","x","--root","x"),("oos-run","--freeze-id","x","--snapshot","x","--root","x")):
+&gt;           assert parser.parse_args(args).execution_eligibility_mode=="LEGACY"
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E           AttributeError: 'Namespace' object has no attribute 'execution_eligibility_mode'
+
+tests\research\test_historical_opening_wiring.py:84: AttributeError</failure></testcase></testsuite></testsuites>

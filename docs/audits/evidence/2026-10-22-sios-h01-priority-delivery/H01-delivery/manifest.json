@@ -1,0 +1,403 @@
+{
+  "schema_version": "sios-h01-research-v1",
+  "verdict": "H01_PARTIAL_DELIVERY_WITH_NAMED_GAPS",
+  "gate": "BLOCKED_WITH_NAMED_GAPS",
+  "securities": [
+    "513500",
+    "513030",
+    "513520"
+  ],
+  "observation_window": [
+    "2024-01-02",
+    "2025-09-30"
+  ],
+  "raw_rows": 1875,
+  "retrospective_observation_rows": 1875,
+  "qualified_pit_signal_rows": 0,
+  "files": {
+    "calendar.json": {
+      "sha256": "122198da898de832231bbc86d946844994472b6b06aa81bf4d86d9d8c041b5f8",
+      "bytes": 248129
+    },
+    "context.json": {
+      "sha256": "72ccb8ff048a6c93e0681ee769048b2d994c67236b06b8da18659bbe3cc242df",
+      "bytes": 6102
+    },
+    "contracts/consumer-provider.py": {
+      "sha256": "2947b1de34c3e7ad84598e9c4b0f242ecba8d36f6fc0a0c7a89544629c4692c8",
+      "bytes": 79381
+    },
+    "contracts/consumer-relative-momentum.py": {
+      "sha256": "6bec44559f0bcb01898cddd58466ec7525c391fc93639ed12dad915f9477ca99",
+      "bytes": 8448
+    },
+    "contracts/consumer-SOURCES.yaml": {
+      "sha256": "98a8948809d1c998d8f5f0a770933cca94334f939c3d84dea17d027ae7994a54",
+      "bytes": 8151
+    },
+    "contracts/h01-consumer-contract.md": {
+      "sha256": "c8834096f005c29e9d8733e74a391bca0adc91f823544068357052286d9ae57d",
+      "bytes": 27272
+    },
+    "contracts/owner-work-package.txt": {
+      "sha256": "9a2967a37351829a5f6fad98ffdd9c7d1453db860631e35cfa5b2fc0195a08c7",
+      "bytes": 10332
+    },
+    "coverage_and_unknowns.json": {
+      "sha256": "13655de605ed06d4693c5226ff26b516ba935a0264109ea51d227cd451e4e5f3",
+      "bytes": 42003
+    },
+    "extracted/040-513030-2025-official-annual.json": {
+      "sha256": "a2d0e2e3bb76ad7691898c50ea7f4c7cb00a3bfebe1c6e0df8ff389ac87f89a8",
+      "bytes": 182484
+    },
+    "extracted/041-513030-2024-official-annual.json": {
+      "sha256": "55ff2db11d60bb18a37f426bef9c895b1189bc6cdb74bd6e7f3a4587d3fec2d3",
+      "bytes": 138752
+    },
+    "extracted/042-513030-2023-official-annual.json": {
+      "sha256": "13edbb1a6d3c8bc593966981122087bca8c2212aff0737f37b96cd0d38933cd6",
+      "bytes": 137157
+    },
+    "extracted/058-513500-2025-official-annual.json": {
+      "sha256": "e7c8d2d105897b95e56af0ba1ee91d9f4ce216f619cbe5c3fc51848a914c694d",
+      "bytes": 214617
+    },
+    "extracted/059-513500-2024-official-annual.json": {
+      "sha256": "003dae8fc12b3e0869b65a8122d6534083ffe633665586500705886f000ebeef",
+      "bytes": 190467
+    },
+    "extracted/060-513500-2023-official-annual.json": {
+      "sha256": "11d2180ec600c6fa3a92c170082f464c17f0e9d0f5a6c3391afd75e1d96a6bdd",
+      "bytes": 170072
+    },
+    "extracted/061-513520-2023-official-annual.json": {
+      "sha256": "66d06fc2b39ef5d570947ec79ca964d175c9fc72b7937c59a8b28c40c6c0de30",
+      "bytes": 120128
+    },
+    "extracted/062-513520-2024-official-annual.json": {
+      "sha256": "87f9785c58de3d84065ccc6789d0d4b5dcde646395aeae200af883ad203de436",
+      "bytes": 141250
+    },
+    "extracted/063-513520-2025-official-annual.json": {
+      "sha256": "74860ffbb87552edc5cfce48cbf1b24c9d9f00a7447c9a545b69b807f1eeb1ac",
+      "bytes": 144734
+    },
+    "fund_actions.json": {
+      "sha256": "add81e33fb0ccdf9b3f7628d11ae64ef68ba6abd425224d6af8f459bdab8e170",
+      "bytes": 14246
+    },
+    "network_ledger.json": {
+      "sha256": "76a1782d0cc445f7dfa24a09001f0585a23787dab7138ba755a5f9a94db26dc9",
+      "bytes": 37331
+    },
+    "provenance.json": {
+      "sha256": "04758179810c924d3f289255b3d633f45d9b4aa2ba6eba177e44f5736d0a2573",
+      "bytes": 8666
+    },
+    "public_api_offline_replay.json": {
+      "sha256": "fd9c60eef2d6e955c3094d917fadc8cd7468ebbcc9d293fd1a8784a35ba49cf1",
+      "bytes": 3413
+    },
+    "raw_market_data.csv": {
+      "sha256": "4d3fe9147e889217371fc4270087109cdc7a311b9fef74cd1f97d0813c1aae67",
+      "bytes": 698122
+    },
+    "raw_source_manifest.json": {
+      "sha256": "1cca0fb5c71b0e559e547019a7f2c1049ab5d4730d61fde0ecf853aeba868e78",
+      "bytes": 523
+    },
+    "raw_sources/sh000001.day": {
+      "sha256": "7eeedb6c1691304f21636a88af84730107074b8072c5fb265b8f4098ea28da0c",
+      "bytes": 279392
+    },
+    "raw_sources/sh513030.day": {
+      "sha256": "90271330201f787c2400b88c0e0d635bb4902fcd8276cd8a360fb0e484a0b27e",
+      "bytes": 93696
+    },
+    "raw_sources/sh513500.day": {
+      "sha256": "0d5033b5ac2b2704e1e2488b75fcefcedda683af3d277ae1403849d10c5ef5b6",
+      "bytes": 98752
+    },
+    "raw_sources/sh513520.day": {
+      "sha256": "96a617c03c1e631a9b1ace2db2f2c99ed435d8d467f157b946454ba99f3049a3",
+      "bytes": 56352
+    },
+    "README.md": {
+      "sha256": "a65f2a93f8081fcb9d3cde0b243d9779982911350b68b1ddd0f3626c69c3b59a",
+      "bytes": 4720
+    },
+    "schema.json": {
+      "sha256": "85546a9641856a88172e4c7b23e7226600fb31df8ca6960595c7d1420c75fa8e",
+      "bytes": 2248
+    },
+    "sources/001-513500-fhsp.raw": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "sources/002-513500-fhsp.raw": {
+      "sha256": "6d6fe65f5fe4c3bc478011a6720ef052fd609f0a7786d2dbef81a24c9f29f0e8",
+      "bytes": 43879
+    },
+    "sources/003-513030-fhsp.raw": {
+      "sha256": "53d1e797d6df08ba4d1253f36fe49e9cd7f67e42084dff0a661e8dbbac4fb962",
+      "bytes": 43872
+    },
+    "sources/004-513520-fhsp.raw": {
+      "sha256": "110cd22d7fb33767a597368e291c8e0888473688b851cf0b7ac9c03df49110ea",
+      "bytes": 37154
+    },
+    "sources/005-513500-notices.raw": {
+      "sha256": "bacd82ff412bc8f43944691327000012ff265798ee0e658899569f9af6fa5b6f",
+      "bytes": 99
+    },
+    "sources/006-513030-notices.raw": {
+      "sha256": "bacd82ff412bc8f43944691327000012ff265798ee0e658899569f9af6fa5b6f",
+      "bytes": 99
+    },
+    "sources/007-513520-notices.raw": {
+      "sha256": "bacd82ff412bc8f43944691327000012ff265798ee0e658899569f9af6fa5b6f",
+      "bytes": 99
+    },
+    "sources/008-513500-reports.raw": {
+      "sha256": "1469488ce612d5d3c950b3f807fcd9e633a3de3e76180a96f077fb4453b42dfc",
+      "bytes": 41781
+    },
+    "sources/009-513030-reports.raw": {
+      "sha256": "ffbc130dc6cd18e06baa2931c86008b0b19dee7685395e38ea50faaa767bee6d",
+      "bytes": 41799
+    },
+    "sources/010-513520-reports.raw": {
+      "sha256": "f16afa3322d12a6f3e65ebd66b23566d266e8fc81f071867026beb72bff1e0a8",
+      "bytes": 35081
+    },
+    "sources/011-513500-notice-index.raw": {
+      "sha256": "b9c8fa1c7b866978579333afab09e3cd1e81c9c6cd5494c8234b669786240bd0",
+      "bytes": 89
+    },
+    "sources/012-eastmoney-f10-js.raw": {
+      "sha256": "250d07de358a7b0fc3aba358b0dab916f2ad13bc16ddc023f834fb3d66b6d737",
+      "bytes": 56037
+    },
+    "sources/013-513030-manager.raw": {
+      "sha256": "e54dce0d55cb2d2f9685e85f84833635b82cd54946c757b72d37f7a303227a64",
+      "bytes": 85053
+    },
+    "sources/014-513520-manager.raw": {
+      "sha256": "58afd2c4c62c374b32dac14f30aece99186c1f8374ec2de28ba4a0b8b2bf61b6",
+      "bytes": 50766
+    },
+    "sources/015-513500-manager.raw": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "sources/016-513500-manager.raw": {
+      "sha256": "d6c65ed1eb7103b9b2928e792e1b5de41eb2bdd267764d77e2942756fdedfeb4",
+      "bytes": 30827
+    },
+    "sources/017-513500-periodic-api.raw": {
+      "sha256": "751cb5c418be57f82b551482e23f7d52e1764aa69e35d61ae41c56453332ebee",
+      "bytes": 25557
+    },
+    "sources/018-513030-periodic-api.raw": {
+      "sha256": "0fa0bb1f5077adc3e0f995b27f538981348a2bfd5453200241a32188376239d2",
+      "bytes": 24940
+    },
+    "sources/019-513520-periodic-api.raw": {
+      "sha256": "a5a9597b0118a38049e8acb66e66649b6b8ef0e97c368277dda23f56eb5cb552",
+      "bytes": 13604
+    },
+    "sources/020-513500-ann-api.raw": {
+      "sha256": "b9c8fa1c7b866978579333afab09e3cd1e81c9c6cd5494c8234b669786240bd0",
+      "bytes": 89
+    },
+    "sources/021-huaan-funddetail-js.raw": {
+      "sha256": "565d36e40d9ed6a39f67ab0fc6a0e38695f12872256de4dcbc86ee1a05429e7b",
+      "bytes": 6041
+    },
+    "sources/022-513520-official-dividends.raw": {
+      "sha256": "80850ada693e8dd179d1e9c71fde3464de6b684c3a974855738970eddf2e7b2d",
+      "bytes": 49975
+    },
+    "sources/023-513520-official-notices.raw": {
+      "sha256": "7ad91208e5ad1511bd701047950373322ce1463eb997a34bea539ad02dbcf02d",
+      "bytes": 50000
+    },
+    "sources/024-513500-2024-search.raw": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "sources/025-513500-2024-search.raw": {
+      "sha256": "62f8fdc960d3571b6212a713cb76cae8a07203a6b2d7b291b9b765433f742d8a",
+      "bytes": 101998
+    },
+    "sources/026-513030-official-periodic.raw": {
+      "sha256": "63b0cc94484ed838b2be257e37d874d59e73dc95cb80b4334dd019f533550bf5",
+      "bytes": 3738
+    },
+    "sources/027-513500-2025-annual.raw": {
+      "sha256": "f448b4de8649a6e5e4166cda0db08e3a956e36428c7042796edd81082d591b50",
+      "bytes": 986
+    },
+    "sources/028-513500-2024-annual.raw": {
+      "sha256": "ab23e4f0829b6a0773b95cc984a322ebfe4545c9021219968c0bbb4cb7c42f49",
+      "bytes": 989
+    },
+    "sources/029-513500-2023-annual.raw": {
+      "sha256": "51d1ac51ffdacb480b76be548db2399301fbe5694c96e37263efcaf0477b16de",
+      "bytes": 987
+    },
+    "sources/030-513030-2025-annual.raw": {
+      "sha256": "89b6870acce1c578ba2ace5e9475dccb58e1ce6fb2b0ba0abb1f8e8e7bfa9f92",
+      "bytes": 989
+    },
+    "sources/031-513030-2024-annual.raw": {
+      "sha256": "c2a925ae63626fd2d6d1c2d02eb69d8bf849cb09264e2f35c299cbdbf94cf463",
+      "bytes": 989
+    },
+    "sources/032-513030-2023-annual.raw": {
+      "sha256": "f809d2c3dee585740a6cc6f0e419287d15e3822ef8b1aa33cd603776df305c66",
+      "bytes": 989
+    },
+    "sources/033-513520-2025-annual.raw": {
+      "sha256": "63ba1ffb0dba8ecb302aff13f76eda158ddfd8b318c54ccc5c71b14f7e389ece",
+      "bytes": 988
+    },
+    "sources/034-513520-2024-annual.raw": {
+      "sha256": "65714a2b678490c2c3a5fe876146c8af362cc8a2545be6b0af6280924ae62a97",
+      "bytes": 987
+    },
+    "sources/035-513520-2023-annual.raw": {
+      "sha256": "0b48838e767b3cfff8ece8ee0e10100ff9e374591acffc49e25ea0aa0eefd278",
+      "bytes": 989
+    },
+    "sources/036-513030-official-periodic-p2.raw": {
+      "sha256": "e1888339e278b360fc16c2dcaa974c9b5c14d788ea6ac4a1e23bbd351c1ae3cc",
+      "bytes": 3732
+    },
+    "sources/037-513520-official-dividend-table.raw": {
+      "sha256": "03efa06c88fac18655be1cc460db9186e8e6100b1bc88b9e39e358ce441442d9",
+      "bytes": 4879
+    },
+    "sources/038-513520-official-notice-table.raw": {
+      "sha256": "a62fc1ced3b05643102af2dd1fe116c6010276bf6345995a899aee81687dcf98",
+      "bytes": 23415
+    },
+    "sources/039-513500-official-fund.raw": {
+      "sha256": "3106eea6f0e6bc260a4c4c016937023b9a75e0e8bd18bb1c5d48025a2b2f3a38",
+      "bytes": 33966
+    },
+    "sources/040-513030-2025-official-annual.raw": {
+      "sha256": "e240351af7101f4b60f0d1befbdd56bdd97ce0920b95769967bd9b3ea6f388ec",
+      "bytes": 979268
+    },
+    "sources/041-513030-2024-official-annual.raw": {
+      "sha256": "0fd3076589bb438ffe4990f4e499ea35431e6df11f139a4801fdffb5f4551621",
+      "bytes": 857968
+    },
+    "sources/042-513030-2023-official-annual.raw": {
+      "sha256": "f1f9fb3db4b688cef1859b135eb4b331e3b46829557f0cdf86386728fd0eb5e9",
+      "bytes": 701273
+    },
+    "sources/043-bosera-assets-js.raw": {
+      "sha256": "1d1380c7e4a8ee9fd8596faa630c22a5193a63730458e42bb5df9420770eeb00",
+      "bytes": 862
+    },
+    "sources/044-513500-official-notice-list.raw": {
+      "sha256": "fde4424953d47a4cc775ab5db002150505cc9d4095208a3d1a8e87ec376ef10e",
+      "bytes": 12141
+    },
+    "sources/045-513520-2023-official-report-list.raw": {
+      "sha256": "d7d63c7637c7bf3762d54da8aba1a8598bd2f127ac1590f505544f84a803729d",
+      "bytes": 7971
+    },
+    "sources/046-513520-2024-official-report-list.raw": {
+      "sha256": "5447a78b43f989acfefd2abff07bd106f709822572a78fa333afcc8bdbb0a652",
+      "bytes": 7981
+    },
+    "sources/047-513520-2025-official-report-list.raw": {
+      "sha256": "5efdf24656146d4fcadc7fbada2f29769dcd4d03a273b71b2c440400f007d057",
+      "bytes": 7971
+    },
+    "sources/048-bosera-rev-manifest.raw": {
+      "sha256": "db814d0d128e73e05d8b6a3a4abd800b07f38db25b9ad00a3510f520d5df2ae1",
+      "bytes": 4248
+    },
+    "sources/049-513500-official-periodic-query.raw": {
+      "sha256": "a97537ea66513c0e07691c7dc54210dd927186837165f22cc2a2f99d97fbddc8",
+      "bytes": 22743
+    },
+    "sources/050-513500-2025-official-article.raw": {
+      "sha256": "6ac96556a3bb61447bcdfdc63b779e862a2ef36c87bdd022b18e27e8478db82c",
+      "bytes": 11983
+    },
+    "sources/051-513500-2024-official-article.raw": {
+      "sha256": "53f874d91da6df5009d76935bc6ac6636f4fc34f5e7892cbbda33dcb0a5e53ff",
+      "bytes": 11983
+    },
+    "sources/052-513500-2023-official-article.raw": {
+      "sha256": "4501835da0d8d1c0ee29d73f36c1e011b04119d84312c99d1f4933a32dc1fd9b",
+      "bytes": 11983
+    },
+    "sources/053-513520-2023-official-article.raw": {
+      "sha256": "6581d1355d225e1205dff746d8a81c3ddb2494020978cc2aa5153224a5890b95",
+      "bytes": 22229
+    },
+    "sources/054-513520-2024-official-article.raw": {
+      "sha256": "7b05905e033fd8dd4415c4cdfbcfb86c1b958178403effea229da941083e62cd",
+      "bytes": 22534
+    },
+    "sources/055-513520-2025-official-article.raw": {
+      "sha256": "1b3ea118547aec4ba1c8fa96e910c4aeb37302371a189ad92b1c5786e6d01ec0",
+      "bytes": 22500
+    },
+    "sources/056-513030-20250123-search.raw": {
+      "sha256": "5e55f29b8ab9facb8e119db5419de59a860dceccdb9b53a716b347cd35e48c44",
+      "bytes": 102548
+    },
+    "sources/057-bosera-funddetail-js.raw": {
+      "sha256": "e979f57b5c0783347c3c7e138b4eccd4f7036853b32079cbbcc8e2e0b1822617",
+      "bytes": 8473
+    },
+    "sources/058-513500-2025-official-annual.raw": {
+      "sha256": "c6763aabeaa4c23d7947ea6deab61a9995b6f64531e10e8325c1a6ae1cd0ba5b",
+      "bytes": 482404
+    },
+    "sources/059-513500-2024-official-annual.raw": {
+      "sha256": "c7a8baa8d0578027abb4515383a2cb5987fbaf8de3abd544a7b8e0a632af89d1",
+      "bytes": 394291
+    },
+    "sources/060-513500-2023-official-annual.raw": {
+      "sha256": "c512c1d11467dc5f01b559c2ea08487499f13b87aca060e903105ab6eb83ac72",
+      "bytes": 376692
+    },
+    "sources/061-513520-2023-official-annual.raw": {
+      "sha256": "e5b25a2a2acd4986591755f2c45d1c5e7ffe82976fdf963d95f52a4cb06b683c",
+      "bytes": 1258169
+    },
+    "sources/062-513520-2024-official-annual.raw": {
+      "sha256": "02b2ebec08617d0da8665f5fc7bcfd2d448dfb8def9396cd72174d20f6a6d749",
+      "bytes": 1773371
+    },
+    "sources/063-513520-2025-official-annual.raw": {
+      "sha256": "becf39103858140d59e4e083b44a17f13ac16eb347afaa4c48cd09030817b379",
+      "bytes": 1796627
+    },
+    "tools/build_delivery.py": {
+      "sha256": "b9e0ae25467dac7349e71472101b414837e71f93c8e13d008368f0aa6db2de0c",
+      "bytes": 19460
+    },
+    "tools/extract_reports.py": {
+      "sha256": "e7df09b6164611f96647c796a8321ac016c1496490a8be9abc1e969cefb34bd4",
+      "bytes": 3292
+    },
+    "tools/receive_delivery.py": {
+      "sha256": "f2cf5e4cd76fb7c385154512f3014a8a5a642be44bd4ed6080a754b2e7889baf",
+      "bytes": 8994
+    },
+    "total_return_observations.jsonl": {
+      "sha256": "1cc1109551ede4f589ebb3a863e09274ed3146775e933eb4acdb58dc55a27020",
+      "bytes": 1457983
+    }
+  }
+}

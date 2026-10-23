@@ -1,0 +1,54 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "systematic-investing-os"
+version = "0.1.0"
+description = "Provider-neutral daily-bar systematic investing foundation (M0)."
+requires-python = ">=3.12"
+# Smallest approved dependency set: runtime dependencies stay empty until the
+# task that first needs one adds it. The only planned domain runtime dependency
+# is chstockdata (see third_party/SOURCES.yaml); it is imported solely inside
+# adapter construction and must never become a core import.
+dependencies = []
+
+[project.optional-dependencies]
+# Lock strategy: every tool/dependency is pinned with an exact == version.
+# Upgrades are deliberate, reviewed changes that update the pin in the same
+# commit as the code that requires it.
+dev = [
+    "mypy==2.3.1",
+    "pytest==9.1.1",
+    "ruff==0.16.6",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+minversion = "9.1"
+testpaths = ["tests"]
+pythonpath = ["src"]
+
+[tool.ruff]
+target-version = "py312"
+line-length = 100
+src = ["src", "tests"]
+
+[tool.ruff.lint]
+select = [
+    "E",   # pycodestyle errors
+    "W",   # pycodestyle warnings
+    "F",   # pyflakes
+    "I",   # isort-compatible import ordering
+    "UP",  # pyupgrade
+    "B",   # flake8-bugbear
+    "SIM", # flake8-simplify
+    "RUF", # ruff-specific checks
+]
+
+[tool.mypy]
+python_version = "3.12"
+strict = true
+mypy_path = "src"

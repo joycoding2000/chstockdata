@@ -1,0 +1,44 @@
+.F.......FFFF                                                            [100%]
+================================== FAILURES ===================================
+__________ test_real_raw_prices_match_exact_decimal_contract[510300] __________
+tests\test_vipdoc_price_scale.py:60: in test_real_raw_prices_match_exact_decimal_contract
+    assert actual == expected
+E   AssertionError: assert [Decimal('3.9...imal('3.922')] == [Decimal('3.9...imal('3.922')]
+E     
+E     At index 0 diff: Decimal('3.9370000000000003') != Decimal('3.937')
+E     Use -v to get more diff
+_ test_qualified_ohlc_and_pre_close_have_no_reciprocal_tail[sh500001.day-1000] _
+tests\test_vipdoc_price_scale.py:78: in test_qualified_ohlc_and_pre_close_have_no_reciprocal_tail
+    assert [Decimal(str(row[column])) for column in [*OHLC, "pre_close"]] == [expected] * 5
+E   AssertionError: assert [Decimal('3.9...00000000003')] == [Decimal('3.9...imal('3.937')]
+E     
+E     At index 0 diff: Decimal('3.9370000000000003') != Decimal('3.937')
+E     Use -v to get more diff
+_ test_qualified_ohlc_and_pre_close_have_no_reciprocal_tail[sh510300.day-1000] _
+tests\test_vipdoc_price_scale.py:78: in test_qualified_ohlc_and_pre_close_have_no_reciprocal_tail
+    assert [Decimal(str(row[column])) for column in [*OHLC, "pre_close"]] == [expected] * 5
+E   AssertionError: assert [Decimal('3.9...00000000003')] == [Decimal('3.9...imal('3.937')]
+E     
+E     At index 0 diff: Decimal('3.9370000000000003') != Decimal('3.937')
+E     Use -v to get more diff
+_ test_qualified_ohlc_and_pre_close_have_no_reciprocal_tail[sz159915.day-1000] _
+tests\test_vipdoc_price_scale.py:78: in test_qualified_ohlc_and_pre_close_have_no_reciprocal_tail
+    assert [Decimal(str(row[column])) for column in [*OHLC, "pre_close"]] == [expected] * 5
+E   AssertionError: assert [Decimal('3.9...00000000003')] == [Decimal('3.9...imal('3.937')]
+E     
+E     At index 0 diff: Decimal('3.9370000000000003') != Decimal('3.937')
+E     Use -v to get more diff
+_ test_qualified_ohlc_and_pre_close_have_no_reciprocal_tail[sz160001.day-1000] _
+tests\test_vipdoc_price_scale.py:78: in test_qualified_ohlc_and_pre_close_have_no_reciprocal_tail
+    assert [Decimal(str(row[column])) for column in [*OHLC, "pre_close"]] == [expected] * 5
+E   AssertionError: assert [Decimal('3.9...00000000003')] == [Decimal('3.9...imal('3.937')]
+E     
+E     At index 0 diff: Decimal('3.9370000000000003') != Decimal('3.937')
+E     Use -v to get more diff
+=========================== short test summary info ===========================
+FAILED tests/test_vipdoc_price_scale.py::test_real_raw_prices_match_exact_decimal_contract[510300]
+FAILED tests/test_vipdoc_price_scale.py::test_qualified_ohlc_and_pre_close_have_no_reciprocal_tail[sh500001.day-1000]
+FAILED tests/test_vipdoc_price_scale.py::test_qualified_ohlc_and_pre_close_have_no_reciprocal_tail[sh510300.day-1000]
+FAILED tests/test_vipdoc_price_scale.py::test_qualified_ohlc_and_pre_close_have_no_reciprocal_tail[sz159915.day-1000]
+FAILED tests/test_vipdoc_price_scale.py::test_qualified_ohlc_and_pre_close_have_no_reciprocal_tail[sz160001.day-1000]
+5 failed, 8 passed, 46 deselected in 4.20s

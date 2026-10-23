@@ -1,0 +1,30 @@
+{
+  "release_url": "https://github.com/joycoding2000/chstockdata/releases/tag/v0.4.2",
+  "release_version": "0.4.2",
+  "release_commit": "17af23fe8183f740150dc01dd877473afe3911b7",
+  "github_release": "PASS",
+  "github_release_assets": "PASS",
+  "assets": [
+    {
+      "name": "chstockdata-0.4.2-py3-none-any.whl",
+      "sha256": "a7f2f04f4ff46be4c428e2f0224ab8ea11efa357c66e500cbba7ff9599cea7a2",
+      "bytes": 290582,
+      "http_status": 200,
+      "url": "https://github.com/joycoding2000/chstockdata/releases/download/v0.4.2/chstockdata-0.4.2-py3-none-any.whl"
+    },
+    {
+      "name": "chstockdata-0.4.2.tar.gz",
+      "sha256": "302632c96dc1f17b38b8fa2dd872e3d7b034e21c89ccabee75b46fbf57b0ce56",
+      "bytes": 623625,
+      "http_status": 200,
+      "url": "https://github.com/joycoding2000/chstockdata/releases/download/v0.4.2/chstockdata-0.4.2.tar.gz"
+    }
+  ],
+  "pypi_version": "0.4.2",
+  "post_release_install": "PASS",
+  "tag_object_sha": "fd79e4a22f2e6aff2d7fc831721c09761063ba87",
+  "tag_target_sha": "17af23fe8183f740150dc01dd877473afe3911b7",
+  "remote_main_sha": "17af23fe8183f740150dc01dd877473afe3911b7",
+  "sios_main_sha": "d77843cabdfd9246856dc33aa8db19ae0f4d8c38",
+  "checked_at": "2026-10-14T04:10:46.493200+00:00"
+}

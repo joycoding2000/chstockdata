@@ -1,0 +1,69 @@
+{
+    "id":  "1217078313",
+    "text":  "丨 13791 ， 2 讵 7 硒",
+    "pit_qualified":  false,
+    "engine":  "Windows.Media.Ocr existing zh-Hans-CN",
+    "maximum_image_dimension":  10000,
+    "machine_seconds":  0.031218799999999998,
+    "pixel_height":  124,
+    "image_sha256":  "3edfa253b21ebf538e4050d76583b01ecd6fab34919a6808319a7170fa38e956",
+    "pixel_width":  430,
+    "source_sha256":  "20fbe4384ea3e87419d5af2e73b127fc93b22c1435904a2819c1a135cd1c9bc2",
+    "physical_page":  10,
+    "lines":  [
+                  {
+                      "text":  "丨 13791 ， 2 讵 7 硒",
+                      "words":  [
+                                    {
+                                        "y":  35,
+                                        "height":  64,
+                                        "width":  5,
+                                        "text":  "丨",
+                                        "x":  29
+                                    },
+                                    {
+                                        "y":  43,
+                                        "height":  37,
+                                        "width":  95,
+                                        "text":  "13791",
+                                        "x":  114
+                                    },
+                                    {
+                                        "y":  68,
+                                        "height":  11,
+                                        "width":  8,
+                                        "text":  "，",
+                                        "x":  214
+                                    },
+                                    {
+                                        "y":  43,
+                                        "height":  32,
+                                        "width":  18,
+                                        "text":  "2",
+                                        "x":  222
+                                    },
+                                    {
+                                        "y":  42,
+                                        "height":  32,
+                                        "width":  38,
+                                        "text":  "讵",
+                                        "x":  240
+                                    },
+                                    {
+                                        "y":  41,
+                                        "height":  30,
+                                        "width":  17,
+                                        "text":  "7",
+                                        "x":  323
+                                    },
+                                    {
+                                        "y":  39,
+                                        "height":  33,
+                                        "width":  43,
+                                        "text":  "硒",
+                                        "x":  344
+                                    }
+                                ]
+                  }
+              ]
+}

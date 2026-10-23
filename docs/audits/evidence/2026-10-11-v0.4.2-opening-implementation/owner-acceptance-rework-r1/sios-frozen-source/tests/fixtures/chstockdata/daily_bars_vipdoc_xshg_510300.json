@@ -1,0 +1,35 @@
+{
+  "capability": "daily_bars",
+  "upstream_source": "vipdoc local (TDX official hsjday package)",
+  "observed_at": null,
+  "warnings": [],
+  "payload": {
+    "columns": ["Date", "Open", "High", "Low", "Close", "pre_close", "Volume", "Amount"],
+    "rows": [
+      {
+        "Date": "2026-09-10",
+        "Open": 4.02,
+        "High": 4.06,
+        "Low": 4.0,
+        "Close": 4.04,
+        "pre_close": 4.02,
+        "Volume": 90000,
+        "Amount": 3636000.0
+      },
+      {
+        "Date": "2026-09-11",
+        "Open": 4.04,
+        "High": 4.1,
+        "Low": 3.95,
+        "Close": 4.05,
+        "pre_close": 4.04,
+        "Volume": 100000,
+        "Amount": 4050000.0
+      }
+    ],
+    "volume_unit": "SHARE",
+    "amount_unit": "CNY",
+    "covered_start": "2026-09-10",
+    "covered_end": "2026-09-11"
+  }
+}

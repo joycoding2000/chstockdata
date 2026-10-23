@@ -1,0 +1,16 @@
+Ruff: ruff 0.16.10 (supported range >=0.16.6,<0.17)
+Structured gate: PASS (24 paths)
+Full Ruff findings (visible legacy debt included): 299
+Added-line gate: FAIL (12 findings since 143eb5a)
+src/chstockdata/opening_evidence.py:7 I001 Import block is un-sorted or un-formatted
+src/chstockdata/opening_evidence.py:19 UP035 Import from `collections.abc` instead: `Callable`, `Sequence`
+src/chstockdata/opening_evidence.py:110 BLE001 Do not catch blind exception: `Exception`
+src/chstockdata/opening_evidence.py:123 TRY004 Prefer `TypeError` exception for invalid type
+src/chstockdata/opening_evidence.py:130 FURB157 Verbose expression in `Decimal` constructor
+src/chstockdata/opening_evidence.py:216 RUF007 Prefer `itertools.pairwise()` over `zip()` when iterating over successive pairs
+src/chstockdata/opening_evidence.py:244 S110 `try`-`except`-`pass` detected, consider logging the exception
+src/chstockdata/opening_evidence.py:244 BLE001 Do not catch blind exception: `Exception`
+src/chstockdata/opening_evidence.py:330 TRY004 Prefer `TypeError` exception for invalid type
+src/chstockdata/opening_evidence.py:356 SIM102 Use a single `if` statement instead of nested `if` statements
+src/chstockdata/opening_evidence.py:507 RUF022 `__all__` is not sorted
+tests/test_historical_opening_evidence.py:2 I001 Import block is un-sorted or un-formatted

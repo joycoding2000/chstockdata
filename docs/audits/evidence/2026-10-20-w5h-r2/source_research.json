@@ -1,0 +1,191 @@
+{
+  "recorded_at": "2026-10-20T09:32:18.274159+08:00",
+  "skill": "firecrawl-deep-research",
+  "source_docs": [
+    {
+      "source": "TDX",
+      "url": "https://www.tdx.com.cn/article/stockfin.html",
+      "facts": [
+        "Professional financial use applies to enhanced broker editions and paid personal editions.",
+        "Official delivery is unpacking into vipdoc/cw; this describes a current package, not historical-vintage retention."
+      ],
+      "evidence": "tdx_official_stockfin.raw"
+    },
+    {
+      "source": "TDX",
+      "url": "https://help.tdx.com.cn/quant/docs/markdown/TdxQuant.md/mindoc-1h10m001ic888.html",
+      "facts": [
+        "get_financial_data separates announce_time and tag_time. FN232 is parent profit, FN234 operating cash flow, FN271 parent equity, FN314 announcement date.",
+        "FN314 has YYMMDD documentation while announce_time uses YYYYMMDD; units differ across fields, including yuan and ten-thousand-yuan fields.",
+        "No original/correction case or first-known archive was validated."
+      ]
+    },
+    {
+      "source": "TDX",
+      "url": "https://help.tdx.com.cn/quant/docs/markdown/TdxQuant.md/mindoc-1h2pci5gh6h7k.html",
+      "facts": [
+        "get_gpjy_value_by_date needs the stock-data package.",
+        "Specific required PE method/field and historical vintage were not verified."
+      ]
+    },
+    {
+      "source": "BaoStock",
+      "url": "https://github.com/zxygithub/baostock/blob/master/docs/pythonAPI.md",
+      "facts": [
+        "Daily peTTM/pbMRQ/tradestatus/isST and quarterly functions are documented.",
+        "Company publication pubDate is different from statDate; no target-vintage records obtained."
+      ]
+    },
+    {
+      "source": "BaoStock",
+      "url": "https://www.baostock.com/mainContent?file=seasonProfit.md",
+      "facts": [
+        "Profit API documents netProfit, ROE average, pubDate and statDate, historical range from 2007."
+      ],
+      "evidence": "baostock_doc_seasonProfit.raw"
+    },
+    {
+      "source": "BaoStock",
+      "url": "https://www.baostock.com/mainContent?file=seasonCashFlow.md",
+      "facts": [
+        "Cash-flow API documents ratios CFOToOR/CFOToNP/CFOToGr, not a demonstrated raw OCF export."
+      ],
+      "evidence": "baostock_doc_seasonCashFlow.raw"
+    },
+    {
+      "source": "BaoStock",
+      "url": "https://www.baostock.com/mainContent?file=seasonBalance.md",
+      "facts": [
+        "Balance API documents solvency ratios, not a demonstrated raw parent-equity export."
+      ],
+      "evidence": "baostock_doc_seasonBalance.raw"
+    },
+    {
+      "source": "BaoStock",
+      "url": "https://www.baostock.com/mainContent?file=modifyRecord.md",
+      "facts": [
+        "A 2019-11-23 adjustment corrected the scaling of financial ratios for 2019 Q2 and Q3.",
+        "An adjustment notice is not an original/revised per-company archive."
+      ],
+      "evidence": "baostock_doc_modifyRecord.raw"
+    },
+    {
+      "source": "AKShare_THS",
+      "url": "https://github.com/akfamily/akshare/blob/main/akshare/stock_fundamental/stock_finance_ths.py",
+      "facts": [
+        "New THS functions call basic.10jqka.com.cn/basicapi/finance/index/v1/app_data/.",
+        "Fixed page 1,size 50,period 0; no asof or version parameter."
+      ]
+    },
+    {
+      "source": "AKShare_Baidu",
+      "url": "https://github.com/akfamily/akshare/blob/main/akshare/stock_feature/stock_zh_valuation_baidu.py",
+      "facts": [
+        "The installed SDK calls gushitong.baidu.com/opendata; actual 301 canonical target is finance.baidu.com/opendata.",
+        "Source marker AE does not establish the ultimate supplier."
+      ]
+    },
+    {
+      "source": "AKShare_license",
+      "url": "https://github.com/akfamily/akshare/blob/main/README.md#statement",
+      "facts": [
+        "Software license does not confer THS/Baidu/CNInfo commercial data redistribution permission."
+      ]
+    },
+    {
+      "source": "CNInfo_optional",
+      "url": "https://github.com/akfamily/akshare/blob/main/akshare/stock/stock_share_changes_cninfo.py",
+      "facts": [
+        "Share changes are a possible cross-check, but wrapper needs JS signing and removes latest-record metadata.",
+        "No request made: no new dependency or signing path was needed for the fixed denominator test."
+      ]
+    },
+    {
+      "source": "JQData",
+      "url": "https://github.com/JoinQuant/jqdatasdk/blob/master/jqdatasdk/api.py",
+      "facts": [
+        "get_valuation returns code/day, pe_ratio is TTM, capitalization in ten-thousand shares and market cap in hundred-million yuan.",
+        "get_history_fundamentals watch_date and stat_date are mutually exclusive; both functions require authenticated use.",
+        "Actual free entitlement and fixed original/correction case remain unverified."
+      ]
+    },
+    {
+      "source": "JQData_current_trial",
+      "url": "https://www.joinquant.com/help/api/doc?name=logon&id=9830",
+      "facts": [
+        "Research-agent direct official-page access was region blocked.",
+        "Do not reuse historic one-year/million-row free rules as current permission."
+      ]
+    },
+    {
+      "source": "QMT",
+      "url": "https://dict.thinktrader.net/nativeApi/xtdata.html",
+      "facts": [
+        "get_financial_data has Balance/Income/CashFlow/Capital and report_time/announce_time filters.",
+        "download_financial_data2 uses m_anntime date filtering; no fixed-case version retention or first-known archive verified."
+      ]
+    },
+    {
+      "source": "QMT_access",
+      "url": "https://knowledge.thinktrader.net/docs/freshman/rookie.html",
+      "facts": [
+        "Existing broker-provided terminal/account permissions are prerequisites; no entitlement was established in this audit."
+      ]
+    },
+    {
+      "source": "RQData_reference_only",
+      "url": "https://www.ricequant.com/doc/rqdata/python/stock-mod",
+      "facts": [
+        "get_pit_financials_ex(date=T,statements=all) documents multiple records per period.",
+        "if_adjusted indicates a comparative-period record, not a proven financial-error-correction flag.",
+        "No authorized fixed-case sample obtained; not classified as a free source."
+      ]
+    },
+    {
+      "source": "RQData_access",
+      "url": "https://www.ricequant.com/doc/rqdata/python/manual.html",
+      "facts": [
+        "License/quota queries exist; trials and full authorizations differ.",
+        "No current fixed price, free entitlement or actual licensed data access was established."
+      ]
+    }
+  ],
+  "web_tool_calls": {
+    "root": 8,
+    "akshare_lineage_researcher": 6,
+    "other_entitlements_researcher": 6,
+    "total": 20,
+    "underlying_http_count": "UNOBSERVABLE",
+    "researchers_market_data_requests": 0,
+    "researchers_writes": 0
+  },
+  "web_call_scope_root": [
+    "TDX official two pages and BaoStock reference document",
+    "Financial date/PE field searches within official docs",
+    "TDX/BaoStock targeted search and stock-data document",
+    "TDX field documentation reading (one unresolved URL)",
+    "Fixed 2019 Q3 original to fill required 2020 TTM base, plus BaoStock access-doc locator",
+    "JQData/QMT/RQData official docs",
+    "Targeted function/date/version finds",
+    "QMT targeted finds and JQData/RQData official access documentation"
+  ],
+  "baostock_access_decision": {
+    "installed_sdk": "0.9.3",
+    "public_host": "public-api.baostock.com",
+    "port": 10030,
+    "reused_failed_logins": 2,
+    "previous_timeouts_seconds": [
+      8,
+      15
+    ],
+    "previous_error_code": "10002007",
+    "new_material_connection_condition_found": false,
+    "new_tcp_connections": 0,
+    "new_login_messages": 0,
+    "outcome": "ACCESS_BLOCKED / financial-service correctness untested"
+  },
+  "licensing": "No account, token, credential or private config was read. No purchase, signup or login was attempted. Data commercial and redistribution permission remains UNKNOWN.",
+  "source_lineage": "Different direct THS/Baidu endpoints are verified. Same-value observations do not prove independent ultimate suppliers; AE is uninterpreted. New wrappers over prior Sina/EM are not counted as new independent data sources.",
+  "old_evidence_reuse": "Prior 30 manifest artifacts verified; prior 729 valuation rows and original/correction disclosures reused without refetch.",
+  "raw_probe_policy": "22/28 direct requests. Serial and 3 seconds after same-source completion. Automatic retries 0. Redirects recorded and public canonical target manually selected only. TDX script/non-ZIP caused data-source stop. No full-market table or historical-package sweep."
+}

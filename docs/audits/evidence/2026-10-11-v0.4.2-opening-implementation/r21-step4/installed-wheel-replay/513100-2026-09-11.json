@@ -1,0 +1,373 @@
+{
+  "data": {
+    "instrument": "513100",
+    "market": "SSE",
+    "session_date": "2026-09-11",
+    "purpose": "historical_opening_execution_constraint",
+    "schema_version": "historical-opening-evidence/1",
+    "policy_version": "R2.1",
+    "opening_status": "BLOCKED_CONFIRMED",
+    "reason": "certified_official_block_at_target",
+    "source_conflict": false,
+    "official_block_at_target": true,
+    "information_available_at": null,
+    "information_basis": "UNKNOWN",
+    "time_granularity": "minute",
+    "official_events": [
+      {
+        "instrument": "513100",
+        "market": "SSE",
+        "effective_start": "2026-09-11T09:15:00+08:00",
+        "effective_end": "2026-09-11T10:30:00+08:00",
+        "source_url": "https://query.sse.com.cn/sseQuery/commonSoaQuery.do",
+        "raw_sha256": "b0c084336ced5abfd30e2d1ac3b0e2d46c0b35758934e75651f9ae6ad216fd02",
+        "certification_basis": "SSE actual source dateSource=2, startStopType=LSTP, stopTime=915; authenticated front-end maps to 09:15-10:30",
+        "retrieved_at": "2026-10-11T07:32:46.083821+00:00",
+        "source_kind": "exchange_official_history",
+        "secondary_market": true,
+        "offline_cache": true,
+        "raw_fields": {
+          "endStopType": "LSTP",
+          "startStopReason": "根据基金管理人申请",
+          "endStopDate": "20260911",
+          "endType": "",
+          "secCode": "513100",
+          "expandAbbr": "纳指ETF国泰",
+          "startType": "null",
+          "startStopDate": "20260911",
+          "endStopReason": "根据基金管理人申请",
+          "startStopType": "LSTP",
+          "dateSource": "2",
+          "secAbbr": "纳指ETF",
+          "stopTime": "915",
+          "cache_imported_at": "2026-10-11T07:35:19.626967+00:00"
+        },
+        "information_available_at": null,
+        "information_basis": "UNKNOWN"
+      },
+      {
+        "instrument": "513100",
+        "market": "SSE",
+        "effective_start": "2026-09-11T09:15:00+08:00",
+        "effective_end": "2026-09-11T10:30:00+08:00",
+        "source_url": "https://query.sse.com.cn/sseQuery/commonSoaQuery.do",
+        "raw_sha256": "b0c084336ced5abfd30e2d1ac3b0e2d46c0b35758934e75651f9ae6ad216fd02",
+        "certification_basis": "SSE front-end dateSource=2/LSTP/915 = 09:15-10:30",
+        "retrieved_at": "2026-10-12T13:42:24.814244+00:00",
+        "source_kind": "official",
+        "secondary_market": true,
+        "offline_cache": false,
+        "raw_fields": {
+          "endStopType": "LSTP",
+          "startStopReason": "根据基金管理人申请",
+          "endStopDate": "20260911",
+          "endType": "",
+          "secCode": "513100",
+          "expandAbbr": "纳指ETF国泰",
+          "startType": "null",
+          "startStopDate": "20260911",
+          "endStopReason": "根据基金管理人申请",
+          "startStopType": "LSTP",
+          "dateSource": "2",
+          "secAbbr": "纳指ETF",
+          "stopTime": "915"
+        },
+        "information_available_at": null,
+        "information_basis": "UNKNOWN"
+      }
+    ],
+    "limitations": [
+      "[09:30,09:31) activity does not prove strict 09:30 order fill, full-day normality, or preopen PIT.",
+      "TDX prices are evidence crosschecks only; volumes are not fill quotas.",
+      "Current bounded official query does not claim all historical events or revisions are complete."
+    ],
+    "target_execution_at": "2026-09-11T09:30:00+08:00",
+    "execution_effect_window": {
+      "start": "2026-09-11T09:30:00+08:00",
+      "end": "2026-09-11T09:31:00+08:00"
+    },
+    "tdx_activity": {
+      "instrument": "513100",
+      "session_date": "2026-09-11",
+      "source": "mootdx/tdxpy",
+      "server": {
+        "host": "110.41.147.114",
+        "port": 7709
+      },
+      "timeout_seconds": 4,
+      "auto_retry": false,
+      "heartbeat": false,
+      "server_discovery": false,
+      "command": "0x0fb5",
+      "crosscheck_command": "0x0fb4",
+      "time_granularity": "minute",
+      "price_unit": "CNY/security",
+      "volume_unit": "TDX lots (not an executable quota)",
+      "observations": [
+        {
+          "request": {
+            "operation": "connect",
+            "server": [
+              "110.41.147.114",
+              7709
+            ]
+          },
+          "status": "success",
+          "retrieved_at": "2026-10-12T13:42:24.747395+00:00",
+          "parsed_response_sha256": "483b7e2c82324e79dc30a1412c8c96a80172f32df2963889a1a08b80b9e85e76",
+          "error_type": null
+        },
+        {
+          "request": {
+            "command": "0x0fb4",
+            "market": 1,
+            "code": "513100",
+            "date": 20260911
+          },
+          "status": "success",
+          "retrieved_at": "2026-10-12T13:42:24.755579+00:00",
+          "parsed_response_sha256": "c4d23ad340106442e6726122813e3da14fc3ff84906e2e8d58aab33045df5c0e",
+          "error_type": null
+        },
+        {
+          "request": {
+            "command": "0x0fb5",
+            "market": 1,
+            "code": "513100",
+            "date": 20260911,
+            "start": 0,
+            "count": 800
+          },
+          "status": "success",
+          "retrieved_at": "2026-10-12T13:42:24.765095+00:00",
+          "parsed_response_sha256": "9ce8b0fb146872fa40248db574e459c2913cb9ed601de4c043cf5967402642d3",
+          "error_type": null
+        },
+        {
+          "request": {
+            "command": "0x0fb5",
+            "market": 1,
+            "code": "513100",
+            "date": 20260911,
+            "start": 800,
+            "count": 800
+          },
+          "status": "success",
+          "retrieved_at": "2026-10-12T13:42:24.778901+00:00",
+          "parsed_response_sha256": "5dff9fbf7755eda938f88601c0fa1024b1090a6e05684ca96bffa3fe68e220ca",
+          "error_type": null
+        },
+        {
+          "request": {
+            "command": "0x0fb5",
+            "market": 1,
+            "code": "513100",
+            "date": 20260911,
+            "start": 1600,
+            "count": 800
+          },
+          "status": "success",
+          "retrieved_at": "2026-10-12T13:42:24.793076+00:00",
+          "parsed_response_sha256": "ec827912d06e90a43452fae90d595d1a6456856499748da8128fb8a75f1e6fce",
+          "error_type": null
+        },
+        {
+          "request": {
+            "command": "0x0fb5",
+            "market": 1,
+            "code": "513100",
+            "date": 20260911,
+            "start": 2400,
+            "count": 800
+          },
+          "status": "success",
+          "retrieved_at": "2026-10-12T13:42:24.808244+00:00",
+          "parsed_response_sha256": "b86b80272d9913a61d0795bee9ac13b540c66527ea6b2455274fe156158ad3ef",
+          "error_type": null
+        }
+      ],
+      "qualified": false,
+      "opening_volume_lots": 0,
+      "normalization_count": 1,
+      "versions": {
+        "mootdx": "0.11.7",
+        "tdxpy": "0.2.7"
+      },
+      "market_id": 1,
+      "category": "ETF",
+      "tick_size": "0.001",
+      "category_certification": "frozen 2026-10-10 44-request protocol and price sample",
+      "normalization_rule": "tdxpy_0.2.7_0x0fb5_certified_etf_divide_10",
+      "normalized_opening_rows": [],
+      "auction_rows": [],
+      "bounded_page_count": 4,
+      "opening_crosscheck_complete": true,
+      "minute_first": {
+        "price": 2.219,
+        "vol": 0
+      },
+      "reason": "no_qualified_0930_transaction_activity"
+    },
+    "official_query": {
+      "instrument": "513100",
+      "market": "SSE",
+      "query_range": [
+        "2026-09-11",
+        "2026-09-11"
+      ],
+      "range_kind": "effective interval",
+      "historical_global_completeness_claim": false,
+      "status": "success",
+      "pagination_complete": true,
+      "observations": [
+        {
+          "request": {
+            "method": "GET",
+            "url": "https://query.sse.com.cn/sseQuery/commonSoaQuery.do",
+            "params": {
+              "isPagination": "true",
+              "pageHelp.pageSize": 25,
+              "pageHelp.pageNo": 1,
+              "pageHelp.beginPage": 1,
+              "pageHelp.cacheSize": 1,
+              "pageHelp.endPage": 1,
+              "sqlId": "SSE_PL_JYTS_TFPXX_JJ",
+              "secCode": "513100",
+              "stopReason": "",
+              "order": "startStopDate|desc,secCode|asc",
+              "startDate": "20260911",
+              "endDate": "20260911"
+            },
+            "headers": {
+              "Referer": "https://www.sse.com.cn/disclosure/dealinstruc/suspension/fund/"
+            }
+          },
+          "status": "success",
+          "retrieved_at": "2026-10-12T13:42:24.814244+00:00",
+          "parsed_response_sha256": "b0c084336ced5abfd30e2d1ac3b0e2d46c0b35758934e75651f9ae6ad216fd02",
+          "error_type": null,
+          "raw_sha256": "b0c084336ced5abfd30e2d1ac3b0e2d46c0b35758934e75651f9ae6ad216fd02",
+          "raw_bytes": 1140
+        }
+      ],
+      "all_returned_rows_considered": true,
+      "raw_rows": [
+        {
+          "endStopType": "LSTP",
+          "startStopReason": "根据基金管理人申请",
+          "endStopDate": "20260911",
+          "endType": "",
+          "secCode": "513100",
+          "expandAbbr": "纳指ETF国泰",
+          "startType": "null",
+          "startStopDate": "20260911",
+          "endStopReason": "根据基金管理人申请",
+          "startStopType": "LSTP",
+          "dateSource": "2",
+          "secAbbr": "纳指ETF",
+          "stopTime": "915"
+        }
+      ],
+      "total": 1,
+      "page_count": 1,
+      "reason": "current_bounded_query_complete"
+    },
+    "retrieved_at": "2026-10-12T13:42:24.815242+00:00",
+    "evidence_hash": "6de7757b181f0954073381f3b746449fd043939ef04bfbb3b5424f689494a1ee"
+  },
+  "metadata": {
+    "capability": "historical_opening_evidence",
+    "final_provider": null,
+    "providers_used": [
+      "mootdx",
+      "sse"
+    ],
+    "final_status": "success",
+    "outcome_status": null,
+    "request_status": "success",
+    "retrieved_at": "2026-10-12T13:42:24.815242+00:00",
+    "observed_at": null,
+    "data_as_of": "2026-09-11",
+    "stale": false,
+    "partial": false,
+    "limitations": [
+      "[09:30,09:31) activity does not prove strict 09:30 order fill, full-day normality, or preopen PIT.",
+      "TDX prices are evidence crosschecks only; volumes are not fill quotas.",
+      "Current bounded official query does not claim all historical events or revisions are complete."
+    ],
+    "degraded": false,
+    "failed_providers": [],
+    "attempts": [
+      {
+        "provider": "mootdx",
+        "capability": "mootdx:historical_opening_activity",
+        "status": "success",
+        "started_at": "2026-10-12T13:42:24.747395+00:00",
+        "elapsed_ms": 0,
+        "record_count": null,
+        "error_type": null,
+        "message": null
+      },
+      {
+        "provider": "mootdx",
+        "capability": "mootdx:historical_opening_activity",
+        "status": "success",
+        "started_at": "2026-10-12T13:42:24.747395+00:00",
+        "elapsed_ms": 0,
+        "record_count": 240,
+        "error_type": null,
+        "message": null
+      },
+      {
+        "provider": "mootdx",
+        "capability": "mootdx:historical_opening_activity",
+        "status": "success",
+        "started_at": "2026-10-12T13:42:24.755579+00:00",
+        "elapsed_ms": 16,
+        "record_count": 800,
+        "error_type": null,
+        "message": null
+      },
+      {
+        "provider": "mootdx",
+        "capability": "mootdx:historical_opening_activity",
+        "status": "success",
+        "started_at": "2026-10-12T13:42:24.771282+00:00",
+        "elapsed_ms": 16,
+        "record_count": 800,
+        "error_type": null,
+        "message": null
+      },
+      {
+        "provider": "mootdx",
+        "capability": "mootdx:historical_opening_activity",
+        "status": "success",
+        "started_at": "2026-10-12T13:42:24.784903+00:00",
+        "elapsed_ms": 14,
+        "record_count": 800,
+        "error_type": null,
+        "message": null
+      },
+      {
+        "provider": "mootdx",
+        "capability": "mootdx:historical_opening_activity",
+        "status": "success",
+        "started_at": "2026-10-12T13:42:24.799075+00:00",
+        "elapsed_ms": 16,
+        "record_count": 482,
+        "error_type": null,
+        "message": null
+      },
+      {
+        "provider": "sse",
+        "capability": "sse:historical_opening_events",
+        "status": "success",
+        "started_at": "2026-10-12T13:42:24.812240+00:00",
+        "elapsed_ms": 0,
+        "record_count": null,
+        "error_type": null,
+        "message": null
+      }
+    ]
+  }
+}

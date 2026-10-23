@@ -1,0 +1,346 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="author" content="www.fractal-technology.com" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <title>产品公告</title>
+    <link href="/product/static/new2/css/global.css?v=20250804" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="/product/static/new2/css/laydate.css?v=20250804" type="text/css">
+    <link href="/product/static/new2/css/animate.css?v=20250804" rel="stylesheet" type="text/css" />
+    <link href="/product/static/new2/css/page.css?v=20250804 " rel="stylesheet" type="text/css" />
+    <link href="/product/static/new2/css/iframe.css?v=20250804 " rel="stylesheet" type="text/css" />
+
+    <script src="/product/static/new2/js/laydate.js?v=20250804"></script>
+    <script src="/product/static/new2/js/jquery-1.11.3.min.js?v=20250804"></script>
+</head>
+<body>
+<div class="fund_overview2 rate_structure2 product_announcement2">
+    <div class="block">
+        <div class="con clearfix">
+            <div class="l j-l">
+                <div class="cont">
+                    <div class="liner3 clearfix border">
+                        <form id="queryForm" name="queryForm" action="publishGgList.do" method="post">
+                                    <div class="form clearfix">
+                                        <div class="form-item clearfix" style="height:50px;">
+                                            <div class="lb">文章标题：</div>
+                                            <div class="dt">
+                                                <div class="input"><input type="text" name="title" value=" " id="title" placeholder="请输入文章标题"></div>
+                                            </div>
+                                        </div>
+                                        <div class="form-item clearfix" style="height:50px;">
+                                            <div class="lb">发布时间:</div>
+                                            <div class="dt">
+                                                <div id="date1"class="date date1 placeholder" style="float:left;" lay-key="1">&nbsp;</div>
+                                                <!-- <div class="to">至</div> -->
+                                                <div id="date2" class="date date2 placeholder" style="float:left;" lay-key="2">&nbsp;</div>
+                                                <input type="hidden"  id="fundcode"  name="fundcode"  value="513520">
+                                                <input type="hidden"  id="isQuery"   name="isQuery" >
+                                                <input type="hidden"  id="beginDate"   name="beginDate"  value="">
+                                                <input type="hidden"  id="endDate"   name="endDate"  value="">
+                                                <a href="#" class="submit" style="margin-left:0px;" onclick="queryFormSubmitForFirstPage()">查询</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                        </form>
+                        <div class="list">
+                            <div class="mod">
+                                <div class="ul">
+                                    
+                                        
+                                            <div class="li middle-box">
+                                                <div class="middle-cont">
+                                                    <div class="div">
+                                                        <div class="item"><a target="_blank" href="../c/2026-10-22/1012751.shtml"> 华夏野村日经225交易型开放式指数证券投资基金（QDII）午间收盘二级市场交易价格溢价风险提示公告</a></div>
+                                                        <div class="item">2026-10-22</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        
+                                            <div class="li middle-box">
+                                                <div class="middle-cont">
+                                                    <div class="div">
+                                                        <div class="item"><a target="_blank" href="../c/2026-10-21/1012649.shtml"> 华夏野村日经225交易型开放式指数证券投资基金（QDII）午间收盘二级市场交易价格溢价风险提示公告</a></div>
+                                                        <div class="item">2026-10-21</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        
+                                            <div class="li middle-box">
+                                                <div class="middle-cont">
+                                                    <div class="div">
+                                                        <div class="item"><a target="_blank" href="../c/2026-10-20/1012397.shtml"> 华夏野村日经225交易型开放式指数证券投资基金（QDII）午间收盘二级市场交易价格溢价风险提示公告</a></div>
+                                                        <div class="item">2026-10-20</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        
+                                            <div class="li middle-box">
+                                                <div class="middle-cont">
+                                                    <div class="div">
+                                                        <div class="item"><a target="_blank" href="../c/2026-10-19/1012271.shtml"> 华夏野村日经225交易型开放式指数证券投资基金（QDII）午间收盘二级市场交易价格溢价风险提示公告</a></div>
+                                                        <div class="item">2026-10-19</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        
+                                            <div class="li middle-box">
+                                                <div class="middle-cont">
+                                                    <div class="div">
+                                                        <div class="item"><a target="_blank" href="../c/2026-10-16/1012161.shtml"> 华夏野村日经225交易型开放式指数证券投资基金（QDII）午间收盘二级市场交易价格溢价风险提示公告</a></div>
+                                                        <div class="item">2026-10-16</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        
+                                            <div class="li middle-box">
+                                                <div class="middle-cont">
+                                                    <div class="div">
+                                                        <div class="item"><a target="_blank" href="../c/2026-10-15/1012033.shtml"> 华夏野村日经225交易型开放式指数证券投资基金（QDII）午间收盘二级市场交易价格溢价风险提示公告</a></div>
+                                                        <div class="item">2026-10-15</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        
+                                            <div class="li middle-box">
+                                                <div class="middle-cont">
+                                                    <div class="div">
+                                                        <div class="item"><a target="_blank" href="../c/2026-10-14/1008402.shtml"> 华夏野村日经225交易型开放式指数证券投资基金（QDII）午间收盘二级市场交易价格溢价风险提示公告</a></div>
+                                                        <div class="item">2026-10-14</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        
+                                            <div class="li middle-box">
+                                                <div class="middle-cont">
+                                                    <div class="div">
+                                                        <div class="item"><a target="_blank" href="../c/2026-10-13/1007894.shtml"> 华夏野村日经225交易型开放式指数证券投资基金（QDII）午间收盘二级市场交易价格溢价风险提示公告</a></div>
+                                                        <div class="item">2026-10-13</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        
+                                            <div class="li middle-box">
+                                                <div class="middle-cont">
+                                                    <div class="div">
+                                                        <div class="item"><a target="_blank" href="../c/2026-10-12/1007606.shtml"> 华夏野村日经225交易型开放式指数证券投资基金（QDII）午间收盘二级市场交易价格溢价风险提示公告</a></div>
+                                                        <div class="item">2026-10-12</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        
+                                            <div class="li middle-box">
+                                                <div class="middle-cont">
+                                                    <div class="div">
+                                                        <div class="item"><a target="_blank" href="../c/2026-10-09/1007540.shtml"> 华夏野村日经225交易型开放式指数证券投资基金（QDII）午间收盘二级市场交易价格溢价风险提示公告</a></div>
+                                                        <div class="item">2026-10-09</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        
+                                            <div class="li middle-box">
+                                                <div class="middle-cont">
+                                                    <div class="div">
+                                                        <div class="item"><a target="_blank" href="../c/2026-10-08/1007431.shtml"> 关于华夏野村日经225交易型开放式指数证券投资基金（QDII）临时停牌并暂停申购、赎回业务的公告</a></div>
+                                                        <div class="item">2026-10-08</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        
+                                            <div class="li middle-box">
+                                                <div class="middle-cont">
+                                                    <div class="div">
+                                                        <div class="item"><a target="_blank" href="../c/2026-09-30/1007331.shtml"> 华夏野村日经225交易型开放式指数证券投资基金（QDII）暂停申购、赎回业务的公告</a></div>
+                                                        <div class="item">2026-09-30</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        
+                                            <div class="li middle-box">
+                                                <div class="middle-cont">
+                                                    <div class="div">
+                                                        <div class="item"><a target="_blank" href="../c/2026-09-30/1007377.shtml"> 华夏野村日经225交易型开放式指数证券投资基金（QDII）午间收盘二级市场交易价格溢价风险提示公告</a></div>
+                                                        <div class="item">2026-09-30</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        
+                                            <div class="li middle-box">
+                                                <div class="middle-cont">
+                                                    <div class="div">
+                                                        <div class="item"><a target="_blank" href="../c/2026-09-29/1007302.shtml"> 华夏野村日经225交易型开放式指数证券投资基金（QDII）午间收盘二级市场交易价格溢价风险提示公告</a></div>
+                                                        <div class="item">2026-09-29</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        
+                                            <div class="li middle-box">
+                                                <div class="middle-cont">
+                                                    <div class="div">
+                                                        <div class="item"><a target="_blank" href="../c/2026-09-28/1007135.shtml"> 华夏野村日经225交易型开放式指数证券投资基金（QDII）午间收盘二级市场交易价格溢价风险提示公告</a></div>
+                                                        <div class="item">2026-09-28</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        
+                                            <div class="li middle-box">
+                                                <div class="middle-cont">
+                                                    <div class="div">
+                                                        <div class="item"><a target="_blank" href="../c/2026-09-24/1006862.shtml"> 华夏野村日经225交易型开放式指数证券投资基金（QDII）二级市场交易价格溢价风险提示公告</a></div>
+                                                        <div class="item">2026-09-24</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        
+                                            <div class="li middle-box">
+                                                <div class="middle-cont">
+                                                    <div class="div">
+                                                        <div class="item"><a target="_blank" href="../c/2026-09-24/1006959.shtml"> 华夏野村日经225交易型开放式指数证券投资基金（QDII）午间收盘二级市场交易价格溢价风险提示公告</a></div>
+                                                        <div class="item">2026-09-24</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        
+                                            <div class="li middle-box">
+                                                <div class="middle-cont">
+                                                    <div class="div">
+                                                        <div class="item"><a target="_blank" href="../c/2026-09-23/1006717.shtml"> 华夏野村日经225交易型开放式指数证券投资基金（QDII）二级市场交易价格溢价风险提示公告</a></div>
+                                                        <div class="item">2026-09-23</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        
+                                            <div class="li middle-box">
+                                                <div class="middle-cont">
+                                                    <div class="div">
+                                                        <div class="item"><a target="_blank" href="../c/2026-09-23/1006820.shtml"> 华夏野村日经225交易型开放式指数证券投资基金（QDII）午间收盘二级市场交易价格溢价风险提示公告</a></div>
+                                                        <div class="item">2026-09-23</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        
+                                            <div class="li middle-box">
+                                                <div class="middle-cont">
+                                                    <div class="div">
+                                                        <div class="item"><a target="_blank" href="../c/2026-09-22/1006639.shtml"> 华夏野村日经225交易型开放式指数证券投资基金（QDII）午间收盘二级市场交易价格溢价风险提示公告</a></div>
+                                                        <div class="item">2026-09-22</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 分页 -->
+
+                    <div class="page-mod">
+                        <ul class="page-box p-show clearfix">
+                            <li class="page-item prev page-arrow">
+                                <a href="javascript:void(0);" onclick="upPage();"></a>
+                            </li>
+                            <li  class="page-item"><a href="javascript:void(0)"  class="cur"  onclick="thisPage(1)" >1</a> </li><li  class="page-item"><a href="javascript:void(0)"  onclick="thisPage(2)" >2</a> </li><li  class="page-item"><a href="javascript:void(0)"  onclick="thisPage(3)" >3</a> </li><li  class="page-item"><a href="javascript:void(0)"  onclick="thisPage(4)" >4</a> </li><li  class="page-item"><a href="javascript:void(0)"  onclick="thisPage(5)" >5</a> </li><li class="page-item"><a href="javascript:void(0)">...</a></li> <li class="page-item"><a href="javascript:void(0)"  onclick="thisPage(29)"  >29</a></li>
+                            <li class="page-item next page-arrow">
+                                <a href="javascript:void(0)" onclick="nextPage();"></a>
+                            </li>
+                            <li class="page-item jump">
+                                <a class="clearfix">
+                                    <div class="page-input"><input type="text" id="goNum"></div>
+                                    <button type="submit" class="page-btn" onclick="goPage()">GO</button>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    //下一页
+    function nextPage(){
+        var hidden = "<input type='hidden' name='pageIndex' value='2' />";
+        $("#queryForm").append(hidden).submit();
+    }
+
+    //上一页
+    function upPage(){
+        var hidden = "<input type='hidden' name='pageIndex' value='0' />";
+        $("#queryForm").append(hidden).submit();
+    }
+
+
+    //点击当前页
+    function goPage(){
+        var goNum=$("#goNum").val();
+        var hidden = "<input type='hidden' name='pageIndex' value='"+goNum+"' />";
+        $("#queryForm").append(hidden).submit();
+    }
+
+    //点击当前页
+    function thisPage(num){
+        var hidden = "<input type='hidden' name='pageIndex' value='"+num+"' />";
+        $("#queryForm").append(hidden).submit();
+    }
+
+    function queryFormSubmitForFirstPage(){
+        $('#isQuery').val("true");
+        $('#queryForm').submit();
+    }
+
+    $(function() {
+        var date1 = laydate.render({
+            elem: '#date1',
+            done: function(value, date) {
+                $("#beginDate").val(value);
+                $('#date1').removeClass('placeholder');
+                date2.config.min = {
+                    year: date.year,
+                    month: date.month - 1,
+                    date: date.date,
+                    hours: date.hours,
+                    minutes: date.minutes,
+                    seconds: date.seconds
+                };
+            }
+        });
+
+        var date2 = laydate.render({
+            elem: '#date2',
+            done: function(value, date) {
+                $("#endDate").val(value);
+                $('#date2').removeClass('placeholder');
+                date1.config.max = {
+                    year: date.year,
+                    month: date.month - 1,
+                    date: date.date,
+                    hours: date.hours,
+                    minutes: date.minutes,
+                    seconds: date.seconds
+                };
+            }
+        });
+        var endDate="";
+        var beginDate="";
+        if(beginDate!=null && beginDate!=""){
+              $("#date1").text(beginDate);
+        }
+
+        if(endDate!=null && endDate!=""){
+            $("#date2").text(endDate);
+        }
+
+
+    });
+</script>
+</body>
+
+</html>

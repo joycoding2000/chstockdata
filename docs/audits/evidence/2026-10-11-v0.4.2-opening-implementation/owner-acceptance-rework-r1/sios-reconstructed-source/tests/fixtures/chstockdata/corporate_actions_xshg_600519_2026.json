@@ -1,0 +1,63 @@
+{
+  "capability": "corporate_actions",
+  "upstream_source": "Eastmoney datacenter RPT_SHAREBONUS_DET",
+  "observed_at": null,
+  "warnings": [],
+  "payload": {
+    "status": "success",
+    "coverage": "complete",
+    "source": "Eastmoney datacenter RPT_SHAREBONUS_DET",
+    "items": [
+      {
+        "source_identifier": "eastmoney:cash-2026-600519",
+        "source_identifier_kind": "provider_identifier",
+        "source": "Eastmoney datacenter RPT_SHAREBONUS_DET",
+        "security_code": "600519",
+        "market": "sh",
+        "event_types": ["cash_dividend"],
+        "plan_status": "implemented",
+        "announcement_date": "2026-06-12",
+        "equity_record_date": "2026-06-25",
+        "ex_dividend_date": "2026-06-26",
+        "implementation_date": "2026-06-27",
+        "payment_date": "2026-06-27",
+        "cash_dividend": {
+          "value": 25.0,
+          "unit": "per_10_shares",
+          "source_field": "PRETAX_BONUS_RMB",
+          "tax_basis": "pre_tax"
+        },
+        "stock_dividend": null,
+        "capital_reserve_transfer": null,
+        "rights_issue": null,
+        "missing_fields": [],
+        "limitations": []
+      },
+      {
+        "source_identifier": "eastmoney:split-2026-600519",
+        "source_identifier_kind": "provider_identifier",
+        "source": "Eastmoney datacenter RPT_SHAREBONUS_DET",
+        "security_code": "600519",
+        "market": "sh",
+        "event_types": ["stock_dividend"],
+        "plan_status": "implemented",
+        "announcement_date": "2026-03-20",
+        "equity_record_date": "2026-04-02",
+        "ex_dividend_date": "2026-04-03",
+        "implementation_date": "2026-04-06",
+        "payment_date": null,
+        "cash_dividend": null,
+        "stock_dividend": {
+          "value": 10.0,
+          "unit": "per_10_shares",
+          "source_field": "BONUS_IT_RATIO",
+          "tax_basis": "unknown"
+        },
+        "capital_reserve_transfer": null,
+        "rights_issue": null,
+        "missing_fields": [],
+        "limitations": []
+      }
+    ]
+  }
+}

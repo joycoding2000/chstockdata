@@ -1,0 +1,128 @@
+{
+  "A1": {
+    "evidence": [
+      "live/capabilities/test_live_tradability_adjustment_and_freshness.json",
+      "runtime-identity-bindings.json"
+    ],
+    "scope": "4 certified ETF 2026-09-11 opening activity; raw daily open remains fill price",
+    "verdict": "PASS_CANDIDATE",
+    "candidate_wheel_sha256": "1dd58350678fbb07d3b545165708d814f93fb94f965dc2da33bad2fab7ff779c",
+    "candidate_source_sha256": "d81fb0a62a9fa4cc9823ca9ad1920f380a110d50351dd0b7b465f735d3021572"
+  },
+  "A2": {
+    "evidence": [
+      "runtime-identity-bindings.json",
+      "sios-offline.xml"
+    ],
+    "scope": "2 official halt controls no-fill/no-retry; boundary contracts offline",
+    "verdict": "PASS_CANDIDATE",
+    "candidate_wheel_sha256": "1dd58350678fbb07d3b545165708d814f93fb94f965dc2da33bad2fab7ff779c",
+    "candidate_source_sha256": "d81fb0a62a9fa4cc9823ca9ad1920f380a110d50351dd0b7b465f735d3021572"
+  },
+  "A3": {
+    "evidence": [
+      "installed-wheel-replay/manifest.json",
+      "package-tests.xml",
+      "sios-offline.xml",
+      "interval-rework-result.json"
+    ],
+    "scope": "actual saved raw final-wheel replay 688432/000002 and permanent boundary contracts; no added live investigation",
+    "verdict": "PASS_CANDIDATE",
+    "candidate_wheel_sha256": "1dd58350678fbb07d3b545165708d814f93fb94f965dc2da33bad2fab7ff779c",
+    "candidate_source_sha256": "d81fb0a62a9fa4cc9823ca9ad1920f380a110d50351dd0b7b465f735d3021572"
+  },
+  "A4": {
+    "evidence": [
+      "installed-wheel-replay/manifest.json"
+    ],
+    "scope": "actual 74 saved raw responses / 12 bounded points final-wheel replay incl 2016/2022; no continuous all-history claim",
+    "verdict": "PASS_CANDIDATE",
+    "candidate_wheel_sha256": "1dd58350678fbb07d3b545165708d814f93fb94f965dc2da33bad2fab7ff779c",
+    "candidate_source_sha256": "d81fb0a62a9fa4cc9823ca9ad1920f380a110d50351dd0b7b465f735d3021572"
+  },
+  "A5": {
+    "evidence": [
+      "package-tests.xml",
+      "artifact-members.json",
+      "live/actual-imports.json",
+      "live/raw/",
+      "etf-exact-probe.json"
+    ],
+    "scope": "permanent parser normalization regression plus actual certified mootdx0.11.7/tdxpy0.2.7 live; fourETF Decimal exact OHLC/preclose",
+    "verdict": "PASS_CANDIDATE",
+    "candidate_wheel_sha256": "1dd58350678fbb07d3b545165708d814f93fb94f965dc2da33bad2fab7ff779c",
+    "candidate_source_sha256": "d81fb0a62a9fa4cc9823ca9ad1920f380a110d50351dd0b7b465f735d3021572"
+  },
+  "A6": {
+    "evidence": [
+      "package-tests.xml",
+      "sios-offline.xml"
+    ],
+    "scope": "typed empty/failure/partial/conflict/naive/unknown outcomes and no-fill permanent contracts",
+    "verdict": "PASS_CANDIDATE",
+    "candidate_wheel_sha256": "1dd58350678fbb07d3b545165708d814f93fb94f965dc2da33bad2fab7ff779c",
+    "candidate_source_sha256": "d81fb0a62a9fa4cc9823ca9ad1920f380a110d50351dd0b7b465f735d3021572"
+  },
+  "A7": {
+    "evidence": [
+      "sios-offline.xml",
+      "sios-offline.json"
+    ],
+    "scope": "historical opening component/research wiring keeps DecisionContext and T strategy PIT isolated",
+    "verdict": "PASS_CANDIDATE",
+    "candidate_wheel_sha256": "1dd58350678fbb07d3b545165708d814f93fb94f965dc2da33bad2fab7ff779c",
+    "candidate_source_sha256": "d81fb0a62a9fa4cc9823ca9ad1920f380a110d50351dd0b7b465f735d3021572"
+  },
+  "A8": {
+    "evidence": [
+      "sios-offline.xml",
+      "runtime-identity-bindings.json"
+    ],
+    "scope": "timezone/boundary/identity permanent tests and six actual Asia/Shanghai run manifests",
+    "verdict": "PASS_CANDIDATE",
+    "candidate_wheel_sha256": "1dd58350678fbb07d3b545165708d814f93fb94f965dc2da33bad2fab7ff779c",
+    "candidate_source_sha256": "d81fb0a62a9fa4cc9823ca9ad1920f380a110d50351dd0b7b465f735d3021572"
+  },
+  "A9": {
+    "evidence": [
+      "sios-etf-golden-smoke.xml",
+      "sios-offline.xml",
+      "runtime-identity-bindings.json"
+    ],
+    "scope": "original accounting/RAW/Tclose/slippage/fees/funding/lots/all-or-none/UNKNOWN contracts plus four real raw fill and two no-fill outputs",
+    "verdict": "PASS_CANDIDATE",
+    "candidate_wheel_sha256": "1dd58350678fbb07d3b545165708d814f93fb94f965dc2da33bad2fab7ff779c",
+    "candidate_source_sha256": "d81fb0a62a9fa4cc9823ca9ad1920f380a110d50351dd0b7b465f735d3021572"
+  },
+  "A10": {
+    "evidence": [
+      "live/live.xml",
+      "live/capabilities/",
+      "live/calls.json",
+      "sios-required-live.command.json"
+    ],
+    "scope": "all original 5 live nodes actually run zero skip/xfail/deselect;54 capabilities including all four independent actions/calendar/RAW/freshness/staleness",
+    "verdict": "PASS_CANDIDATE",
+    "candidate_wheel_sha256": "1dd58350678fbb07d3b545165708d814f93fb94f965dc2da33bad2fab7ff779c",
+    "candidate_source_sha256": "d81fb0a62a9fa4cc9823ca9ad1920f380a110d50351dd0b7b465f735d3021572"
+  },
+  "A11": {
+    "evidence": [
+      "commands.json",
+      "artifacts.json",
+      "artifact-members.json",
+      "candidate-source.json",
+      "profile-import-dependencies.json",
+      "consumer-identities.json",
+      "ta-relative-compatibility.json",
+      "runtime-identity-bindings.json",
+      "candidate-rework-diff-check.json",
+      "freeze-var-proof.json",
+      "live-full-facts.json"
+    ],
+    "scope": "all final checks same wheel; TA relative compatibility preserves 7 identical baseline failures and known metadata constraint",
+    "verdict": "PASS_CANDIDATE",
+    "candidate_wheel_sha256": "1dd58350678fbb07d3b545165708d814f93fb94f965dc2da33bad2fab7ff779c",
+    "candidate_source_sha256": "d81fb0a62a9fa4cc9823ca9ad1920f380a110d50351dd0b7b465f735d3021572"
+  }
+}

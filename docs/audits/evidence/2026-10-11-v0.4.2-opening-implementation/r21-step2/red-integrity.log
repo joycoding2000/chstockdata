@@ -1,0 +1,40 @@
+.....................FF                                                  [100%]
+================================== FAILURES ===================================
+__ test_unsortable_official_boundary_inside_opening_window_refuses_positive ___
+
+    def test_unsortable_official_boundary_inside_opening_window_refuses_positive():
+        data=payload();event=payload("000002","2015-12-18")["official_events"][0]
+        event.update(instrument="510300",market="SSE",effective_start="2026-09-11T09:30:30+08:00")
+        data["official_events"]=[event]
+>       with pytest.raises(ValueError,match="boundary"):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValueError
+
+tests\component\test_historical_opening_execution.py:205: Failed
+___________ test_reader_checks_all_artifact_hashes_before_any_parse ___________
+
+tmp_path = WindowsPath('C:/Users/Administrator/.codex/visualizations/2026/10/10/01a125dd-33f2-78d3-abe7-45e0928975d0/v042-opening-implementation/evidence/r21-step2/tmp/test_reader_checks_all_artifac0')
+bar_factory = <function bar_factory.<locals>.build at 0x000001A2BC43F2E0>
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x000001A2BB1A4740>
+
+    def test_reader_checks_all_artifact_hashes_before_any_parse(tmp_path,bar_factory,monkeypatch):
+        from systematic_investing.data import snapshots
+        base=CanonicalDataset((bar_factory(I,S1,open="4",close="4"),),(),(),(),(),(mapped(payload()),))
+        now=datetime(2026,10,12,tzinfo=UTC)
+        writer=SnapshotWriter("recorded","0.4.2","r21")
+        writer.persist(base,snapshot_dir=tmp_path/"snapshot",created_at=now,knowledge_cutoff=now,retrieved_at=now)
+        seen=[]; to_dict,reader=snapshots._RECORD_SERIALIZERS["historical_opening_evidence"]
+        monkeypatch.setitem(snapshots._RECORD_SERIALIZERS,"historical_opening_evidence",(to_dict,lambda data:seen.append(data) or reader(data)))
+        (tmp_path/"snapshot/artifacts/trading_session.jsonl").write_text("corrupt",encoding="utf-8")
+        with pytest.raises(SnapshotIntegrityError): SnapshotReader().load(tmp_path/"snapshot")
+>       assert seen==[]
+E       AssertionError: assert [{'evidence_h...NKNOWN', ...}] == []
+E         
+E         Left contains one more item: {'evidence_hash': '7ff5b6d2f5564abb8289b0e9fff6c20b14d3e3a2d8391c095f982bb4059aeb50', 'execution_effect_window': {'end...0+08:00', 'start': '2026-09-11T09:30:00+08:00'}, 'information_available_at': None, 'information_basis': 'UNKNOWN', ...}
+E         Use -v to get more diff
+
+tests\component\test_historical_opening_execution.py:219: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/component/test_historical_opening_execution.py::test_unsortable_official_boundary_inside_opening_window_refuses_positive
+FAILED tests/component/test_historical_opening_execution.py::test_reader_checks_all_artifact_hashes_before_any_parse
+2 failed, 21 passed in 1.56s

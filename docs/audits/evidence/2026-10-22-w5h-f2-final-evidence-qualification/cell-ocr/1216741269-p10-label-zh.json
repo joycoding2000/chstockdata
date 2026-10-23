@@ -1,0 +1,90 @@
+{
+    "id":  "1216741269",
+    "text":  "于 母 公 瓦 飛 玄 权 益 合 计",
+    "pit_qualified":  false,
+    "engine":  "Windows.Media.Ocr existing zh-Hans-CN",
+    "maximum_image_dimension":  10000,
+    "machine_seconds":  0.0214082,
+    "pixel_height":  114,
+    "image_sha256":  "be2ea34a8a325093668d3866663ac41661cdbbb11de27e6fa1beaec87e315819",
+    "pixel_width":  1353,
+    "source_sha256":  "28f31493c52375f096a45ad326ad8421357f9e73252858ae236d6fa715aad2d2",
+    "physical_page":  10,
+    "lines":  [
+                  {
+                      "text":  "于 母 公 瓦 飛 玄 权 益 合 计",
+                      "words":  [
+                                    {
+                                        "y":  41,
+                                        "height":  54,
+                                        "width":  55,
+                                        "text":  "于",
+                                        "x":  296
+                                    },
+                                    {
+                                        "y":  37,
+                                        "height":  56,
+                                        "width":  53,
+                                        "text":  "母",
+                                        "x":  359
+                                    },
+                                    {
+                                        "y":  37,
+                                        "height":  52,
+                                        "width":  56,
+                                        "text":  "公",
+                                        "x":  416
+                                    },
+                                    {
+                                        "y":  35,
+                                        "height":  56,
+                                        "width":  38,
+                                        "text":  "瓦",
+                                        "x":  486
+                                    },
+                                    {
+                                        "y":  32,
+                                        "height":  58,
+                                        "width":  60,
+                                        "text":  "飛",
+                                        "x":  535
+                                    },
+                                    {
+                                        "y":  31,
+                                        "height":  57,
+                                        "width":  52,
+                                        "text":  "玄",
+                                        "x":  602
+                                    },
+                                    {
+                                        "y":  29,
+                                        "height":  58,
+                                        "width":  56,
+                                        "text":  "权",
+                                        "x":  660
+                                    },
+                                    {
+                                        "y":  31,
+                                        "height":  56,
+                                        "width":  51,
+                                        "text":  "益",
+                                        "x":  725
+                                    },
+                                    {
+                                        "y":  26,
+                                        "height":  59,
+                                        "width":  49,
+                                        "text":  "合",
+                                        "x":  785
+                                    },
+                                    {
+                                        "y":  26,
+                                        "height":  58,
+                                        "width":  55,
+                                        "text":  "计",
+                                        "x":  842
+                                    }
+                                ]
+                  }
+              ]
+}

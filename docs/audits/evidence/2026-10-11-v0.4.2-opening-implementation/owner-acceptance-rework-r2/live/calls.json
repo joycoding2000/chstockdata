@@ -1,0 +1,2407 @@
+[
+  {
+    "index": 1,
+    "kind": "load_vipdoc_daily",
+    "request": {
+      "args": [
+        "510300",
+        "2026-09-08",
+        "2026-09-11"
+      ],
+      "kwargs": {
+        "market": "sh"
+      }
+    },
+    "started_at": "2026-10-14T02:39:12.687083+00:00",
+    "outcome": "returned",
+    "raw_path": "raw/001-load_vipdoc_daily.json",
+    "raw_sha256": "2286163fcb8acde35288fdfabf339c1cc518b5a99a3cc3744bbffd2a60388a7a",
+    "raw_bytes": 726,
+    "finished_at": "2026-10-14T02:39:12.839745+00:00"
+  },
+  {
+    "index": 2,
+    "kind": "load_vipdoc_daily",
+    "request": {
+      "args": [
+        "159915",
+        "2026-09-08",
+        "2026-09-11"
+      ],
+      "kwargs": {
+        "market": "sz"
+      }
+    },
+    "started_at": "2026-10-14T02:39:12.841715+00:00",
+    "outcome": "returned",
+    "raw_path": "raw/002-load_vipdoc_daily.json",
+    "raw_sha256": "9c9040e315b21b45b8871a31d02bede8329c09f591ef0f24b6fe414993711d4b",
+    "raw_bytes": 730,
+    "finished_at": "2026-10-14T02:39:12.888431+00:00"
+  },
+  {
+    "index": 3,
+    "kind": "load_vipdoc_daily",
+    "request": {
+      "args": [
+        "518880",
+        "2026-09-08",
+        "2026-09-11"
+      ],
+      "kwargs": {
+        "market": "sh"
+      }
+    },
+    "started_at": "2026-10-14T02:39:12.891014+00:00",
+    "outcome": "returned",
+    "raw_path": "raw/003-load_vipdoc_daily.json",
+    "raw_sha256": "006815b2e02e6db4d7479a81cdaf25104d3d2a75fae667b95b973ef275601fb4",
+    "raw_bytes": 725,
+    "finished_at": "2026-10-14T02:39:12.932048+00:00"
+  },
+  {
+    "index": 4,
+    "kind": "load_vipdoc_daily",
+    "request": {
+      "args": [
+        "511010",
+        "2026-09-08",
+        "2026-09-11"
+      ],
+      "kwargs": {
+        "market": "sh"
+      }
+    },
+    "started_at": "2026-10-14T02:39:12.933030+00:00",
+    "outcome": "returned",
+    "raw_path": "raw/004-load_vipdoc_daily.json",
+    "raw_sha256": "e588a1a8a288d2489dbe3b521c91e922d56593cb92515f11e5183c4169d4b0d8",
+    "raw_bytes": 759,
+    "finished_at": "2026-10-14T02:39:12.973717+00:00"
+  },
+  {
+    "index": 5,
+    "kind": "load_vipdoc_daily",
+    "request": {
+      "args": [
+        "510300",
+        "2026-09-08",
+        "2026-09-11"
+      ],
+      "kwargs": {
+        "market": "sh"
+      }
+    },
+    "started_at": "2026-10-14T02:39:12.987235+00:00",
+    "outcome": "returned",
+    "raw_path": "raw/005-load_vipdoc_daily.json",
+    "raw_sha256": "2286163fcb8acde35288fdfabf339c1cc518b5a99a3cc3744bbffd2a60388a7a",
+    "raw_bytes": 726,
+    "finished_at": "2026-10-14T02:39:13.023585+00:00"
+  },
+  {
+    "index": 6,
+    "kind": "load_trading_calendar",
+    "request": {
+      "args": [],
+      "kwargs": {}
+    },
+    "started_at": "2026-10-14T02:39:13.025577+00:00",
+    "outcome": "returned",
+    "raw_path": "raw/006-load_trading_calendar.json",
+    "raw_sha256": "7a0e53f69dfa30293f12bbb517ae2ee5dea13a47b6a7c3d38c96b271c823c1a3",
+    "raw_bytes": 28181,
+    "finished_at": "2026-10-14T02:40:56.917596+00:00"
+  },
+  {
+    "index": 7,
+    "kind": "legacy-source",
+    "request": {
+      "source_id": "mootdx",
+      "operation": "canary",
+      "attempt_no": 1,
+      "fallback_from": null
+    },
+    "started_at": "2026-10-14T02:39:25.768170+00:00",
+    "outcome": "returned",
+    "raw_path": "raw/007-legacy-source.json",
+    "raw_sha256": "f1d1ddc521dd10a4cbc07027f4409422c7cc0f558a9f4740cfc5da280b61ca98",
+    "raw_bytes": 27,
+    "finished_at": "2026-10-14T02:39:30.330060+00:00"
+  },
+  {
+    "index": 8,
+    "kind": "legacy-source",
+    "request": {
+      "source_id": "mootdx",
+      "operation": "canary",
+      "attempt_no": 1,
+      "fallback_from": null
+    },
+    "started_at": "2026-10-14T02:39:30.822220+00:00",
+    "outcome": "returned",
+    "raw_path": "raw/008-legacy-source.json",
+    "raw_sha256": "f1d1ddc521dd10a4cbc07027f4409422c7cc0f558a9f4740cfc5da280b61ca98",
+    "raw_bytes": 27,
+    "finished_at": "2026-10-14T02:39:35.445955+00:00"
+  },
+  {
+    "index": 9,
+    "kind": "legacy-source",
+    "request": {
+      "source_id": "mootdx",
+      "operation": "canary",
+      "attempt_no": 1,
+      "fallback_from": null
+    },
+    "started_at": "2026-10-14T02:39:35.933715+00:00",
+    "outcome": "returned",
+    "raw_path": "raw/009-legacy-source.json",
+    "raw_sha256": "f1d1ddc521dd10a4cbc07027f4409422c7cc0f558a9f4740cfc5da280b61ca98",
+    "raw_bytes": 27,
+    "finished_at": "2026-10-14T02:39:40.595900+00:00"
+  },
+  {
+    "index": 10,
+    "kind": "legacy-source",
+    "request": {
+      "source_id": "mootdx",
+      "operation": "canary",
+      "attempt_no": 1,
+      "fallback_from": null
+    },
+    "started_at": "2026-10-14T02:39:41.029466+00:00",
+    "outcome": "returned",
+    "raw_path": "raw/010-legacy-source.json",
+    "raw_sha256": "f1d1ddc521dd10a4cbc07027f4409422c7cc0f558a9f4740cfc5da280b61ca98",
+    "raw_bytes": 27,
+    "finished_at": "2026-10-14T02:39:45.297004+00:00"
+  },
+  {
+    "index": 11,
+    "kind": "legacy-source",
+    "request": {
+      "source_id": "mootdx",
+      "operation": "canary",
+      "attempt_no": 1,
+      "fallback_from": null
+    },
+    "started_at": "2026-10-14T02:39:45.791833+00:00",
+    "outcome": "returned",
+    "raw_path": "raw/011-legacy-source.json",
+    "raw_sha256": "f1d1ddc521dd10a4cbc07027f4409422c7cc0f558a9f4740cfc5da280b61ca98",
+    "raw_bytes": 27,
+    "finished_at": "2026-10-14T02:39:50.437786+00:00"
+  },
+  {
+    "index": 12,
+    "kind": "legacy-source",
+    "request": {
+      "source_id": "mootdx",
+      "operation": "canary",
+      "attempt_no": 1,
+      "fallback_from": null
+    },
+    "started_at": "2026-10-14T02:39:50.945191+00:00",
+    "outcome": "returned",
+    "raw_path": "raw/012-legacy-source.json",
+    "raw_sha256": "f1d1ddc521dd10a4cbc07027f4409422c7cc0f558a9f4740cfc5da280b61ca98",
+    "raw_bytes": 27,
+    "finished_at": "2026-10-14T02:39:55.568173+00:00"
+  },
+  {
+    "index": 13,
+    "kind": "legacy-source",
+    "request": {
+      "source_id": "mootdx",
+      "operation": "canary",
+      "attempt_no": 1,
+      "fallback_from": null
+    },
+    "started_at": "2026-10-14T02:39:56.076298+00:00",
+    "outcome": "returned",
+    "raw_path": "raw/013-legacy-source.json",
+    "raw_sha256": "f1d1ddc521dd10a4cbc07027f4409422c7cc0f558a9f4740cfc5da280b61ca98",
+    "raw_bytes": 27,
+    "finished_at": "2026-10-14T02:40:00.647541+00:00"
+  },
+  {
+    "index": 14,
+    "kind": "legacy-source",
+    "request": {
+      "source_id": "mootdx",
+      "operation": "canary",
+      "attempt_no": 1,
+      "fallback_from": null
+    },
+    "started_at": "2026-10-14T02:40:01.113425+00:00",
+    "outcome": "returned",
+    "raw_path": "raw/014-legacy-source.json",
+    "raw_sha256": "f1d1ddc521dd10a4cbc07027f4409422c7cc0f558a9f4740cfc5da280b61ca98",
+    "raw_bytes": 27,
+    "finished_at": "2026-10-14T02:40:05.714295+00:00"
+  },
+  {
+    "index": 15,
+    "kind": "legacy-source",
+    "request": {
+      "source_id": "mootdx",
+      "operation": "canary",
+      "attempt_no": 1,
+      "fallback_from": null
+    },
+    "started_at": "2026-10-14T02:40:06.216093+00:00",
+    "outcome": "returned",
+    "raw_path": "raw/015-legacy-source.json",
+    "raw_sha256": "f1d1ddc521dd10a4cbc07027f4409422c7cc0f558a9f4740cfc5da280b61ca98",
+    "raw_bytes": 27,
+    "finished_at": "2026-10-14T02:40:10.803784+00:00"
+  },
+  {
+    "index": 16,
+    "kind": "legacy-source",
+    "request": {
+      "source_id": "mootdx",
+      "operation": "canary",
+      "attempt_no": 1,
+      "fallback_from": null
+    },
+    "started_at": "2026-10-14T02:40:11.305416+00:00",
+    "outcome": "returned",
+    "raw_path": "raw/016-legacy-source.json",
+    "raw_sha256": "f1d1ddc521dd10a4cbc07027f4409422c7cc0f558a9f4740cfc5da280b61ca98",
+    "raw_bytes": 27,
+    "finished_at": "2026-10-14T02:40:15.881025+00:00"
+  },
+  {
+    "index": 17,
+    "kind": "legacy-source",
+    "request": {
+      "source_id": "mootdx",
+      "operation": "canary",
+      "attempt_no": 1,
+      "fallback_from": null
+    },
+    "started_at": "2026-10-14T02:40:16.406503+00:00",
+    "outcome": "returned",
+    "raw_path": "raw/017-legacy-source.json",
+    "raw_sha256": "f1d1ddc521dd10a4cbc07027f4409422c7cc0f558a9f4740cfc5da280b61ca98",
+    "raw_bytes": 27,
+    "finished_at": "2026-10-14T02:40:20.894986+00:00"
+  },
+  {
+    "index": 18,
+    "kind": "legacy-source",
+    "request": {
+      "source_id": "mootdx",
+      "operation": "canary",
+      "attempt_no": 1,
+      "fallback_from": null
+    },
+    "started_at": "2026-10-14T02:40:21.375651+00:00",
+    "outcome": "returned",
+    "raw_path": "raw/018-legacy-source.json",
+    "raw_sha256": "f1d1ddc521dd10a4cbc07027f4409422c7cc0f558a9f4740cfc5da280b61ca98",
+    "raw_bytes": 27,
+    "finished_at": "2026-10-14T02:40:25.917609+00:00"
+  },
+  {
+    "index": 19,
+    "kind": "legacy-source",
+    "request": {
+      "source_id": "mootdx",
+      "operation": "canary",
+      "attempt_no": 1,
+      "fallback_from": null
+    },
+    "started_at": "2026-10-14T02:40:26.399453+00:00",
+    "outcome": "returned",
+    "raw_path": "raw/019-legacy-source.json",
+    "raw_sha256": "f1d1ddc521dd10a4cbc07027f4409422c7cc0f558a9f4740cfc5da280b61ca98",
+    "raw_bytes": 27,
+    "finished_at": "2026-10-14T02:40:31.029370+00:00"
+  },
+  {
+    "index": 20,
+    "kind": "legacy-source",
+    "request": {
+      "source_id": "mootdx",
+      "operation": "canary",
+      "attempt_no": 1,
+      "fallback_from": null
+    },
+    "started_at": "2026-10-14T02:40:31.537063+00:00",
+    "outcome": "returned",
+    "raw_path": "raw/020-legacy-source.json",
+    "raw_sha256": "f1d1ddc521dd10a4cbc07027f4409422c7cc0f558a9f4740cfc5da280b61ca98",
+    "raw_bytes": 27,
+    "finished_at": "2026-10-14T02:40:36.192001+00:00"
+  },
+  {
+    "index": 21,
+    "kind": "legacy-source",
+    "request": {
+      "source_id": "mootdx",
+      "operation": "canary",
+      "attempt_no": 1,
+      "fallback_from": null
+    },
+    "started_at": "2026-10-14T02:40:36.707270+00:00",
+    "outcome": "returned",
+    "raw_path": "raw/021-legacy-source.json",
+    "raw_sha256": "f1d1ddc521dd10a4cbc07027f4409422c7cc0f558a9f4740cfc5da280b61ca98",
+    "raw_bytes": 27,
+    "finished_at": "2026-10-14T02:40:41.379563+00:00"
+  },
+  {
+    "index": 22,
+    "kind": "legacy-source",
+    "request": {
+      "source_id": "mootdx",
+      "operation": "canary",
+      "attempt_no": 1,
+      "fallback_from": null
+    },
+    "started_at": "2026-10-14T02:40:41.860229+00:00",
+    "outcome": "returned",
+    "raw_path": "raw/022-legacy-source.json",
+    "raw_sha256": "f1d1ddc521dd10a4cbc07027f4409422c7cc0f558a9f4740cfc5da280b61ca98",
+    "raw_bytes": 27,
+    "finished_at": "2026-10-14T02:40:46.484168+00:00"
+  },
+  {
+    "index": 23,
+    "kind": "legacy-source",
+    "request": {
+      "source_id": "mootdx",
+      "operation": "canary",
+      "attempt_no": 1,
+      "fallback_from": null
+    },
+    "started_at": "2026-10-14T02:40:46.984719+00:00",
+    "outcome": "returned",
+    "raw_path": "raw/023-legacy-source.json",
+    "raw_sha256": "f1d1ddc521dd10a4cbc07027f4409422c7cc0f558a9f4740cfc5da280b61ca98",
+    "raw_bytes": 27,
+    "finished_at": "2026-10-14T02:40:51.587686+00:00"
+  },
+  {
+    "index": 24,
+    "kind": "legacy-source",
+    "request": {
+      "source_id": "mootdx",
+      "operation": "canary",
+      "attempt_no": 1,
+      "fallback_from": null
+    },
+    "started_at": "2026-10-14T02:40:51.808844+00:00",
+    "outcome": "returned",
+    "raw_path": "raw/024-legacy-source.json",
+    "raw_sha256": "f1d1ddc521dd10a4cbc07027f4409422c7cc0f558a9f4740cfc5da280b61ca98",
+    "raw_bytes": 27,
+    "finished_at": "2026-10-14T02:40:56.433741+00:00"
+  },
+  {
+    "index": 25,
+    "kind": "legacy-source",
+    "request": {
+      "source_id": "sina",
+      "operation": "http_get",
+      "attempt_no": 1,
+      "fallback_from": "trading_calendar"
+    },
+    "started_at": "2026-10-14T02:40:56.574424+00:00",
+    "outcome": "returned",
+    "raw_path": "raw/025-legacy-source.json",
+    "raw_sha256": "7f45c07d726dd6981b034ed114dd9bc586d47e255ae41148564f3f4e392d1e1d",
+    "raw_bytes": 27,
+    "finished_at": "2026-10-14T02:40:56.907628+00:00"
+  },
+  {
+    "index": 26,
+    "kind": "http",
+    "request": {
+      "method": "get",
+      "url": "http://money.finance.sina.com.cn/quotes_service/api/json_v2.php/CN_MarketData.getKLineData",
+      "params": {
+        "symbol": "sh000001",
+        "scale": "240",
+        "ma": "no",
+        "datalen": 2000
+      },
+      "timeout": 15,
+      "http_status": 200
+    },
+    "started_at": "2026-10-14T02:40:56.574424+00:00",
+    "outcome": "returned",
+    "raw_path": "raw/026-http.bin",
+    "raw_sha256": "519d9056425cb3ab7f069a40c109383bea495c348856dd3d317b382a1253edfd",
+    "raw_bytes": 231996,
+    "finished_at": "2026-10-14T02:40:56.906637+00:00"
+  },
+  {
+    "index": 27,
+    "kind": "load_vipdoc_daily",
+    "request": {
+      "args": [
+        "159915",
+        "2026-09-08",
+        "2026-09-11"
+      ],
+      "kwargs": {
+        "market": "sz"
+      }
+    },
+    "started_at": "2026-10-14T02:40:56.920607+00:00",
+    "outcome": "returned",
+    "raw_path": "raw/027-load_vipdoc_daily.json",
+    "raw_sha256": "9c9040e315b21b45b8871a31d02bede8329c09f591ef0f24b6fe414993711d4b",
+    "raw_bytes": 730,
+    "finished_at": "2026-10-14T02:40:56.957119+00:00"
+  },
+  {
+    "index": 28,
+    "kind": "load_trading_calendar",
+    "request": {
+      "args": [],
+      "kwargs": {}
+    },
+    "started_at": "2026-10-14T02:40:56.959915+00:00",
+    "outcome": "returned",
+    "raw_path": "raw/028-load_trading_calendar.json",
+    "raw_sha256": "7a0e53f69dfa30293f12bbb517ae2ee5dea13a47b6a7c3d38c96b271c823c1a3",
+    "raw_bytes": 28181,
+    "finished_at": "2026-10-14T02:40:56.962445+00:00"
+  },
+  {
+    "index": 29,
+    "kind": "load_vipdoc_daily",
+    "request": {
+      "args": [
+        "518880",
+        "2026-09-08",
+        "2026-09-11"
+      ],
+      "kwargs": {
+        "market": "sh"
+      }
+    },
+    "started_at": "2026-10-14T02:40:56.964452+00:00",
+    "outcome": "returned",
+    "raw_path": "raw/029-load_vipdoc_daily.json",
+    "raw_sha256": "006815b2e02e6db4d7479a81cdaf25104d3d2a75fae667b95b973ef275601fb4",
+    "raw_bytes": 725,
+    "finished_at": "2026-10-14T02:40:56.995878+00:00"
+  },
+  {
+    "index": 30,
+    "kind": "load_trading_calendar",
+    "request": {
+      "args": [],
+      "kwargs": {}
+    },
+    "started_at": "2026-10-14T02:40:56.998403+00:00",
+    "outcome": "returned",
+    "raw_path": "raw/030-load_trading_calendar.json",
+    "raw_sha256": "7a0e53f69dfa30293f12bbb517ae2ee5dea13a47b6a7c3d38c96b271c823c1a3",
+    "raw_bytes": 28181,
+    "finished_at": "2026-10-14T02:40:57.000391+00:00"
+  },
+  {
+    "index": 31,
+    "kind": "load_vipdoc_daily",
+    "request": {
+      "args": [
+        "511010",
+        "2026-09-08",
+        "2026-09-11"
+      ],
+      "kwargs": {
+        "market": "sh"
+      }
+    },
+    "started_at": "2026-10-14T02:40:57.002982+00:00",
+    "outcome": "returned",
+    "raw_path": "raw/031-load_vipdoc_daily.json",
+    "raw_sha256": "e588a1a8a288d2489dbe3b521c91e922d56593cb92515f11e5183c4169d4b0d8",
+    "raw_bytes": 759,
+    "finished_at": "2026-10-14T02:40:57.034876+00:00"
+  },
+  {
+    "index": 32,
+    "kind": "load_trading_calendar",
+    "request": {
+      "args": [],
+      "kwargs": {}
+    },
+    "started_at": "2026-10-14T02:40:57.036892+00:00",
+    "outcome": "returned",
+    "raw_path": "raw/032-load_trading_calendar.json",
+    "raw_sha256": "7a0e53f69dfa30293f12bbb517ae2ee5dea13a47b6a7c3d38c96b271c823c1a3",
+    "raw_bytes": 28181,
+    "finished_at": "2026-10-14T02:40:57.039898+00:00"
+  },
+  {
+    "index": 33,
+    "kind": "get_suspension_info",
+    "request": {
+      "args": [
+        "510300",
+        "2026-09-11"
+      ],
+      "kwargs": {}
+    },
+    "started_at": "2026-10-14T02:40:57.044906+00:00",
+    "outcome": "returned",
+    "raw_path": "raw/033-get_suspension_info.json",
+    "raw_sha256": "71847fd24de04ed76a219d57b9f0494b345f3bffe2351a8c2dac81955a777187",
+    "raw_bytes": 231,
+    "finished_at": "2026-10-14T02:40:57.254587+00:00"
+  },
+  {
+    "index": 34,
+    "kind": "legacy-source",
+    "request": {
+      "source_id": "eastmoney_datacenter",
+      "operation": "http_get",
+      "attempt_no": 1,
+      "fallback_from": null
+    },
+    "started_at": "2026-10-14T02:40:57.044906+00:00",
+    "outcome": "returned",
+    "raw_path": "raw/034-legacy-source.json",
+    "raw_sha256": "7f45c07d726dd6981b034ed114dd9bc586d47e255ae41148564f3f4e392d1e1d",
+    "raw_bytes": 27,
+    "finished_at": "2026-10-14T02:40:57.252590+00:00"
+  },
+  {
+    "index": 35,
+    "kind": "http",
+    "request": {
+      "method": "GET",
+      "url": "https://datacenter-web.eastmoney.com/api/data/v1/get",
+      "params": {
+        "reportName": "RPT_CUSTOM_SUSPEND_DATA_INTERFACE",
+        "columns": "ALL",
+        "filter": "(MARKET=\"全部\")(DATETIME='2026-09-11')",
+        "pageSize": 500,
+        "pageNumber": 1,
+        "sortColumns": "SUSPEND_START_DATE",
+        "sortTypes": "-1",
+        "source": "WEB",
+        "client": "WEB"
+      },
+      "timeout": 15,
+      "http_status": 200
+    },
+    "started_at": "2026-10-14T02:40:57.044906+00:00",
+    "outcome": "returned",
+    "raw_path": "raw/035-http.bin",
+    "raw_sha256": "7615371ca851189d3d867c211676dad1e8838a171383999a8103f763d61ccf29",
+    "raw_bytes": 19115,
+    "finished_at": "2026-10-14T02:40:57.250916+00:00"
+  },
+  {
+    "index": 36,
+    "kind": "fetch_historical_opening_evidence",
+    "request": {
+      "args": [
+        "510300",
+        "2026-09-11"
+      ],
+      "kwargs": {}
+    },
+    "started_at": "2026-10-14T02:40:57.256589+00:00",
+    "outcome": "returned",
+    "raw_path": "raw/036-fetch_historical_opening_evidence.json",
+    "raw_sha256": "854e1d32b4ba11d3d09be1bb7d18561c2e4c160f02b501c7978f86da49253158",
+    "raw_bytes": 10121,
+    "finished_at": "2026-10-14T02:40:58.111271+00:00"
+  },
+  {
+    "index": 37,
+    "kind": "opening-parser",
+    "request": {
+      "operation": "connect",
+      "server": [
+        "110.41.147.114",
+        7709
+      ]
+    },
+    "started_at": "2026-10-14T02:40:57.259810+00:00",
+    "outcome": "returned",
+    "raw_path": "raw/037-opening-parser.json",
+    "raw_sha256": "bc1c3df1510e821b13b111a20db4a660a0e7dea2aa9a0ce7f454e1cb8914aaf6",
+    "raw_bytes": 28,
+    "finished_at": "2026-10-14T02:40:57.428137+00:00"
+  },
+  {
+    "index": 38,
+    "kind": "opening-parser",
+    "request": {
+      "command": "0x0fb4",
+      "market": 1,
+      "code": "510300",
+      "date": 20260911
+    },
+    "started_at": "2026-10-14T02:40:57.429129+00:00",
+    "outcome": "returned",
+    "raw_path": "raw/038-opening-parser.json",
+    "raw_sha256": "bb2da5f5fb9abc0b5653a57b0ab62862516bbe0fb82a7fe69eb8b2eea64414ab",
+    "raw_bytes": 8018,
+    "finished_at": "2026-10-14T02:40:57.473748+00:00"
+  },
+  {
+    "index": 39,
+    "kind": "opening-parser",
+    "request": {
+      "command": "0x0fb5",
+      "market": 1,
+      "code": "510300",
+      "date": 20260911,
+      "start": 0,
+      "count": 800
+    },
+    "started_at": "2026-10-14T02:40:57.475757+00:00",
+    "outcome": "returned",
+    "raw_path": "raw/039-opening-parser.json",
+    "raw_sha256": "e46ec85040753191136428a392b8a5675828d1ac3149c211988df408599217fb",
+    "raw_bytes": 50474,
+    "finished_at": "2026-10-14T02:40:57.528414+00:00"
+  },
+  {
+    "index": 40,
+    "kind": "opening-parser",
+    "request": {
+      "command": "0x0fb5",
+      "market": 1,
+      "code": "510300",
+      "date": 20260911,
+      "start": 800,
+      "count": 800
+    },
+    "started_at": "2026-10-14T02:40:57.536408+00:00",
+    "outcome": "returned",
+    "raw_path": "raw/040-opening-parser.json",
+    "raw_sha256": "4d4cf7d41485497b8fa01b8f1532991778fcbc36612f312be9c263ce082453d3",
+    "raw_bytes": 50531,
+    "finished_at": "2026-10-14T02:40:57.592441+00:00"
+  },
+  {
+    "index": 41,
+    "kind": "opening-parser",
+    "request": {
+      "command": "0x0fb5",
+      "market": 1,
+      "code": "510300",
+      "date": 20260911,
+      "start": 1600,
+      "count": 800
+    },
+    "started_at": "2026-10-14T02:40:57.600309+00:00",
+    "outcome": "returned",
+    "raw_path": "raw/041-opening-parser.json",
+    "raw_sha256": "51b2b701e20ed82e2b117389fa3f24b2fdb91887ae5109a6d81d7ced1bc660a6",
+    "raw_bytes": 50396,
+    "finished_at": "2026-10-14T02:40:57.661356+00:00"
+  },
+  {
+    "index": 42,
+    "kind": "opening-parser",
+    "request": {
+      "command": "0x0fb5",
+      "market": 1,
+      "code": "510300",
+      "date": 20260911,
+      "start": 2400,
+      "count": 800
+    },
+    "started_at": "2026-10-14T02:40:57.668957+00:00",
+    "outcome": "returned",
+    "raw_path": "raw/042-opening-parser.json",
+    "raw_sha256": "5647ae3874d2fc492cbfbf14f5cf8b860745bdac17fa0ea574f16489a3f8d6b9",
+    "raw_bytes": 50314,
+    "finished_at": "2026-10-14T02:40:57.721735+00:00"
+  },
+  {
+    "index": 43,
+    "kind": "opening-parser",
+    "request": {
+      "command": "0x0fb5",
+      "market": 1,
+      "code": "510300",
+      "date": 20260911,
+      "start": 3200,
+      "count": 800
+    },
+    "started_at": "2026-10-14T02:40:57.729628+00:00",
+    "outcome": "returned",
+    "raw_path": "raw/043-opening-parser.json",
+    "raw_sha256": "2690fbbf27bb42d9814fe2eab6c6405cf5390252292826b88304b91b97695db1",
+    "raw_bytes": 50701,
+    "finished_at": "2026-10-14T02:40:57.782366+00:00"
+  },
+  {
+    "index": 44,
+    "kind": "opening-parser",
+    "request": {
+      "command": "0x0fb5",
+      "market": 1,
+      "code": "510300",
+      "date": 20260911,
+      "start": 4000,
+      "count": 800
+    },
+    "started_at": "2026-10-14T02:40:57.790395+00:00",
+    "outcome": "returned",
+    "raw_path": "raw/044-opening-parser.json",
+    "raw_sha256": "13804449f6353d46e09c4845424f1e7601c92012ede597b5ded00f8cabd6aa06",
+    "raw_bytes": 49167,
+    "finished_at": "2026-10-14T02:40:57.844383+00:00"
+  },
+  {
+    "index": 45,
+    "kind": "opening-parser",
+    "request": {
+      "method": "GET",
+      "url": "https://query.sse.com.cn/sseQuery/commonSoaQuery.do",
+      "params": {
+        "isPagination": "true",
+        "pageHelp.pageSize": 25,
+        "pageHelp.pageNo": 1,
+        "pageHelp.beginPage": 1,
+        "pageHelp.cacheSize": 1,
+        "pageHelp.endPage": 1,
+        "sqlId": "SSE_PL_JYTS_TFPXX_JJ",
+        "secCode": "510300",
+        "stopReason": "",
+        "order": "startStopDate|desc,secCode|asc",
+        "startDate": "20260911",
+        "endDate": "20260911"
+      },
+      "headers": {
+        "Referer": "https://www.sse.com.cn/disclosure/dealinstruc/suspension/fund/"
+      }
+    },
+    "started_at": "2026-10-14T02:40:57.852922+00:00",
+    "outcome": "returned",
+    "raw_path": "raw/045-opening-parser.bin",
+    "raw_sha256": "087735ac94e1b965c175ba5fb3af737546beb399219342c3a78cd40fd9d884a3",
+    "raw_bytes": 482,
+    "finished_at": "2026-10-14T02:40:58.104289+00:00"
+  },
+  {
+    "index": 46,
+    "kind": "http",
+    "request": {
+      "method": "GET",
+      "url": "https://query.sse.com.cn/sseQuery/commonSoaQuery.do",
+      "params": {
+        "isPagination": "true",
+        "pageHelp.pageSize": 25,
+        "pageHelp.pageNo": 1,
+        "pageHelp.beginPage": 1,
+        "pageHelp.cacheSize": 1,
+        "pageHelp.endPage": 1,
+        "sqlId": "SSE_PL_JYTS_TFPXX_JJ",
+        "secCode": "510300",
+        "stopReason": "",
+        "order": "startStopDate|desc,secCode|asc",
+        "startDate": "20260911",
+        "endDate": "20260911"
+      },
+      "timeout": [
+        4,
+        8
+      ],
+      "http_status": 200
+    },
+    "started_at": "2026-10-14T02:40:57.852922+00:00",
+    "outcome": "returned",
+    "raw_path": "raw/046-http.bin",
+    "raw_sha256": "087735ac94e1b965c175ba5fb3af737546beb399219342c3a78cd40fd9d884a3",
+    "raw_bytes": 482,
+    "finished_at": "2026-10-14T02:40:58.101277+00:00"
+  },
+  {
+    "index": 47,
+    "kind": "get_fund_corporate_actions",
+    "request": {
+      "args": [
+        "510300",
+        "2026-09-08",
+        "2026-09-11"
+      ],
+      "kwargs": {}
+    },
+    "started_at": "2026-10-14T02:40:58.113280+00:00",
+    "outcome": "returned",
+    "raw_path": "raw/047-get_fund_corporate_actions.json",
+    "raw_sha256": "ecf99ea2470876dc05d03c2b5e5dce793ba8fec22bb9bc24246676b1210f3511",
+    "raw_bytes": 778,
+    "finished_at": "2026-10-14T02:41:00.236360+00:00"
+  },
+  {
+    "index": 48,
+    "kind": "legacy-source",
+    "request": {
+      "source_id": "eastmoney_news",
+      "operation": "http_get",
+      "attempt_no": 1,
+      "fallback_from": null
+    },
+    "started_at": "2026-10-14T02:40:58.564468+00:00",
+    "outcome": "returned",
+    "raw_path": "raw/048-legacy-source.json",
+    "raw_sha256": "7f45c07d726dd6981b034ed114dd9bc586d47e255ae41148564f3f4e392d1e1d",
+    "raw_bytes": 27,
+    "finished_at": "2026-10-14T02:40:58.857649+00:00"
+  },
+  {
+    "index": 49,
+    "kind": "http",
+    "request": {
+      "method": "GET",
+      "url": "https://fundf10.eastmoney.com/fhsp_510300.html",
+      "params": null,
+      "timeout": 15,
+      "http_status": 200
+    },
+    "started_at": "2026-10-14T02:40:58.564468+00:00",
+    "outcome": "returned",
+    "raw_path": "raw/049-http.bin",
+    "raw_sha256": "ca3f69fcb21105cef5f65decec29c13cca8484f74afa484f71841f538be3578c",
+    "raw_bytes": 39085,
+    "finished_at": "2026-10-14T02:40:58.853932+00:00"
+  },
+  {
+    "index": 50,
+    "kind": "legacy-source",
+    "request": {
+      "source_id": "eastmoney_news",
+      "operation": "http_get",
+      "attempt_no": 1,
+      "fallback_from": null
+    },
+    "started_at": "2026-10-14T02:41:00.025713+00:00",
+    "outcome": "returned",
+    "raw_path": "raw/050-legacy-source.json",
+    "raw_sha256": "7f45c07d726dd6981b034ed114dd9bc586d47e255ae41148564f3f4e392d1e1d",
+    "raw_bytes": 27,
+    "finished_at": "2026-10-14T02:41:00.233359+00:00"
+  },
+  {
+    "index": 51,
+    "kind": "http",
+    "request": {
+      "method": "GET",
+      "url": "https://api.fund.eastmoney.com/f10/FHGG",
+      "params": {
+        "fundcode": "510300",
+        "pageSize": 100,
+        "pageIndex": 1
+      },
+      "timeout": 15,
+      "http_status": 200
+    },
+    "started_at": "2026-10-14T02:41:00.025713+00:00",
+    "outcome": "returned",
+    "raw_path": "raw/051-http.bin",
+    "raw_sha256": "3e6ba53878d0388771e829f5df5b18fb18012e167de0f104c44a1120873496d8",
+    "raw_bytes": 5187,
+    "finished_at": "2026-10-14T02:41:00.231368+00:00"
+  },
+  {
+    "index": 52,
+    "kind": "load_vipdoc_daily",
+    "request": {
+      "args": [
+        "510300",
+        "2026-09-08",
+        "2026-09-11"
+      ],
+      "kwargs": {
+        "market": "sh"
+      }
+    },
+    "started_at": "2026-10-14T02:41:00.238369+00:00",
+    "outcome": "returned",
+    "raw_path": "raw/052-load_vipdoc_daily.json",
+    "raw_sha256": "2286163fcb8acde35288fdfabf339c1cc518b5a99a3cc3744bbffd2a60388a7a",
+    "raw_bytes": 726,
+    "finished_at": "2026-10-14T02:41:00.272516+00:00"
+  },
+  {
+    "index": 53,
+    "kind": "load_trading_calendar",
+    "request": {
+      "args": [],
+      "kwargs": {}
+    },
+    "started_at": "2026-10-14T02:41:00.275502+00:00",
+    "outcome": "returned",
+    "raw_path": "raw/053-load_trading_calendar.json",
+    "raw_sha256": "7a0e53f69dfa30293f12bbb517ae2ee5dea13a47b6a7c3d38c96b271c823c1a3",
+    "raw_bytes": 28181,
+    "finished_at": "2026-10-14T02:41:00.278514+00:00"
+  },
+  {
+    "index": 54,
+    "kind": "get_suspension_info",
+    "request": {
+      "args": [
+        "159915",
+        "2026-09-11"
+      ],
+      "kwargs": {}
+    },
+    "started_at": "2026-10-14T02:41:00.491145+00:00",
+    "outcome": "returned",
+    "raw_path": "raw/054-get_suspension_info.json",
+    "raw_sha256": "71847fd24de04ed76a219d57b9f0494b345f3bffe2351a8c2dac81955a777187",
+    "raw_bytes": 231,
+    "finished_at": "2026-10-14T02:41:00.491650+00:00"
+  },
+  {
+    "index": 55,
+    "kind": "fetch_historical_opening_evidence",
+    "request": {
+      "args": [
+        "159915",
+        "2026-09-11"
+      ],
+      "kwargs": {}
+    },
+    "started_at": "2026-10-14T02:41:00.493656+00:00",
+    "outcome": "returned",
+    "raw_path": "raw/055-fetch_historical_opening_evidence.json",
+    "raw_sha256": "ebefd0a001d036ba0ba9a3e421ac363027fa14c17dcde900b5877461d13b8c65",
+    "raw_bytes": 9855,
+    "finished_at": "2026-10-14T02:41:02.343403+00:00"
+  },
+  {
+    "index": 56,
+    "kind": "opening-parser",
+    "request": {
+      "operation": "connect",
+      "server": [
+        "110.41.147.114",
+        7709
+      ]
+    },
+    "started_at": "2026-10-14T02:41:00.495656+00:00",
+    "outcome": "returned",
+    "raw_path": "raw/056-opening-parser.json",
+    "raw_sha256": "bc1c3df1510e821b13b111a20db4a660a0e7dea2aa9a0ce7f454e1cb8914aaf6",
+    "raw_bytes": 28,
+    "finished_at": "2026-10-14T02:41:00.677140+00:00"
+  },
+  {
+    "index": 57,
+    "kind": "opening-parser",
+    "request": {
+      "command": "0x0fb4",
+      "market": 0,
+      "code": "159915",
+      "date": 20260911
+    },
+    "started_at": "2026-10-14T02:41:00.681105+00:00",
+    "outcome": "returned",
+    "raw_path": "raw/057-opening-parser.json",
+    "raw_sha256": "186b55d26cef5ad45c4422e25b2abba0e060f2e558f86ea95402b33ab8e0e34b",
+    "raw_bytes": 8086,
+    "finished_at": "2026-10-14T02:41:00.733119+00:00"
+  },
+  {
+    "index": 58,
+    "kind": "opening-parser",
+    "request": {
+      "command": "0x0fb5",
+      "market": 0,
+      "code": "159915",
+      "date": 20260911,
+      "start": 0,
+      "count": 800
+    },
+    "started_at": "2026-10-14T02:41:00.736157+00:00",
+    "outcome": "returned",
+    "raw_path": "raw/058-opening-parser.json",
+    "raw_sha256": "a766a9ee27702338a03e035d0ebda1de940a2f3dd2c9e60cd8ad2a9409f94dc0",
+    "raw_bytes": 50536,
+    "finished_at": "2026-10-14T02:41:00.792008+00:00"
+  },
+  {
+    "index": 59,
+    "kind": "opening-parser",
+    "request": {
+      "command": "0x0fb5",
+      "market": 0,
+      "code": "159915",
+      "date": 20260911,
+      "start": 800,
+      "count": 800
+    },
+    "started_at": "2026-10-14T02:41:00.801007+00:00",
+    "outcome": "returned",
+    "raw_path": "raw/059-opening-parser.json",
+    "raw_sha256": "ae17949a9e3a3183cac2b6a0c61153face4d6090efe257e5cde268c3564c6e34",
+    "raw_bytes": 50847,
+    "finished_at": "2026-10-14T02:41:00.857776+00:00"
+  },
+  {
+    "index": 60,
+    "kind": "opening-parser",
+    "request": {
+      "command": "0x0fb5",
+      "market": 0,
+      "code": "159915",
+      "date": 20260911,
+      "start": 1600,
+      "count": 800
+    },
+    "started_at": "2026-10-14T02:41:00.866238+00:00",
+    "outcome": "returned",
+    "raw_path": "raw/060-opening-parser.json",
+    "raw_sha256": "3800b06017720af2a7f5739dd0e70d1e93509ced20e74512adc88a5f8cf85161",
+    "raw_bytes": 50702,
+    "finished_at": "2026-10-14T02:41:00.923668+00:00"
+  },
+  {
+    "index": 61,
+    "kind": "opening-parser",
+    "request": {
+      "command": "0x0fb5",
+      "market": 0,
+      "code": "159915",
+      "date": 20260911,
+      "start": 2400,
+      "count": 800
+    },
+    "started_at": "2026-10-14T02:41:00.932663+00:00",
+    "outcome": "returned",
+    "raw_path": "raw/061-opening-parser.json",
+    "raw_sha256": "f185c14cbf8dd309e53387e1713f254fb0de3f15b94ffdd3f64c02bb4b5e3388",
+    "raw_bytes": 50777,
+    "finished_at": "2026-10-14T02:41:00.996495+00:00"
+  },
+  {
+    "index": 62,
+    "kind": "opening-parser",
+    "request": {
+      "command": "0x0fb5",
+      "market": 0,
+      "code": "159915",
+      "date": 20260911,
+      "start": 3200,
+      "count": 800
+    },
+    "started_at": "2026-10-14T02:41:01.005996+00:00",
+    "outcome": "returned",
+    "raw_path": "raw/062-opening-parser.json",
+    "raw_sha256": "1f3848b25afbf62ccefca8833ba9e3450507e9a0351bf431271118d9bbd789fb",
+    "raw_bytes": 51081,
+    "finished_at": "2026-10-14T02:41:01.062298+00:00"
+  },
+  {
+    "index": 63,
+    "kind": "opening-parser",
+    "request": {
+      "command": "0x0fb5",
+      "market": 0,
+      "code": "159915",
+      "date": 20260911,
+      "start": 4000,
+      "count": 800
+    },
+    "started_at": "2026-10-14T02:41:01.070803+00:00",
+    "outcome": "returned",
+    "raw_path": "raw/063-opening-parser.json",
+    "raw_sha256": "874c8b0971ca7a32df72e56cb5c1a6df2dc9ecdd0278e7cc02d22b218d72f7b6",
+    "raw_bytes": 49706,
+    "finished_at": "2026-10-14T02:41:01.130536+00:00"
+  },
+  {
+    "index": 64,
+    "kind": "opening-parser",
+    "request": {
+      "method": "POST",
+      "url": "https://www.szse.cn/api/disc/announcement/annList",
+      "json": {
+        "stock": [
+          "159915"
+        ],
+        "channelCode": [
+          "fundinfoNotice_disc"
+        ],
+        "seDate": [
+          "2026-09-11",
+          "2026-09-11"
+        ],
+        "pageSize": 25,
+        "pageNum": 1
+      }
+    },
+    "started_at": "2026-10-14T02:41:01.139531+00:00",
+    "outcome": "returned",
+    "raw_path": "raw/064-opening-parser.bin",
+    "raw_sha256": "623a2b4aa0de75d0685242ca41fe14e9eadb493315e17194845035fa58c6ef83",
+    "raw_bytes": 29,
+    "finished_at": "2026-10-14T02:41:02.337402+00:00"
+  },
+  {
+    "index": 65,
+    "kind": "http",
+    "request": {
+      "method": "POST",
+      "url": "https://www.szse.cn/api/disc/announcement/annList",
+      "json": {
+        "stock": [
+          "159915"
+        ],
+        "channelCode": [
+          "fundinfoNotice_disc"
+        ],
+        "seDate": [
+          "2026-09-11",
+          "2026-09-11"
+        ],
+        "pageSize": 25,
+        "pageNum": 1
+      },
+      "data": null,
+      "timeout": [
+        4,
+        8
+      ],
+      "http_status": 200
+    },
+    "started_at": "2026-10-14T02:41:01.139531+00:00",
+    "outcome": "returned",
+    "raw_path": "raw/065-http.bin",
+    "raw_sha256": "623a2b4aa0de75d0685242ca41fe14e9eadb493315e17194845035fa58c6ef83",
+    "raw_bytes": 29,
+    "finished_at": "2026-10-14T02:41:02.325863+00:00"
+  },
+  {
+    "index": 66,
+    "kind": "get_fund_corporate_actions",
+    "request": {
+      "args": [
+        "159915",
+        "2026-09-08",
+        "2026-09-11"
+      ],
+      "kwargs": {}
+    },
+    "started_at": "2026-10-14T02:41:02.346401+00:00",
+    "outcome": "returned",
+    "raw_path": "raw/066-get_fund_corporate_actions.json",
+    "raw_sha256": "26c6fcd0d2a960f605f107f0099fa6ffbe1ecdba56de6485430dd0e72706b098",
+    "raw_bytes": 658,
+    "finished_at": "2026-10-14T02:41:02.483113+00:00"
+  },
+  {
+    "index": 67,
+    "kind": "legacy-source",
+    "request": {
+      "source_id": "eastmoney_news",
+      "operation": "http_get",
+      "attempt_no": 1,
+      "fallback_from": null
+    },
+    "started_at": "2026-10-14T02:41:02.346401+00:00",
+    "outcome": "returned",
+    "raw_path": "raw/067-legacy-source.json",
+    "raw_sha256": "7f45c07d726dd6981b034ed114dd9bc586d47e255ae41148564f3f4e392d1e1d",
+    "raw_bytes": 27,
+    "finished_at": "2026-10-14T02:41:02.474131+00:00"
+  },
+  {
+    "index": 68,
+    "kind": "http",
+    "request": {
+      "method": "GET",
+      "url": "https://fundf10.eastmoney.com/fhsp_159915.html",
+      "params": null,
+      "timeout": 15,
+      "http_status": 200
+    },
+    "started_at": "2026-10-14T02:41:02.346401+00:00",
+    "outcome": "returned",
+    "raw_path": "raw/068-http.bin",
+    "raw_sha256": "e3592a609a6a70ecb276bca42511d45b9abf330e0e3a0f66708cd905ef6153b9",
+    "raw_bytes": 44048,
+    "finished_at": "2026-10-14T02:41:02.471138+00:00"
+  },
+  {
+    "index": 69,
+    "kind": "load_vipdoc_daily",
+    "request": {
+      "args": [
+        "159915",
+        "2026-09-08",
+        "2026-09-11"
+      ],
+      "kwargs": {
+        "market": "sz"
+      }
+    },
+    "started_at": "2026-10-14T02:41:02.486104+00:00",
+    "outcome": "returned",
+    "raw_path": "raw/069-load_vipdoc_daily.json",
+    "raw_sha256": "9c9040e315b21b45b8871a31d02bede8329c09f591ef0f24b6fe414993711d4b",
+    "raw_bytes": 730,
+    "finished_at": "2026-10-14T02:41:02.526114+00:00"
+  },
+  {
+    "index": 70,
+    "kind": "load_trading_calendar",
+    "request": {
+      "args": [],
+      "kwargs": {}
+    },
+    "started_at": "2026-10-14T02:41:02.530106+00:00",
+    "outcome": "returned",
+    "raw_path": "raw/070-load_trading_calendar.json",
+    "raw_sha256": "7a0e53f69dfa30293f12bbb517ae2ee5dea13a47b6a7c3d38c96b271c823c1a3",
+    "raw_bytes": 28181,
+    "finished_at": "2026-10-14T02:41:02.533104+00:00"
+  },
+  {
+    "index": 71,
+    "kind": "get_suspension_info",
+    "request": {
+      "args": [
+        "518880",
+        "2026-09-11"
+      ],
+      "kwargs": {}
+    },
+    "started_at": "2026-10-14T02:41:02.591698+00:00",
+    "outcome": "returned",
+    "raw_path": "raw/071-get_suspension_info.json",
+    "raw_sha256": "71847fd24de04ed76a219d57b9f0494b345f3bffe2351a8c2dac81955a777187",
+    "raw_bytes": 231,
+    "finished_at": "2026-10-14T02:41:02.592708+00:00"
+  },
+  {
+    "index": 72,
+    "kind": "fetch_historical_opening_evidence",
+    "request": {
+      "args": [
+        "518880",
+        "2026-09-11"
+      ],
+      "kwargs": {}
+    },
+    "started_at": "2026-10-14T02:41:02.594716+00:00",
+    "outcome": "returned",
+    "raw_path": "raw/072-fetch_historical_opening_evidence.json",
+    "raw_sha256": "282299f0aeae57778541ebaa30cbf118fe467df52c06c3557c7474d98961d00f",
+    "raw_bytes": 10599,
+    "finished_at": "2026-10-14T02:41:03.513149+00:00"
+  },
+  {
+    "index": 73,
+    "kind": "opening-parser",
+    "request": {
+      "operation": "connect",
+      "server": [
+        "110.41.147.114",
+        7709
+      ]
+    },
+    "started_at": "2026-10-14T02:41:02.596719+00:00",
+    "outcome": "returned",
+    "raw_path": "raw/073-opening-parser.json",
+    "raw_sha256": "bc1c3df1510e821b13b111a20db4a660a0e7dea2aa9a0ce7f454e1cb8914aaf6",
+    "raw_bytes": 28,
+    "finished_at": "2026-10-14T02:41:02.770718+00:00"
+  },
+  {
+    "index": 74,
+    "kind": "opening-parser",
+    "request": {
+      "command": "0x0fb4",
+      "market": 1,
+      "code": "518880",
+      "date": 20260911
+    },
+    "started_at": "2026-10-14T02:41:02.773706+00:00",
+    "outcome": "returned",
+    "raw_path": "raw/074-opening-parser.json",
+    "raw_sha256": "c541387dd4627f7f4430b4b0ce1ced16faa2d0679fe87042e676839de9fc7179",
+    "raw_bytes": 7888,
+    "finished_at": "2026-10-14T02:41:02.848817+00:00"
+  },
+  {
+    "index": 75,
+    "kind": "opening-parser",
+    "request": {
+      "command": "0x0fb5",
+      "market": 1,
+      "code": "518880",
+      "date": 20260911,
+      "start": 0,
+      "count": 800
+    },
+    "started_at": "2026-10-14T02:41:02.851828+00:00",
+    "outcome": "returned",
+    "raw_path": "raw/075-opening-parser.json",
+    "raw_sha256": "43ea72c79ec4eb8f1c26d77883453f5adb1a375753b9cdcba96334e10614ef73",
+    "raw_bytes": 50434,
+    "finished_at": "2026-10-14T02:41:02.906884+00:00"
+  },
+  {
+    "index": 76,
+    "kind": "opening-parser",
+    "request": {
+      "command": "0x0fb5",
+      "market": 1,
+      "code": "518880",
+      "date": 20260911,
+      "start": 800,
+      "count": 800
+    },
+    "started_at": "2026-10-14T02:41:02.915896+00:00",
+    "outcome": "returned",
+    "raw_path": "raw/076-opening-parser.json",
+    "raw_sha256": "2d96fd72ad99095cdc904cb1cc3260f8ef6725ca3430d711fc02b85c8debd4e7",
+    "raw_bytes": 50580,
+    "finished_at": "2026-10-14T02:41:02.973236+00:00"
+  },
+  {
+    "index": 77,
+    "kind": "opening-parser",
+    "request": {
+      "command": "0x0fb5",
+      "market": 1,
+      "code": "518880",
+      "date": 20260911,
+      "start": 1600,
+      "count": 800
+    },
+    "started_at": "2026-10-14T02:41:02.982240+00:00",
+    "outcome": "returned",
+    "raw_path": "raw/077-opening-parser.json",
+    "raw_sha256": "06ab42babda826399c1510d901b538e4208d5bc1fb9b1a70e40e25e2149c41de",
+    "raw_bytes": 50468,
+    "finished_at": "2026-10-14T02:41:03.035676+00:00"
+  },
+  {
+    "index": 78,
+    "kind": "opening-parser",
+    "request": {
+      "command": "0x0fb5",
+      "market": 1,
+      "code": "518880",
+      "date": 20260911,
+      "start": 2400,
+      "count": 800
+    },
+    "started_at": "2026-10-14T02:41:03.044172+00:00",
+    "outcome": "returned",
+    "raw_path": "raw/078-opening-parser.json",
+    "raw_sha256": "127bb3850b8487a1a6eab98db031f07e23f93d602178913e4027dcdb3c382a4f",
+    "raw_bytes": 50435,
+    "finished_at": "2026-10-14T02:41:03.097416+00:00"
+  },
+  {
+    "index": 79,
+    "kind": "opening-parser",
+    "request": {
+      "command": "0x0fb5",
+      "market": 1,
+      "code": "518880",
+      "date": 20260911,
+      "start": 3200,
+      "count": 800
+    },
+    "started_at": "2026-10-14T02:41:03.105413+00:00",
+    "outcome": "returned",
+    "raw_path": "raw/079-opening-parser.json",
+    "raw_sha256": "11db903b874141bc5ae9ccc62abd7f6c116efe5e05ad78c14cdbc20ef51a4af6",
+    "raw_bytes": 50542,
+    "finished_at": "2026-10-14T02:41:03.160625+00:00"
+  },
+  {
+    "index": 80,
+    "kind": "opening-parser",
+    "request": {
+      "command": "0x0fb5",
+      "market": 1,
+      "code": "518880",
+      "date": 20260911,
+      "start": 4000,
+      "count": 800
+    },
+    "started_at": "2026-10-14T02:41:03.169621+00:00",
+    "outcome": "returned",
+    "raw_path": "raw/080-opening-parser.json",
+    "raw_sha256": "3f7549479d1128ffde7b28f4a4cc2197cf08976e64936b33bc92772b871e2822",
+    "raw_bytes": 50751,
+    "finished_at": "2026-10-14T02:41:03.223157+00:00"
+  },
+  {
+    "index": 81,
+    "kind": "opening-parser",
+    "request": {
+      "command": "0x0fb5",
+      "market": 1,
+      "code": "518880",
+      "date": 20260911,
+      "start": 4800,
+      "count": 800
+    },
+    "started_at": "2026-10-14T02:41:03.231744+00:00",
+    "outcome": "returned",
+    "raw_path": "raw/081-opening-parser.json",
+    "raw_sha256": "ee4d0afe03806c9606391556c9ffe8f4df8a956b88adcd26ebcc86a1ba467809",
+    "raw_bytes": 3064,
+    "finished_at": "2026-10-14T02:41:03.279932+00:00"
+  },
+  {
+    "index": 82,
+    "kind": "opening-parser",
+    "request": {
+      "method": "GET",
+      "url": "https://query.sse.com.cn/sseQuery/commonSoaQuery.do",
+      "params": {
+        "isPagination": "true",
+        "pageHelp.pageSize": 25,
+        "pageHelp.pageNo": 1,
+        "pageHelp.beginPage": 1,
+        "pageHelp.cacheSize": 1,
+        "pageHelp.endPage": 1,
+        "sqlId": "SSE_PL_JYTS_TFPXX_JJ",
+        "secCode": "518880",
+        "stopReason": "",
+        "order": "startStopDate|desc,secCode|asc",
+        "startDate": "20260911",
+        "endDate": "20260911"
+      },
+      "headers": {
+        "Referer": "https://www.sse.com.cn/disclosure/dealinstruc/suspension/fund/"
+      }
+    },
+    "started_at": "2026-10-14T02:41:03.284945+00:00",
+    "outcome": "returned",
+    "raw_path": "raw/082-opening-parser.bin",
+    "raw_sha256": "087735ac94e1b965c175ba5fb3af737546beb399219342c3a78cd40fd9d884a3",
+    "raw_bytes": 482,
+    "finished_at": "2026-10-14T02:41:03.507149+00:00"
+  },
+  {
+    "index": 83,
+    "kind": "http",
+    "request": {
+      "method": "GET",
+      "url": "https://query.sse.com.cn/sseQuery/commonSoaQuery.do",
+      "params": {
+        "isPagination": "true",
+        "pageHelp.pageSize": 25,
+        "pageHelp.pageNo": 1,
+        "pageHelp.beginPage": 1,
+        "pageHelp.cacheSize": 1,
+        "pageHelp.endPage": 1,
+        "sqlId": "SSE_PL_JYTS_TFPXX_JJ",
+        "secCode": "518880",
+        "stopReason": "",
+        "order": "startStopDate|desc,secCode|asc",
+        "startDate": "20260911",
+        "endDate": "20260911"
+      },
+      "timeout": [
+        4,
+        8
+      ],
+      "http_status": 200
+    },
+    "started_at": "2026-10-14T02:41:03.284945+00:00",
+    "outcome": "returned",
+    "raw_path": "raw/083-http.bin",
+    "raw_sha256": "087735ac94e1b965c175ba5fb3af737546beb399219342c3a78cd40fd9d884a3",
+    "raw_bytes": 482,
+    "finished_at": "2026-10-14T02:41:03.504157+00:00"
+  },
+  {
+    "index": 84,
+    "kind": "get_fund_corporate_actions",
+    "request": {
+      "args": [
+        "518880",
+        "2026-09-08",
+        "2026-09-11"
+      ],
+      "kwargs": {}
+    },
+    "started_at": "2026-10-14T02:41:03.517138+00:00",
+    "outcome": "returned",
+    "raw_path": "raw/084-get_fund_corporate_actions.json",
+    "raw_sha256": "74e3169ddb2f1151dccf640c63459bb559dc73ec6522e0645d530756ee969838",
+    "raw_bytes": 658,
+    "finished_at": "2026-10-14T02:41:03.704354+00:00"
+  },
+  {
+    "index": 85,
+    "kind": "legacy-source",
+    "request": {
+      "source_id": "eastmoney_news",
+      "operation": "http_get",
+      "attempt_no": 1,
+      "fallback_from": null
+    },
+    "started_at": "2026-10-14T02:41:03.517138+00:00",
+    "outcome": "returned",
+    "raw_path": "raw/085-legacy-source.json",
+    "raw_sha256": "7f45c07d726dd6981b034ed114dd9bc586d47e255ae41148564f3f4e392d1e1d",
+    "raw_bytes": 27,
+    "finished_at": "2026-10-14T02:41:03.697317+00:00"
+  },
+  {
+    "index": 86,
+    "kind": "http",
+    "request": {
+      "method": "GET",
+      "url": "https://fundf10.eastmoney.com/fhsp_518880.html",
+      "params": null,
+      "timeout": 15,
+      "http_status": 200
+    },
+    "started_at": "2026-10-14T02:41:03.517138+00:00",
+    "outcome": "returned",
+    "raw_path": "raw/086-http.bin",
+    "raw_sha256": "4195a1debd34e18c65346e0454ad37c7671debbe4f389cc4dddc164f07a8d106",
+    "raw_bytes": 37357,
+    "finished_at": "2026-10-14T02:41:03.694302+00:00"
+  },
+  {
+    "index": 87,
+    "kind": "load_vipdoc_daily",
+    "request": {
+      "args": [
+        "518880",
+        "2026-09-08",
+        "2026-09-11"
+      ],
+      "kwargs": {
+        "market": "sh"
+      }
+    },
+    "started_at": "2026-10-14T02:41:03.706522+00:00",
+    "outcome": "returned",
+    "raw_path": "raw/087-load_vipdoc_daily.json",
+    "raw_sha256": "006815b2e02e6db4d7479a81cdaf25104d3d2a75fae667b95b973ef275601fb4",
+    "raw_bytes": 725,
+    "finished_at": "2026-10-14T02:41:03.744643+00:00"
+  },
+  {
+    "index": 88,
+    "kind": "load_trading_calendar",
+    "request": {
+      "args": [],
+      "kwargs": {}
+    },
+    "started_at": "2026-10-14T02:41:03.748349+00:00",
+    "outcome": "returned",
+    "raw_path": "raw/088-load_trading_calendar.json",
+    "raw_sha256": "7a0e53f69dfa30293f12bbb517ae2ee5dea13a47b6a7c3d38c96b271c823c1a3",
+    "raw_bytes": 28181,
+    "finished_at": "2026-10-14T02:41:03.751586+00:00"
+  },
+  {
+    "index": 89,
+    "kind": "get_suspension_info",
+    "request": {
+      "args": [
+        "511010",
+        "2026-09-11"
+      ],
+      "kwargs": {}
+    },
+    "started_at": "2026-10-14T02:41:03.794872+00:00",
+    "outcome": "returned",
+    "raw_path": "raw/089-get_suspension_info.json",
+    "raw_sha256": "71847fd24de04ed76a219d57b9f0494b345f3bffe2351a8c2dac81955a777187",
+    "raw_bytes": 231,
+    "finished_at": "2026-10-14T02:41:03.795885+00:00"
+  },
+  {
+    "index": 90,
+    "kind": "fetch_historical_opening_evidence",
+    "request": {
+      "args": [
+        "511010",
+        "2026-09-11"
+      ],
+      "kwargs": {}
+    },
+    "started_at": "2026-10-14T02:41:03.798883+00:00",
+    "outcome": "returned",
+    "raw_path": "raw/090-fetch_historical_opening_evidence.json",
+    "raw_sha256": "598847d9a759faacbca6db82ce0d1cc1815face43626243761651205ac19e018",
+    "raw_bytes": 7737,
+    "finished_at": "2026-10-14T02:41:04.410262+00:00"
+  },
+  {
+    "index": 91,
+    "kind": "opening-parser",
+    "request": {
+      "operation": "connect",
+      "server": [
+        "110.41.147.114",
+        7709
+      ]
+    },
+    "started_at": "2026-10-14T02:41:03.800883+00:00",
+    "outcome": "returned",
+    "raw_path": "raw/091-opening-parser.json",
+    "raw_sha256": "bc1c3df1510e821b13b111a20db4a660a0e7dea2aa9a0ce7f454e1cb8914aaf6",
+    "raw_bytes": 28,
+    "finished_at": "2026-10-14T02:41:03.990554+00:00"
+  },
+  {
+    "index": 92,
+    "kind": "opening-parser",
+    "request": {
+      "command": "0x0fb4",
+      "market": 1,
+      "code": "511010",
+      "date": 20260911
+    },
+    "started_at": "2026-10-14T02:41:03.993543+00:00",
+    "outcome": "returned",
+    "raw_path": "raw/092-opening-parser.json",
+    "raw_sha256": "e3401f51c7a4775cdcabf6d180fd01ba64d1f3c2162045b58d30781c56c14f77",
+    "raw_bytes": 7859,
+    "finished_at": "2026-10-14T02:41:04.047209+00:00"
+  },
+  {
+    "index": 93,
+    "kind": "opening-parser",
+    "request": {
+      "command": "0x0fb5",
+      "market": 1,
+      "code": "511010",
+      "date": 20260911,
+      "start": 0,
+      "count": 800
+    },
+    "started_at": "2026-10-14T02:41:04.050198+00:00",
+    "outcome": "returned",
+    "raw_path": "raw/093-opening-parser.json",
+    "raw_sha256": "5d6022ee30ae0f0dbe53947dcc99d155a93bcc36c904e682f3d3dedf8a5aa13c",
+    "raw_bytes": 50545,
+    "finished_at": "2026-10-14T02:41:04.106610+00:00"
+  },
+  {
+    "index": 94,
+    "kind": "opening-parser",
+    "request": {
+      "command": "0x0fb5",
+      "market": 1,
+      "code": "511010",
+      "date": 20260911,
+      "start": 800,
+      "count": 800
+    },
+    "started_at": "2026-10-14T02:41:04.116613+00:00",
+    "outcome": "returned",
+    "raw_path": "raw/094-opening-parser.json",
+    "raw_sha256": "36811da8cfce6123c59da2a3a3e9ec0a8412583b1c3b6225e0a90c0b53dab43f",
+    "raw_bytes": 24481,
+    "finished_at": "2026-10-14T02:41:04.171878+00:00"
+  },
+  {
+    "index": 95,
+    "kind": "opening-parser",
+    "request": {
+      "method": "GET",
+      "url": "https://query.sse.com.cn/sseQuery/commonSoaQuery.do",
+      "params": {
+        "isPagination": "true",
+        "pageHelp.pageSize": 25,
+        "pageHelp.pageNo": 1,
+        "pageHelp.beginPage": 1,
+        "pageHelp.cacheSize": 1,
+        "pageHelp.endPage": 1,
+        "sqlId": "SSE_PL_JYTS_TFPXX_JJ",
+        "secCode": "511010",
+        "stopReason": "",
+        "order": "startStopDate|desc,secCode|asc",
+        "startDate": "20260911",
+        "endDate": "20260911"
+      },
+      "headers": {
+        "Referer": "https://www.sse.com.cn/disclosure/dealinstruc/suspension/fund/"
+      }
+    },
+    "started_at": "2026-10-14T02:41:04.177898+00:00",
+    "outcome": "returned",
+    "raw_path": "raw/095-opening-parser.bin",
+    "raw_sha256": "087735ac94e1b965c175ba5fb3af737546beb399219342c3a78cd40fd9d884a3",
+    "raw_bytes": 482,
+    "finished_at": "2026-10-14T02:41:04.404746+00:00"
+  },
+  {
+    "index": 96,
+    "kind": "http",
+    "request": {
+      "method": "GET",
+      "url": "https://query.sse.com.cn/sseQuery/commonSoaQuery.do",
+      "params": {
+        "isPagination": "true",
+        "pageHelp.pageSize": 25,
+        "pageHelp.pageNo": 1,
+        "pageHelp.beginPage": 1,
+        "pageHelp.cacheSize": 1,
+        "pageHelp.endPage": 1,
+        "sqlId": "SSE_PL_JYTS_TFPXX_JJ",
+        "secCode": "511010",
+        "stopReason": "",
+        "order": "startStopDate|desc,secCode|asc",
+        "startDate": "20260911",
+        "endDate": "20260911"
+      },
+      "timeout": [
+        4,
+        8
+      ],
+      "http_status": 200
+    },
+    "started_at": "2026-10-14T02:41:04.177898+00:00",
+    "outcome": "returned",
+    "raw_path": "raw/096-http.bin",
+    "raw_sha256": "087735ac94e1b965c175ba5fb3af737546beb399219342c3a78cd40fd9d884a3",
+    "raw_bytes": 482,
+    "finished_at": "2026-10-14T02:41:04.400744+00:00"
+  },
+  {
+    "index": 97,
+    "kind": "get_fund_corporate_actions",
+    "request": {
+      "args": [
+        "511010",
+        "2026-09-08",
+        "2026-09-11"
+      ],
+      "kwargs": {}
+    },
+    "started_at": "2026-10-14T02:41:04.414285+00:00",
+    "outcome": "returned",
+    "raw_path": "raw/097-get_fund_corporate_actions.json",
+    "raw_sha256": "28feb5a88844e091db477095f4b5d04ec2555af670fec37ad55c40ddfdc3e8f0",
+    "raw_bytes": 778,
+    "finished_at": "2026-10-14T02:41:06.389515+00:00"
+  },
+  {
+    "index": 98,
+    "kind": "legacy-source",
+    "request": {
+      "source_id": "eastmoney_news",
+      "operation": "http_get",
+      "attempt_no": 1,
+      "fallback_from": null
+    },
+    "started_at": "2026-10-14T02:41:04.945036+00:00",
+    "outcome": "returned",
+    "raw_path": "raw/098-legacy-source.json",
+    "raw_sha256": "7f45c07d726dd6981b034ed114dd9bc586d47e255ae41148564f3f4e392d1e1d",
+    "raw_bytes": 27,
+    "finished_at": "2026-10-14T02:41:05.130376+00:00"
+  },
+  {
+    "index": 99,
+    "kind": "http",
+    "request": {
+      "method": "GET",
+      "url": "https://fundf10.eastmoney.com/fhsp_511010.html",
+      "params": null,
+      "timeout": 15,
+      "http_status": 200
+    },
+    "started_at": "2026-10-14T02:41:04.945036+00:00",
+    "outcome": "returned",
+    "raw_path": "raw/099-http.bin",
+    "raw_sha256": "479801dad7163c7551dc1dc3b0bf61197ed2d22c0772322bfbaf8c9a22e4e836",
+    "raw_bytes": 38145,
+    "finished_at": "2026-10-14T02:41:05.127369+00:00"
+  },
+  {
+    "index": 100,
+    "kind": "legacy-source",
+    "request": {
+      "source_id": "eastmoney_news",
+      "operation": "http_get",
+      "attempt_no": 1,
+      "fallback_from": null
+    },
+    "started_at": "2026-10-14T02:41:06.321870+00:00",
+    "outcome": "returned",
+    "raw_path": "raw/100-legacy-source.json",
+    "raw_sha256": "7f45c07d726dd6981b034ed114dd9bc586d47e255ae41148564f3f4e392d1e1d",
+    "raw_bytes": 27,
+    "finished_at": "2026-10-14T02:41:06.386517+00:00"
+  },
+  {
+    "index": 101,
+    "kind": "http",
+    "request": {
+      "method": "GET",
+      "url": "https://api.fund.eastmoney.com/f10/FHGG",
+      "params": {
+        "fundcode": "511010",
+        "pageSize": 100,
+        "pageIndex": 1
+      },
+      "timeout": 15,
+      "http_status": 200
+    },
+    "started_at": "2026-10-14T02:41:06.321870+00:00",
+    "outcome": "returned",
+    "raw_path": "raw/101-http.bin",
+    "raw_sha256": "442b7d900e24dd6744288da9a426b7037a3f3c8c00229861e2a2de44ddd30bc8",
+    "raw_bytes": 2805,
+    "finished_at": "2026-10-14T02:41:06.382516+00:00"
+  },
+  {
+    "index": 102,
+    "kind": "load_vipdoc_daily",
+    "request": {
+      "args": [
+        "511010",
+        "2026-09-08",
+        "2026-09-11"
+      ],
+      "kwargs": {
+        "market": "sh"
+      }
+    },
+    "started_at": "2026-10-14T02:41:06.392527+00:00",
+    "outcome": "returned",
+    "raw_path": "raw/102-load_vipdoc_daily.json",
+    "raw_sha256": "e588a1a8a288d2489dbe3b521c91e922d56593cb92515f11e5183c4169d4b0d8",
+    "raw_bytes": 759,
+    "finished_at": "2026-10-14T02:41:06.426044+00:00"
+  },
+  {
+    "index": 103,
+    "kind": "load_trading_calendar",
+    "request": {
+      "args": [],
+      "kwargs": {}
+    },
+    "started_at": "2026-10-14T02:41:06.429691+00:00",
+    "outcome": "returned",
+    "raw_path": "raw/103-load_trading_calendar.json",
+    "raw_sha256": "7a0e53f69dfa30293f12bbb517ae2ee5dea13a47b6a7c3d38c96b271c823c1a3",
+    "raw_bytes": 28181,
+    "finished_at": "2026-10-14T02:41:06.432192+00:00"
+  },
+  {
+    "index": 104,
+    "kind": "get_suspension_info",
+    "request": {
+      "args": [
+        "513100",
+        "2026-09-11"
+      ],
+      "kwargs": {}
+    },
+    "started_at": "2026-10-14T02:41:06.478820+00:00",
+    "outcome": "returned",
+    "raw_path": "raw/104-get_suspension_info.json",
+    "raw_sha256": "71847fd24de04ed76a219d57b9f0494b345f3bffe2351a8c2dac81955a777187",
+    "raw_bytes": 231,
+    "finished_at": "2026-10-14T02:41:06.479811+00:00"
+  },
+  {
+    "index": 105,
+    "kind": "fetch_historical_opening_evidence",
+    "request": {
+      "args": [
+        "513100",
+        "2026-09-11"
+      ],
+      "kwargs": {}
+    },
+    "started_at": "2026-10-14T02:41:06.482831+00:00",
+    "outcome": "returned",
+    "raw_path": "raw/105-fetch_historical_opening_evidence.json",
+    "raw_sha256": "d2b071543f2a6570df582fd250e6cb3c187e63fcf2c9dc01f0dc37e2a87e5c62",
+    "raw_bytes": 9420,
+    "finished_at": "2026-10-14T02:41:07.228953+00:00"
+  },
+  {
+    "index": 106,
+    "kind": "opening-parser",
+    "request": {
+      "operation": "connect",
+      "server": [
+        "110.41.147.114",
+        7709
+      ]
+    },
+    "started_at": "2026-10-14T02:41:06.484829+00:00",
+    "outcome": "returned",
+    "raw_path": "raw/106-opening-parser.json",
+    "raw_sha256": "bc1c3df1510e821b13b111a20db4a660a0e7dea2aa9a0ce7f454e1cb8914aaf6",
+    "raw_bytes": 28,
+    "finished_at": "2026-10-14T02:41:06.668774+00:00"
+  },
+  {
+    "index": 107,
+    "kind": "opening-parser",
+    "request": {
+      "command": "0x0fb4",
+      "market": 1,
+      "code": "513100",
+      "date": 20260911
+    },
+    "started_at": "2026-10-14T02:41:06.671770+00:00",
+    "outcome": "returned",
+    "raw_path": "raw/107-opening-parser.json",
+    "raw_sha256": "c59e23b6d499283d2e6a7d9c6a9d46aa729fe430acb7e227f09a22ce827ba586",
+    "raw_bytes": 7265,
+    "finished_at": "2026-10-14T02:41:06.720224+00:00"
+  },
+  {
+    "index": 108,
+    "kind": "opening-parser",
+    "request": {
+      "command": "0x0fb5",
+      "market": 1,
+      "code": "513100",
+      "date": 20260911,
+      "start": 0,
+      "count": 800
+    },
+    "started_at": "2026-10-14T02:41:06.724235+00:00",
+    "outcome": "returned",
+    "raw_path": "raw/108-opening-parser.json",
+    "raw_sha256": "5de9d3cc0a94d81c1f91842e5ee95f971d4c56c25329f99b743629d60b8deafd",
+    "raw_bytes": 49783,
+    "finished_at": "2026-10-14T02:41:06.787749+00:00"
+  },
+  {
+    "index": 109,
+    "kind": "opening-parser",
+    "request": {
+      "command": "0x0fb5",
+      "market": 1,
+      "code": "513100",
+      "date": 20260911,
+      "start": 800,
+      "count": 800
+    },
+    "started_at": "2026-10-14T02:41:06.797286+00:00",
+    "outcome": "returned",
+    "raw_path": "raw/109-opening-parser.json",
+    "raw_sha256": "530bef13e0924e291f16186892a4cbbfab971fa2a6374860132e8db066458c7c",
+    "raw_bytes": 49846,
+    "finished_at": "2026-10-14T02:41:06.856029+00:00"
+  },
+  {
+    "index": 110,
+    "kind": "opening-parser",
+    "request": {
+      "command": "0x0fb5",
+      "market": 1,
+      "code": "513100",
+      "date": 20260911,
+      "start": 1600,
+      "count": 800
+    },
+    "started_at": "2026-10-14T02:41:06.865066+00:00",
+    "outcome": "returned",
+    "raw_path": "raw/110-opening-parser.json",
+    "raw_sha256": "cf264c89ae49d9f023954b8c681e149f13a3c8a0ef4045380310750a31431836",
+    "raw_bytes": 49652,
+    "finished_at": "2026-10-14T02:41:06.915903+00:00"
+  },
+  {
+    "index": 111,
+    "kind": "opening-parser",
+    "request": {
+      "command": "0x0fb5",
+      "market": 1,
+      "code": "513100",
+      "date": 20260911,
+      "start": 2400,
+      "count": 800
+    },
+    "started_at": "2026-10-14T02:41:06.925711+00:00",
+    "outcome": "returned",
+    "raw_path": "raw/111-opening-parser.json",
+    "raw_sha256": "e03b4aa6975cca6dfe82aa58f6fc9ff715e05643de783260a1a8598907594000",
+    "raw_bytes": 30226,
+    "finished_at": "2026-10-14T02:41:06.974326+00:00"
+  },
+  {
+    "index": 112,
+    "kind": "opening-parser",
+    "request": {
+      "method": "GET",
+      "url": "https://query.sse.com.cn/sseQuery/commonSoaQuery.do",
+      "params": {
+        "isPagination": "true",
+        "pageHelp.pageSize": 25,
+        "pageHelp.pageNo": 1,
+        "pageHelp.beginPage": 1,
+        "pageHelp.cacheSize": 1,
+        "pageHelp.endPage": 1,
+        "sqlId": "SSE_PL_JYTS_TFPXX_JJ",
+        "secCode": "513100",
+        "stopReason": "",
+        "order": "startStopDate|desc,secCode|asc",
+        "startDate": "20260911",
+        "endDate": "20260911"
+      },
+      "headers": {
+        "Referer": "https://www.sse.com.cn/disclosure/dealinstruc/suspension/fund/"
+      }
+    },
+    "started_at": "2026-10-14T02:41:06.982324+00:00",
+    "outcome": "returned",
+    "raw_path": "raw/112-opening-parser.bin",
+    "raw_sha256": "b0c084336ced5abfd30e2d1ac3b0e2d46c0b35758934e75651f9ae6ad216fd02",
+    "raw_bytes": 1140,
+    "finished_at": "2026-10-14T02:41:07.220937+00:00"
+  },
+  {
+    "index": 113,
+    "kind": "http",
+    "request": {
+      "method": "GET",
+      "url": "https://query.sse.com.cn/sseQuery/commonSoaQuery.do",
+      "params": {
+        "isPagination": "true",
+        "pageHelp.pageSize": 25,
+        "pageHelp.pageNo": 1,
+        "pageHelp.beginPage": 1,
+        "pageHelp.cacheSize": 1,
+        "pageHelp.endPage": 1,
+        "sqlId": "SSE_PL_JYTS_TFPXX_JJ",
+        "secCode": "513100",
+        "stopReason": "",
+        "order": "startStopDate|desc,secCode|asc",
+        "startDate": "20260911",
+        "endDate": "20260911"
+      },
+      "timeout": [
+        4,
+        8
+      ],
+      "http_status": 200
+    },
+    "started_at": "2026-10-14T02:41:06.982324+00:00",
+    "outcome": "returned",
+    "raw_path": "raw/113-http.bin",
+    "raw_sha256": "b0c084336ced5abfd30e2d1ac3b0e2d46c0b35758934e75651f9ae6ad216fd02",
+    "raw_bytes": 1140,
+    "finished_at": "2026-10-14T02:41:07.211011+00:00"
+  },
+  {
+    "index": 114,
+    "kind": "load_vipdoc_daily",
+    "request": {
+      "args": [
+        "513100",
+        "2026-09-08",
+        "2026-09-11"
+      ],
+      "kwargs": {
+        "market": "sh"
+      }
+    },
+    "started_at": "2026-10-14T02:41:07.233948+00:00",
+    "outcome": "returned",
+    "raw_path": "raw/114-load_vipdoc_daily.json",
+    "raw_sha256": "97bb0a87fcf62fca9905d281ccae9123eb0ab0c5d612022a4fbaf3d568da1a7d",
+    "raw_bytes": 720,
+    "finished_at": "2026-10-14T02:41:07.280308+00:00"
+  },
+  {
+    "index": 115,
+    "kind": "load_trading_calendar",
+    "request": {
+      "args": [],
+      "kwargs": {}
+    },
+    "started_at": "2026-10-14T02:41:07.283912+00:00",
+    "outcome": "returned",
+    "raw_path": "raw/115-load_trading_calendar.json",
+    "raw_sha256": "7a0e53f69dfa30293f12bbb517ae2ee5dea13a47b6a7c3d38c96b271c823c1a3",
+    "raw_bytes": 28181,
+    "finished_at": "2026-10-14T02:41:07.286928+00:00"
+  },
+  {
+    "index": 116,
+    "kind": "get_suspension_info",
+    "request": {
+      "args": [
+        "159509",
+        "2026-09-11"
+      ],
+      "kwargs": {}
+    },
+    "started_at": "2026-10-14T02:41:07.331933+00:00",
+    "outcome": "returned",
+    "raw_path": "raw/116-get_suspension_info.json",
+    "raw_sha256": "71847fd24de04ed76a219d57b9f0494b345f3bffe2351a8c2dac81955a777187",
+    "raw_bytes": 231,
+    "finished_at": "2026-10-14T02:41:07.332946+00:00"
+  },
+  {
+    "index": 117,
+    "kind": "fetch_historical_opening_evidence",
+    "request": {
+      "args": [
+        "159509",
+        "2026-09-11"
+      ],
+      "kwargs": {}
+    },
+    "started_at": "2026-10-14T02:41:07.336966+00:00",
+    "outcome": "returned",
+    "raw_path": "raw/117-fetch_historical_opening_evidence.json",
+    "raw_sha256": "555740f9f0c18ea0bee7255e63c69624c556a497e16a976c99249878846a1c38",
+    "raw_bytes": 13390,
+    "finished_at": "2026-10-14T02:41:10.202499+00:00"
+  },
+  {
+    "index": 118,
+    "kind": "opening-parser",
+    "request": {
+      "operation": "connect",
+      "server": [
+        "110.41.147.114",
+        7709
+      ]
+    },
+    "started_at": "2026-10-14T02:41:07.337963+00:00",
+    "outcome": "returned",
+    "raw_path": "raw/118-opening-parser.json",
+    "raw_sha256": "bc1c3df1510e821b13b111a20db4a660a0e7dea2aa9a0ce7f454e1cb8914aaf6",
+    "raw_bytes": 28,
+    "finished_at": "2026-10-14T02:41:07.539167+00:00"
+  },
+  {
+    "index": 119,
+    "kind": "opening-parser",
+    "request": {
+      "command": "0x0fb4",
+      "market": 0,
+      "code": "159509",
+      "date": 20260911
+    },
+    "started_at": "2026-10-14T02:41:07.543655+00:00",
+    "outcome": "returned",
+    "raw_path": "raw/119-opening-parser.json",
+    "raw_sha256": "c99ec27ffe79b055f976bd78dd7cdabf5fbceeda4bed63c7d087c1249b7b0140",
+    "raw_bytes": 7507,
+    "finished_at": "2026-10-14T02:41:07.608661+00:00"
+  },
+  {
+    "index": 120,
+    "kind": "opening-parser",
+    "request": {
+      "command": "0x0fb5",
+      "market": 0,
+      "code": "159509",
+      "date": 20260911,
+      "start": 0,
+      "count": 800
+    },
+    "started_at": "2026-10-14T02:41:07.613659+00:00",
+    "outcome": "returned",
+    "raw_path": "raw/120-opening-parser.json",
+    "raw_sha256": "fd8c07777af35282686d3e2d3c6016f2df4fe1ec4858df8a0f9d8b3f938a662c",
+    "raw_bytes": 49799,
+    "finished_at": "2026-10-14T02:41:07.669080+00:00"
+  },
+  {
+    "index": 121,
+    "kind": "opening-parser",
+    "request": {
+      "command": "0x0fb5",
+      "market": 0,
+      "code": "159509",
+      "date": 20260911,
+      "start": 800,
+      "count": 800
+    },
+    "started_at": "2026-10-14T02:41:07.678617+00:00",
+    "outcome": "returned",
+    "raw_path": "raw/121-opening-parser.json",
+    "raw_sha256": "d60badd6957dea1ec79fc5379f164de6357f37ccc39bfdd535b020dd0c1ada5d",
+    "raw_bytes": 49923,
+    "finished_at": "2026-10-14T02:41:07.734077+00:00"
+  },
+  {
+    "index": 122,
+    "kind": "opening-parser",
+    "request": {
+      "command": "0x0fb5",
+      "market": 0,
+      "code": "159509",
+      "date": 20260911,
+      "start": 1600,
+      "count": 800
+    },
+    "started_at": "2026-10-14T02:41:07.745280+00:00",
+    "outcome": "returned",
+    "raw_path": "raw/122-opening-parser.json",
+    "raw_sha256": "2cbf87a2ddc7aad6046d57c11d03f84f9c07e724e4ba8de1de80eeb14f3ad5b9",
+    "raw_bytes": 50043,
+    "finished_at": "2026-10-14T02:41:07.805700+00:00"
+  },
+  {
+    "index": 123,
+    "kind": "opening-parser",
+    "request": {
+      "command": "0x0fb5",
+      "market": 0,
+      "code": "159509",
+      "date": 20260911,
+      "start": 2400,
+      "count": 800
+    },
+    "started_at": "2026-10-14T02:41:07.816294+00:00",
+    "outcome": "returned",
+    "raw_path": "raw/123-opening-parser.json",
+    "raw_sha256": "190a9a7a1d78e3e7c0b3bd3c08dfeee5ba3a9528a26dcd0625e1b547c16c8e6f",
+    "raw_bytes": 38388,
+    "finished_at": "2026-10-14T02:41:07.870283+00:00"
+  },
+  {
+    "index": 124,
+    "kind": "opening-parser",
+    "request": {
+      "method": "POST",
+      "url": "https://www.szse.cn/api/disc/announcement/annList",
+      "json": {
+        "stock": [
+          "159509"
+        ],
+        "channelCode": [
+          "fundinfoNotice_disc"
+        ],
+        "seDate": [
+          "2026-09-11",
+          "2026-09-11"
+        ],
+        "pageSize": 25,
+        "pageNum": 1
+      }
+    },
+    "started_at": "2026-10-14T02:41:07.879430+00:00",
+    "outcome": "returned",
+    "raw_path": "raw/124-opening-parser.bin",
+    "raw_sha256": "3ca988327b95469f36ae8c22b943d0d79bb863d0bbef970082496f06dc26b098",
+    "raw_bytes": 654,
+    "finished_at": "2026-10-14T02:41:09.142574+00:00"
+  },
+  {
+    "index": 125,
+    "kind": "http",
+    "request": {
+      "method": "POST",
+      "url": "https://www.szse.cn/api/disc/announcement/annList",
+      "json": {
+        "stock": [
+          "159509"
+        ],
+        "channelCode": [
+          "fundinfoNotice_disc"
+        ],
+        "seDate": [
+          "2026-09-11",
+          "2026-09-11"
+        ],
+        "pageSize": 25,
+        "pageNum": 1
+      },
+      "data": null,
+      "timeout": [
+        4,
+        8
+      ],
+      "http_status": 200
+    },
+    "started_at": "2026-10-14T02:41:07.879430+00:00",
+    "outcome": "returned",
+    "raw_path": "raw/125-http.bin",
+    "raw_sha256": "3ca988327b95469f36ae8c22b943d0d79bb863d0bbef970082496f06dc26b098",
+    "raw_bytes": 654,
+    "finished_at": "2026-10-14T02:41:09.137572+00:00"
+  },
+  {
+    "index": 126,
+    "kind": "opening-parser",
+    "request": {
+      "method": "GET",
+      "url": "https://disc.static.szse.cn/disc/disk03/finalpage/2026-09-11/441bfc71-d5d9-4f67-aed6-05eeeec9aaf3.PDF"
+    },
+    "started_at": "2026-10-14T02:41:09.145572+00:00",
+    "outcome": "returned",
+    "raw_path": "raw/126-opening-parser.bin",
+    "raw_sha256": "18cf4d821cd8f4de15d515ce0ceef828be5aff3beea30128d4b2049d39647fcd",
+    "raw_bytes": 96655,
+    "finished_at": "2026-10-14T02:41:09.240845+00:00"
+  },
+  {
+    "index": 127,
+    "kind": "http",
+    "request": {
+      "method": "GET",
+      "url": "https://disc.static.szse.cn/disc/disk03/finalpage/2026-09-11/441bfc71-d5d9-4f67-aed6-05eeeec9aaf3.PDF",
+      "params": null,
+      "timeout": [
+        4,
+        8
+      ],
+      "http_status": 200
+    },
+    "started_at": "2026-10-14T02:41:09.145572+00:00",
+    "outcome": "returned",
+    "raw_path": "raw/127-http.bin",
+    "raw_sha256": "18cf4d821cd8f4de15d515ce0ceef828be5aff3beea30128d4b2049d39647fcd",
+    "raw_bytes": 96655,
+    "finished_at": "2026-10-14T02:41:09.236842+00:00"
+  },
+  {
+    "index": 128,
+    "kind": "load_vipdoc_daily",
+    "request": {
+      "args": [
+        "159509",
+        "2026-09-08",
+        "2026-09-11"
+      ],
+      "kwargs": {
+        "market": "sz"
+      }
+    },
+    "started_at": "2026-10-14T02:41:10.208530+00:00",
+    "outcome": "returned",
+    "raw_path": "raw/128-load_vipdoc_daily.json",
+    "raw_sha256": "7450e0cbebc708be0ac1a0eca57903a98fb2d8bfa93e8f21c142a09ba76a8499",
+    "raw_bytes": 721,
+    "finished_at": "2026-10-14T02:41:10.236902+00:00"
+  },
+  {
+    "index": 129,
+    "kind": "load_trading_calendar",
+    "request": {
+      "args": [],
+      "kwargs": {}
+    },
+    "started_at": "2026-10-14T02:41:10.241992+00:00",
+    "outcome": "returned",
+    "raw_path": "raw/129-load_trading_calendar.json",
+    "raw_sha256": "7a0e53f69dfa30293f12bbb517ae2ee5dea13a47b6a7c3d38c96b271c823c1a3",
+    "raw_bytes": 28181,
+    "finished_at": "2026-10-14T02:41:10.244983+00:00"
+  }
+]

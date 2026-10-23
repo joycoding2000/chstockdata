@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="16" time="0.290" timestamp="2026-10-14T10:34:09.144106+08:00" hostname="CHINAMI-4QO1VLN"><testcase classname="tests.component.test_owner_r2_interval_contract" name="test_cross_repository_interval[2015-12-18-OPEN_ACTIVITY_CONFIRMED-False]" time="0.006" /><testcase classname="tests.component.test_owner_r2_interval_contract" name="test_cross_repository_interval[2016-01-04-UNKNOWN-True]" time="0.003" /><testcase classname="tests.component.test_owner_r2_interval_contract" name="test_cross_repository_interval[2016-07-04-UNKNOWN-False]" time="0.003" /><testcase classname="tests.component.test_owner_r2_interval_contract" name="test_cross_repository_interval[2016-07-05-OPEN_ACTIVITY_CONFIRMED-False]" time="0.003" /><testcase classname="tests.component.test_owner_r2_interval_contract" name="test_cross_repository_interval[2022-12-30-OPEN_ACTIVITY_CONFIRMED-False]" time="0.003" /><testcase classname="tests.component.test_owner_r2_interval_contract" name="test_later_session_requires_both_sources[False-False]" time="0.003" /><testcase classname="tests.component.test_owner_r2_interval_contract" name="test_later_session_requires_both_sources[True-True]" time="0.003" /><testcase classname="tests.component.test_owner_r2_interval_contract" name="test_caller_cannot_authenticate_resume[resume_date]" time="0.004" /><testcase classname="tests.component.test_owner_r2_interval_contract" name="test_caller_cannot_authenticate_resume[verified]" time="0.004" /><testcase classname="tests.component.test_owner_r2_interval_contract" name="test_caller_cannot_authenticate_resume[source_url]" time="0.004" /><testcase classname="tests.component.test_owner_r2_interval_contract" name="test_caller_cannot_authenticate_resume[source_sha]" time="0.004" /><testcase classname="tests.component.test_owner_r2_interval_contract" name="test_caller_cannot_authenticate_resume[source_kind]" time="0.003" /><testcase classname="tests.component.test_owner_r2_interval_contract" name="test_caller_cannot_authenticate_resume[new_halt]" time="0.003" /><testcase classname="tests.component.test_owner_r2_interval_contract" name="test_hash_resealed_positive_cannot_override_halt_or_resume_day[2016-01-04]" time="0.002" /><testcase classname="tests.component.test_owner_r2_interval_contract" name="test_hash_resealed_positive_cannot_override_halt_or_resume_day[2016-07-04]" time="0.002" /><testcase classname="tests.component.test_owner_r2_interval_contract" name="test_payload_hash_snapshot_and_replay" time="0.005"><failure message="systematic_investing.data.snapshots.InvalidSnapshotManifestError: a snapshot requires at least one daily bar to scope its identity">tmp_path = WindowsPath('C:/Users/Administrator/.codex/visualizations/2026/10/13/01a135d1-a42d-73a3-b19f-dc0968e4ca6c/owner-rework-r2/temp/green/test_payload_hash_snapshot_and0')
+monkeypatch = &lt;_pytest.monkeypatch.MonkeyPatch object at 0x0000016E63E8E120&gt;
+
+    def test_payload_hash_snapshot_and_replay(tmp_path, monkeypatch):
+        result = fetch('2022-12-30')
+        response = consume(result, monkeypatch)
+        assert isinstance(response, ProviderSuccess), response
+        fact = response.records[0]
+        data = CanonicalDataset((), (), (), (), (), (fact,))
+&gt;       manifest = SnapshotWriter('chstockdata', '0.4.2', 'owner-r2').persist(data, snapshot_dir=tmp_path / 'snapshot',
+            created_at=NOW, knowledge_cutoff=NOW, retrieved_at=NOW, execution_eligibility_mode=ExecutionEligibilityMode.HISTORICAL_OPENING_R21)
+
+tests\component\test_owner_r2_interval_contract.py:139: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = SnapshotWriter(provider_name='chstockdata', provider_version='0.4.2', adapter_version='owner-r2')
+dataset = CanonicalDataset(daily_bars=(), sessions=(), tradability=(), corporate_actions=(), rule_candidates=(), historical_open...mootdx":"0.11.7","tdxpy":"0.2.7"},"volume_unit":"TDX lots (not an executable quota)"},"time_granularity":"minute"}'),))
+snapshot_dir = WindowsPath('C:/Users/Administrator/.codex/visualizations/2026/10/13/01a135d1-a42d-73a3-b19f-dc0968e4ca6c/owner-rework-r2/temp/green/test_payload_hash_snapshot_and0/snapshot')
+created_at = datetime.datetime(2026, 10, 14, 0, 0, tzinfo=datetime.timezone.utc)
+knowledge_cutoff = datetime.datetime(2026, 10, 14, 0, 0, tzinfo=datetime.timezone.utc)
+retrieved_at = datetime.datetime(2026, 10, 14, 0, 0, tzinfo=datetime.timezone.utc)
+quality_report_id = 'sha256:0000000000000000000000000000000000000000000000000000000000000000'
+quality_status = 'PASS'
+execution_eligibility_mode = &lt;ExecutionEligibilityMode.HISTORICAL_OPENING_R21: 'HISTORICAL_OPENING_R21'&gt;
+
+    def persist(
+        self,
+        dataset: CanonicalDataset,
+        *,
+        snapshot_dir,
+        created_at: datetime,
+        knowledge_cutoff: datetime,
+        retrieved_at: datetime,
+        quality_report_id: str | None = "sha256:" + "0" * 64,
+        quality_status: str | None = "PASS",
+        execution_eligibility_mode: ExecutionEligibilityMode = ExecutionEligibilityMode.LEGACY,
+    ) -&gt; DataSnapshotManifest:
+        if not dataset.daily_bars:
+&gt;           raise InvalidSnapshotManifestError(
+                "a snapshot requires at least one daily bar to scope its identity"
+            )
+E           systematic_investing.data.snapshots.InvalidSnapshotManifestError: a snapshot requires at least one daily bar to scope its identity
+
+src\systematic_investing\data\snapshots.py:453: InvalidSnapshotManifestError</failure></testcase></testsuite></testsuites>

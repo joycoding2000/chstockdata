@@ -1,0 +1,15 @@
+{
+  "name": "focused-green",
+  "argv": [
+    "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\09\\01a11feb-cbea-7790-a83e-57b1dd555e13\\v042-unified\\sios-candidate\\Scripts\\python.exe",
+    "-c",
+    "import sys; sys.path.insert(0,'C:\\\\Users\\\\Administrator\\\\.codex\\\\visualizations\\\\2026\\\\10\\\\10\\\\01a125dd-33f2-78d3-abe7-45e0928975d0\\\\v042-opening-implementation\\\\chstockdata-owner-rework\\\\src'); sys.path.append('C:/Users/Administrator/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/Lib/site-packages'); import pytest; raise SystemExit(pytest.main(['tests/test_historical_opening_evidence.py', 'tests/test_suspension_structured.py', 'tests/test_suspension_source_semantics.py', 'tests/test_vipdoc_price_scale.py', '-q', '-p', 'no:cacheprovider', '--basetemp=C:\\\\Users\\\\Administrator\\\\.codex\\\\visualizations\\\\2026\\\\10\\\\10\\\\01a125dd-33f2-78d3-abe7-45e0928975d0\\\\v042-opening-implementation\\\\evidence\\\\owner-acceptance-rework-r1\\\\temp\\\\focused-green', '--junitxml=C:\\\\Users\\\\Administrator\\\\.codex\\\\visualizations\\\\2026\\\\10\\\\10\\\\01a125dd-33f2-78d3-abe7-45e0928975d0\\\\v042-opening-implementation\\\\evidence\\\\owner-acceptance-rework-r1\\\\focused-green.xml']))"
+  ],
+  "cwd": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\chstockdata-owner-rework",
+  "exit": 0,
+  "log": "focused-green.log",
+  "log_sha256": "5d6228f3bfb9c2ebb811fede36d37b58e8a03f78ea5fe4355937ae64d4ff1ffb",
+  "offline_injected": true,
+  "junit": "focused-green.xml",
+  "junit_sha256": "befd525feb7bc49076fd983353871ee0b655698ca330a0f55d282ff0ff50d8c9"
+}

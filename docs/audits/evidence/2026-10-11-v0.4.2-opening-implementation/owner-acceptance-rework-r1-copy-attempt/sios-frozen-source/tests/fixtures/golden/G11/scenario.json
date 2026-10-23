@@ -1,0 +1,79 @@
+{
+  "schema_version": "golden-scenario-v1",
+  "scenario_id": "G11",
+  "title": "Corporate action and adjustment no double count",
+  "calendar": {
+    "calendar_id": "XSHG",
+    "snapshot_version": "GOLDEN-CAL-1",
+    "open_sessions": ["2026-09-10", "2026-09-11", "2026-09-14", "2026-09-15"]
+  },
+  "master": {"mode": "default"},
+  "account_fees": {
+    "config_id": "RUN-GOLDEN",
+    "config_version": "1",
+    "broker_profiles": [
+      {
+        "profile_id": "ACCT:MAIN",
+        "version": "1",
+        "commission_rate": "0.0003",
+        "minimum_commission": "5",
+        "agreement_reference": "broker-agreement-2026",
+        "effective_from": "2022-01-04"
+      }
+    ]
+  },
+  "execution_model": {"slippage_rate_buy": "0.001", "slippage_rate_sell": "0.001"},
+  "clock": {
+    "timezone": "+00:00",
+    "activation_local_time": "09:15",
+    "execution_local_time": "09:30",
+    "decision_local_time": "15:30"
+  },
+  "runs": [
+    {
+      "name": "default",
+      "period": {"start_session": "2026-09-10", "end_session": "2026-09-14"},
+      "initial_cash": "1000",
+      "initial_positions": [
+        {
+          "instrument_id": "XSHE:000001",
+          "quantity": 1000,
+          "acquired_session": "2026-09-01",
+          "sellable_from": "2026-09-02",
+          "acquisition_price": "12.00"
+        }
+      ],
+      "bars": [
+        {"instrument_id": "XSHE:000001", "session_date": "2026-09-10", "open": "12.00", "close": "12.00"},
+        {
+          "instrument_id": "XSHE:000001",
+          "session_date": "2026-09-11",
+          "open": "11.75",
+          "close": "11.75",
+          "pre_close": "12.00",
+          "adjustment_factor": {
+            "factor": "0.99",
+            "convention": "TOTAL_RETURN",
+            "version": "1",
+            "as_of": "2026-09-11"
+          }
+        },
+        {"instrument_id": "XSHE:000001", "session_date": "2026-09-14", "open": "11.50", "close": "11.50"}
+      ],
+      "corporate_actions": [
+        {
+          "action_id": "ca:cash-dividend:2026-09-11",
+          "instrument_id": "XSHE:000001",
+          "action_kind": "CASH_DIVIDEND",
+          "ex_date": "2026-09-11",
+          "record_date": "2026-09-10",
+          "pay_date": "2026-09-11",
+          "cash_amount": "0.50",
+          "available_at": "2026-09-10T08:00:00+00:00",
+          "provenance": "golden-fixture:public-disclosure"
+        }
+      ],
+      "targets": {}
+    }
+  ]
+}

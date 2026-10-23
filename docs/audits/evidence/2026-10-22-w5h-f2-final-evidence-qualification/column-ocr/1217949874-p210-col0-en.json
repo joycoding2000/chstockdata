@@ -1,0 +1,108 @@
+{
+    "id":  "1217949874",
+    "text":  "24,027, 132.70 89,462.10 516,803,806.27 955,300,122.48 I ,682, 136,578.90 -324,451.26",
+    "pit_qualified":  false,
+    "engine":  "Windows.Media.Ocr existing en-US",
+    "maximum_image_dimension":  10000,
+    "machine_seconds":  0.08885019999999999,
+    "pixel_height":  2926,
+    "image_sha256":  "e68ef903ed18407d3f853fcb18fe3007bbe1b1f503a14f72e8eb4763ba5de8ca",
+    "pixel_width":  608,
+    "source_sha256":  "5cefd1e1ef733ef5887b619e09ce792d52bd33e2710580616be5736da03cd33c",
+    "physical_page":  210,
+    "lines":  [
+                  {
+                      "text":  "24,027, 132.70",
+                      "words":  [
+                                    {
+                                        "y":  646,
+                                        "height":  44,
+                                        "width":  147,
+                                        "text":  "24,027,",
+                                        "x":  262
+                                    },
+                                    {
+                                        "y":  647,
+                                        "height":  36,
+                                        "width":  131,
+                                        "text":  "132.70",
+                                        "x":  418
+                                    }
+                                ]
+                  },
+                  {
+                      "text":  "89,462.10",
+                      "words":  [
+                                    {
+                                        "y":  736,
+                                        "height":  43,
+                                        "width":  200,
+                                        "text":  "89,462.10",
+                                        "x":  350
+                                    }
+                                ]
+                  },
+                  {
+                      "text":  "516,803,806.27",
+                      "words":  [
+                                    {
+                                        "y":  1241,
+                                        "height":  43,
+                                        "width":  311,
+                                        "text":  "516,803,806.27",
+                                        "x":  238
+                                    }
+                                ]
+                  },
+                  {
+                      "text":  "955,300,122.48",
+                      "words":  [
+                                    {
+                                        "y":  1302,
+                                        "height":  42,
+                                        "width":  313,
+                                        "text":  "955,300,122.48",
+                                        "x":  235
+                                    }
+                                ]
+                  },
+                  {
+                      "text":  "I ,682, 136,578.90",
+                      "words":  [
+                                    {
+                                        "y":  1601,
+                                        "height":  34,
+                                        "width":  9,
+                                        "text":  "I",
+                                        "x":  205
+                                    },
+                                    {
+                                        "y":  1601,
+                                        "height":  41,
+                                        "width":  96,
+                                        "text":  ",682,",
+                                        "x":  225
+                                    },
+                                    {
+                                        "y":  1600,
+                                        "height":  42,
+                                        "width":  220,
+                                        "text":  "136,578.90",
+                                        "x":  330
+                                    }
+                                ]
+                  },
+                  {
+                      "text":  "-324,451.26",
+                      "words":  [
+                                    {
+                                        "y":  2136,
+                                        "height":  42,
+                                        "width":  244,
+                                        "text":  "-324,451.26",
+                                        "x":  306
+                                    }
+                                ]
+                  }
+              ]
+}

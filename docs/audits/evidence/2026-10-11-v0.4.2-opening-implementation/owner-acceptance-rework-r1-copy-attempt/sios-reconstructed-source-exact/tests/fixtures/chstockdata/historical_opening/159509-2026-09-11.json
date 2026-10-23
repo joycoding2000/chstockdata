@@ -1,0 +1,401 @@
+{
+  "data": {
+    "instrument": "159509",
+    "market": "SZSE",
+    "session_date": "2026-09-11",
+    "purpose": "historical_opening_execution_constraint",
+    "schema_version": "historical-opening-evidence/1",
+    "policy_version": "R2.1",
+    "opening_status": "BLOCKED_CONFIRMED",
+    "reason": "certified_official_block_at_target",
+    "source_conflict": false,
+    "official_block_at_target": true,
+    "information_available_at": null,
+    "information_basis": "UNKNOWN",
+    "time_granularity": "minute",
+    "official_events": [
+      {
+        "instrument": "159509",
+        "market": "SZSE",
+        "effective_start": "2026-09-11T09:30:00+08:00",
+        "effective_end": "2026-09-11T10:30:00+08:00",
+        "source_url": "https://disc.static.szse.cn/disc/disk03/finalpage/2026-09-11/441bfc71-d5d9-4f67-aed6-05eeeec9aaf3.PDF",
+        "raw_sha256": "18cf4d821cd8f4de15d515ce0ceef828be5aff3beea30128d4b2049d39647fcd",
+        "certification_basis": "official PDF explicitly secondary-market halt from open until 10:30; redemption remains available, distinct from trading halt",
+        "retrieved_at": "2026-10-11T07:32:47.892700+00:00",
+        "source_kind": "issuer_official_disclosure",
+        "secondary_market": true,
+        "offline_cache": true,
+        "raw_fields": {
+          "issuer": "景顺长城基金管理有限公司",
+          "annId": 1225557465,
+          "effective_interval": "2026-09-11 开市起停牌，10:30 起复牌",
+          "cache_origin": "2026-10-09 official history investigation ZF5 raw PDF hash",
+          "cache_imported_at": "2026-10-11T07:35:19.626967+00:00",
+          "source_retrieved_at": "2026-10-11T07:32:47.892700+00:00"
+        },
+        "information_available_at": null,
+        "information_basis": "UNKNOWN"
+      },
+      {
+        "instrument": "159509",
+        "market": "SZSE",
+        "effective_start": "2026-09-11T09:30:00+08:00",
+        "effective_end": "2026-09-11T10:30:00+08:00",
+        "source_url": "https://disc.static.szse.cn/disc/disk03/finalpage/2026-09-11/441bfc71-d5d9-4f67-aed6-05eeeec9aaf3.PDF",
+        "raw_sha256": "18cf4d821cd8f4de15d515ce0ceef828be5aff3beea30128d4b2049d39647fcd",
+        "certification_basis": "official PDF explicit open halt and 10:30 resume",
+        "retrieved_at": "2026-10-11T07:45:29.047844+00:00",
+        "source_kind": "official",
+        "secondary_market": true,
+        "offline_cache": false,
+        "raw_fields": {
+          "announcement": {
+            "id": "39ad2a94-16ee-4019-a73c-a8046d9703bb",
+            "annId": 1225557465,
+            "title": "纳指科技ETF景顺：景顺长城纳斯达克科技市值加权交易型开放式指数证券投资基金（QDII）二级市场交易价格溢价风险提示及停复牌公告",
+            "content": null,
+            "publishTime": "2026-09-11 00:00:00",
+            "attachPath": "/disc/disk03/finalpage/2026-09-11/441bfc71-d5d9-4f67-aed6-05eeeec9aaf3.PDF",
+            "attachFormat": "PDF",
+            "attachSize": 95,
+            "secCode": [
+              "159509"
+            ],
+            "secName": [
+              "纳指科技ETF景顺"
+            ],
+            "bondType": null,
+            "bigIndustryCode": null,
+            "bigCategoryId": null,
+            "smallCategoryId": null,
+            "channelCode": null,
+            "_index": "ows_disclosure-20180825"
+          },
+          "body_text": "景顺长城纳斯达克科技市值加权交易型开放式指数证券投\n资基金（QDII）二级市场交易价格溢价风险提示及停复牌\n公告\n近期，景顺长城基金管理有限公司（以下简称“本基金管理人”）旗下景\n顺长城纳斯达克科技市值加权交易型开放式指数证券投资基金（QDII）（场内\n简称：纳指科技 ETF 景顺，交易代码：159509，以下简称“本基金”）二级市\n场交易价格明显高于基金份额参考净值（IOPV），出现较大幅度溢价。2026 年\n9 月 10 日，本基金二级市场的收盘价为 2.841 元，收盘时基金份额参考净值\n（IOPV）为 2.2761 元。特此郑重提醒广大投资者，应密切关注二级市场交易\n价格溢价风险，审慎做出投资决策，如盲目投资，可能遭受重大损失。\n为保护投资者利益，本基金将于 2026 年 9 月 11 日开市起停牌，自 2026\n年 9 月 11 日 10:30 起复牌，停牌期间本基金赎回业务照常办理。\n若本基金 2026 年 9 月 11 日二级市场交易价格溢价幅度未有效回落，本基\n金有权通过向深圳证券交易所申请盘中临时停牌、延长停牌时间及连续停牌等\n措施，向市场警示风险，具体以届时公告为准。\n为此，本基金管理人声明如下：\n一、投资者可在二级市场交易本基金，也可以申购、赎回本基金，实际申\n赎状态请以最新公告为准。本基金二级市场的交易价格，除了有基金份额净值\n波动的风险外，还会受到市场供求关系、系统性风险、流动性风险等其他因素\n的影响，可能使投资者面临损失。\n二、截至目前，本基金运作正常且无其他应披露而未披露的重大信息，本\n基金管理人将继续严格按照法律法规及基金合同的相关规定进行投资运作，及\n时做好信息披露工作。\n风险提示：基金管理人承诺以诚实信用、勤勉尽责的原则管理和运用基金\n资产，但不保证基金一定盈利，也不保证最低收益。销售机构根据法规要求对\n投资者类别、风险承受能力和基金的风险等级进行划分，并提出适当性匹配意见。投资者在投资基金前应认真阅读《基金合同》和更新的《招募说明书》等\n基金法律文件，全面认识基金产品的风险收益特征，在了解产品情况及听取销\n售机构适当性意见的基础上，根据自身的风险承受能力、投资期限和投资目\n标，对基金投资作出独立决策，选择合适的基金产品。基金管理人提醒投资者\n基金投资的“买者自负”原则，在投资者作出投资决策后，基金运营状况与基\n金净值变化引致的投资风险，由投资者自行负责。\n特此公告。\n景顺长城基金管理有限公司\n2026 年 9 月 11 日"
+        },
+        "information_available_at": null,
+        "information_basis": "UNKNOWN"
+      }
+    ],
+    "limitations": [
+      "[09:30,09:31) activity does not prove strict 09:30 order fill, full-day normality, or preopen PIT.",
+      "TDX prices are evidence crosschecks only; volumes are not fill quotas.",
+      "Current bounded official query does not claim all historical events or revisions are complete."
+    ],
+    "target_execution_at": "2026-09-11T09:30:00+08:00",
+    "execution_effect_window": {
+      "start": "2026-09-11T09:30:00+08:00",
+      "end": "2026-09-11T09:31:00+08:00"
+    },
+    "tdx_activity": {
+      "instrument": "159509",
+      "session_date": "2026-09-11",
+      "source": "mootdx/tdxpy",
+      "server": {
+        "host": "110.41.147.114",
+        "port": 7709
+      },
+      "timeout_seconds": 4,
+      "auto_retry": false,
+      "heartbeat": false,
+      "server_discovery": false,
+      "command": "0x0fb5",
+      "crosscheck_command": "0x0fb4",
+      "time_granularity": "minute",
+      "price_unit": "CNY/security",
+      "volume_unit": "TDX lots (not an executable quota)",
+      "observations": [
+        {
+          "request": {
+            "operation": "connect",
+            "server": [
+              "110.41.147.114",
+              7709
+            ]
+          },
+          "status": "success",
+          "retrieved_at": "2026-10-11T07:45:28.857113+00:00",
+          "parsed_response_sha256": "483b7e2c82324e79dc30a1412c8c96a80172f32df2963889a1a08b80b9e85e76",
+          "error_type": null
+        },
+        {
+          "request": {
+            "command": "0x0fb4",
+            "market": 0,
+            "code": "159509",
+            "date": 20260911
+          },
+          "status": "success",
+          "retrieved_at": "2026-10-11T07:45:28.857113+00:00",
+          "parsed_response_sha256": "1454cb743154b2a1f4a09e3bc8578d6bb839b6c5af7a0fd0554eb8a01f4eeb7b",
+          "error_type": null
+        },
+        {
+          "request": {
+            "command": "0x0fb5",
+            "market": 0,
+            "code": "159509",
+            "date": 20260911,
+            "start": 0,
+            "count": 800
+          },
+          "status": "success",
+          "retrieved_at": "2026-10-11T07:45:28.858123+00:00",
+          "parsed_response_sha256": "0d5950c588954d69bd1cbb50e2f5f43cad405b28c46e88d07e4822d48852fb87",
+          "error_type": null
+        },
+        {
+          "request": {
+            "command": "0x0fb5",
+            "market": 0,
+            "code": "159509",
+            "date": 20260911,
+            "start": 800,
+            "count": 800
+          },
+          "status": "success",
+          "retrieved_at": "2026-10-11T07:45:28.865118+00:00",
+          "parsed_response_sha256": "cb55666302e511be6f54d43c8a442e7ff55d168b15c5c9868e9c2d2282e34fbb",
+          "error_type": null
+        },
+        {
+          "request": {
+            "command": "0x0fb5",
+            "market": 0,
+            "code": "159509",
+            "date": 20260911,
+            "start": 1600,
+            "count": 800
+          },
+          "status": "success",
+          "retrieved_at": "2026-10-11T07:45:28.872108+00:00",
+          "parsed_response_sha256": "6efba20dd7cc6eba476b9da51b7326d4613d00b86806a2713226cf43f4bc909b",
+          "error_type": null
+        },
+        {
+          "request": {
+            "command": "0x0fb5",
+            "market": 0,
+            "code": "159509",
+            "date": 20260911,
+            "start": 2400,
+            "count": 800
+          },
+          "status": "success",
+          "retrieved_at": "2026-10-11T07:45:28.878116+00:00",
+          "parsed_response_sha256": "43763217e48fb6ce549e4e19568c2d668c284aeb981b299491c813931b64b3bf",
+          "error_type": null
+        }
+      ],
+      "qualified": false,
+      "opening_volume_lots": 0,
+      "normalization_count": 1,
+      "versions": {
+        "mootdx": "0.11.7",
+        "tdxpy": "0.2.7"
+      },
+      "market_id": 0,
+      "category": "ETF",
+      "tick_size": "0.001",
+      "category_certification": "frozen 2026-10-10 44-request protocol and price sample",
+      "normalization_rule": "tdxpy_0.2.7_0x0fb5_certified_etf_divide_10",
+      "normalized_opening_rows": [],
+      "auction_rows": [],
+      "bounded_page_count": 4,
+      "opening_crosscheck_complete": true,
+      "minute_first": {
+        "price": 2.841,
+        "vol": 0
+      },
+      "reason": "no_qualified_0930_transaction_activity"
+    },
+    "official_query": {
+      "instrument": "159509",
+      "market": "SZSE",
+      "query_range": [
+        "2026-09-11",
+        "2026-09-11"
+      ],
+      "range_kind": "announcement publication date",
+      "historical_global_completeness_claim": false,
+      "status": "success",
+      "pagination_complete": true,
+      "observations": [
+        {
+          "request": {
+            "method": "POST",
+            "url": "https://www.szse.cn/api/disc/announcement/annList",
+            "json": {
+              "stock": [
+                "159509"
+              ],
+              "channelCode": [
+                "fundinfoNotice_disc"
+              ],
+              "seDate": [
+                "2026-09-11",
+                "2026-09-11"
+              ],
+              "pageSize": 25,
+              "pageNum": 1
+            }
+          },
+          "status": "success",
+          "retrieved_at": "2026-10-11T07:45:28.884192+00:00",
+          "parsed_response_sha256": "3ca988327b95469f36ae8c22b943d0d79bb863d0bbef970082496f06dc26b098",
+          "error_type": null,
+          "raw_sha256": "3ca988327b95469f36ae8c22b943d0d79bb863d0bbef970082496f06dc26b098",
+          "raw_bytes": 654
+        },
+        {
+          "request": {
+            "method": "GET",
+            "url": "https://disc.static.szse.cn/disc/disk03/finalpage/2026-09-11/441bfc71-d5d9-4f67-aed6-05eeeec9aaf3.PDF"
+          },
+          "status": "success",
+          "retrieved_at": "2026-10-11T07:45:28.884192+00:00",
+          "parsed_response_sha256": "18cf4d821cd8f4de15d515ce0ceef828be5aff3beea30128d4b2049d39647fcd",
+          "error_type": null,
+          "raw_sha256": "18cf4d821cd8f4de15d515ce0ceef828be5aff3beea30128d4b2049d39647fcd",
+          "raw_bytes": 96655
+        }
+      ],
+      "all_returned_rows_considered": true,
+      "raw_rows": [
+        {
+          "id": "39ad2a94-16ee-4019-a73c-a8046d9703bb",
+          "annId": 1225557465,
+          "title": "纳指科技ETF景顺：景顺长城纳斯达克科技市值加权交易型开放式指数证券投资基金（QDII）二级市场交易价格溢价风险提示及停复牌公告",
+          "content": null,
+          "publishTime": "2026-09-11 00:00:00",
+          "attachPath": "/disc/disk03/finalpage/2026-09-11/441bfc71-d5d9-4f67-aed6-05eeeec9aaf3.PDF",
+          "attachFormat": "PDF",
+          "attachSize": 95,
+          "secCode": [
+            "159509"
+          ],
+          "secName": [
+            "纳指科技ETF景顺"
+          ],
+          "bondType": null,
+          "bigIndustryCode": null,
+          "bigCategoryId": null,
+          "smallCategoryId": null,
+          "channelCode": null,
+          "_index": "ows_disclosure-20180825"
+        }
+      ],
+      "total": 1,
+      "page_count": 1,
+      "reason": "current_bounded_query_complete"
+    },
+    "retrieved_at": "2026-10-11T07:45:29.048847+00:00",
+    "evidence_hash": "2c8ba532db99313fc3d7e090dda48b3f95fbc2d22b7a1afaa97a746a5936999c"
+  },
+  "metadata": {
+    "capability": "historical_opening_evidence",
+    "final_provider": null,
+    "providers_used": [
+      "mootdx",
+      "szse"
+    ],
+    "final_status": "success",
+    "outcome_status": null,
+    "request_status": "success",
+    "retrieved_at": "2026-10-11T07:45:29.048847+00:00",
+    "observed_at": null,
+    "data_as_of": "2026-09-11",
+    "stale": false,
+    "partial": false,
+    "limitations": [
+      "[09:30,09:31) activity does not prove strict 09:30 order fill, full-day normality, or preopen PIT.",
+      "TDX prices are evidence crosschecks only; volumes are not fill quotas.",
+      "Current bounded official query does not claim all historical events or revisions are complete."
+    ],
+    "degraded": false,
+    "failed_providers": [],
+    "attempts": [
+      {
+        "provider": "mootdx",
+        "capability": "mootdx:historical_opening_activity",
+        "status": "success",
+        "started_at": "2026-10-11T07:45:28.856116+00:00",
+        "elapsed_ms": 0,
+        "record_count": null,
+        "error_type": null,
+        "message": null
+      },
+      {
+        "provider": "mootdx",
+        "capability": "mootdx:historical_opening_activity",
+        "status": "success",
+        "started_at": "2026-10-11T07:45:28.857113+00:00",
+        "elapsed_ms": 0,
+        "record_count": 240,
+        "error_type": null,
+        "message": null
+      },
+      {
+        "provider": "mootdx",
+        "capability": "mootdx:historical_opening_activity",
+        "status": "success",
+        "started_at": "2026-10-11T07:45:28.857113+00:00",
+        "elapsed_ms": 16,
+        "record_count": 800,
+        "error_type": null,
+        "message": null
+      },
+      {
+        "provider": "mootdx",
+        "capability": "mootdx:historical_opening_activity",
+        "status": "success",
+        "started_at": "2026-10-11T07:45:28.864116+00:00",
+        "elapsed_ms": 0,
+        "record_count": 800,
+        "error_type": null,
+        "message": null
+      },
+      {
+        "provider": "mootdx",
+        "capability": "mootdx:historical_opening_activity",
+        "status": "success",
+        "started_at": "2026-10-11T07:45:28.871104+00:00",
+        "elapsed_ms": 0,
+        "record_count": 800,
+        "error_type": null,
+        "message": null
+      },
+      {
+        "provider": "mootdx",
+        "capability": "mootdx:historical_opening_activity",
+        "status": "success",
+        "started_at": "2026-10-11T07:45:28.878116+00:00",
+        "elapsed_ms": 0,
+        "record_count": 611,
+        "error_type": null,
+        "message": null
+      },
+      {
+        "provider": "szse",
+        "capability": "szse:historical_opening_events",
+        "status": "success",
+        "started_at": "2026-10-11T07:45:28.883116+00:00",
+        "elapsed_ms": 0,
+        "record_count": null,
+        "error_type": null,
+        "message": null
+      },
+      {
+        "provider": "szse",
+        "capability": "szse:historical_opening_events",
+        "status": "success",
+        "started_at": "2026-10-11T07:45:28.884192+00:00",
+        "elapsed_ms": 0,
+        "record_count": null,
+        "error_type": null,
+        "message": null
+      }
+    ]
+  }
+}

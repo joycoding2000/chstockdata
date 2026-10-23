@@ -1,0 +1,57 @@
+{
+  "source_sha256": "3eb18bfa41a76e8263d870fe849941ef1d5c71d4c21948274f53ac0f6f06d89a",
+  "functions": [
+    {
+      "name": "get_fundamentals",
+      "line": 3058,
+      "end_line": 3314,
+      "signature": "ticker: Annotated[str, 'A-stock code'], curr_date: Annotated[str, 'current date']=None, historical_review: bool | None=None"
+    },
+    {
+      "name": "_get_financial_report_sina",
+      "line": 3344,
+      "end_line": 3458,
+      "signature": "code: str, report_type: str, freq: str, curr_date: str=None, historical_review: bool | None=None"
+    },
+    {
+      "name": "get_balance_sheet",
+      "line": 3461,
+      "end_line": 3491,
+      "signature": "ticker: Annotated[str, 'A-stock code'], freq: Annotated[str, \"frequency: 'annual' or 'quarterly'\"]='quarterly', curr_date: Annotated[str, 'current date in YYYY-MM-DD format']=None, historical_review: bool | None=None"
+    },
+    {
+      "name": "get_cashflow",
+      "line": 3497,
+      "end_line": 3527,
+      "signature": "ticker: Annotated[str, 'A-stock code'], freq: Annotated[str, \"frequency: 'annual' or 'quarterly'\"]='quarterly', curr_date: Annotated[str, 'current date in YYYY-MM-DD format']=None, historical_review: bool | None=None"
+    },
+    {
+      "name": "get_income_statement",
+      "line": 3533,
+      "end_line": 3565,
+      "signature": "ticker: Annotated[str, 'A-stock code'], freq: Annotated[str, \"frequency: 'annual' or 'quarterly'\"]='quarterly', curr_date: Annotated[str, 'current date in YYYY-MM-DD format']=None, historical_review: bool | None=None"
+    },
+    {
+      "name": "get_free_financial_indicators",
+      "line": 3568,
+      "end_line": 3847,
+      "signature": "ticker: Annotated[str, 'A-stock code'], curr_date: Annotated[str, 'current date in YYYY-MM-DD format']=None, historical_review: bool | None=None"
+    },
+    {
+      "name": "get_valuation_history",
+      "line": 5214,
+      "end_line": 5453,
+      "signature": "ticker: Annotated[str, '6-digit A-share code (e.g. 600519)']"
+    }
+  ],
+  "public_names_present": {
+    "get_fundamentals": true,
+    "get_balance_sheet": true,
+    "get_cashflow": true,
+    "get_income_statement": true,
+    "get_free_financial_indicators": true,
+    "get_valuation_history": true
+  },
+  "released_tag": "30cc7c50e3971fe79bfd903a412b2b76a0338caa",
+  "source_diff_since_v042": ""
+}

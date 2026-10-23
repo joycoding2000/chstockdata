@@ -1,0 +1,186 @@
+{
+  "generated_at": "2026-10-20T09:38:07.811322+08:00",
+  "exclusions": [
+    "manifest.json self",
+    "final_validation.json validates this manifest",
+    "finalize.stdout.txt and finalize.stderr.txt (written after manifest generation)",
+    "__pycache__"
+  ],
+  "artifacts": [
+    {
+      "path": "docs/audits/2026-10-20-w5h-r2-alternative-source-qualification.md",
+      "bytes": 37262,
+      "sha256": "6d110dd9ce9b1cc1038c85159dc5ec73f21ac2557b2b619c510bd2ce0a186e9e"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-20-w5h-r2/analysis.json",
+      "bytes": 11300,
+      "sha256": "5a10a5949ec86f9951708b3bc2a977c16f2d566d3c410ea0507f0e72f711072f"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-20-w5h-r2/analysis.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-20-w5h-r2/analysis.stdout.txt",
+      "bytes": 2482,
+      "sha256": "8d3b510926abfeef88d5a48407be3d2593c5b61b97be5023f57201119fe70ba4"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-20-w5h-r2/analyze_evidence.py",
+      "bytes": 10799,
+      "sha256": "761bf4439cade20e1724a74d1b02e3a09ae7fedf8f0366ce2f400413fcb670b3"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-20-w5h-r2/audit_tools.py",
+      "bytes": 5915,
+      "sha256": "698504ad4fbfa417abd0ef045bca0256757b3eb05dd1020ef44e3821ea12f726"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-20-w5h-r2/baidu_600518_marketcap_all.raw",
+      "bytes": 16475,
+      "sha256": "d970be59df198cee728cef63e9ed7d33a3bb97d045c8b2d13a1f95001fa19fd7"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-20-w5h-r2/baidu_600518_static_all.raw",
+      "bytes": 16140,
+      "sha256": "51d204f4f1b860ef6b3a069d5604d560adf9493ccb808f235ec33578f81c2ece"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-20-w5h-r2/baidu_600518_ttm.raw",
+      "bytes": 184,
+      "sha256": "82e7512bb763ef84d4ff4c9f8998fbff4b461ee5416741db743d5e4584d2ec45"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-20-w5h-r2/baidu_600518_ttm_1y.raw",
+      "bytes": 10914,
+      "sha256": "bc671a00dd6b3cbcf6d608053def04fc9b548234d4f400e8821f51810ad58511"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-20-w5h-r2/baidu_600519_ttm_1y.raw",
+      "bytes": 10112,
+      "sha256": "e4cf83047a28cf749dbc8ba746847b9c4d2f8bb00ef06e72dabf74613c2fb0fb"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-20-w5h-r2/baidu_canonical_600518_ttm.raw",
+      "bytes": 16156,
+      "sha256": "9e54f751f3783bff441388f826ae90721282127df92ba708d900b978305d9d01"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-20-w5h-r2/baidu_canonical_discovery.raw",
+      "bytes": 184,
+      "sha256": "82e7512bb763ef84d4ff4c9f8998fbff4b461ee5416741db743d5e4584d2ec45"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-20-w5h-r2/baostock_current_menu.raw",
+      "bytes": 683,
+      "sha256": "e31cbae9fb5183792cbca3300d5b03046ec87d215daf1d1423a4bd0c83586cf8"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-20-w5h-r2/baostock_doc_dataExplain.raw",
+      "bytes": 181371,
+      "sha256": "bcea92bddcafbf3aaadbf0483a9631433b9efbcb1c84b22c2cf30e53cfa58751"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-20-w5h-r2/baostock_doc_menu_post.raw",
+      "bytes": 4279,
+      "sha256": "aaa1f04f22f23b18bda9e3d7cb267013d1dfccfdb9da72dbde5047e0427d8dd5"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-20-w5h-r2/baostock_doc_modifyRecord.raw",
+      "bytes": 7286,
+      "sha256": "3c6a08854e08356f7c3a7f05a153374c314e300845e21fc2dd516b3f6eca0912"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-20-w5h-r2/baostock_doc_seasonBalance.raw",
+      "bytes": 2442,
+      "sha256": "8b157300060ae0c33c6c3bcb747ecc6488f2c54a7e5a59f29eaeb5d165e63d63"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-20-w5h-r2/baostock_doc_seasonCashFlow.raw",
+      "bytes": 2589,
+      "sha256": "fde08f2d70215d492d1f2a52cc92a49692c2853395d144e32951910f83f96cd0"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-20-w5h-r2/baostock_doc_seasonProfit.raw",
+      "bytes": 2685,
+      "sha256": "1d51b4abbd8db3f05934fc58b339a639978438f4cfaad5632d12240f20275afd"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-20-w5h-r2/baostock_doc_valuationDaily.raw",
+      "bytes": 2197,
+      "sha256": "c196b69f5375b9fb8659f7f924547a4c1072b8d587fe5ef9c3f07401f9155718"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-20-w5h-r2/before.json",
+      "bytes": 3420770,
+      "sha256": "d7539c7b92df7ed595fc42f22b83e8d0b5db422abc455053ef25abca5a695e8e"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-20-w5h-r2/finalize.py",
+      "bytes": 4496,
+      "sha256": "bb81f2923647b5875e214cb2b2929586c34990db1ab3c39f73c8d1eb9f8107a6"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-20-w5h-r2/local_inventory.json",
+      "bytes": 1849,
+      "sha256": "b4bd24e88be7eaf87e9b3310c8713b56a0e1269064c22d1fad2cb21ffb619d01"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-20-w5h-r2/requests.json",
+      "bytes": 17791,
+      "sha256": "c571390524a91cac7303e8ef6a35d3012689d7844bcc1179d779089c3f4e54de"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-20-w5h-r2/sina_600518_2019q3_original.raw",
+      "bytes": 147462,
+      "sha256": "9da444cc0256ff844b19d48f7575b6af66e893ca439375475eb0ad427e108a7a"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-20-w5h-r2/sina_600518_2019q3_original.txt",
+      "bytes": 53684,
+      "sha256": "6894b62e5b7abff84de23ef23cf0dc7d33c9b48f0ca0d7c501beba042d2c2333"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-20-w5h-r2/source_research.json",
+      "bytes": 8818,
+      "sha256": "ec9e882775e30ee90f31ac05608e5e8cf974d865cccbaea5e481d3fc7603ebe2"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-20-w5h-r2/tdx_financial_catalog.raw",
+      "bytes": 8575,
+      "sha256": "a98dbe95e06b6009794dc2bb3977784540ad1b33cff993846a8d1d98b571fb52"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-20-w5h-r2/tdx_gpcw20171231.raw",
+      "bytes": 985,
+      "sha256": "5d6cac6ddbb7dbf13d4f1f1cb8fd06dc672876e94141d7567c908e040f0efa1a"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-20-w5h-r2/tdx_official_stockfin.raw",
+      "bytes": 26653,
+      "sha256": "167b3fef795008365064568967f96d39a7a3ad5a04c1fdf1b3e1ed7b4ddf0a14"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-20-w5h-r2/ths_600518_benefit.raw",
+      "bytes": 307275,
+      "sha256": "bc8300fae2d0c8112c604cdbce139491d69f1640b75ae0208d1f73d4ccf9100f"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-20-w5h-r2/ths_600518_cash.raw",
+      "bytes": 494658,
+      "sha256": "a4b74022c33e4c4a262d78319225bf3c4d7864e124726ebc1a1f3402dbf9408c"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-20-w5h-r2/ths_600518_debt.raw",
+      "bytes": 561609,
+      "sha256": "bb5b3701ea3add975b1ee9519112e456a379c2c5694df6216278f118a670e84b"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-20-w5h-r2/verification.json",
+      "bytes": 12821,
+      "sha256": "b76c3cc97d7b7016cfaec6291fc4915c228b61b0930ebcddd95d414ee296c70f"
+    }
+  ]
+}

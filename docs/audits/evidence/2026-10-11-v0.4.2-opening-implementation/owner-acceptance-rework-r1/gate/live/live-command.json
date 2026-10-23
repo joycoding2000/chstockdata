@@ -1,0 +1,42 @@
+{
+  "argv": [
+    "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\profiles\\owner-rework-r1\\sios-candidate\\Scripts\\python.exe",
+    "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\evidence\\owner-acceptance-rework-r1\\gate\\run_live.py"
+  ],
+  "pytest_argv": [
+    "tests/qualification/test_chstockdata_etf_gate.py::TestLiveEtfQualification",
+    "-q",
+    "-p",
+    "no:cacheprovider",
+    "--basetemp",
+    "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\evidence\\owner-acceptance-rework-r1\\gate\\live\\live-temp",
+    "--junitxml",
+    "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\evidence\\owner-acceptance-rework-r1\\gate\\live\\live.xml"
+  ],
+  "cwd": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os",
+  "source_identity": "c97a327f145261be5e7f0a93f75e00b2d1d16d13563b6d50eb69fec48ed0910a",
+  "environment_overrides": {
+    "PYTHONPATH": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\src",
+    "PYTHONUTF8": "1",
+    "PYTHONDONTWRITEBYTECODE": "1",
+    "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+    "SIOS_CHSTOCKDATA_LIVE_QUALIFICATION": "1",
+    "CHSTOCKDATA_VIPDOC_HISTORY_DIR": "D:\\Dev\\Projects\\chstockdata\\.rh3a2-vipdoc",
+    "CHSTOCKDATA_CACHE_DIR": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\cache\\owner-rework-r1-live",
+    "SIOS_LIVE_EVIDENCE_DIR": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\evidence\\owner-acceptance-rework-r1\\gate\\live\\capabilities",
+    "SIOS_LIVE_SOURCE_ID": "c97a327f145261be5e7f0a93f75e00b2d1d16d13563b6d50eb69fec48ed0910a"
+  },
+  "started_at": "2026-10-13T13:47:26.999558+00:00",
+  "legacy_calendar_policy": "original public current-date staleness and original labelled online fallback retained",
+  "bounded_new_source_policy": {
+    "host": [
+      "110.41.147.114",
+      7709
+    ],
+    "timeout_seconds": 4,
+    "tdx_pages": 9,
+    "official_pages": 4,
+    "retries": false,
+    "discovery": false
+  }
+}

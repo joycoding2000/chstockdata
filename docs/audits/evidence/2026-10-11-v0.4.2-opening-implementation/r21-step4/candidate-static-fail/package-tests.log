@@ -1,0 +1,882 @@
+........................................................................ [  9%]
+........................................................................ [ 18%]
+........................................................................ [ 27%]
+........................................................................ [ 37%]
+........................................................................ [ 46%]
+........................................................................ [ 55%]
+........................................................................ [ 65%]
+...........................s............................................ [ 74%]
+........................................................................ [ 83%]
+........................................................................ [ 92%]
+.......................................................                  [100%]
+=================================== PASSES ====================================
+_______________ test_cls_v1_business_error_falls_back_to_cache ________________
+------------------------------ Captured log call ------------------------------
+WARNING  chstockdata.a_stock:a_stock.py:4094 CLS v1 news fetch failed: CLS v1 returned errno=10012
+________________ test_em_post_403_fails_closed_as_vendor_error ________________
+------------------------------ Captured log call ------------------------------
+WARNING  chstockdata.a_stock:a_stock.py:1929 东财请求失败（HTTP 403）
+_______ test_f10_snapshot_discloses_missing_period_when_reference_fails _______
+------------------------------ Captured log call ------------------------------
+WARNING  chstockdata.a_stock:a_stock.py:3077 新浪三表（F10 快照期参考） failed for 600519: ConnectionError
+____________ test_policy_target_context_failure_preserves_exchange ____________
+------------------------------ Captured log call ------------------------------
+WARNING  chstockdata.a_stock:a_stock.py:7017 政策路由上下文获取失败（TimeoutError）
+____________ test_get_insider_transactions_uses_eastmoney_holders _____________
+------------------------------ Captured log call ------------------------------
+WARNING  chstockdata.a_stock:a_stock.py:1894 东财请求失败（ConnectionError）
+WARNING  chstockdata.a_stock:a_stock.py:1669 东财股东户数数据未获取（_EastmoneyDataUnavailable）
+WARNING  chstockdata.a_stock:a_stock.py:1894 东财请求失败（ConnectionError）
+WARNING  chstockdata.a_stock:a_stock.py:1669 东财董监高持股变动数据未获取（_EastmoneyDataUnavailable）
+___ test_seat_profile_keeps_active_failure_separate_from_return_statistics ____
+------------------------------ Captured log call ------------------------------
+WARNING  chstockdata.a_stock:a_stock.py:1669 东财龙虎榜营业部活跃画像未获取（RuntimeError）
+___ test_research_reports_fail_closed_for_request_json_and_structure_errors ___
+------------------------------ Captured log call ------------------------------
+WARNING  chstockdata.a_stock:a_stock.py:4390 Eastmoney research report request failed for 600519: RuntimeError
+_ test_get_fundamentals_marks_tencent_failure_without_leaking_request_details _
+------------------------------ Captured log call ------------------------------
+WARNING  chstockdata.a_stock:a_stock.py:3077 实时行情降级链 failed for 600519: RuntimeError
+__ test_get_fundamentals_marks_tencent_failure_during_forward_pe_calculation __
+------------------------------ Captured log call ------------------------------
+WARNING  chstockdata.a_stock:a_stock.py:3077 实时行情（前瞻估值降级链） failed for 600519: RuntimeError
+_____________ test_dragon_tiger_board_marks_seat_provider_failure _____________
+------------------------------ Captured log call ------------------------------
+WARNING  chstockdata.a_stock:a_stock.py:1669 东财龙虎榜买卖席位数据未获取（RuntimeError）
+______ test_get_news_marks_all_provider_failures_without_leaking_details ______
+------------------------------ Captured log call ------------------------------
+WARNING  chstockdata.a_stock:a_stock.py:3960 东方财富 news fetch failed for 600519: RuntimeError
+WARNING  chstockdata.a_stock:a_stock.py:3960 新浪财经 news fetch failed for 600519: RuntimeError
+__________________ test_industry_uses_sina_after_tdx_failure __________________
+------------------------------ Captured log call ------------------------------
+WARNING  chstockdata.a_stock:a_stock.py:8114 TDX 概念板块行情未获取（RuntimeError）
+____________ test_malformed_fresh_cache_is_bypassed_and_rewritten _____________
+------------------------------ Captured log call ------------------------------
+WARNING  chstockdata.a_stock:a_stock.py:2557 OHLCV cache validation failed; bypassing cache: cache bars frame missing required columns: Close
+_________ test_structured_routing_failure_maps_to_legacy_value_error __________
+------------------------------ Captured log call ------------------------------
+WARNING  chstockdata.a_stock:a_stock.py:2587 structured daily-bars routing failed for 600519
+_________ test_stale_structured_refresh_is_not_written_as_fresh_cache _________
+------------------------------ Captured log call ------------------------------
+WARNING  chstockdata.a_stock:a_stock.py:2237 OHLCV coverage stale for 600519: requested_end=2026-09-21 observed_max=2026-08-01 gap_days=51
+___ test_vipdoc_staleness_keeps_local_when_calendar_confirms_latest_session ___
+------------------------------ Captured log call ------------------------------
+WARNING  chstockdata.a_stock:a_stock.py:2509 vipdoc history unusable for 600519: vipdoc package ends 2026-09-30, more than 5 days behind requested 2026-10-08
+_________ test_vipdoc_staleness_calendar_never_masks_a_stale_package __________
+------------------------------ Captured log call ------------------------------
+WARNING  chstockdata.a_stock:a_stock.py:2509 vipdoc history unusable for 600519: vipdoc package ends 2026-09-30, more than 5 days behind requested 2026-10-09
+_____________________ test_stale_coverage_legacy_message ______________________
+------------------------------ Captured log call ------------------------------
+WARNING  chstockdata.a_stock:a_stock.py:2237 OHLCV coverage stale for 600519: requested_end=2026-09-09 observed_max=2026-08-20 gap_days=20
+_________ test_sina_fetch_unknown_denominator_when_count_unavailable __________
+------------------------------ Captured log call ------------------------------
+WARNING  chstockdata.market_breadth:market_breadth.py:403 市场广度：新浪股票总数获取失败（ConnectionError）
+____________ test_sina_fetch_network_error_returns_failed_network _____________
+------------------------------ Captured log call ------------------------------
+WARNING  chstockdata.market_breadth:market_breadth.py:403 市场广度：新浪股票总数获取失败（ConnectionError）
+WARNING  chstockdata.market_breadth:market_breadth.py:533 市场广度：新浪全市场快照失败（ConnectionError）
+_______ test_sina_fetch_deadline_before_first_page_reports_the_deadline _______
+------------------------------ Captured log call ------------------------------
+WARNING  chstockdata.market_breadth:market_breadth.py:521 市场广度：新浪全市场快照失败（SourceContextDeadlineExceeded）
+_ test_sina_index_anchor_falls_back_to_completed_index_kline_after_quote_403 __
+------------------------------ Captured log call ------------------------------
+WARNING  chstockdata.market_breadth:market_breadth.py:362 市场广度：新浪指数快照锚定失败（HTTPError），尝试同源日线锚点
+______________ test_em_pool_fetch_network_and_no_data_semantics _______________
+------------------------------ Captured log call ------------------------------
+WARNING  chstockdata.market_breadth:market_breadth.py:234 市场广度：东财涨停池获取失败（_EastmoneyDataUnavailable）
+______________ test_pdf_magic_with_corrupt_pdf_is_typed_unknown _______________
+------------------------------ Captured log call ------------------------------
+WARNING  pypdf._reader:_utils.py:471 EOF marker not found
+_________ test_parse_day_file_golden_layout_scales_and_skips_invalid __________
+------------------------------ Captured log call ------------------------------
+WARNING  chstockdata.vipdoc_history:vipdoc_history.py:151 vipdoc .day skipped 2 invalid records: C:\Users\Administrator\.codex\visualizations\2026\10\10\01a125dd-33f2-78d3-abe7-45e0928975d0\v042-opening-implementation\evidence\r21-step4\package-tests-tmp\test_parse_day_file_golden_lay0\sh600519.day
+__________ test_load_vipdoc_daily_routes_sh_sz_bj_and_filters_dates ___________
+------------------------------ Captured log call ------------------------------
+WARNING  chstockdata.vipdoc_history:vipdoc_history.py:151 vipdoc .day skipped 1 invalid records: C:\Users\Administrator\.codex\visualizations\2026\10\10\01a125dd-33f2-78d3-abe7-45e0928975d0\v042-opening-implementation\evidence\r21-step4\package-tests-tmp\test_load_vipdoc_daily_routes_0\sh\lday\sh600519.day
+WARNING  chstockdata.vipdoc_history:vipdoc_history.py:151 vipdoc .day skipped 1 invalid records: C:\Users\Administrator\.codex\visualizations\2026\10\10\01a125dd-33f2-78d3-abe7-45e0928975d0\v042-opening-implementation\evidence\r21-step4\package-tests-tmp\test_load_vipdoc_daily_routes_0\sz\lday\sz000001.day
+WARNING  chstockdata.vipdoc_history:vipdoc_history.py:151 vipdoc .day skipped 1 invalid records: C:\Users\Administrator\.codex\visualizations\2026\10\10\01a125dd-33f2-78d3-abe7-45e0928975d0\v042-opening-implementation\evidence\r21-step4\package-tests-tmp\test_load_vipdoc_daily_routes_0\bj\lday\bj920185.day
+_____________ test_load_vipdoc_daily_rejects_path_traversal_code ______________
+------------------------------ Captured log call ------------------------------
+WARNING  chstockdata.vipdoc_history:vipdoc_history.py:190 vipdoc history rejected non 6-digit code: '../sh600519'
+WARNING  chstockdata.vipdoc_history:vipdoc_history.py:190 vipdoc history rejected non 6-digit code: '600519.day'
+____________ test_etf_sort_deduplicate_invalid_records_and_window _____________
+------------------------------ Captured log call ------------------------------
+WARNING  chstockdata.vipdoc_history:vipdoc_history.py:151 vipdoc .day skipped 2 invalid records: C:\Users\Administrator\.codex\visualizations\2026\10\10\01a125dd-33f2-78d3-abe7-45e0928975d0\v042-opening-implementation\evidence\r21-step4\package-tests-tmp\test_etf_sort_deduplicate_inva0\sh\lday\sh510300.day
+WARNING  chstockdata.vipdoc_history:vipdoc_history.py:151 vipdoc .day skipped 2 invalid records: C:\Users\Administrator\.codex\visualizations\2026\10\10\01a125dd-33f2-78d3-abe7-45e0928975d0\v042-opening-implementation\evidence\r21-step4\package-tests-tmp\test_etf_sort_deduplicate_inva0\sh\lday\sh510300.day
+=========================== short test summary info ===========================
+PASSED tests/test_astock_cls_v1.py::test_cls_v1_url_uses_sorted_query_and_md5_sha1_signature
+PASSED tests/test_astock_cls_v1.py::test_cls_v1_is_primary_cls_news_route
+PASSED tests/test_astock_cls_v1.py::test_cls_v1_business_error_falls_back_to_cache
+PASSED tests/test_astock_daily_lhb.py::test_daily_lhb_maps_rows_and_uses_source_trade_date
+PASSED tests/test_astock_daily_lhb.py::test_daily_lhb_min_net_buy_filter
+PASSED tests/test_astock_daily_lhb.py::test_daily_lhb_empty_is_explicit
+PASSED tests/test_astock_daily_lhb.py::test_daily_lhb_rejects_bad_date
+PASSED tests/test_astock_daily_lhb.py::test_daily_lhb_classifies_structure_and_network_failures
+PASSED tests/test_astock_earnings_forecast.py::test_earnings_forecast_parses_sorts_and_dedupes
+PASSED tests/test_astock_earnings_forecast.py::test_earnings_forecast_window_filters_stale_rows
+PASSED tests/test_astock_earnings_forecast.py::test_earnings_forecast_zero_amount_placeholder_is_not_a_fake_disclosure
+PASSED tests/test_astock_earnings_forecast.py::test_earnings_forecast_normal_empty_is_not_a_failure
+PASSED tests/test_astock_earnings_forecast.py::test_earnings_forecast_datacenter_null_result_with_empty_code_is_normal_empty
+PASSED tests/test_astock_earnings_forecast.py::test_earnings_forecast_null_result_with_other_code_is_structure_failure
+PASSED tests/test_astock_earnings_forecast.py::test_earnings_forecast_bse_code_passes_through
+PASSED tests/test_astock_earnings_forecast.py::test_earnings_forecast_caps_rows_at_the_bounded_limit
+PASSED tests/test_astock_earnings_forecast.py::test_earnings_forecast_structure_failures_are_explicit[payload0-failed_structure]
+PASSED tests/test_astock_earnings_forecast.py::test_earnings_forecast_structure_failures_are_explicit[payload1-failed_structure]
+PASSED tests/test_astock_earnings_forecast.py::test_earnings_forecast_structure_failures_are_explicit[payload2-failed_structure]
+PASSED tests/test_astock_earnings_forecast.py::test_earnings_forecast_structure_failures_are_explicit[payload3-failed_structure]
+PASSED tests/test_astock_earnings_forecast.py::test_earnings_forecast_network_and_json_failures_are_explicit
+PASSED tests/test_astock_earnings_forecast.py::test_earnings_forecast_rejects_non_a_share_input[AAPL]
+PASSED tests/test_astock_earnings_forecast.py::test_earnings_forecast_rejects_non_a_share_input[00700]
+PASSED tests/test_astock_earnings_forecast.py::test_earnings_forecast_rejects_non_a_share_input[60051]
+PASSED tests/test_astock_earnings_forecast.py::test_earnings_forecast_rejects_non_a_share_input[]
+PASSED tests/test_astock_eastmoney_fix.py::test_lockup_expiry_uses_new_field_names
+PASSED tests/test_astock_eastmoney_fix.py::test_lockup_expiry_old_field_names_return_empty
+PASSED tests/test_astock_eastmoney_fix.py::test_lockup_expiry_upcoming_uses_new_field_names
+PASSED tests/test_astock_em_post.py::test_em_post_returns_response_and_passes_payload
+PASSED tests/test_astock_em_post.py::test_em_post_403_fails_closed_as_vendor_error
+PASSED tests/test_astock_em_post.py::test_em_post_retries_5xx_once
+PASSED tests/test_astock_financial_yoy_alignment.py::test_yoy_is_self_computed_same_period_cumulative
+PASSED tests/test_astock_financial_yoy_alignment.py::test_yoy_negative_base_uses_absolute_value
+PASSED tests/test_astock_financial_yoy_alignment.py::test_yoy_falls_back_to_normalized_tongbi_without_prior_year
+PASSED tests/test_astock_financial_yoy_alignment.py::test_yoy_unavailable_is_disclosed_with_basis
+PASSED tests/test_astock_financial_yoy_alignment.py::test_sina_tongbi_to_percent_conversion[0.10791-10.791]
+PASSED tests/test_astock_financial_yoy_alignment.py::test_sina_tongbi_to_percent_conversion[-0.00248--0.248]
+PASSED tests/test_astock_financial_yoy_alignment.py::test_sina_tongbi_to_percent_conversion[2.9272-292.72]
+PASSED tests/test_astock_financial_yoy_alignment.py::test_sina_tongbi_to_percent_conversion[0-0]
+PASSED tests/test_astock_financial_yoy_alignment.py::test_sina_tongbi_to_percent_conversion[None-None]
+PASSED tests/test_astock_financial_yoy_alignment.py::test_sina_tongbi_to_percent_conversion[abc-None]
+PASSED tests/test_astock_financial_yoy_alignment.py::test_sina_tongbi_to_percent_conversion[nan-None]
+PASSED tests/test_astock_financial_yoy_alignment.py::test_f10_snapshot_reference_period_matches_updated_date
+PASSED tests/test_astock_financial_yoy_alignment.py::test_f10_snapshot_reference_period_unaffected_by_updated_date_mismatch
+PASSED tests/test_astock_financial_yoy_alignment.py::test_f10_snapshot_without_updated_date_still_labels_period
+PASSED tests/test_astock_financial_yoy_alignment.py::test_f10_snapshot_discloses_missing_period_when_reference_fails
+PASSED tests/test_astock_fundamentals_fix.py::test_get_fundamentals_derives_eps_roe_from_pinyin_fields
+PASSED tests/test_astock_fundamentals_fix.py::test_get_financial_report_sina_parses_report_list
+PASSED tests/test_astock_fundamentals_fix.py::test_get_financial_report_sina_annual_filter
+PASSED tests/test_astock_fundamentals_fix.py::test_get_financial_report_sina_empty_report_list
+PASSED tests/test_astock_fundamentals_fix.py::test_get_financial_report_sina_normalizes_item_yoy_to_percent
+PASSED tests/test_astock_fundamentals_fix.py::test_ths_eps_forecast_stringio_compat
+PASSED tests/test_astock_interface_fix.py::test_get_concept_blocks_uses_eastmoney_f10
+PASSED tests/test_astock_interface_fix.py::test_policy_target_context_reuses_core_conception_structure
+PASSED tests/test_astock_interface_fix.py::test_policy_target_context_failure_preserves_exchange
+PASSED tests/test_astock_interface_fix.py::test_get_insider_transactions_uses_eastmoney_holders
+PASSED tests/test_astock_kline_vipdoc_chain.py::test_raw_daily_uses_local_vipdoc_as_base
+PASSED tests/test_astock_kline_vipdoc_chain.py::test_raw_daily_local_base_reaches_back_beyond_800_bars
+PASSED tests/test_astock_kline_vipdoc_chain.py::test_flag_off_keeps_existing_mootdx_chain
+PASSED tests/test_astock_kline_vipdoc_chain.py::test_adjusted_and_non_daily_paths_skip_vipdoc
+PASSED tests/test_astock_kline_vipdoc_chain.py::test_missing_local_tree_falls_back_to_mootdx
+PASSED tests/test_astock_kline_vipdoc_chain.py::test_stale_local_package_falls_back_to_mootdx
+PASSED tests/test_astock_kline_vipdoc_chain.py::test_local_window_with_no_rows_falls_back_to_mootdx
+PASSED tests/test_astock_kline_vipdoc_chain.py::test_partial_local_window_is_supplemented_by_sina
+PASSED tests/test_astock_kline_vipdoc_chain.py::test_vipdoc_defaults
+PASSED tests/test_astock_kline_vipdoc_chain.py::test_vipdoc_env_overrides_are_typed
+PASSED tests/test_astock_kline_vipdoc_chain.py::test_validate_vipdoc_history_config_rejects_bad_values
+PASSED tests/test_astock_lhb_seat_dimension.py::test_dragon_tiger_board_adds_current_seat_activity_and_return_profile
+PASSED tests/test_astock_lhb_seat_dimension.py::test_strict_eastmoney_datacenter_rejects_malformed_rows
+PASSED tests/test_astock_lhb_seat_dimension.py::test_seat_profile_keeps_active_failure_separate_from_return_statistics
+PASSED tests/test_astock_lhb_seat_dimension.py::test_empty_seat_profiles_are_normal_empty_not_provider_failure
+PASSED tests/test_astock_listing_status.py::test_disclosure_schedule_parses_newest_rows_client_side
+PASSED tests/test_astock_listing_status.py::test_disclosure_schedule_caps_recent_periods
+PASSED tests/test_astock_listing_status.py::test_disclosure_schedule_datacenter_null_result_with_empty_code_is_normal_empty
+PASSED tests/test_astock_listing_status.py::test_disclosure_schedule_null_result_with_other_code_is_structure_failure
+PASSED tests/test_astock_listing_status.py::test_disclosure_schedule_rows_without_parseable_report_date_fail_structure
+PASSED tests/test_astock_listing_status.py::test_disclosure_schedule_network_failures_are_explicit[exc0]
+PASSED tests/test_astock_listing_status.py::test_disclosure_schedule_network_failures_are_explicit[exc1]
+PASSED tests/test_astock_listing_status.py::test_disclosure_schedule_rejects_non_a_share_input
+PASSED tests/test_astock_listing_status.py::test_suspension_parses_matching_snapshot_row
+PASSED tests/test_astock_listing_status.py::test_suspension_absence_is_normal_empty_not_failure
+PASSED tests/test_astock_listing_status.py::test_suspension_truncated_snapshot_cannot_be_reported_as_normal_empty
+PASSED tests/test_astock_listing_status.py::test_suspension_datacenter_null_result_is_normal_empty
+PASSED tests/test_astock_listing_status.py::test_suspension_row_missing_required_start_date_fails_structure
+PASSED tests/test_astock_listing_status.py::test_suspension_paginates_once_and_reuses_same_date_snapshot
+PASSED tests/test_astock_listing_status.py::test_suspension_pagination_has_a_hard_page_bound
+PASSED tests/test_astock_listing_status.py::test_suspension_rejects_invalid_date_input
+PASSED tests/test_astock_listing_status.py::test_delisting_matches_official_records_and_caches_same_day
+PASSED tests/test_astock_listing_status.py::test_delisting_bse_is_explicitly_uncovered_never_not_delisted
+PASSED tests/test_astock_listing_status.py::test_delisting_own_market_failure_is_failed_and_never_cached
+PASSED tests/test_astock_listing_status.py::test_delisting_ignores_stale_or_corrupt_cache
+PASSED tests/test_astock_listing_status.py::test_delisting_rejects_non_a_share_input
+PASSED tests/test_astock_macro_indicators.py::test_macro_parses_four_indicators_periods_and_labels
+PASSED tests/test_astock_macro_indicators.py::test_macro_sorts_and_bounds_periods
+PASSED tests/test_astock_macro_indicators.py::test_macro_partial_network_failure_is_disclosed_not_masked
+PASSED tests/test_astock_macro_indicators.py::test_macro_all_network_failures_are_failed_network
+PASSED tests/test_astock_macro_indicators.py::test_macro_structure_failure_takes_precedence_over_network
+PASSED tests/test_astock_macro_indicators.py::test_macro_null_result_is_normal_empty_not_failure
+PASSED tests/test_astock_macro_indicators.py::test_macro_rows_without_report_date_fail_closed
+PASSED tests/test_astock_macro_indicators.py::test_macro_takes_no_market_arguments
+PASSED tests/test_astock_margin_valuation.py::test_margin_trading_parses_latest_rows_and_provider_units
+PASSED tests/test_astock_margin_valuation.py::test_margin_trading_zero_lending_balance_is_kept_as_zero
+PASSED tests/test_astock_margin_valuation.py::test_margin_trading_bounds_records_to_max_rows
+PASSED tests/test_astock_margin_valuation.py::test_margin_trading_null_result_is_normal_empty_not_failure
+PASSED tests/test_astock_margin_valuation.py::test_margin_trading_structure_error_fails_closed
+PASSED tests/test_astock_margin_valuation.py::test_margin_trading_network_error_is_failed_network
+PASSED tests/test_astock_margin_valuation.py::test_margin_trading_invalid_ticker_is_recoverable
+PASSED tests/test_astock_margin_valuation.py::test_valuation_history_computes_window_percentiles_and_quantiles
+PASSED tests/test_astock_margin_valuation.py::test_valuation_history_paginates_until_provider_count
+PASSED tests/test_astock_margin_valuation.py::test_valuation_history_truncation_is_disclosed
+PASSED tests/test_astock_margin_valuation.py::test_valuation_history_new_listing_discloses_insufficient_samples
+PASSED tests/test_astock_margin_valuation.py::test_valuation_history_non_positive_latest_value_makes_percentile_unavailable
+PASSED tests/test_astock_margin_valuation.py::test_valuation_history_null_result_is_normal_empty
+PASSED tests/test_astock_margin_valuation.py::test_valuation_history_structure_error_fails_closed
+PASSED tests/test_astock_margin_valuation.py::test_valuation_history_network_error_is_failed_network
+PASSED tests/test_astock_pledge_buyback.py::test_shareholder_pledge_parses_latest_weekly_row
+PASSED tests/test_astock_pledge_buyback.py::test_shareholder_pledge_near_zero_ratio_is_data_not_empty
+PASSED tests/test_astock_pledge_buyback.py::test_shareholder_pledge_datacenter_null_result_with_empty_code_is_normal_empty
+PASSED tests/test_astock_pledge_buyback.py::test_shareholder_pledge_null_result_with_other_code_is_structure_failure
+PASSED tests/test_astock_pledge_buyback.py::test_shareholder_pledge_rows_without_parseable_ratio_fail_structure
+PASSED tests/test_astock_pledge_buyback.py::test_shareholder_pledge_network_and_json_failures_are_explicit
+PASSED tests/test_astock_pledge_buyback.py::test_shareholder_pledge_bse_code_passes_through
+PASSED tests/test_astock_pledge_buyback.py::test_shareholder_pledge_rejects_non_a_share_input[AAPL]
+PASSED tests/test_astock_pledge_buyback.py::test_shareholder_pledge_rejects_non_a_share_input[00700]
+PASSED tests/test_astock_pledge_buyback.py::test_shareholder_pledge_rejects_non_a_share_input[60051]
+PASSED tests/test_astock_pledge_buyback.py::test_shareholder_pledge_rejects_non_a_share_input[]
+PASSED tests/test_astock_pledge_buyback.py::test_corporate_buyback_parses_sorts_and_dedupes
+PASSED tests/test_astock_pledge_buyback.py::test_corporate_buyback_window_filters_stale_plans
+PASSED tests/test_astock_pledge_buyback.py::test_corporate_buyback_caps_rows_at_the_bounded_limit
+PASSED tests/test_astock_pledge_buyback.py::test_corporate_buyback_unknown_progress_code_falls_back_to_raw
+PASSED tests/test_astock_pledge_buyback.py::test_corporate_buyback_normal_empty_and_structure_failures_are_explicit
+PASSED tests/test_astock_pledge_buyback.py::test_corporate_buyback_network_failure_is_explicit
+PASSED tests/test_astock_pledge_buyback.py::test_corporate_buyback_bse_code_passes_through
+PASSED tests/test_astock_pledge_buyback.py::test_corporate_buyback_rejects_non_a_share_input[AAPL]
+PASSED tests/test_astock_pledge_buyback.py::test_corporate_buyback_rejects_non_a_share_input[00700]
+PASSED tests/test_astock_pledge_buyback.py::test_corporate_buyback_rejects_non_a_share_input[60051]
+PASSED tests/test_astock_pledge_buyback.py::test_corporate_buyback_rejects_non_a_share_input[]
+PASSED tests/test_astock_push2_source_scan.py::test_no_push2_url_literals_in_data_plane_sources
+PASSED tests/test_astock_push2_source_scan.py::test_limit_up_uses_the_push2ex_topic_pool_domain_only
+PASSED tests/test_astock_quote_fallback.py::test_realtime_quote_stops_at_tencent
+PASSED tests/test_astock_quote_fallback.py::test_realtime_quote_falls_back_to_mootdx_after_tencent_proxy_error
+PASSED tests/test_astock_quote_fallback.py::test_realtime_quote_falls_back_to_sina_after_tencent_and_mootdx_fail
+PASSED tests/test_astock_quote_fallback.py::test_realtime_quote_rejects_stale_tencent_quote_and_uses_next_source
+PASSED tests/test_astock_quote_fallback.py::test_realtime_quote_keeps_stale_last_resort_when_all_sources_are_stale
+PASSED tests/test_astock_quote_fallback.py::test_realtime_quote_all_sources_fail_is_explicit_and_sanitized
+PASSED tests/test_astock_quote_fallback.py::test_sina_realtime_quote_parses_gbk_snapshot
+PASSED tests/test_astock_quote_fallback.py::test_mootdx_realtime_quote_normalizes_dataframe_fields
+PASSED tests/test_astock_quote_fallback.py::test_fundamentals_consumes_fallback_quote_and_reports_actual_source
+PASSED tests/test_astock_quote_fallback.py::test_get_realtime_snapshot_exposes_display_safe_fields
+PASSED tests/test_astock_quote_fallback.py::test_get_realtime_snapshot_preserves_sanitized_unavailable_error
+PASSED tests/test_astock_research_reports.py::test_research_reports_filter_dedupe_and_aggregate_without_pdf
+PASSED tests/test_astock_research_reports.py::test_research_reports_preserve_missing_values_and_normal_empty
+PASSED tests/test_astock_research_reports.py::test_research_reports_fail_closed_for_request_json_and_structure_errors
+PASSED tests/test_astock_research_reports.py::test_research_reports_reject_invalid_ticker_before_request
+PASSED tests/test_astock_research_reports.py::test_eps_forecasts_use_each_report_publication_year
+PASSED tests/test_astock_silent_failure_sentinel.py::test_get_fundamentals_marks_tencent_failure_without_leaking_request_details
+PASSED tests/test_astock_silent_failure_sentinel.py::test_get_fundamentals_marks_tencent_failure_during_forward_pe_calculation
+PASSED tests/test_astock_silent_failure_sentinel.py::test_dragon_tiger_board_marks_seat_provider_failure
+PASSED tests/test_astock_silent_failure_sentinel.py::test_dragon_tiger_board_does_not_report_institution_failure_when_no_board_data
+PASSED tests/test_astock_silent_failure_sentinel.py::test_get_news_marks_all_provider_failures_without_leaking_details
+PASSED tests/test_astock_tdx_fallback.py::test_bridge_runner_uses_configured_isolated_python_without_shell
+PASSED tests/test_astock_tdx_fallback.py::test_tdx_bridge_routes_920_codes_to_beijing_market
+PASSED tests/test_astock_tdx_fallback.py::test_fund_flow_prefers_tdx_without_calling_eastmoney
+PASSED tests/test_astock_tdx_fallback.py::test_fund_flow_uses_sina_daily_fallback_after_tdx_failure
+PASSED tests/test_astock_tdx_fallback.py::test_fund_flow_sina_fallback_truncates_future_dates
+PASSED tests/test_astock_tdx_fallback.py::test_fund_flow_tdx_history_truncates_future_dates
+PASSED tests/test_astock_tdx_fallback.py::test_fund_flow_tdx_history_synthesizes_main_net_from_four_tiers
+PASSED tests/test_astock_tdx_fallback.py::test_fund_flow_current_displays_five_day_tier_nets
+PASSED tests/test_astock_tdx_fallback.py::test_fund_flow_current_includes_fork_mapped_super_and_small_5d
+PASSED tests/test_astock_tdx_fallback.py::test_fund_flow_current_omits_five_day_section_when_absent
+PASSED tests/test_astock_tdx_fallback.py::test_industry_prefers_tdx_taxonomy_without_calling_eastmoney
+PASSED tests/test_astock_tdx_fallback.py::test_industry_uses_sina_after_tdx_failure
+PASSED tests/test_astock_tencent_quote_fix.py::test_tencent_quote_mcap_uses_index_45
+PASSED tests/test_astock_tencent_quote_fix.py::test_tencent_quote_mcap_when_total_ne_float
+PASSED tests/test_astock_tencent_quote_fix.py::test_tencent_quote_mcap_equal_when_all_float
+PASSED tests/test_astock_tencent_quote_fix.py::test_tencent_quote_pe_static_uses_index_53
+PASSED tests/test_astock_tencent_quote_fix.py::test_get_prefix_sh_for_600xxx
+PASSED tests/test_astock_tencent_quote_fix.py::test_get_prefix_sz_for_000xxx_300xxx
+PASSED tests/test_astock_tencent_quote_fix.py::test_get_prefix_bj_for_920xxx
+PASSED tests/test_astock_tencent_quote_fix.py::test_get_prefix_bj_for_old_8xxx_4xxx
+PASSED tests/test_astock_tencent_quote_fix.py::test_tencent_quote_marks_stale_when_zero_amount
+PASSED tests/test_astock_tencent_quote_fix.py::test_tencent_quote_not_stale_on_normal_quote
+PASSED tests/test_astock_tencent_quote_fix.py::test_resolve_price_rejects_zero_realtime
+PASSED tests/test_astock_ticker_routing.py::test_normalize_accepts_supported_forms
+PASSED tests/test_astock_ticker_routing.py::test_normalize_rejects_prefix_and_suffix_together
+PASSED tests/test_astock_ticker_routing.py::test_normalize_rejects_market_section_conflicts
+PASSED tests/test_astock_ticker_routing.py::test_normalize_rejects_shanghai_index_notation
+PASSED tests/test_astock_ticker_routing.py::test_normalize_keeps_shenzhen_000xxx_stocks
+PASSED tests/test_astock_ticker_routing.py::test_normalize_preserves_hk_us_errors
+PASSED tests/test_astock_ticker_routing.py::test_resolve_ticker_rejects_index_forms_without_name_map_lookup
+PASSED tests/test_astock_ticker_routing.py::test_market_for_code_routes_sh_etf_and_keeps_existing_rules
+PASSED tests/test_astock_ticker_routing.py::test_get_prefix_follows_market_for_code
+PASSED tests/test_astock_v0221_fix.py::test_resolve_price_uses_historical_close_on_past_date
+PASSED tests/test_astock_v0221_fix.py::test_resolve_price_uses_realtime_when_no_curr_date
+PASSED tests/test_astock_v0221_fix.py::test_resolve_price_never_falls_back_to_realtime_when_historical_close_missing
+PASSED tests/test_astock_v0221_fix.py::test_em_get_retries_on_connection_error
+PASSED tests/test_astock_v0221_fix.py::test_em_get_retries_on_5xx
+PASSED tests/test_astock_v0221_fix.py::test_em_get_does_not_retry_on_4xx
+PASSED tests/test_astock_v0221_fix.py::test_get_insider_transactions_three_sections
+PASSED tests/test_astock_v0221_fix.py::test_get_insider_transactions_holders_only_when_pages_empty
+PASSED tests/test_board_flow.py::test_board_flow_sorts_by_main_net_and_skips_malformed
+PASSED tests/test_board_flow.py::test_board_flow_period_key_mapping_and_top_n
+PASSED tests/test_board_flow.py::test_board_flow_rejects_bad_arguments
+PASSED tests/test_board_flow.py::test_board_flow_structure_and_network_failures
+PASSED tests/test_cached_ohlcv_structured.py::test_fresh_valid_cache_short_circuits_structured_fetch
+PASSED tests/test_cached_ohlcv_structured.py::test_pit_filter_excludes_future_rows_from_fresh_cache
+PASSED tests/test_cached_ohlcv_structured.py::test_malformed_fresh_cache_is_bypassed_and_rewritten
+PASSED tests/test_cached_ohlcv_structured.py::test_valid_but_lagging_cache_refreshes_through_structured_engine
+PASSED tests/test_cached_ohlcv_structured.py::test_structured_routing_failure_maps_to_legacy_value_error
+PASSED tests/test_cached_ohlcv_structured.py::test_structured_normal_empty_keeps_legacy_no_data_contract
+PASSED tests/test_cached_ohlcv_structured.py::test_vipdoc_backed_structured_frame_returns_legacy_six_columns
+PASSED tests/test_cached_ohlcv_structured.py::test_indicator_fallback_uses_structured_cached_history
+PASSED tests/test_cached_ohlcv_structured.py::test_structured_refresh_preserves_legacy_800_row_depth_and_cache_size
+PASSED tests/test_cached_ohlcv_structured.py::test_fresh_oversized_cache_is_normalized_to_recent_800_rows
+PASSED tests/test_cached_ohlcv_structured.py::test_future_rows_are_removed_before_selecting_recent_800
+PASSED tests/test_cached_ohlcv_structured.py::test_fresh_cache_uses_expected_market_session_for_weekend_and_holiday[2026-09-20-2026-09-18-2026-09-18]
+PASSED tests/test_cached_ohlcv_structured.py::test_fresh_cache_uses_expected_market_session_for_weekend_and_holiday[2026-10-06-2026-09-30-2026-09-30]
+PASSED tests/test_cached_ohlcv_structured.py::test_calendar_session_reference_does_not_mask_a_lagging_cache
+PASSED tests/test_cached_ohlcv_structured.py::test_calendar_unavailable_keeps_legacy_tolerance_for_recent_cache
+PASSED tests/test_cached_ohlcv_structured.py::test_calendar_unavailable_refreshes_cache_beyond_legacy_tolerance
+PASSED tests/test_cached_ohlcv_structured.py::test_stale_structured_refresh_is_not_written_as_fresh_cache
+PASSED tests/test_cached_ohlcv_structured.py::test_indicator_path_receives_at_most_800_cached_rows
+PASSED tests/test_calendar_consumers.py::test_market_breadth_calendar_confirmed_holiday_skips_pool_requests
+PASSED tests/test_calendar_consumers.py::test_market_breadth_calendar_confirmed_trading_day_refines_all_empty_note
+PASSED tests/test_calendar_consumers.py::test_market_breadth_calendar_unavailable_keeps_weekend_rule
+PASSED tests/test_calendar_consumers.py::test_market_breadth_calendar_error_falls_back_without_failing
+PASSED tests/test_calendar_consumers.py::test_vipdoc_staleness_keeps_local_when_calendar_confirms_latest_session
+PASSED tests/test_calendar_consumers.py::test_vipdoc_staleness_calendar_never_masks_a_stale_package
+PASSED tests/test_calendar_consumers.py::test_tdx_probe_window_closes_on_calendar_holiday
+PASSED tests/test_calendar_consumers.py::test_tdx_probe_window_keeps_time_heuristic_when_calendar_unknown
+PASSED tests/test_calendar_consumers.py::test_calendar_reference_prefers_request_cutoff_within_coverage
+PASSED tests/test_capability_isolation.py::TestProviderCapabilityIdentity::test_id_composition_is_stable
+PASSED tests/test_capability_isolation.py::TestProviderCapabilityIdentity::test_identity_is_consumer_neutral
+PASSED tests/test_capability_isolation.py::TestProviderCapabilityIdentity::test_empty_components_rejected
+PASSED tests/test_capability_isolation.py::TestProviderCapabilityIdentity::test_separator_characters_rejected
+PASSED tests/test_capability_isolation.py::TestCapabilityIsolation::test_bars_failure_does_not_mark_finance_failed
+PASSED tests/test_capability_isolation.py::TestCapabilityIsolation::test_finance_succeeds_after_bars_failed
+PASSED tests/test_capability_isolation.py::TestCapabilityIsolation::test_isolation_across_providers
+PASSED tests/test_capability_isolation.py::TestCapabilityIsolation::test_normal_empty_is_healthy
+PASSED tests/test_capability_isolation.py::TestCapabilityIsolation::test_known_capabilities_lists_all_recorded
+PASSED tests/test_capability_isolation.py::TestCapabilityIsolation::test_invalid_status_rejected
+PASSED tests/test_chip_distribution.py::test_chip_distribution_requires_date_and_turn_columns
+PASSED tests/test_chip_distribution.py::test_chip_distribution_empty_frame_fails_loud
+PASSED tests/test_chip_distribution.py::test_chip_distribution_is_time_direction_independent
+PASSED tests/test_chip_distribution.py::test_chip_distribution_seeds_first_day_with_full_float
+PASSED tests/test_chip_distribution.py::test_chip_distribution_hard_invariants
+PASSED tests/test_chip_distribution.py::test_chip_distribution_rejects_bad_grid_and_decay
+PASSED tests/test_chip_distribution.py::test_bs_code_maps_markets_and_rejects_bse
+PASSED tests/test_chip_distribution.py::test_load_baostock_missing_dependency_is_configured_error
+PASSED tests/test_chip_distribution.py::test_get_chip_distribution_assembles_metadata
+PASSED tests/test_chip_distribution.py::test_get_chip_distribution_rejects_invalid_ticker_and_dates
+PASSED tests/test_config_and_warmup_regression.py::TestConfigureValueValidation::test_truthy_string_for_boolean_flag_is_rejected
+PASSED tests/test_config_and_warmup_regression.py::TestConfigureValueValidation::test_valid_boolean_still_accepted
+PASSED tests/test_config_and_warmup_regression.py::TestConfigureValueValidation::test_staleness_string_rejected
+PASSED tests/test_config_and_warmup_regression.py::TestConfigureValueValidation::test_negative_staleness_rejected
+PASSED tests/test_config_and_warmup_regression.py::TestConfigureValueValidation::test_non_string_dir_rejected
+PASSED tests/test_config_and_warmup_regression.py::TestConfigureValueValidation::test_unknown_key_still_rejected
+PASSED tests/test_config_and_warmup_regression.py::TestConfigureValueValidation::test_atomic_commit_invalid_call_pollutes_nothing
+PASSED tests/test_config_and_warmup_regression.py::TestConfigureValueValidation::test_valid_batch_commits_all
+PASSED tests/test_config_and_warmup_regression.py::TestWarmupRetry::test_failed_warmup_allows_retry
+PASSED tests/test_config_and_warmup_regression.py::TestWarmupRetry::test_successful_warmup_stays_idempotent
+PASSED tests/test_daily_bars_contract.py::test_missing_required_column_is_failed_structure_and_falls_back
+PASSED tests/test_daily_bars_contract.py::test_mootdx_malformed_frame_falls_back_to_sina
+PASSED tests/test_daily_bars_contract.py::test_unparseable_date_is_failed_structure
+PASSED tests/test_daily_bars_contract.py::test_non_numeric_close_is_failed_structure
+PASSED tests/test_daily_bars_contract.py::test_valid_numeric_strings_are_normalized
+PASSED tests/test_daily_bars_contract.py::test_duplicate_dates_dedupe_keep_last_preserving_order
+PASSED tests/test_daily_bars_contract.py::test_date_normalized_to_daily_granularity
+PASSED tests/test_daily_bars_contract.py::test_probe_rejects_malformed_frame
+PASSED tests/test_daily_bars_contract.py::test_sina_overlap_only_contribution_is_recorded
+PASSED tests/test_daily_bars_contract.py::test_sina_advancing_end_records_both_facts
+PASSED tests/test_daily_bars_contract.py::test_base_only_has_no_supplement_limitations
+PASSED tests/test_daily_bars_contract.py::test_sina_base_with_overlap_supplement_stays_single_provider
+PASSED tests/test_daily_bars_contract.py::test_window_empty_is_explicit_request_normal_empty
+PASSED tests/test_daily_bars_contract.py::test_window_hit_keeps_attempt_derived_outcome
+PASSED tests/test_daily_bars_contract.py::test_all_sources_empty_keeps_routing_level_normal_empty
+PASSED tests/test_daily_bars_contract.py::test_vipdoc_volume_unit_is_shares
+PASSED tests/test_daily_bars_contract.py::test_mootdx_volume_unit_is_provider_native_unknown
+PASSED tests/test_daily_bars_contract.py::test_sina_probe_volume_unit_is_shares
+PASSED tests/test_daily_bars_contract.py::test_mixed_contributors_resolve_to_mixed_provider_native
+PASSED tests/test_daily_bars_contract.py::test_sina_takeover_does_not_inherit_vipdoc_pre_close
+PASSED tests/test_daily_bars_contract.py::test_malformed_supplement_is_failed_structure_not_success
+PASSED tests/test_daily_bars_contract.py::test_non_dataframe_supplement_is_failed_structure
+PASSED tests/test_daily_bars_contract.py::test_non_dataframe_base_payload_is_failed_structure_and_falls_back
+PASSED tests/test_daily_bars_legacy_compat.py::test_vipdoc_hit_output_contract_frozen
+PASSED tests/test_daily_bars_legacy_compat.py::test_vipdoc_pre_close_and_amount_do_not_leak_into_csv
+PASSED tests/test_daily_bars_legacy_compat.py::test_mootdx_chain_label_frozen
+PASSED tests/test_daily_bars_legacy_compat.py::test_sina_fallback_label_frozen
+PASSED tests/test_daily_bars_legacy_compat.py::test_supplement_suffix_rule_frozen
+PASSED tests/test_daily_bars_legacy_compat.py::test_both_sources_down_legacy_error_envelope
+PASSED tests/test_daily_bars_legacy_compat.py::test_window_empty_legacy_message
+PASSED tests/test_daily_bars_legacy_compat.py::test_stale_coverage_legacy_message
+PASSED tests/test_daily_bars_legacy_compat.py::test_flag_off_keeps_existing_mootdx_chain
+PASSED tests/test_daily_bars_legacy_compat.py::test_adjusted_and_non_daily_paths_skip_vipdoc
+PASSED tests/test_daily_bars_legacy_compat.py::test_get_close_on_date_matches_get_stock_data_rendered_value
+PASSED tests/test_daily_bars_legacy_compat.py::test_get_close_on_date_via_mootdx_path
+PASSED tests/test_daily_bars_legacy_compat.py::test_get_close_on_date_none_on_unavailable
+PASSED tests/test_daily_bars_routing.py::test_vipdoc_success_short_circuits_chain
+PASSED tests/test_daily_bars_routing.py::test_vipdoc_unavailable_mootdx_success_sina_untouched
+PASSED tests/test_daily_bars_routing.py::test_structured_mootdx_adapter_suppresses_primitive_health
+PASSED tests/test_daily_bars_routing.py::test_malformed_structured_mootdx_payload_has_one_failed_health_owner
+PASSED tests/test_daily_bars_routing.py::test_vipdoc_unavailable_mootdx_failure_sina_success
+PASSED tests/test_daily_bars_routing.py::test_all_providers_normal_empty
+PASSED tests/test_daily_bars_routing.py::test_all_providers_hard_failure_raises_sanitized_error
+PASSED tests/test_daily_bars_routing.py::test_missing_provider_in_chain_is_not_configured
+PASSED tests/test_daily_bars_routing.py::test_supplement_advancing_last_bar_lists_both_providers
+PASSED tests/test_daily_bars_routing.py::test_supplement_hard_failure_keeps_base_and_marks_degraded
+PASSED tests/test_daily_bars_routing.py::test_supplement_empty_keeps_base_without_degradation
+PASSED tests/test_daily_bars_routing.py::test_base_reaching_end_skips_supplement
+PASSED tests/test_daily_bars_routing.py::test_success_with_no_rows_in_window_is_success_with_limitation
+PASSED tests/test_daily_bars_routing.py::test_window_filter_is_inclusive_on_both_ends
+PASSED tests/test_daily_bars_routing.py::test_stale_coverage_is_success_with_stale_metadata
+PASSED tests/test_daily_bars_routing.py::test_mootdx_bars_failure_never_touches_other_mootdx_capabilities
+PASSED tests/test_daily_bars_routing.py::test_vipdoc_adapter_classifies_disabled_and_missing
+PASSED tests/test_daily_bars_routing.py::test_vipdoc_adapter_classifies_empty_window_and_staleness
+PASSED tests/test_daily_bars_routing.py::test_vipdoc_adapter_wraps_read_failure_as_structure_error
+PASSED tests/test_daily_bars_routing.py::test_probe_records_only_the_probed_capability
+PASSED tests/test_daily_bars_routing.py::test_probe_failure_and_empty_are_visible
+PASSED tests/test_daily_bars_routing.py::test_provider_registry_matches_capability_ids
+PASSED tests/test_daily_bars_schema.py::test_canonical_column_contract
+PASSED tests/test_daily_bars_schema.py::test_data_as_of_is_last_business_date_of_bars
+PASSED tests/test_daily_bars_schema.py::test_vipdoc_volume_and_price_pass_through_unscaled
+PASSED tests/test_daily_bars_schema.py::test_mootdx_frame_passes_through_unscaled
+PASSED tests/test_daily_bars_schema.py::test_pre_close_carried_from_vipdoc_file_semantics
+PASSED tests/test_daily_bars_schema.py::test_pre_close_absent_for_providers_without_it
+PASSED tests/test_daily_bars_schema.py::test_merge_dedupes_ascending_with_supplement_winning
+PASSED tests/test_daily_bars_schema.py::test_empty_result_carries_canonical_columns
+PASSED tests/test_daily_bars_schema.py::test_missing_vipdoc_file_is_not_configured_not_network
+PASSED tests/test_delisting_structured.py::test_sse_match_returns_structured_delisted_true
+PASSED tests/test_delisting_structured.py::test_szse_match_returns_structured_delisted_true
+PASSED tests/test_delisting_structured.py::test_covered_market_miss_is_provider_success_but_request_normal_empty
+PASSED tests/test_delisting_structured.py::test_bse_is_uncovered_without_sse_or_szse_calls
+PASSED tests/test_delisting_structured.py::test_own_market_failure_is_unknown_and_not_masked_by_other_market_success
+PASSED tests/test_delisting_structured.py::test_cross_market_failure_preserves_own_market_answer_and_limitation
+PASSED tests/test_delisting_structured.py::test_cache_hit_has_no_new_attempt_or_health_observation
+PASSED tests/test_delisting_structured.py::test_sse_and_szse_delisting_health_are_independent
+PASSED tests/test_delisting_structured.py::test_legacy_renderer_keeps_existing_envelope_fields
+PASSED tests/test_delisting_structured.py::test_structured_payload_is_minimal_and_version_stays_042
+PASSED tests/test_easy_tdx_bridge.py::test_fund_flow_payload_is_source_labeled_and_json_safe
+PASSED tests/test_easy_tdx_bridge.py::test_industry_payload_has_tdx_taxonomy
+PASSED tests/test_easy_tdx_bridge.py::test_execute_rejects_unknown_command
+PASSED tests/test_easy_tdx_bridge.py::test_belong_board_payload_computes_change_pct
+PASSED tests/test_easy_tdx_bridge.py::test_belong_board_rejects_non_code_ticker
+PASSED tests/test_easy_tdx_bridge.py::test_concept_ranking_sorts_full_board_list
+PASSED tests/test_etf_options.py::test_parse_months_dedupes_and_converts_to_yymm
+PASSED tests/test_etf_options.py::test_parse_tquote_maps_live_payload
+PASSED tests/test_etf_options.py::test_parse_tquote_rejects_short_payload
+PASSED tests/test_etf_options.py::test_parse_greeks_skips_three_empty_fields
+PASSED tests/test_etf_options.py::test_parse_greeks_rejects_short_payload
+PASSED tests/test_etf_options.py::test_fetch_option_text_wraps_network_error
+PASSED tests/test_etf_options.py::test_fetch_option_text_rejects_http_error_status
+PASSED tests/test_etf_options.py::test_list_contracts_groups_months_and_ignores_foreign_items
+PASSED tests/test_etf_options.py::test_list_contracts_rejects_unknown_underlying
+PASSED tests/test_etf_options.py::test_get_tquote_and_greeks_with_patched_transport
+PASSED tests/test_etf_options.py::test_chain_merges_rows_and_discloses_failed_contracts
+PASSED tests/test_fetch_result_core.py::TestProviderVsRoutingHealth::test_provider_a_failed_provider_b_success_routing_success
+PASSED tests/test_fetch_result_core.py::TestProviderVsRoutingHealth::test_exception_classification_uses_vendor_taxonomy
+PASSED tests/test_fetch_result_core.py::TestProviderVsRoutingHealth::test_rate_limit_failure_does_not_block_next_provider
+PASSED tests/test_fetch_result_core.py::TestProviderVsRoutingHealth::test_all_providers_fail_raises_routing_error_with_attempts
+PASSED tests/test_fetch_result_core.py::TestProviderVsRoutingHealth::test_mootdx_not_configured_is_recorded_and_chain_continues
+PASSED tests/test_fetch_result_core.py::TestNormalEmptyVsFailure::test_malformed_top_level_quote_payload_fails_structure_and_falls_back
+PASSED tests/test_fetch_result_core.py::TestNormalEmptyVsFailure::test_quote_probe_marks_malformed_top_level_payload_as_failed_structure
+PASSED tests/test_fetch_result_core.py::TestNormalEmptyVsFailure::test_mootdx_quote_probe_requests_primitive_health_suppression
+PASSED tests/test_fetch_result_core.py::TestNormalEmptyVsFailure::test_normal_empty_is_distinct_from_network_failure
+PASSED tests/test_fetch_result_core.py::TestNormalEmptyVsFailure::test_chain_with_only_empty_results_is_normal_empty_routing
+PASSED tests/test_fetch_result_core.py::TestNormalEmptyVsFailure::test_invalid_price_is_not_success
+PASSED tests/test_fetch_result_core.py::TestMetadataTiming::test_retrieved_at_and_observed_at_are_separate_fields
+PASSED tests/test_fetch_result_core.py::TestMetadataTiming::test_fetch_result_is_generic_and_typed_container
+PASSED tests/test_fetch_result_core.py::TestMetadataTiming::test_serialization_roundtrip_keeps_attempts_as_truth
+PASSED tests/test_fetch_result_core.py::TestLegacyQuoteCompatibility::test_wrapper_stops_at_tencent
+PASSED tests/test_fetch_result_core.py::TestLegacyQuoteCompatibility::test_wrapper_falls_back_and_preserves_fallback_attempts
+PASSED tests/test_fetch_result_core.py::TestLegacyQuoteCompatibility::test_wrapper_stale_last_resort_unchanged
+PASSED tests/test_fetch_result_core.py::TestLegacyQuoteCompatibility::test_wrapper_sanitized_error_unchanged
+PASSED tests/test_fetch_result_core.py::TestLegacyQuoteCompatibility::test_snapshot_facade_output_unchanged
+PASSED tests/test_free_block_trades.py::test_uses_the_existing_eastmoney_throttled_request_helper
+PASSED tests/test_free_block_trades.py::test_request_avoids_an_unverified_source_id_column
+PASSED tests/test_free_block_trades.py::test_normalizes_verified_eastmoney_share_yuan_units_and_keeps_raw_unit_evidence
+PASSED tests/test_free_block_trades.py::test_amount_mismatch_is_retained_not_adjusted_to_force_an_equation
+PASSED tests/test_free_block_trades.py::test_source_premium_ratio_preserves_source_definition_and_sign
+PASSED tests/test_free_block_trades.py::test_live_calibrated_source_premium_fraction_is_converted_to_percent
+PASSED tests/test_free_block_trades.py::test_missing_source_premium_uses_same_day_unadjusted_reference_only
+PASSED tests/test_free_block_trades.py::test_missing_reference_keeps_premium_missing_without_realtime_substitution
+PASSED tests/test_free_block_trades.py::test_filters_window_and_future_rows_without_fabricating_time_precision
+PASSED tests/test_free_block_trades.py::test_paginates_deduplicates_only_stable_ids_and_preserves_same_valued_rows
+PASSED tests/test_free_block_trades.py::test_max_page_truncation_is_partial_not_full
+PASSED tests/test_free_block_trades.py::test_mid_pagination_network_failure_retains_partial_rows_and_failure_attempt
+PASSED tests/test_free_block_trades.py::test_complete_confirmed_empty_window_is_normal_empty
+PASSED tests/test_free_block_trades.py::test_eastmoney_code_9201_no_data_response_is_a_confirmed_normal_empty
+PASSED tests/test_free_block_trades.py::test_nonempty_success_false_response_is_structure_failure
+PASSED tests/test_free_block_trades.py::test_enforces_bounded_window_and_pagination_inputs
+PASSED tests/test_free_block_trades.py::test_count_mismatch_and_missing_core_numbers_are_partial
+PASSED tests/test_free_block_trades.py::test_future_window_cannot_be_claimed_as_a_complete_normal_empty
+PASSED tests/test_free_block_trades.py::test_empty_or_malformed_payload_is_structure_failure_not_normal_empty[payload0-failed_structure]
+PASSED tests/test_free_block_trades.py::test_empty_or_malformed_payload_is_structure_failure_not_normal_empty[payload1-failed_structure]
+PASSED tests/test_free_block_trades.py::test_empty_or_malformed_payload_is_structure_failure_not_normal_empty[payload2-failed_structure]
+PASSED tests/test_free_block_trades.py::test_invalid_json_is_structure_failure_not_network_failure
+PASSED tests/test_free_block_trades.py::test_network_failure_is_not_cached_or_misreported_as_empty
+PASSED tests/test_free_block_trades.py::test_records_include_source_fetch_time_and_full_coverage_metadata
+PASSED tests/test_free_market_breadth.py::test_classifier_counts_adv_dec_flat_with_explained_denominator
+PASSED tests/test_free_market_breadth.py::test_classifier_never_defaults_suspended_or_unknown_to_flat
+PASSED tests/test_free_market_breadth.py::test_classifier_deduplicates_pages_by_symbol
+PASSED tests/test_free_market_breadth.py::test_normalize_date_and_weekend
+PASSED tests/test_free_market_breadth.py::test_pool_summary_limit_up_distribution_and_unknown_bucket
+PASSED tests/test_free_market_breadth.py::test_pool_summary_st_five_percent_limit_counts_as_limit_up
+PASSED tests/test_free_market_breadth.py::test_pool_summary_tc_mismatch_disclosed_not_silent
+PASSED tests/test_free_market_breadth.py::test_pool_summary_failed_board_and_limit_down
+PASSED tests/test_free_market_breadth.py::test_definitions_explicit_and_non_empty
+PASSED tests/test_free_market_breadth.py::test_sina_fetch_full_completeness_and_dedup
+PASSED tests/test_free_market_breadth.py::test_sina_fetch_missing_page_degrades_to_partial
+PASSED tests/test_free_market_breadth.py::test_sina_fetch_truncation_at_page_cap
+PASSED tests/test_free_market_breadth.py::test_sina_fetch_unknown_denominator_when_count_unavailable
+PASSED tests/test_free_market_breadth.py::test_sina_fetch_zero_rows_is_structure_failure_not_zero_counts
+PASSED tests/test_free_market_breadth.py::test_sina_fetch_non_list_payload_is_structure_failure
+PASSED tests/test_free_market_breadth.py::test_sina_fetch_network_error_returns_failed_network
+PASSED tests/test_free_market_breadth.py::test_sina_fetch_deadline_after_pages_keeps_rows_as_partial
+PASSED tests/test_free_market_breadth.py::test_sina_fetch_deadline_before_first_page_reports_the_deadline
+PASSED tests/test_free_market_breadth.py::test_sina_index_anchor_falls_back_to_completed_index_kline_after_quote_403
+PASSED tests/test_free_market_breadth.py::test_em_pool_fetch_uses_em_get_with_correct_params
+PASSED tests/test_free_market_breadth.py::test_em_pool_fetch_network_and_no_data_semantics
+PASSED tests/test_free_market_breadth.py::test_em_pool_reuses_existing_throttled_entries
+PASSED tests/test_free_market_breadth.py::test_today_intraday_full_success
+PASSED tests/test_free_market_breadth.py::test_today_after_close_phase
+PASSED tests/test_free_market_breadth.py::test_phase_falls_back_to_clock_without_source_time
+PASSED tests/test_free_market_breadth.py::test_holiday_request_returns_last_trading_day_labeled
+PASSED tests/test_free_market_breadth.py::test_past_trading_date_pools_only_partial
+PASSED tests/test_free_market_breadth.py::test_weekend_request_makes_no_pool_requests
+PASSED tests/test_free_market_breadth.py::test_all_pools_empty_means_no_data_not_zero
+PASSED tests/test_free_market_breadth.py::test_limit_down_zero_is_normal_empty_value
+PASSED tests/test_free_market_breadth.py::test_limit_up_zero_alone_gets_review_note
+PASSED tests/test_free_market_breadth.py::test_single_pool_failure_keeps_other_subitems
+PASSED tests/test_free_market_breadth.py::test_pool_data_null_is_no_data_not_empty_market
+PASSED tests/test_free_market_breadth.py::test_same_day_scope_mismatch_keeps_per_item_dates
+PASSED tests/test_free_market_breadth.py::test_advance_decline_failure_does_not_block_pools
+PASSED tests/test_free_market_breadth.py::test_invalid_date_raises_value_error
+PASSED tests/test_free_market_breadth.py::test_result_is_json_serializable
+PASSED tests/test_free_market_breadth.py::test_format_market_breadth_values_and_unavailable
+PASSED tests/test_free_market_breadth.py::test_real_intraday_sample_count_relations
+PASSED tests/test_free_market_breadth.py::test_real_close_sample_partial_semantics
+PASSED tests/test_free_market_breadth.py::test_real_samples_sanitized_no_secrets
+PASSED tests/test_free_northbound_history.py::test_catalog_states_disclosure_frequency_and_unavailable_metrics
+PASSED tests/test_free_northbound_history.py::test_turnover_keeps_trade_date_observation_and_metric_definitions_separate
+PASSED tests/test_free_northbound_history.py::test_holding_snapshot_has_quarterly_as_of_date_and_unknown_time_precision
+PASSED tests/test_free_northbound_history.py::test_hkex_history_request_preserves_requested_date_but_rejects_source_date_mismatch
+PASSED tests/test_free_northbound_history.py::test_turnover_distinguishes_normal_empty_network_failure_malformed_and_partial_pages
+PASSED tests/test_free_northbound_history.py::test_sse_exchange_holiday_null_row_is_confirmed_empty_not_structure_error
+PASSED tests/test_free_northbound_history.py::test_turnover_skips_weekends_without_a_request_and_reports_success
+PASSED tests/test_free_northbound_history.py::test_szse_turnover_skips_weekends_without_a_request
+PASSED tests/test_free_northbound_history.py::test_pure_weekend_range_is_normal_empty_without_network_calls
+PASSED tests/test_free_northbound_history.py::test_turnover_reuses_injected_existing_http_limiter_entrypoint
+PASSED tests/test_free_northbound_history.py::test_szse_turnover_parses_labels_commas_and_sz_scope
+PASSED tests/test_free_northbound_history.py::test_szse_turnover_reuses_injected_limiter_with_szse_source_and_date_param
+PASSED tests/test_free_northbound_history.py::test_szse_turnover_distinguishes_empty_mismatch_and_label_drift
+PASSED tests/test_free_northbound_history.py::test_store_keeps_sh_and_sz_turnover_side_by_side_without_collision
+PASSED tests/test_free_northbound_history.py::test_record_rejects_unknown_metrics_and_missing_observation_time
+PASSED tests/test_free_northbound_history.py::test_store_is_idempotent_keeps_revisions_and_never_collides_metrics_or_securities
+PASSED tests/test_free_northbound_history.py::test_store_validates_before_transaction_and_rolls_back_failed_batch
+PASSED tests/test_free_northbound_history.py::test_export_import_version_checksum_idempotence_and_two_directory_backup_migration
+PASSED tests/test_free_northbound_history.py::test_offline_query_never_fetches_and_keeps_staleness_limit
+PASSED tests/test_fund_corporate_actions.py::test_fund_distribution_normalizes_records_and_keeps_announcement_dates
+PASSED tests/test_fund_corporate_actions.py::test_fund_distribution_empty_table_is_normal_empty_without_announcement_request
+PASSED tests/test_fund_corporate_actions.py::test_public_fund_distribution_adapter_preserves_empty_envelope
+PASSED tests/test_fund_corporate_actions.py::test_release_version_is_042
+PASSED tests/test_historical_opening_evidence.py::test_four_real_etf_opening_composition[510300-4.576-352580]
+PASSED tests/test_historical_opening_evidence.py::test_four_real_etf_opening_composition[159915-3.339-557149]
+PASSED tests/test_historical_opening_evidence.py::test_four_real_etf_opening_composition[518880-8.91-106411]
+PASSED tests/test_historical_opening_evidence.py::test_four_real_etf_opening_composition[511010-141.177-289]
+PASSED tests/test_historical_opening_evidence.py::test_stock_prices_preserved_and_later_halt_does_not_veto_open[688432-2026-09-14-40.9]
+PASSED tests/test_historical_opening_evidence.py::test_stock_prices_preserved_and_later_halt_does_not_veto_open[000002-2015-12-18-22.4]
+PASSED tests/test_historical_opening_evidence.py::test_bounded_real_history[2016-12-30]
+PASSED tests/test_historical_opening_evidence.py::test_bounded_real_history[2022-12-30]
+PASSED tests/test_historical_opening_evidence.py::test_known_full_window_block_plus_positive_activity_is_conflict
+PASSED tests/test_historical_opening_evidence.py::test_resume_inside_minute_blocks_target_without_retry
+PASSED tests/test_historical_opening_evidence.py::test_halt_start_inside_minute_cannot_order_activity
+PASSED tests/test_historical_opening_evidence.py::test_ongoing_unconfirmed_end_vetoes_empty_official
+PASSED tests/test_historical_opening_evidence.py::test_current_official_failure_and_partial_do_not_allow_open[bad0]
+PASSED tests/test_historical_opening_evidence.py::test_current_official_failure_and_partial_do_not_allow_open[<html>not json</html>]
+PASSED tests/test_historical_opening_evidence.py::test_current_official_failure_and_partial_do_not_allow_open[bad2]
+PASSED tests/test_historical_opening_evidence.py::test_no_qualified_activity_unknown[auction_only]
+PASSED tests/test_historical_opening_evidence.py::test_no_qualified_activity_unknown[zero]
+PASSED tests/test_historical_opening_evidence.py::test_no_qualified_activity_unknown[minute_only]
+PASSED tests/test_historical_opening_evidence.py::test_no_qualified_activity_unknown[bad_price]
+PASSED tests/test_historical_opening_evidence.py::test_no_qualified_activity_unknown[bad_time]
+PASSED tests/test_historical_opening_evidence.py::test_no_qualified_activity_unknown[double_normalized]
+PASSED tests/test_historical_opening_evidence.py::test_unknown_version_rejected
+PASSED tests/test_historical_opening_evidence.py::test_unverified_category_and_unsupported_date_boundary_rejected
+PASSED tests/test_historical_opening_evidence.py::test_real_sse_interval_and_resume_evidence_participate
+PASSED tests/test_historical_opening_evidence.py::test_known_000002_continuous_halt_empty_tdx_not_normal
+PASSED tests/test_historical_opening_evidence.py::test_sse_fund_halt_control_actual_field_contract
+PASSED tests/test_historical_opening_evidence.py::test_szse_fund_halt_real_attachment_and_all_rows_considered
+PASSED tests/test_historical_opening_evidence.py::test_szse_unknown_event_meaning_and_bad_attachment_are_unknown
+PASSED tests/test_historical_opening_evidence.py::test_sse_wrong_code_and_unknown_secondary_time_unknown
+PASSED tests/test_historical_opening_evidence.py::test_complete_current_pagination_and_partial_cap
+PASSED tests/test_historical_opening_evidence.py::test_current_last_stop_day_cannot_be_erased_by_cached_resume
+PASSED tests/test_historical_opening_evidence.py::test_mismatched_known_security_is_typed_unknown_not_silently_ignored
+PASSED tests/test_historical_opening_evidence.py::test_pdf_magic_with_corrupt_pdf_is_typed_unknown
+PASSED tests/test_historical_opening_evidence.py::test_last_stop_day_is_blocked_through_open_not_midnight_resume
+PASSED tests/test_historical_opening_evidence.py::test_known_stock_resume_date_does_not_infer_unverified_clock
+PASSED tests/test_historical_opening_evidence.py::test_known_sse_etf_halt_survives_legitimate_empty_current_query
+PASSED tests/test_historical_opening_evidence.py::test_optional_pdf_parser_absent_is_typed_unknown
+PASSED tests/test_historical_opening_evidence.py::test_real_periodic_report_is_known_nonsecondary_not_future_normal_fact
+PASSED tests/test_historical_opening_evidence.py::test_sse_single_session_etf_rule_rejects_stale_or_cross_day_interval[20260910]
+PASSED tests/test_historical_opening_evidence.py::test_sse_single_session_etf_rule_rejects_stale_or_cross_day_interval[20260911]
+PASSED tests/test_historical_opening_evidence.py::test_sse_nonsecondary_row_still_requires_valid_current_session_identity[20260910]
+PASSED tests/test_historical_opening_evidence.py::test_sse_nonsecondary_row_still_requires_valid_current_session_identity[20260911junk]
+PASSED tests/test_historical_opening_evidence.py::test_sse_nonsecondary_row_still_requires_valid_current_session_identity[2026-09-11]
+PASSED tests/test_historical_opening_evidence.py::test_sse_stock_interval_dates_require_strict_format_validity_and_order[startStopDate-20260831junk]
+PASSED tests/test_historical_opening_evidence.py::test_sse_stock_interval_dates_require_strict_format_validity_and_order[endStopDate-20260911junk]
+PASSED tests/test_historical_opening_evidence.py::test_sse_stock_interval_dates_require_strict_format_validity_and_order[startStopDate-20260912]
+PASSED tests/test_historical_opening_evidence.py::test_sse_stock_interval_dates_require_strict_format_validity_and_order[endStopDate-20260830]
+PASSED tests/test_historical_opening_evidence.py::test_sse_stock_interval_dates_require_strict_format_validity_and_order[startStopDate-20260230]
+PASSED tests/test_historical_opening_evidence.py::test_sse_stock_interval_dates_require_strict_format_validity_and_order[endStopDate-20260931]
+PASSED tests/test_historical_opening_evidence.py::test_valid_stock_continuous_interval_allows_start_before_query_and_blocks_last_day
+PASSED tests/test_hot_rank.py::test_get_hot_rank_parses_rows_and_period
+PASSED tests/test_hot_rank.py::test_get_em_hot_rank_hydrates_via_tencent_and_discloses_failure
+PASSED tests/test_hot_rank.py::test_get_hot_concepts_sorts_and_uses_market_prefix
+PASSED tests/test_hot_rank.py::test_hot_rank_structure_and_network_failures
+PASSED tests/test_investor_qa.py::test_investor_qa_two_step_and_query_string_params
+PASSED tests/test_investor_qa.py::test_investor_qa_rejects_bad_inputs
+PASSED tests/test_investor_qa.py::test_investor_qa_missing_org_id_fails_loud
+PASSED tests/test_investor_qa.py::test_investor_qa_structure_and_network_failures
+PASSED tests/test_limit_up.py::test_fmt_pool_time
+PASSED tests/test_limit_up.py::test_normalize_pool_date_supports_both_formats_and_rejects_garbage
+PASSED tests/test_limit_up.py::test_get_limit_up_pool_normalizes_yzt_row
+PASSED tests/test_limit_up.py::test_get_limit_up_pool_normalizes_zt_row
+PASSED tests/test_limit_up.py::test_get_limit_up_pool_dt_and_zb_fields
+PASSED tests/test_limit_up.py::test_get_limit_up_pool_null_data_is_explicit_empty
+PASSED tests/test_limit_up.py::test_get_limit_up_pool_malformed_pool_fails_loud
+PASSED tests/test_limit_up.py::test_get_limit_up_pool_rejects_unknown_kind_and_wraps_network
+PASSED tests/test_limit_up.py::test_get_limit_up_reasons_parses_unix_time_and_quality_fields
+PASSED tests/test_limit_up.py::test_get_limit_up_reasons_empty_and_malformed
+PASSED tests/test_market_date.py::test_a_stock_today_uses_shanghai_date_at_utc_day_boundary
+PASSED tests/test_mootdx_capability_health.py::test_successful_bars_records_mootdx_bars_success
+PASSED tests/test_mootdx_capability_health.py::test_suppressed_call_leaves_health_to_its_structured_owner
+PASSED tests/test_mootdx_capability_health.py::test_bars_failure_does_not_poison_finance_or_xdxr
+PASSED tests/test_mootdx_capability_health.py::test_empty_result_records_normal_empty_not_failed
+PASSED tests/test_mootdx_capability_health.py::test_client_selection_failure_records_only_requested_capability
+PASSED tests/test_mootdx_capability_health.py::test_capability_mapping_is_stable_and_consumer_neutral
+PASSED tests/test_mootdx_capability_isolation.py::test_bars_readiness_failure_does_not_block_finance
+PASSED tests/test_mootdx_capability_isolation.py::test_bars_and_finance_both_fail_degrades_bounded
+PASSED tests/test_mootdx_capability_isolation.py::test_transport_level_failure_still_gates_all_capabilities
+PASSED tests/test_mootdx_capability_isolation.py::test_cold_start_with_canary_derived_disk_cache_allows_finance
+PASSED tests/test_mootdx_capability_isolation.py::test_cold_start_with_legacy_disk_cache_still_fast_fails
+PASSED tests/test_mootdx_capability_isolation.py::test_mixed_factory_failure_and_canary_failure_keeps_transport_available
+PASSED tests/test_mootdx_capability_isolation.py::test_all_factory_failures_still_yield_transport_unavailable
+PASSED tests/test_mootdx_capability_isolation.py::test_bare_factory_success_counts_as_transport_evidence
+PASSED tests/test_mootdx_capability_isolation.py::test_unknown_capability_stays_conservative
+PASSED tests/test_mootdx_server_selection.py::test_skips_server_that_accepts_tcp_but_fails_protocol
+PASSED tests/test_mootdx_server_selection.py::test_selected_client_is_cached
+PASSED tests/test_mootdx_server_selection.py::test_all_servers_dead_raises_then_fails_fast
+PASSED tests/test_mootdx_server_selection.py::test_tcp_unreachable_servers_are_not_probed_for_data
+PASSED tests/test_mootdx_server_selection.py::test_mootdx_call_discards_client_after_failure
+PASSED tests/test_mootdx_server_selection.py::test_get_client_failure_does_not_clear_negative_cache
+PASSED tests/test_mootdx_server_selection.py::test_handshake_failure_counts_as_protocol_failure
+PASSED tests/test_mootdx_server_selection.py::test_later_working_server_is_still_found
+PASSED tests/test_mootdx_server_selection.py::test_bestip_skipped_when_protocol_is_the_problem
+PASSED tests/test_mootdx_server_selection.py::test_candidate_list_includes_mootdx_own_hosts
+PASSED tests/test_mootdx_server_selection.py::test_bestip_is_never_used
+PASSED tests/test_mootdx_server_selection.py::test_probing_restores_mootdx_bestip_when_nothing_works
+PASSED tests/test_mootdx_server_selection.py::test_bestip_kept_when_a_server_works
+PASSED tests/test_mootdx_server_selection.py::test_bestip_restored_even_if_probing_raises
+PASSED tests/test_mootdx_server_selection.py::test_reset_without_candidates_preserves_negative_cache
+PASSED tests/test_mootdx_server_selection.py::test_reset_with_candidates_clears_negative_cache_for_bounded_reselect
+PASSED tests/test_mootdx_server_selection.py::test_full_table_failure_persists_negative_cache
+PASSED tests/test_mootdx_server_selection.py::test_disk_negative_cache_fast_fails_without_probing
+PASSED tests/test_mootdx_server_selection.py::test_successful_selection_clears_disk_negative_cache
+PASSED tests/test_mootdx_server_selection.py::test_corrupt_disk_cache_is_ignored
+PASSED tests/test_mootdx_server_selection.py::test_tool_context_probe_budget_aborts_before_server_verification
+PASSED tests/test_mootdx_server_selection.py::test_tool_context_probe_selects_healthy_server_within_budget
+PASSED tests/test_mootdx_server_selection.py::test_tool_context_fast_full_failure_still_persists_negative_cache
+PASSED tests/test_refresh_vipdoc_history.py::test_extract_lday_keeps_only_market_lday_members
+PASSED tests/test_refresh_vipdoc_history.py::test_extract_lday_rejects_zip_slip_members
+PASSED tests/test_refresh_vipdoc_history.py::test_extract_lday_requires_sh_and_sz
+PASSED tests/test_refresh_vipdoc_history.py::test_extract_lday_rejects_misaligned_record_member
+PASSED tests/test_refresh_vipdoc_history.py::test_refresh_skips_when_source_not_modified
+PASSED tests/test_refresh_vipdoc_history.py::test_refresh_force_ignores_last_modified
+PASSED tests/test_refresh_vipdoc_history.py::test_refresh_installs_tree_and_manifest_atomically
+PASSED tests/test_refresh_vipdoc_history.py::test_refresh_failure_keeps_old_tree
+PASSED tests/test_refresh_vipdoc_history.py::test_refresh_falls_back_to_http_when_https_serves_html
+PASSED tests/test_refresh_vipdoc_history.py::test_refresh_dry_run_does_not_touch_disk
+PASSED tests/test_release_version.py::test_matching_tag_and_project_version_pass
+PASSED tests/test_release_version.py::test_mismatched_tag_and_project_version_fail
+PASSED tests/test_release_version.py::test_malformed_tag_fails
+PASSED tests/test_routing_observation.py::test_records_one_attempt_and_the_mapped_capability_health[success-success]
+PASSED tests/test_routing_observation.py::test_records_one_attempt_and_the_mapped_capability_health[normal_empty-normal_empty]
+PASSED tests/test_routing_observation.py::test_records_one_attempt_and_the_mapped_capability_health[not_configured-not_configured]
+PASSED tests/test_routing_observation.py::test_preserves_structure_failure_details_while_recording_failed_health
+PASSED tests/test_structured_semantics_phase11.py::TestSingleProviderProbeIsolation::test_probe_updates_only_its_own_health
+PASSED tests/test_structured_semantics_phase11.py::TestSingleProviderProbeIsolation::test_probe_sina_failure_leaves_others_untouched
+PASSED tests/test_structured_semantics_phase11.py::TestSingleProviderProbeIsolation::test_probe_never_records_not_configured
+PASSED tests/test_structured_semantics_phase11.py::TestSingleProviderProbeIsolation::test_probe_unknown_provider_rejected
+PASSED tests/test_structured_semantics_phase11.py::TestSingleProviderProbeIsolation::test_probe_stale_snapshot_is_success_with_limitation
+PASSED tests/test_structured_semantics_phase11.py::TestStatusConsistency::test_attempt_and_health_status_agree[exc0-normal_empty-normal_empty]
+PASSED tests/test_structured_semantics_phase11.py::TestStatusConsistency::test_attempt_and_health_status_agree[exc1-not_configured-not_configured]
+PASSED tests/test_structured_semantics_phase11.py::TestStatusConsistency::test_attempt_and_health_status_agree[exc2-failed_rate_limit-failed]
+PASSED tests/test_structured_semantics_phase11.py::TestStatusConsistency::test_attempt_and_health_status_agree[exc3-failed_network-failed]
+PASSED tests/test_structured_semantics_phase11.py::TestStatusConsistency::test_attempt_and_health_status_agree[exc4-failed_structure-failed]
+PASSED tests/test_structured_semantics_phase11.py::TestStatusConsistency::test_mapping_is_total_over_fetch_vocabulary
+PASSED tests/test_structured_semantics_phase11.py::TestStatusConsistency::test_mapping_is_idempotent_over_health_vocabulary
+PASSED tests/test_structured_semantics_phase11.py::TestStatusConsistency::test_mapping_rejects_unknown_status
+PASSED tests/test_structured_semantics_phase11.py::TestMultiProviderMetadata::test_mixed_source_result_reflects_both_providers
+PASSED tests/test_structured_semantics_phase11.py::TestMultiProviderMetadata::test_single_source_result_keeps_final_provider
+PASSED tests/test_structured_semantics_phase11.py::TestMultiProviderMetadata::test_final_provider_invariant_enforced
+PASSED tests/test_structured_semantics_phase11.py::TestMultiProviderMetadata::test_mixed_result_serialization_roundtrip
+PASSED tests/test_structured_semantics_phase11.py::TestMultiProviderMetadata::test_partial_response_is_success_with_partial_flag
+PASSED tests/test_structured_semantics_phase11.py::TestMultiProviderMetadata::test_all_normal_empty_routing_stays_normal_empty
+PASSED tests/test_structured_semantics_phase11.py::TestMultiProviderMetadata::test_failure_then_success_is_degraded_but_visible
+PASSED tests/test_structured_semantics_phase11.py::TestMultiProviderMetadata::test_all_hard_failures_raise
+PASSED tests/test_structured_semantics_phase11.py::TestNormalEmptyPolicyNeutrality::test_attempt_model_has_no_routing_stop_api
+PASSED tests/test_structured_semantics_phase11.py::TestNormalEmptyPolicyNeutrality::test_quote_chain_policy_falls_through_on_normal_empty
+PASSED tests/test_structured_semantics_phase11.py::TestNormalEmptyPolicyNeutrality::test_final_status_reflects_whole_request_not_last_attempt
+PASSED tests/test_structured_semantics_phase11.py::TestHealthClockSeam::test_fake_clock_makes_observed_at_deterministic
+PASSED tests/test_structured_semantics_phase11.py::TestHealthClockSeam::test_two_observations_with_stopped_clock_share_timestamp
+PASSED tests/test_structured_semantics_phase11.py::TestHealthClockSeam::test_default_clock_restored
+PASSED tests/test_suspension_source_semantics.py::test_historical_latest_events_cannot_prove_suspension_or_absence[rows0]
+PASSED tests/test_suspension_source_semantics.py::test_historical_latest_events_cannot_prove_suspension_or_absence[rows1]
+PASSED tests/test_suspension_source_semantics.py::test_historical_latest_events_cannot_prove_suspension_or_absence[rows2]
+PASSED tests/test_suspension_source_semantics.py::test_current_cached_response_cannot_be_reused_as_historical_state
+PASSED tests/test_suspension_source_semantics.py::test_future_event_does_not_block_current_trading
+PASSED tests/test_suspension_source_semantics.py::test_current_resumed_record_is_not_suspended
+PASSED tests/test_suspension_source_semantics.py::test_normal_empty_without_boolean_negative_is_unknown[None]
+PASSED tests/test_suspension_source_semantics.py::test_normal_empty_without_boolean_negative_is_unknown[false]
+PASSED tests/test_suspension_source_semantics.py::test_normal_empty_without_boolean_negative_is_unknown[0]
+PASSED tests/test_suspension_structured.py::test_matched_ticker_returns_successful_structured_snapshot
+PASSED tests/test_suspension_structured.py::test_absent_ticker_is_request_normal_empty_after_successful_provider
+PASSED tests/test_suspension_structured.py::test_snapshot_failures_are_provider_attempt_failures[<lambda>-failed_network]
+PASSED tests/test_suspension_structured.py::test_snapshot_failures_are_provider_attempt_failures[<lambda>-failed_structure]
+PASSED tests/test_suspension_structured.py::test_unrelated_malformed_row_does_not_fail_valid_ticker_request
+PASSED tests/test_suspension_structured.py::test_queried_malformed_row_is_request_structure_failure_only
+PASSED tests/test_suspension_structured.py::test_absent_ticker_ignores_unrelated_malformed_business_field
+PASSED tests/test_suspension_structured.py::test_full_page_without_snapshot_count_is_failed_structure
+PASSED tests/test_suspension_structured.py::test_same_date_cache_reuses_original_attempt_without_new_health
+PASSED tests/test_suspension_structured.py::test_health_identity_isolated_and_legacy_renderer_remains_compatible
+PASSED tests/test_tdx_bridge_health.py::test_circuit_opens_after_consecutive_failures
+PASSED tests/test_tdx_bridge_health.py::test_single_failure_does_not_open_circuit
+PASSED tests/test_tdx_bridge_health.py::test_success_resets_failure_counter
+PASSED tests/test_tdx_bridge_health.py::test_cooldown_expiry_allows_probe_again
+PASSED tests/test_tdx_request_hygiene.py::test_bridge_prefers_cached_best_host
+PASSED tests/test_tdx_request_hygiene.py::test_bridge_full_pool_refresh_is_rate_limited
+PASSED tests/test_tdx_request_hygiene.py::test_bridge_industry_reuses_single_connection
+PASSED tests/test_tdx_request_hygiene.py::test_bridge_launch_interval_enforced
+PASSED tests/test_tdx_request_hygiene.py::test_bridge_calls_are_serialized
+PASSED tests/test_tdx_request_hygiene.py::test_mootdx_call_throttled_by_min_interval
+PASSED tests/test_tdx_request_hygiene.py::test_mootdx_call_is_serialized
+PASSED tests/test_tdx_request_hygiene.py::test_negative_cache_backoff_escalates
+PASSED tests/test_tdx_request_hygiene.py::test_offhours_failure_uses_longest_backoff
+PASSED tests/test_tdx_request_hygiene.py::test_probe_gap_between_candidates
+PASSED tests/test_tdx_request_hygiene.py::test_name_code_map_disk_cache_roundtrip
+PASSED tests/test_tradability.py::test_holiday_is_closed_without_requesting_suspension
+PASSED tests/test_tradability.py::test_partial_calendar_positive_membership_still_queries_suspension
+PASSED tests/test_tradability.py::test_partial_calendar_negative_membership_is_unknown_without_suspension
+PASSED tests/test_tradability.py::test_trading_day_without_suspension_is_tradable
+PASSED tests/test_tradability.py::test_trading_day_with_suspension_is_not_tradable
+PASSED tests/test_tradability.py::test_unknown_calendar_does_not_request_suspension
+PASSED tests/test_tradability.py::test_calendar_failure_status_wins_over_payload_and_short_circuits
+PASSED tests/test_tradability.py::test_trading_day_with_suspension_failure_stays_unknown
+PASSED tests/test_tradability.py::test_failed_suspension_cannot_be_overridden_by_false_payload
+PASSED tests/test_tradability.py::test_child_provenance_is_combined_in_execution_order
+PASSED tests/test_tradability.py::test_derived_capability_does_not_record_its_own_health
+PASSED tests/test_tradability.py::test_effective_delisting_blocks_tradability_without_suspension[2026-09-10-2025-06-01]
+PASSED tests/test_tradability.py::test_effective_delisting_blocks_tradability_without_suspension[2025-06-01-2025-06-01]
+PASSED tests/test_tradability.py::test_future_delisting_does_not_leak_backward
+PASSED tests/test_tradability.py::test_covered_delisting_miss_continues_to_suspension
+PASSED tests/test_tradability.py::test_uncovered_delisting_stays_unknown_without_suspension
+PASSED tests/test_tradability.py::test_delisting_failure_stays_unknown_without_suspension
+PASSED tests/test_tradability.py::test_unusable_delist_date_stays_unknown_without_suspension[None]
+PASSED tests/test_tradability.py::test_unusable_delist_date_stays_unknown_without_suspension[record1]
+PASSED tests/test_tradability.py::test_unusable_delist_date_stays_unknown_without_suspension[record2]
+PASSED tests/test_tradability.py::test_inconsistent_delisting_payload_stays_unknown_without_suspension[success-uncovered]
+PASSED tests/test_tradability.py::test_inconsistent_delisting_payload_stays_unknown_without_suspension[normal_empty-covered]
+PASSED tests/test_trading_calendar_structured.py::test_provider_identities_are_operation_level
+PASSED tests/test_trading_calendar_structured.py::test_canonicalize_trading_days_is_sorted_unique_iso
+PASSED tests/test_trading_calendar_structured.py::test_canonicalize_trading_days_keeps_valid_rows_when_some_dates_are_bad
+PASSED tests/test_trading_calendar_structured.py::test_canonicalize_trading_days_rejects_empty_invalid_or_wrong_shape[payload0]
+PASSED tests/test_trading_calendar_structured.py::test_canonicalize_trading_days_rejects_empty_invalid_or_wrong_shape[payload1]
+PASSED tests/test_trading_calendar_structured.py::test_canonicalize_trading_days_rejects_empty_invalid_or_wrong_shape[payload2]
+PASSED tests/test_trading_calendar_structured.py::test_local_adapter_uses_explicit_shanghai_market
+PASSED tests/test_trading_calendar_structured.py::test_mootdx_adapter_preserves_index_request_shape
+PASSED tests/test_trading_calendar_structured.py::test_structured_mootdx_calendar_adapter_suppresses_primitive_health
+PASSED tests/test_trading_calendar_structured.py::test_sina_adapter_preserves_endpoint_and_parameters
+PASSED tests/test_trading_calendar_structured.py::test_fresh_local_success_stops_before_online
+PASSED tests/test_trading_calendar_structured.py::test_mixed_invalid_dates_keep_data_and_expose_partial_metadata
+PASSED tests/test_trading_calendar_structured.py::test_partial_stale_local_does_not_pollute_clean_newer_online_payload
+PASSED tests/test_trading_calendar_structured.py::test_partial_older_online_does_not_pollute_retained_clean_local_payload
+PASSED tests/test_trading_calendar_structured.py::test_partial_newer_online_owns_final_payload_quality
+PASSED tests/test_trading_calendar_structured.py::test_partial_stale_local_remains_partial_when_online_fails
+PASSED tests/test_trading_calendar_structured.py::test_stale_local_and_newer_mootdx_uses_online_payload
+PASSED tests/test_trading_calendar_structured.py::test_stale_local_and_older_online_preserves_local_stale_payload
+PASSED tests/test_trading_calendar_structured.py::test_stale_local_mootdx_failure_sina_newer_wins_and_is_degraded
+PASSED tests/test_trading_calendar_structured.py::test_stale_local_and_all_online_fail_returns_stale_local_degraded
+PASSED tests/test_trading_calendar_structured.py::test_unavailable_local_and_mootdx_success_does_not_degrade
+PASSED tests/test_trading_calendar_structured.py::test_unavailable_local_mootdx_failure_sina_success_is_degraded
+PASSED tests/test_trading_calendar_structured.py::test_all_providers_unusable_returns_none_and_legacy_none
+PASSED tests/test_trading_calendar_structured.py::test_all_normal_empty_returns_structured_normal_empty
+PASSED tests/test_trading_calendar_structured.py::test_invalid_provider_payload_is_failed_structure_not_empty
+PASSED tests/test_trading_calendar_structured.py::test_empty_frame_without_date_field_is_failed_structure
+PASSED tests/test_trading_calendar_structured.py::test_today_only_controls_staleness_not_coverage
+PASSED tests/test_trading_calendar_structured.py::test_load_cache_remains_legacy_payload_memo_and_structured_fetch_is_fresh
+PASSED tests/test_trading_calendar_structured.py::test_local_helpers_do_not_touch_online_sources
+PASSED tests/test_trading_calendar_structured.py::test_probe_runs_one_provider_and_only_records_its_capability
+PASSED tests/test_trading_calendar_structured.py::test_local_probe_applies_stale_policy_while_remaining_successful
+PASSED tests/test_trading_calendar_structured.py::test_fresh_local_probe_remains_fresh_and_successful
+PASSED tests/test_trading_calendar_structured.py::test_mootdx_index_failure_does_not_touch_other_mootdx_capabilities
+PASSED tests/test_trading_calendar_structured.py::test_sina_index_failure_does_not_touch_bars_or_quote
+PASSED tests/test_vipdoc_history.py::test_parse_day_file_golden_layout_scales_and_skips_invalid
+PASSED tests/test_vipdoc_history.py::test_parse_day_file_empty_file_returns_contract_frame
+PASSED tests/test_vipdoc_history.py::test_parse_day_file_sorts_and_deduplicates_by_date
+PASSED tests/test_vipdoc_history.py::test_load_vipdoc_daily_routes_sh_sz_bj_and_filters_dates
+PASSED tests/test_vipdoc_history.py::test_load_vipdoc_daily_derives_pre_close_before_window_filter
+PASSED tests/test_vipdoc_history.py::test_load_vipdoc_daily_missing_file_returns_none
+PASSED tests/test_vipdoc_history.py::test_load_vipdoc_daily_rejects_path_traversal_code
+PASSED tests/test_vipdoc_history.py::test_scan_lday_tree_counts_records_and_latest_dates
+PASSED tests/test_vipdoc_history.py::test_write_and_read_manifest_roundtrip
+PASSED tests/test_vipdoc_history.py::test_vipdoc_history_status_manifest_freshness
+PASSED tests/test_vipdoc_history.py::test_vipdoc_history_status_without_manifest_is_unavailable
+PASSED tests/test_vipdoc_history.py::test_vipdoc_history_dir_derives_from_data_cache_dir
+PASSED tests/test_vipdoc_price_scale.py::test_real_raw_parse_and_filtered_pre_close[600519]
+PASSED tests/test_vipdoc_price_scale.py::test_real_raw_parse_and_filtered_pre_close[510300]
+PASSED tests/test_vipdoc_price_scale.py::test_real_raw_parse_and_filtered_pre_close[159915]
+PASSED tests/test_vipdoc_price_scale.py::test_real_raw_parse_and_filtered_pre_close[518880]
+PASSED tests/test_vipdoc_price_scale.py::test_real_raw_parse_and_filtered_pre_close[511010]
+PASSED tests/test_vipdoc_price_scale.py::test_real_raw_prices_match_exact_decimal_contract[600519]
+PASSED tests/test_vipdoc_price_scale.py::test_real_raw_prices_match_exact_decimal_contract[510300]
+PASSED tests/test_vipdoc_price_scale.py::test_real_raw_prices_match_exact_decimal_contract[159915]
+PASSED tests/test_vipdoc_price_scale.py::test_real_raw_prices_match_exact_decimal_contract[518880]
+PASSED tests/test_vipdoc_price_scale.py::test_real_raw_prices_match_exact_decimal_contract[511010]
+PASSED tests/test_vipdoc_price_scale.py::test_qualified_ohlc_and_pre_close_have_no_reciprocal_tail[sh600519.day-100]
+PASSED tests/test_vipdoc_price_scale.py::test_qualified_ohlc_and_pre_close_have_no_reciprocal_tail[sh688001.day-100]
+PASSED tests/test_vipdoc_price_scale.py::test_qualified_ohlc_and_pre_close_have_no_reciprocal_tail[sz000001.day-100]
+PASSED tests/test_vipdoc_price_scale.py::test_qualified_ohlc_and_pre_close_have_no_reciprocal_tail[sz300001.day-100]
+PASSED tests/test_vipdoc_price_scale.py::test_qualified_ohlc_and_pre_close_have_no_reciprocal_tail[sh500001.day-1000]
+PASSED tests/test_vipdoc_price_scale.py::test_qualified_ohlc_and_pre_close_have_no_reciprocal_tail[sh510300.day-1000]
+PASSED tests/test_vipdoc_price_scale.py::test_qualified_ohlc_and_pre_close_have_no_reciprocal_tail[sz159915.day-1000]
+PASSED tests/test_vipdoc_price_scale.py::test_qualified_ohlc_and_pre_close_have_no_reciprocal_tail[sz160001.day-1000]
+PASSED tests/test_vipdoc_price_scale.py::test_real_raw_structured_and_legacy_apis[600519]
+PASSED tests/test_vipdoc_price_scale.py::test_real_raw_structured_and_legacy_apis[510300]
+PASSED tests/test_vipdoc_price_scale.py::test_real_raw_structured_and_legacy_apis[159915]
+PASSED tests/test_vipdoc_price_scale.py::test_real_raw_structured_and_legacy_apis[518880]
+PASSED tests/test_vipdoc_price_scale.py::test_real_raw_structured_and_legacy_apis[511010]
+PASSED tests/test_vipdoc_price_scale.py::test_qualified_boundary_and_legacy_scale[sh600519.day-0.01]
+PASSED tests/test_vipdoc_price_scale.py::test_qualified_boundary_and_legacy_scale[sh688001.day-0.01]
+PASSED tests/test_vipdoc_price_scale.py::test_qualified_boundary_and_legacy_scale[sz000001.day-0.01]
+PASSED tests/test_vipdoc_price_scale.py::test_qualified_boundary_and_legacy_scale[sz300001.day-0.01]
+PASSED tests/test_vipdoc_price_scale.py::test_qualified_boundary_and_legacy_scale[sh500001.day-0.001]
+PASSED tests/test_vipdoc_price_scale.py::test_qualified_boundary_and_legacy_scale[sh510300.day-0.001]
+PASSED tests/test_vipdoc_price_scale.py::test_qualified_boundary_and_legacy_scale[sz159915.day-0.001]
+PASSED tests/test_vipdoc_price_scale.py::test_qualified_boundary_and_legacy_scale[sz160001.day-0.001]
+PASSED tests/test_vipdoc_price_scale.py::test_qualified_boundary_and_legacy_scale[SH510300.day-0.001]
+PASSED tests/test_vipdoc_price_scale.py::test_qualified_boundary_and_legacy_scale[bj920185.day-None]
+PASSED tests/test_vipdoc_price_scale.py::test_qualified_boundary_and_legacy_scale[bj430001.day-None]
+PASSED tests/test_vipdoc_price_scale.py::test_qualified_boundary_and_legacy_scale[bj830001.day-None]
+PASSED tests/test_vipdoc_price_scale.py::test_qualified_boundary_and_legacy_scale[sh580001.day-None]
+PASSED tests/test_vipdoc_price_scale.py::test_qualified_boundary_and_legacy_scale[sz180001.day-None]
+PASSED tests/test_vipdoc_price_scale.py::test_qualified_boundary_and_legacy_scale[sh000001.day-None]
+PASSED tests/test_vipdoc_price_scale.py::test_qualified_boundary_and_legacy_scale[sz399001.day-None]
+PASSED tests/test_vipdoc_price_scale.py::test_qualified_boundary_and_legacy_scale[sh900001.day-None]
+PASSED tests/test_vipdoc_price_scale.py::test_qualified_boundary_and_legacy_scale[sz200001.day-None]
+PASSED tests/test_vipdoc_price_scale.py::test_qualified_boundary_and_legacy_scale[sz510300.day-None]
+PASSED tests/test_vipdoc_price_scale.py::test_qualified_boundary_and_legacy_scale[sh159915.day-None]
+PASSED tests/test_vipdoc_price_scale.py::test_qualified_boundary_and_legacy_scale[bj510300.day-None]
+PASSED tests/test_vipdoc_price_scale.py::test_qualified_boundary_and_legacy_scale[xx510300.day-None]
+PASSED tests/test_vipdoc_price_scale.py::test_qualified_boundary_and_legacy_scale[510300.day-None]
+PASSED tests/test_vipdoc_price_scale.py::test_qualified_boundary_and_legacy_scale[sh51030.day-None]
+PASSED tests/test_vipdoc_price_scale.py::test_qualified_boundary_and_legacy_scale[sh5103000.day-None]
+PASSED tests/test_vipdoc_price_scale.py::test_qualified_boundary_and_legacy_scale[sh51abcd.day-None]
+PASSED tests/test_vipdoc_price_scale.py::test_qualified_boundary_and_legacy_scale[sh\uff15\uff11\uff10\uff13\uff10\uff10.day-None]
+PASSED tests/test_vipdoc_price_scale.py::test_qualified_boundary_and_legacy_scale[sh510300.extra.day-None]
+PASSED tests/test_vipdoc_price_scale.py::test_qualified_boundary_and_legacy_scale[sh510300.dat-None]
+PASSED tests/test_vipdoc_price_scale.py::test_legacy_loader_retains_ohlc_and_pre_close[bj-920185]
+PASSED tests/test_vipdoc_price_scale.py::test_legacy_loader_retains_ohlc_and_pre_close[bj-430001]
+PASSED tests/test_vipdoc_price_scale.py::test_legacy_loader_retains_ohlc_and_pre_close[bj-830001]
+PASSED tests/test_vipdoc_price_scale.py::test_legacy_loader_retains_ohlc_and_pre_close[sh-580001]
+PASSED tests/test_vipdoc_price_scale.py::test_legacy_loader_retains_ohlc_and_pre_close[sz-180001]
+PASSED tests/test_vipdoc_price_scale.py::test_legacy_loader_retains_ohlc_and_pre_close[sh-000001]
+PASSED tests/test_vipdoc_price_scale.py::test_etf_sort_deduplicate_invalid_records_and_window
+SKIPPED [1] tests\test_mcp_server.py:9: could not import 'mcp': No module named 'mcp'
+774 passed, 1 skipped, 15 deselected in 20.40s

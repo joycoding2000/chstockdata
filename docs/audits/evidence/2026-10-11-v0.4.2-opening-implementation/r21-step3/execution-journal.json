@@ -1,0 +1,351 @@
+[
+  {
+    "name": "red",
+    "argv": [
+      "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\09\\01a11feb-cbea-7790-a83e-57b1dd555e13\\v042-unified\\sios-candidate\\Scripts\\python.exe",
+      "-m",
+      "pytest",
+      "tests/qualification/test_live_r21_contract.py",
+      "-q",
+      "-p",
+      "no:cacheprovider",
+      "--basetemp",
+      "C:/Users/Administrator/.codex/visualizations/2026/10/10/01a125dd-33f2-78d3-abe7-45e0928975d0/v042-opening-implementation/evidence/r21-step3/red-temp",
+      "--junitxml",
+      "C:/Users/Administrator/.codex/visualizations/2026/10/10/01a125dd-33f2-78d3-abe7-45e0928975d0/v042-opening-implementation/evidence/r21-step3/red.xml"
+    ],
+    "cwd": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os",
+    "environment_overrides": {
+      "PYTHONPATH": "C:/Users/Administrator/.codex/visualizations/2026/10/10/01a125dd-33f2-78d3-abe7-45e0928975d0/v042-opening-implementation/systematic-investing-os/src;C:/Users/Administrator/.codex/visualizations/2026/10/10/01a125dd-33f2-78d3-abe7-45e0928975d0/v042-opening-implementation/chstockdata/src",
+      "PYTHONUTF8": "1",
+      "PYTHONDONTWRITEBYTECODE": "1",
+      "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1"
+    },
+    "exit_code": 1,
+    "log": "red.log",
+    "journal_basis": "exact executed argv recovered from tool calls; not a new execution"
+  },
+  {
+    "name": "green",
+    "argv": [
+      "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\09\\01a11feb-cbea-7790-a83e-57b1dd555e13\\v042-unified\\sios-candidate\\Scripts\\python.exe",
+      "-m",
+      "pytest",
+      "tests/qualification/test_live_r21_contract.py",
+      "tests/qualification/test_chstockdata_etf_gate.py",
+      "-q",
+      "-p",
+      "no:cacheprovider",
+      "--basetemp",
+      "C:/Users/Administrator/.codex/visualizations/2026/10/10/01a125dd-33f2-78d3-abe7-45e0928975d0/v042-opening-implementation/evidence/r21-step3/green-temp",
+      "--junitxml",
+      "C:/Users/Administrator/.codex/visualizations/2026/10/10/01a125dd-33f2-78d3-abe7-45e0928975d0/v042-opening-implementation/evidence/r21-step3/green.xml"
+    ],
+    "cwd": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os",
+    "environment_overrides": {
+      "PYTHONPATH": "C:/Users/Administrator/.codex/visualizations/2026/10/10/01a125dd-33f2-78d3-abe7-45e0928975d0/v042-opening-implementation/systematic-investing-os/src;C:/Users/Administrator/.codex/visualizations/2026/10/10/01a125dd-33f2-78d3-abe7-45e0928975d0/v042-opening-implementation/chstockdata/src",
+      "PYTHONUTF8": "1",
+      "PYTHONDONTWRITEBYTECODE": "1",
+      "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1"
+    },
+    "exit_code": 0,
+    "log": "green.log",
+    "journal_basis": "exact executed argv recovered from tool calls; not a new execution"
+  },
+  {
+    "name": "green-controls",
+    "argv": [
+      "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\09\\01a11feb-cbea-7790-a83e-57b1dd555e13\\v042-unified\\sios-candidate\\Scripts\\python.exe",
+      "-m",
+      "pytest",
+      "tests/qualification/test_live_r21_contract.py",
+      "tests/qualification/test_chstockdata_etf_gate.py",
+      "-q",
+      "-p",
+      "no:cacheprovider",
+      "--basetemp",
+      "C:/Users/Administrator/.codex/visualizations/2026/10/10/01a125dd-33f2-78d3-abe7-45e0928975d0/v042-opening-implementation/evidence/r21-step3/green-controls-temp",
+      "--junitxml",
+      "C:/Users/Administrator/.codex/visualizations/2026/10/10/01a125dd-33f2-78d3-abe7-45e0928975d0/v042-opening-implementation/evidence/r21-step3/green-controls.xml"
+    ],
+    "cwd": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os",
+    "environment_overrides": {
+      "PYTHONPATH": "C:/Users/Administrator/.codex/visualizations/2026/10/10/01a125dd-33f2-78d3-abe7-45e0928975d0/v042-opening-implementation/systematic-investing-os/src;C:/Users/Administrator/.codex/visualizations/2026/10/10/01a125dd-33f2-78d3-abe7-45e0928975d0/v042-opening-implementation/chstockdata/src",
+      "PYTHONUTF8": "1",
+      "PYTHONDONTWRITEBYTECODE": "1",
+      "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1"
+    },
+    "exit_code": 0,
+    "log": "green-controls.log",
+    "journal_basis": "exact executed argv recovered from tool calls; not a new execution"
+  },
+  {
+    "name": "engine-red",
+    "argv": [
+      "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\09\\01a11feb-cbea-7790-a83e-57b1dd555e13\\v042-unified\\sios-candidate\\Scripts\\python.exe",
+      "-m",
+      "pytest",
+      "tests/qualification/test_live_r21_contract.py",
+      "-q",
+      "-p",
+      "no:cacheprovider",
+      "--basetemp",
+      "C:/Users/Administrator/.codex/visualizations/2026/10/10/01a125dd-33f2-78d3-abe7-45e0928975d0/v042-opening-implementation/evidence/r21-step3/engine-red-temp",
+      "--junitxml",
+      "C:/Users/Administrator/.codex/visualizations/2026/10/10/01a125dd-33f2-78d3-abe7-45e0928975d0/v042-opening-implementation/evidence/r21-step3/engine-red.xml"
+    ],
+    "cwd": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os",
+    "environment_overrides": {
+      "PYTHONPATH": "C:/Users/Administrator/.codex/visualizations/2026/10/10/01a125dd-33f2-78d3-abe7-45e0928975d0/v042-opening-implementation/systematic-investing-os/src;C:/Users/Administrator/.codex/visualizations/2026/10/10/01a125dd-33f2-78d3-abe7-45e0928975d0/v042-opening-implementation/chstockdata/src",
+      "PYTHONUTF8": "1",
+      "PYTHONDONTWRITEBYTECODE": "1",
+      "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1"
+    },
+    "exit_code": 1,
+    "log": "engine-red.log",
+    "journal_basis": "exact executed argv recovered from tool calls; not a new execution"
+  },
+  {
+    "name": "final-green",
+    "argv": [
+      "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\09\\01a11feb-cbea-7790-a83e-57b1dd555e13\\v042-unified\\sios-candidate\\Scripts\\python.exe",
+      "-m",
+      "pytest",
+      "tests/qualification/test_live_r21_contract.py",
+      "tests/qualification/test_chstockdata_etf_gate.py",
+      "-q",
+      "-p",
+      "no:cacheprovider",
+      "--basetemp",
+      "C:/Users/Administrator/.codex/visualizations/2026/10/10/01a125dd-33f2-78d3-abe7-45e0928975d0/v042-opening-implementation/evidence/r21-step3/final-green-temp",
+      "--junitxml",
+      "C:/Users/Administrator/.codex/visualizations/2026/10/10/01a125dd-33f2-78d3-abe7-45e0928975d0/v042-opening-implementation/evidence/r21-step3/final-green.xml"
+    ],
+    "cwd": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os",
+    "environment_overrides": {
+      "PYTHONPATH": "C:/Users/Administrator/.codex/visualizations/2026/10/10/01a125dd-33f2-78d3-abe7-45e0928975d0/v042-opening-implementation/systematic-investing-os/src;C:/Users/Administrator/.codex/visualizations/2026/10/10/01a125dd-33f2-78d3-abe7-45e0928975d0/v042-opening-implementation/chstockdata/src",
+      "PYTHONUTF8": "1",
+      "PYTHONDONTWRITEBYTECODE": "1",
+      "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1"
+    },
+    "exit_code": 0,
+    "log": "final-green.log",
+    "journal_basis": "exact executed argv recovered from tool calls; not a new execution"
+  },
+  {
+    "name": "mandatory-live-final",
+    "argv": [
+      "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\09\\01a11feb-cbea-7790-a83e-57b1dd555e13\\v042-unified\\sios-candidate\\Scripts\\python.exe",
+      "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\evidence\\r21-step3\\run_live.py"
+    ],
+    "pytest_argv": [
+      "tests/qualification/test_chstockdata_etf_gate.py::TestLiveEtfQualification",
+      "-q",
+      "-p",
+      "no:cacheprovider",
+      "--basetemp",
+      "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\evidence\\r21-step3\\live-temp",
+      "--junitxml",
+      "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\evidence\\r21-step3\\live.xml"
+    ],
+    "cwd": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os",
+    "source_identity": "20e6e3b41cdbb20e5806fa4d59d842af9ec22522a88b9c2507c3960a4bd036a4",
+    "environment_overrides": {
+      "PYTHONPATH": "C:/Users/Administrator/.codex/visualizations/2026/10/10/01a125dd-33f2-78d3-abe7-45e0928975d0/v042-opening-implementation/systematic-investing-os/src;C:/Users/Administrator/.codex/visualizations/2026/10/10/01a125dd-33f2-78d3-abe7-45e0928975d0/v042-opening-implementation/chstockdata/src",
+      "PYTHONUTF8": "1",
+      "PYTHONDONTWRITEBYTECODE": "1",
+      "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+      "SIOS_CHSTOCKDATA_LIVE_QUALIFICATION": "1",
+      "CHSTOCKDATA_VIPDOC_HISTORY_DIR": "D:/Dev/Projects/chstockdata/.rh3a2-vipdoc",
+      "CHSTOCKDATA_CACHE_DIR": "C:/Users/Administrator/.codex/visualizations/2026/10/10/01a125dd-33f2-78d3-abe7-45e0928975d0/v042-opening-implementation/evidence/r21-step3/cache",
+      "SIOS_LIVE_EVIDENCE_DIR": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\evidence\\r21-step3\\capabilities",
+      "SIOS_LIVE_SOURCE_ID": "20e6e3b41cdbb20e5806fa4d59d842af9ec22522a88b9c2507c3960a4bd036a4"
+    },
+    "started_at": "2026-10-12T09:13:21.711306+00:00",
+    "legacy_calendar_policy": "original public current-date staleness and original labelled online fallback retained",
+    "bounded_new_source_policy": {
+      "host": [
+        "110.41.147.114",
+        7709
+      ],
+      "timeout_seconds": 4,
+      "tdx_pages": 9,
+      "official_pages": 4,
+      "retries": false,
+      "discovery": false
+    },
+    "exit_code": 0,
+    "log": "live.log"
+  },
+  {
+    "name": "optional-vendor-red-missing",
+    "argv": [
+      "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\09\\01a11feb-cbea-7790-a83e-57b1dd555e13\\v042-unified\\sios-candidate\\Scripts\\python.exe",
+      "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\evidence\\r21-step3\\optional-vendor-rework\\run_offline.py",
+      "red",
+      "missing"
+    ],
+    "pytest_argv": [
+      "tests/qualification/test_live_r21_contract.py::test_actual_candidate_client_is_explicit_and_pin_remains_legacy",
+      "-q",
+      "-p",
+      "no:cacheprovider",
+      "--basetemp",
+      "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\evidence\\r21-step3\\optional-vendor-rework\\red-missing-temp",
+      "--junitxml",
+      "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\evidence\\r21-step3\\optional-vendor-rework\\red-missing.xml"
+    ],
+    "cwd": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os",
+    "vendor_environment": "missing",
+    "simulation": "sys.modules missing marker or minimal legacy module; no installed package modification",
+    "test_sha256": "63a38154aa19db69b2ffd7aaf519d4efd356473e9dd66f1192494d838e3cee9b",
+    "environment_overrides": {
+      "PYTHONPATH": "C:/Users/Administrator/.codex/visualizations/2026/10/10/01a125dd-33f2-78d3-abe7-45e0928975d0/v042-opening-implementation/systematic-investing-os/src;C:/Users/Administrator/.codex/visualizations/2026/10/10/01a125dd-33f2-78d3-abe7-45e0928975d0/v042-opening-implementation/chstockdata/src",
+      "PYTHONUTF8": "1",
+      "PYTHONDONTWRITEBYTECODE": "1",
+      "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+      "SIOS_CHSTOCKDATA_LIVE_QUALIFICATION": null
+    },
+    "started_at": "2026-10-12T09:27:54.177934+00:00",
+    "exit_code": 1,
+    "finished_at": "2026-10-12T09:27:54.528091+00:00",
+    "log": "optional-vendor-rework/red-missing.log"
+  },
+  {
+    "name": "optional-vendor-red-legacy",
+    "argv": [
+      "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\09\\01a11feb-cbea-7790-a83e-57b1dd555e13\\v042-unified\\sios-candidate\\Scripts\\python.exe",
+      "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\evidence\\r21-step3\\optional-vendor-rework\\run_offline.py",
+      "red",
+      "legacy"
+    ],
+    "pytest_argv": [
+      "tests/qualification/test_live_r21_contract.py::test_actual_candidate_client_is_explicit_and_pin_remains_legacy",
+      "-q",
+      "-p",
+      "no:cacheprovider",
+      "--basetemp",
+      "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\evidence\\r21-step3\\optional-vendor-rework\\red-legacy-temp",
+      "--junitxml",
+      "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\evidence\\r21-step3\\optional-vendor-rework\\red-legacy.xml"
+    ],
+    "cwd": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os",
+    "vendor_environment": "legacy",
+    "simulation": "sys.modules missing marker or minimal legacy module; no installed package modification",
+    "test_sha256": "63a38154aa19db69b2ffd7aaf519d4efd356473e9dd66f1192494d838e3cee9b",
+    "environment_overrides": {
+      "PYTHONPATH": "C:/Users/Administrator/.codex/visualizations/2026/10/10/01a125dd-33f2-78d3-abe7-45e0928975d0/v042-opening-implementation/systematic-investing-os/src;C:/Users/Administrator/.codex/visualizations/2026/10/10/01a125dd-33f2-78d3-abe7-45e0928975d0/v042-opening-implementation/chstockdata/src",
+      "PYTHONUTF8": "1",
+      "PYTHONDONTWRITEBYTECODE": "1",
+      "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+      "SIOS_CHSTOCKDATA_LIVE_QUALIFICATION": null
+    },
+    "started_at": "2026-10-12T09:27:55.022363+00:00",
+    "exit_code": 1,
+    "finished_at": "2026-10-12T09:27:55.367035+00:00",
+    "log": "optional-vendor-rework/red-legacy.log"
+  },
+  {
+    "name": "optional-vendor-green-missing",
+    "argv": [
+      "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\09\\01a11feb-cbea-7790-a83e-57b1dd555e13\\v042-unified\\sios-candidate\\Scripts\\python.exe",
+      "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\evidence\\r21-step3\\optional-vendor-rework\\run_offline.py",
+      "green",
+      "missing"
+    ],
+    "pytest_argv": [
+      "tests/qualification/test_live_r21_contract.py::test_actual_candidate_client_is_explicit_and_pin_remains_legacy",
+      "-q",
+      "-p",
+      "no:cacheprovider",
+      "--basetemp",
+      "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\evidence\\r21-step3\\optional-vendor-rework\\green-missing-temp",
+      "--junitxml",
+      "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\evidence\\r21-step3\\optional-vendor-rework\\green-missing.xml"
+    ],
+    "cwd": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os",
+    "vendor_environment": "missing",
+    "simulation": "sys.modules missing marker or minimal legacy module; no installed package modification",
+    "test_sha256": "19fe256b19dd83cdc8009e3c5053c865da2f5e34afc633dce935129e10b19060",
+    "environment_overrides": {
+      "PYTHONPATH": "C:/Users/Administrator/.codex/visualizations/2026/10/10/01a125dd-33f2-78d3-abe7-45e0928975d0/v042-opening-implementation/systematic-investing-os/src;C:/Users/Administrator/.codex/visualizations/2026/10/10/01a125dd-33f2-78d3-abe7-45e0928975d0/v042-opening-implementation/chstockdata/src",
+      "PYTHONUTF8": "1",
+      "PYTHONDONTWRITEBYTECODE": "1",
+      "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+      "SIOS_CHSTOCKDATA_LIVE_QUALIFICATION": null
+    },
+    "started_at": "2026-10-12T09:28:35.406700+00:00",
+    "exit_code": 0,
+    "finished_at": "2026-10-12T09:28:35.721936+00:00",
+    "log": "optional-vendor-rework/green-missing.log"
+  },
+  {
+    "name": "optional-vendor-green-legacy",
+    "argv": [
+      "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\09\\01a11feb-cbea-7790-a83e-57b1dd555e13\\v042-unified\\sios-candidate\\Scripts\\python.exe",
+      "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\evidence\\r21-step3\\optional-vendor-rework\\run_offline.py",
+      "green",
+      "legacy"
+    ],
+    "pytest_argv": [
+      "tests/qualification/test_live_r21_contract.py::test_actual_candidate_client_is_explicit_and_pin_remains_legacy",
+      "-q",
+      "-p",
+      "no:cacheprovider",
+      "--basetemp",
+      "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\evidence\\r21-step3\\optional-vendor-rework\\green-legacy-temp",
+      "--junitxml",
+      "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\evidence\\r21-step3\\optional-vendor-rework\\green-legacy.xml"
+    ],
+    "cwd": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os",
+    "vendor_environment": "legacy",
+    "simulation": "sys.modules missing marker or minimal legacy module; no installed package modification",
+    "test_sha256": "19fe256b19dd83cdc8009e3c5053c865da2f5e34afc633dce935129e10b19060",
+    "environment_overrides": {
+      "PYTHONPATH": "C:/Users/Administrator/.codex/visualizations/2026/10/10/01a125dd-33f2-78d3-abe7-45e0928975d0/v042-opening-implementation/systematic-investing-os/src;C:/Users/Administrator/.codex/visualizations/2026/10/10/01a125dd-33f2-78d3-abe7-45e0928975d0/v042-opening-implementation/chstockdata/src",
+      "PYTHONUTF8": "1",
+      "PYTHONDONTWRITEBYTECODE": "1",
+      "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+      "SIOS_CHSTOCKDATA_LIVE_QUALIFICATION": null
+    },
+    "started_at": "2026-10-12T09:28:36.184108+00:00",
+    "exit_code": 0,
+    "finished_at": "2026-10-12T09:28:36.535121+00:00",
+    "log": "optional-vendor-rework/green-legacy.log"
+  },
+  {
+    "name": "optional-vendor-green-candidate",
+    "argv": [
+      "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\09\\01a11feb-cbea-7790-a83e-57b1dd555e13\\v042-unified\\sios-candidate\\Scripts\\python.exe",
+      "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\evidence\\r21-step3\\optional-vendor-rework\\run_offline.py",
+      "green",
+      "candidate"
+    ],
+    "pytest_argv": [
+      "tests/qualification/test_live_r21_contract.py",
+      "tests/qualification/test_chstockdata_etf_gate.py",
+      "-q",
+      "-p",
+      "no:cacheprovider",
+      "--basetemp",
+      "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\evidence\\r21-step3\\optional-vendor-rework\\green-candidate-temp",
+      "--junitxml",
+      "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\evidence\\r21-step3\\optional-vendor-rework\\green-candidate.xml"
+    ],
+    "cwd": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os",
+    "vendor_environment": "candidate",
+    "simulation": "sys.modules missing marker or minimal legacy module; no installed package modification",
+    "test_sha256": "19fe256b19dd83cdc8009e3c5053c865da2f5e34afc633dce935129e10b19060",
+    "environment_overrides": {
+      "PYTHONPATH": "C:/Users/Administrator/.codex/visualizations/2026/10/10/01a125dd-33f2-78d3-abe7-45e0928975d0/v042-opening-implementation/systematic-investing-os/src;C:/Users/Administrator/.codex/visualizations/2026/10/10/01a125dd-33f2-78d3-abe7-45e0928975d0/v042-opening-implementation/chstockdata/src",
+      "PYTHONUTF8": "1",
+      "PYTHONDONTWRITEBYTECODE": "1",
+      "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+      "SIOS_CHSTOCKDATA_LIVE_QUALIFICATION": null
+    },
+    "started_at": "2026-10-12T09:28:36.986123+00:00",
+    "exit_code": 0,
+    "finished_at": "2026-10-12T09:28:37.721384+00:00",
+    "log": "optional-vendor-rework/green-candidate.log"
+  }
+]

@@ -1,0 +1,261 @@
+{
+  "data": {
+    "instrument": "688432",
+    "market": "SSE",
+    "session_date": "2026-08-31",
+    "purpose": "historical_opening_execution_constraint",
+    "schema_version": "historical-opening-evidence/1",
+    "policy_version": "R2.1",
+    "opening_status": "BLOCKED_CONFIRMED",
+    "reason": "certified_official_block_at_target",
+    "source_conflict": false,
+    "official_block_at_target": true,
+    "information_available_at": null,
+    "information_basis": "UNKNOWN",
+    "time_granularity": "minute",
+    "official_events": [
+      {
+        "instrument": "688432",
+        "market": "SSE",
+        "effective_start": "2026-08-31T09:30:00+08:00",
+        "effective_end": "2026-09-14T09:30:00+08:00",
+        "source_url": "https://pdf.dfcfw.com/pdf/H2_AN202609111829278590_1.pdf",
+        "raw_sha256": "026b42096af80856f7ae69fb81fc7166d2e805e7dacfd3ddd2566d5278f891ea",
+        "certification_basis": "issuer-authored resume disclosure page 2 explicitly identifies 688432 halt from 2026-08-31 open and resume 2026-09-14 open; SSE endStopDate=20260911 is LAST_STOP_DAY",
+        "retrieved_at": "2026-10-11T07:35:19.626967+00:00",
+        "source_kind": "issuer_authored_distributor_mirror",
+        "secondary_market": true,
+        "offline_cache": true,
+        "raw_fields": {
+          "issuer": "有研半导体硅材料股份公司",
+          "announcement": "2026-039",
+          "page": 2,
+          "halt_excerpt": "股票（证券简称：有研硅，证券代码：688432）自2026年8月31日开市起开始停牌",
+          "resume_excerpt": "将于2026年9月14日（星期一）开市起复牌",
+          "cache_origin": "docs/audits/evidence/2026-10-09-v0.4.2-history-recovery/issuer-resume-mirror.pdf",
+          "source_retrieved_at": null,
+          "cache_imported_at": "2026-10-11T07:35:19.626967+00:00",
+          "retrieved_at_basis": "offline cache import wall clock; original HTTP retrieval time not authenticated"
+        },
+        "information_available_at": null,
+        "information_basis": "UNKNOWN"
+      }
+    ],
+    "limitations": [
+      "[09:30,09:31) activity does not prove strict 09:30 order fill, full-day normality, or preopen PIT.",
+      "TDX prices are evidence crosschecks only; volumes are not fill quotas.",
+      "Current bounded official query does not claim all historical events or revisions are complete."
+    ],
+    "target_execution_at": "2026-08-31T09:30:00+08:00",
+    "execution_effect_window": {
+      "start": "2026-08-31T09:30:00+08:00",
+      "end": "2026-08-31T09:31:00+08:00"
+    },
+    "tdx_activity": {
+      "instrument": "688432",
+      "session_date": "2026-08-31",
+      "source": "mootdx/tdxpy",
+      "server": {
+        "host": "110.41.147.114",
+        "port": 7709
+      },
+      "timeout_seconds": 4,
+      "auto_retry": false,
+      "heartbeat": false,
+      "server_discovery": false,
+      "command": "0x0fb5",
+      "crosscheck_command": "0x0fb4",
+      "time_granularity": "minute",
+      "price_unit": "CNY/security",
+      "volume_unit": "TDX lots (not an executable quota)",
+      "observations": [
+        {
+          "request": {
+            "operation": "connect",
+            "server": [
+              "110.41.147.114",
+              7709
+            ]
+          },
+          "status": "success",
+          "retrieved_at": "2026-10-11T07:40:41.220163+00:00",
+          "parsed_response_sha256": "483b7e2c82324e79dc30a1412c8c96a80172f32df2963889a1a08b80b9e85e76",
+          "error_type": null
+        },
+        {
+          "request": {
+            "command": "0x0fb4",
+            "market": 1,
+            "code": "688432",
+            "date": 20260831
+          },
+          "status": "success",
+          "retrieved_at": "2026-10-11T07:40:41.221163+00:00",
+          "parsed_response_sha256": "c6d44a664dda250f7e8de93180d9f396ff11175df7d98280c1d4a10db53d85cb",
+          "error_type": null
+        },
+        {
+          "request": {
+            "command": "0x0fb5",
+            "market": 1,
+            "code": "688432",
+            "date": 20260831,
+            "start": 0,
+            "count": 800
+          },
+          "status": "success",
+          "retrieved_at": "2026-10-11T07:40:41.221163+00:00",
+          "parsed_response_sha256": "1a1157fb77bb492f9c533b3c62ab60181cd5de2c7963f865980aade32cfb4543",
+          "error_type": null
+        }
+      ],
+      "qualified": false,
+      "opening_volume_lots": 0,
+      "normalization_count": 1,
+      "versions": {
+        "mootdx": "0.11.7",
+        "tdxpy": "0.2.7"
+      },
+      "market_id": 1,
+      "category": "STOCK",
+      "tick_size": "0.01",
+      "category_certification": "frozen 2026-10-10 44-request protocol and price sample",
+      "normalization_rule": "tdxpy_0.2.7_0x0fb5_certified_stock_identity",
+      "normalized_opening_rows": [],
+      "auction_rows": [],
+      "bounded_page_count": 1,
+      "opening_crosscheck_complete": true,
+      "minute_first": {
+        "price": 45.22,
+        "vol": 0
+      },
+      "reason": "no_qualified_0930_transaction_activity"
+    },
+    "official_query": {
+      "instrument": "688432",
+      "market": "SSE",
+      "query_range": [
+        "2026-08-31",
+        "2026-08-31"
+      ],
+      "range_kind": "effective interval",
+      "historical_global_completeness_claim": false,
+      "status": "success",
+      "pagination_complete": true,
+      "observations": [
+        {
+          "request": {
+            "method": "GET",
+            "url": "https://query.sse.com.cn/commonSoaQuery.do",
+            "params": {
+              "isPagination": "true",
+              "pageHelp.pageSize": 25,
+              "pageHelp.pageNo": 1,
+              "pageHelp.beginPage": 1,
+              "pageHelp.cacheSize": 1,
+              "pageHelp.endPage": 1,
+              "sqlId": "GW_PL_JYTS_TFPXX",
+              "productCode": "688432",
+              "keyWords": "",
+              "startStopDate": "20260831",
+              "endStopDate": "20260831"
+            },
+            "headers": {
+              "Referer": "https://www.sse.com.cn/disclosure/dealinstruc/suspension/stock/"
+            }
+          },
+          "status": "success",
+          "retrieved_at": "2026-10-11T07:40:41.222168+00:00",
+          "parsed_response_sha256": "33147724bcee2f692e3de7a637c2490017a86c1399183c7f8ccf1f7fe017d924",
+          "error_type": null,
+          "raw_sha256": "33147724bcee2f692e3de7a637c2490017a86c1399183c7f8ccf1f7fe017d924",
+          "raw_bytes": 954
+        }
+      ],
+      "all_returned_rows_considered": true,
+      "raw_rows": [
+        {
+          "startStopDate": "20260831",
+          "stopReason": "拟筹划重大资产重组",
+          "productCode": "688432",
+          "endStopReason": "拟筹划重大资产重组",
+          "controlType": "TR",
+          "endStopDate": "20260911",
+          "stopTime": "",
+          "type": "LXTP",
+          "productName": "有研硅"
+        }
+      ],
+      "total": 1,
+      "page_count": 1,
+      "reason": "current_bounded_query_complete"
+    },
+    "retrieved_at": "2026-10-11T07:40:41.222168+00:00",
+    "evidence_hash": "b827ee7305976c54dc549e24331ee000c7baaabffdde69c7a7fe298a4e6ba66e"
+  },
+  "metadata": {
+    "capability": "historical_opening_evidence",
+    "final_provider": null,
+    "providers_used": [
+      "mootdx",
+      "sse"
+    ],
+    "final_status": "success",
+    "outcome_status": null,
+    "request_status": "success",
+    "retrieved_at": "2026-10-11T07:40:41.222168+00:00",
+    "observed_at": null,
+    "data_as_of": "2026-08-31",
+    "stale": false,
+    "partial": false,
+    "limitations": [
+      "[09:30,09:31) activity does not prove strict 09:30 order fill, full-day normality, or preopen PIT.",
+      "TDX prices are evidence crosschecks only; volumes are not fill quotas.",
+      "Current bounded official query does not claim all historical events or revisions are complete."
+    ],
+    "degraded": false,
+    "failed_providers": [],
+    "attempts": [
+      {
+        "provider": "mootdx",
+        "capability": "mootdx:historical_opening_activity",
+        "status": "success",
+        "started_at": "2026-10-11T07:40:41.220163+00:00",
+        "elapsed_ms": 0,
+        "record_count": null,
+        "error_type": null,
+        "message": null
+      },
+      {
+        "provider": "mootdx",
+        "capability": "mootdx:historical_opening_activity",
+        "status": "success",
+        "started_at": "2026-10-11T07:40:41.220163+00:00",
+        "elapsed_ms": 0,
+        "record_count": 240,
+        "error_type": null,
+        "message": null
+      },
+      {
+        "provider": "mootdx",
+        "capability": "mootdx:historical_opening_activity",
+        "status": "success",
+        "started_at": "2026-10-11T07:40:41.221163+00:00",
+        "elapsed_ms": 0,
+        "record_count": 1,
+        "error_type": null,
+        "message": null
+      },
+      {
+        "provider": "sse",
+        "capability": "sse:historical_opening_events",
+        "status": "success",
+        "started_at": "2026-10-11T07:40:41.221163+00:00",
+        "elapsed_ms": 0,
+        "record_count": null,
+        "error_type": null,
+        "message": null
+      }
+    ]
+  }
+}

@@ -1,0 +1,170 @@
+{
+    "id":  "1216741269",
+    "text":  "160.078.0660 64 1,652, 17460 I 19 109,950- I .-27181,562 94 287,8042$ 393.145 JS 34,600.49M 9",
+    "pit_qualified":  false,
+    "engine":  "Windows.Media.Ocr existing en-US",
+    "maximum_image_dimension":  10000,
+    "machine_seconds":  0.0681894,
+    "pixel_height":  2902,
+    "image_sha256":  "22d06efc0b7e74b91a4f9003602cab0d0d471178ec5be4262bd56ddcb157eaf2",
+    "pixel_width":  406,
+    "source_sha256":  "28f31493c52375f096a45ad326ad8421357f9e73252858ae236d6fa715aad2d2",
+    "physical_page":  209,
+    "lines":  [
+                  {
+                      "text":  "160.078.0660",
+                      "words":  [
+                                    {
+                                        "y":  352,
+                                        "height":  48,
+                                        "width":  254,
+                                        "text":  "160.078.0660",
+                                        "x":  86
+                                    }
+                                ]
+                  },
+                  {
+                      "text":  "64",
+                      "words":  [
+                                    {
+                                        "y":  410,
+                                        "height":  50,
+                                        "width":  43,
+                                        "text":  "64",
+                                        "x":  297
+                                    }
+                                ]
+                  },
+                  {
+                      "text":  "1,652, 17460",
+                      "words":  [
+                                    {
+                                        "y":  476,
+                                        "height":  39,
+                                        "width":  96,
+                                        "text":  "1,652,",
+                                        "x":  127
+                                    },
+                                    {
+                                        "y":  468,
+                                        "height":  48,
+                                        "width":  110,
+                                        "text":  "17460",
+                                        "x":  229
+                                    }
+                                ]
+                  },
+                  {
+                      "text":  "I",
+                      "words":  [
+                                    {
+                                        "y":  524,
+                                        "height":  48,
+                                        "width":  8,
+                                        "text":  "I",
+                                        "x":  40
+                                    }
+                                ]
+                  },
+                  {
+                      "text":  "19",
+                      "words":  [
+                                    {
+                                        "y":  535,
+                                        "height":  30,
+                                        "width":  35,
+                                        "text":  "19",
+                                        "x":  85
+                                    }
+                                ]
+                  },
+                  {
+                      "text":  "109,950-",
+                      "words":  [
+                                    {
+                                        "y":  674,
+                                        "height":  38,
+                                        "width":  136,
+                                        "text":  "109,950-",
+                                        "x":  157
+                                    }
+                                ]
+                  },
+                  {
+                      "text":  "I .-27181,562 94",
+                      "words":  [
+                                    {
+                                        "y":  808,
+                                        "height":  50,
+                                        "width":  9,
+                                        "text":  "I",
+                                        "x":  40
+                                    },
+                                    {
+                                        "y":  817,
+                                        "height":  40,
+                                        "width":  202,
+                                        "text":  ".-27181,562",
+                                        "x":  80
+                                    },
+                                    {
+                                        "y":  808,
+                                        "height":  50,
+                                        "width":  42,
+                                        "text":  "94",
+                                        "x":  296
+                                    }
+                                ]
+                  },
+                  {
+                      "text":  "287,8042$",
+                      "words":  [
+                                    {
+                                        "y":  1094,
+                                        "height":  48,
+                                        "width":  187,
+                                        "text":  "287,8042$",
+                                        "x":  150
+                                    }
+                                ]
+                  },
+                  {
+                      "text":  "393.145 JS",
+                      "words":  [
+                                    {
+                                        "y":  1159,
+                                        "height":  35,
+                                        "width":  133,
+                                        "text":  "393.145",
+                                        "x":  149
+                                    },
+                                    {
+                                        "y":  1152,
+                                        "height":  41,
+                                        "width":  51,
+                                        "text":  "JS",
+                                        "x":  285
+                                    }
+                                ]
+                  },
+                  {
+                      "text":  "34,600.49M 9",
+                      "words":  [
+                                    {
+                                        "y":  1442,
+                                        "height":  38,
+                                        "width":  211,
+                                        "text":  "34,600.49M",
+                                        "x":  97
+                                    },
+                                    {
+                                        "y":  1445,
+                                        "height":  31,
+                                        "width":  19,
+                                        "text":  "9",
+                                        "x":  314
+                                    }
+                                ]
+                  }
+              ]
+}

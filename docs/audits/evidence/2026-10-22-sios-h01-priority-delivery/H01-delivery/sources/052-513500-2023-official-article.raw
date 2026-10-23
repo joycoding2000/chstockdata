@@ -1,0 +1,291 @@
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html class="" lang="zh-CN">
+<head>
+
+
+
+
+
+
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width">
+<meta name="copyright" content="本页版权归中国博时基金所有。all rights reserved">
+<meta name="version" content="2017版">
+<meta name="author" content="BOSERA FUNDS">
+<meta name="apple-itunes-app" content="app-id=672198904">
+<link rel="shortcut icon" href="/static/images/favicon.ico">
+
+	
+		<title>博时基金-博时标普500交易型开放式指数证券投资基金2023年年度报告</title>
+		<meta name="keywords" content="">
+		<meta name="description" content="">
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+<script src="/static/js/rev-manifest-b0e63394e1.js" charset="utf-8"></script>
+<script src="/static/js/assetsLoader-4acf7e81fe.js" charset="utf-8"></script>
+
+
+<!--[if IE 8]>
+<script>
+  window.BROWSER_IE8 = true;
+</script>
+<![endif]-->
+<script>
+  var __devConfig = {
+    debug: true,
+    jsBase: 'http://localhost:9000',
+    cssBase: 'http://localhost:8899/css'
+  };
+  var __revConfig = {
+    jsBase: '/static/js',
+    cssBase: '/static/css'
+  };
+  assetsLoader.setDefault(__revConfig);
+  assetsLoader({
+    css: [
+      'icon.css',
+      'main.css',
+      'ui.css'
+    ],
+    js: [
+      'boot.js',
+      'vendor.js',
+      'commons.js',
+      'ui.js',
+      'validate.methods.js',
+      'plugin.js',
+      'init.js'
+    ]
+  });
+</script>
+<script>
+	assetsLoader({
+		css : [],
+		js : []
+	});
+</script>
+</head>
+<body>
+	
+
+	<div class="g-top">
+		<div class="container">
+			<div class="external-nav">
+				<a class="external-nav_link" href="http://capital.bosera.com/index.html" target="_blank"
+					rel="noopener">博时资本</a>
+				
+				<a class="external-nav_link" href="https://www.boserawealth.com/index" target="_blank"
+					rel="noopener">博时财富</a>
+				<a class="external-nav_link" href="/english/index.html" target="_blank">English</a>
+			</div>
+			<div class="assistant-nav">
+				<span id="userNotice" data-trade-host="https://trade.bosera.com/indi/api/www/" style="display: none">
+					欢迎回来，<span id="userName"></span>&nbsp;&nbsp;
+					<span class="assistant-nav_link assistant-nav_link--highlight" id="logoutBtn">安全退出</span>
+				</span>
+				<a class="assistant-nav_link" href="/column/index.do?classid=00020002001100001" target="_blank">帮助中心</a>
+				<a class="assistant-nav_link last" id="onlineService" href="/service/webchat/robot.jsp"
+					target="_blank">在线客服</a>
+			</div>
+		</div>
+	</div>
+
+<div class="g-header">
+	<div class="container">
+		<h1 class="logo-wrap">
+		  <a class="logo" href="/index.html" title="博时基金">博时基金</a>
+		  
+		</h1>
+    <div class="nav-wrap" style="width: 930px;">
+      <ul class="nav" id="topNav" data-focus-id="index">
+        <li><a class="nav_link" id="indexMenu" href="/index.html">首页</a></li
+          ><li><a class="nav_link" id="fundMenu" href="/fund/index.html">基金产品</a></li
+          ><li><a class="nav_link" href="https://trade.bosera.com/indi/pension/index" target="_blank" rel="noopener">养老专区</a></li
+          >
+          <!-- <li><a class="nav_link" href="https://trade.bosera.com/indi/specialfund/index" target="_blank" rel="noopener">高端理财</a></li> -->
+          <li><a class="nav_link" href="https://trade.bosera.com/indi/fundportfolio/propaganda" target="_blank" rel="noopener">博乐智投</a></li
+          ><li class="dropdown-nav J_dropdownNav">
+            <span class="nav_link J_rootNav">&nbsp;企业理财&nbsp;</span>
+          <ul class="sub-nav">
+            <li><a class="sub-nav_link" href="https://trade.bosera.com/corp/asset/share/list" target="_blank">企业法人</a></li>
+            <li><a class="sub-nav_link last-child" href="https://trade.bosera.com/pro/asset/share/list" target="_blank">专业投资者</a></li>
+          </ul>
+        </li
+        ><li class="dropdown-nav J_dropdownNav">
+          <span class="nav_link J_rootNav">专户与养老金</span>
+          <ul class="sub-nav">
+            <li><a class="sub-nav_link" id="netAccountMenu" href="/column/index.do?classid=00020002000700010004">专户理财</a></li>
+            <li><a class="sub-nav_link last-child" id="pensionFundMenu" href="/column/index.do?classid=00020002000600090001">养老基金</a></li>
+          </ul>
+        </li
+        ><li><a class="nav_link" id="aboutMenu" href="/column/index.do?classid=00020002000200010001" >关于博时</a></li>
+      </ul>
+      <div class="account-nav" id="accountNav" style="display: none">
+        <a class="btn-primary btn--middle" href="https://trade.bosera.com/indi/api/www/myaccturl.do">我的账户</a>
+      </div>
+      <div class="header-action" id="headerAction" style="display: none">
+        <a class="btn-primary btn--middle" href="https://trade.bosera.com/indi/login" target="_blank">登录</a>
+        <a class="btn-default btn--middle" href="https://trade.bosera.com/indi/openacct/mobilenoform" target="_blank">注册</a>
+      </div>
+    </div>
+    <!-- .nav-wrap -->
+  </div>
+  <!-- .container -->
+</div>
+<!-- .g-header -->
+	<div class="main" id="main">
+		<div class="container">
+			
+
+
+
+
+
+
+<div class="container">
+	<div class="breadcrumb">当前位置：<a href='/index.html'><u>首页</u></a> &gt; <a href='/fund/index.html'><u>基金产品</u></a> &gt; <a href='/column/index.do?classid=0002000200030005&fundCode=513500'><u>基金公告</u></a></div>
+	<div class="article">
+		<div class="article_head">
+			<h2>博时标普500交易型开放式指数证券投资基金2023年年度报告</h2>
+			<p>
+			  
+				
+				<span>时间：2024-03-29 00:00:00</span>
+				
+			</p>
+		</div>
+		<div class="article_content">博时标普500交易型开放式指数证券投资基金2023年年度报告</div>
+    
+    <ul>
+		  
+				<li class="info_item J_render"><a class="info_link"
+					href="/common/downloadFile.do?fileId=C42B6609BC8B6019EC1B1858154C825C" target="_blank">博时标普500交易型开放式指数证券投资基金2023年年度报告.docx</a>
+				</li>
+		  
+    </ul>
+    
+	</div>
+</div>
+
+		</div>
+	</div>
+	
+
+
+
+
+
+
+<div class="g-footer">
+  <div class="container">
+    <div class="footer-nav-wrap">
+      <div class="footer-nav">
+        <dl class="footer-nav_list">
+          <dt>新手指南</dt>
+          <dd><a class="footer-nav_link" href="https://trade.bosera.com/indi/openacct/mobilenoform" target="_blank">个人开户</a></dd>
+          <dd><a class="footer-nav_link" href="/column/index.do?classid=00020002000500030001" target="_blank">投资者教育</a></dd>
+        </dl>
+        <dl class="footer-nav_list">
+          <dt>交易须知</dt>
+          <dd><a class="footer-nav_link" href="/column/index.do?classid=0002000200100001" target="_blank">业务规则</a></dd>
+          <dd><a class="footer-nav_link" href="/column/index.do?classid=00020002001100002" target="_blank">费率优惠</a></dd>
+          <dd><a class="footer-nav_link" href="/column/infoDetail.do?infoid=1415734&classid=000200020011000050001" target="_blank">风险提示</a></dd>
+          <dd><a class="footer-nav_link" href="/column/infoDetail.do?infoid=1415742&classid=000200020011000050001" target="_blank">权益须知</a></dd>
+        </dl>
+        <dl class="footer-nav_list">
+          <dt>法律条款</dt>
+          <dd><a class="footer-nav_link" href="/column/infoDetail.do?infoid=1415741&classid=000200020011000050001" target="_blank">免责条款</a></dd>
+          <dd><a class="footer-nav_link" href="/column/index.do?classid=000200020005000300030001" target="_blank">反洗钱专栏</a></dd>
+          <dd><a class="footer-nav_link" href="/column/index.do?classid=000200020005000300040001" target="_blank">防范证券欺诈活动</a></dd>
+          <dd><a class="footer-nav_link" href="/column/infoDetail.do?infoid=2737595&classid=000200020011000050001" target="_blank">隐私政策</a></dd>
+        </dl>
+        <dl class="footer-nav_list">
+          <dt>客户服务</dt>
+          <dd><a class="footer-nav_link" href="https://bosera.hotjob.cn" target="_blank">加入我们</a></dd>
+          <dd><a class="footer-nav_link" href="/column/index.do?classid=00020002001100003" target="_blank">下载中心</a></dd>
+          <dd><a class="footer-nav_link" href="/column/index.do?classid=0002000200020004" target="_blank">联系我们</a></dd>
+          <dd><a class="footer-nav_link" href="/column/infoDetail.do?infoid=12398&classid=0002000200110002" target="_blank">应急处理提示</a></dd>
+        </dl>
+      </div>
+      <div class="footer-qr">
+        <ul class="footer-qr_tab" id="footerQrTab">
+          <li class="text-primary" data-target="#footerAppQr">APP</li
+          ><li data-target="#footerWechatQr">微信</li>
+        </ul>
+        <div class="footer-qr_con"><img class="footer-qr_img" id="footerAppQr" src="/static/images/common/app_qr_code.png?v=20180124"><img class="footer-qr_img" id="footerWechatQr" src="/static/images/common/wechat_qr_code.png" style="display:none"></div>
+      </div>
+      <!-- .footer-qr end -->
+    </div>
+    <!-- .footer-nav-wrap end -->
+    <div class="footer-copyright">
+      <p>客服热线：95105568　客服邮箱：service@bosera.com&nbsp;&nbsp;
+        <span
+          class="J_popover"
+          data-placement="top-left"
+          data-width="156"
+          data-content="&lt;a class=&quot;footer-qr_popover-item&quot; href=&quot;http://www.weibo.com/bosera&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/static/images/common/weibo_qr_code.png&quot;&gt;点击关注微博&lt;/a&gt;"
+          ><i class="icon icon-weibo"></i></span>&nbsp;&nbsp;
+        <span
+          class="J_popover"
+          data-placement="top-left"
+          data-width="300"
+          data-content="&lt;span class=&quot;footer-qr_popover-item&quot;&gt;&lt;img src=&quot;/static/images/common/wechat_qr_code.png&quot;&gt;博时服务号&lt;/span&gt;&lt;span class=&quot;footer-qr_popover-item&quot;&gt;&lt;img src=&quot;/static/images/common/wechat_tzh_qr_code.png&quot;&gt;博时投资汇&lt;/span&gt;"
+          ><i class="icon icon-wechat"></i></span>
+      </p>
+      <p>人工服务时间：工作日9：00－21：00，公休日及法定节假日（十一和春节除外）9：00－17：00<p>
+	    <p><a class="footer-nav_link" target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=44030402003685"><img src="/static/images/common/beian.png"/>粤公网安备 44030402003685号</a> &copy;2026 博时基金管理有限公司 版权所有 <a class="footer-nav_link" href="https://beian.miit.gov.cn/#/Integrated/index" target="_blank" title="粤ICP备10063309号">粤ICP备10063309号</a>&nbsp;本网站支持IPv6</p>
+    </div>
+  </div>
+</div>
+<div class="container" id="sideToolbarContainer">
+  <div class="side-toolbar" id="sideToolbar">
+    <ul class="side-toolbar_list">
+      <li class="side-toolbar_item">
+        <span class="side-toolbar_link side-toolbar_link--qr" id="sideToolbarQr" title="扫描下载手机APP">
+	        <span class="side-toolbar_qr">
+	          <span class="side-toolbar_qr-title">扫描下载手机APP</span>
+	          <img src="/static/images/common/app_qr_code.png?v=20180124">
+	        </span>
+        </span>
+      </li>
+      <li class="side-toolbar_item">
+        <a class="side-toolbar_link side-toolbar_link--service" id="sideToolbarService" href="/service/webchat/robot.jsp" title="在线客服" target="_blank">在线客服</a>
+      </li>
+      <li class="side-toolbar_item">
+        <span class="side-toolbar_link side-toolbar_link--backtop" id="sideToolbarBackTop" title="返回顶部">返回顶部</span>
+      </li>
+    </ul>
+  </div>
+</div>
+<script>
+  // 百度统计代码
+  var _hmt = _hmt || [];
+  (function() {
+    var hm = document.createElement("script");
+    hm.src = "//hm.baidu.com/hm.js?3c5b5c9332a21f25e5643038564d17c1";
+    var s = document.getElementsByTagName("script")[0]; 
+    s.parentNode.insertBefore(hm, s);
+  })();
+</script>
+</body>
+</html>

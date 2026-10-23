@@ -1,0 +1,74 @@
+{
+  "original_log": "docs\\audits\\evidence\\2026-10-18-dr04-p-implementation\\regression.txt",
+  "log_sha256": "6c727cfea7ad68f6241d1df4a492650998e746b9c8080768b11c20a4af43ef12",
+  "signatures": [
+    {
+      "line": 4,
+      "text": "____________ test_crlf_preserves_added_line_discrimination[False] _____________"
+    },
+    {
+      "line": 5,
+      "text": "tests\\test_rh1_git_line_endings.py:43: in test_crlf_preserves_added_line_discrimination"
+    },
+    {
+      "line": 8,
+      "text": "scripts\\check_rh1_static.py:116: in _added_line_ranges"
+    },
+    {
+      "line": 10,
+      "text": "E   RuntimeError: git diff failed: warning: Limiting comparison with pathspecs is only supported if both paths are directories."
+    },
+    {
+      "line": 140,
+      "text": "_____________ test_crlf_preserves_added_line_discrimination[True] _____________"
+    },
+    {
+      "line": 141,
+      "text": "tests\\test_rh1_git_line_endings.py:43: in test_crlf_preserves_added_line_discrimination"
+    },
+    {
+      "line": 144,
+      "text": "scripts\\check_rh1_static.py:116: in _added_line_ranges"
+    },
+    {
+      "line": 146,
+      "text": "E   RuntimeError: git diff failed: warning: Limiting comparison with pathspecs is only supported if both paths are directories."
+    },
+    {
+      "line": 277,
+      "text": "FAILED tests/test_rh1_git_line_endings.py::test_crlf_preserves_added_line_discrimination[False]"
+    },
+    {
+      "line": 278,
+      "text": "FAILED tests/test_rh1_git_line_endings.py::test_crlf_preserves_added_line_discrimination[True]"
+    },
+    {
+      "line": 279,
+      "text": "2 failed, 132 passed in 10.14s"
+    }
+  ],
+  "original_temp_probes": [
+    {
+      "cwd": "D:\\Dev\\Projects\\chstockdata\\.pytest_cache\\dr04-p-final-20261018\\test_crlf_preserves_added_line0",
+      "command": [
+        "git",
+        "rev-parse",
+        "--show-toplevel"
+      ],
+      "exit_code": 128,
+      "stdout": "",
+      "stderr": "fatal: detected dubious ownership in repository at 'D:/Dev/Projects/chstockdata/.pytest_cache/dr04-p-final-20261018/test_crlf_preserves_added_line0'\n'D:/Dev/Projects/chstockdata/.pytest_cache/dr04-p-final-20261018/test_crlf_preserves_added_line0' is owned by:\n\tBUILTIN/Administrators (S-1-5-32-544)\nbut the current user is:\n\tCHINAMI-4QO1VLN/Administrator (S-1-5-21-701489968-3502970438-2090242251-500)\nTo add an exception for this directory, call:\n\n\tgit config --global --add safe.directory D:/Dev/Projects/chstockdata/.pytest_cache/dr04-p-final-20261018/test_crlf_preserves_added_line0\n"
+    },
+    {
+      "cwd": "D:\\Dev\\Projects\\chstockdata\\.pytest_cache\\dr04-p-final-20261018\\test_crlf_preserves_added_line1",
+      "command": [
+        "git",
+        "rev-parse",
+        "--show-toplevel"
+      ],
+      "exit_code": 128,
+      "stdout": "",
+      "stderr": "fatal: detected dubious ownership in repository at 'D:/Dev/Projects/chstockdata/.pytest_cache/dr04-p-final-20261018/test_crlf_preserves_added_line1'\n'D:/Dev/Projects/chstockdata/.pytest_cache/dr04-p-final-20261018/test_crlf_preserves_added_line1' is owned by:\n\tBUILTIN/Administrators (S-1-5-32-544)\nbut the current user is:\n\tCHINAMI-4QO1VLN/Administrator (S-1-5-21-701489968-3502970438-2090242251-500)\nTo add an exception for this directory, call:\n\n\tgit config --global --add safe.directory D:/Dev/Projects/chstockdata/.pytest_cache/dr04-p-final-20261018/test_crlf_preserves_added_line1\n"
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "name": "ta-legacy",
+  "argv": [
+    "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\profiles\\r21-final\\ta-candidate\\Scripts\\python.exe",
+    "-B",
+    "D:/Dev/Projects/chstockdata/dist/consumer-v0.4.2/evidence/legacy_probe.py",
+    "0.4.2",
+    "D:\\Dev\\Projects\\chstockdata\\.rh3a2-vipdoc"
+  ],
+  "cwd": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\TradingAgents-AStock-Private",
+  "exit": 0,
+  "candidate_wheel_sha256": "d955ea4ef7c2bffaf5d30751fde88580911303b863a3120ac3d87337270267f8",
+  "log": "ta-legacy.log",
+  "exit_file": "ta-legacy.exit",
+  "command_started_at": "2026-10-12T21:33:02.611208+08:00",
+  "command_finished_at": "2026-10-12T21:33:06.007393+08:00",
+  "environment_overrides": {
+    "PYTHONPATH": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\TradingAgents-AStock-Private",
+    "PYTHONUTF8": "1",
+    "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+    "SIOS_CHSTOCKDATA_LIVE_QUALIFICATION": null,
+    "CHSTOCKDATA_VIPDOC_HISTORY_DIR": null,
+    "CHSTOCKDATA_CACHE_DIR": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\cache\\r21-data",
+    "TEMP": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\temp\\r21-step4",
+    "TMP": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\temp\\r21-step4"
+  }
+}

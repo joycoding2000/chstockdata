@@ -1,0 +1,140 @@
+{
+  "schema_version": "m1-research-smoke-fixture-1",
+  "purpose": "Hand-audited expected amounts for the close-above-SMA smoke flight through the frozen M0 kernel. All expected values were computed independently of engine output from the M0 documented semantics: T-close sizing with whole lots and reserved fees, T+1 open fill with side-aware slippage and tick rounding, itemized fees, close valuation, and NAV relative to CNY 100000.",
+  "strategy": {
+    "strategy_id": "smoke-close-above-sma",
+    "strategy_version": "v1",
+    "sma_sessions": 3,
+    "sleeve": "CORE",
+    "decision_frequency": "EVERY_SESSION"
+  },
+  "account": {
+    "initial_cash": "100000",
+    "commission_rate": "0.0003",
+    "minimum_commission": "5"
+  },
+  "execution": {
+    "slippage_rate": "0.001"
+  },
+  "calendar_id": "XSHG",
+  "sessions": [
+    "2026-09-09",
+    "2026-09-10",
+    "2026-09-11",
+    "2026-09-14",
+    "2026-09-15"
+  ],
+  "bars": [
+    {
+      "session_date": "2026-09-09",
+      "open": "99.50",
+      "high": "100.00",
+      "low": "99.50",
+      "close": "100.00",
+      "pre_close": null
+    },
+    {
+      "session_date": "2026-09-10",
+      "open": "100.50",
+      "high": "101.00",
+      "low": "100.50",
+      "close": "101.00",
+      "pre_close": "100.00"
+    },
+    {
+      "session_date": "2026-09-11",
+      "open": "101.50",
+      "high": "102.00",
+      "low": "101.50",
+      "close": "102.00",
+      "pre_close": "101.00"
+    },
+    {
+      "session_date": "2026-09-14",
+      "open": "102.50",
+      "high": "103.00",
+      "low": "102.50",
+      "close": "103.00",
+      "pre_close": "102.00"
+    },
+    {
+      "session_date": "2026-09-15",
+      "open": "103.50",
+      "high": "104.00",
+      "low": "103.50",
+      "close": "104.00",
+      "pre_close": "103.00"
+    }
+  ],
+  "hand_audit": {
+    "decision_2026-09-11": "closes (100, 101, 102); SMA3 = 303/3 = 101; close 102 > 101 -> TARGETS weight 1. Sizing at T close 102.00: equity 100000 -> floor(100000/102) = 980.39 -> lot 900. Estimated broker fee = 91800 * 0.0003 = 27.54; ETF market fees 0; affordable (91827.54 <= 100000) -> planned BUY 900, residual 8172.46.",
+    "fill_2026-09-14": "ETF tick size is 0.001 (PLIMIT:ETF-10PCT seed). open 102.50 * 1.001 = 102.6025 -> 0.001 ceiling -> 102.603. Notional 900 * 102.603 = 92342.70; commission = 92342.70 * 0.0003 = 27.70281 -> HALF_UP cents = 27.70; minimum adjustment 0; stamp/transfer 0 (ETF). Cash 100000 - 92342.70 - 27.70 = 7629.60. T+1 settlement: sellable from 2026-09-15.",
+    "nav_2026-09-14": "900 * 103.00 = 92700 market value; equity = 7629.60 + 92700.00 = 100329.60; NAV = 1.003296.",
+    "nav_2026-09-15": "900 * 104.00 = 93600 market value; equity = 7629.60 + 93600.00 = 101229.60; NAV = 1.012296. Final decision session has no next open session: blocked NO_NEXT_SESSION, strategy not asked.",
+    "metrics": "total return = 101229.60/100000 - 1 = 0.012296; monotone NAV series -> max drawdown 0; cost drag = (101229.60 + 27.70)/100000 - 1 - 0.012296 = 0.012573 - 0.012296 = 0.000277; one fill."
+  },
+  "expected": {
+    "evaluations": [
+      {
+        "session": "2026-09-09",
+        "status": "NO_DECISION",
+        "reason_codes": ["INSUFFICIENT_HISTORY"]
+      },
+      {
+        "session": "2026-09-10",
+        "status": "NO_DECISION",
+        "reason_codes": ["INSUFFICIENT_HISTORY"]
+      },
+      {
+        "session": "2026-09-11",
+        "status": "TARGETS",
+        "instrument": "XSHG:510300",
+        "sleeve": "CORE",
+        "target_weight": "1"
+      },
+      {
+        "session": "2026-09-14",
+        "status": "TARGETS",
+        "instrument": "XSHG:510300",
+        "sleeve": "CORE",
+        "target_weight": "1"
+      }
+    ],
+    "planned_order": {
+      "decision_session": "2026-09-11",
+      "side": "BUY",
+      "planned_quantity": 900,
+      "sizing_reference_price": "102.00",
+      "decision_digest_present": true
+    },
+    "fill": {
+      "session": "2026-09-14",
+      "quantity": 900,
+      "fill_price": "102.603",
+      "reference_open": "102.50",
+      "commission": "27.70",
+      "minimum_commission_adjustment": "0.00",
+      "stamp_tax": "0.00",
+      "transfer_fee": "0.00"
+    },
+    "nav": [
+      {"session": "2026-09-09", "nav": "1"},
+      {"session": "2026-09-10", "nav": "1"},
+      {"session": "2026-09-11", "nav": "1"},
+      {"session": "2026-09-14", "nav": "1.003296"},
+      {"session": "2026-09-15", "nav": "1.012296"}
+    ],
+    "final": {
+      "cash": "7629.60",
+      "position_instrument": "XSHG:510300",
+      "position_quantity": 900
+    },
+    "metrics": {
+      "observation_count": 5,
+      "total_return": "0.012296",
+      "max_drawdown": "0",
+      "cost_drag": "0.000277",
+      "trade_count": 1
+    }
+  }
+}

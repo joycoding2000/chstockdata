@@ -1,0 +1,51 @@
+{
+  "schema_version": "golden-expected-v1",
+  "runs": {
+    "default": {
+      "sessions": [
+        {
+          "session_date": "2026-09-11",
+          "cash": "100000",
+          "market_value": "0",
+          "total_equity": "100000",
+          "nav": "1",
+          "valuation_status": "COMPLETE",
+          "decision_blocked_reason": null,
+          "orders": [],
+          "fills": [],
+          "rejections": [],
+          "plans": [
+            {"instrument_id": "XSHE:000001", "sleeve": "CORE", "side": "BUY", "order_quantity": 100, "target_weight": "0.012", "sizing_reference_price": "12.00"},
+            {"instrument_id": "XSHG:510300", "sleeve": "CORE", "side": "BUY", "order_quantity": 200, "target_weight": "0.01", "sizing_reference_price": "4.00"}
+          ]
+        },
+        {
+          "session_date": "2026-09-14",
+          "cash": "100000",
+          "market_value": "0",
+          "total_equity": "100000",
+          "nav": "1",
+          "valuation_status": "COMPLETE",
+          "decision_blocked_reason": null,
+          "fills": [],
+          "orders": [
+            {"instrument_id": "XSHE:000001", "side": "BUY", "planned_quantity": 100, "submitted_quantity": null, "status": "REJECTED", "reason_codes": ["TRADABILITY_UNKNOWN"]},
+            {"instrument_id": "XSHG:510300", "side": "BUY", "planned_quantity": 200, "submitted_quantity": null, "status": "REJECTED", "reason_codes": ["SUSPENDED"]}
+          ],
+          "rejections": [
+            {"instrument_id": "XSHE:000001", "side": "BUY", "code": "TRADABILITY_UNKNOWN"},
+            {"instrument_id": "XSHG:510300", "side": "BUY", "code": "SUSPENDED"}
+          ],
+          "plans": [],
+          "target": null
+        }
+      ],
+      "final": {
+        "cash": "100000",
+        "equity": "100000",
+        "nav": "1",
+        "positions": []
+      }
+    }
+  }
+}

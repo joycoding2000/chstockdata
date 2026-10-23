@@ -1,0 +1,31 @@
+{
+  "chstockdata_version": "0.4.2",
+  "chstockdata_file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\chstockdata\\src\\chstockdata\\__init__.py",
+  "python": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\09\\01a11feb-cbea-7790-a83e-57b1dd555e13\\v042-unified\\sios-candidate\\Scripts\\python.exe",
+  "sys_path": [
+    "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification",
+    "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\evidence\\r21-step3",
+    "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\src",
+    "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\chstockdata\\src",
+    "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python312.zip",
+    "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\DLLs",
+    "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\Lib",
+    "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python",
+    "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\09\\01a11feb-cbea-7790-a83e-57b1dd555e13\\v042-unified\\sios-candidate",
+    "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\09\\01a11feb-cbea-7790-a83e-57b1dd555e13\\v042-unified\\sios-candidate\\Lib\\site-packages",
+    "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\Lib\\site-packages"
+  ],
+  "versions": {
+    "pytest": "9.1.1",
+    "requests": "2.34.2",
+    "pandas": "3.0.6",
+    "mootdx": "0.11.7",
+    "tdxpy": "0.2.7",
+    "pypdf": "6.10.0"
+  },
+  "frozen_sios_commit": "84fd54fae0740bc06b1d250afa4578be29556956",
+  "candidate_artifact": "source prebuild; wheel NOT_BUILT in Step3",
+  "known_events_sha256": "a464e9fd2695f6cdb3a76c4ca87ce070702bec71fec504f496dfc2228044b95b",
+  "wrappers_sha256": "0519ed64cba29773b32d183cbb26bc4b35e4dad1cd6bf241b6984a3863f102c7",
+  "opening_reader_sha256": "8e48f46373f974f665807dc3e2db8d7b8520588b699c7bce9fbf8c20986061a8"
+}

@@ -1,0 +1,49 @@
+{
+  "test": "test_live_routing_and_ohlcv_pre_close",
+  "outcomes": [
+    {
+      "instrument_id": "XSHG:510300",
+      "capability": "ROUTING_OHLCV_PRE_CLOSE",
+      "started_at": "2026-10-12T16:57:20.334577+08:00",
+      "finished_at": "2026-10-12T16:57:20.399113+08:00",
+      "status": "FAIL",
+      "error": {
+        "type": "AssertionError",
+        "message": "ProviderFailure(error_code=<ProviderErrorCode.INTERNAL_ADAPTER_ERROR: 'INTERNAL_ADAPTER_ERROR'>, message='unexpected vendor boundary error: TypeError: Object of type Timestamp is not JSON serializable', evidence=None, cause=TypeError('Object of type Timestamp is not JSON serializable'))"
+      }
+    },
+    {
+      "instrument_id": "XSHE:159915",
+      "capability": "ROUTING_OHLCV_PRE_CLOSE",
+      "started_at": "2026-10-12T16:57:20.399113+08:00",
+      "finished_at": "2026-10-12T16:57:20.443477+08:00",
+      "status": "FAIL",
+      "error": {
+        "type": "AssertionError",
+        "message": "ProviderFailure(error_code=<ProviderErrorCode.INTERNAL_ADAPTER_ERROR: 'INTERNAL_ADAPTER_ERROR'>, message='unexpected vendor boundary error: TypeError: Object of type Timestamp is not JSON serializable', evidence=None, cause=TypeError('Object of type Timestamp is not JSON serializable'))"
+      }
+    },
+    {
+      "instrument_id": "XSHG:518880",
+      "capability": "ROUTING_OHLCV_PRE_CLOSE",
+      "started_at": "2026-10-12T16:57:20.443477+08:00",
+      "finished_at": "2026-10-12T16:57:20.483411+08:00",
+      "status": "FAIL",
+      "error": {
+        "type": "AssertionError",
+        "message": "ProviderFailure(error_code=<ProviderErrorCode.INTERNAL_ADAPTER_ERROR: 'INTERNAL_ADAPTER_ERROR'>, message='unexpected vendor boundary error: TypeError: Object of type Timestamp is not JSON serializable', evidence=None, cause=TypeError('Object of type Timestamp is not JSON serializable'))"
+      }
+    },
+    {
+      "instrument_id": "XSHG:511010",
+      "capability": "ROUTING_OHLCV_PRE_CLOSE",
+      "started_at": "2026-10-12T16:57:20.483411+08:00",
+      "finished_at": "2026-10-12T16:57:20.523877+08:00",
+      "status": "FAIL",
+      "error": {
+        "type": "AssertionError",
+        "message": "ProviderFailure(error_code=<ProviderErrorCode.INTERNAL_ADAPTER_ERROR: 'INTERNAL_ADAPTER_ERROR'>, message='unexpected vendor boundary error: TypeError: Object of type Timestamp is not JSON serializable', evidence=None, cause=TypeError('Object of type Timestamp is not JSON serializable'))"
+      }
+    }
+  ]
+}

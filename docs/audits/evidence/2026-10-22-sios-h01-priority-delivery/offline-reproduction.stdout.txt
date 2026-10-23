@@ -1,0 +1,1 @@
+{"schema_version": "sios-h01-research-v1", "verdict": "H01_PARTIAL_DELIVERY_WITH_NAMED_GAPS", "gate": "BLOCKED_WITH_NAMED_GAPS", "securities": ["513500", "513030", "513520"], "observation_window": ["2024-01-02", "2025-09-30"], "raw_rows": 1875, "retrospective_observation_rows": 1875, "qualified_pit_signal_rows": 0}

@@ -1,0 +1,9 @@
+CAPCO DR03-S0A evidence verification (local, read-only)
+requests=21 http_200=21 failures=0 bytes=10191206
+2025H1 page_date=2025-09-30 pdf=capco-pdf-by-code.pdf bytes=4626417 sha256=b622b76b96d59611db36b01888cf6afd8cd711c5753a19ab8547e74bb0bb8228 pages=114 unique_codes=5413
+2025H2 page_date=2026-04-03 pdf=capco-pdf-2025H2-by-code.pdf bytes=772144 sha256=b1d0140572b20de11cd62ca478edb4da6e229928b216116df6345b3c2e461f58 pages=158 unique_codes=5463
+2026H1 page_date=2026-09-30 pdf=capco-pdf-2026H1-by-code.pdf bytes=782339 sha256=1f1862ae2199a82a3a35c62f16a7d576120bca97f3de608989c8897df9b6c8a6 pages=160 unique_codes=5521
+by_code_vs_by_industry_2025H1=SAME_5413_CODES; NO_DUPLICATES
+BSE map rows=246 old_in_2025H1=242 mapped=240 unmapped=['835305', '839680']
+universe_difference={"sh_dr01_only": ["601059", "601198"], "sh_dr03_only": [], "sz_dr01_only": [], "sz_dr03_only": ["301718"], "sh_shared": 2318, "sz_shared": 2906, "601059": {"name": "信达证券", "delisting": "2026-10-19", "dr03_source": "sse-delisted"}, "601198": {"name": "东兴证券", "delisting": "2026-10-19", "dr03_source": "sse-delisted"}, "301718": {"name": "N通则康威", "listing": "2026-10-22", "dr03_source": "szse-current"}, "same_total_is_not_set_equality": true, "note": "DR01 2319 is SH raw 2320 minus 689009; DR03 2318 is SH raw including 689009 (post-exclusion 2317). DR01 SZ 2906 and DR03 SZ 2907 both include 302132. The equal 5225 totals are not like-for-like compositions."}
+gates={"DR03_CURRENT_GATE": "NOT_PASSED", "DR03_HISTORICAL_GATE": "NOT_PASSED", "IMPLEMENTATION_AUTHORIZED": "NO", "PUSH_AUTHORIZED": "NO", "OWNER_REVIEW_REQUIRED": "YES"}

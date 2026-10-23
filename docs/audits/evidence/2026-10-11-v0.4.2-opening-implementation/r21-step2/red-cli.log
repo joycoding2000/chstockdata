@@ -1,0 +1,27 @@
+...FF                                                                    [100%]
+================================== FAILURES ===================================
+___ test_new_freeze_mode_is_explicit_and_old_digest_cannot_be_reinterpreted ___
+
+    def test_new_freeze_mode_is_explicit_and_old_digest_cannot_be_reinterpreted():
+        from test_oos_verifier import _current_freeze_payload, _intent
+        frozen=_current_freeze_payload();intent=_intent()
+>       new_digest=oos.oos_kernel_identity_digest(intent,execution_eligibility_mode=MODE)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       TypeError: oos_kernel_identity_digest() got an unexpected keyword argument 'execution_eligibility_mode'
+
+tests\research\test_historical_opening_wiring.py:72: TypeError
+_____________ test_public_cli_mode_is_explicit_and_legacy_default _____________
+
+    def test_public_cli_mode_is_explicit_and_legacy_default():
+        from systematic_investing.research.cli import build_parser
+        parser=build_parser()
+        for args in (("basic-backtest","--intent","x","--snapshot","x","--root","x"),("oos-freeze","--candidate-id","x","--root","x"),("oos-run","--freeze-id","x","--snapshot","x","--root","x")):
+>           assert parser.parse_args(args).execution_eligibility_mode=="LEGACY"
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E           AttributeError: 'Namespace' object has no attribute 'execution_eligibility_mode'
+
+tests\research\test_historical_opening_wiring.py:84: AttributeError
+=========================== short test summary info ===========================
+FAILED tests/research/test_historical_opening_wiring.py::test_new_freeze_mode_is_explicit_and_old_digest_cannot_be_reinterpreted
+FAILED tests/research/test_historical_opening_wiring.py::test_public_cli_mode_is_explicit_and_legacy_default
+2 failed, 3 passed in 0.94s

@@ -1,0 +1,39 @@
+{
+  "capability": "rule_candidates",
+  "upstream_source": "chstockdata candidate reference payload (synthetic fixture)",
+  "observed_at": null,
+  "warnings": ["vendor rule profiles are candidates only; the Instrument Master governs"],
+  "payload": {
+    "source": "vendor reference payload",
+    "profiles": [
+      {
+        "rule_kind": "LOT",
+        "profile_id": "LOT:VENDOR-CANDIDATE",
+        "effective_from": "2026-01-01",
+        "effective_to": null,
+        "source": {
+          "authority": "synthetic vendor reference",
+          "reference": "vendor rule candidate fixture",
+          "accessed_on": "2026-09-11"
+        },
+        "values": {
+          "board_lot": 200,
+          "buy_increment": 200,
+          "odd_lot_sell_policy": "ALLOWED"
+        }
+      },
+      {
+        "rule_kind": "SETTLEMENT",
+        "profile_id": "SETTLE:VENDOR-CANDIDATE",
+        "effective_from": "2026-01-01",
+        "effective_to": null,
+        "source": {
+          "authority": "synthetic vendor reference",
+          "reference": "vendor rule candidate fixture",
+          "accessed_on": "2026-09-11"
+        },
+        "values": {"sessions_until_sellable": 0}
+      }
+    ]
+  }
+}

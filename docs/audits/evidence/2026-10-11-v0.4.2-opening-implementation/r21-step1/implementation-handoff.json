@@ -1,0 +1,45 @@
+{
+  "status": "DONE_WITH_CONCERNS",
+  "phase": "v0.4.2 R2.1 opening implementation",
+  "step": "Step1 chstockdata source evidence capability",
+  "commit_sha": "42bd44ef4d695aa3e88cfab4ebc3417660d0437a",
+  "isolated_copy_git_status": "no .git in copied candidate; no commit/push/release",
+  "gate_evidence": {
+    "HISTORICAL_OPEN_EVIDENCE_CONTRACT": "PASS implementation evidence: 50 deterministic contract tests, 12 actual new reader live points and final-source 74-response replay",
+    "TDX_ETF_PRICE_REGRESSION": "PASS: four fixed ETF prices; stocks unchanged; unknown version/category and double normalization rejected; 59 VIPDOC exact-price tests",
+    "OFFICIAL_STOP_CONTROLS": "PASS: two ETF controls, continuous/resume and afternoon/ongoing stock controls; malformed/partial/conflict boundary regressions",
+    "LEGACY_SUSPENSION_SAFETY": "PASS: original 19 tests rerun"
+  },
+  "test_runs": {
+    "red": "30 failed expected missing public capability",
+    "red-boundaries": "3 failed 31 passed prior to three boundary fixes",
+    "red-known-facts": "2 failed 36 passed before unknown-clock and retained-known-halt fixes",
+    "final-green": "green-stock-interval-dates: 128 passed (50 contract + 19 legacy suspension + 59 VIPDOC), no skips/xfails/deselections, exit0",
+    "red-sse-dates": "2 failed 38 passed before strict ETF single-session dates",
+    "red-sse-nonsecondary-identity": "2 failed 41 passed before identity check moved before nonsecondary ignore",
+    "red-stock-interval-dates": "4 failed 46 passed before strict stock date/order validation and parsed-date resume compatibility"
+  },
+  "new_live": {
+    "public_reader_points": 12,
+    "requests": 74,
+    "passed": 12,
+    "exit_code": 0,
+    "manifest": "live/manifest.json",
+    "raw_requests": "live/requests.json",
+    "qualifier": "actual new public reader calls; complete parser-returned TDX rows, not raw TCP bytes"
+  },
+  "final_replay": {
+    "passed": 12,
+    "exit_code": 0,
+    "manifest": "final-replay-stock-interval-dates/manifest.json",
+    "qualifier": "replays actual new reader raw responses without network; explicitly binds actual-live and final-source identities"
+  },
+  "remaining_concerns": [
+    "fresh independent quality re-review and spec impact review pending; implementation evidence is not Owner Gate acceptance",
+    "certification limited to declared security category/version scope and bounded window",
+    "historical information availability remains UNKNOWN; no all-day/PIT/strict fill/quota claim",
+    "optional pypdf installed profile must include the declared opening-pdf extra; bundled parser used read-only during verification"
+  ],
+  "scope_changes": "Owner R2.1 existing authorization applied; no Step2 implementation",
+  "recommended_next_action": "independent Step1 spec/quality review against frozen R2.1; advance only through authorized Gate acceptance"
+}

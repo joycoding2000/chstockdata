@@ -1,0 +1,71 @@
+{
+  "schema_version": "golden-expected-v1",
+  "runs": {
+    "default": {
+      "sessions": [
+        {
+          "session_date": "2026-09-11",
+          "cash": "100000",
+          "market_value": "0",
+          "total_equity": "100000",
+          "nav": "1",
+          "valuation_status": "COMPLETE",
+          "decision_blocked_reason": null,
+          "orders": [],
+          "fills": [],
+          "rejections": [],
+          "plans": [
+            {"instrument_id": "XSHG:510300", "sleeve": "CORE", "side": "BUY", "order_quantity": 10000, "target_weight": "0.40", "sizing_reference_price": "4.00"},
+            {"instrument_id": "XSHG:600519", "sleeve": "CORE", "side": "BUY", "order_quantity": 100, "target_weight": "0.05", "sizing_reference_price": "50.00"},
+            {"instrument_id": "XSHG:518880", "sleeve": "SATELLITE", "side": "BUY", "order_quantity": 2000, "target_weight": "0.08", "sizing_reference_price": "4.00"},
+            {"instrument_id": "XSHG:511010", "sleeve": "SATELLITE", "side": "BUY", "order_quantity": 1000, "target_weight": "0.02", "sizing_reference_price": "2.00"}
+          ],
+          "target": {
+            "target_id": "target:2026-09-11",
+            "revision": 1,
+            "decision_for_trade_date": "2026-09-14",
+            "valuation_equity": "100000",
+            "cash_weight": "0.40",
+            "sleeve_weights": {"CORE": "0.45", "SATELLITE": "0.15"},
+            "addressed_instruments": ["XSHG:510300", "XSHG:511010", "XSHG:518880", "XSHG:600519"]
+          }
+        },
+        {
+          "session_date": "2026-09-14",
+          "cash": "44917.94",
+          "market_value": "55055.00",
+          "total_equity": "99972.94",
+          "nav": "0.9997294",
+          "valuation_status": "COMPLETE",
+          "decision_blocked_reason": null,
+          "orders": [
+            {"instrument_id": "XSHG:510300", "side": "BUY", "planned_quantity": 10000, "submitted_quantity": 10000, "status": "FILLED", "reason_codes": ["FILLED_AS_PLANNED"]},
+            {"instrument_id": "XSHG:511010", "side": "BUY", "planned_quantity": 1000, "submitted_quantity": 1000, "status": "FILLED", "reason_codes": ["FILLED_AS_PLANNED"]},
+            {"instrument_id": "XSHG:518880", "side": "BUY", "planned_quantity": 2000, "submitted_quantity": 2000, "status": "FILLED", "reason_codes": ["FILLED_AS_PLANNED"]},
+            {"instrument_id": "XSHG:600519", "side": "BUY", "planned_quantity": 100, "submitted_quantity": 100, "status": "FILLED", "reason_codes": ["FILLED_AS_PLANNED"]}
+          ],
+          "fills": [
+            {"instrument_id": "XSHG:510300", "side": "BUY", "quantity": 10000, "fill_price": "4.004", "reference_open": "4.00", "commission": "12.01", "minimum_commission_adjustment": "0", "stamp_tax": "0", "transfer_fee": "0", "total_fees": "12.01"},
+            {"instrument_id": "XSHG:511010", "side": "BUY", "quantity": 1000, "fill_price": "2.002", "reference_open": "2.00", "commission": "0.60", "minimum_commission_adjustment": "4.40", "stamp_tax": "0", "transfer_fee": "0", "total_fees": "5.00"},
+            {"instrument_id": "XSHG:518880", "side": "BUY", "quantity": 2000, "fill_price": "4.004", "reference_open": "4.00", "commission": "2.40", "minimum_commission_adjustment": "2.60", "stamp_tax": "0", "transfer_fee": "0", "total_fees": "5.00"},
+            {"instrument_id": "XSHG:600519", "side": "BUY", "quantity": 100, "fill_price": "50.05", "reference_open": "50.00", "commission": "1.50", "minimum_commission_adjustment": "3.50", "stamp_tax": "0", "transfer_fee": "0.05", "total_fees": "5.05"}
+          ],
+          "rejections": [],
+          "plans": [],
+          "target": null
+        }
+      ],
+      "final": {
+        "cash": "44917.94",
+        "equity": "99972.94",
+        "nav": "0.9997294",
+        "positions": [
+          {"instrument_id": "XSHG:510300", "total_quantity": 10000, "sellable_quantity": 0},
+          {"instrument_id": "XSHG:511010", "total_quantity": 1000, "sellable_quantity": 1000},
+          {"instrument_id": "XSHG:518880", "total_quantity": 2000, "sellable_quantity": 2000},
+          {"instrument_id": "XSHG:600519", "total_quantity": 100, "sellable_quantity": 0}
+        ]
+      }
+    }
+  }
+}

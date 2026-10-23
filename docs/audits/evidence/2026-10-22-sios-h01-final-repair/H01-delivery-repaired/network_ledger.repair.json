@@ -1,0 +1,25 @@
+{
+  "authorization": "Owner explicit approval in this chat, 2026-10-22 Asia/Shanghai",
+  "max_http_requests": 12,
+  "max_downloaded_bytes": 15000000,
+  "max_retries_per_request": 1,
+  "requests": [
+    {
+      "id": 1,
+      "label": "513030-20250123-sse-official-halt",
+      "url": "https://www.sse.com.cn/disclosure/fund/announcement/c/new/2025-01-23/513030_20250123_HU9P.pdf",
+      "requested_at": "2026-10-22T14:37:50.942226+00:00",
+      "downloaded_bytes": 76987,
+      "status": "success",
+      "http_status": 200,
+      "content_type": "application/pdf",
+      "encoding": null,
+      "file": "sources/001-513030-20250123-sse-official-halt.raw",
+      "sha256": "be01b505d9c05cf5c7bc58a231849379321d519d154f789b2ad3c5ae5bd81c28",
+      "completed_at": "2026-10-22T14:37:51.526597+00:00"
+    }
+  ],
+  "downloaded_bytes_definition": "HTTP response entity bytes, Accept-Encoding identity; headers excluded",
+  "task": "SIOS_H01_DATA_DELIVERY_FINAL_REPAIR",
+  "prior_budget_inherited": false
+}

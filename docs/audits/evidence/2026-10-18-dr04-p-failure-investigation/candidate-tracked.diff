@@ -1,0 +1,41 @@
+diff --git a/README.md b/README.md
+index 386adb6..b381b7f 100644
+--- a/README.md
++++ b/README.md
+@@ -30,6 +30,11 @@ df = get_stock_data("600519", 365)    # daily OHLCV, vipdoc/mootdx/Sina chain
+ get_realtime_snapshot("600519")       # realtime quote, Tencent -> mootdx -> Sina
+ ```
+ 
++The working tree also includes the DR04-P candidate public API
++`get_sina_daily_fund_flow` for lossless Sina daily `r0_net` observations.
++See the [consumer contract and usage](docs/dr04-p-daily-fund-flow.md).
++This addition awaits Owner Review and is not part of the published v0.4.2 package.
++
+ ## Structured API (v0.4.2)
+ 
+ The structured surface is additive and returns `FetchResult` objects. The
+diff --git a/src/chstockdata/__init__.py b/src/chstockdata/__init__.py
+index 17b3f6c..9a4cc3f 100644
+--- a/src/chstockdata/__init__.py
++++ b/src/chstockdata/__init__.py
+@@ -85,6 +85,12 @@ from .a_stock import (
+ 
+ # ── Reversed-ported upstream endpoints (v0.2.0) ─────────────────────────────
+ from .board_flow import get_board_fund_flow
++from .daily_fund_flow import (
++    DailyFundFlowResult,
++    FundFlowBudget,
++    FundFlowCalendar,
++    get_sina_daily_fund_flow,
++)
+ from .chips import chip_distribution, get_chip_distribution
+ from .etf_options import (
+     get_etf_option_chain,
+@@ -195,6 +201,7 @@ __all__ = [
+     "get_corporate_buyback",
+     # money flow / microstructure
+     "get_fund_flow", "get_dragon_tiger_board", "get_block_trades",
++    "get_sina_daily_fund_flow", "DailyFundFlowResult", "FundFlowBudget", "FundFlowCalendar",
+     "get_northbound_flow", "get_market_breadth", "get_margin_trading",
+     "get_valuation_history", "get_industry_comparison", "get_concept_blocks",
+     "get_daily_dragon_tiger", "get_board_fund_flow",

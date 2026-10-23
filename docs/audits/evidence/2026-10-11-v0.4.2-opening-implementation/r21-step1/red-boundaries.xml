@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="3" skipped="0" tests="34" time="2.454" timestamp="2026-10-11T15:30:22.781518+08:00" hostname="CHINAMI-4QO1VLN"><testcase classname="tests.test_historical_opening_evidence" name="test_four_real_etf_opening_composition[510300-4.576-352580]" time="0.031" /><testcase classname="tests.test_historical_opening_evidence" name="test_four_real_etf_opening_composition[159915-3.339-557149]" time="0.051" /><testcase classname="tests.test_historical_opening_evidence" name="test_four_real_etf_opening_composition[518880-8.91-106411]" time="0.020" /><testcase classname="tests.test_historical_opening_evidence" name="test_four_real_etf_opening_composition[511010-141.177-289]" time="0.023" /><testcase classname="tests.test_historical_opening_evidence" name="test_stock_prices_preserved_and_later_halt_does_not_veto_open[688432-2026-09-14-40.9]" time="0.026" /><testcase classname="tests.test_historical_opening_evidence" name="test_stock_prices_preserved_and_later_halt_does_not_veto_open[000002-2015-12-18-22.4]" time="0.023" /><testcase classname="tests.test_historical_opening_evidence" name="test_bounded_real_history[2016-12-30]" time="0.020" /><testcase classname="tests.test_historical_opening_evidence" name="test_bounded_real_history[2022-12-30]" time="0.025" /><testcase classname="tests.test_historical_opening_evidence" name="test_known_full_window_block_plus_positive_activity_is_conflict" time="0.027" /><testcase classname="tests.test_historical_opening_evidence" name="test_resume_inside_minute_blocks_target_without_retry" time="0.028" /><testcase classname="tests.test_historical_opening_evidence" name="test_halt_start_inside_minute_cannot_order_activity" time="0.027" /><testcase classname="tests.test_historical_opening_evidence" name="test_ongoing_unconfirmed_end_vetoes_empty_official" time="0.027" /><testcase classname="tests.test_historical_opening_evidence" name="test_current_official_failure_and_partial_do_not_allow_open[bad0]" time="0.027" /><testcase classname="tests.test_historical_opening_evidence" name="test_current_official_failure_and_partial_do_not_allow_open[&lt;html&gt;not json&lt;/html&gt;]" time="0.027" /><testcase classname="tests.test_historical_opening_evidence" name="test_current_official_failure_and_partial_do_not_allow_open[bad2]" time="0.027" /><testcase classname="tests.test_historical_opening_evidence" name="test_no_qualified_activity_unknown[auction_only]" time="0.019" /><testcase classname="tests.test_historical_opening_evidence" name="test_no_qualified_activity_unknown[zero]" time="0.027" /><testcase classname="tests.test_historical_opening_evidence" name="test_no_qualified_activity_unknown[minute_only]" time="0.019" /><testcase classname="tests.test_historical_opening_evidence" name="test_no_qualified_activity_unknown[bad_price]" time="0.022" /><testcase classname="tests.test_historical_opening_evidence" name="test_no_qualified_activity_unknown[bad_time]" time="0.023" /><testcase classname="tests.test_historical_opening_evidence" name="test_no_qualified_activity_unknown[double_normalized]" time="0.023" /><testcase classname="tests.test_historical_opening_evidence" name="test_unknown_version_rejected" time="0.019" /><testcase classname="tests.test_historical_opening_evidence" name="test_unverified_category_and_unsupported_date_boundary_rejected" time="0.001" /><testcase classname="tests.test_historical_opening_evidence" name="test_real_sse_interval_and_resume_evidence_participate" time="0.044" /><testcase classname="tests.test_historical_opening_evidence" name="test_known_000002_continuous_halt_empty_tdx_not_normal" time="0.018" /><testcase classname="tests.test_historical_opening_evidence" name="test_sse_fund_halt_control_actual_field_contract" time="0.024" /><testcase classname="tests.test_historical_opening_evidence" name="test_szse_fund_halt_real_attachment_and_all_rows_considered" time="0.209" /><testcase classname="tests.test_historical_opening_evidence" name="test_szse_unknown_event_meaning_and_bad_attachment_are_unknown" time="0.025" /><testcase classname="tests.test_historical_opening_evidence" name="test_sse_wrong_code_and_unknown_secondary_time_unknown" time="0.053" /><testcase classname="tests.test_historical_opening_evidence" name="test_complete_current_pagination_and_partial_cap" time="0.037" /><testcase classname="tests.test_historical_opening_evidence" name="test_current_last_stop_day_cannot_be_erased_by_cached_resume" time="0.027"><failure message="AssertionError: assert 'OPEN_ACTIVITY_CONFIRMED' == 'UNKNOWN'&#10;  &#10;  - UNKNOWN&#10;  + OPEN_ACTIVITY_CONFIRMED">def test_current_last_stop_day_cannot_be_erased_by_cached_resume():
+        payload=json.loads((OFFICIAL/'sse_688432_interval.bin').read_bytes())
+        payload['result'][0]['endStopDate']='20260914'
+        payload['pageHelp']['data'][0]['endStopDate']='20260914'
+        r=fetch('688432','2026-09-14',official=[payload])
+&gt;       assert r.data['opening_status']=='UNKNOWN'
+E       AssertionError: assert 'OPEN_ACTIVITY_CONFIRMED' == 'UNKNOWN'
+E         
+E         - UNKNOWN
+E         + OPEN_ACTIVITY_CONFIRMED
+
+tests\test_historical_opening_evidence.py:279: AssertionError</failure></testcase><testcase classname="tests.test_historical_opening_evidence" name="test_mismatched_known_security_is_typed_unknown_not_silently_ignored" time="0.028"><failure message="AssertionError: assert 'OPEN_ACTIVITY_CONFIRMED' == 'UNKNOWN'&#10;  &#10;  - UNKNOWN&#10;  + OPEN_ACTIVITY_CONFIRMED">def test_mismatched_known_security_is_typed_unknown_not_silently_ignored():
+        known=api().OfficialOpeningEvent(instrument='159915',market='SZSE',
+            effective_start='2026-09-11T09:30:00+08:00',effective_end=None,
+            source_url='https://www.szse.cn/disclosure/example',raw_sha256='b'*64,
+            certification_basis='explicit interval',retrieved_at='2026-10-09T13:00:00+00:00')
+        r=fetch(known_events=[known])
+&gt;       assert r.data['opening_status']=='UNKNOWN'
+E       AssertionError: assert 'OPEN_ACTIVITY_CONFIRMED' == 'UNKNOWN'
+E         
+E         - UNKNOWN
+E         + OPEN_ACTIVITY_CONFIRMED
+
+tests\test_historical_opening_evidence.py:289: AssertionError</failure></testcase><testcase classname="tests.test_historical_opening_evidence" name="test_pdf_magic_with_corrupt_pdf_is_typed_unknown" time="0.026"><failure message="pypdf.errors.PdfStreamError: Stream has ended unexpectedly">def test_pdf_magic_with_corrupt_pdf_is_typed_unknown():
+        payload=json.loads((OFFICIAL/'szse_159509_announcements_control.bin').read_bytes())
+        payload['data']=payload['data'][:1];payload['announceCount']=1
+&gt;       r=fetch('159509',official=[payload,b'%PDF-1.7\ncorrupt'])
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_historical_opening_evidence.py:297: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_historical_opening_evidence.py:99: in fetch
+    return chstockdata.fetch_historical_opening_evidence(code, day, tdx_reader=tdx,
+src\chstockdata\opening_evidence.py:433: in fetch_historical_opening_evidence
+    official=(official_reader or OfficialOpeningReader()).read(code,session_date,market,scope[1] if scope else 'UNKNOWN',attempts)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+src\chstockdata\opening_evidence.py:326: in read
+    got=self._sse_event(row,code,day,category,url,sha) if market=='SSE' else self._szse_event(row,code,day,category,attempts,observations)
+                                                                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+src\chstockdata\opening_evidence.py:386: in _szse_event
+    text=''.join(p.extract_text() or '' for p in PdfReader(io.BytesIO(body)).pages)
+                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\Administrator\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\site-packages\pypdf\_reader.py:149: in __init__
+    self._initialize_stream(stream)
+C:\Users\Administrator\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\site-packages\pypdf\_reader.py:171: in _initialize_stream
+    self.read(stream)
+C:\Users\Administrator\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\site-packages\pypdf\_reader.py:645: in read
+    self._find_eof_marker(stream)
+C:\Users\Administrator\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\site-packages\pypdf\_reader.py:751: in _find_eof_marker
+    line = read_previous_line(stream)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+stream = &lt;_io.BytesIO object at 0x00000257A9A4F650&gt;
+
+    def read_previous_line(stream: StreamType) -&gt; bytes:
+        """
+        Given a byte stream with current position X, return the previous line.
+    
+        All characters between the first CR/LF byte found before X
+        (or, the start of the file, if no such byte is found) and position X
+        After this call, the stream will be positioned one byte after the
+        first non-CRLF character found beyond the first CR/LF byte before X,
+        or, if no such byte is found, at the beginning of the stream.
+    
+        Args:
+            stream: StreamType:
+    
+        Returns:
+            The data which was read.
+    
+        """
+        line_content = []
+        found_crlf = False
+        if stream.tell() == 0:
+&gt;           raise PdfStreamError(STREAM_TRUNCATED_PREMATURELY)
+E           pypdf.errors.PdfStreamError: Stream has ended unexpectedly
+
+C:\Users\Administrator\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\site-packages\pypdf\_utils.py:330: PdfStreamError</failure></testcase><testcase classname="tests.test_historical_opening_evidence" name="test_last_stop_day_is_blocked_through_open_not_midnight_resume" time="0.021" /></testsuite></testsuites>

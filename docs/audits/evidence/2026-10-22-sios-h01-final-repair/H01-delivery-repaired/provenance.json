@@ -1,0 +1,131 @@
+{
+  "raw": {
+    "downloaded_at": "2026-09-23T06:19:31Z",
+    "source_url": "https://data.tdx.com.cn/vipdoc/hsjday.zip",
+    "source_last_modified": "Tue, 22 Sep 2026 07:56:47 GMT",
+    "zip_sha256": "72bf25fb6dd5fbdb1a83c64a37d8ad7c4d9652f7036919b6694ba955b643e968",
+    "original_manifest_sha256": "3886c94ebe7292d4ad16528cd5edee2ebdb821d8966949d0fd60966d3c18b3ae",
+    "selected_codes": [
+      "513500",
+      "513030",
+      "513520"
+    ],
+    "calendar_only_code": "000001",
+    "calendar_reference_is_not_an_added_H01_security": true
+  },
+  "context": {
+    "producer": {
+      "head": "5584f5fcacccef9a9531a7a32b8463ea6771d312",
+      "status": "?? docs/DR01-current-free-data-feasibility-2026-10-19.md\n?? docs/DR02-DR06-consolidated-gap-report.md\n?? docs/MISHI_RADAR_TO_CHSTOCKDATA_DR01_DR06_CONSUMER_REQUEST_2026-10-16.md\n?? docs/MISHI_RADAR_V0_1_SPEC_R3_2_SCOPE_APPROVED_DATA_PENDING_2026-10-16.md\n?? docs/SIOS-P2-to-chstockdata-handoff-2026-10-19.zip\n?? docs/audits/2026-10-09-v0.4.2-history-recovery-conclusion.md\n?? docs/audits/2026-10-09-v0.4.2-official-history-and-sios-final-decision.md\n?? docs/audits/2026-10-09-v0.4.2-release-closeout.md\n?? docs/audits/2026-10-09-v0.4.2-unified-gate.md\n?? docs/audits/2026-10-10-v0.4.2-tdx-historical-execution-feasibility.md\n?? docs/audits/2026-10-11-v0.4.2-opening-implementation.md\n?? docs/audits/2026-10-14-v0.4.2-controlled-release.md\n?? docs/audits/2026-10-18-dr04-p-implementation.md\n?? docs/audits/2026-10-18-dr04-p-preflight.md\n?? docs/audits/2026-10-18-dr04-p-regression-fix.md\n?? docs/audits/2026-10-18-dr04-p-regression-root-cause.md\n?? docs/audits/2026-10-19-sios-p2-producer-response.md\n?? docs/audits/2026-10-19-w5h-historical-financial-pit-feasibility.md\n?? docs/audits/2026-10-20-w5h-r2-alternative-source-qualification.md\n?? docs/audits/2026-10-22-mishi-s07-real-window-admission-preflight.md\n?? docs/audits/2026-10-22-mishi-s07-real-window-dependencies.json\n?? docs/audits/2026-10-22-s07-free-supply-decisive-screen.md\n?? docs/audits/2026-10-22-w5h-f2-final-evidence-qualification.md\n?? docs/audits/DR01-current-free-data-feasibility-2026-10-19.md\n?? docs/audits/evidence/2026-10-09-v0.4.2-history-recovery/\n?? docs/audits/evidence/2026-10-09-v0.4.2-release/\n?? docs/audits/evidence/2026-10-09-v0.4.2-unified-gate/\n?? docs/audits/evidence/2026-10-10-v0.4.2-tdx-historical-execution/probe_tdx_history.py\n?? docs/audits/evidence/2026-10-10-v0.4.2-tdx-historical-execution/probe_tdx_opening_pages.py\n?? docs/audits/evidence/2026-10-10-v0.4.2-tdx-historical-execution/probe_tdx_opening_pages_final.py\n?? docs/audits/evidence/2026-10-10-v0.4.2-tdx-historical-execution/probe_tdx_opening_pages_followup.py\n?? docs/audits/evidence/2026-10-10-v0.4.2-tdx-historical-execution/tdx_history_manifest.json\n?? docs/audits/evidence/2026-10-10-v0.4.2-tdx-historical-execution/tdx_opening_page_final_manifest.json\n?? docs/audits/evidence/2026-10-10-v0.4.2-tdx-historical-execution/tdx_opening_page_followup_manifest.json\n?? docs/audits/evidence/2026-10-10-v0.4.2-tdx-historical-execution/tdx_opening_page_manifest.json\n?? docs/audits/evidence/2026-10-11-v0.4.2-opening-implementation/\n?? docs/audits/evidence/2026-10-14-v0.4.2-controlled-release/\n?? docs/audits/evidence/2026-10-18-dr04-p-failure-investigation/\n?? docs/audits/evidence/2026-10-18-dr04-p-implementation/\n?? docs/audits/evidence/2026-10-18-dr04-p-owner-acceptance/focused.stderr.txt\n?? docs/audits/evidence/2026-10-18-dr04-p-owner-acceptance/ruff.stderr.txt\n?? docs/audits/evidence/2026-10-18-dr04-p-owner-acceptance/worktree-before.json\n?? docs/audits/evidence/2026-10-18-dr04-p-preflight/\n?? docs/audits/evidence/2026-10-18-dr04-p-regression-fix-r2/before-test.py.txt\n?? docs/audits/evidence/2026-10-18-dr04-p-regression-fix-r2/before.diff\n?? docs/audits/evidence/2026-10-18-dr04-p-regression-fix-r2/before.json\n?? docs/audits/evidence/2026-10-18-dr04-p-regression-fix-r2/finalize.py\n?? docs/audits/evidence/2026-10-18-dr04-p-regression-fix-r2/focused.stderr.txt\n?? docs/audits/evidence/2026-10-18-dr04-p-regression-fix-r2/regression.stderr.txt\n?? docs/audits/evidence/2026-10-18-dr04-p-regression-fix-r2/resume.py\n?? docs/audits/evidence/2026-10-18-dr04-p-regression-fix-r2/verify.py\n?? docs/audits/evidence/2026-10-18-dr04-p-regression-fix/\n?? docs/audits/evidence/2026-10-18-dr04-p-type-identity-fix/before.json\n?? docs/audits/evidence/2026-10-18-dr04-p-type-identity-fix/finalize.py\n?? docs/audits/evidence/2026-10-18-dr04-p-type-identity-fix/focused.stderr.txt\n?? docs/audits/evidence/2026-10-18-dr04-p-type-identity-fix/full.stderr.txt\n?? docs/audits/evidence/2026-10-18-dr04-p-type-identity-fix/module-before.txt\n?? docs/audits/evidence/2026-10-18-dr04-p-type-identity-fix/red.stderr.txt\n?? docs/audits/evidence/2026-10-18-dr04-p-type-identity-fix/tests-before.txt\n?? docs/audits/evidence/2026-10-18-dr04-p-type-identity-fix/tracked-before.diff\n?? docs/audits/evidence/2026-10-18-dr04-p-type-identity-fix/verify.py\n?? docs/audits/evidence/2026-10-19-sios-p2-producer-response/\n?? docs/audits/evidence/2026-10-19-w5h/\n?? docs/audits/evidence/2026-10-20-w5h-r2/\n?? docs/audits/evidence/2026-10-22-s07-free-supply-decisive-screen/\n?? docs/audits/evidence/2026-10-22-sios-h01-priority-delivery/\n?? docs/audits/evidence/2026-10-22-w5h-f2-final-evidence-qualification/\n?? docs/dr04-minimum-consumer-contract-owner-review.md\n?? docs/plans/\n?? tests/test_sios_h01_delivery.py\n",
+      "tracked_diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "consumer": {
+      "head": "a46500441ff29c9c7807fdfef155c22cedb72b88",
+      "status": "?? docs/m1-r2/R2-external-long-history-mechanism-falsification-2026-10-22.md\n?? research/external-long-history-mechanism-2026-10-22/\n",
+      "tracked_diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "contract_archive_commit": "d75867d3f4c297452d6ff4777aac631bb66edc8c",
+    "consumer_contract_missing_in_current_worktree": true,
+    "contract_hashes": {
+      "h01-consumer-contract.md": "c8834096f005c29e9d8733e74a391bca0adc91f823544068357052286d9ae57d",
+      "consumer-provider.py": "2947b1de34c3e7ad84598e9c4b0f242ecba8d36f6fc0a0c7a89544629c4692c8",
+      "consumer-relative-momentum.py": "6bec44559f0bcb01898cddd58466ec7525c391fc93639ed12dad915f9477ca99",
+      "consumer-SOURCES.yaml": "98a8948809d1c998d8f5f0a770933cca94334f939c3d84dea17d027ae7994a54"
+    },
+    "boundaries": {
+      "consumer_read_only": true,
+      "strategy_backtest": false,
+      "commit": false,
+      "push": false,
+      "production_change": false,
+      "public_api_change": false
+    }
+  },
+  "network": {
+    "attempted_requests": 63,
+    "downloaded_bytes": 9715675,
+    "transport_successes": 60,
+    "transport_failures": 1,
+    "redirects": 2,
+    "semantic_failures": [
+      {
+        "request_id": 5,
+        "kind": "UPSTREAM_ERROR",
+        "upstream_code": 4
+      },
+      {
+        "request_id": 6,
+        "kind": "UPSTREAM_ERROR",
+        "upstream_code": 4
+      },
+      {
+        "request_id": 7,
+        "kind": "UPSTREAM_ERROR",
+        "upstream_code": 4
+      },
+      {
+        "request_id": 11,
+        "kind": "EMPTY_INDEX_NOT_COVERAGE_PROOF"
+      },
+      {
+        "request_id": 20,
+        "kind": "EMPTY_INDEX_NOT_COVERAGE_PROOF"
+      },
+      {
+        "request_id": 27,
+        "kind": "ACCESS_CHALLENGE_NOT_PDF"
+      },
+      {
+        "request_id": 28,
+        "kind": "ACCESS_CHALLENGE_NOT_PDF"
+      },
+      {
+        "request_id": 29,
+        "kind": "ACCESS_CHALLENGE_NOT_PDF"
+      },
+      {
+        "request_id": 30,
+        "kind": "ACCESS_CHALLENGE_NOT_PDF"
+      },
+      {
+        "request_id": 31,
+        "kind": "ACCESS_CHALLENGE_NOT_PDF"
+      },
+      {
+        "request_id": 32,
+        "kind": "ACCESS_CHALLENGE_NOT_PDF"
+      },
+      {
+        "request_id": 33,
+        "kind": "ACCESS_CHALLENGE_NOT_PDF"
+      },
+      {
+        "request_id": 34,
+        "kind": "ACCESS_CHALLENGE_NOT_PDF"
+      },
+      {
+        "request_id": 35,
+        "kind": "ACCESS_CHALLENGE_NOT_PDF"
+      }
+    ]
+  },
+  "pit": {
+    "historical_signal_input": "Original RAW prices at existing EXCHANGE_RULE availability; actual event ledger is empty in audited scope",
+    "ex_post_completeness_audit": "Nine official fiscal reports; publication dates are not signal inputs",
+    "historical_information_leakage": "NOT_INTRODUCED_BY_LATER_NO_EVENT_AUDIT",
+    "raw_observed_vintage": "NOT_ATTESTED_LIMITATION_RETAINED",
+    "no_daily_official_negative_certificate_required": true
+  },
+  "units": {
+    "prices": "original uint32 / 1000 CNY/share",
+    "volume": "original uint32 SHARE",
+    "amount": "exact original float32 CNY"
+  },
+  "parent_manifest_sha256": "68ca0d4facc72b03f4828aae1b254fbd10beec4b456d7aa1ff80cea0e89f1dd0",
+  "repair_network": {
+    "attempted_requests": 1,
+    "downloaded_bytes": 76987,
+    "max_requests": 12,
+    "max_bytes": 15000000
+  }
+}

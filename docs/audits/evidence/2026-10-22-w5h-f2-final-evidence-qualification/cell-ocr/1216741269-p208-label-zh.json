@@ -1,0 +1,90 @@
+{
+    "id":  "1216741269",
+    "text":  "0 千 母 公 司 股 东 益 合 计",
+    "pit_qualified":  false,
+    "engine":  "Windows.Media.Ocr existing zh-Hans-CN",
+    "maximum_image_dimension":  10000,
+    "machine_seconds":  0.0200309,
+    "pixel_height":  114,
+    "image_sha256":  "509f6b8a93eb7a8ee1d8e103eef0ddcdee009f3fd293c23b0b79c6b3c14e8acf",
+    "pixel_width":  1278,
+    "source_sha256":  "28f31493c52375f096a45ad326ad8421357f9e73252858ae236d6fa715aad2d2",
+    "physical_page":  208,
+    "lines":  [
+                  {
+                      "text":  "0 千 母 公 司 股 东 益 合 计",
+                      "words":  [
+                                    {
+                                        "y":  28,
+                                        "height":  53,
+                                        "width":  52,
+                                        "text":  "0",
+                                        "x":  242
+                                    },
+                                    {
+                                        "y":  29,
+                                        "height":  55,
+                                        "width":  48,
+                                        "text":  "千",
+                                        "x":  372
+                                    },
+                                    {
+                                        "y":  29,
+                                        "height":  55,
+                                        "width":  49,
+                                        "text":  "母",
+                                        "x":  429
+                                    },
+                                    {
+                                        "y":  29,
+                                        "height":  55,
+                                        "width":  51,
+                                        "text":  "公",
+                                        "x":  488
+                                    },
+                                    {
+                                        "y":  29,
+                                        "height":  56,
+                                        "width":  43,
+                                        "text":  "司",
+                                        "x":  553
+                                    },
+                                    {
+                                        "y":  31,
+                                        "height":  54,
+                                        "width":  55,
+                                        "text":  "股",
+                                        "x":  608
+                                    },
+                                    {
+                                        "y":  30,
+                                        "height":  57,
+                                        "width":  54,
+                                        "text":  "东",
+                                        "x":  672
+                                    },
+                                    {
+                                        "y":  31,
+                                        "height":  53,
+                                        "width":  47,
+                                        "text":  "益",
+                                        "x":  800
+                                    },
+                                    {
+                                        "y":  31,
+                                        "height":  53,
+                                        "width":  52,
+                                        "text":  "合",
+                                        "x":  857
+                                    },
+                                    {
+                                        "y":  33,
+                                        "height":  56,
+                                        "width":  49,
+                                        "text":  "计",
+                                        "x":  920
+                                    }
+                                ]
+                  }
+              ]
+}

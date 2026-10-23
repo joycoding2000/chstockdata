@@ -1,0 +1,22 @@
+{
+  "verified_at": "2026-10-22T21:25:06.574921+08:00",
+  "tests_run": 13,
+  "failures": 0,
+  "errors": 0,
+  "passed": true,
+  "network_disabled_for_verification": true,
+  "request_attempts": 32,
+  "body_bytes": 4765834,
+  "largest_response_bytes": 1944405,
+  "explicit_retries": 7,
+  "outcomes": {
+    "REQUEST_FAILED": 3,
+    "RESPONSE_SAVED": 22,
+    "HTTP_FAILURE": 6,
+    "BUSINESS_ACCESS_RESTRICTION": 1
+  },
+  "head": "5584f5fcacccef9a9531a7a32b8463ea6771d312",
+  "tracked_status": "",
+  "temporary_test_runtime_cleaned": true,
+  "production_gate": "NOT_PASSED"
+}

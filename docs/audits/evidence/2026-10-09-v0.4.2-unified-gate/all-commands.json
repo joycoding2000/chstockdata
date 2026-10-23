@@ -1,0 +1,1239 @@
+[
+  {
+    "name": "package-tests",
+    "argv": [
+      "D:\\Dev\\Projects\\chstockdata\\build\\v042-qualification\\gate\\Scripts\\python.exe",
+      "-m",
+      "pytest",
+      "tests/",
+      "--no-header",
+      "-q",
+      "--tb=long",
+      "-rA",
+      "-p",
+      "no:cacheprovider",
+      "--basetemp=D:\\Dev\\Projects\\chstockdata\\build\\v042-unified\\package-tests-tmp",
+      "--junitxml=D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-09-v0.4.2-unified-gate\\package-tests.xml"
+    ],
+    "cwd": "D:\\Dev\\Projects\\chstockdata",
+    "exit": 0,
+    "candidate_wheel_sha256": null,
+    "environment_overrides": {
+      "PYTHONPATH": "D:\\Dev\\Projects\\chstockdata\\src",
+      "PYTHONUTF8": "1",
+      "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+      "SIOS_CHSTOCKDATA_LIVE_QUALIFICATION": null,
+      "CHSTOCKDATA_VIPDOC_HISTORY_DIR": null,
+      "CHSTOCKDATA_CACHE_DIR": null,
+      "TEMP": "D:\\Dev\\Projects\\chstockdata\\build\\v042-unified\\temp",
+      "TMP": "D:\\Dev\\Projects\\chstockdata\\build\\v042-unified\\temp"
+    }
+  },
+  {
+    "name": "static",
+    "argv": [
+      "D:\\Dev\\Projects\\chstockdata\\build\\v042-qualification\\gate\\Scripts\\python.exe",
+      "scripts/check_rh1_static.py"
+    ],
+    "cwd": "D:\\Dev\\Projects\\chstockdata",
+    "exit": 0,
+    "candidate_wheel_sha256": null,
+    "environment_overrides": {
+      "PYTHONPATH": "D:\\Dev\\Projects\\chstockdata\\src",
+      "PYTHONUTF8": "1",
+      "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+      "SIOS_CHSTOCKDATA_LIVE_QUALIFICATION": null,
+      "CHSTOCKDATA_VIPDOC_HISTORY_DIR": null,
+      "CHSTOCKDATA_CACHE_DIR": null,
+      "TEMP": "D:\\Dev\\Projects\\chstockdata\\build\\v042-unified\\temp",
+      "TMP": "D:\\Dev\\Projects\\chstockdata\\build\\v042-unified\\temp"
+    }
+  },
+  {
+    "name": "compile",
+    "argv": [
+      "D:\\Dev\\Projects\\chstockdata\\build\\v042-qualification\\gate\\Scripts\\python.exe",
+      "-m",
+      "compileall",
+      "-q",
+      "src",
+      "tests"
+    ],
+    "cwd": "D:\\Dev\\Projects\\chstockdata",
+    "exit": 0,
+    "candidate_wheel_sha256": null,
+    "environment_overrides": {
+      "PYTHONPATH": "D:\\Dev\\Projects\\chstockdata\\src",
+      "PYTHONUTF8": "1",
+      "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+      "SIOS_CHSTOCKDATA_LIVE_QUALIFICATION": null,
+      "CHSTOCKDATA_VIPDOC_HISTORY_DIR": null,
+      "CHSTOCKDATA_CACHE_DIR": null,
+      "TEMP": "D:\\Dev\\Projects\\chstockdata\\build\\v042-unified\\temp",
+      "TMP": "D:\\Dev\\Projects\\chstockdata\\build\\v042-unified\\temp"
+    }
+  },
+  {
+    "name": "diff-check",
+    "argv": [
+      "git",
+      "diff",
+      "--check"
+    ],
+    "cwd": "D:\\Dev\\Projects\\chstockdata",
+    "exit": 0,
+    "candidate_wheel_sha256": null,
+    "environment_overrides": {
+      "PYTHONPATH": null,
+      "PYTHONUTF8": "1",
+      "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+      "SIOS_CHSTOCKDATA_LIVE_QUALIFICATION": null,
+      "CHSTOCKDATA_VIPDOC_HISTORY_DIR": null,
+      "CHSTOCKDATA_CACHE_DIR": null,
+      "TEMP": "D:\\Dev\\Projects\\chstockdata\\build\\v042-unified\\temp",
+      "TMP": "D:\\Dev\\Projects\\chstockdata\\build\\v042-unified\\temp"
+    }
+  },
+  {
+    "name": "version-project",
+    "argv": [
+      "D:\\Dev\\Projects\\chstockdata\\build\\v042-qualification\\gate\\Scripts\\python.exe",
+      "D:\\Dev\\Projects\\chstockdata\\scripts\\check_release_version.py",
+      "--tag",
+      "v0.4.2",
+      "--project-root",
+      "D:\\Dev\\Projects\\chstockdata",
+      "--project-only"
+    ],
+    "cwd": "D:\\Dev\\Projects\\chstockdata",
+    "exit": 0,
+    "candidate_wheel_sha256": null,
+    "environment_overrides": {
+      "PYTHONPATH": null,
+      "PYTHONUTF8": "1",
+      "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+      "SIOS_CHSTOCKDATA_LIVE_QUALIFICATION": null,
+      "CHSTOCKDATA_VIPDOC_HISTORY_DIR": null,
+      "CHSTOCKDATA_CACHE_DIR": null,
+      "TEMP": "D:\\Dev\\Projects\\chstockdata\\build\\v042-unified\\temp",
+      "TMP": "D:\\Dev\\Projects\\chstockdata\\build\\v042-unified\\temp"
+    }
+  },
+  {
+    "name": "environment",
+    "argv": [
+      "D:\\Dev\\Projects\\chstockdata\\build\\v042-qualification\\gate\\Scripts\\python.exe",
+      "-m",
+      "pip",
+      "freeze"
+    ],
+    "cwd": "D:\\Dev\\Projects\\chstockdata",
+    "exit": 0,
+    "candidate_wheel_sha256": null,
+    "environment_overrides": {
+      "PYTHONPATH": null,
+      "PYTHONUTF8": "1",
+      "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+      "SIOS_CHSTOCKDATA_LIVE_QUALIFICATION": null,
+      "CHSTOCKDATA_VIPDOC_HISTORY_DIR": null,
+      "CHSTOCKDATA_CACHE_DIR": null,
+      "TEMP": "D:\\Dev\\Projects\\chstockdata\\build\\v042-unified\\temp",
+      "TMP": "D:\\Dev\\Projects\\chstockdata\\build\\v042-unified\\temp"
+    }
+  },
+  {
+    "name": "build",
+    "argv": [
+      "D:\\Dev\\Projects\\chstockdata\\build\\v042-qualification\\gate\\Scripts\\python.exe",
+      "-m",
+      "build",
+      "--outdir",
+      "D:\\Dev\\Projects\\chstockdata\\dist\\v042-unified"
+    ],
+    "cwd": "D:\\Dev\\Projects\\chstockdata",
+    "exit": 1,
+    "candidate_wheel_sha256": null,
+    "environment_overrides": {
+      "PYTHONPATH": null,
+      "PYTHONUTF8": "1",
+      "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+      "SIOS_CHSTOCKDATA_LIVE_QUALIFICATION": null,
+      "CHSTOCKDATA_VIPDOC_HISTORY_DIR": null,
+      "CHSTOCKDATA_CACHE_DIR": null,
+      "TEMP": "D:\\Dev\\Projects\\chstockdata\\build\\v042-unified\\temp",
+      "TMP": "D:\\Dev\\Projects\\chstockdata\\build\\v042-unified\\temp"
+    }
+  },
+  {
+    "name": "environment",
+    "argv": [
+      "D:\\Dev\\Projects\\chstockdata\\build\\v042-qualification\\gate\\Scripts\\python.exe",
+      "-m",
+      "pip",
+      "freeze"
+    ],
+    "cwd": "D:\\Dev\\Projects\\chstockdata",
+    "exit": 0,
+    "candidate_wheel_sha256": null,
+    "environment_overrides": {
+      "PYTHONPATH": null,
+      "PYTHONUTF8": "1",
+      "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+      "SIOS_CHSTOCKDATA_LIVE_QUALIFICATION": null,
+      "CHSTOCKDATA_VIPDOC_HISTORY_DIR": null,
+      "CHSTOCKDATA_CACHE_DIR": null,
+      "TEMP": "D:\\Dev\\Projects\\chstockdata\\build\\v042-unified\\temp",
+      "TMP": "D:\\Dev\\Projects\\chstockdata\\build\\v042-unified\\temp"
+    }
+  },
+  {
+    "name": "build",
+    "argv": [
+      "D:\\Dev\\Projects\\chstockdata\\build\\v042-qualification\\gate\\Scripts\\python.exe",
+      "-m",
+      "build",
+      "--outdir",
+      "D:\\Dev\\Projects\\chstockdata\\dist\\v042-unified"
+    ],
+    "cwd": "D:\\Dev\\Projects\\chstockdata",
+    "exit": 0,
+    "candidate_wheel_sha256": "b76b065a06cd1d91868880a7b57584f598b6fd4cb42931e9a33700bc99a88c7a",
+    "environment_overrides": {
+      "PYTHONPATH": null,
+      "PYTHONUTF8": "1",
+      "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+      "SIOS_CHSTOCKDATA_LIVE_QUALIFICATION": null,
+      "CHSTOCKDATA_VIPDOC_HISTORY_DIR": null,
+      "CHSTOCKDATA_CACHE_DIR": null,
+      "TEMP": "D:\\Dev\\Projects\\chstockdata\\build\\v042-unified\\temp",
+      "TMP": "D:\\Dev\\Projects\\chstockdata\\build\\v042-unified\\temp"
+    }
+  },
+  {
+    "name": "twine",
+    "argv": [
+      "D:\\Dev\\Projects\\chstockdata\\build\\v042-qualification\\gate\\Scripts\\python.exe",
+      "-m",
+      "twine",
+      "check",
+      "D:\\Dev\\Projects\\chstockdata\\dist\\v042-unified\\chstockdata-0.4.2-py3-none-any.whl",
+      "D:\\Dev\\Projects\\chstockdata\\dist\\v042-unified\\chstockdata-0.4.2.tar.gz"
+    ],
+    "cwd": "D:\\Dev\\Projects\\chstockdata",
+    "exit": 0,
+    "candidate_wheel_sha256": "b76b065a06cd1d91868880a7b57584f598b6fd4cb42931e9a33700bc99a88c7a",
+    "environment_overrides": {
+      "PYTHONPATH": null,
+      "PYTHONUTF8": "1",
+      "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+      "SIOS_CHSTOCKDATA_LIVE_QUALIFICATION": null,
+      "CHSTOCKDATA_VIPDOC_HISTORY_DIR": null,
+      "CHSTOCKDATA_CACHE_DIR": null,
+      "TEMP": "D:\\Dev\\Projects\\chstockdata\\build\\v042-unified\\temp",
+      "TMP": "D:\\Dev\\Projects\\chstockdata\\build\\v042-unified\\temp"
+    }
+  },
+  {
+    "name": "sios-candidate-create",
+    "argv": [
+      "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+      "-m",
+      "venv",
+      "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\09\\01a11feb-cbea-7790-a83e-57b1dd555e13\\v042-unified\\sios-candidate"
+    ],
+    "cwd": "D:\\Dev\\Projects\\chstockdata\\build\\v042-unified",
+    "exit": 0,
+    "candidate_wheel_sha256": "b76b065a06cd1d91868880a7b57584f598b6fd4cb42931e9a33700bc99a88c7a",
+    "environment_overrides": {
+      "PYTHONPATH": null,
+      "PYTHONUTF8": "1",
+      "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+      "SIOS_CHSTOCKDATA_LIVE_QUALIFICATION": null,
+      "CHSTOCKDATA_VIPDOC_HISTORY_DIR": null,
+      "CHSTOCKDATA_CACHE_DIR": null,
+      "TEMP": "D:\\Dev\\Projects\\chstockdata\\build\\v042-unified\\temp",
+      "TMP": "D:\\Dev\\Projects\\chstockdata\\build\\v042-unified\\temp"
+    }
+  },
+  {
+    "name": "sios-candidate-install",
+    "argv": [
+      "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\09\\01a11feb-cbea-7790-a83e-57b1dd555e13\\v042-unified\\sios-candidate\\Scripts\\python.exe",
+      "-m",
+      "pip",
+      "install",
+      "D:\\Dev\\Projects\\chstockdata\\dist\\v042-unified\\chstockdata-0.4.2-py3-none-any.whl[mootdx]",
+      "pytest==9.1.1"
+    ],
+    "cwd": "D:\\Dev\\Projects\\chstockdata\\build\\v042-unified",
+    "exit": 0,
+    "candidate_wheel_sha256": "b76b065a06cd1d91868880a7b57584f598b6fd4cb42931e9a33700bc99a88c7a",
+    "environment_overrides": {
+      "PYTHONPATH": null,
+      "PYTHONUTF8": "1",
+      "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+      "SIOS_CHSTOCKDATA_LIVE_QUALIFICATION": null,
+      "CHSTOCKDATA_VIPDOC_HISTORY_DIR": null,
+      "CHSTOCKDATA_CACHE_DIR": null,
+      "TEMP": "D:\\Dev\\Projects\\chstockdata\\build\\v042-unified\\temp",
+      "TMP": "D:\\Dev\\Projects\\chstockdata\\build\\v042-unified\\temp"
+    }
+  },
+  {
+    "name": "sios-pip-check",
+    "argv": [
+      "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\09\\01a11feb-cbea-7790-a83e-57b1dd555e13\\v042-unified\\sios-candidate\\Scripts\\python.exe",
+      "-m",
+      "pip",
+      "check"
+    ],
+    "cwd": "D:\\Dev\\Projects\\chstockdata\\build\\v042-unified",
+    "exit": 0,
+    "candidate_wheel_sha256": "b76b065a06cd1d91868880a7b57584f598b6fd4cb42931e9a33700bc99a88c7a",
+    "environment_overrides": {
+      "PYTHONPATH": null,
+      "PYTHONUTF8": "1",
+      "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+      "SIOS_CHSTOCKDATA_LIVE_QUALIFICATION": null,
+      "CHSTOCKDATA_VIPDOC_HISTORY_DIR": null,
+      "CHSTOCKDATA_CACHE_DIR": null,
+      "TEMP": "D:\\Dev\\Projects\\chstockdata\\build\\v042-unified\\temp",
+      "TMP": "D:\\Dev\\Projects\\chstockdata\\build\\v042-unified\\temp"
+    }
+  },
+  {
+    "name": "etf-exact-probe",
+    "argv": [
+      "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\09\\01a11feb-cbea-7790-a83e-57b1dd555e13\\v042-unified\\sios-candidate\\Scripts\\python.exe",
+      "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-09-v0.4.2-unified-gate\\run_gate.py",
+      "probe"
+    ],
+    "cwd": "D:\\Dev\\Projects\\chstockdata\\build\\v042-unified",
+    "exit": 0,
+    "candidate_wheel_sha256": "b76b065a06cd1d91868880a7b57584f598b6fd4cb42931e9a33700bc99a88c7a",
+    "environment_overrides": {
+      "PYTHONPATH": null,
+      "PYTHONUTF8": "1",
+      "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+      "SIOS_CHSTOCKDATA_LIVE_QUALIFICATION": null,
+      "CHSTOCKDATA_VIPDOC_HISTORY_DIR": null,
+      "CHSTOCKDATA_CACHE_DIR": null,
+      "TEMP": "D:\\Dev\\Projects\\chstockdata\\build\\v042-unified\\temp",
+      "TMP": "D:\\Dev\\Projects\\chstockdata\\build\\v042-unified\\temp"
+    }
+  },
+  {
+    "name": "sios-suite-identity",
+    "argv": [
+      "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\09\\01a11feb-cbea-7790-a83e-57b1dd555e13\\v042-unified\\sios-candidate\\Scripts\\python.exe",
+      "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-09-v0.4.2-unified-gate\\run_gate.py",
+      "identity",
+      "sios-candidate"
+    ],
+    "cwd": "D:\\Dev\\Projects\\chstockdata\\build\\v042-unified\\sios",
+    "exit": 0,
+    "candidate_wheel_sha256": "b76b065a06cd1d91868880a7b57584f598b6fd4cb42931e9a33700bc99a88c7a",
+    "environment_overrides": {
+      "PYTHONPATH": null,
+      "PYTHONUTF8": "1",
+      "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+      "SIOS_CHSTOCKDATA_LIVE_QUALIFICATION": null,
+      "CHSTOCKDATA_VIPDOC_HISTORY_DIR": null,
+      "CHSTOCKDATA_CACHE_DIR": null,
+      "TEMP": "D:\\Dev\\Projects\\chstockdata\\build\\v042-unified\\temp",
+      "TMP": "D:\\Dev\\Projects\\chstockdata\\build\\v042-unified\\temp"
+    }
+  },
+  {
+    "name": "sios-provider-contract",
+    "argv": [
+      "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\09\\01a11feb-cbea-7790-a83e-57b1dd555e13\\v042-unified\\sios-candidate\\Scripts\\python.exe",
+      "-m",
+      "pytest",
+      "tests/contract/test_chstockdata_provider.py",
+      "tests/contract/test_provider_port.py",
+      "-q",
+      "--tb=long",
+      "-rA",
+      "-p",
+      "no:cacheprovider",
+      "--basetemp=D:\\Dev\\Projects\\chstockdata\\build\\v042-unified\\sios-provider-contract-tmp",
+      "--junitxml=D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-09-v0.4.2-unified-gate\\sios-provider-contract.xml"
+    ],
+    "cwd": "D:\\Dev\\Projects\\chstockdata\\build\\v042-unified\\sios",
+    "exit": 0,
+    "candidate_wheel_sha256": "b76b065a06cd1d91868880a7b57584f598b6fd4cb42931e9a33700bc99a88c7a",
+    "environment_overrides": {
+      "PYTHONPATH": null,
+      "PYTHONUTF8": "1",
+      "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+      "SIOS_CHSTOCKDATA_LIVE_QUALIFICATION": null,
+      "CHSTOCKDATA_VIPDOC_HISTORY_DIR": null,
+      "CHSTOCKDATA_CACHE_DIR": null,
+      "TEMP": "D:\\Dev\\Projects\\chstockdata\\build\\v042-unified\\temp",
+      "TMP": "D:\\Dev\\Projects\\chstockdata\\build\\v042-unified\\temp"
+    }
+  },
+  {
+    "name": "sios-etf-golden-smoke",
+    "argv": [
+      "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\09\\01a11feb-cbea-7790-a83e-57b1dd555e13\\v042-unified\\sios-candidate\\Scripts\\python.exe",
+      "-m",
+      "pytest",
+      "tests/qualification",
+      "tests/golden",
+      "tests/parity",
+      "-q",
+      "--tb=long",
+      "-rA",
+      "-p",
+      "no:cacheprovider",
+      "--basetemp=D:\\Dev\\Projects\\chstockdata\\build\\v042-unified\\sios-etf-golden-smoke-tmp",
+      "--junitxml=D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-09-v0.4.2-unified-gate\\sios-etf-golden-smoke.xml"
+    ],
+    "cwd": "D:\\Dev\\Projects\\chstockdata\\build\\v042-unified\\sios",
+    "exit": 0,
+    "candidate_wheel_sha256": "b76b065a06cd1d91868880a7b57584f598b6fd4cb42931e9a33700bc99a88c7a",
+    "environment_overrides": {
+      "PYTHONPATH": null,
+      "PYTHONUTF8": "1",
+      "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+      "SIOS_CHSTOCKDATA_LIVE_QUALIFICATION": null,
+      "CHSTOCKDATA_VIPDOC_HISTORY_DIR": null,
+      "CHSTOCKDATA_CACHE_DIR": null,
+      "TEMP": "D:\\Dev\\Projects\\chstockdata\\build\\v042-unified\\temp",
+      "TMP": "D:\\Dev\\Projects\\chstockdata\\build\\v042-unified\\temp"
+    }
+  },
+  {
+    "name": "sios-offline",
+    "argv": [
+      "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\09\\01a11feb-cbea-7790-a83e-57b1dd555e13\\v042-unified\\sios-candidate\\Scripts\\python.exe",
+      "-m",
+      "pytest",
+      "tests/",
+      "-q",
+      "--tb=long",
+      "-rA",
+      "-p",
+      "no:cacheprovider",
+      "--basetemp=D:\\Dev\\Projects\\chstockdata\\build\\v042-unified\\sios-offline-tmp",
+      "--junitxml=D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-09-v0.4.2-unified-gate\\sios-offline.xml"
+    ],
+    "cwd": "D:\\Dev\\Projects\\chstockdata\\build\\v042-unified\\sios",
+    "exit": 0,
+    "candidate_wheel_sha256": "b76b065a06cd1d91868880a7b57584f598b6fd4cb42931e9a33700bc99a88c7a",
+    "environment_overrides": {
+      "PYTHONPATH": null,
+      "PYTHONUTF8": "1",
+      "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+      "SIOS_CHSTOCKDATA_LIVE_QUALIFICATION": null,
+      "CHSTOCKDATA_VIPDOC_HISTORY_DIR": null,
+      "CHSTOCKDATA_CACHE_DIR": null,
+      "TEMP": "D:\\Dev\\Projects\\chstockdata\\build\\v042-unified\\temp",
+      "TMP": "D:\\Dev\\Projects\\chstockdata\\build\\v042-unified\\temp"
+    }
+  },
+  {
+    "name": "sios-required-live",
+    "argv": [
+      "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\09\\01a11feb-cbea-7790-a83e-57b1dd555e13\\v042-unified\\sios-candidate\\Scripts\\python.exe",
+      "-m",
+      "pytest",
+      "tests/qualification/test_chstockdata_etf_gate.py",
+      "-k",
+      "test_live",
+      "-q",
+      "--tb=long",
+      "-rA",
+      "-p",
+      "no:cacheprovider",
+      "--basetemp=D:\\Dev\\Projects\\chstockdata\\build\\v042-unified\\sios-required-live-tmp",
+      "--junitxml=D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-09-v0.4.2-unified-gate\\sios-required-live.xml"
+    ],
+    "cwd": "D:\\Dev\\Projects\\chstockdata\\build\\v042-unified\\sios",
+    "exit": 1,
+    "candidate_wheel_sha256": "b76b065a06cd1d91868880a7b57584f598b6fd4cb42931e9a33700bc99a88c7a",
+    "environment_overrides": {
+      "PYTHONPATH": null,
+      "PYTHONUTF8": "1",
+      "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+      "SIOS_CHSTOCKDATA_LIVE_QUALIFICATION": "1",
+      "CHSTOCKDATA_VIPDOC_HISTORY_DIR": "D:\\Dev\\Projects\\chstockdata\\.rh3a2-vipdoc",
+      "CHSTOCKDATA_CACHE_DIR": "D:\\Dev\\Projects\\chstockdata\\build\\v042-unified\\sios-live-cache",
+      "TEMP": "D:\\Dev\\Projects\\chstockdata\\build\\v042-unified\\temp",
+      "TMP": "D:\\Dev\\Projects\\chstockdata\\build\\v042-unified\\temp"
+    }
+  },
+  {
+    "name": "ta-candidate-create",
+    "argv": [
+      "C:\\Users\\Administrator\\AppData\\Local\\Programs\\Python\\Python314\\python.exe",
+      "-m",
+      "venv",
+      "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\09\\01a11feb-cbea-7790-a83e-57b1dd555e13\\v042-unified\\ta-candidate"
+    ],
+    "cwd": "D:\\Dev\\Projects\\chstockdata\\build\\v042-unified",
+    "exit": 0,
+    "candidate_wheel_sha256": "b76b065a06cd1d91868880a7b57584f598b6fd4cb42931e9a33700bc99a88c7a",
+    "environment_overrides": {
+      "PYTHONPATH": null,
+      "PYTHONUTF8": "1",
+      "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+      "SIOS_CHSTOCKDATA_LIVE_QUALIFICATION": null,
+      "CHSTOCKDATA_VIPDOC_HISTORY_DIR": null,
+      "CHSTOCKDATA_CACHE_DIR": null,
+      "TEMP": "D:\\Dev\\Projects\\chstockdata\\build\\v042-unified\\temp",
+      "TMP": "D:\\Dev\\Projects\\chstockdata\\build\\v042-unified\\temp"
+    }
+  },
+  {
+    "name": "ta-candidate-install",
+    "argv": [
+      "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\09\\01a11feb-cbea-7790-a83e-57b1dd555e13\\v042-unified\\ta-candidate\\Scripts\\python.exe",
+      "-m",
+      "pip",
+      "install",
+      "--no-deps",
+      "D:\\Dev\\Projects\\chstockdata\\dist\\v042-unified\\chstockdata-0.4.2-py3-none-any.whl"
+    ],
+    "cwd": "D:\\Dev\\Projects\\chstockdata\\build\\v042-unified",
+    "exit": 0,
+    "candidate_wheel_sha256": "b76b065a06cd1d91868880a7b57584f598b6fd4cb42931e9a33700bc99a88c7a",
+    "environment_overrides": {
+      "PYTHONPATH": null,
+      "PYTHONUTF8": "1",
+      "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+      "SIOS_CHSTOCKDATA_LIVE_QUALIFICATION": null,
+      "CHSTOCKDATA_VIPDOC_HISTORY_DIR": null,
+      "CHSTOCKDATA_CACHE_DIR": null,
+      "TEMP": "D:\\Dev\\Projects\\chstockdata\\build\\v042-unified\\temp",
+      "TMP": "D:\\Dev\\Projects\\chstockdata\\build\\v042-unified\\temp"
+    }
+  },
+  {
+    "name": "ta-identity",
+    "argv": [
+      "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\09\\01a11feb-cbea-7790-a83e-57b1dd555e13\\v042-unified\\ta-candidate\\Scripts\\python.exe",
+      "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-09-v0.4.2-unified-gate\\run_gate.py",
+      "identity",
+      "ta-candidate"
+    ],
+    "cwd": "D:\\Dev\\Projects\\chstockdata\\build\\v042-unified\\ta",
+    "exit": 0,
+    "candidate_wheel_sha256": "b76b065a06cd1d91868880a7b57584f598b6fd4cb42931e9a33700bc99a88c7a",
+    "environment_overrides": {
+      "PYTHONPATH": null,
+      "PYTHONUTF8": "1",
+      "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+      "SIOS_CHSTOCKDATA_LIVE_QUALIFICATION": null,
+      "CHSTOCKDATA_VIPDOC_HISTORY_DIR": null,
+      "CHSTOCKDATA_CACHE_DIR": null,
+      "TEMP": "D:\\Dev\\Projects\\chstockdata\\build\\v042-unified\\temp",
+      "TMP": "D:\\Dev\\Projects\\chstockdata\\build\\v042-unified\\temp"
+    }
+  },
+  {
+    "name": "ta-candidate",
+    "argv": [
+      "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\09\\01a11feb-cbea-7790-a83e-57b1dd555e13\\v042-unified\\ta-candidate\\Scripts\\python.exe",
+      "-m",
+      "pytest",
+      "tests/test_upstream_adapters.py",
+      "tests/test_trading_calendar.py",
+      "tests/test_f1_public_integration.py",
+      "tests/test_free_adjusted_bars.py",
+      "tests/test_point_in_time_fundamentals.py",
+      "tests/test_performance_optimization.py",
+      "tests/test_p1_listing_status_data_plane.py",
+      "tests/test_phase2_step3_projection.py",
+      "tests/test_phase2_step3_validation.py",
+      "-k",
+      "not stale_local_falls_back_online_and_labels_source and not stale_local_without_online_keeps_local_flagged and not missing_local_online_fallback_and_total_failure and not empty_or_missing_tree_returns_none",
+      "-q",
+      "--tb=long",
+      "-rA",
+      "-p",
+      "no:cacheprovider",
+      "--basetemp=D:\\Dev\\Projects\\chstockdata\\build\\v042-unified\\ta-candidate-tmp",
+      "--junitxml=D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-09-v0.4.2-unified-gate\\ta-candidate.xml"
+    ],
+    "cwd": "D:\\Dev\\Projects\\chstockdata\\build\\v042-unified\\ta",
+    "exit": 1,
+    "candidate_wheel_sha256": "b76b065a06cd1d91868880a7b57584f598b6fd4cb42931e9a33700bc99a88c7a",
+    "environment_overrides": {
+      "PYTHONPATH": null,
+      "PYTHONUTF8": "1",
+      "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+      "SIOS_CHSTOCKDATA_LIVE_QUALIFICATION": null,
+      "CHSTOCKDATA_VIPDOC_HISTORY_DIR": null,
+      "CHSTOCKDATA_CACHE_DIR": null,
+      "TEMP": "D:\\Dev\\Projects\\chstockdata\\build\\v042-unified\\temp",
+      "TMP": "D:\\Dev\\Projects\\chstockdata\\build\\v042-unified\\temp"
+    }
+  },
+  {
+    "name": "ta-legacy",
+    "argv": [
+      "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\09\\01a11feb-cbea-7790-a83e-57b1dd555e13\\v042-unified\\ta-candidate\\Scripts\\python.exe",
+      "-B",
+      "D:\\Dev\\Projects\\chstockdata\\dist\\consumer-v0.4.2\\evidence\\legacy_probe.py",
+      "0.4.2",
+      "D:\\Dev\\Projects\\chstockdata\\.rh3a2-vipdoc"
+    ],
+    "cwd": "D:\\Dev\\Projects\\chstockdata\\build\\v042-unified\\ta",
+    "exit": 0,
+    "candidate_wheel_sha256": "b76b065a06cd1d91868880a7b57584f598b6fd4cb42931e9a33700bc99a88c7a",
+    "environment_overrides": {
+      "PYTHONPATH": "D:\\Dev\\Projects\\chstockdata\\build\\v042-unified\\ta",
+      "PYTHONUTF8": "1",
+      "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+      "SIOS_CHSTOCKDATA_LIVE_QUALIFICATION": null,
+      "CHSTOCKDATA_VIPDOC_HISTORY_DIR": null,
+      "CHSTOCKDATA_CACHE_DIR": null,
+      "TEMP": "D:\\Dev\\Projects\\chstockdata\\build\\v042-unified\\temp",
+      "TMP": "D:\\Dev\\Projects\\chstockdata\\build\\v042-unified\\temp"
+    }
+  },
+  {
+    "name": "ta-source-binding",
+    "argv": [
+      "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\09\\01a11feb-cbea-7790-a83e-57b1dd555e13\\v042-unified\\ta-candidate\\Scripts\\python.exe",
+      "-c",
+      "import tradingagents,chstockdata; from pathlib import Path; from tradingagents.dataflows import a_stock; assert Path(tradingagents.__file__).resolve().is_relative_to(Path(r'D:\\Dev\\Projects\\chstockdata\\build\\v042-unified\\ta').resolve()); print(tradingagents.__file__); print(a_stock.__file__); print(chstockdata.__file__)"
+    ],
+    "cwd": "D:\\Dev\\Projects\\chstockdata\\build\\v042-unified\\ta",
+    "exit": 0,
+    "candidate_wheel_sha256": "b76b065a06cd1d91868880a7b57584f598b6fd4cb42931e9a33700bc99a88c7a",
+    "environment_overrides": {
+      "PYTHONPATH": "D:\\Dev\\Projects\\chstockdata\\build\\v042-unified\\ta",
+      "PYTHONUTF8": "1",
+      "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+      "SIOS_CHSTOCKDATA_LIVE_QUALIFICATION": null,
+      "CHSTOCKDATA_VIPDOC_HISTORY_DIR": null,
+      "CHSTOCKDATA_CACHE_DIR": null,
+      "TEMP": "D:\\Dev\\Projects\\chstockdata\\build\\v042-unified\\temp",
+      "TMP": "D:\\Dev\\Projects\\chstockdata\\build\\v042-unified\\temp"
+    }
+  },
+  {
+    "name": "core-create",
+    "argv": [
+      "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+      "-m",
+      "venv",
+      "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\09\\01a11feb-cbea-7790-a83e-57b1dd555e13\\v042-unified\\core"
+    ],
+    "cwd": "D:\\Dev\\Projects\\chstockdata\\build\\v042-unified",
+    "exit": 0,
+    "candidate_wheel_sha256": "b76b065a06cd1d91868880a7b57584f598b6fd4cb42931e9a33700bc99a88c7a",
+    "environment_overrides": {
+      "PYTHONPATH": null,
+      "PYTHONUTF8": "1",
+      "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+      "SIOS_CHSTOCKDATA_LIVE_QUALIFICATION": null,
+      "CHSTOCKDATA_VIPDOC_HISTORY_DIR": null,
+      "CHSTOCKDATA_CACHE_DIR": null,
+      "TEMP": "D:\\Dev\\Projects\\chstockdata\\build\\v042-unified\\temp",
+      "TMP": "D:\\Dev\\Projects\\chstockdata\\build\\v042-unified\\temp"
+    }
+  },
+  {
+    "name": "core-install",
+    "argv": [
+      "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\09\\01a11feb-cbea-7790-a83e-57b1dd555e13\\v042-unified\\core\\Scripts\\python.exe",
+      "-m",
+      "pip",
+      "install",
+      "D:\\Dev\\Projects\\chstockdata\\dist\\v042-unified\\chstockdata-0.4.2-py3-none-any.whl",
+      "pytest==9.1.1"
+    ],
+    "cwd": "D:\\Dev\\Projects\\chstockdata\\build\\v042-unified",
+    "exit": 0,
+    "candidate_wheel_sha256": "b76b065a06cd1d91868880a7b57584f598b6fd4cb42931e9a33700bc99a88c7a",
+    "environment_overrides": {
+      "PYTHONPATH": null,
+      "PYTHONUTF8": "1",
+      "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+      "SIOS_CHSTOCKDATA_LIVE_QUALIFICATION": null,
+      "CHSTOCKDATA_VIPDOC_HISTORY_DIR": null,
+      "CHSTOCKDATA_CACHE_DIR": null,
+      "TEMP": "D:\\Dev\\Projects\\chstockdata\\build\\v042-unified\\temp",
+      "TMP": "D:\\Dev\\Projects\\chstockdata\\build\\v042-unified\\temp"
+    }
+  },
+  {
+    "name": "core-pip-check",
+    "argv": [
+      "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\09\\01a11feb-cbea-7790-a83e-57b1dd555e13\\v042-unified\\core\\Scripts\\python.exe",
+      "-m",
+      "pip",
+      "check"
+    ],
+    "cwd": "D:\\Dev\\Projects\\chstockdata\\build\\v042-unified",
+    "exit": 0,
+    "candidate_wheel_sha256": "b76b065a06cd1d91868880a7b57584f598b6fd4cb42931e9a33700bc99a88c7a",
+    "environment_overrides": {
+      "PYTHONPATH": null,
+      "PYTHONUTF8": "1",
+      "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+      "SIOS_CHSTOCKDATA_LIVE_QUALIFICATION": null,
+      "CHSTOCKDATA_VIPDOC_HISTORY_DIR": null,
+      "CHSTOCKDATA_CACHE_DIR": null,
+      "TEMP": "D:\\Dev\\Projects\\chstockdata\\build\\v042-unified\\temp",
+      "TMP": "D:\\Dev\\Projects\\chstockdata\\build\\v042-unified\\temp"
+    }
+  },
+  {
+    "name": "core-version",
+    "argv": [
+      "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\09\\01a11feb-cbea-7790-a83e-57b1dd555e13\\v042-unified\\core\\Scripts\\python.exe",
+      "D:\\Dev\\Projects\\chstockdata\\scripts\\check_release_version.py",
+      "--tag",
+      "v0.4.2",
+      "--project-root",
+      "D:\\Dev\\Projects\\chstockdata"
+    ],
+    "cwd": "D:\\Dev\\Projects\\chstockdata\\build\\v042-unified",
+    "exit": 0,
+    "candidate_wheel_sha256": "b76b065a06cd1d91868880a7b57584f598b6fd4cb42931e9a33700bc99a88c7a",
+    "environment_overrides": {
+      "PYTHONPATH": null,
+      "PYTHONUTF8": "1",
+      "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+      "SIOS_CHSTOCKDATA_LIVE_QUALIFICATION": null,
+      "CHSTOCKDATA_VIPDOC_HISTORY_DIR": null,
+      "CHSTOCKDATA_CACHE_DIR": null,
+      "TEMP": "D:\\Dev\\Projects\\chstockdata\\build\\v042-unified\\temp",
+      "TMP": "D:\\Dev\\Projects\\chstockdata\\build\\v042-unified\\temp"
+    }
+  },
+  {
+    "name": "core-identity",
+    "argv": [
+      "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\09\\01a11feb-cbea-7790-a83e-57b1dd555e13\\v042-unified\\core\\Scripts\\python.exe",
+      "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-09-v0.4.2-unified-gate\\run_gate.py",
+      "identity",
+      "core"
+    ],
+    "cwd": "D:\\Dev\\Projects\\chstockdata\\build\\v042-unified",
+    "exit": 0,
+    "candidate_wheel_sha256": "b76b065a06cd1d91868880a7b57584f598b6fd4cb42931e9a33700bc99a88c7a",
+    "environment_overrides": {
+      "PYTHONPATH": null,
+      "PYTHONUTF8": "1",
+      "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+      "SIOS_CHSTOCKDATA_LIVE_QUALIFICATION": null,
+      "CHSTOCKDATA_VIPDOC_HISTORY_DIR": null,
+      "CHSTOCKDATA_CACHE_DIR": null,
+      "TEMP": "D:\\Dev\\Projects\\chstockdata\\build\\v042-unified\\temp",
+      "TMP": "D:\\Dev\\Projects\\chstockdata\\build\\v042-unified\\temp"
+    }
+  },
+  {
+    "name": "core-exports",
+    "argv": [
+      "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\09\\01a11feb-cbea-7790-a83e-57b1dd555e13\\v042-unified\\core\\Scripts\\python.exe",
+      "-c",
+      "import chstockdata, importlib.metadata as m; assert all(n in chstockdata.__all__ and hasattr(chstockdata,n) for n in ('fetch_realtime_quotes','fetch_daily_bars','fetch_trading_calendar','fetch_suspension_info','fetch_delisting_status','fetch_tradability','FetchAttempt','FetchMetadata','FetchResult')); assert {'chstockdata-mcp','chstockdata-refresh-vipdoc'} <= {e.name for e in m.entry_points(group='console_scripts')}"
+    ],
+    "cwd": "D:\\Dev\\Projects\\chstockdata\\build\\v042-unified",
+    "exit": 0,
+    "candidate_wheel_sha256": "b76b065a06cd1d91868880a7b57584f598b6fd4cb42931e9a33700bc99a88c7a",
+    "environment_overrides": {
+      "PYTHONPATH": null,
+      "PYTHONUTF8": "1",
+      "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+      "SIOS_CHSTOCKDATA_LIVE_QUALIFICATION": null,
+      "CHSTOCKDATA_VIPDOC_HISTORY_DIR": null,
+      "CHSTOCKDATA_CACHE_DIR": null,
+      "TEMP": "D:\\Dev\\Projects\\chstockdata\\build\\v042-unified\\temp",
+      "TMP": "D:\\Dev\\Projects\\chstockdata\\build\\v042-unified\\temp"
+    }
+  },
+  {
+    "name": "core-chstockdata-mcp",
+    "argv": [
+      "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\09\\01a11feb-cbea-7790-a83e-57b1dd555e13\\v042-unified\\core\\Scripts\\chstockdata-mcp.exe",
+      "--help"
+    ],
+    "cwd": "D:\\Dev\\Projects\\chstockdata\\build\\v042-unified",
+    "exit": 0,
+    "candidate_wheel_sha256": "b76b065a06cd1d91868880a7b57584f598b6fd4cb42931e9a33700bc99a88c7a",
+    "environment_overrides": {
+      "PYTHONPATH": null,
+      "PYTHONUTF8": "1",
+      "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+      "SIOS_CHSTOCKDATA_LIVE_QUALIFICATION": null,
+      "CHSTOCKDATA_VIPDOC_HISTORY_DIR": null,
+      "CHSTOCKDATA_CACHE_DIR": null,
+      "TEMP": "D:\\Dev\\Projects\\chstockdata\\build\\v042-unified\\temp",
+      "TMP": "D:\\Dev\\Projects\\chstockdata\\build\\v042-unified\\temp"
+    }
+  },
+  {
+    "name": "core-chstockdata-refresh-vipdoc",
+    "argv": [
+      "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\09\\01a11feb-cbea-7790-a83e-57b1dd555e13\\v042-unified\\core\\Scripts\\chstockdata-refresh-vipdoc.exe",
+      "--help"
+    ],
+    "cwd": "D:\\Dev\\Projects\\chstockdata\\build\\v042-unified",
+    "exit": 0,
+    "candidate_wheel_sha256": "b76b065a06cd1d91868880a7b57584f598b6fd4cb42931e9a33700bc99a88c7a",
+    "environment_overrides": {
+      "PYTHONPATH": null,
+      "PYTHONUTF8": "1",
+      "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+      "SIOS_CHSTOCKDATA_LIVE_QUALIFICATION": null,
+      "CHSTOCKDATA_VIPDOC_HISTORY_DIR": null,
+      "CHSTOCKDATA_CACHE_DIR": null,
+      "TEMP": "D:\\Dev\\Projects\\chstockdata\\build\\v042-unified\\temp",
+      "TMP": "D:\\Dev\\Projects\\chstockdata\\build\\v042-unified\\temp"
+    }
+  },
+  {
+    "name": "sdist-create",
+    "argv": [
+      "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+      "-m",
+      "venv",
+      "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\09\\01a11feb-cbea-7790-a83e-57b1dd555e13\\v042-unified\\sdist"
+    ],
+    "cwd": "D:\\Dev\\Projects\\chstockdata\\build\\v042-unified",
+    "exit": 0,
+    "candidate_wheel_sha256": "b76b065a06cd1d91868880a7b57584f598b6fd4cb42931e9a33700bc99a88c7a",
+    "environment_overrides": {
+      "PYTHONPATH": null,
+      "PYTHONUTF8": "1",
+      "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+      "SIOS_CHSTOCKDATA_LIVE_QUALIFICATION": null,
+      "CHSTOCKDATA_VIPDOC_HISTORY_DIR": null,
+      "CHSTOCKDATA_CACHE_DIR": null,
+      "TEMP": "D:\\Dev\\Projects\\chstockdata\\build\\v042-unified\\temp",
+      "TMP": "D:\\Dev\\Projects\\chstockdata\\build\\v042-unified\\temp"
+    }
+  },
+  {
+    "name": "sdist-install",
+    "argv": [
+      "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\09\\01a11feb-cbea-7790-a83e-57b1dd555e13\\v042-unified\\sdist\\Scripts\\python.exe",
+      "-m",
+      "pip",
+      "install",
+      "D:\\Dev\\Projects\\chstockdata\\dist\\v042-unified\\chstockdata-0.4.2.tar.gz",
+      "pytest==9.1.1"
+    ],
+    "cwd": "D:\\Dev\\Projects\\chstockdata\\build\\v042-unified",
+    "exit": 0,
+    "candidate_wheel_sha256": "b76b065a06cd1d91868880a7b57584f598b6fd4cb42931e9a33700bc99a88c7a",
+    "environment_overrides": {
+      "PYTHONPATH": null,
+      "PYTHONUTF8": "1",
+      "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+      "SIOS_CHSTOCKDATA_LIVE_QUALIFICATION": null,
+      "CHSTOCKDATA_VIPDOC_HISTORY_DIR": null,
+      "CHSTOCKDATA_CACHE_DIR": null,
+      "TEMP": "D:\\Dev\\Projects\\chstockdata\\build\\v042-unified\\temp",
+      "TMP": "D:\\Dev\\Projects\\chstockdata\\build\\v042-unified\\temp"
+    }
+  },
+  {
+    "name": "sdist-pip-check",
+    "argv": [
+      "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\09\\01a11feb-cbea-7790-a83e-57b1dd555e13\\v042-unified\\sdist\\Scripts\\python.exe",
+      "-m",
+      "pip",
+      "check"
+    ],
+    "cwd": "D:\\Dev\\Projects\\chstockdata\\build\\v042-unified",
+    "exit": 0,
+    "candidate_wheel_sha256": "b76b065a06cd1d91868880a7b57584f598b6fd4cb42931e9a33700bc99a88c7a",
+    "environment_overrides": {
+      "PYTHONPATH": null,
+      "PYTHONUTF8": "1",
+      "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+      "SIOS_CHSTOCKDATA_LIVE_QUALIFICATION": null,
+      "CHSTOCKDATA_VIPDOC_HISTORY_DIR": null,
+      "CHSTOCKDATA_CACHE_DIR": null,
+      "TEMP": "D:\\Dev\\Projects\\chstockdata\\build\\v042-unified\\temp",
+      "TMP": "D:\\Dev\\Projects\\chstockdata\\build\\v042-unified\\temp"
+    }
+  },
+  {
+    "name": "sdist-version",
+    "argv": [
+      "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\09\\01a11feb-cbea-7790-a83e-57b1dd555e13\\v042-unified\\sdist\\Scripts\\python.exe",
+      "D:\\Dev\\Projects\\chstockdata\\scripts\\check_release_version.py",
+      "--tag",
+      "v0.4.2",
+      "--project-root",
+      "D:\\Dev\\Projects\\chstockdata"
+    ],
+    "cwd": "D:\\Dev\\Projects\\chstockdata\\build\\v042-unified",
+    "exit": 0,
+    "candidate_wheel_sha256": "b76b065a06cd1d91868880a7b57584f598b6fd4cb42931e9a33700bc99a88c7a",
+    "environment_overrides": {
+      "PYTHONPATH": null,
+      "PYTHONUTF8": "1",
+      "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+      "SIOS_CHSTOCKDATA_LIVE_QUALIFICATION": null,
+      "CHSTOCKDATA_VIPDOC_HISTORY_DIR": null,
+      "CHSTOCKDATA_CACHE_DIR": null,
+      "TEMP": "D:\\Dev\\Projects\\chstockdata\\build\\v042-unified\\temp",
+      "TMP": "D:\\Dev\\Projects\\chstockdata\\build\\v042-unified\\temp"
+    }
+  },
+  {
+    "name": "sdist-identity",
+    "argv": [
+      "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\09\\01a11feb-cbea-7790-a83e-57b1dd555e13\\v042-unified\\sdist\\Scripts\\python.exe",
+      "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-09-v0.4.2-unified-gate\\run_gate.py",
+      "identity",
+      "sdist"
+    ],
+    "cwd": "D:\\Dev\\Projects\\chstockdata\\build\\v042-unified",
+    "exit": 0,
+    "candidate_wheel_sha256": "b76b065a06cd1d91868880a7b57584f598b6fd4cb42931e9a33700bc99a88c7a",
+    "environment_overrides": {
+      "PYTHONPATH": null,
+      "PYTHONUTF8": "1",
+      "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+      "SIOS_CHSTOCKDATA_LIVE_QUALIFICATION": null,
+      "CHSTOCKDATA_VIPDOC_HISTORY_DIR": null,
+      "CHSTOCKDATA_CACHE_DIR": null,
+      "TEMP": "D:\\Dev\\Projects\\chstockdata\\build\\v042-unified\\temp",
+      "TMP": "D:\\Dev\\Projects\\chstockdata\\build\\v042-unified\\temp"
+    }
+  },
+  {
+    "name": "sdist-exports",
+    "argv": [
+      "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\09\\01a11feb-cbea-7790-a83e-57b1dd555e13\\v042-unified\\sdist\\Scripts\\python.exe",
+      "-c",
+      "import chstockdata, importlib.metadata as m; assert all(n in chstockdata.__all__ and hasattr(chstockdata,n) for n in ('fetch_realtime_quotes','fetch_daily_bars','fetch_trading_calendar','fetch_suspension_info','fetch_delisting_status','fetch_tradability','FetchAttempt','FetchMetadata','FetchResult')); assert {'chstockdata-mcp','chstockdata-refresh-vipdoc'} <= {e.name for e in m.entry_points(group='console_scripts')}"
+    ],
+    "cwd": "D:\\Dev\\Projects\\chstockdata\\build\\v042-unified",
+    "exit": 0,
+    "candidate_wheel_sha256": "b76b065a06cd1d91868880a7b57584f598b6fd4cb42931e9a33700bc99a88c7a",
+    "environment_overrides": {
+      "PYTHONPATH": null,
+      "PYTHONUTF8": "1",
+      "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+      "SIOS_CHSTOCKDATA_LIVE_QUALIFICATION": null,
+      "CHSTOCKDATA_VIPDOC_HISTORY_DIR": null,
+      "CHSTOCKDATA_CACHE_DIR": null,
+      "TEMP": "D:\\Dev\\Projects\\chstockdata\\build\\v042-unified\\temp",
+      "TMP": "D:\\Dev\\Projects\\chstockdata\\build\\v042-unified\\temp"
+    }
+  },
+  {
+    "name": "sdist-chstockdata-mcp",
+    "argv": [
+      "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\09\\01a11feb-cbea-7790-a83e-57b1dd555e13\\v042-unified\\sdist\\Scripts\\chstockdata-mcp.exe",
+      "--help"
+    ],
+    "cwd": "D:\\Dev\\Projects\\chstockdata\\build\\v042-unified",
+    "exit": 0,
+    "candidate_wheel_sha256": "b76b065a06cd1d91868880a7b57584f598b6fd4cb42931e9a33700bc99a88c7a",
+    "environment_overrides": {
+      "PYTHONPATH": null,
+      "PYTHONUTF8": "1",
+      "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+      "SIOS_CHSTOCKDATA_LIVE_QUALIFICATION": null,
+      "CHSTOCKDATA_VIPDOC_HISTORY_DIR": null,
+      "CHSTOCKDATA_CACHE_DIR": null,
+      "TEMP": "D:\\Dev\\Projects\\chstockdata\\build\\v042-unified\\temp",
+      "TMP": "D:\\Dev\\Projects\\chstockdata\\build\\v042-unified\\temp"
+    }
+  },
+  {
+    "name": "sdist-chstockdata-refresh-vipdoc",
+    "argv": [
+      "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\09\\01a11feb-cbea-7790-a83e-57b1dd555e13\\v042-unified\\sdist\\Scripts\\chstockdata-refresh-vipdoc.exe",
+      "--help"
+    ],
+    "cwd": "D:\\Dev\\Projects\\chstockdata\\build\\v042-unified",
+    "exit": 0,
+    "candidate_wheel_sha256": "b76b065a06cd1d91868880a7b57584f598b6fd4cb42931e9a33700bc99a88c7a",
+    "environment_overrides": {
+      "PYTHONPATH": null,
+      "PYTHONUTF8": "1",
+      "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+      "SIOS_CHSTOCKDATA_LIVE_QUALIFICATION": null,
+      "CHSTOCKDATA_VIPDOC_HISTORY_DIR": null,
+      "CHSTOCKDATA_CACHE_DIR": null,
+      "TEMP": "D:\\Dev\\Projects\\chstockdata\\build\\v042-unified\\temp",
+      "TMP": "D:\\Dev\\Projects\\chstockdata\\build\\v042-unified\\temp"
+    }
+  },
+  {
+    "name": "mcp-create",
+    "argv": [
+      "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+      "-m",
+      "venv",
+      "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\09\\01a11feb-cbea-7790-a83e-57b1dd555e13\\v042-unified\\mcp"
+    ],
+    "cwd": "D:\\Dev\\Projects\\chstockdata\\build\\v042-unified",
+    "exit": 0,
+    "candidate_wheel_sha256": "b76b065a06cd1d91868880a7b57584f598b6fd4cb42931e9a33700bc99a88c7a",
+    "environment_overrides": {
+      "PYTHONPATH": null,
+      "PYTHONUTF8": "1",
+      "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+      "SIOS_CHSTOCKDATA_LIVE_QUALIFICATION": null,
+      "CHSTOCKDATA_VIPDOC_HISTORY_DIR": null,
+      "CHSTOCKDATA_CACHE_DIR": null,
+      "TEMP": "D:\\Dev\\Projects\\chstockdata\\build\\v042-unified\\temp",
+      "TMP": "D:\\Dev\\Projects\\chstockdata\\build\\v042-unified\\temp"
+    }
+  },
+  {
+    "name": "mcp-install",
+    "argv": [
+      "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\09\\01a11feb-cbea-7790-a83e-57b1dd555e13\\v042-unified\\mcp\\Scripts\\python.exe",
+      "-m",
+      "pip",
+      "install",
+      "D:\\Dev\\Projects\\chstockdata\\dist\\v042-unified\\chstockdata-0.4.2-py3-none-any.whl[mcp]",
+      "pytest==9.1.1"
+    ],
+    "cwd": "D:\\Dev\\Projects\\chstockdata\\build\\v042-unified",
+    "exit": 0,
+    "candidate_wheel_sha256": "b76b065a06cd1d91868880a7b57584f598b6fd4cb42931e9a33700bc99a88c7a",
+    "environment_overrides": {
+      "PYTHONPATH": null,
+      "PYTHONUTF8": "1",
+      "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+      "SIOS_CHSTOCKDATA_LIVE_QUALIFICATION": null,
+      "CHSTOCKDATA_VIPDOC_HISTORY_DIR": null,
+      "CHSTOCKDATA_CACHE_DIR": null,
+      "TEMP": "D:\\Dev\\Projects\\chstockdata\\build\\v042-unified\\temp",
+      "TMP": "D:\\Dev\\Projects\\chstockdata\\build\\v042-unified\\temp"
+    }
+  },
+  {
+    "name": "mcp-pip-check",
+    "argv": [
+      "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\09\\01a11feb-cbea-7790-a83e-57b1dd555e13\\v042-unified\\mcp\\Scripts\\python.exe",
+      "-m",
+      "pip",
+      "check"
+    ],
+    "cwd": "D:\\Dev\\Projects\\chstockdata\\build\\v042-unified",
+    "exit": 0,
+    "candidate_wheel_sha256": "b76b065a06cd1d91868880a7b57584f598b6fd4cb42931e9a33700bc99a88c7a",
+    "environment_overrides": {
+      "PYTHONPATH": null,
+      "PYTHONUTF8": "1",
+      "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+      "SIOS_CHSTOCKDATA_LIVE_QUALIFICATION": null,
+      "CHSTOCKDATA_VIPDOC_HISTORY_DIR": null,
+      "CHSTOCKDATA_CACHE_DIR": null,
+      "TEMP": "D:\\Dev\\Projects\\chstockdata\\build\\v042-unified\\temp",
+      "TMP": "D:\\Dev\\Projects\\chstockdata\\build\\v042-unified\\temp"
+    }
+  },
+  {
+    "name": "mcp-version",
+    "argv": [
+      "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\09\\01a11feb-cbea-7790-a83e-57b1dd555e13\\v042-unified\\mcp\\Scripts\\python.exe",
+      "D:\\Dev\\Projects\\chstockdata\\scripts\\check_release_version.py",
+      "--tag",
+      "v0.4.2",
+      "--project-root",
+      "D:\\Dev\\Projects\\chstockdata"
+    ],
+    "cwd": "D:\\Dev\\Projects\\chstockdata\\build\\v042-unified",
+    "exit": 0,
+    "candidate_wheel_sha256": "b76b065a06cd1d91868880a7b57584f598b6fd4cb42931e9a33700bc99a88c7a",
+    "environment_overrides": {
+      "PYTHONPATH": null,
+      "PYTHONUTF8": "1",
+      "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+      "SIOS_CHSTOCKDATA_LIVE_QUALIFICATION": null,
+      "CHSTOCKDATA_VIPDOC_HISTORY_DIR": null,
+      "CHSTOCKDATA_CACHE_DIR": null,
+      "TEMP": "D:\\Dev\\Projects\\chstockdata\\build\\v042-unified\\temp",
+      "TMP": "D:\\Dev\\Projects\\chstockdata\\build\\v042-unified\\temp"
+    }
+  },
+  {
+    "name": "mcp-identity",
+    "argv": [
+      "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\09\\01a11feb-cbea-7790-a83e-57b1dd555e13\\v042-unified\\mcp\\Scripts\\python.exe",
+      "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-09-v0.4.2-unified-gate\\run_gate.py",
+      "identity",
+      "mcp"
+    ],
+    "cwd": "D:\\Dev\\Projects\\chstockdata\\build\\v042-unified",
+    "exit": 0,
+    "candidate_wheel_sha256": "b76b065a06cd1d91868880a7b57584f598b6fd4cb42931e9a33700bc99a88c7a",
+    "environment_overrides": {
+      "PYTHONPATH": null,
+      "PYTHONUTF8": "1",
+      "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+      "SIOS_CHSTOCKDATA_LIVE_QUALIFICATION": null,
+      "CHSTOCKDATA_VIPDOC_HISTORY_DIR": null,
+      "CHSTOCKDATA_CACHE_DIR": null,
+      "TEMP": "D:\\Dev\\Projects\\chstockdata\\build\\v042-unified\\temp",
+      "TMP": "D:\\Dev\\Projects\\chstockdata\\build\\v042-unified\\temp"
+    }
+  },
+  {
+    "name": "mcp-exports",
+    "argv": [
+      "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\09\\01a11feb-cbea-7790-a83e-57b1dd555e13\\v042-unified\\mcp\\Scripts\\python.exe",
+      "-c",
+      "import chstockdata, importlib.metadata as m; assert all(n in chstockdata.__all__ and hasattr(chstockdata,n) for n in ('fetch_realtime_quotes','fetch_daily_bars','fetch_trading_calendar','fetch_suspension_info','fetch_delisting_status','fetch_tradability','FetchAttempt','FetchMetadata','FetchResult')); assert {'chstockdata-mcp','chstockdata-refresh-vipdoc'} <= {e.name for e in m.entry_points(group='console_scripts')}; from chstockdata.mcp_server import build_server; assert build_server() is not None"
+    ],
+    "cwd": "D:\\Dev\\Projects\\chstockdata\\build\\v042-unified",
+    "exit": 0,
+    "candidate_wheel_sha256": "b76b065a06cd1d91868880a7b57584f598b6fd4cb42931e9a33700bc99a88c7a",
+    "environment_overrides": {
+      "PYTHONPATH": null,
+      "PYTHONUTF8": "1",
+      "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+      "SIOS_CHSTOCKDATA_LIVE_QUALIFICATION": null,
+      "CHSTOCKDATA_VIPDOC_HISTORY_DIR": null,
+      "CHSTOCKDATA_CACHE_DIR": null,
+      "TEMP": "D:\\Dev\\Projects\\chstockdata\\build\\v042-unified\\temp",
+      "TMP": "D:\\Dev\\Projects\\chstockdata\\build\\v042-unified\\temp"
+    }
+  },
+  {
+    "name": "baostock-create",
+    "argv": [
+      "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+      "-m",
+      "venv",
+      "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\09\\01a11feb-cbea-7790-a83e-57b1dd555e13\\v042-unified\\baostock"
+    ],
+    "cwd": "D:\\Dev\\Projects\\chstockdata\\build\\v042-unified",
+    "exit": 0,
+    "candidate_wheel_sha256": "b76b065a06cd1d91868880a7b57584f598b6fd4cb42931e9a33700bc99a88c7a",
+    "environment_overrides": {
+      "PYTHONPATH": null,
+      "PYTHONUTF8": "1",
+      "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+      "SIOS_CHSTOCKDATA_LIVE_QUALIFICATION": null,
+      "CHSTOCKDATA_VIPDOC_HISTORY_DIR": null,
+      "CHSTOCKDATA_CACHE_DIR": null,
+      "TEMP": "D:\\Dev\\Projects\\chstockdata\\build\\v042-unified\\temp",
+      "TMP": "D:\\Dev\\Projects\\chstockdata\\build\\v042-unified\\temp"
+    }
+  },
+  {
+    "name": "baostock-install",
+    "argv": [
+      "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\09\\01a11feb-cbea-7790-a83e-57b1dd555e13\\v042-unified\\baostock\\Scripts\\python.exe",
+      "-m",
+      "pip",
+      "install",
+      "D:\\Dev\\Projects\\chstockdata\\dist\\v042-unified\\chstockdata-0.4.2-py3-none-any.whl[baostock]",
+      "pytest==9.1.1"
+    ],
+    "cwd": "D:\\Dev\\Projects\\chstockdata\\build\\v042-unified",
+    "exit": 0,
+    "candidate_wheel_sha256": "b76b065a06cd1d91868880a7b57584f598b6fd4cb42931e9a33700bc99a88c7a",
+    "environment_overrides": {
+      "PYTHONPATH": null,
+      "PYTHONUTF8": "1",
+      "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+      "SIOS_CHSTOCKDATA_LIVE_QUALIFICATION": null,
+      "CHSTOCKDATA_VIPDOC_HISTORY_DIR": null,
+      "CHSTOCKDATA_CACHE_DIR": null,
+      "TEMP": "D:\\Dev\\Projects\\chstockdata\\build\\v042-unified\\temp",
+      "TMP": "D:\\Dev\\Projects\\chstockdata\\build\\v042-unified\\temp"
+    }
+  },
+  {
+    "name": "baostock-pip-check",
+    "argv": [
+      "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\09\\01a11feb-cbea-7790-a83e-57b1dd555e13\\v042-unified\\baostock\\Scripts\\python.exe",
+      "-m",
+      "pip",
+      "check"
+    ],
+    "cwd": "D:\\Dev\\Projects\\chstockdata\\build\\v042-unified",
+    "exit": 0,
+    "candidate_wheel_sha256": "b76b065a06cd1d91868880a7b57584f598b6fd4cb42931e9a33700bc99a88c7a",
+    "environment_overrides": {
+      "PYTHONPATH": null,
+      "PYTHONUTF8": "1",
+      "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+      "SIOS_CHSTOCKDATA_LIVE_QUALIFICATION": null,
+      "CHSTOCKDATA_VIPDOC_HISTORY_DIR": null,
+      "CHSTOCKDATA_CACHE_DIR": null,
+      "TEMP": "D:\\Dev\\Projects\\chstockdata\\build\\v042-unified\\temp",
+      "TMP": "D:\\Dev\\Projects\\chstockdata\\build\\v042-unified\\temp"
+    }
+  },
+  {
+    "name": "baostock-version",
+    "argv": [
+      "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\09\\01a11feb-cbea-7790-a83e-57b1dd555e13\\v042-unified\\baostock\\Scripts\\python.exe",
+      "D:\\Dev\\Projects\\chstockdata\\scripts\\check_release_version.py",
+      "--tag",
+      "v0.4.2",
+      "--project-root",
+      "D:\\Dev\\Projects\\chstockdata"
+    ],
+    "cwd": "D:\\Dev\\Projects\\chstockdata\\build\\v042-unified",
+    "exit": 0,
+    "candidate_wheel_sha256": "b76b065a06cd1d91868880a7b57584f598b6fd4cb42931e9a33700bc99a88c7a",
+    "environment_overrides": {
+      "PYTHONPATH": null,
+      "PYTHONUTF8": "1",
+      "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+      "SIOS_CHSTOCKDATA_LIVE_QUALIFICATION": null,
+      "CHSTOCKDATA_VIPDOC_HISTORY_DIR": null,
+      "CHSTOCKDATA_CACHE_DIR": null,
+      "TEMP": "D:\\Dev\\Projects\\chstockdata\\build\\v042-unified\\temp",
+      "TMP": "D:\\Dev\\Projects\\chstockdata\\build\\v042-unified\\temp"
+    }
+  },
+  {
+    "name": "baostock-identity",
+    "argv": [
+      "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\09\\01a11feb-cbea-7790-a83e-57b1dd555e13\\v042-unified\\baostock\\Scripts\\python.exe",
+      "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-09-v0.4.2-unified-gate\\run_gate.py",
+      "identity",
+      "baostock"
+    ],
+    "cwd": "D:\\Dev\\Projects\\chstockdata\\build\\v042-unified",
+    "exit": 0,
+    "candidate_wheel_sha256": "b76b065a06cd1d91868880a7b57584f598b6fd4cb42931e9a33700bc99a88c7a",
+    "environment_overrides": {
+      "PYTHONPATH": null,
+      "PYTHONUTF8": "1",
+      "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+      "SIOS_CHSTOCKDATA_LIVE_QUALIFICATION": null,
+      "CHSTOCKDATA_VIPDOC_HISTORY_DIR": null,
+      "CHSTOCKDATA_CACHE_DIR": null,
+      "TEMP": "D:\\Dev\\Projects\\chstockdata\\build\\v042-unified\\temp",
+      "TMP": "D:\\Dev\\Projects\\chstockdata\\build\\v042-unified\\temp"
+    }
+  },
+  {
+    "name": "baostock-exports",
+    "argv": [
+      "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\09\\01a11feb-cbea-7790-a83e-57b1dd555e13\\v042-unified\\baostock\\Scripts\\python.exe",
+      "-c",
+      "import chstockdata, importlib.metadata as m; assert all(n in chstockdata.__all__ and hasattr(chstockdata,n) for n in ('fetch_realtime_quotes','fetch_daily_bars','fetch_trading_calendar','fetch_suspension_info','fetch_delisting_status','fetch_tradability','FetchAttempt','FetchMetadata','FetchResult')); assert {'chstockdata-mcp','chstockdata-refresh-vipdoc'} <= {e.name for e in m.entry_points(group='console_scripts')}; import baostock"
+    ],
+    "cwd": "D:\\Dev\\Projects\\chstockdata\\build\\v042-unified",
+    "exit": 0,
+    "candidate_wheel_sha256": "b76b065a06cd1d91868880a7b57584f598b6fd4cb42931e9a33700bc99a88c7a",
+    "environment_overrides": {
+      "PYTHONPATH": null,
+      "PYTHONUTF8": "1",
+      "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+      "SIOS_CHSTOCKDATA_LIVE_QUALIFICATION": null,
+      "CHSTOCKDATA_VIPDOC_HISTORY_DIR": null,
+      "CHSTOCKDATA_CACHE_DIR": null,
+      "TEMP": "D:\\Dev\\Projects\\chstockdata\\build\\v042-unified\\temp",
+      "TMP": "D:\\Dev\\Projects\\chstockdata\\build\\v042-unified\\temp"
+    }
+  }
+]

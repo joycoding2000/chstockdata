@@ -1,0 +1,284 @@
+个人行情数据 - 通达信软件 - 深圳市财富趋势科技股份有限公司
+.navlist .nav-item{
+           position:relative;
+       }
+       .nav-new {
+           position: absolute;
+           left:20px;
+           top:-15px;
+           cursor: pointer;
+       }
+       li[skey="个人版"] {
+           display: none;
+       }
+var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?5c4c948b141e4d66943a8430c3d600d0";
+      var s = document.getElementsByTagName("script")[0]; 
+      s.parentNode.insertBefore(hm, s);
+    })();
+郑重声明：任何自称通达信的营销荐股电话均为假冒
+首页
+券商系统
+券商软件下载
+网上交易产品
+券商移动平台
+复合资讯平台
+全品类数据库
+个人版商城
+个人版商城
+普及版
+普及增强版
+财富版
+专业版
+研究版
+MPV/MPV Pro
+实时港股
+美股通
+手机版
+增值系列
+AI积分包
+指标算力包
+研究终端
+研究终端
+债券终端
+AI平台
+问小达AI
+智能体广场
+通达信MCP
+Skills 广场
+TdxClaw
+数据资讯
+数据中心
+资讯中心
+TdxQuant数据
+投资学院
+模拟炒股
+投资基础知识
+港股基础知识
+教学视频
+防非专栏
+帮助中心
+行情数据下载
+帮助中心
+用户红宝书
+交易所休息日
+港股披露易
+财富圈
+下载中心
+合作伙伴
+反馈
+开户
+股票开户
+期货开户
+公司资讯
+网站通知
+公司新闻
+券商产品专题
+网上交易产品
+券商移动平台
+复合资讯平台
+行情数据下载
+券商下载首页
+券商每日数据
+券商所有数据
+个人行情数据
+专业财务数据
+定制数据下载
+投资者关系
+财富趋势简介
+上市公司公告
+投关联系方式
+关于我们
+公司介绍
+公司经营
+公司资质
+行情授权
+人才招聘
+联系我们
+首页
+>
+行情数据下载
+>
+个人行情数据
+.hsjday-table td{font-size:14px!important;}
+1. 适用范围：适用于通达信个人版PC端软件的盘后数据下载。
+2. 文件包含：沪深京日线数据完整包(A股、B股、交易所指数和板块指数、回购、可交易基金、可转债等)。
+3. 适用场景：首次安装通达信PC端软件或有较长时间没有下载日线时，可以下载此zip文件。
+4. 使用方法：放置在客户端的vipdoc目录下，在vipdoc下解压文件覆盖。
+5. 注意事项：如需下载包括当日的，请在更新日期变为当日之后再下载。
+沪深京日线数据完整包
+更新日期：
+window.addEventListener('load', function() {
+    $.getScript('//data.tdx.com.cn/vipdoc/_hsjdayinfo.js?t=' + Math.floor(new Date().getTime()/10000), function() {
+        if(typeof window.HSJDAY_SOFT_SIZE == 'string') {
+            var n = new Date();
+            var y = n.getFullYear() + '';
+            var m = ((n.getMonth() + 101) + '').substring(1);
+            var d = ((n.getDate() + 100) + '').substring(1);
+            var today = [y,m,d].join('-');
+            var timecolor = '';
+            if(window.HSJDAY_SOFT_TIME.indexOf(today) == 0) {
+                timecolor = '#f00';
+            }
+            $('#hsjdayinfo').html('更新日期：<span style="color:' + timecolor + ';">' + window.HSJDAY_SOFT_TIME + '</span>');
+        }
+    })
+})
+中国证监会
+上海证券交易所
+深圳证券交易所
+北京证券交易所
+香港交易所
+上海期货交易所
+中国金融期货交易所
+中国证券业协会
+地址：深圳市福田区梅林街道梅都社区中康路136号深圳新一代产业园5栋1801  客服电话：027-87788668
+投诉邮箱：
+tousu@tdx.com.cn
+信函或现场投诉：武汉市光谷软件园C3栋9楼。
+©2026 All Rights Reserved By 深圳市财富趋势科技股份有限公司
+粤ICP备14046812号
+B2-20110213
+粤公网安备 44030402003588号
+隐私政策
+!function () {
+        $(function () {
+            var categoryCur = {};
+            var articleCur = {};
+            $('.article-right .dh a').each(function () {
+                var categoryId = $(this).attr('category-id');
+                var articleId = $(this).attr('article-id');
+                if (categoryId) {
+                    categoryCur[categoryId] = categoryId;
+                }
+                if (articleId) {
+                    articleCur[articleId] = articleId;
+                }
+            });
+            $('.article-left-menu').each(function () {
+                $(this).find('.article-left-title').click(function () {
+                    $('.article-item-active').removeClass('article-item-active');
+                    $(this).parent().addClass('article-item-active');
+                });
+                var find = false;
+                $(this).find('a').each(function () {
+                    var categoryId = $(this).attr('category-id');
+                    var articleId = $(this).attr('article-id');
+                    if (categoryCur[categoryId] || articleCur[articleId]) {
+                        find = true;
+                        hasFind = true;
+                        $(this).addClass('selected');
+                    }
+                });
+                if (!find) {
+                    $(this).removeClass('article-item-active');
+                }
+            });
+            $('.article-left-warp').show();
+        });
+
+
+        // 软件更新特殊跳转服务
+
+        !function () {
+
+            if (!/(softupdate|itendx_update)\.html/i.test(location.href)) {
+                return;
+            }
+
+            var getUrlParam = function (name) {
+                var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+                var r = window.location.search.substr(1).match(reg);
+                if (r != null) {
+                    return decodeURIComponent(r[2]);
+                } else {
+                    return null;
+                }
+            }
+
+            var beta = getUrlParam('beta');
+            var ver = getUrlParam('ver');
+            var as = $('.article-right-group li a');
+
+            if (/^[0-9]+\.[0-9]+$/.test(ver) && /^(0|1).test(beta)$/) {
+                ver = ver.replace('.', '_');
+
+                var tag = 'soft';
+                if (location.href.indexOf('itrend_update')) {
+                    tag = 'itendx';
+                }
+
+                var url = '/' + tag + (beta == 1 ? '_beta' : '') + '_' + ver + '.html';
+                for (var i = 0; i < as.length; i++) {
+                    var a = as[i];
+                    if (a.href.indexOf(url) != -1) {
+                        location.href = a.href;
+                        return;
+                    }
+                }
+            }
+
+            as.length > 0 && (location.href = as[0].href);
+
+        }();
+
+        // 人才招聘特殊处理，增加左侧浮动菜单
+        (function () {
+            if (!/(career)\.html/i.test(location.href)) {
+                return;
+            }
+            curContentItem = null;
+            curContentTag = null;
+            jumpToContent = function (i, a) {
+                var tar = document.getElementById('cont_item_' + i);
+                tar.scrollIntoView();
+                if (curContentItem) {
+                    $(curContentItem).removeClass('active-content');
+                }
+                $(tar.parentNode).addClass('active-content');
+                curContentItem = tar.parentNode;
+                if (curContentTag) {
+                    $(curContentTag).removeClass('active-content');
+                }
+                $(a).addClass('active-content');
+                curContentTag = a;
+            };
+            var items = [];
+            $('.article-content p').each(function () {
+                var $me = $(this);
+                var text = $me.text().trim();
+                if (/^[一二三四五六七八九十]+、/.test(text)) {
+                    $me.prepend('<span style="width:0;height:0;font-size:0;overflow:hidden;position:absolute;top:-100px;" id="cont_item_' + items.length + '"></span>');
+                    items.push($me);
+                    $me.css('position', 'relative');
+                }
+            });
+            if (items.length > 0) {
+                var html = '<div id="float-content-box">';
+                for (var i = 0; i < items.length; i++) {
+                    var item = items[i];
+                    html += '<p><a class="cont-item" href="javascript:" onclick="jumpToContent(' + i + ',this)">' + item.text().replace(/[一二三四五六七八九十]+、/, '') + '</a></p>';
+                }
+                html += '</div>';
+                $('body').append(html);
+                var left = $('.article-content').offset().left + $('.article-content').width() + 10;
+                $('#float-content-box').css('left', left + 'px');
+            }
+        })();
+
+    }();
+// 特殊日子样式控制
+      (function(){
+          var t = new Date();
+          var ymd = t.getFullYear() * 10000 + (t.getMonth() + 1) * 100 + t.getDate();
+          // 灰色调控制
+          if (ymd == 20221213){
+            $('html').addClass('graystyle');    
+          }
+          // 春节控制
+          if (ymd >= 20220131 && ymd <= 20220115){
+            $('body').addClass('spring');    
+          }
+      })();

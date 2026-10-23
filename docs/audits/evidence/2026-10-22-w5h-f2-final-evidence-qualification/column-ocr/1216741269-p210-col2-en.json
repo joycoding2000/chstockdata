@@ -1,0 +1,63 @@
+{
+    "id":  "1216741269",
+    "text":  "61 164,664.2\"\"- -2,985.466342.91, 1.02",
+    "pit_qualified":  false,
+    "engine":  "Windows.Media.Ocr existing en-US",
+    "maximum_image_dimension":  10000,
+    "machine_seconds":  0.1036864,
+    "pixel_height":  2902,
+    "image_sha256":  "fb258a041c502e6a4b153152315fd45c3e8a17e327b7b413a6e789532fa3ec02",
+    "pixel_width":  464,
+    "source_sha256":  "28f31493c52375f096a45ad326ad8421357f9e73252858ae236d6fa715aad2d2",
+    "physical_page":  210,
+    "lines":  [
+                  {
+                      "text":  "61",
+                      "words":  [
+                                    {
+                                        "y":  249,
+                                        "height":  29,
+                                        "width":  33,
+                                        "text":  "61",
+                                        "x":  93
+                                    }
+                                ]
+                  },
+                  {
+                      "text":  "164,664.2\"\"-",
+                      "words":  [
+                                    {
+                                        "y":  866,
+                                        "height":  50,
+                                        "width":  280,
+                                        "text":  "164,664.2\"\"-",
+                                        "x":  144
+                                    }
+                                ]
+                  },
+                  {
+                      "text":  "-2,985.466342.91,",
+                      "words":  [
+                                    {
+                                        "y":  1388,
+                                        "height":  40,
+                                        "width":  304,
+                                        "text":  "-2,985.466342.91,",
+                                        "x":  92
+                                    }
+                                ]
+                  },
+                  {
+                      "text":  "1.02",
+                      "words":  [
+                                    {
+                                        "y":  1502,
+                                        "height":  34,
+                                        "width":  65,
+                                        "text":  "1.02",
+                                        "x":  111
+                                    }
+                                ]
+                  }
+              ]
+}

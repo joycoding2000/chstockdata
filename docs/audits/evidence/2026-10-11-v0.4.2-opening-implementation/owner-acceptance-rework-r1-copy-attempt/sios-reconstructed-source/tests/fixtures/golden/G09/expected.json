@@ -1,0 +1,93 @@
+{
+  "schema_version": "golden-expected-v1",
+  "runs": {
+    "default": {
+      "sessions": [
+        {
+          "session_date": "2026-09-10",
+          "cash": "100000",
+          "market_value": "0",
+          "total_equity": "100000",
+          "nav": "1",
+          "valuation_status": "COMPLETE",
+          "decision_blocked_reason": null,
+          "orders": [],
+          "fills": [],
+          "rejections": [],
+          "plans": [
+            {"instrument_id": "XSHG:510500", "sleeve": "CORE", "side": "BUY", "order_quantity": 100, "target_weight": "0.004", "sizing_reference_price": "4.00"},
+            {"instrument_id": "XSHE:000001", "sleeve": "CORE", "side": "BUY", "order_quantity": 100, "target_weight": "0.012", "sizing_reference_price": "12.00"}
+          ]
+        },
+        {
+          "session_date": "2026-09-11",
+          "cash": "98387.59",
+          "market_value": "1600.00",
+          "total_equity": "99987.59",
+          "nav": "0.9998759",
+          "valuation_status": "COMPLETE",
+          "decision_blocked_reason": null,
+          "orders": [
+            {"instrument_id": "XSHG:510500", "side": "BUY", "planned_quantity": 100, "submitted_quantity": 100, "status": "FILLED", "reason_codes": ["FILLED_AS_PLANNED"]},
+            {"instrument_id": "XSHE:000001", "side": "BUY", "planned_quantity": 100, "submitted_quantity": 100, "status": "FILLED", "reason_codes": ["FILLED_AS_PLANNED"]}
+          ],
+          "fills": [
+            {"instrument_id": "XSHG:510500", "side": "BUY", "quantity": 100, "fill_price": "4.004", "reference_open": "4.00", "commission": "0.12", "minimum_commission_adjustment": "4.88", "stamp_tax": "0", "transfer_fee": "0", "total_fees": "5.00"},
+            {"instrument_id": "XSHE:000001", "side": "BUY", "quantity": 100, "fill_price": "12.02", "reference_open": "12.00", "commission": "0.36", "minimum_commission_adjustment": "4.64", "stamp_tax": "0", "transfer_fee": "0.01", "total_fees": "5.01"}
+          ],
+          "rejections": [],
+          "plans": [
+            {"instrument_id": "XSHG:510500", "sleeve": "CORE", "side": "SELL", "order_quantity": 100, "target_weight": "0", "sizing_reference_price": "4.00"},
+            {"instrument_id": "XSHE:000001", "sleeve": "CORE", "side": "SELL", "order_quantity": 100, "target_weight": "0", "sizing_reference_price": "12.00"}
+          ]
+        },
+        {
+          "session_date": "2026-09-14",
+          "cash": "99579.98",
+          "market_value": "400.00",
+          "total_equity": "99979.98",
+          "nav": "0.9997998",
+          "valuation_status": "COMPLETE",
+          "decision_blocked_reason": null,
+          "orders": [
+            {"instrument_id": "XSHG:510500", "side": "SELL", "planned_quantity": 100, "submitted_quantity": null, "status": "REJECTED", "reason_codes": ["INSUFFICIENT_SELLABLE_QUANTITY"]},
+            {"instrument_id": "XSHE:000001", "side": "SELL", "planned_quantity": 100, "submitted_quantity": 100, "status": "FILLED", "reason_codes": ["FILLED_AS_PLANNED"]}
+          ],
+          "fills": [
+            {"instrument_id": "XSHE:000001", "side": "SELL", "quantity": 100, "fill_price": "11.98", "reference_open": "12.00", "commission": "0.36", "minimum_commission_adjustment": "4.64", "stamp_tax": "0.60", "transfer_fee": "0.01", "total_fees": "5.61"}
+          ],
+          "rejections": [
+            {"instrument_id": "XSHG:510500", "side": "SELL", "code": "INSUFFICIENT_SELLABLE_QUANTITY"}
+          ],
+          "plans": [
+            {"instrument_id": "XSHG:510500", "sleeve": "CORE", "side": "SELL", "order_quantity": 100, "target_weight": "0", "sizing_reference_price": "4.00"}
+          ]
+        },
+        {
+          "session_date": "2026-09-15",
+          "cash": "99974.58",
+          "market_value": "0",
+          "total_equity": "99974.58",
+          "nav": "0.9997458",
+          "valuation_status": "COMPLETE",
+          "decision_blocked_reason": null,
+          "orders": [
+            {"instrument_id": "XSHG:510500", "side": "SELL", "planned_quantity": 100, "submitted_quantity": 100, "status": "FILLED", "reason_codes": ["FILLED_AS_PLANNED"]}
+          ],
+          "fills": [
+            {"instrument_id": "XSHG:510500", "side": "SELL", "quantity": 100, "fill_price": "3.996", "reference_open": "4.00", "commission": "0.12", "minimum_commission_adjustment": "4.88", "stamp_tax": "0", "transfer_fee": "0", "total_fees": "5.00"}
+          ],
+          "rejections": [],
+          "plans": [],
+          "target": null
+        }
+      ],
+      "final": {
+        "cash": "99974.58",
+        "equity": "99974.58",
+        "nav": "0.9997458",
+        "positions": []
+      }
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "document_and_evidence_verdict": "PASS",
+  "source_qualification_verdict": "ACCESS_OR_EVIDENCE_INSUFFICIENT",
+  "mishi_s07_historical_gate": "NOT_PASSED",
+  "protected_original_files": {
+    "chstockdata": 14287,
+    "mishi-radar": 272,
+    "systematic-investing-os": 275
+  },
+  "changed_or_removed_existing_files": 0,
+  "all_repository_heads_diffs_and_indexes_unchanged": true,
+  "direct_http_requests": 22,
+  "minimum_after_finish_interval_seconds": 3.000091,
+  "old_artifacts_reverified": 30,
+  "old_daily_valuation_rows_reused": 729,
+  "local_markdown_links_checked": 16,
+  "manifest_artifacts_verified": 35,
+  "runtime_or_consumer_changes": 0,
+  "commit_push_release": "NOT_PERFORMED",
+  "next_phase_authorized": false,
+  "manifest_validation": "All listed artifacts checked after final log writes; rolling finalizer logs explicitly excluded."
+}

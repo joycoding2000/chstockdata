@@ -1,0 +1,106 @@
+{
+    "id":  "1217078313",
+    "text":  "0.00 66,188.88 0±00 0.00 234,326,566.80 -249,858.66 •nn 170",
+    "pit_qualified":  false,
+    "engine":  "Windows.Media.Ocr existing en-US",
+    "maximum_image_dimension":  10000,
+    "machine_seconds":  0.0710297,
+    "pixel_height":  2904,
+    "image_sha256":  "aab3bc7b9e0199587bd8d1a76ad0603baee1b03f4812a2fb35b595ffc0461548",
+    "pixel_width":  576,
+    "source_sha256":  "20fbe4384ea3e87419d5af2e73b127fc93b22c1435904a2819c1a135cd1c9bc2",
+    "physical_page":  210,
+    "lines":  [
+                  {
+                      "text":  "0.00",
+                      "words":  [
+                                    {
+                                        "y":  40,
+                                        "height":  28,
+                                        "width":  77,
+                                        "text":  "0.00",
+                                        "x":  252
+                                    }
+                                ]
+                  },
+                  {
+                      "text":  "66,188.88",
+                      "words":  [
+                                    {
+                                        "y":  861,
+                                        "height":  40,
+                                        "width":  178,
+                                        "text":  "66,188.88",
+                                        "x":  154
+                                    }
+                                ]
+                  },
+                  {
+                      "text":  "0±00",
+                      "words":  [
+                                    {
+                                        "y":  1026,
+                                        "height":  40,
+                                        "width":  77,
+                                        "text":  "0±00",
+                                        "x":  255
+                                    }
+                                ]
+                  },
+                  {
+                      "text":  "0.00",
+                      "words":  [
+                                    {
+                                        "y":  1440,
+                                        "height":  34,
+                                        "width":  76,
+                                        "text":  "0.00",
+                                        "x":  256
+                                    }
+                                ]
+                  },
+                  {
+                      "text":  "234,326,566.80",
+                      "words":  [
+                                    {
+                                        "y":  2350,
+                                        "height":  40,
+                                        "width":  281,
+                                        "text":  "234,326,566.80",
+                                        "x":  57
+                                    }
+                                ]
+                  },
+                  {
+                      "text":  "-249,858.66",
+                      "words":  [
+                                    {
+                                        "y":  2597,
+                                        "height":  40,
+                                        "width":  217,
+                                        "text":  "-249,858.66",
+                                        "x":  121
+                                    }
+                                ]
+                  },
+                  {
+                      "text":  "•nn 170",
+                      "words":  [
+                                    {
+                                        "y":  2847,
+                                        "height":  17,
+                                        "width":  60,
+                                        "text":  "•nn",
+                                        "x":  140
+                                    },
+                                    {
+                                        "y":  2847,
+                                        "height":  17,
+                                        "width":  62,
+                                        "text":  "170",
+                                        "x":  220
+                                    }
+                                ]
+                  }
+              ]
+}

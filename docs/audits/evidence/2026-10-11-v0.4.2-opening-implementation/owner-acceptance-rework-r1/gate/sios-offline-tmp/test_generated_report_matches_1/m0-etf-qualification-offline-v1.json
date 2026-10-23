@@ -1,0 +1,527 @@
+{
+  "approved_scope": [
+    {
+      "checks": [
+        "ADJUSTMENT_ACTIONS",
+        "CALENDAR",
+        "EDGE_EVENTS",
+        "FRESHNESS",
+        "OHLCV_PRE_CLOSE",
+        "PROVIDER_VERSION",
+        "ROUTING",
+        "TRADABILITY",
+        "UNITS"
+      ],
+      "instruments": [
+        "XSHG:510300",
+        "XSHE:159915"
+      ],
+      "status": "PASS",
+      "subtype": "BROAD_BASED_EQUITY"
+    },
+    {
+      "checks": [
+        "ADJUSTMENT_ACTIONS",
+        "CALENDAR",
+        "FRESHNESS",
+        "OHLCV_PRE_CLOSE",
+        "PROVIDER_VERSION",
+        "ROUTING",
+        "TRADABILITY",
+        "UNITS"
+      ],
+      "instruments": [
+        "XSHG:518880"
+      ],
+      "status": "PASS",
+      "subtype": "GOLD"
+    },
+    {
+      "checks": [
+        "ADJUSTMENT_ACTIONS",
+        "CALENDAR",
+        "FRESHNESS",
+        "OHLCV_PRE_CLOSE",
+        "PROVIDER_VERSION",
+        "ROUTING",
+        "TRADABILITY",
+        "UNITS"
+      ],
+      "instruments": [
+        "XSHG:511010"
+      ],
+      "status": "PASS",
+      "subtype": "BOND"
+    }
+  ],
+  "checks": [
+    {
+      "check_id": "ROUTING",
+      "evidence_ids": [
+        "XSHG:510300:vendor-routing"
+      ],
+      "expected": "single load_vipdoc_daily call for 510300 with market=sh and rows",
+      "instrument_id": "XSHG:510300",
+      "observed": "calls=[('load_vipdoc_daily', '510300', '2026-09-08', '2026-09-11')], markets=['sh'], rows=4",
+      "status": "PASS",
+      "subtype": "BROAD_BASED_EQUITY"
+    },
+    {
+      "check_id": "OHLCV_PRE_CLOSE",
+      "evidence_ids": [
+        "chstockdata:daily_bars:f936cc6abcd54af4:16983c7625c9bf14"
+      ],
+      "expected": "positive OHLC, high/low consistency, and pre_close present (null is never converted to zero)",
+      "instrument_id": "XSHG:510300",
+      "observed": "4 bars verified",
+      "status": "PASS",
+      "subtype": "BROAD_BASED_EQUITY"
+    },
+    {
+      "check_id": "UNITS",
+      "evidence_ids": [
+        "chstockdata:daily_bars:f936cc6abcd54af4:16983c7625c9bf14"
+      ],
+      "expected": "SHARE volume, CNY amount, Decimal values, factor applied once",
+      "instrument_id": "XSHG:510300",
+      "observed": "4 rows exact",
+      "status": "PASS",
+      "subtype": "BROAD_BASED_EQUITY"
+    },
+    {
+      "check_id": "CALENDAR",
+      "evidence_ids": [
+        "chstockdata:trading_calendar:ccb560303d19508e:228b4c2106fd59f7"
+      ],
+      "expected": "calendar covers every bar session and marks closed days explicitly",
+      "instrument_id": "XSHG:510300",
+      "observed": "8 days explicit",
+      "status": "PASS",
+      "subtype": "BROAD_BASED_EQUITY"
+    },
+    {
+      "check_id": "TRADABILITY",
+      "evidence_ids": [
+        "chstockdata:tradability:f5fae58cfef13f1c:01856ff3e9b95825"
+      ],
+      "expected": "TRADABLE for both sides with explicit availability and provenance",
+      "instrument_id": "XSHG:510300",
+      "observed": "recorded: exchange suspension disclosure (510300)",
+      "status": "PASS",
+      "subtype": "BROAD_BASED_EQUITY"
+    },
+    {
+      "check_id": "ADJUSTMENT_ACTIONS",
+      "evidence_ids": [
+        "chstockdata:daily_bars:f936cc6abcd54af4:16983c7625c9bf14",
+        "chstockdata:corporate_actions:6d9a54c2c705f6ec:d3814d20b662b405"
+      ],
+      "expected": "RAW execution bars and separate per-share-normalized action facts",
+      "instrument_id": "XSHG:510300",
+      "observed": "4 RAW bars, 1 actions",
+      "status": "PASS",
+      "subtype": "BROAD_BASED_EQUITY"
+    },
+    {
+      "check_id": "FRESHNESS",
+      "evidence_ids": [
+        "chstockdata:daily_bars:f936cc6abcd54af4:16983c7625c9bf14"
+      ],
+      "expected": "information-time freshness with an injected clock, never wall-clock",
+      "instrument_id": "XSHG:510300",
+      "observed": "latest=2026-09-11, retrieved=2026-09-15T16:30:00+08:00",
+      "status": "PASS",
+      "subtype": "BROAD_BASED_EQUITY"
+    },
+    {
+      "check_id": "PROVIDER_VERSION",
+      "evidence_ids": [],
+      "expected": "pinned provider release plus adapter version evidence",
+      "instrument_id": "XSHG:510300",
+      "observed": "0.3.0 pinned and reported",
+      "status": "PASS",
+      "subtype": "BROAD_BASED_EQUITY"
+    },
+    {
+      "check_id": "ROUTING",
+      "evidence_ids": [
+        "XSHE:159915:vendor-routing"
+      ],
+      "expected": "single load_vipdoc_daily call for 159915 with market=sz and rows",
+      "instrument_id": "XSHE:159915",
+      "observed": "calls=[('load_vipdoc_daily', '159915', '2026-09-08', '2026-09-11')], markets=['sz'], rows=4",
+      "status": "PASS",
+      "subtype": "BROAD_BASED_EQUITY"
+    },
+    {
+      "check_id": "OHLCV_PRE_CLOSE",
+      "evidence_ids": [
+        "chstockdata:daily_bars:da738faa64de2a51:1811dd9bc71d9655"
+      ],
+      "expected": "positive OHLC, high/low consistency, and pre_close present (null is never converted to zero)",
+      "instrument_id": "XSHE:159915",
+      "observed": "4 bars verified",
+      "status": "PASS",
+      "subtype": "BROAD_BASED_EQUITY"
+    },
+    {
+      "check_id": "UNITS",
+      "evidence_ids": [
+        "chstockdata:daily_bars:da738faa64de2a51:1811dd9bc71d9655"
+      ],
+      "expected": "SHARE volume, CNY amount, Decimal values, factor applied once",
+      "instrument_id": "XSHE:159915",
+      "observed": "4 rows exact",
+      "status": "PASS",
+      "subtype": "BROAD_BASED_EQUITY"
+    },
+    {
+      "check_id": "CALENDAR",
+      "evidence_ids": [
+        "chstockdata:trading_calendar:ecbe20b795f918d4:228b4c2106fd59f7"
+      ],
+      "expected": "calendar covers every bar session and marks closed days explicitly",
+      "instrument_id": "XSHE:159915",
+      "observed": "8 days explicit",
+      "status": "PASS",
+      "subtype": "BROAD_BASED_EQUITY"
+    },
+    {
+      "check_id": "TRADABILITY",
+      "evidence_ids": [
+        "chstockdata:tradability:c4de1676e659e3d9:0b8353180fe0d8fd"
+      ],
+      "expected": "TRADABLE for both sides with explicit availability and provenance",
+      "instrument_id": "XSHE:159915",
+      "observed": "recorded: exchange suspension disclosure (159915)",
+      "status": "PASS",
+      "subtype": "BROAD_BASED_EQUITY"
+    },
+    {
+      "check_id": "ADJUSTMENT_ACTIONS",
+      "evidence_ids": [
+        "chstockdata:daily_bars:da738faa64de2a51:1811dd9bc71d9655",
+        "chstockdata:corporate_actions:e3f6406f8728802e:037283dc6e15484c"
+      ],
+      "expected": "RAW execution bars and separate per-share-normalized action facts",
+      "instrument_id": "XSHE:159915",
+      "observed": "4 RAW bars, 0 actions",
+      "status": "PASS",
+      "subtype": "BROAD_BASED_EQUITY"
+    },
+    {
+      "check_id": "FRESHNESS",
+      "evidence_ids": [
+        "chstockdata:daily_bars:da738faa64de2a51:1811dd9bc71d9655"
+      ],
+      "expected": "information-time freshness with an injected clock, never wall-clock",
+      "instrument_id": "XSHE:159915",
+      "observed": "latest=2026-09-11, retrieved=2026-09-15T16:30:00+08:00",
+      "status": "PASS",
+      "subtype": "BROAD_BASED_EQUITY"
+    },
+    {
+      "check_id": "PROVIDER_VERSION",
+      "evidence_ids": [],
+      "expected": "pinned provider release plus adapter version evidence",
+      "instrument_id": "XSHE:159915",
+      "observed": "0.3.0 pinned and reported",
+      "status": "PASS",
+      "subtype": "BROAD_BASED_EQUITY"
+    },
+    {
+      "check_id": "EDGE_EVENTS",
+      "evidence_ids": [
+        "chstockdata:tradability:71f00fe5314088a6:d13dba20c76ef4f9"
+      ],
+      "expected": "recorded edge events map to their declared tradability state",
+      "instrument_id": "XSHE:159915",
+      "observed": "EDGE-ETF-SUSPENSION-20260909=SUSPENDED",
+      "status": "PASS",
+      "subtype": "BROAD_BASED_EQUITY"
+    },
+    {
+      "check_id": "ROUTING",
+      "evidence_ids": [
+        "XSHG:518880:vendor-routing"
+      ],
+      "expected": "single load_vipdoc_daily call for 518880 with market=sh and rows",
+      "instrument_id": "XSHG:518880",
+      "observed": "calls=[('load_vipdoc_daily', '518880', '2026-09-08', '2026-09-11')], markets=['sh'], rows=4",
+      "status": "PASS",
+      "subtype": "GOLD"
+    },
+    {
+      "check_id": "OHLCV_PRE_CLOSE",
+      "evidence_ids": [
+        "chstockdata:daily_bars:d262b114a465962e:ac86c84395fb31ca"
+      ],
+      "expected": "positive OHLC, high/low consistency, and pre_close present (null is never converted to zero)",
+      "instrument_id": "XSHG:518880",
+      "observed": "4 bars verified",
+      "status": "PASS",
+      "subtype": "GOLD"
+    },
+    {
+      "check_id": "UNITS",
+      "evidence_ids": [
+        "chstockdata:daily_bars:d262b114a465962e:ac86c84395fb31ca"
+      ],
+      "expected": "SHARE volume, CNY amount, Decimal values, factor applied once",
+      "instrument_id": "XSHG:518880",
+      "observed": "4 rows exact",
+      "status": "PASS",
+      "subtype": "GOLD"
+    },
+    {
+      "check_id": "CALENDAR",
+      "evidence_ids": [
+        "chstockdata:trading_calendar:ccb560303d19508e:228b4c2106fd59f7"
+      ],
+      "expected": "calendar covers every bar session and marks closed days explicitly",
+      "instrument_id": "XSHG:518880",
+      "observed": "8 days explicit",
+      "status": "PASS",
+      "subtype": "GOLD"
+    },
+    {
+      "check_id": "TRADABILITY",
+      "evidence_ids": [
+        "chstockdata:tradability:045ceaf6ddda8f3d:f08cffdeb3c74215"
+      ],
+      "expected": "TRADABLE for both sides with explicit availability and provenance",
+      "instrument_id": "XSHG:518880",
+      "observed": "recorded: exchange suspension disclosure (518880)",
+      "status": "PASS",
+      "subtype": "GOLD"
+    },
+    {
+      "check_id": "ADJUSTMENT_ACTIONS",
+      "evidence_ids": [
+        "chstockdata:daily_bars:d262b114a465962e:ac86c84395fb31ca",
+        "chstockdata:corporate_actions:67dcf6313246844f:dccd8a18b69eaf8d"
+      ],
+      "expected": "RAW execution bars and separate per-share-normalized action facts",
+      "instrument_id": "XSHG:518880",
+      "observed": "4 RAW bars, 0 actions",
+      "status": "PASS",
+      "subtype": "GOLD"
+    },
+    {
+      "check_id": "FRESHNESS",
+      "evidence_ids": [
+        "chstockdata:daily_bars:d262b114a465962e:ac86c84395fb31ca"
+      ],
+      "expected": "information-time freshness with an injected clock, never wall-clock",
+      "instrument_id": "XSHG:518880",
+      "observed": "latest=2026-09-11, retrieved=2026-09-15T16:30:00+08:00",
+      "status": "PASS",
+      "subtype": "GOLD"
+    },
+    {
+      "check_id": "PROVIDER_VERSION",
+      "evidence_ids": [],
+      "expected": "pinned provider release plus adapter version evidence",
+      "instrument_id": "XSHG:518880",
+      "observed": "0.3.0 pinned and reported",
+      "status": "PASS",
+      "subtype": "GOLD"
+    },
+    {
+      "check_id": "ROUTING",
+      "evidence_ids": [
+        "XSHG:511010:vendor-routing"
+      ],
+      "expected": "single load_vipdoc_daily call for 511010 with market=sh and rows",
+      "instrument_id": "XSHG:511010",
+      "observed": "calls=[('load_vipdoc_daily', '511010', '2026-09-08', '2026-09-11')], markets=['sh'], rows=4",
+      "status": "PASS",
+      "subtype": "BOND"
+    },
+    {
+      "check_id": "OHLCV_PRE_CLOSE",
+      "evidence_ids": [
+        "chstockdata:daily_bars:4221b6f5fb2265a9:c499bca5090af28e"
+      ],
+      "expected": "positive OHLC, high/low consistency, and pre_close present (null is never converted to zero)",
+      "instrument_id": "XSHG:511010",
+      "observed": "4 bars verified",
+      "status": "PASS",
+      "subtype": "BOND"
+    },
+    {
+      "check_id": "UNITS",
+      "evidence_ids": [
+        "chstockdata:daily_bars:4221b6f5fb2265a9:c499bca5090af28e"
+      ],
+      "expected": "SHARE volume, CNY amount, Decimal values, factor applied once",
+      "instrument_id": "XSHG:511010",
+      "observed": "4 rows exact",
+      "status": "PASS",
+      "subtype": "BOND"
+    },
+    {
+      "check_id": "CALENDAR",
+      "evidence_ids": [
+        "chstockdata:trading_calendar:ccb560303d19508e:228b4c2106fd59f7"
+      ],
+      "expected": "calendar covers every bar session and marks closed days explicitly",
+      "instrument_id": "XSHG:511010",
+      "observed": "8 days explicit",
+      "status": "PASS",
+      "subtype": "BOND"
+    },
+    {
+      "check_id": "TRADABILITY",
+      "evidence_ids": [
+        "chstockdata:tradability:bbec1e14f4c05ecb:3d2212c5f7f0cf47"
+      ],
+      "expected": "TRADABLE for both sides with explicit availability and provenance",
+      "instrument_id": "XSHG:511010",
+      "observed": "recorded: exchange suspension disclosure (511010)",
+      "status": "PASS",
+      "subtype": "BOND"
+    },
+    {
+      "check_id": "ADJUSTMENT_ACTIONS",
+      "evidence_ids": [
+        "chstockdata:daily_bars:4221b6f5fb2265a9:c499bca5090af28e",
+        "chstockdata:corporate_actions:b003d7086dbf642e:3805f590b0f2b502"
+      ],
+      "expected": "RAW execution bars and separate per-share-normalized action facts",
+      "instrument_id": "XSHG:511010",
+      "observed": "4 RAW bars, 0 actions",
+      "status": "PASS",
+      "subtype": "BOND"
+    },
+    {
+      "check_id": "FRESHNESS",
+      "evidence_ids": [
+        "chstockdata:daily_bars:4221b6f5fb2265a9:c499bca5090af28e"
+      ],
+      "expected": "information-time freshness with an injected clock, never wall-clock",
+      "instrument_id": "XSHG:511010",
+      "observed": "latest=2026-09-11, retrieved=2026-09-15T16:30:00+08:00",
+      "status": "PASS",
+      "subtype": "BOND"
+    },
+    {
+      "check_id": "PROVIDER_VERSION",
+      "evidence_ids": [],
+      "expected": "pinned provider release plus adapter version evidence",
+      "instrument_id": "XSHG:511010",
+      "observed": "0.3.0 pinned and reported",
+      "status": "PASS",
+      "subtype": "BOND"
+    },
+    {
+      "check_id": "SCOPE_REJECTED",
+      "evidence_ids": [],
+      "expected": "fail closed with no approved capability scope",
+      "instrument_id": "XSHG:513100",
+      "observed": "cross-border/QDII is not an approved FundSubtype and has no approved Instrument Master profile",
+      "status": "REJECTED",
+      "subtype": "CROSS_BORDER_QDII"
+    },
+    {
+      "check_id": "SCOPE_REJECTED",
+      "evidence_ids": [],
+      "expected": "fail closed with no approved capability scope",
+      "instrument_id": "XSHG:511990",
+      "observed": "money-market is not an approved FundSubtype and has no approved Instrument Master profile",
+      "status": "REJECTED",
+      "subtype": "MONEY_MARKET"
+    },
+    {
+      "check_id": "SCOPE_REJECTED",
+      "evidence_ids": [],
+      "expected": "fail closed with no approved capability scope",
+      "instrument_id": "XSHE:159920",
+      "observed": "every other unverified ETF subtype remains unsupported and fails closed",
+      "status": "REJECTED",
+      "subtype": "OTHER_UNVERIFIED"
+    }
+  ],
+  "commands": [
+    "python -m pytest tests/qualification tests/parity -q",
+    "SIOS_CHSTOCKDATA_LIVE_QUALIFICATION=1 python -m pytest tests/qualification -q"
+  ],
+  "credentials_prerequisites": [
+    "offline gate: none; recorded fixtures only and no network access",
+    "live qualification: SIOS_CHSTOCKDATA_LIVE_QUALIFICATION=1 and the pinned chstockdata release installed with a local vipdoc tree; no secret values are recorded"
+  ],
+  "evaluation_scope": "OFFLINE_RECORDED",
+  "evaluation_session": "2026-09-11",
+  "excluded_scope": [
+    "cross-border/QDII, money-market, and every other unverified ETF subtype",
+    "licensed independent-engine parity samples are not embedded in this repository and remain a release-environment validation step"
+  ],
+  "generated_at": "2026-09-15T16:30:00+08:00",
+  "independent_evidence": [
+    {
+      "case_ids": [
+        "PARITY-A-SHARE-SELL-FEES-20230828",
+        "PARITY-A-SHARE-BUY-FEES-20230828",
+        "PARITY-ETF-ZERO-STAMP-TRANSFER",
+        "PARITY-PRICE-LIMIT-10PCT-A-SHARE",
+        "PARITY-PRICE-LIMIT-ETF-TICK",
+        "PARITY-PRICE-LIMIT-CHINEXT-20PCT",
+        "PARITY-SETTLEMENT-T-PLUS-ONE",
+        "PARITY-SETTLEMENT-GOLD-ETF-INTRADAY",
+        "PARITY-SETTLEMENT-BOND-ETF-INTRADAY",
+        "PARITY-PIT-UNKNOWN-BASIS",
+        "PARITY-EXECUTION-TICK-ROUNDING"
+      ],
+      "evidence_id": "PARITY-PUBLIC-RULES-2023",
+      "fixture": "tests/fixtures/parity/reference_cases.json",
+      "note": "Licensed independent engines (for example JoinQuant validation-only research access) are not embedded here and remain a release-environment parity step under their own data terms.",
+      "semantics": "hand-frozen public rule values compared against kernel computations with a declared zero tolerance",
+      "source": {
+        "accessed_on": "2026-09-17",
+        "authority": "MOF/STA + CSDC + SSE/SZSE trading rules",
+        "reference": "public regulation and exchange trading rules frozen by hand; validation-only comparison, no licensed data embedded",
+        "rights": "public regulations; no redistribution of licensed or vendored data"
+      }
+    }
+  ],
+  "matrix_version": "m0-etf-matrix-1",
+  "provider": {
+    "adapter_name": "chstockdata-provider",
+    "adapter_version": "0.1.0",
+    "name": "chstockdata",
+    "pinned_version": "0.3.0",
+    "version": "0.3.0"
+  },
+  "rejected_scope": [
+    {
+      "reason": "cross-border/QDII is not an approved FundSubtype and has no approved Instrument Master profile",
+      "representative": "XSHG:513100",
+      "scope": "CROSS_BORDER_QDII",
+      "status": "UNSUPPORTED"
+    },
+    {
+      "reason": "money-market is not an approved FundSubtype and has no approved Instrument Master profile",
+      "representative": "XSHG:511990",
+      "scope": "MONEY_MARKET",
+      "status": "UNSUPPORTED"
+    },
+    {
+      "reason": "every other unverified ETF subtype remains unsupported and fails closed",
+      "representative": "XSHE:159920",
+      "scope": "OTHER_UNVERIFIED",
+      "status": "UNSUPPORTED"
+    }
+  ],
+  "report_digest": "sha256:4943bf64685482a5cc1e380ae3553e5f140e36198c89286ec07d7e3be1c9aee3",
+  "report_schema_version": "m0-etf-qualification-report-1",
+  "tolerances": {
+    "calendar_alignment": "exact",
+    "fee_tax_rates": "exact",
+    "price_decimal_tolerance": "0",
+    "unit_conversion": "exact"
+  },
+  "window": {
+    "end": "2026-09-11",
+    "start": "2026-09-08"
+  }
+}

@@ -1,0 +1,23 @@
+...................                                                      [100%]
+=================================== PASSES ====================================
+=========================== short test summary info ===========================
+PASSED tests/test_suspension_source_semantics.py::test_historical_latest_events_cannot_prove_suspension_or_absence[rows0]
+PASSED tests/test_suspension_source_semantics.py::test_historical_latest_events_cannot_prove_suspension_or_absence[rows1]
+PASSED tests/test_suspension_source_semantics.py::test_historical_latest_events_cannot_prove_suspension_or_absence[rows2]
+PASSED tests/test_suspension_source_semantics.py::test_current_cached_response_cannot_be_reused_as_historical_state
+PASSED tests/test_suspension_source_semantics.py::test_future_event_does_not_block_current_trading
+PASSED tests/test_suspension_source_semantics.py::test_current_resumed_record_is_not_suspended
+PASSED tests/test_suspension_source_semantics.py::test_normal_empty_without_boolean_negative_is_unknown[None]
+PASSED tests/test_suspension_source_semantics.py::test_normal_empty_without_boolean_negative_is_unknown[false]
+PASSED tests/test_suspension_source_semantics.py::test_normal_empty_without_boolean_negative_is_unknown[0]
+PASSED tests/test_suspension_structured.py::test_matched_ticker_returns_successful_structured_snapshot
+PASSED tests/test_suspension_structured.py::test_absent_ticker_is_request_normal_empty_after_successful_provider
+PASSED tests/test_suspension_structured.py::test_snapshot_failures_are_provider_attempt_failures[<lambda>-failed_network]
+PASSED tests/test_suspension_structured.py::test_snapshot_failures_are_provider_attempt_failures[<lambda>-failed_structure]
+PASSED tests/test_suspension_structured.py::test_unrelated_malformed_row_does_not_fail_valid_ticker_request
+PASSED tests/test_suspension_structured.py::test_queried_malformed_row_is_request_structure_failure_only
+PASSED tests/test_suspension_structured.py::test_absent_ticker_ignores_unrelated_malformed_business_field
+PASSED tests/test_suspension_structured.py::test_full_page_without_snapshot_count_is_failed_structure
+PASSED tests/test_suspension_structured.py::test_same_date_cache_reuses_original_attempt_without_new_health
+PASSED tests/test_suspension_structured.py::test_health_identity_isolated_and_legacy_renderer_remains_compatible
+19 passed in 1.11s

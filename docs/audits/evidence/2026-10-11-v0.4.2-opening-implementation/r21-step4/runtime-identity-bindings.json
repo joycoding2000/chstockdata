@@ -1,0 +1,3274 @@
+{
+  "candidate_source_only_sha256": "5a5c9097abe4703d9bd709b55d824b7d41a954b89a1f053e6fd6385e7a18516c",
+  "prebuild_envelope_sha256": "3c3c28fd696c9e4f66149cd3cf386b645ba603c03736cb9fab31ab863474779c",
+  "wheel_sha256": "3fd4f0b7334e310851495b8b13d4c7c55d21cde719acf9e00ff880ccb822f42e",
+  "actual_imports": {
+    "chstockdata_version": "0.4.2",
+    "chstockdata_file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\profiles\\r21-qualified\\sios-candidate\\Lib\\site-packages\\chstockdata\\__init__.py",
+    "python": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\profiles\\r21-qualified\\sios-candidate\\Scripts\\python.exe",
+    "sys_path": [
+      "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification",
+      "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\evidence\\r21-step4",
+      "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\src",
+      "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python312.zip",
+      "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\DLLs",
+      "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\Lib",
+      "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python",
+      "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\profiles\\r21-qualified\\sios-candidate",
+      "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\profiles\\r21-qualified\\sios-candidate\\Lib\\site-packages"
+    ],
+    "versions": {
+      "pytest": "9.1.1",
+      "requests": "2.34.2",
+      "pandas": "3.0.6",
+      "mootdx": "0.11.7",
+      "tdxpy": "0.2.7",
+      "pypdf": "6.10.0"
+    },
+    "frozen_sios_commit": "84fd54fae0740bc06b1d250afa4578be29556956",
+    "candidate_artifact": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\dist\\r21-qualified\\chstockdata-0.4.2-py3-none-any.whl",
+    "wheel_sha256": "3fd4f0b7334e310851495b8b13d4c7c55d21cde719acf9e00ff880ccb822f42e",
+    "known_events_sha256": "a464e9fd2695f6cdb3a76c4ca87ce070702bec71fec504f496dfc2228044b95b",
+    "wrappers_sha256": "46db7d796c11056197b704f5bde12504f755d0b44225cf00595acfe20220ca77",
+    "opening_reader_sha256": "28c0a538832425f81227becf9bc965cc44faec0292ceac6a457727f4ac27e278"
+  },
+  "combined_installed_ch_plus_sios_source_sha256": "39233ab63b70c0fc5a6e8b15af2777b9a68a986b96e0c6910567382a4e02a542",
+  "live_run_code_commit_field_semantics": "source SHA256 supplied by public test harness, not a Git commit",
+  "full_actual_execution_payloads": [
+    {
+      "instrument_id": "XSHG:510300",
+      "capability": "SNAPSHOT_ENGINE_RAW_FILL_IDENTITY",
+      "started_at": "2026-10-12T21:45:30.897596+08:00",
+      "finished_at": "2026-10-12T21:45:31.010817+08:00",
+      "status": "PASS",
+      "result": {
+        "run_manifest": {
+          "manifest_schema_version": "m0-run-manifest-1",
+          "run_type": "BACKTEST",
+          "code_commit": "39233ab63b70c0fc5a6e8b15af2777b9a68a986b96e0c6910567382a4e02a542",
+          "dependency_lock_digest": "sha256:9bc869ba3b026528beeb2ec727fa76a6d60f1109bd3916f6394ad04b868939b4",
+          "data_snapshot_digest": "ecf356eff9cb48346975c73801efbece532d10c140dbdb335783bee3cb72c3c7",
+          "fee_config_digest": "sha256:7f8587ba31e98b142e83bbcab0457bd850ef807d4d8c1f4198477f00cfeefbb3",
+          "calendar_digest": "sha256:e31b801de740b584cf179719e77b262141464bf6b126645522cbebd2de18a0d8",
+          "execution_model_version": "m0-execution-1",
+          "rule_versions": [
+            [
+              "execution-mode",
+              "HISTORICAL_OPENING_R21"
+            ],
+            [
+              "execution-policy",
+              "R2.1"
+            ],
+            [
+              "execution-clock",
+              "Asia/Shanghai|09:15:00|09:30:00|15:30:00"
+            ]
+          ],
+          "metric_convention_digest": "sha256:fd309744c864198eeefecfce4580d1ac692e744efa2d82a567ac9e20a27c71ea",
+          "benchmark_identity": "NONE",
+          "random_seed": 0
+        },
+        "run_identity": "sha256:dcfe8e6fc6f73d5ba3ed3816c513e2e88ea1143f5e0cb3d81619ecd97d765141",
+        "snapshot_manifest": {
+          "snapshot_schema_version": "v3-historical-opening",
+          "snapshot_id": "ecf356eff9cb48346975c73801efbece532d10c140dbdb335783bee3cb72c3c7",
+          "created_at": "2026-10-12T21:45:30.965644+08:00",
+          "knowledge_cutoff": "2026-10-12T21:45:30.965644+08:00",
+          "provider_name": "chstockdata",
+          "provider_version": "0.4.2",
+          "adapter_version": "0.1.0",
+          "schemas": [
+            [
+              "corporate_action",
+              "v1"
+            ],
+            [
+              "daily_bar",
+              "v1"
+            ],
+            [
+              "historical_opening_evidence",
+              "historical-opening-evidence/1"
+            ],
+            [
+              "tradability_status",
+              "v1"
+            ],
+            [
+              "trading_session",
+              "v1"
+            ]
+          ],
+          "scope_instrument_ids": [
+            "XSHG:510300"
+          ],
+          "scope_start": "2026-09-08",
+          "scope_end": "2026-09-11",
+          "adjustment_policy": "RAW_WITH_POINT_IN_TIME_FACTORS",
+          "availability_policy": {
+            "allowed_bases": [
+              "EXCHANGE_RULE",
+              "UNKNOWN"
+            ],
+            "unknown_handling": "explicit"
+          },
+          "retrieved_at": "2026-10-12T21:45:30.965644+08:00",
+          "artifacts": [
+            {
+              "logical_partition": "corporate_action",
+              "checksum": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "row_count": 0
+            },
+            {
+              "logical_partition": "daily_bar",
+              "checksum": "93b98d71c973d85069bf9bf9e3849313b7e854d3d94ab74c6b52d1ce0c49cbc3",
+              "row_count": 4
+            },
+            {
+              "logical_partition": "historical_opening_evidence",
+              "checksum": "791bf7090cfb30c57db1760b28ba1da0ade686104d5a218350cff8b3a5957a67",
+              "row_count": 1
+            },
+            {
+              "logical_partition": "tradability_status",
+              "checksum": "2e9fbad57c4ac8d0026f4613e9e3b10a33e427b888f321d7b389b9f3b12f235c",
+              "row_count": 1
+            },
+            {
+              "logical_partition": "trading_session",
+              "checksum": "8290352a8034b8b46bd3a93e5d7ca6be0dea97fe52f98d180f89b3b77320e665",
+              "row_count": 7
+            }
+          ],
+          "quality_report_id": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+          "quality_status": "PASS",
+          "execution_policy": "R2.1",
+          "execution_clock": "Asia/Shanghai|09:15:00|09:30:00|15:30:00",
+          "execution_evidence_digest": "d5b281e4d5e7d55527e22c446e6c6355a1ad97ecbaf731f82aed256ee0dea2b4"
+        },
+        "plans": [
+          {
+            "instrument_id": {
+              "exchange": "XSHG",
+              "symbol": "510300"
+            },
+            "sleeve": "CORE",
+            "side": "BUY",
+            "order_quantity": 10800,
+            "target_weight": "0.50",
+            "current_weight": "0.000",
+            "target_id": "target:2026-09-10",
+            "target_revision": 1,
+            "decision_for_trade_date": "2026-09-10",
+            "sizing_reference_price": "4.617"
+          }
+        ],
+        "fills": [
+          {
+            "fill_id": "fill:order:2026-09-11:XSHG:510300",
+            "order_id": "order:2026-09-11:XSHG:510300",
+            "instrument_id": {
+              "exchange": "XSHG",
+              "symbol": "510300"
+            },
+            "side": "BUY",
+            "quantity": 10800,
+            "fill_price": "4.597",
+            "reference_open": "4.592",
+            "session_date": "2026-09-11",
+            "fees": {
+              "commission": {
+                "amount": "14.89",
+                "currency": "CNY"
+              },
+              "minimum_commission_adjustment": {
+                "amount": "0.00",
+                "currency": "CNY"
+              },
+              "stamp_tax": {
+                "amount": "0.00",
+                "currency": "CNY"
+              },
+              "transfer_fee": {
+                "amount": "0.00",
+                "currency": "CNY"
+              }
+            },
+            "source": "SIMULATED"
+          }
+        ],
+        "activation_orders": [
+          {
+            "order_id": "order:2026-09-11:XSHG:510300",
+            "instrument_id": {
+              "exchange": "XSHG",
+              "symbol": "510300"
+            },
+            "side": "BUY",
+            "planned_quantity": 10800,
+            "submitted_quantity": 10800,
+            "execution_session": "2026-09-11",
+            "sizing_reference_price_basis": "T_CLOSE",
+            "sizing_reference_price": "4.617",
+            "fill_price_model": "NEXT_SESSION_OPEN",
+            "target_id": "target:2026-09-10",
+            "target_revision": 1,
+            "decision_for_trade_date": "2026-09-10",
+            "status": "FILLED",
+            "reason_codes": [
+              "FILLED_AS_PLANNED"
+            ]
+          }
+        ],
+        "rejections": [],
+        "execution_at": "2026-09-11 09:30:00+08:00",
+        "raw_daily_open": "4.592",
+        "result_digest": "8c4673abcc956e56c2dd17828990fad887f1b4322b1a8ea4816e270477140734"
+      }
+    },
+    {
+      "instrument_id": "XSHE:159915",
+      "capability": "SNAPSHOT_ENGINE_RAW_FILL_IDENTITY",
+      "started_at": "2026-10-12T21:45:33.203257+08:00",
+      "finished_at": "2026-10-12T21:45:33.240063+08:00",
+      "status": "PASS",
+      "result": {
+        "run_manifest": {
+          "manifest_schema_version": "m0-run-manifest-1",
+          "run_type": "BACKTEST",
+          "code_commit": "39233ab63b70c0fc5a6e8b15af2777b9a68a986b96e0c6910567382a4e02a542",
+          "dependency_lock_digest": "sha256:9bc869ba3b026528beeb2ec727fa76a6d60f1109bd3916f6394ad04b868939b4",
+          "data_snapshot_digest": "b76febee2e0b70226d97dee76a5c6272dfeba11a23254a8bbcd19a2ce4968092",
+          "fee_config_digest": "sha256:7f8587ba31e98b142e83bbcab0457bd850ef807d4d8c1f4198477f00cfeefbb3",
+          "calendar_digest": "sha256:feb4f6d43a366ac96339e4d73b068ff9f601e6ecb02726e2f0ade95c9a0ea787",
+          "execution_model_version": "m0-execution-1",
+          "rule_versions": [
+            [
+              "execution-mode",
+              "HISTORICAL_OPENING_R21"
+            ],
+            [
+              "execution-policy",
+              "R2.1"
+            ],
+            [
+              "execution-clock",
+              "Asia/Shanghai|09:15:00|09:30:00|15:30:00"
+            ]
+          ],
+          "metric_convention_digest": "sha256:fd309744c864198eeefecfce4580d1ac692e744efa2d82a567ac9e20a27c71ea",
+          "benchmark_identity": "NONE",
+          "random_seed": 0
+        },
+        "run_identity": "sha256:390326276551868a28a148bfe4dc230669df687bc07bf69fc3cfdc44a0123da8",
+        "snapshot_manifest": {
+          "snapshot_schema_version": "v3-historical-opening",
+          "snapshot_id": "b76febee2e0b70226d97dee76a5c6272dfeba11a23254a8bbcd19a2ce4968092",
+          "created_at": "2026-10-12T21:45:33.203257+08:00",
+          "knowledge_cutoff": "2026-10-12T21:45:33.203257+08:00",
+          "provider_name": "chstockdata",
+          "provider_version": "0.4.2",
+          "adapter_version": "0.1.0",
+          "schemas": [
+            [
+              "corporate_action",
+              "v1"
+            ],
+            [
+              "daily_bar",
+              "v1"
+            ],
+            [
+              "historical_opening_evidence",
+              "historical-opening-evidence/1"
+            ],
+            [
+              "tradability_status",
+              "v1"
+            ],
+            [
+              "trading_session",
+              "v1"
+            ]
+          ],
+          "scope_instrument_ids": [
+            "XSHE:159915"
+          ],
+          "scope_start": "2026-09-08",
+          "scope_end": "2026-09-11",
+          "adjustment_policy": "RAW_WITH_POINT_IN_TIME_FACTORS",
+          "availability_policy": {
+            "allowed_bases": [
+              "EXCHANGE_RULE",
+              "UNKNOWN"
+            ],
+            "unknown_handling": "explicit"
+          },
+          "retrieved_at": "2026-10-12T21:45:33.203257+08:00",
+          "artifacts": [
+            {
+              "logical_partition": "corporate_action",
+              "checksum": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "row_count": 0
+            },
+            {
+              "logical_partition": "daily_bar",
+              "checksum": "2680e96694aace254739c0fdc83d7ff175cfa1959b1d209e5cdd0f7edee36a83",
+              "row_count": 4
+            },
+            {
+              "logical_partition": "historical_opening_evidence",
+              "checksum": "813bdc981e955bffedd32ddf9346fada67b62f6272757e7139195209187565f0",
+              "row_count": 1
+            },
+            {
+              "logical_partition": "tradability_status",
+              "checksum": "cd029c906a15726e7601eb4868399b53cd06d13729fc8edf4c41ed158ba9819a",
+              "row_count": 1
+            },
+            {
+              "logical_partition": "trading_session",
+              "checksum": "b88c2086d32344ec1c6302bc95a27abb15a97dd7317621d41aae2d4ec0f8953b",
+              "row_count": 7
+            }
+          ],
+          "quality_report_id": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+          "quality_status": "PASS",
+          "execution_policy": "R2.1",
+          "execution_clock": "Asia/Shanghai|09:15:00|09:30:00|15:30:00",
+          "execution_evidence_digest": "2d0e9518e5dd844dd280ed391ae645fe4ea54e0c4db23b035614249e702a29dc"
+        },
+        "plans": [
+          {
+            "instrument_id": {
+              "exchange": "XSHE",
+              "symbol": "159915"
+            },
+            "sleeve": "CORE",
+            "side": "BUY",
+            "order_quantity": 14800,
+            "target_weight": "0.50",
+            "current_weight": "0.000",
+            "target_id": "target:2026-09-10",
+            "target_revision": 1,
+            "decision_for_trade_date": "2026-09-10",
+            "sizing_reference_price": "3.358"
+          }
+        ],
+        "fills": [
+          {
+            "fill_id": "fill:order:2026-09-11:XSHE:159915",
+            "order_id": "order:2026-09-11:XSHE:159915",
+            "instrument_id": {
+              "exchange": "XSHE",
+              "symbol": "159915"
+            },
+            "side": "BUY",
+            "quantity": 14800,
+            "fill_price": "3.327",
+            "reference_open": "3.323",
+            "session_date": "2026-09-11",
+            "fees": {
+              "commission": {
+                "amount": "14.77",
+                "currency": "CNY"
+              },
+              "minimum_commission_adjustment": {
+                "amount": "0.00",
+                "currency": "CNY"
+              },
+              "stamp_tax": {
+                "amount": "0.00",
+                "currency": "CNY"
+              },
+              "transfer_fee": {
+                "amount": "0.00",
+                "currency": "CNY"
+              }
+            },
+            "source": "SIMULATED"
+          }
+        ],
+        "activation_orders": [
+          {
+            "order_id": "order:2026-09-11:XSHE:159915",
+            "instrument_id": {
+              "exchange": "XSHE",
+              "symbol": "159915"
+            },
+            "side": "BUY",
+            "planned_quantity": 14800,
+            "submitted_quantity": 14800,
+            "execution_session": "2026-09-11",
+            "sizing_reference_price_basis": "T_CLOSE",
+            "sizing_reference_price": "3.358",
+            "fill_price_model": "NEXT_SESSION_OPEN",
+            "target_id": "target:2026-09-10",
+            "target_revision": 1,
+            "decision_for_trade_date": "2026-09-10",
+            "status": "FILLED",
+            "reason_codes": [
+              "FILLED_AS_PLANNED"
+            ]
+          }
+        ],
+        "rejections": [],
+        "execution_at": "2026-09-11 09:30:00+08:00",
+        "raw_daily_open": "3.323",
+        "result_digest": "494765fc86d5bd5439c2685d4fa119f2357ac294cb2847cd80ebb6b2fe65aa88"
+      }
+    },
+    {
+      "instrument_id": "XSHG:518880",
+      "capability": "SNAPSHOT_ENGINE_RAW_FILL_IDENTITY",
+      "started_at": "2026-10-12T21:45:34.499218+08:00",
+      "finished_at": "2026-10-12T21:45:34.538412+08:00",
+      "status": "PASS",
+      "result": {
+        "run_manifest": {
+          "manifest_schema_version": "m0-run-manifest-1",
+          "run_type": "BACKTEST",
+          "code_commit": "39233ab63b70c0fc5a6e8b15af2777b9a68a986b96e0c6910567382a4e02a542",
+          "dependency_lock_digest": "sha256:9bc869ba3b026528beeb2ec727fa76a6d60f1109bd3916f6394ad04b868939b4",
+          "data_snapshot_digest": "821251eba52d27f35d739758c0f1064545d27b24fb71df25cbc1acc2a37b2d66",
+          "fee_config_digest": "sha256:7f8587ba31e98b142e83bbcab0457bd850ef807d4d8c1f4198477f00cfeefbb3",
+          "calendar_digest": "sha256:e31b801de740b584cf179719e77b262141464bf6b126645522cbebd2de18a0d8",
+          "execution_model_version": "m0-execution-1",
+          "rule_versions": [
+            [
+              "execution-mode",
+              "HISTORICAL_OPENING_R21"
+            ],
+            [
+              "execution-policy",
+              "R2.1"
+            ],
+            [
+              "execution-clock",
+              "Asia/Shanghai|09:15:00|09:30:00|15:30:00"
+            ]
+          ],
+          "metric_convention_digest": "sha256:fd309744c864198eeefecfce4580d1ac692e744efa2d82a567ac9e20a27c71ea",
+          "benchmark_identity": "NONE",
+          "random_seed": 0
+        },
+        "run_identity": "sha256:b8e9f39b4128a1af4395b3f00accdc6e034136519c768d292721583ccc198a2f",
+        "snapshot_manifest": {
+          "snapshot_schema_version": "v3-historical-opening",
+          "snapshot_id": "821251eba52d27f35d739758c0f1064545d27b24fb71df25cbc1acc2a37b2d66",
+          "created_at": "2026-10-12T21:45:34.499218+08:00",
+          "knowledge_cutoff": "2026-10-12T21:45:34.499218+08:00",
+          "provider_name": "chstockdata",
+          "provider_version": "0.4.2",
+          "adapter_version": "0.1.0",
+          "schemas": [
+            [
+              "corporate_action",
+              "v1"
+            ],
+            [
+              "daily_bar",
+              "v1"
+            ],
+            [
+              "historical_opening_evidence",
+              "historical-opening-evidence/1"
+            ],
+            [
+              "tradability_status",
+              "v1"
+            ],
+            [
+              "trading_session",
+              "v1"
+            ]
+          ],
+          "scope_instrument_ids": [
+            "XSHG:518880"
+          ],
+          "scope_start": "2026-09-08",
+          "scope_end": "2026-09-11",
+          "adjustment_policy": "RAW_WITH_POINT_IN_TIME_FACTORS",
+          "availability_policy": {
+            "allowed_bases": [
+              "EXCHANGE_RULE",
+              "UNKNOWN"
+            ],
+            "unknown_handling": "explicit"
+          },
+          "retrieved_at": "2026-10-12T21:45:34.499218+08:00",
+          "artifacts": [
+            {
+              "logical_partition": "corporate_action",
+              "checksum": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "row_count": 0
+            },
+            {
+              "logical_partition": "daily_bar",
+              "checksum": "350f59011b0aa7c6ba0504842c8e384a7b0717b5d65d5f94a7f08d3ee7716ae3",
+              "row_count": 4
+            },
+            {
+              "logical_partition": "historical_opening_evidence",
+              "checksum": "02f782540e9b2c02b5c7ee2d4ecd4ab94b283c587af98dab1086650493057f55",
+              "row_count": 1
+            },
+            {
+              "logical_partition": "tradability_status",
+              "checksum": "37cafae3f8e26e06f23506bc4ef3b30799557c1bca3c6859924fe3ba9467d58a",
+              "row_count": 1
+            },
+            {
+              "logical_partition": "trading_session",
+              "checksum": "8290352a8034b8b46bd3a93e5d7ca6be0dea97fe52f98d180f89b3b77320e665",
+              "row_count": 7
+            }
+          ],
+          "quality_report_id": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+          "quality_status": "PASS",
+          "execution_policy": "R2.1",
+          "execution_clock": "Asia/Shanghai|09:15:00|09:30:00|15:30:00",
+          "execution_evidence_digest": "355486389be14c3b990938bb3838beb25cc7b59191f6c62d747d46bb9e0b60ed"
+        },
+        "plans": [
+          {
+            "instrument_id": {
+              "exchange": "XSHG",
+              "symbol": "518880"
+            },
+            "sleeve": "CORE",
+            "side": "BUY",
+            "order_quantity": 5500,
+            "target_weight": "0.50",
+            "current_weight": "0.000",
+            "target_id": "target:2026-09-10",
+            "target_revision": 1,
+            "decision_for_trade_date": "2026-09-10",
+            "sizing_reference_price": "9.083"
+          }
+        ],
+        "fills": [
+          {
+            "fill_id": "fill:order:2026-09-11:XSHG:518880",
+            "order_id": "order:2026-09-11:XSHG:518880",
+            "instrument_id": {
+              "exchange": "XSHG",
+              "symbol": "518880"
+            },
+            "side": "BUY",
+            "quantity": 5500,
+            "fill_price": "8.904",
+            "reference_open": "8.895",
+            "session_date": "2026-09-11",
+            "fees": {
+              "commission": {
+                "amount": "14.69",
+                "currency": "CNY"
+              },
+              "minimum_commission_adjustment": {
+                "amount": "0.00",
+                "currency": "CNY"
+              },
+              "stamp_tax": {
+                "amount": "0.00",
+                "currency": "CNY"
+              },
+              "transfer_fee": {
+                "amount": "0.00",
+                "currency": "CNY"
+              }
+            },
+            "source": "SIMULATED"
+          }
+        ],
+        "activation_orders": [
+          {
+            "order_id": "order:2026-09-11:XSHG:518880",
+            "instrument_id": {
+              "exchange": "XSHG",
+              "symbol": "518880"
+            },
+            "side": "BUY",
+            "planned_quantity": 5500,
+            "submitted_quantity": 5500,
+            "execution_session": "2026-09-11",
+            "sizing_reference_price_basis": "T_CLOSE",
+            "sizing_reference_price": "9.083",
+            "fill_price_model": "NEXT_SESSION_OPEN",
+            "target_id": "target:2026-09-10",
+            "target_revision": 1,
+            "decision_for_trade_date": "2026-09-10",
+            "status": "FILLED",
+            "reason_codes": [
+              "FILLED_AS_PLANNED"
+            ]
+          }
+        ],
+        "rejections": [],
+        "execution_at": "2026-09-11 09:30:00+08:00",
+        "raw_daily_open": "8.895",
+        "result_digest": "0a886cc08ccc76fcfd7a6c6f8ee8c6c2a9608ad4fde3044736cc446329c56cbd"
+      }
+    },
+    {
+      "instrument_id": "XSHG:511010",
+      "capability": "SNAPSHOT_ENGINE_RAW_FILL_IDENTITY",
+      "started_at": "2026-10-12T21:45:37.418922+08:00",
+      "finished_at": "2026-10-12T21:45:37.457482+08:00",
+      "status": "PASS",
+      "result": {
+        "run_manifest": {
+          "manifest_schema_version": "m0-run-manifest-1",
+          "run_type": "BACKTEST",
+          "code_commit": "39233ab63b70c0fc5a6e8b15af2777b9a68a986b96e0c6910567382a4e02a542",
+          "dependency_lock_digest": "sha256:9bc869ba3b026528beeb2ec727fa76a6d60f1109bd3916f6394ad04b868939b4",
+          "data_snapshot_digest": "851ec11d6f246cedd9ade51a74b620279808c9acda84e1c556c92362d6faa042",
+          "fee_config_digest": "sha256:7f8587ba31e98b142e83bbcab0457bd850ef807d4d8c1f4198477f00cfeefbb3",
+          "calendar_digest": "sha256:e31b801de740b584cf179719e77b262141464bf6b126645522cbebd2de18a0d8",
+          "execution_model_version": "m0-execution-1",
+          "rule_versions": [
+            [
+              "execution-mode",
+              "HISTORICAL_OPENING_R21"
+            ],
+            [
+              "execution-policy",
+              "R2.1"
+            ],
+            [
+              "execution-clock",
+              "Asia/Shanghai|09:15:00|09:30:00|15:30:00"
+            ]
+          ],
+          "metric_convention_digest": "sha256:fd309744c864198eeefecfce4580d1ac692e744efa2d82a567ac9e20a27c71ea",
+          "benchmark_identity": "NONE",
+          "random_seed": 0
+        },
+        "run_identity": "sha256:5e3b4755d78188c013018ed27f4f4c74bdd9a532caf485247a4c1708e608c54b",
+        "snapshot_manifest": {
+          "snapshot_schema_version": "v3-historical-opening",
+          "snapshot_id": "851ec11d6f246cedd9ade51a74b620279808c9acda84e1c556c92362d6faa042",
+          "created_at": "2026-10-12T21:45:37.418922+08:00",
+          "knowledge_cutoff": "2026-10-12T21:45:37.418922+08:00",
+          "provider_name": "chstockdata",
+          "provider_version": "0.4.2",
+          "adapter_version": "0.1.0",
+          "schemas": [
+            [
+              "corporate_action",
+              "v1"
+            ],
+            [
+              "daily_bar",
+              "v1"
+            ],
+            [
+              "historical_opening_evidence",
+              "historical-opening-evidence/1"
+            ],
+            [
+              "tradability_status",
+              "v1"
+            ],
+            [
+              "trading_session",
+              "v1"
+            ]
+          ],
+          "scope_instrument_ids": [
+            "XSHG:511010"
+          ],
+          "scope_start": "2026-09-08",
+          "scope_end": "2026-09-11",
+          "adjustment_policy": "RAW_WITH_POINT_IN_TIME_FACTORS",
+          "availability_policy": {
+            "allowed_bases": [
+              "EXCHANGE_RULE",
+              "UNKNOWN"
+            ],
+            "unknown_handling": "explicit"
+          },
+          "retrieved_at": "2026-10-12T21:45:37.418922+08:00",
+          "artifacts": [
+            {
+              "logical_partition": "corporate_action",
+              "checksum": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "row_count": 0
+            },
+            {
+              "logical_partition": "daily_bar",
+              "checksum": "bc47ac5cef564e68f9db0628ba5987924977e798145f477a6993441a16f8a09b",
+              "row_count": 4
+            },
+            {
+              "logical_partition": "historical_opening_evidence",
+              "checksum": "f41f875d4b089ab6319371a57079f8b47b42e29173e866c5363e3c6ed407f315",
+              "row_count": 1
+            },
+            {
+              "logical_partition": "tradability_status",
+              "checksum": "9a0e4bb0cbec024d06d273ebc977d901612526500b7d81315cce5912f27fb57e",
+              "row_count": 1
+            },
+            {
+              "logical_partition": "trading_session",
+              "checksum": "8290352a8034b8b46bd3a93e5d7ca6be0dea97fe52f98d180f89b3b77320e665",
+              "row_count": 7
+            }
+          ],
+          "quality_report_id": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+          "quality_status": "PASS",
+          "execution_policy": "R2.1",
+          "execution_clock": "Asia/Shanghai|09:15:00|09:30:00|15:30:00",
+          "execution_evidence_digest": "966a488267aaa287c6b6100cba3a963bde2a7d67427b5495bb97d5b5cbbac6d3"
+        },
+        "plans": [
+          {
+            "instrument_id": {
+              "exchange": "XSHG",
+              "symbol": "511010"
+            },
+            "sleeve": "CORE",
+            "side": "BUY",
+            "order_quantity": 300,
+            "target_weight": "0.50",
+            "current_weight": "0.000",
+            "target_id": "target:2026-09-10",
+            "target_revision": 1,
+            "decision_for_trade_date": "2026-09-10",
+            "sizing_reference_price": "141.185"
+          }
+        ],
+        "fills": [
+          {
+            "fill_id": "fill:order:2026-09-11:XSHG:511010",
+            "order_id": "order:2026-09-11:XSHG:511010",
+            "instrument_id": {
+              "exchange": "XSHG",
+              "symbol": "511010"
+            },
+            "side": "BUY",
+            "quantity": 300,
+            "fill_price": "141.322",
+            "reference_open": "141.18",
+            "session_date": "2026-09-11",
+            "fees": {
+              "commission": {
+                "amount": "12.72",
+                "currency": "CNY"
+              },
+              "minimum_commission_adjustment": {
+                "amount": "0.00",
+                "currency": "CNY"
+              },
+              "stamp_tax": {
+                "amount": "0.00",
+                "currency": "CNY"
+              },
+              "transfer_fee": {
+                "amount": "0.00",
+                "currency": "CNY"
+              }
+            },
+            "source": "SIMULATED"
+          }
+        ],
+        "activation_orders": [
+          {
+            "order_id": "order:2026-09-11:XSHG:511010",
+            "instrument_id": {
+              "exchange": "XSHG",
+              "symbol": "511010"
+            },
+            "side": "BUY",
+            "planned_quantity": 300,
+            "submitted_quantity": 300,
+            "execution_session": "2026-09-11",
+            "sizing_reference_price_basis": "T_CLOSE",
+            "sizing_reference_price": "141.185",
+            "fill_price_model": "NEXT_SESSION_OPEN",
+            "target_id": "target:2026-09-10",
+            "target_revision": 1,
+            "decision_for_trade_date": "2026-09-10",
+            "status": "FILLED",
+            "reason_codes": [
+              "FILLED_AS_PLANNED"
+            ]
+          }
+        ],
+        "rejections": [],
+        "execution_at": "2026-09-11 09:30:00+08:00",
+        "raw_daily_open": "141.18",
+        "result_digest": "6d553da25617bf9732c32bbecf9e0f8ff8e4a606bdd9cfd884f9f00c87a99748"
+      }
+    },
+    {
+      "instrument_id": "XSHG:513100",
+      "capability": "CONTROL_ENGINE_NO_FILL_NO_RETRY",
+      "started_at": "2026-10-12T21:45:38.258063+08:00",
+      "finished_at": "2026-10-12T21:45:38.297731+08:00",
+      "status": "PASS",
+      "result": {
+        "run_manifest": {
+          "manifest_schema_version": "m0-run-manifest-1",
+          "run_type": "BACKTEST",
+          "code_commit": "39233ab63b70c0fc5a6e8b15af2777b9a68a986b96e0c6910567382a4e02a542",
+          "dependency_lock_digest": "sha256:9bc869ba3b026528beeb2ec727fa76a6d60f1109bd3916f6394ad04b868939b4",
+          "data_snapshot_digest": "f102a667f503edf8a9cb7df24f872466cd7a1fb0eb9463c1a826b633c0e58e2e",
+          "fee_config_digest": "sha256:7f8587ba31e98b142e83bbcab0457bd850ef807d4d8c1f4198477f00cfeefbb3",
+          "calendar_digest": "sha256:e31b801de740b584cf179719e77b262141464bf6b126645522cbebd2de18a0d8",
+          "execution_model_version": "m0-execution-1",
+          "rule_versions": [
+            [
+              "execution-mode",
+              "HISTORICAL_OPENING_R21"
+            ],
+            [
+              "execution-policy",
+              "R2.1"
+            ],
+            [
+              "execution-clock",
+              "Asia/Shanghai|09:15:00|09:30:00|15:30:00"
+            ]
+          ],
+          "metric_convention_digest": "sha256:fd309744c864198eeefecfce4580d1ac692e744efa2d82a567ac9e20a27c71ea",
+          "benchmark_identity": "NONE",
+          "random_seed": 0
+        },
+        "run_identity": "sha256:5316d4f4aa615883c8d55051d95781f180041fcc23f5a6aee43ddff7d87c7b0d",
+        "snapshot_manifest": {
+          "snapshot_schema_version": "v3-historical-opening",
+          "snapshot_id": "f102a667f503edf8a9cb7df24f872466cd7a1fb0eb9463c1a826b633c0e58e2e",
+          "created_at": "2026-10-12T21:45:38.258063+08:00",
+          "knowledge_cutoff": "2026-10-12T21:45:38.258063+08:00",
+          "provider_name": "chstockdata",
+          "provider_version": "0.4.2",
+          "adapter_version": "0.1.0",
+          "schemas": [
+            [
+              "corporate_action",
+              "v1"
+            ],
+            [
+              "daily_bar",
+              "v1"
+            ],
+            [
+              "historical_opening_evidence",
+              "historical-opening-evidence/1"
+            ],
+            [
+              "tradability_status",
+              "v1"
+            ],
+            [
+              "trading_session",
+              "v1"
+            ]
+          ],
+          "scope_instrument_ids": [
+            "XSHG:513100"
+          ],
+          "scope_start": "2026-09-08",
+          "scope_end": "2026-09-11",
+          "adjustment_policy": "RAW_WITH_POINT_IN_TIME_FACTORS",
+          "availability_policy": {
+            "allowed_bases": [
+              "EXCHANGE_RULE",
+              "UNKNOWN"
+            ],
+            "unknown_handling": "explicit"
+          },
+          "retrieved_at": "2026-10-12T21:45:38.258063+08:00",
+          "artifacts": [
+            {
+              "logical_partition": "corporate_action",
+              "checksum": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "row_count": 0
+            },
+            {
+              "logical_partition": "daily_bar",
+              "checksum": "4c8fb5836a26582bf946212bc20868104caf525d27105548025a36eadf4694a9",
+              "row_count": 4
+            },
+            {
+              "logical_partition": "historical_opening_evidence",
+              "checksum": "d3f2b17cee85d3267cab3095e5909ee60eab14f1a9fad44fde1a8c870136643e",
+              "row_count": 1
+            },
+            {
+              "logical_partition": "tradability_status",
+              "checksum": "daeae317c4e3f3b9f59563379a33752cf431b2aee6b44653be6c4c755571f888",
+              "row_count": 1
+            },
+            {
+              "logical_partition": "trading_session",
+              "checksum": "8290352a8034b8b46bd3a93e5d7ca6be0dea97fe52f98d180f89b3b77320e665",
+              "row_count": 7
+            }
+          ],
+          "quality_report_id": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+          "quality_status": "PASS",
+          "execution_policy": "R2.1",
+          "execution_clock": "Asia/Shanghai|09:15:00|09:30:00|15:30:00",
+          "execution_evidence_digest": "d39fbb6011a9507e5db003498affe5e8cfa6686d788407817d682533af38b5cd"
+        },
+        "plans": [
+          {
+            "instrument_id": {
+              "exchange": "XSHG",
+              "symbol": "513100"
+            },
+            "sleeve": "CORE",
+            "side": "BUY",
+            "order_quantity": 22500,
+            "target_weight": "0.50",
+            "current_weight": "0.000",
+            "target_id": "target:2026-09-10",
+            "target_revision": 1,
+            "decision_for_trade_date": "2026-09-10",
+            "sizing_reference_price": "2.219"
+          }
+        ],
+        "fills": [],
+        "activation_orders": [
+          {
+            "order_id": "order:2026-09-11:XSHG:513100",
+            "instrument_id": {
+              "exchange": "XSHG",
+              "symbol": "513100"
+            },
+            "side": "BUY",
+            "planned_quantity": 22500,
+            "submitted_quantity": null,
+            "execution_session": "2026-09-11",
+            "sizing_reference_price_basis": "T_CLOSE",
+            "sizing_reference_price": "2.219",
+            "fill_price_model": "NEXT_SESSION_OPEN",
+            "target_id": "target:2026-09-10",
+            "target_revision": 1,
+            "decision_for_trade_date": "2026-09-10",
+            "status": "REJECTED",
+            "reason_codes": [
+              "SUSPENDED"
+            ]
+          }
+        ],
+        "rejections": [
+          {
+            "rejection_id": "reject:order:2026-09-11:XSHG:513100",
+            "order_id": "order:2026-09-11:XSHG:513100",
+            "instrument_id": {
+              "exchange": "XSHG",
+              "symbol": "513100"
+            },
+            "side": "BUY",
+            "code": "SUSPENDED",
+            "message": "activation rejected XSHG:513100",
+            "session_date": "2026-09-11",
+            "observed": "status=UNKNOWN"
+          }
+        ],
+        "execution_at": "2026-09-11 09:30:00+08:00",
+        "raw_daily_open": "2.198",
+        "result_digest": "4339d86bac4b2186f996c5edfb3e026756f84e53e66b5fd6157c7f9dbb00b64f"
+      }
+    },
+    {
+      "instrument_id": "XSHE:159509",
+      "capability": "CONTROL_ENGINE_NO_FILL_NO_RETRY",
+      "started_at": "2026-10-12T21:45:40.371555+08:00",
+      "finished_at": "2026-10-12T21:45:40.410504+08:00",
+      "status": "PASS",
+      "result": {
+        "run_manifest": {
+          "manifest_schema_version": "m0-run-manifest-1",
+          "run_type": "BACKTEST",
+          "code_commit": "39233ab63b70c0fc5a6e8b15af2777b9a68a986b96e0c6910567382a4e02a542",
+          "dependency_lock_digest": "sha256:9bc869ba3b026528beeb2ec727fa76a6d60f1109bd3916f6394ad04b868939b4",
+          "data_snapshot_digest": "59c727b29aaef2612de4d9f7318a8e48169c0b104363326398e99034c0f8484d",
+          "fee_config_digest": "sha256:7f8587ba31e98b142e83bbcab0457bd850ef807d4d8c1f4198477f00cfeefbb3",
+          "calendar_digest": "sha256:feb4f6d43a366ac96339e4d73b068ff9f601e6ecb02726e2f0ade95c9a0ea787",
+          "execution_model_version": "m0-execution-1",
+          "rule_versions": [
+            [
+              "execution-mode",
+              "HISTORICAL_OPENING_R21"
+            ],
+            [
+              "execution-policy",
+              "R2.1"
+            ],
+            [
+              "execution-clock",
+              "Asia/Shanghai|09:15:00|09:30:00|15:30:00"
+            ]
+          ],
+          "metric_convention_digest": "sha256:fd309744c864198eeefecfce4580d1ac692e744efa2d82a567ac9e20a27c71ea",
+          "benchmark_identity": "NONE",
+          "random_seed": 0
+        },
+        "run_identity": "sha256:582866bc4dc251763b1061416238c17d5e9e5bd2ae5b92db7a789acfe99a8b77",
+        "snapshot_manifest": {
+          "snapshot_schema_version": "v3-historical-opening",
+          "snapshot_id": "59c727b29aaef2612de4d9f7318a8e48169c0b104363326398e99034c0f8484d",
+          "created_at": "2026-10-12T21:45:40.371555+08:00",
+          "knowledge_cutoff": "2026-10-12T21:45:40.371555+08:00",
+          "provider_name": "chstockdata",
+          "provider_version": "0.4.2",
+          "adapter_version": "0.1.0",
+          "schemas": [
+            [
+              "corporate_action",
+              "v1"
+            ],
+            [
+              "daily_bar",
+              "v1"
+            ],
+            [
+              "historical_opening_evidence",
+              "historical-opening-evidence/1"
+            ],
+            [
+              "tradability_status",
+              "v1"
+            ],
+            [
+              "trading_session",
+              "v1"
+            ]
+          ],
+          "scope_instrument_ids": [
+            "XSHE:159509"
+          ],
+          "scope_start": "2026-09-08",
+          "scope_end": "2026-09-11",
+          "adjustment_policy": "RAW_WITH_POINT_IN_TIME_FACTORS",
+          "availability_policy": {
+            "allowed_bases": [
+              "EXCHANGE_RULE",
+              "UNKNOWN"
+            ],
+            "unknown_handling": "explicit"
+          },
+          "retrieved_at": "2026-10-12T21:45:40.371555+08:00",
+          "artifacts": [
+            {
+              "logical_partition": "corporate_action",
+              "checksum": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "row_count": 0
+            },
+            {
+              "logical_partition": "daily_bar",
+              "checksum": "92dfdebfdee15198573b790c4dd1740cd21f9976427fcdf6baa7910796787beb",
+              "row_count": 4
+            },
+            {
+              "logical_partition": "historical_opening_evidence",
+              "checksum": "27ec1c626e2ee1e8e003b59eeab3edc0a9696d7f4c4ceed2822ec9a9977557f4",
+              "row_count": 1
+            },
+            {
+              "logical_partition": "tradability_status",
+              "checksum": "2c235dba86a10a8eb5b0f217eff7fcd6f575843c1f37b46e5daac8ec20c35658",
+              "row_count": 1
+            },
+            {
+              "logical_partition": "trading_session",
+              "checksum": "b88c2086d32344ec1c6302bc95a27abb15a97dd7317621d41aae2d4ec0f8953b",
+              "row_count": 7
+            }
+          ],
+          "quality_report_id": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+          "quality_status": "PASS",
+          "execution_policy": "R2.1",
+          "execution_clock": "Asia/Shanghai|09:15:00|09:30:00|15:30:00",
+          "execution_evidence_digest": "3a343b4a957dc816ec63b6c6019bcb3eff55b34fd0e7c85337cb92b6edc3f8db"
+        },
+        "plans": [
+          {
+            "instrument_id": {
+              "exchange": "XSHE",
+              "symbol": "159509"
+            },
+            "sleeve": "CORE",
+            "side": "BUY",
+            "order_quantity": 17500,
+            "target_weight": "0.50",
+            "current_weight": "0.000",
+            "target_id": "target:2026-09-10",
+            "target_revision": 1,
+            "decision_for_trade_date": "2026-09-10",
+            "sizing_reference_price": "2.841"
+          }
+        ],
+        "fills": [],
+        "activation_orders": [
+          {
+            "order_id": "order:2026-09-11:XSHE:159509",
+            "instrument_id": {
+              "exchange": "XSHE",
+              "symbol": "159509"
+            },
+            "side": "BUY",
+            "planned_quantity": 17500,
+            "submitted_quantity": null,
+            "execution_session": "2026-09-11",
+            "sizing_reference_price_basis": "T_CLOSE",
+            "sizing_reference_price": "2.841",
+            "fill_price_model": "NEXT_SESSION_OPEN",
+            "target_id": "target:2026-09-10",
+            "target_revision": 1,
+            "decision_for_trade_date": "2026-09-10",
+            "status": "REJECTED",
+            "reason_codes": [
+              "SUSPENDED"
+            ]
+          }
+        ],
+        "rejections": [
+          {
+            "rejection_id": "reject:order:2026-09-11:XSHE:159509",
+            "order_id": "order:2026-09-11:XSHE:159509",
+            "instrument_id": {
+              "exchange": "XSHE",
+              "symbol": "159509"
+            },
+            "side": "BUY",
+            "code": "SUSPENDED",
+            "message": "activation rejected XSHE:159509",
+            "session_date": "2026-09-11",
+            "observed": "status=UNKNOWN"
+          }
+        ],
+        "execution_at": "2026-09-11 09:30:00+08:00",
+        "raw_daily_open": "2.812",
+        "result_digest": "b721fc51005ab9df2ffc8b2051fb894925480ee191076752af82eb464be3cfc6"
+      }
+    }
+  ],
+  "source_stable": true,
+  "qualification_contract_stable": true,
+  "raw_calls": [
+    {
+      "index": 1,
+      "kind": "load_vipdoc_daily",
+      "request": {
+        "args": [
+          "510300",
+          "2026-09-08",
+          "2026-09-11"
+        ],
+        "kwargs": {
+          "market": "sh"
+        }
+      },
+      "started_at": "2026-10-12T13:45:26.406226+00:00",
+      "outcome": "returned",
+      "raw_path": "raw/001-load_vipdoc_daily.json",
+      "raw_sha256": "2286163fcb8acde35288fdfabf339c1cc518b5a99a3cc3744bbffd2a60388a7a",
+      "raw_bytes": 726,
+      "finished_at": "2026-10-12T13:45:26.445313+00:00"
+    },
+    {
+      "index": 2,
+      "kind": "load_vipdoc_daily",
+      "request": {
+        "args": [
+          "159915",
+          "2026-09-08",
+          "2026-09-11"
+        ],
+        "kwargs": {
+          "market": "sz"
+        }
+      },
+      "started_at": "2026-10-12T13:45:26.447313+00:00",
+      "outcome": "returned",
+      "raw_path": "raw/002-load_vipdoc_daily.json",
+      "raw_sha256": "9c9040e315b21b45b8871a31d02bede8329c09f591ef0f24b6fe414993711d4b",
+      "raw_bytes": 730,
+      "finished_at": "2026-10-12T13:45:26.481867+00:00"
+    },
+    {
+      "index": 3,
+      "kind": "load_vipdoc_daily",
+      "request": {
+        "args": [
+          "518880",
+          "2026-09-08",
+          "2026-09-11"
+        ],
+        "kwargs": {
+          "market": "sh"
+        }
+      },
+      "started_at": "2026-10-12T13:45:26.483875+00:00",
+      "outcome": "returned",
+      "raw_path": "raw/003-load_vipdoc_daily.json",
+      "raw_sha256": "006815b2e02e6db4d7479a81cdaf25104d3d2a75fae667b95b973ef275601fb4",
+      "raw_bytes": 725,
+      "finished_at": "2026-10-12T13:45:26.514859+00:00"
+    },
+    {
+      "index": 4,
+      "kind": "load_vipdoc_daily",
+      "request": {
+        "args": [
+          "511010",
+          "2026-09-08",
+          "2026-09-11"
+        ],
+        "kwargs": {
+          "market": "sh"
+        }
+      },
+      "started_at": "2026-10-12T13:45:26.517038+00:00",
+      "outcome": "returned",
+      "raw_path": "raw/004-load_vipdoc_daily.json",
+      "raw_sha256": "e588a1a8a288d2489dbe3b521c91e922d56593cb92515f11e5183c4169d4b0d8",
+      "raw_bytes": 759,
+      "finished_at": "2026-10-12T13:45:26.549420+00:00"
+    },
+    {
+      "index": 5,
+      "kind": "load_vipdoc_daily",
+      "request": {
+        "args": [
+          "510300",
+          "2026-09-08",
+          "2026-09-11"
+        ],
+        "kwargs": {
+          "market": "sh"
+        }
+      },
+      "started_at": "2026-10-12T13:45:26.560608+00:00",
+      "outcome": "returned",
+      "raw_path": "raw/005-load_vipdoc_daily.json",
+      "raw_sha256": "2286163fcb8acde35288fdfabf339c1cc518b5a99a3cc3744bbffd2a60388a7a",
+      "raw_bytes": 726,
+      "finished_at": "2026-10-12T13:45:26.595316+00:00"
+    },
+    {
+      "index": 6,
+      "kind": "load_trading_calendar",
+      "request": {
+        "args": [],
+        "kwargs": {}
+      },
+      "started_at": "2026-10-12T13:45:26.596314+00:00",
+      "outcome": "returned",
+      "raw_path": "raw/006-load_trading_calendar.json",
+      "raw_sha256": "35310b49211a35713ef47ebb93cfe8182d164c441611dc0e82570164fee94f67",
+      "raw_bytes": 28181,
+      "finished_at": "2026-10-12T13:45:27.029504+00:00"
+    },
+    {
+      "index": 7,
+      "kind": "legacy-source",
+      "request": {
+        "source_id": "sina",
+        "operation": "http_get",
+        "attempt_no": 1,
+        "fallback_from": "trading_calendar"
+      },
+      "started_at": "2026-10-12T13:45:26.697318+00:00",
+      "outcome": "returned",
+      "raw_path": "raw/007-legacy-source.json",
+      "raw_sha256": "7f45c07d726dd6981b034ed114dd9bc586d47e255ae41148564f3f4e392d1e1d",
+      "raw_bytes": 27,
+      "finished_at": "2026-10-12T13:45:27.019981+00:00"
+    },
+    {
+      "index": 8,
+      "kind": "http",
+      "request": {
+        "method": "get",
+        "url": "http://money.finance.sina.com.cn/quotes_service/api/json_v2.php/CN_MarketData.getKLineData",
+        "params": {
+          "symbol": "sh000001",
+          "scale": "240",
+          "ma": "no",
+          "datalen": 2000
+        },
+        "timeout": 15,
+        "http_status": 200
+      },
+      "started_at": "2026-10-12T13:45:26.697318+00:00",
+      "outcome": "returned",
+      "raw_path": "raw/008-http.bin",
+      "raw_sha256": "f64088c5b72607b959832f97f9c6eb000ce16e20ddc7985caf265559c8b17f4e",
+      "raw_bytes": 231996,
+      "finished_at": "2026-10-12T13:45:27.018982+00:00"
+    },
+    {
+      "index": 9,
+      "kind": "load_vipdoc_daily",
+      "request": {
+        "args": [
+          "159915",
+          "2026-09-08",
+          "2026-09-11"
+        ],
+        "kwargs": {
+          "market": "sz"
+        }
+      },
+      "started_at": "2026-10-12T13:45:27.031371+00:00",
+      "outcome": "returned",
+      "raw_path": "raw/009-load_vipdoc_daily.json",
+      "raw_sha256": "9c9040e315b21b45b8871a31d02bede8329c09f591ef0f24b6fe414993711d4b",
+      "raw_bytes": 730,
+      "finished_at": "2026-10-12T13:45:27.065259+00:00"
+    },
+    {
+      "index": 10,
+      "kind": "load_trading_calendar",
+      "request": {
+        "args": [],
+        "kwargs": {}
+      },
+      "started_at": "2026-10-12T13:45:27.067297+00:00",
+      "outcome": "returned",
+      "raw_path": "raw/010-load_trading_calendar.json",
+      "raw_sha256": "35310b49211a35713ef47ebb93cfe8182d164c441611dc0e82570164fee94f67",
+      "raw_bytes": 28181,
+      "finished_at": "2026-10-12T13:45:27.069384+00:00"
+    },
+    {
+      "index": 11,
+      "kind": "load_vipdoc_daily",
+      "request": {
+        "args": [
+          "518880",
+          "2026-09-08",
+          "2026-09-11"
+        ],
+        "kwargs": {
+          "market": "sh"
+        }
+      },
+      "started_at": "2026-10-12T13:45:27.071300+00:00",
+      "outcome": "returned",
+      "raw_path": "raw/011-load_vipdoc_daily.json",
+      "raw_sha256": "006815b2e02e6db4d7479a81cdaf25104d3d2a75fae667b95b973ef275601fb4",
+      "raw_bytes": 725,
+      "finished_at": "2026-10-12T13:45:27.103648+00:00"
+    },
+    {
+      "index": 12,
+      "kind": "load_trading_calendar",
+      "request": {
+        "args": [],
+        "kwargs": {}
+      },
+      "started_at": "2026-10-12T13:45:27.104664+00:00",
+      "outcome": "returned",
+      "raw_path": "raw/012-load_trading_calendar.json",
+      "raw_sha256": "35310b49211a35713ef47ebb93cfe8182d164c441611dc0e82570164fee94f67",
+      "raw_bytes": 28181,
+      "finished_at": "2026-10-12T13:45:27.107649+00:00"
+    },
+    {
+      "index": 13,
+      "kind": "load_vipdoc_daily",
+      "request": {
+        "args": [
+          "511010",
+          "2026-09-08",
+          "2026-09-11"
+        ],
+        "kwargs": {
+          "market": "sh"
+        }
+      },
+      "started_at": "2026-10-12T13:45:27.109667+00:00",
+      "outcome": "returned",
+      "raw_path": "raw/013-load_vipdoc_daily.json",
+      "raw_sha256": "e588a1a8a288d2489dbe3b521c91e922d56593cb92515f11e5183c4169d4b0d8",
+      "raw_bytes": 759,
+      "finished_at": "2026-10-12T13:45:27.140370+00:00"
+    },
+    {
+      "index": 14,
+      "kind": "load_trading_calendar",
+      "request": {
+        "args": [],
+        "kwargs": {}
+      },
+      "started_at": "2026-10-12T13:45:27.142372+00:00",
+      "outcome": "returned",
+      "raw_path": "raw/014-load_trading_calendar.json",
+      "raw_sha256": "35310b49211a35713ef47ebb93cfe8182d164c441611dc0e82570164fee94f67",
+      "raw_bytes": 28181,
+      "finished_at": "2026-10-12T13:45:27.144370+00:00"
+    },
+    {
+      "index": 15,
+      "kind": "get_suspension_info",
+      "request": {
+        "args": [
+          "510300",
+          "2026-09-11"
+        ],
+        "kwargs": {}
+      },
+      "started_at": "2026-10-12T13:45:27.150137+00:00",
+      "outcome": "returned",
+      "raw_path": "raw/015-get_suspension_info.json",
+      "raw_sha256": "71847fd24de04ed76a219d57b9f0494b345f3bffe2351a8c2dac81955a777187",
+      "raw_bytes": 231,
+      "finished_at": "2026-10-12T13:45:27.485560+00:00"
+    },
+    {
+      "index": 16,
+      "kind": "legacy-source",
+      "request": {
+        "source_id": "eastmoney_datacenter",
+        "operation": "http_get",
+        "attempt_no": 1,
+        "fallback_from": null
+      },
+      "started_at": "2026-10-12T13:45:27.150137+00:00",
+      "outcome": "returned",
+      "raw_path": "raw/016-legacy-source.json",
+      "raw_sha256": "7f45c07d726dd6981b034ed114dd9bc586d47e255ae41148564f3f4e392d1e1d",
+      "raw_bytes": 27,
+      "finished_at": "2026-10-12T13:45:27.483367+00:00"
+    },
+    {
+      "index": 17,
+      "kind": "http",
+      "request": {
+        "method": "GET",
+        "url": "https://datacenter-web.eastmoney.com/api/data/v1/get",
+        "params": {
+          "reportName": "RPT_CUSTOM_SUSPEND_DATA_INTERFACE",
+          "columns": "ALL",
+          "filter": "(MARKET=\"全部\")(DATETIME='2026-09-11')",
+          "pageSize": 500,
+          "pageNumber": 1,
+          "sortColumns": "SUSPEND_START_DATE",
+          "sortTypes": "-1",
+          "source": "WEB",
+          "client": "WEB"
+        },
+        "timeout": 15,
+        "http_status": 200
+      },
+      "started_at": "2026-10-12T13:45:27.150137+00:00",
+      "outcome": "returned",
+      "raw_path": "raw/017-http.bin",
+      "raw_sha256": "87100f7666b1e6893c688b10181542e9ff2af25fdadefc1b767a5da27b8b6122",
+      "raw_bytes": 19081,
+      "finished_at": "2026-10-12T13:45:27.480862+00:00"
+    },
+    {
+      "index": 18,
+      "kind": "fetch_historical_opening_evidence",
+      "request": {
+        "args": [
+          "510300",
+          "2026-09-11"
+        ],
+        "kwargs": {}
+      },
+      "started_at": "2026-10-12T13:45:27.486565+00:00",
+      "outcome": "returned",
+      "raw_path": "raw/018-fetch_historical_opening_evidence.json",
+      "raw_sha256": "bf4ad658b81cf0ecd4e4383a57217867f0b5283844f40017b0289ec07bd30d0d",
+      "raw_bytes": 10121,
+      "finished_at": "2026-10-12T13:45:28.792566+00:00"
+    },
+    {
+      "index": 19,
+      "kind": "opening-parser",
+      "request": {
+        "operation": "connect",
+        "server": [
+          "110.41.147.114",
+          7709
+        ]
+      },
+      "started_at": "2026-10-12T13:45:27.488574+00:00",
+      "outcome": "returned",
+      "raw_path": "raw/019-opening-parser.json",
+      "raw_sha256": "bc1c3df1510e821b13b111a20db4a660a0e7dea2aa9a0ce7f454e1cb8914aaf6",
+      "raw_bytes": 28,
+      "finished_at": "2026-10-12T13:45:28.016579+00:00"
+    },
+    {
+      "index": 20,
+      "kind": "opening-parser",
+      "request": {
+        "command": "0x0fb4",
+        "market": 1,
+        "code": "510300",
+        "date": 20260911
+      },
+      "started_at": "2026-10-12T13:45:28.017578+00:00",
+      "outcome": "returned",
+      "raw_path": "raw/020-opening-parser.json",
+      "raw_sha256": "bb2da5f5fb9abc0b5653a57b0ab62862516bbe0fb82a7fe69eb8b2eea64414ab",
+      "raw_bytes": 8018,
+      "finished_at": "2026-10-12T13:45:28.075143+00:00"
+    },
+    {
+      "index": 21,
+      "kind": "opening-parser",
+      "request": {
+        "command": "0x0fb5",
+        "market": 1,
+        "code": "510300",
+        "date": 20260911,
+        "start": 0,
+        "count": 800
+      },
+      "started_at": "2026-10-12T13:45:28.077161+00:00",
+      "outcome": "returned",
+      "raw_path": "raw/021-opening-parser.json",
+      "raw_sha256": "e46ec85040753191136428a392b8a5675828d1ac3149c211988df408599217fb",
+      "raw_bytes": 50474,
+      "finished_at": "2026-10-12T13:45:28.171009+00:00"
+    },
+    {
+      "index": 22,
+      "kind": "opening-parser",
+      "request": {
+        "command": "0x0fb5",
+        "market": 1,
+        "code": "510300",
+        "date": 20260911,
+        "start": 800,
+        "count": 800
+      },
+      "started_at": "2026-10-12T13:45:28.178155+00:00",
+      "outcome": "returned",
+      "raw_path": "raw/022-opening-parser.json",
+      "raw_sha256": "4d4cf7d41485497b8fa01b8f1532991778fcbc36612f312be9c263ce082453d3",
+      "raw_bytes": 50531,
+      "finished_at": "2026-10-12T13:45:28.241831+00:00"
+    },
+    {
+      "index": 23,
+      "kind": "opening-parser",
+      "request": {
+        "command": "0x0fb5",
+        "market": 1,
+        "code": "510300",
+        "date": 20260911,
+        "start": 1600,
+        "count": 800
+      },
+      "started_at": "2026-10-12T13:45:28.250108+00:00",
+      "outcome": "returned",
+      "raw_path": "raw/023-opening-parser.json",
+      "raw_sha256": "51b2b701e20ed82e2b117389fa3f24b2fdb91887ae5109a6d81d7ced1bc660a6",
+      "raw_bytes": 50396,
+      "finished_at": "2026-10-12T13:45:28.315944+00:00"
+    },
+    {
+      "index": 24,
+      "kind": "opening-parser",
+      "request": {
+        "command": "0x0fb5",
+        "market": 1,
+        "code": "510300",
+        "date": 20260911,
+        "start": 2400,
+        "count": 800
+      },
+      "started_at": "2026-10-12T13:45:28.322957+00:00",
+      "outcome": "returned",
+      "raw_path": "raw/024-opening-parser.json",
+      "raw_sha256": "5647ae3874d2fc492cbfbf14f5cf8b860745bdac17fa0ea574f16489a3f8d6b9",
+      "raw_bytes": 50314,
+      "finished_at": "2026-10-12T13:45:28.388113+00:00"
+    },
+    {
+      "index": 25,
+      "kind": "opening-parser",
+      "request": {
+        "command": "0x0fb5",
+        "market": 1,
+        "code": "510300",
+        "date": 20260911,
+        "start": 3200,
+        "count": 800
+      },
+      "started_at": "2026-10-12T13:45:28.395903+00:00",
+      "outcome": "returned",
+      "raw_path": "raw/025-opening-parser.json",
+      "raw_sha256": "2690fbbf27bb42d9814fe2eab6c6405cf5390252292826b88304b91b97695db1",
+      "raw_bytes": 50701,
+      "finished_at": "2026-10-12T13:45:28.459427+00:00"
+    },
+    {
+      "index": 26,
+      "kind": "opening-parser",
+      "request": {
+        "command": "0x0fb5",
+        "market": 1,
+        "code": "510300",
+        "date": 20260911,
+        "start": 4000,
+        "count": 800
+      },
+      "started_at": "2026-10-12T13:45:28.467427+00:00",
+      "outcome": "returned",
+      "raw_path": "raw/026-opening-parser.json",
+      "raw_sha256": "13804449f6353d46e09c4845424f1e7601c92012ede597b5ded00f8cabd6aa06",
+      "raw_bytes": 49167,
+      "finished_at": "2026-10-12T13:45:28.533347+00:00"
+    },
+    {
+      "index": 27,
+      "kind": "opening-parser",
+      "request": {
+        "method": "GET",
+        "url": "https://query.sse.com.cn/sseQuery/commonSoaQuery.do",
+        "params": {
+          "isPagination": "true",
+          "pageHelp.pageSize": 25,
+          "pageHelp.pageNo": 1,
+          "pageHelp.beginPage": 1,
+          "pageHelp.cacheSize": 1,
+          "pageHelp.endPage": 1,
+          "sqlId": "SSE_PL_JYTS_TFPXX_JJ",
+          "secCode": "510300",
+          "stopReason": "",
+          "order": "startStopDate|desc,secCode|asc",
+          "startDate": "20260911",
+          "endDate": "20260911"
+        },
+        "headers": {
+          "Referer": "https://www.sse.com.cn/disclosure/dealinstruc/suspension/fund/"
+        }
+      },
+      "started_at": "2026-10-12T13:45:28.542378+00:00",
+      "outcome": "returned",
+      "raw_path": "raw/027-opening-parser.bin",
+      "raw_sha256": "087735ac94e1b965c175ba5fb3af737546beb399219342c3a78cd40fd9d884a3",
+      "raw_bytes": 482,
+      "finished_at": "2026-10-12T13:45:28.786383+00:00"
+    },
+    {
+      "index": 28,
+      "kind": "http",
+      "request": {
+        "method": "GET",
+        "url": "https://query.sse.com.cn/sseQuery/commonSoaQuery.do",
+        "params": {
+          "isPagination": "true",
+          "pageHelp.pageSize": 25,
+          "pageHelp.pageNo": 1,
+          "pageHelp.beginPage": 1,
+          "pageHelp.cacheSize": 1,
+          "pageHelp.endPage": 1,
+          "sqlId": "SSE_PL_JYTS_TFPXX_JJ",
+          "secCode": "510300",
+          "stopReason": "",
+          "order": "startStopDate|desc,secCode|asc",
+          "startDate": "20260911",
+          "endDate": "20260911"
+        },
+        "timeout": [
+          4,
+          8
+        ],
+        "http_status": 200
+      },
+      "started_at": "2026-10-12T13:45:28.542378+00:00",
+      "outcome": "returned",
+      "raw_path": "raw/028-http.bin",
+      "raw_sha256": "087735ac94e1b965c175ba5fb3af737546beb399219342c3a78cd40fd9d884a3",
+      "raw_bytes": 482,
+      "finished_at": "2026-10-12T13:45:28.784396+00:00"
+    },
+    {
+      "index": 29,
+      "kind": "get_fund_corporate_actions",
+      "request": {
+        "args": [
+          "510300",
+          "2026-09-08",
+          "2026-09-11"
+        ],
+        "kwargs": {}
+      },
+      "started_at": "2026-10-12T13:45:28.794574+00:00",
+      "outcome": "returned",
+      "raw_path": "raw/029-get_fund_corporate_actions.json",
+      "raw_sha256": "df119d20272af3ce1e393c689642d82adce5ac0ba38d5da708775a92656d8e6a",
+      "raw_bytes": 778,
+      "finished_at": "2026-10-12T13:45:30.838926+00:00"
+    },
+    {
+      "index": 30,
+      "kind": "legacy-source",
+      "request": {
+        "source_id": "eastmoney_news",
+        "operation": "http_get",
+        "attempt_no": 1,
+        "fallback_from": null
+      },
+      "started_at": "2026-10-12T13:45:28.795966+00:00",
+      "outcome": "returned",
+      "raw_path": "raw/030-legacy-source.json",
+      "raw_sha256": "7f45c07d726dd6981b034ed114dd9bc586d47e255ae41148564f3f4e392d1e1d",
+      "raw_bytes": 27,
+      "finished_at": "2026-10-12T13:45:29.280671+00:00"
+    },
+    {
+      "index": 31,
+      "kind": "http",
+      "request": {
+        "method": "GET",
+        "url": "https://fundf10.eastmoney.com/fhsp_510300.html",
+        "params": null,
+        "timeout": 15,
+        "http_status": 200
+      },
+      "started_at": "2026-10-12T13:45:28.795966+00:00",
+      "outcome": "returned",
+      "raw_path": "raw/031-http.bin",
+      "raw_sha256": "1898be0ec13b6e21b16902f92e6df2ab5f5dac54161e1fd31235191e484b3445",
+      "raw_bytes": 45719,
+      "finished_at": "2026-10-12T13:45:29.279652+00:00"
+    },
+    {
+      "index": 32,
+      "kind": "legacy-source",
+      "request": {
+        "source_id": "eastmoney_news",
+        "operation": "http_get",
+        "attempt_no": 1,
+        "fallback_from": null
+      },
+      "started_at": "2026-10-12T13:45:30.594770+00:00",
+      "outcome": "returned",
+      "raw_path": "raw/032-legacy-source.json",
+      "raw_sha256": "7f45c07d726dd6981b034ed114dd9bc586d47e255ae41148564f3f4e392d1e1d",
+      "raw_bytes": 27,
+      "finished_at": "2026-10-12T13:45:30.836925+00:00"
+    },
+    {
+      "index": 33,
+      "kind": "http",
+      "request": {
+        "method": "GET",
+        "url": "https://api.fund.eastmoney.com/f10/FHGG",
+        "params": {
+          "fundcode": "510300",
+          "pageSize": 100,
+          "pageIndex": 1
+        },
+        "timeout": 15,
+        "http_status": 200
+      },
+      "started_at": "2026-10-12T13:45:30.594770+00:00",
+      "outcome": "returned",
+      "raw_path": "raw/033-http.bin",
+      "raw_sha256": "3e6ba53878d0388771e829f5df5b18fb18012e167de0f104c44a1120873496d8",
+      "raw_bytes": 5187,
+      "finished_at": "2026-10-12T13:45:30.834771+00:00"
+    },
+    {
+      "index": 34,
+      "kind": "load_vipdoc_daily",
+      "request": {
+        "args": [
+          "510300",
+          "2026-09-08",
+          "2026-09-11"
+        ],
+        "kwargs": {
+          "market": "sh"
+        }
+      },
+      "started_at": "2026-10-12T13:45:30.840922+00:00",
+      "outcome": "returned",
+      "raw_path": "raw/034-load_vipdoc_daily.json",
+      "raw_sha256": "2286163fcb8acde35288fdfabf339c1cc518b5a99a3cc3744bbffd2a60388a7a",
+      "raw_bytes": 726,
+      "finished_at": "2026-10-12T13:45:30.874806+00:00"
+    },
+    {
+      "index": 35,
+      "kind": "load_trading_calendar",
+      "request": {
+        "args": [],
+        "kwargs": {}
+      },
+      "started_at": "2026-10-12T13:45:30.877792+00:00",
+      "outcome": "returned",
+      "raw_path": "raw/035-load_trading_calendar.json",
+      "raw_sha256": "35310b49211a35713ef47ebb93cfe8182d164c441611dc0e82570164fee94f67",
+      "raw_bytes": 28181,
+      "finished_at": "2026-10-12T13:45:30.880802+00:00"
+    },
+    {
+      "index": 36,
+      "kind": "get_suspension_info",
+      "request": {
+        "args": [
+          "159915",
+          "2026-09-11"
+        ],
+        "kwargs": {}
+      },
+      "started_at": "2026-10-12T13:45:31.011833+00:00",
+      "outcome": "returned",
+      "raw_path": "raw/036-get_suspension_info.json",
+      "raw_sha256": "71847fd24de04ed76a219d57b9f0494b345f3bffe2351a8c2dac81955a777187",
+      "raw_bytes": 231,
+      "finished_at": "2026-10-12T13:45:31.012409+00:00"
+    },
+    {
+      "index": 37,
+      "kind": "fetch_historical_opening_evidence",
+      "request": {
+        "args": [
+          "159915",
+          "2026-09-11"
+        ],
+        "kwargs": {}
+      },
+      "started_at": "2026-10-12T13:45:31.014427+00:00",
+      "outcome": "returned",
+      "raw_path": "raw/037-fetch_historical_opening_evidence.json",
+      "raw_sha256": "716089fb4ea710e4a6d6bea8f4dcf21ee273d2b92aeb418e15d6161e057a7edd",
+      "raw_bytes": 9855,
+      "finished_at": "2026-10-12T13:45:32.921380+00:00"
+    },
+    {
+      "index": 38,
+      "kind": "opening-parser",
+      "request": {
+        "operation": "connect",
+        "server": [
+          "110.41.147.114",
+          7709
+        ]
+      },
+      "started_at": "2026-10-12T13:45:31.016426+00:00",
+      "outcome": "returned",
+      "raw_path": "raw/038-opening-parser.json",
+      "raw_sha256": "bc1c3df1510e821b13b111a20db4a660a0e7dea2aa9a0ce7f454e1cb8914aaf6",
+      "raw_bytes": 28,
+      "finished_at": "2026-10-12T13:45:31.210603+00:00"
+    },
+    {
+      "index": 39,
+      "kind": "opening-parser",
+      "request": {
+        "command": "0x0fb4",
+        "market": 0,
+        "code": "159915",
+        "date": 20260911
+      },
+      "started_at": "2026-10-12T13:45:31.213142+00:00",
+      "outcome": "returned",
+      "raw_path": "raw/039-opening-parser.json",
+      "raw_sha256": "186b55d26cef5ad45c4422e25b2abba0e060f2e558f86ea95402b33ab8e0e34b",
+      "raw_bytes": 8086,
+      "finished_at": "2026-10-12T13:45:31.263797+00:00"
+    },
+    {
+      "index": 40,
+      "kind": "opening-parser",
+      "request": {
+        "command": "0x0fb5",
+        "market": 0,
+        "code": "159915",
+        "date": 20260911,
+        "start": 0,
+        "count": 800
+      },
+      "started_at": "2026-10-12T13:45:31.266797+00:00",
+      "outcome": "returned",
+      "raw_path": "raw/040-opening-parser.json",
+      "raw_sha256": "a766a9ee27702338a03e035d0ebda1de940a2f3dd2c9e60cd8ad2a9409f94dc0",
+      "raw_bytes": 50536,
+      "finished_at": "2026-10-12T13:45:31.323452+00:00"
+    },
+    {
+      "index": 41,
+      "kind": "opening-parser",
+      "request": {
+        "command": "0x0fb5",
+        "market": 0,
+        "code": "159915",
+        "date": 20260911,
+        "start": 800,
+        "count": 800
+      },
+      "started_at": "2026-10-12T13:45:31.331706+00:00",
+      "outcome": "returned",
+      "raw_path": "raw/041-opening-parser.json",
+      "raw_sha256": "ae17949a9e3a3183cac2b6a0c61153face4d6090efe257e5cde268c3564c6e34",
+      "raw_bytes": 50847,
+      "finished_at": "2026-10-12T13:45:31.386269+00:00"
+    },
+    {
+      "index": 42,
+      "kind": "opening-parser",
+      "request": {
+        "command": "0x0fb5",
+        "market": 0,
+        "code": "159915",
+        "date": 20260911,
+        "start": 1600,
+        "count": 800
+      },
+      "started_at": "2026-10-12T13:45:31.394280+00:00",
+      "outcome": "returned",
+      "raw_path": "raw/042-opening-parser.json",
+      "raw_sha256": "3800b06017720af2a7f5739dd0e70d1e93509ced20e74512adc88a5f8cf85161",
+      "raw_bytes": 50702,
+      "finished_at": "2026-10-12T13:45:31.449426+00:00"
+    },
+    {
+      "index": 43,
+      "kind": "opening-parser",
+      "request": {
+        "command": "0x0fb5",
+        "market": 0,
+        "code": "159915",
+        "date": 20260911,
+        "start": 2400,
+        "count": 800
+      },
+      "started_at": "2026-10-12T13:45:31.457565+00:00",
+      "outcome": "returned",
+      "raw_path": "raw/043-opening-parser.json",
+      "raw_sha256": "f185c14cbf8dd309e53387e1713f254fb0de3f15b94ffdd3f64c02bb4b5e3388",
+      "raw_bytes": 50777,
+      "finished_at": "2026-10-12T13:45:31.512666+00:00"
+    },
+    {
+      "index": 44,
+      "kind": "opening-parser",
+      "request": {
+        "command": "0x0fb5",
+        "market": 0,
+        "code": "159915",
+        "date": 20260911,
+        "start": 3200,
+        "count": 800
+      },
+      "started_at": "2026-10-12T13:45:31.519661+00:00",
+      "outcome": "returned",
+      "raw_path": "raw/044-opening-parser.json",
+      "raw_sha256": "1f3848b25afbf62ccefca8833ba9e3450507e9a0351bf431271118d9bbd789fb",
+      "raw_bytes": 51081,
+      "finished_at": "2026-10-12T13:45:31.576876+00:00"
+    },
+    {
+      "index": 45,
+      "kind": "opening-parser",
+      "request": {
+        "command": "0x0fb5",
+        "market": 0,
+        "code": "159915",
+        "date": 20260911,
+        "start": 4000,
+        "count": 800
+      },
+      "started_at": "2026-10-12T13:45:31.584915+00:00",
+      "outcome": "returned",
+      "raw_path": "raw/045-opening-parser.json",
+      "raw_sha256": "874c8b0971ca7a32df72e56cb5c1a6df2dc9ecdd0278e7cc02d22b218d72f7b6",
+      "raw_bytes": 49706,
+      "finished_at": "2026-10-12T13:45:31.627597+00:00"
+    },
+    {
+      "index": 46,
+      "kind": "opening-parser",
+      "request": {
+        "method": "POST",
+        "url": "https://www.szse.cn/api/disc/announcement/annList",
+        "json": {
+          "stock": [
+            "159915"
+          ],
+          "channelCode": [
+            "fundinfoNotice_disc"
+          ],
+          "seDate": [
+            "2026-09-11",
+            "2026-09-11"
+          ],
+          "pageSize": 25,
+          "pageNum": 1
+        }
+      },
+      "started_at": "2026-10-12T13:45:31.643318+00:00",
+      "outcome": "returned",
+      "raw_path": "raw/046-opening-parser.bin",
+      "raw_sha256": "623a2b4aa0de75d0685242ca41fe14e9eadb493315e17194845035fa58c6ef83",
+      "raw_bytes": 29,
+      "finished_at": "2026-10-12T13:45:32.916392+00:00"
+    },
+    {
+      "index": 47,
+      "kind": "http",
+      "request": {
+        "method": "POST",
+        "url": "https://www.szse.cn/api/disc/announcement/annList",
+        "json": {
+          "stock": [
+            "159915"
+          ],
+          "channelCode": [
+            "fundinfoNotice_disc"
+          ],
+          "seDate": [
+            "2026-09-11",
+            "2026-09-11"
+          ],
+          "pageSize": 25,
+          "pageNum": 1
+        },
+        "data": null,
+        "timeout": [
+          4,
+          8
+        ],
+        "http_status": 200
+      },
+      "started_at": "2026-10-12T13:45:31.643318+00:00",
+      "outcome": "returned",
+      "raw_path": "raw/047-http.bin",
+      "raw_sha256": "623a2b4aa0de75d0685242ca41fe14e9eadb493315e17194845035fa58c6ef83",
+      "raw_bytes": 29,
+      "finished_at": "2026-10-12T13:45:32.914390+00:00"
+    },
+    {
+      "index": 48,
+      "kind": "get_fund_corporate_actions",
+      "request": {
+        "args": [
+          "159915",
+          "2026-09-08",
+          "2026-09-11"
+        ],
+        "kwargs": {}
+      },
+      "started_at": "2026-10-12T13:45:32.924384+00:00",
+      "outcome": "returned",
+      "raw_path": "raw/048-get_fund_corporate_actions.json",
+      "raw_sha256": "3f1fce3a92362ce2724c931c597803c027bc9cf483749857997a4c38857359ec",
+      "raw_bytes": 658,
+      "finished_at": "2026-10-12T13:45:33.158324+00:00"
+    },
+    {
+      "index": 49,
+      "kind": "legacy-source",
+      "request": {
+        "source_id": "eastmoney_news",
+        "operation": "http_get",
+        "attempt_no": 1,
+        "fallback_from": null
+      },
+      "started_at": "2026-10-12T13:45:32.924384+00:00",
+      "outcome": "returned",
+      "raw_path": "raw/049-legacy-source.json",
+      "raw_sha256": "7f45c07d726dd6981b034ed114dd9bc586d47e255ae41148564f3f4e392d1e1d",
+      "raw_bytes": 27,
+      "finished_at": "2026-10-12T13:45:33.149212+00:00"
+    },
+    {
+      "index": 50,
+      "kind": "http",
+      "request": {
+        "method": "GET",
+        "url": "https://fundf10.eastmoney.com/fhsp_159915.html",
+        "params": null,
+        "timeout": 15,
+        "http_status": 200
+      },
+      "started_at": "2026-10-12T13:45:32.924384+00:00",
+      "outcome": "returned",
+      "raw_path": "raw/050-http.bin",
+      "raw_sha256": "ccf1666b9c0920254c9f5b4f827acd0527eff00710e18e538b366c4d7267d24e",
+      "raw_bytes": 37496,
+      "finished_at": "2026-10-12T13:45:33.147220+00:00"
+    },
+    {
+      "index": 51,
+      "kind": "load_vipdoc_daily",
+      "request": {
+        "args": [
+          "159915",
+          "2026-09-08",
+          "2026-09-11"
+        ],
+        "kwargs": {
+          "market": "sz"
+        }
+      },
+      "started_at": "2026-10-12T13:45:33.159592+00:00",
+      "outcome": "returned",
+      "raw_path": "raw/051-load_vipdoc_daily.json",
+      "raw_sha256": "9c9040e315b21b45b8871a31d02bede8329c09f591ef0f24b6fe414993711d4b",
+      "raw_bytes": 730,
+      "finished_at": "2026-10-12T13:45:33.194066+00:00"
+    },
+    {
+      "index": 52,
+      "kind": "load_trading_calendar",
+      "request": {
+        "args": [],
+        "kwargs": {}
+      },
+      "started_at": "2026-10-12T13:45:33.196239+00:00",
+      "outcome": "returned",
+      "raw_path": "raw/052-load_trading_calendar.json",
+      "raw_sha256": "35310b49211a35713ef47ebb93cfe8182d164c441611dc0e82570164fee94f67",
+      "raw_bytes": 28181,
+      "finished_at": "2026-10-12T13:45:33.199245+00:00"
+    },
+    {
+      "index": 53,
+      "kind": "get_suspension_info",
+      "request": {
+        "args": [
+          "518880",
+          "2026-09-11"
+        ],
+        "kwargs": {}
+      },
+      "started_at": "2026-10-12T13:45:33.240063+00:00",
+      "outcome": "returned",
+      "raw_path": "raw/053-get_suspension_info.json",
+      "raw_sha256": "71847fd24de04ed76a219d57b9f0494b345f3bffe2351a8c2dac81955a777187",
+      "raw_bytes": 231,
+      "finished_at": "2026-10-12T13:45:33.241066+00:00"
+    },
+    {
+      "index": 54,
+      "kind": "fetch_historical_opening_evidence",
+      "request": {
+        "args": [
+          "518880",
+          "2026-09-11"
+        ],
+        "kwargs": {}
+      },
+      "started_at": "2026-10-12T13:45:33.243070+00:00",
+      "outcome": "returned",
+      "raw_path": "raw/054-fetch_historical_opening_evidence.json",
+      "raw_sha256": "ed86a2c50cb0ddcd3112dfe819cbcad1a3e37c877704664379a909f9ce00a168",
+      "raw_bytes": 10599,
+      "finished_at": "2026-10-12T13:45:34.197581+00:00"
+    },
+    {
+      "index": 55,
+      "kind": "opening-parser",
+      "request": {
+        "operation": "connect",
+        "server": [
+          "110.41.147.114",
+          7709
+        ]
+      },
+      "started_at": "2026-10-12T13:45:33.244069+00:00",
+      "outcome": "returned",
+      "raw_path": "raw/055-opening-parser.json",
+      "raw_sha256": "bc1c3df1510e821b13b111a20db4a660a0e7dea2aa9a0ce7f454e1cb8914aaf6",
+      "raw_bytes": 28,
+      "finished_at": "2026-10-12T13:45:33.450843+00:00"
+    },
+    {
+      "index": 56,
+      "kind": "opening-parser",
+      "request": {
+        "command": "0x0fb4",
+        "market": 1,
+        "code": "518880",
+        "date": 20260911
+      },
+      "started_at": "2026-10-12T13:45:33.452852+00:00",
+      "outcome": "returned",
+      "raw_path": "raw/056-opening-parser.json",
+      "raw_sha256": "c541387dd4627f7f4430b4b0ce1ced16faa2d0679fe87042e676839de9fc7179",
+      "raw_bytes": 7888,
+      "finished_at": "2026-10-12T13:45:33.502312+00:00"
+    },
+    {
+      "index": 57,
+      "kind": "opening-parser",
+      "request": {
+        "command": "0x0fb5",
+        "market": 1,
+        "code": "518880",
+        "date": 20260911,
+        "start": 0,
+        "count": 800
+      },
+      "started_at": "2026-10-12T13:45:33.505321+00:00",
+      "outcome": "returned",
+      "raw_path": "raw/057-opening-parser.json",
+      "raw_sha256": "43ea72c79ec4eb8f1c26d77883453f5adb1a375753b9cdcba96334e10614ef73",
+      "raw_bytes": 50434,
+      "finished_at": "2026-10-12T13:45:33.563047+00:00"
+    },
+    {
+      "index": 58,
+      "kind": "opening-parser",
+      "request": {
+        "command": "0x0fb5",
+        "market": 1,
+        "code": "518880",
+        "date": 20260911,
+        "start": 800,
+        "count": 800
+      },
+      "started_at": "2026-10-12T13:45:33.571223+00:00",
+      "outcome": "returned",
+      "raw_path": "raw/058-opening-parser.json",
+      "raw_sha256": "2d96fd72ad99095cdc904cb1cc3260f8ef6725ca3430d711fc02b85c8debd4e7",
+      "raw_bytes": 50580,
+      "finished_at": "2026-10-12T13:45:33.627913+00:00"
+    },
+    {
+      "index": 59,
+      "kind": "opening-parser",
+      "request": {
+        "command": "0x0fb5",
+        "market": 1,
+        "code": "518880",
+        "date": 20260911,
+        "start": 1600,
+        "count": 800
+      },
+      "started_at": "2026-10-12T13:45:33.637071+00:00",
+      "outcome": "returned",
+      "raw_path": "raw/059-opening-parser.json",
+      "raw_sha256": "06ab42babda826399c1510d901b538e4208d5bc1fb9b1a70e40e25e2149c41de",
+      "raw_bytes": 50468,
+      "finished_at": "2026-10-12T13:45:33.693781+00:00"
+    },
+    {
+      "index": 60,
+      "kind": "opening-parser",
+      "request": {
+        "command": "0x0fb5",
+        "market": 1,
+        "code": "518880",
+        "date": 20260911,
+        "start": 2400,
+        "count": 800
+      },
+      "started_at": "2026-10-12T13:45:33.702554+00:00",
+      "outcome": "returned",
+      "raw_path": "raw/060-opening-parser.json",
+      "raw_sha256": "127bb3850b8487a1a6eab98db031f07e23f93d602178913e4027dcdb3c382a4f",
+      "raw_bytes": 50435,
+      "finished_at": "2026-10-12T13:45:33.759981+00:00"
+    },
+    {
+      "index": 61,
+      "kind": "opening-parser",
+      "request": {
+        "command": "0x0fb5",
+        "market": 1,
+        "code": "518880",
+        "date": 20260911,
+        "start": 3200,
+        "count": 800
+      },
+      "started_at": "2026-10-12T13:45:33.768548+00:00",
+      "outcome": "returned",
+      "raw_path": "raw/061-opening-parser.json",
+      "raw_sha256": "11db903b874141bc5ae9ccc62abd7f6c116efe5e05ad78c14cdbc20ef51a4af6",
+      "raw_bytes": 50542,
+      "finished_at": "2026-10-12T13:45:33.825904+00:00"
+    },
+    {
+      "index": 62,
+      "kind": "opening-parser",
+      "request": {
+        "command": "0x0fb5",
+        "market": 1,
+        "code": "518880",
+        "date": 20260911,
+        "start": 4000,
+        "count": 800
+      },
+      "started_at": "2026-10-12T13:45:33.834468+00:00",
+      "outcome": "returned",
+      "raw_path": "raw/062-opening-parser.json",
+      "raw_sha256": "3f7549479d1128ffde7b28f4a4cc2197cf08976e64936b33bc92772b871e2822",
+      "raw_bytes": 50751,
+      "finished_at": "2026-10-12T13:45:33.891442+00:00"
+    },
+    {
+      "index": 63,
+      "kind": "opening-parser",
+      "request": {
+        "command": "0x0fb5",
+        "market": 1,
+        "code": "518880",
+        "date": 20260911,
+        "start": 4800,
+        "count": 800
+      },
+      "started_at": "2026-10-12T13:45:33.900279+00:00",
+      "outcome": "returned",
+      "raw_path": "raw/063-opening-parser.json",
+      "raw_sha256": "ee4d0afe03806c9606391556c9ffe8f4df8a956b88adcd26ebcc86a1ba467809",
+      "raw_bytes": 3064,
+      "finished_at": "2026-10-12T13:45:33.951789+00:00"
+    },
+    {
+      "index": 64,
+      "kind": "opening-parser",
+      "request": {
+        "method": "GET",
+        "url": "https://query.sse.com.cn/sseQuery/commonSoaQuery.do",
+        "params": {
+          "isPagination": "true",
+          "pageHelp.pageSize": 25,
+          "pageHelp.pageNo": 1,
+          "pageHelp.beginPage": 1,
+          "pageHelp.cacheSize": 1,
+          "pageHelp.endPage": 1,
+          "sqlId": "SSE_PL_JYTS_TFPXX_JJ",
+          "secCode": "518880",
+          "stopReason": "",
+          "order": "startStopDate|desc,secCode|asc",
+          "startDate": "20260911",
+          "endDate": "20260911"
+        },
+        "headers": {
+          "Referer": "https://www.sse.com.cn/disclosure/dealinstruc/suspension/fund/"
+        }
+      },
+      "started_at": "2026-10-12T13:45:33.954821+00:00",
+      "outcome": "returned",
+      "raw_path": "raw/064-opening-parser.bin",
+      "raw_sha256": "087735ac94e1b965c175ba5fb3af737546beb399219342c3a78cd40fd9d884a3",
+      "raw_bytes": 482,
+      "finished_at": "2026-10-12T13:45:34.192580+00:00"
+    },
+    {
+      "index": 65,
+      "kind": "http",
+      "request": {
+        "method": "GET",
+        "url": "https://query.sse.com.cn/sseQuery/commonSoaQuery.do",
+        "params": {
+          "isPagination": "true",
+          "pageHelp.pageSize": 25,
+          "pageHelp.pageNo": 1,
+          "pageHelp.beginPage": 1,
+          "pageHelp.cacheSize": 1,
+          "pageHelp.endPage": 1,
+          "sqlId": "SSE_PL_JYTS_TFPXX_JJ",
+          "secCode": "518880",
+          "stopReason": "",
+          "order": "startStopDate|desc,secCode|asc",
+          "startDate": "20260911",
+          "endDate": "20260911"
+        },
+        "timeout": [
+          4,
+          8
+        ],
+        "http_status": 200
+      },
+      "started_at": "2026-10-12T13:45:33.955817+00:00",
+      "outcome": "returned",
+      "raw_path": "raw/065-http.bin",
+      "raw_sha256": "087735ac94e1b965c175ba5fb3af737546beb399219342c3a78cd40fd9d884a3",
+      "raw_bytes": 482,
+      "finished_at": "2026-10-12T13:45:34.189371+00:00"
+    },
+    {
+      "index": 66,
+      "kind": "get_fund_corporate_actions",
+      "request": {
+        "args": [
+          "518880",
+          "2026-09-08",
+          "2026-09-11"
+        ],
+        "kwargs": {}
+      },
+      "started_at": "2026-10-12T13:45:34.201584+00:00",
+      "outcome": "returned",
+      "raw_path": "raw/066-get_fund_corporate_actions.json",
+      "raw_sha256": "11b980b304e52b5893197d72e86520feacf3e0098132d4db4cd8fa7f1105f0f3",
+      "raw_bytes": 658,
+      "finished_at": "2026-10-12T13:45:34.451943+00:00"
+    },
+    {
+      "index": 67,
+      "kind": "legacy-source",
+      "request": {
+        "source_id": "eastmoney_news",
+        "operation": "http_get",
+        "attempt_no": 1,
+        "fallback_from": null
+      },
+      "started_at": "2026-10-12T13:45:34.201584+00:00",
+      "outcome": "returned",
+      "raw_path": "raw/067-legacy-source.json",
+      "raw_sha256": "7f45c07d726dd6981b034ed114dd9bc586d47e255ae41148564f3f4e392d1e1d",
+      "raw_bytes": 27,
+      "finished_at": "2026-10-12T13:45:34.442934+00:00"
+    },
+    {
+      "index": 68,
+      "kind": "http",
+      "request": {
+        "method": "GET",
+        "url": "https://fundf10.eastmoney.com/fhsp_518880.html",
+        "params": null,
+        "timeout": 15,
+        "http_status": 200
+      },
+      "started_at": "2026-10-12T13:45:34.201584+00:00",
+      "outcome": "returned",
+      "raw_path": "raw/068-http.bin",
+      "raw_sha256": "e1fc5d3af80c579981126000f714ef9d1f2010e0a77055a318e394be48d83fc6",
+      "raw_bytes": 43980,
+      "finished_at": "2026-10-12T13:45:34.439909+00:00"
+    },
+    {
+      "index": 69,
+      "kind": "load_vipdoc_daily",
+      "request": {
+        "args": [
+          "518880",
+          "2026-09-08",
+          "2026-09-11"
+        ],
+        "kwargs": {
+          "market": "sh"
+        }
+      },
+      "started_at": "2026-10-12T13:45:34.454917+00:00",
+      "outcome": "returned",
+      "raw_path": "raw/069-load_vipdoc_daily.json",
+      "raw_sha256": "006815b2e02e6db4d7479a81cdaf25104d3d2a75fae667b95b973ef275601fb4",
+      "raw_bytes": 725,
+      "finished_at": "2026-10-12T13:45:34.488477+00:00"
+    },
+    {
+      "index": 70,
+      "kind": "load_trading_calendar",
+      "request": {
+        "args": [],
+        "kwargs": {}
+      },
+      "started_at": "2026-10-12T13:45:34.491482+00:00",
+      "outcome": "returned",
+      "raw_path": "raw/070-load_trading_calendar.json",
+      "raw_sha256": "35310b49211a35713ef47ebb93cfe8182d164c441611dc0e82570164fee94f67",
+      "raw_bytes": 28181,
+      "finished_at": "2026-10-12T13:45:34.493696+00:00"
+    },
+    {
+      "index": 71,
+      "kind": "get_suspension_info",
+      "request": {
+        "args": [
+          "511010",
+          "2026-09-11"
+        ],
+        "kwargs": {}
+      },
+      "started_at": "2026-10-12T13:45:34.538412+00:00",
+      "outcome": "returned",
+      "raw_path": "raw/071-get_suspension_info.json",
+      "raw_sha256": "71847fd24de04ed76a219d57b9f0494b345f3bffe2351a8c2dac81955a777187",
+      "raw_bytes": 231,
+      "finished_at": "2026-10-12T13:45:34.539407+00:00"
+    },
+    {
+      "index": 72,
+      "kind": "fetch_historical_opening_evidence",
+      "request": {
+        "args": [
+          "511010",
+          "2026-09-11"
+        ],
+        "kwargs": {}
+      },
+      "started_at": "2026-10-12T13:45:34.541408+00:00",
+      "outcome": "returned",
+      "raw_path": "raw/072-fetch_historical_opening_evidence.json",
+      "raw_sha256": "b757a7f21e21f61ee4d65947fc0a2d54817f1dd454f211693f758be2a1a911f6",
+      "raw_bytes": 7737,
+      "finished_at": "2026-10-12T13:45:35.190687+00:00"
+    },
+    {
+      "index": 73,
+      "kind": "opening-parser",
+      "request": {
+        "operation": "connect",
+        "server": [
+          "110.41.147.114",
+          7709
+        ]
+      },
+      "started_at": "2026-10-12T13:45:34.543408+00:00",
+      "outcome": "returned",
+      "raw_path": "raw/073-opening-parser.json",
+      "raw_sha256": "bc1c3df1510e821b13b111a20db4a660a0e7dea2aa9a0ce7f454e1cb8914aaf6",
+      "raw_bytes": 28,
+      "finished_at": "2026-10-12T13:45:34.756618+00:00"
+    },
+    {
+      "index": 74,
+      "kind": "opening-parser",
+      "request": {
+        "command": "0x0fb4",
+        "market": 1,
+        "code": "511010",
+        "date": 20260911
+      },
+      "started_at": "2026-10-12T13:45:34.759612+00:00",
+      "outcome": "returned",
+      "raw_path": "raw/074-opening-parser.json",
+      "raw_sha256": "e3401f51c7a4775cdcabf6d180fd01ba64d1f3c2162045b58d30781c56c14f77",
+      "raw_bytes": 7859,
+      "finished_at": "2026-10-12T13:45:34.811833+00:00"
+    },
+    {
+      "index": 75,
+      "kind": "opening-parser",
+      "request": {
+        "command": "0x0fb5",
+        "market": 1,
+        "code": "511010",
+        "date": 20260911,
+        "start": 0,
+        "count": 800
+      },
+      "started_at": "2026-10-12T13:45:34.814854+00:00",
+      "outcome": "returned",
+      "raw_path": "raw/075-opening-parser.json",
+      "raw_sha256": "5d6022ee30ae0f0dbe53947dcc99d155a93bcc36c904e682f3d3dedf8a5aa13c",
+      "raw_bytes": 50545,
+      "finished_at": "2026-10-12T13:45:34.873363+00:00"
+    },
+    {
+      "index": 76,
+      "kind": "opening-parser",
+      "request": {
+        "command": "0x0fb5",
+        "market": 1,
+        "code": "511010",
+        "date": 20260911,
+        "start": 800,
+        "count": 800
+      },
+      "started_at": "2026-10-12T13:45:34.882392+00:00",
+      "outcome": "returned",
+      "raw_path": "raw/076-opening-parser.json",
+      "raw_sha256": "36811da8cfce6123c59da2a3a3e9ec0a8412583b1c3b6225e0a90c0b53dab43f",
+      "raw_bytes": 24481,
+      "finished_at": "2026-10-12T13:45:34.935356+00:00"
+    },
+    {
+      "index": 77,
+      "kind": "opening-parser",
+      "request": {
+        "method": "GET",
+        "url": "https://query.sse.com.cn/sseQuery/commonSoaQuery.do",
+        "params": {
+          "isPagination": "true",
+          "pageHelp.pageSize": 25,
+          "pageHelp.pageNo": 1,
+          "pageHelp.beginPage": 1,
+          "pageHelp.cacheSize": 1,
+          "pageHelp.endPage": 1,
+          "sqlId": "SSE_PL_JYTS_TFPXX_JJ",
+          "secCode": "511010",
+          "stopReason": "",
+          "order": "startStopDate|desc,secCode|asc",
+          "startDate": "20260911",
+          "endDate": "20260911"
+        },
+        "headers": {
+          "Referer": "https://www.sse.com.cn/disclosure/dealinstruc/suspension/fund/"
+        }
+      },
+      "started_at": "2026-10-12T13:45:34.942481+00:00",
+      "outcome": "returned",
+      "raw_path": "raw/077-opening-parser.bin",
+      "raw_sha256": "087735ac94e1b965c175ba5fb3af737546beb399219342c3a78cd40fd9d884a3",
+      "raw_bytes": 482,
+      "finished_at": "2026-10-12T13:45:35.185692+00:00"
+    },
+    {
+      "index": 78,
+      "kind": "http",
+      "request": {
+        "method": "GET",
+        "url": "https://query.sse.com.cn/sseQuery/commonSoaQuery.do",
+        "params": {
+          "isPagination": "true",
+          "pageHelp.pageSize": 25,
+          "pageHelp.pageNo": 1,
+          "pageHelp.beginPage": 1,
+          "pageHelp.cacheSize": 1,
+          "pageHelp.endPage": 1,
+          "sqlId": "SSE_PL_JYTS_TFPXX_JJ",
+          "secCode": "511010",
+          "stopReason": "",
+          "order": "startStopDate|desc,secCode|asc",
+          "startDate": "20260911",
+          "endDate": "20260911"
+        },
+        "timeout": [
+          4,
+          8
+        ],
+        "http_status": 200
+      },
+      "started_at": "2026-10-12T13:45:34.942481+00:00",
+      "outcome": "returned",
+      "raw_path": "raw/078-http.bin",
+      "raw_sha256": "087735ac94e1b965c175ba5fb3af737546beb399219342c3a78cd40fd9d884a3",
+      "raw_bytes": 482,
+      "finished_at": "2026-10-12T13:45:35.182679+00:00"
+    },
+    {
+      "index": 79,
+      "kind": "get_fund_corporate_actions",
+      "request": {
+        "args": [
+          "511010",
+          "2026-09-08",
+          "2026-09-11"
+        ],
+        "kwargs": {}
+      },
+      "started_at": "2026-10-12T13:45:35.194692+00:00",
+      "outcome": "returned",
+      "raw_path": "raw/079-get_fund_corporate_actions.json",
+      "raw_sha256": "a115317137a157e2d82f087439c746415a52799dffdc7be2df3da678fa367b1c",
+      "raw_bytes": 778,
+      "finished_at": "2026-10-12T13:45:37.372669+00:00"
+    },
+    {
+      "index": 80,
+      "kind": "legacy-source",
+      "request": {
+        "source_id": "eastmoney_news",
+        "operation": "http_get",
+        "attempt_no": 1,
+        "fallback_from": null
+      },
+      "started_at": "2026-10-12T13:45:35.820092+00:00",
+      "outcome": "returned",
+      "raw_path": "raw/080-legacy-source.json",
+      "raw_sha256": "7f45c07d726dd6981b034ed114dd9bc586d47e255ae41148564f3f4e392d1e1d",
+      "raw_bytes": 27,
+      "finished_at": "2026-10-12T13:45:36.205946+00:00"
+    },
+    {
+      "index": 81,
+      "kind": "http",
+      "request": {
+        "method": "GET",
+        "url": "https://fundf10.eastmoney.com/fhsp_511010.html",
+        "params": null,
+        "timeout": 15,
+        "http_status": 200
+      },
+      "started_at": "2026-10-12T13:45:35.820092+00:00",
+      "outcome": "returned",
+      "raw_path": "raw/081-http.bin",
+      "raw_sha256": "6bcad71f96cd98f1fa0d8881ef2d3c1d88ff08f2b7d15fa5fa22d7385529b2ac",
+      "raw_bytes": 44743,
+      "finished_at": "2026-10-12T13:45:36.202957+00:00"
+    },
+    {
+      "index": 82,
+      "kind": "legacy-source",
+      "request": {
+        "source_id": "eastmoney_news",
+        "operation": "http_get",
+        "attempt_no": 1,
+        "fallback_from": null
+      },
+      "started_at": "2026-10-12T13:45:37.315565+00:00",
+      "outcome": "returned",
+      "raw_path": "raw/082-legacy-source.json",
+      "raw_sha256": "7f45c07d726dd6981b034ed114dd9bc586d47e255ae41148564f3f4e392d1e1d",
+      "raw_bytes": 27,
+      "finished_at": "2026-10-12T13:45:37.368676+00:00"
+    },
+    {
+      "index": 83,
+      "kind": "http",
+      "request": {
+        "method": "GET",
+        "url": "https://api.fund.eastmoney.com/f10/FHGG",
+        "params": {
+          "fundcode": "511010",
+          "pageSize": 100,
+          "pageIndex": 1
+        },
+        "timeout": 15,
+        "http_status": 200
+      },
+      "started_at": "2026-10-12T13:45:37.315565+00:00",
+      "outcome": "returned",
+      "raw_path": "raw/083-http.bin",
+      "raw_sha256": "442b7d900e24dd6744288da9a426b7037a3f3c8c00229861e2a2de44ddd30bc8",
+      "raw_bytes": 2805,
+      "finished_at": "2026-10-12T13:45:37.366115+00:00"
+    },
+    {
+      "index": 84,
+      "kind": "load_vipdoc_daily",
+      "request": {
+        "args": [
+          "511010",
+          "2026-09-08",
+          "2026-09-11"
+        ],
+        "kwargs": {
+          "market": "sh"
+        }
+      },
+      "started_at": "2026-10-12T13:45:37.375677+00:00",
+      "outcome": "returned",
+      "raw_path": "raw/084-load_vipdoc_daily.json",
+      "raw_sha256": "e588a1a8a288d2489dbe3b521c91e922d56593cb92515f11e5183c4169d4b0d8",
+      "raw_bytes": 759,
+      "finished_at": "2026-10-12T13:45:37.407716+00:00"
+    },
+    {
+      "index": 85,
+      "kind": "load_trading_calendar",
+      "request": {
+        "args": [],
+        "kwargs": {}
+      },
+      "started_at": "2026-10-12T13:45:37.411932+00:00",
+      "outcome": "returned",
+      "raw_path": "raw/085-load_trading_calendar.json",
+      "raw_sha256": "35310b49211a35713ef47ebb93cfe8182d164c441611dc0e82570164fee94f67",
+      "raw_bytes": 28181,
+      "finished_at": "2026-10-12T13:45:37.414930+00:00"
+    },
+    {
+      "index": 86,
+      "kind": "get_suspension_info",
+      "request": {
+        "args": [
+          "513100",
+          "2026-09-11"
+        ],
+        "kwargs": {}
+      },
+      "started_at": "2026-10-12T13:45:37.457482+00:00",
+      "outcome": "returned",
+      "raw_path": "raw/086-get_suspension_info.json",
+      "raw_sha256": "71847fd24de04ed76a219d57b9f0494b345f3bffe2351a8c2dac81955a777187",
+      "raw_bytes": 231,
+      "finished_at": "2026-10-12T13:45:37.458464+00:00"
+    },
+    {
+      "index": 87,
+      "kind": "fetch_historical_opening_evidence",
+      "request": {
+        "args": [
+          "513100",
+          "2026-09-11"
+        ],
+        "kwargs": {}
+      },
+      "started_at": "2026-10-12T13:45:37.461478+00:00",
+      "outcome": "returned",
+      "raw_path": "raw/087-fetch_historical_opening_evidence.json",
+      "raw_sha256": "5e1d182b699bb78a5f7c66f0d57980ec0179673d471aee3d37f770c4885087a7",
+      "raw_bytes": 9420,
+      "finished_at": "2026-10-12T13:45:38.211451+00:00"
+    },
+    {
+      "index": 88,
+      "kind": "opening-parser",
+      "request": {
+        "operation": "connect",
+        "server": [
+          "110.41.147.114",
+          7709
+        ]
+      },
+      "started_at": "2026-10-12T13:45:37.463476+00:00",
+      "outcome": "returned",
+      "raw_path": "raw/088-opening-parser.json",
+      "raw_sha256": "bc1c3df1510e821b13b111a20db4a660a0e7dea2aa9a0ce7f454e1cb8914aaf6",
+      "raw_bytes": 28,
+      "finished_at": "2026-10-12T13:45:37.650491+00:00"
+    },
+    {
+      "index": 89,
+      "kind": "opening-parser",
+      "request": {
+        "command": "0x0fb4",
+        "market": 1,
+        "code": "513100",
+        "date": 20260911
+      },
+      "started_at": "2026-10-12T13:45:37.652502+00:00",
+      "outcome": "returned",
+      "raw_path": "raw/089-opening-parser.json",
+      "raw_sha256": "c59e23b6d499283d2e6a7d9c6a9d46aa729fe430acb7e227f09a22ce827ba586",
+      "raw_bytes": 7265,
+      "finished_at": "2026-10-12T13:45:37.698068+00:00"
+    },
+    {
+      "index": 90,
+      "kind": "opening-parser",
+      "request": {
+        "command": "0x0fb5",
+        "market": 1,
+        "code": "513100",
+        "date": 20260911,
+        "start": 0,
+        "count": 800
+      },
+      "started_at": "2026-10-12T13:45:37.701568+00:00",
+      "outcome": "returned",
+      "raw_path": "raw/090-opening-parser.json",
+      "raw_sha256": "5de9d3cc0a94d81c1f91842e5ee95f971d4c56c25329f99b743629d60b8deafd",
+      "raw_bytes": 49783,
+      "finished_at": "2026-10-12T13:45:37.754314+00:00"
+    },
+    {
+      "index": 91,
+      "kind": "opening-parser",
+      "request": {
+        "command": "0x0fb5",
+        "market": 1,
+        "code": "513100",
+        "date": 20260911,
+        "start": 800,
+        "count": 800
+      },
+      "started_at": "2026-10-12T13:45:37.764044+00:00",
+      "outcome": "returned",
+      "raw_path": "raw/091-opening-parser.json",
+      "raw_sha256": "530bef13e0924e291f16186892a4cbbfab971fa2a6374860132e8db066458c7c",
+      "raw_bytes": 49846,
+      "finished_at": "2026-10-12T13:45:37.817155+00:00"
+    },
+    {
+      "index": 92,
+      "kind": "opening-parser",
+      "request": {
+        "command": "0x0fb5",
+        "market": 1,
+        "code": "513100",
+        "date": 20260911,
+        "start": 1600,
+        "count": 800
+      },
+      "started_at": "2026-10-12T13:45:37.826596+00:00",
+      "outcome": "returned",
+      "raw_path": "raw/092-opening-parser.json",
+      "raw_sha256": "cf264c89ae49d9f023954b8c681e149f13a3c8a0ef4045380310750a31431836",
+      "raw_bytes": 49652,
+      "finished_at": "2026-10-12T13:45:37.878673+00:00"
+    },
+    {
+      "index": 93,
+      "kind": "opening-parser",
+      "request": {
+        "command": "0x0fb5",
+        "market": 1,
+        "code": "513100",
+        "date": 20260911,
+        "start": 2400,
+        "count": 800
+      },
+      "started_at": "2026-10-12T13:45:37.887491+00:00",
+      "outcome": "returned",
+      "raw_path": "raw/093-opening-parser.json",
+      "raw_sha256": "e03b4aa6975cca6dfe82aa58f6fc9ff715e05643de783260a1a8598907594000",
+      "raw_bytes": 30226,
+      "finished_at": "2026-10-12T13:45:37.937380+00:00"
+    },
+    {
+      "index": 94,
+      "kind": "opening-parser",
+      "request": {
+        "method": "GET",
+        "url": "https://query.sse.com.cn/sseQuery/commonSoaQuery.do",
+        "params": {
+          "isPagination": "true",
+          "pageHelp.pageSize": 25,
+          "pageHelp.pageNo": 1,
+          "pageHelp.beginPage": 1,
+          "pageHelp.cacheSize": 1,
+          "pageHelp.endPage": 1,
+          "sqlId": "SSE_PL_JYTS_TFPXX_JJ",
+          "secCode": "513100",
+          "stopReason": "",
+          "order": "startStopDate|desc,secCode|asc",
+          "startDate": "20260911",
+          "endDate": "20260911"
+        },
+        "headers": {
+          "Referer": "https://www.sse.com.cn/disclosure/dealinstruc/suspension/fund/"
+        }
+      },
+      "started_at": "2026-10-12T13:45:37.945544+00:00",
+      "outcome": "returned",
+      "raw_path": "raw/094-opening-parser.bin",
+      "raw_sha256": "b0c084336ced5abfd30e2d1ac3b0e2d46c0b35758934e75651f9ae6ad216fd02",
+      "raw_bytes": 1140,
+      "finished_at": "2026-10-12T13:45:38.205934+00:00"
+    },
+    {
+      "index": 95,
+      "kind": "http",
+      "request": {
+        "method": "GET",
+        "url": "https://query.sse.com.cn/sseQuery/commonSoaQuery.do",
+        "params": {
+          "isPagination": "true",
+          "pageHelp.pageSize": 25,
+          "pageHelp.pageNo": 1,
+          "pageHelp.beginPage": 1,
+          "pageHelp.cacheSize": 1,
+          "pageHelp.endPage": 1,
+          "sqlId": "SSE_PL_JYTS_TFPXX_JJ",
+          "secCode": "513100",
+          "stopReason": "",
+          "order": "startStopDate|desc,secCode|asc",
+          "startDate": "20260911",
+          "endDate": "20260911"
+        },
+        "timeout": [
+          4,
+          8
+        ],
+        "http_status": 200
+      },
+      "started_at": "2026-10-12T13:45:37.945544+00:00",
+      "outcome": "returned",
+      "raw_path": "raw/095-http.bin",
+      "raw_sha256": "b0c084336ced5abfd30e2d1ac3b0e2d46c0b35758934e75651f9ae6ad216fd02",
+      "raw_bytes": 1140,
+      "finished_at": "2026-10-12T13:45:38.201933+00:00"
+    },
+    {
+      "index": 96,
+      "kind": "load_vipdoc_daily",
+      "request": {
+        "args": [
+          "513100",
+          "2026-09-08",
+          "2026-09-11"
+        ],
+        "kwargs": {
+          "market": "sh"
+        }
+      },
+      "started_at": "2026-10-12T13:45:38.215477+00:00",
+      "outcome": "returned",
+      "raw_path": "raw/096-load_vipdoc_daily.json",
+      "raw_sha256": "97bb0a87fcf62fca9905d281ccae9123eb0ab0c5d612022a4fbaf3d568da1a7d",
+      "raw_bytes": 720,
+      "finished_at": "2026-10-12T13:45:38.247317+00:00"
+    },
+    {
+      "index": 97,
+      "kind": "load_trading_calendar",
+      "request": {
+        "args": [],
+        "kwargs": {}
+      },
+      "started_at": "2026-10-12T13:45:38.251071+00:00",
+      "outcome": "returned",
+      "raw_path": "raw/097-load_trading_calendar.json",
+      "raw_sha256": "35310b49211a35713ef47ebb93cfe8182d164c441611dc0e82570164fee94f67",
+      "raw_bytes": 28181,
+      "finished_at": "2026-10-12T13:45:38.254078+00:00"
+    },
+    {
+      "index": 98,
+      "kind": "get_suspension_info",
+      "request": {
+        "args": [
+          "159509",
+          "2026-09-11"
+        ],
+        "kwargs": {}
+      },
+      "started_at": "2026-10-12T13:45:38.297731+00:00",
+      "outcome": "returned",
+      "raw_path": "raw/098-get_suspension_info.json",
+      "raw_sha256": "71847fd24de04ed76a219d57b9f0494b345f3bffe2351a8c2dac81955a777187",
+      "raw_bytes": 231,
+      "finished_at": "2026-10-12T13:45:38.297731+00:00"
+    },
+    {
+      "index": 99,
+      "kind": "fetch_historical_opening_evidence",
+      "request": {
+        "args": [
+          "159509",
+          "2026-09-11"
+        ],
+        "kwargs": {}
+      },
+      "started_at": "2026-10-12T13:45:38.301734+00:00",
+      "outcome": "returned",
+      "raw_path": "raw/099-fetch_historical_opening_evidence.json",
+      "raw_sha256": "64eea6608d2f80f023f4e4230085ec0a80fe2a3291dc83270bd3e71b4cff0721",
+      "raw_bytes": 13391,
+      "finished_at": "2026-10-12T13:45:40.341060+00:00"
+    },
+    {
+      "index": 100,
+      "kind": "opening-parser",
+      "request": {
+        "operation": "connect",
+        "server": [
+          "110.41.147.114",
+          7709
+        ]
+      },
+      "started_at": "2026-10-12T13:45:38.302729+00:00",
+      "outcome": "returned",
+      "raw_path": "raw/100-opening-parser.json",
+      "raw_sha256": "bc1c3df1510e821b13b111a20db4a660a0e7dea2aa9a0ce7f454e1cb8914aaf6",
+      "raw_bytes": 28,
+      "finished_at": "2026-10-12T13:45:38.496006+00:00"
+    },
+    {
+      "index": 101,
+      "kind": "opening-parser",
+      "request": {
+        "command": "0x0fb4",
+        "market": 0,
+        "code": "159509",
+        "date": 20260911
+      },
+      "started_at": "2026-10-12T13:45:38.499004+00:00",
+      "outcome": "returned",
+      "raw_path": "raw/101-opening-parser.json",
+      "raw_sha256": "c99ec27ffe79b055f976bd78dd7cdabf5fbceeda4bed63c7d087c1249b7b0140",
+      "raw_bytes": 7507,
+      "finished_at": "2026-10-12T13:45:38.546445+00:00"
+    },
+    {
+      "index": 102,
+      "kind": "opening-parser",
+      "request": {
+        "command": "0x0fb5",
+        "market": 0,
+        "code": "159509",
+        "date": 20260911,
+        "start": 0,
+        "count": 800
+      },
+      "started_at": "2026-10-12T13:45:38.549353+00:00",
+      "outcome": "returned",
+      "raw_path": "raw/102-opening-parser.json",
+      "raw_sha256": "fd8c07777af35282686d3e2d3c6016f2df4fe1ec4858df8a0f9d8b3f938a662c",
+      "raw_bytes": 49799,
+      "finished_at": "2026-10-12T13:45:38.603136+00:00"
+    },
+    {
+      "index": 103,
+      "kind": "opening-parser",
+      "request": {
+        "command": "0x0fb5",
+        "market": 0,
+        "code": "159509",
+        "date": 20260911,
+        "start": 800,
+        "count": 800
+      },
+      "started_at": "2026-10-12T13:45:38.613151+00:00",
+      "outcome": "returned",
+      "raw_path": "raw/103-opening-parser.json",
+      "raw_sha256": "d60badd6957dea1ec79fc5379f164de6357f37ccc39bfdd535b020dd0c1ada5d",
+      "raw_bytes": 49923,
+      "finished_at": "2026-10-12T13:45:38.667114+00:00"
+    },
+    {
+      "index": 104,
+      "kind": "opening-parser",
+      "request": {
+        "command": "0x0fb5",
+        "market": 0,
+        "code": "159509",
+        "date": 20260911,
+        "start": 1600,
+        "count": 800
+      },
+      "started_at": "2026-10-12T13:45:38.676232+00:00",
+      "outcome": "returned",
+      "raw_path": "raw/104-opening-parser.json",
+      "raw_sha256": "2cbf87a2ddc7aad6046d57c11d03f84f9c07e724e4ba8de1de80eeb14f3ad5b9",
+      "raw_bytes": 50043,
+      "finished_at": "2026-10-12T13:45:38.730223+00:00"
+    },
+    {
+      "index": 105,
+      "kind": "opening-parser",
+      "request": {
+        "command": "0x0fb5",
+        "market": 0,
+        "code": "159509",
+        "date": 20260911,
+        "start": 2400,
+        "count": 800
+      },
+      "started_at": "2026-10-12T13:45:38.739109+00:00",
+      "outcome": "returned",
+      "raw_path": "raw/105-opening-parser.json",
+      "raw_sha256": "190a9a7a1d78e3e7c0b3bd3c08dfeee5ba3a9528a26dcd0625e1b547c16c8e6f",
+      "raw_bytes": 38388,
+      "finished_at": "2026-10-12T13:45:38.791304+00:00"
+    },
+    {
+      "index": 106,
+      "kind": "opening-parser",
+      "request": {
+        "method": "POST",
+        "url": "https://www.szse.cn/api/disc/announcement/annList",
+        "json": {
+          "stock": [
+            "159509"
+          ],
+          "channelCode": [
+            "fundinfoNotice_disc"
+          ],
+          "seDate": [
+            "2026-09-11",
+            "2026-09-11"
+          ],
+          "pageSize": 25,
+          "pageNum": 1
+        }
+      },
+      "started_at": "2026-10-12T13:45:38.800493+00:00",
+      "outcome": "returned",
+      "raw_path": "raw/106-opening-parser.bin",
+      "raw_sha256": "3ca988327b95469f36ae8c22b943d0d79bb863d0bbef970082496f06dc26b098",
+      "raw_bytes": 654,
+      "finished_at": "2026-10-12T13:45:40.047581+00:00"
+    },
+    {
+      "index": 107,
+      "kind": "http",
+      "request": {
+        "method": "POST",
+        "url": "https://www.szse.cn/api/disc/announcement/annList",
+        "json": {
+          "stock": [
+            "159509"
+          ],
+          "channelCode": [
+            "fundinfoNotice_disc"
+          ],
+          "seDate": [
+            "2026-09-11",
+            "2026-09-11"
+          ],
+          "pageSize": 25,
+          "pageNum": 1
+        },
+        "data": null,
+        "timeout": [
+          4,
+          8
+        ],
+        "http_status": 200
+      },
+      "started_at": "2026-10-12T13:45:38.800493+00:00",
+      "outcome": "returned",
+      "raw_path": "raw/107-http.bin",
+      "raw_sha256": "3ca988327b95469f36ae8c22b943d0d79bb863d0bbef970082496f06dc26b098",
+      "raw_bytes": 654,
+      "finished_at": "2026-10-12T13:45:40.043087+00:00"
+    },
+    {
+      "index": 108,
+      "kind": "opening-parser",
+      "request": {
+        "method": "GET",
+        "url": "https://disc.static.szse.cn/disc/disk03/finalpage/2026-09-11/441bfc71-d5d9-4f67-aed6-05eeeec9aaf3.PDF"
+      },
+      "started_at": "2026-10-12T13:45:40.050767+00:00",
+      "outcome": "returned",
+      "raw_path": "raw/108-opening-parser.bin",
+      "raw_sha256": "18cf4d821cd8f4de15d515ce0ceef828be5aff3beea30128d4b2049d39647fcd",
+      "raw_bytes": 96655,
+      "finished_at": "2026-10-12T13:45:40.148062+00:00"
+    },
+    {
+      "index": 109,
+      "kind": "http",
+      "request": {
+        "method": "GET",
+        "url": "https://disc.static.szse.cn/disc/disk03/finalpage/2026-09-11/441bfc71-d5d9-4f67-aed6-05eeeec9aaf3.PDF",
+        "params": null,
+        "timeout": [
+          4,
+          8
+        ],
+        "http_status": 200
+      },
+      "started_at": "2026-10-12T13:45:40.050767+00:00",
+      "outcome": "returned",
+      "raw_path": "raw/109-http.bin",
+      "raw_sha256": "18cf4d821cd8f4de15d515ce0ceef828be5aff3beea30128d4b2049d39647fcd",
+      "raw_bytes": 96655,
+      "finished_at": "2026-10-12T13:45:40.143060+00:00"
+    },
+    {
+      "index": 110,
+      "kind": "load_vipdoc_daily",
+      "request": {
+        "args": [
+          "159509",
+          "2026-09-08",
+          "2026-09-11"
+        ],
+        "kwargs": {
+          "market": "sz"
+        }
+      },
+      "started_at": "2026-10-12T13:45:40.346254+00:00",
+      "outcome": "returned",
+      "raw_path": "raw/110-load_vipdoc_daily.json",
+      "raw_sha256": "7450e0cbebc708be0ac1a0eca57903a98fb2d8bfa93e8f21c142a09ba76a8499",
+      "raw_bytes": 721,
+      "finished_at": "2026-10-12T13:45:40.358277+00:00"
+    },
+    {
+      "index": 111,
+      "kind": "load_trading_calendar",
+      "request": {
+        "args": [],
+        "kwargs": {}
+      },
+      "started_at": "2026-10-12T13:45:40.362308+00:00",
+      "outcome": "returned",
+      "raw_path": "raw/111-load_trading_calendar.json",
+      "raw_sha256": "35310b49211a35713ef47ebb93cfe8182d164c441611dc0e82570164fee94f67",
+      "raw_bytes": 28181,
+      "finished_at": "2026-10-12T13:45:40.365549+00:00"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "all_protected_hashes_unchanged": true,
+  "head_unchanged": true,
+  "tracked_diff_unchanged": true,
+  "staging_empty": true,
+  "files": {
+    "D:\\Dev\\Projects\\chstockdata\\README.md": true,
+    "D:\\Dev\\Projects\\chstockdata\\src\\chstockdata\\__init__.py": true,
+    "D:\\Dev\\Projects\\chstockdata\\src\\chstockdata\\daily_fund_flow.py": true,
+    "D:\\Dev\\Projects\\chstockdata\\tests\\test_daily_fund_flow.py": true,
+    "D:\\Dev\\Projects\\chstockdata\\tests\\test_rh1_git_line_endings.py": true,
+    "D:\\Dev\\Projects\\chstockdata\\scripts\\check_rh1_static.py": true,
+    "D:\\Dev\\Projects\\chstockdata\\tests\\conftest.py": true,
+    "D:\\Dev\\Projects\\chstockdata\\pyproject.toml": true,
+    "D:\\Dev\\Projects\\chstockdata\\.git\\config": true,
+    "C:\\Users\\Administrator\\.gitconfig": true,
+    "C:\\Program Files\\Git\\etc\\gitconfig": true
+  }
+}

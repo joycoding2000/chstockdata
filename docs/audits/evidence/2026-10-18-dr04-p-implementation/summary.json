@@ -1,0 +1,104 @@
+{
+  "phase": "DR04-P",
+  "step": "offline acceptance and regression / stopped on test failures",
+  "head": "0dc85e3e43588c5781771486a3c6f80c4be7714f",
+  "verdict": "BLOCKED_TEST_FAILURE",
+  "owner_acceptance": "NOT_GRANTED",
+  "P01_P12": {
+    "P01": {
+      "passed": 1,
+      "failed": 0,
+      "errors": 0
+    },
+    "P02": {
+      "passed": 1,
+      "failed": 0,
+      "errors": 0
+    },
+    "P03": {
+      "passed": 1,
+      "failed": 0,
+      "errors": 0
+    },
+    "P04": {
+      "passed": 2,
+      "failed": 0,
+      "errors": 0
+    },
+    "P05": {
+      "passed": 9,
+      "failed": 0,
+      "errors": 0
+    },
+    "P06": {
+      "passed": 2,
+      "failed": 0,
+      "errors": 0
+    },
+    "P07": {
+      "passed": 1,
+      "failed": 0,
+      "errors": 0
+    },
+    "P08": {
+      "passed": 5,
+      "failed": 0,
+      "errors": 0
+    },
+    "P09": {
+      "passed": 10,
+      "failed": 0,
+      "errors": 0
+    },
+    "P10": {
+      "passed": 7,
+      "failed": 0,
+      "errors": 0
+    },
+    "P11": {
+      "passed": 1,
+      "failed": 0,
+      "errors": 0
+    },
+    "P12": {
+      "passed": 1,
+      "failed": 0,
+      "errors": 0
+    }
+  },
+  "total": 134,
+  "passed": 132,
+  "failures": [
+    {
+      "class": "tests.test_rh1_git_line_endings",
+      "name": "test_crlf_preserves_added_line_discrimination[False]",
+      "status": "failed"
+    },
+    {
+      "class": "tests.test_rh1_git_line_endings",
+      "name": "test_crlf_preserves_added_line_discrimination[True]",
+      "status": "failed"
+    }
+  ],
+  "file_sha256": {
+    "src/chstockdata/daily_fund_flow.py": "155b316c49e6e0a22edd319b3cfe5991c882740985ffaf6e28e08b8ab64d045c",
+    "src/chstockdata/__init__.py": "e137402d5fb21e187dc88b181a04db699ed4effa8c7e452ce0e0da40e6093dc9",
+    "tests/test_daily_fund_flow.py": "6a673f1b867d84150ccac75006d275f121612e7edff553c893e86e143d34e157",
+    "docs/dr04-p-daily-fund-flow.md": "3af3a6434c162a42c3a86e3579836d186976952133033ce0759b53d398c84da8",
+    "README.md": "6db38768974ce5cb5eb44e0b6daa87c91e216af6b05482e37e83d0e75c334418",
+    "tests/fixtures/daily_fund_flow/manifest.json": "bbfd60d59ea28b23a3f8b99d0aa47dd81e6059b0b2fd14ea4db080e345e1e80c"
+  },
+  "source_evidence_verification": {
+    "manifest_entries": 70,
+    "request_raw_hashes": 43,
+    "copied_responses": 30,
+    "all_matched": true
+  },
+  "network_requests": 0,
+  "code_review": {
+    "independent_review": "completed",
+    "confirmed_defects_found": 1,
+    "confirmed_defects_fixed": 1,
+    "coderabbit": "not run: signed out"
+  }
+}

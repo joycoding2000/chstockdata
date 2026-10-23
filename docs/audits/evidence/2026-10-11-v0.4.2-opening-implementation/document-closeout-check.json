@@ -1,0 +1,7 @@
+{
+  "new_document_whitespace": "PASS",
+  "cr_original_bytes_preserved": true,
+  "git_diff_check_exit": 0,
+  "initial_closeout_assertion_exit": 1,
+  "initial_closeout_assertion_reason": "Full old CR contains pre-existing Markdown hard-break spaces; corrected verification checks only this task appended text and preserves original bytes."
+}

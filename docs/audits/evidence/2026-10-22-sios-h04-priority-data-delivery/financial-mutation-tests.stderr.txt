@@ -1,0 +1,8 @@
+D:\Dev\Projects\chstockdata\docs\audits\evidence\2026-10-22-sios-h04-priority-data-delivery\receive_delivery.py:100: ResourceWarning: unclosed file <_io.TextIOWrapper name='D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-22-sios-h04-priority-data-delivery\\H04-TR-delivery\\raw_market_data.csv' mode='r' encoding='utf-8'>
+  raw = list(csv.DictReader((root/"raw_market_data.csv").open(encoding="utf-8",newline="")))
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+.....
+----------------------------------------------------------------------
+Ran 5 tests in 2.018s
+
+OK

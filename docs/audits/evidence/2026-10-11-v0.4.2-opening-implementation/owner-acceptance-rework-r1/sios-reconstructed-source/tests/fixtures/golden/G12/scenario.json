@@ -1,0 +1,22 @@
+{
+  "schema_version": "golden-scenario-v1",
+  "scenario_id": "G12",
+  "kind": "metrics",
+  "title": "Drawdown and underwater duration",
+  "initial_capital": "100000",
+  "runs": [
+    {
+      "name": "default",
+      "terminal_mode": "MARK_TO_MARKET",
+      "nav_path": [
+        {"session_date": "2026-09-09", "equity": "100000"},
+        {"session_date": "2026-09-10", "equity": "125000"},
+        {"session_date": "2026-09-11", "equity": "100000"},
+        {"session_date": "2026-09-14", "equity": "125000"},
+        {"session_date": "2026-09-15", "equity": "95000"},
+        {"session_date": "2026-09-16", "equity": "95000"},
+        {"session_date": "2026-09-17", "equity": "95000"}
+      ]
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "command": [
+    "D:\\Dev\\Projects\\chstockdata\\.venv\\Scripts\\python.exe",
+    "-B",
+    "-c",
+    "import runpy,socket,sys; from pathlib import Path; socket.socket.connect=lambda *a,**k: (_ for _ in ()).throw(RuntimeError('OFFLINE_VERIFICATION_NETWORK_FORBIDDEN')); sys.argv=sys.argv[1:]; sys.path.insert(0,str(Path(sys.argv[0]).resolve().parent)); runpy.run_path(sys.argv[0],run_name='__main__')",
+    "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-22-sios-h04-priority-data-delivery\\build_delivery.py",
+    "--root",
+    "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-22-sios-h04-priority-data-delivery\\H04-TR-delivery",
+    "--output",
+    "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-22-sios-h04-priority-data-delivery\\H04-TR-delivery"
+  ],
+  "cwd": "D:\\Dev\\Projects\\chstockdata",
+  "exit_code": 0,
+  "elapsed_seconds": 1.345,
+  "outbound_sockets_disabled": true
+}

@@ -1,0 +1,1188 @@
+[
+  {
+    "symbol": "510300",
+    "scope": "LOCAL_REPLAY_OF_ACTUAL_LIVE_INPUTS_ONLY",
+    "original_tuple_equals_replay": false,
+    "content_digests_equal": true,
+    "source_bar_dates": [
+      "2026-09-08",
+      "2026-09-09",
+      "2026-09-10",
+      "2026-09-11"
+    ],
+    "replay_bar_dates": [
+      "2026-09-10",
+      "2026-09-09",
+      "2026-09-08",
+      "2026-09-11"
+    ],
+    "proof": {
+      "run_manifest": {
+        "manifest_schema_version": "m0-run-manifest-1",
+        "run_type": "BACKTEST",
+        "code_commit": "qualification-source",
+        "dependency_lock_digest": "sha256:9bc869ba3b026528beeb2ec727fa76a6d60f1109bd3916f6394ad04b868939b4",
+        "data_snapshot_digest": "4d036fa023a224fe997c682888df645754228983d0911ddeb045ea6426ec2b87",
+        "fee_config_digest": "sha256:7f8587ba31e98b142e83bbcab0457bd850ef807d4d8c1f4198477f00cfeefbb3",
+        "calendar_digest": "sha256:e31b801de740b584cf179719e77b262141464bf6b126645522cbebd2de18a0d8",
+        "execution_model_version": "m0-execution-1",
+        "rule_versions": [
+          [
+            "execution-mode",
+            "HISTORICAL_OPENING_R21"
+          ],
+          [
+            "execution-policy",
+            "R2.1"
+          ],
+          [
+            "execution-clock",
+            "Asia/Shanghai|09:15:00|09:30:00|15:30:00"
+          ]
+        ],
+        "metric_convention_digest": "sha256:fd309744c864198eeefecfce4580d1ac692e744efa2d82a567ac9e20a27c71ea",
+        "benchmark_identity": "NONE",
+        "random_seed": 0
+      },
+      "run_identity": "sha256:57433d40dcb4021200f6e2246f39fe3cdfb85c795ca128e8b53e9e113c072323",
+      "snapshot_manifest": {
+        "snapshot_schema_version": "v3-historical-opening",
+        "snapshot_id": "4d036fa023a224fe997c682888df645754228983d0911ddeb045ea6426ec2b87",
+        "created_at": "2026-10-12T17:12:11.543423+08:00",
+        "knowledge_cutoff": "2026-10-12T17:12:11.543423+08:00",
+        "provider_name": "chstockdata",
+        "provider_version": "0.4.2",
+        "adapter_version": "0.1.0",
+        "schemas": [
+          [
+            "corporate_action",
+            "v1"
+          ],
+          [
+            "daily_bar",
+            "v1"
+          ],
+          [
+            "historical_opening_evidence",
+            "historical-opening-evidence/1"
+          ],
+          [
+            "tradability_status",
+            "v1"
+          ],
+          [
+            "trading_session",
+            "v1"
+          ]
+        ],
+        "scope_instrument_ids": [
+          "XSHG:510300"
+        ],
+        "scope_start": "2026-09-08",
+        "scope_end": "2026-09-11",
+        "adjustment_policy": "RAW_WITH_POINT_IN_TIME_FACTORS",
+        "availability_policy": {
+          "allowed_bases": [
+            "EXCHANGE_RULE",
+            "UNKNOWN"
+          ],
+          "unknown_handling": "explicit"
+        },
+        "retrieved_at": "2026-10-12T17:12:11.543423+08:00",
+        "artifacts": [
+          {
+            "logical_partition": "corporate_action",
+            "checksum": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "row_count": 0
+          },
+          {
+            "logical_partition": "daily_bar",
+            "checksum": "2c30ed88886c5f8bce65ad54097081103e2f9995d75477501a73ff3e1936026b",
+            "row_count": 4
+          },
+          {
+            "logical_partition": "historical_opening_evidence",
+            "checksum": "e2a1240051f674a38fc550eebd6571b905756c5d8af420487531c1e804a76a5a",
+            "row_count": 1
+          },
+          {
+            "logical_partition": "tradability_status",
+            "checksum": "81cae96dc4638096216c0bf42eb494f73db7dddbc5fe201eda7e20527ff0c0bb",
+            "row_count": 1
+          },
+          {
+            "logical_partition": "trading_session",
+            "checksum": "8290352a8034b8b46bd3a93e5d7ca6be0dea97fe52f98d180f89b3b77320e665",
+            "row_count": 7
+          }
+        ],
+        "quality_report_id": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+        "quality_status": "PASS",
+        "execution_policy": "R2.1",
+        "execution_clock": "Asia/Shanghai|09:15:00|09:30:00|15:30:00",
+        "execution_evidence_digest": "8143bf0f4cbbbffc94380c3dad5f7d78b6af3b7175afe1e564f09dda7aa5e2b0"
+      },
+      "plans": [
+        {
+          "instrument_id": {
+            "exchange": "XSHG",
+            "symbol": "510300"
+          },
+          "sleeve": "CORE",
+          "side": "BUY",
+          "order_quantity": 10800,
+          "target_weight": "0.50",
+          "current_weight": "0.000",
+          "target_id": "target:2026-09-10",
+          "target_revision": 1,
+          "decision_for_trade_date": "2026-09-10",
+          "sizing_reference_price": "4.617"
+        }
+      ],
+      "fills": [
+        {
+          "fill_id": "fill:order:2026-09-11:XSHG:510300",
+          "order_id": "order:2026-09-11:XSHG:510300",
+          "instrument_id": {
+            "exchange": "XSHG",
+            "symbol": "510300"
+          },
+          "side": "BUY",
+          "quantity": 10800,
+          "fill_price": "4.597",
+          "reference_open": "4.592",
+          "session_date": "2026-09-11",
+          "fees": {
+            "commission": {
+              "amount": "14.89",
+              "currency": "CNY"
+            },
+            "minimum_commission_adjustment": {
+              "amount": "0.00",
+              "currency": "CNY"
+            },
+            "stamp_tax": {
+              "amount": "0.00",
+              "currency": "CNY"
+            },
+            "transfer_fee": {
+              "amount": "0.00",
+              "currency": "CNY"
+            }
+          },
+          "source": "SIMULATED"
+        }
+      ],
+      "activation_orders": [
+        {
+          "order_id": "order:2026-09-11:XSHG:510300",
+          "instrument_id": {
+            "exchange": "XSHG",
+            "symbol": "510300"
+          },
+          "side": "BUY",
+          "planned_quantity": 10800,
+          "submitted_quantity": 10800,
+          "execution_session": "2026-09-11",
+          "sizing_reference_price_basis": "T_CLOSE",
+          "sizing_reference_price": "4.617",
+          "fill_price_model": "NEXT_SESSION_OPEN",
+          "target_id": "target:2026-09-10",
+          "target_revision": 1,
+          "decision_for_trade_date": "2026-09-10",
+          "status": "FILLED",
+          "reason_codes": [
+            "FILLED_AS_PLANNED"
+          ]
+        }
+      ],
+      "rejections": [],
+      "execution_at": "2026-09-11 09:30:00+08:00",
+      "raw_daily_open": "4.592",
+      "result_digest": "8c4673abcc956e56c2dd17828990fad887f1b4322b1a8ea4816e270477140734"
+    },
+    "result": "PASS"
+  },
+  {
+    "symbol": "159915",
+    "scope": "LOCAL_REPLAY_OF_ACTUAL_LIVE_INPUTS_ONLY",
+    "original_tuple_equals_replay": false,
+    "content_digests_equal": true,
+    "source_bar_dates": [
+      "2026-09-08",
+      "2026-09-09",
+      "2026-09-10",
+      "2026-09-11"
+    ],
+    "replay_bar_dates": [
+      "2026-09-09",
+      "2026-09-10",
+      "2026-09-08",
+      "2026-09-11"
+    ],
+    "proof": {
+      "run_manifest": {
+        "manifest_schema_version": "m0-run-manifest-1",
+        "run_type": "BACKTEST",
+        "code_commit": "qualification-source",
+        "dependency_lock_digest": "sha256:9bc869ba3b026528beeb2ec727fa76a6d60f1109bd3916f6394ad04b868939b4",
+        "data_snapshot_digest": "ced0a4af2a569187608cedc6380c37a49f01b4b5ba3a669dd6a996456265eb92",
+        "fee_config_digest": "sha256:7f8587ba31e98b142e83bbcab0457bd850ef807d4d8c1f4198477f00cfeefbb3",
+        "calendar_digest": "sha256:feb4f6d43a366ac96339e4d73b068ff9f601e6ecb02726e2f0ade95c9a0ea787",
+        "execution_model_version": "m0-execution-1",
+        "rule_versions": [
+          [
+            "execution-mode",
+            "HISTORICAL_OPENING_R21"
+          ],
+          [
+            "execution-policy",
+            "R2.1"
+          ],
+          [
+            "execution-clock",
+            "Asia/Shanghai|09:15:00|09:30:00|15:30:00"
+          ]
+        ],
+        "metric_convention_digest": "sha256:fd309744c864198eeefecfce4580d1ac692e744efa2d82a567ac9e20a27c71ea",
+        "benchmark_identity": "NONE",
+        "random_seed": 0
+      },
+      "run_identity": "sha256:f063e03264a367c44c1a53a48c6b19b283624d7b53d20a225141ac2833bfc331",
+      "snapshot_manifest": {
+        "snapshot_schema_version": "v3-historical-opening",
+        "snapshot_id": "ced0a4af2a569187608cedc6380c37a49f01b4b5ba3a669dd6a996456265eb92",
+        "created_at": "2026-10-12T17:12:11.570952+08:00",
+        "knowledge_cutoff": "2026-10-12T17:12:11.570952+08:00",
+        "provider_name": "chstockdata",
+        "provider_version": "0.4.2",
+        "adapter_version": "0.1.0",
+        "schemas": [
+          [
+            "corporate_action",
+            "v1"
+          ],
+          [
+            "daily_bar",
+            "v1"
+          ],
+          [
+            "historical_opening_evidence",
+            "historical-opening-evidence/1"
+          ],
+          [
+            "tradability_status",
+            "v1"
+          ],
+          [
+            "trading_session",
+            "v1"
+          ]
+        ],
+        "scope_instrument_ids": [
+          "XSHE:159915"
+        ],
+        "scope_start": "2026-09-08",
+        "scope_end": "2026-09-11",
+        "adjustment_policy": "RAW_WITH_POINT_IN_TIME_FACTORS",
+        "availability_policy": {
+          "allowed_bases": [
+            "EXCHANGE_RULE",
+            "UNKNOWN"
+          ],
+          "unknown_handling": "explicit"
+        },
+        "retrieved_at": "2026-10-12T17:12:11.570952+08:00",
+        "artifacts": [
+          {
+            "logical_partition": "corporate_action",
+            "checksum": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "row_count": 0
+          },
+          {
+            "logical_partition": "daily_bar",
+            "checksum": "a0fb967dc3f31655732a032d6fcf3cad378fad1d79e56740254c1455e732b438",
+            "row_count": 4
+          },
+          {
+            "logical_partition": "historical_opening_evidence",
+            "checksum": "d68641b14141d013d419578349eed9f371a96f52d2f97125851b8407bc1e2122",
+            "row_count": 1
+          },
+          {
+            "logical_partition": "tradability_status",
+            "checksum": "4d6d559027d8ba12e6f5bcc651b626c4ca6eef5b976933ca97a9dad0950294fb",
+            "row_count": 1
+          },
+          {
+            "logical_partition": "trading_session",
+            "checksum": "b88c2086d32344ec1c6302bc95a27abb15a97dd7317621d41aae2d4ec0f8953b",
+            "row_count": 7
+          }
+        ],
+        "quality_report_id": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+        "quality_status": "PASS",
+        "execution_policy": "R2.1",
+        "execution_clock": "Asia/Shanghai|09:15:00|09:30:00|15:30:00",
+        "execution_evidence_digest": "ee52698d5cb23cd6cf4da634a2fb8db5c7cef78ae355c59094688f0ba58d4819"
+      },
+      "plans": [
+        {
+          "instrument_id": {
+            "exchange": "XSHE",
+            "symbol": "159915"
+          },
+          "sleeve": "CORE",
+          "side": "BUY",
+          "order_quantity": 14800,
+          "target_weight": "0.50",
+          "current_weight": "0.000",
+          "target_id": "target:2026-09-10",
+          "target_revision": 1,
+          "decision_for_trade_date": "2026-09-10",
+          "sizing_reference_price": "3.358"
+        }
+      ],
+      "fills": [
+        {
+          "fill_id": "fill:order:2026-09-11:XSHE:159915",
+          "order_id": "order:2026-09-11:XSHE:159915",
+          "instrument_id": {
+            "exchange": "XSHE",
+            "symbol": "159915"
+          },
+          "side": "BUY",
+          "quantity": 14800,
+          "fill_price": "3.327",
+          "reference_open": "3.323",
+          "session_date": "2026-09-11",
+          "fees": {
+            "commission": {
+              "amount": "14.77",
+              "currency": "CNY"
+            },
+            "minimum_commission_adjustment": {
+              "amount": "0.00",
+              "currency": "CNY"
+            },
+            "stamp_tax": {
+              "amount": "0.00",
+              "currency": "CNY"
+            },
+            "transfer_fee": {
+              "amount": "0.00",
+              "currency": "CNY"
+            }
+          },
+          "source": "SIMULATED"
+        }
+      ],
+      "activation_orders": [
+        {
+          "order_id": "order:2026-09-11:XSHE:159915",
+          "instrument_id": {
+            "exchange": "XSHE",
+            "symbol": "159915"
+          },
+          "side": "BUY",
+          "planned_quantity": 14800,
+          "submitted_quantity": 14800,
+          "execution_session": "2026-09-11",
+          "sizing_reference_price_basis": "T_CLOSE",
+          "sizing_reference_price": "3.358",
+          "fill_price_model": "NEXT_SESSION_OPEN",
+          "target_id": "target:2026-09-10",
+          "target_revision": 1,
+          "decision_for_trade_date": "2026-09-10",
+          "status": "FILLED",
+          "reason_codes": [
+            "FILLED_AS_PLANNED"
+          ]
+        }
+      ],
+      "rejections": [],
+      "execution_at": "2026-09-11 09:30:00+08:00",
+      "raw_daily_open": "3.323",
+      "result_digest": "494765fc86d5bd5439c2685d4fa119f2357ac294cb2847cd80ebb6b2fe65aa88"
+    },
+    "result": "PASS"
+  },
+  {
+    "symbol": "518880",
+    "scope": "LOCAL_REPLAY_OF_ACTUAL_LIVE_INPUTS_ONLY",
+    "original_tuple_equals_replay": false,
+    "content_digests_equal": true,
+    "source_bar_dates": [
+      "2026-09-08",
+      "2026-09-09",
+      "2026-09-10",
+      "2026-09-11"
+    ],
+    "replay_bar_dates": [
+      "2026-09-08",
+      "2026-09-10",
+      "2026-09-09",
+      "2026-09-11"
+    ],
+    "proof": {
+      "run_manifest": {
+        "manifest_schema_version": "m0-run-manifest-1",
+        "run_type": "BACKTEST",
+        "code_commit": "qualification-source",
+        "dependency_lock_digest": "sha256:9bc869ba3b026528beeb2ec727fa76a6d60f1109bd3916f6394ad04b868939b4",
+        "data_snapshot_digest": "b8c2a38c25332657c4b5fc8c33454b1d3bd7becbaf79b496d3289a57deb01b63",
+        "fee_config_digest": "sha256:7f8587ba31e98b142e83bbcab0457bd850ef807d4d8c1f4198477f00cfeefbb3",
+        "calendar_digest": "sha256:e31b801de740b584cf179719e77b262141464bf6b126645522cbebd2de18a0d8",
+        "execution_model_version": "m0-execution-1",
+        "rule_versions": [
+          [
+            "execution-mode",
+            "HISTORICAL_OPENING_R21"
+          ],
+          [
+            "execution-policy",
+            "R2.1"
+          ],
+          [
+            "execution-clock",
+            "Asia/Shanghai|09:15:00|09:30:00|15:30:00"
+          ]
+        ],
+        "metric_convention_digest": "sha256:fd309744c864198eeefecfce4580d1ac692e744efa2d82a567ac9e20a27c71ea",
+        "benchmark_identity": "NONE",
+        "random_seed": 0
+      },
+      "run_identity": "sha256:1de4c2e98b9d91e2b586f3d17b99b5f5193e5e5efaa2e5db031b52bf32cb6efb",
+      "snapshot_manifest": {
+        "snapshot_schema_version": "v3-historical-opening",
+        "snapshot_id": "b8c2a38c25332657c4b5fc8c33454b1d3bd7becbaf79b496d3289a57deb01b63",
+        "created_at": "2026-10-12T17:12:11.597554+08:00",
+        "knowledge_cutoff": "2026-10-12T17:12:11.597554+08:00",
+        "provider_name": "chstockdata",
+        "provider_version": "0.4.2",
+        "adapter_version": "0.1.0",
+        "schemas": [
+          [
+            "corporate_action",
+            "v1"
+          ],
+          [
+            "daily_bar",
+            "v1"
+          ],
+          [
+            "historical_opening_evidence",
+            "historical-opening-evidence/1"
+          ],
+          [
+            "tradability_status",
+            "v1"
+          ],
+          [
+            "trading_session",
+            "v1"
+          ]
+        ],
+        "scope_instrument_ids": [
+          "XSHG:518880"
+        ],
+        "scope_start": "2026-09-08",
+        "scope_end": "2026-09-11",
+        "adjustment_policy": "RAW_WITH_POINT_IN_TIME_FACTORS",
+        "availability_policy": {
+          "allowed_bases": [
+            "EXCHANGE_RULE",
+            "UNKNOWN"
+          ],
+          "unknown_handling": "explicit"
+        },
+        "retrieved_at": "2026-10-12T17:12:11.597554+08:00",
+        "artifacts": [
+          {
+            "logical_partition": "corporate_action",
+            "checksum": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "row_count": 0
+          },
+          {
+            "logical_partition": "daily_bar",
+            "checksum": "4e80e79a22c1d88b8bf320877ec0911f3171c6ea994904923d85b2c23cdd71e5",
+            "row_count": 4
+          },
+          {
+            "logical_partition": "historical_opening_evidence",
+            "checksum": "1421ca4f3b7547316223699897d15c854fcd30c14a100717d954443a20817ea9",
+            "row_count": 1
+          },
+          {
+            "logical_partition": "tradability_status",
+            "checksum": "b47ffa035ecede4f3717707e9d5daac2813e46a8727178aef5e5bb0b509e3005",
+            "row_count": 1
+          },
+          {
+            "logical_partition": "trading_session",
+            "checksum": "8290352a8034b8b46bd3a93e5d7ca6be0dea97fe52f98d180f89b3b77320e665",
+            "row_count": 7
+          }
+        ],
+        "quality_report_id": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+        "quality_status": "PASS",
+        "execution_policy": "R2.1",
+        "execution_clock": "Asia/Shanghai|09:15:00|09:30:00|15:30:00",
+        "execution_evidence_digest": "e096f9a25c68ec07da68b0e7522cfc1a7762460da7051b1d78f805b4a7e614d2"
+      },
+      "plans": [
+        {
+          "instrument_id": {
+            "exchange": "XSHG",
+            "symbol": "518880"
+          },
+          "sleeve": "CORE",
+          "side": "BUY",
+          "order_quantity": 5500,
+          "target_weight": "0.50",
+          "current_weight": "0.000",
+          "target_id": "target:2026-09-10",
+          "target_revision": 1,
+          "decision_for_trade_date": "2026-09-10",
+          "sizing_reference_price": "9.083"
+        }
+      ],
+      "fills": [
+        {
+          "fill_id": "fill:order:2026-09-11:XSHG:518880",
+          "order_id": "order:2026-09-11:XSHG:518880",
+          "instrument_id": {
+            "exchange": "XSHG",
+            "symbol": "518880"
+          },
+          "side": "BUY",
+          "quantity": 5500,
+          "fill_price": "8.904",
+          "reference_open": "8.895",
+          "session_date": "2026-09-11",
+          "fees": {
+            "commission": {
+              "amount": "14.69",
+              "currency": "CNY"
+            },
+            "minimum_commission_adjustment": {
+              "amount": "0.00",
+              "currency": "CNY"
+            },
+            "stamp_tax": {
+              "amount": "0.00",
+              "currency": "CNY"
+            },
+            "transfer_fee": {
+              "amount": "0.00",
+              "currency": "CNY"
+            }
+          },
+          "source": "SIMULATED"
+        }
+      ],
+      "activation_orders": [
+        {
+          "order_id": "order:2026-09-11:XSHG:518880",
+          "instrument_id": {
+            "exchange": "XSHG",
+            "symbol": "518880"
+          },
+          "side": "BUY",
+          "planned_quantity": 5500,
+          "submitted_quantity": 5500,
+          "execution_session": "2026-09-11",
+          "sizing_reference_price_basis": "T_CLOSE",
+          "sizing_reference_price": "9.083",
+          "fill_price_model": "NEXT_SESSION_OPEN",
+          "target_id": "target:2026-09-10",
+          "target_revision": 1,
+          "decision_for_trade_date": "2026-09-10",
+          "status": "FILLED",
+          "reason_codes": [
+            "FILLED_AS_PLANNED"
+          ]
+        }
+      ],
+      "rejections": [],
+      "execution_at": "2026-09-11 09:30:00+08:00",
+      "raw_daily_open": "8.895",
+      "result_digest": "0a886cc08ccc76fcfd7a6c6f8ee8c6c2a9608ad4fde3044736cc446329c56cbd"
+    },
+    "result": "PASS"
+  },
+  {
+    "symbol": "511010",
+    "scope": "LOCAL_REPLAY_OF_ACTUAL_LIVE_INPUTS_ONLY",
+    "original_tuple_equals_replay": false,
+    "content_digests_equal": true,
+    "source_bar_dates": [
+      "2026-09-08",
+      "2026-09-09",
+      "2026-09-10",
+      "2026-09-11"
+    ],
+    "replay_bar_dates": [
+      "2026-09-10",
+      "2026-09-08",
+      "2026-09-11",
+      "2026-09-09"
+    ],
+    "proof": {
+      "run_manifest": {
+        "manifest_schema_version": "m0-run-manifest-1",
+        "run_type": "BACKTEST",
+        "code_commit": "qualification-source",
+        "dependency_lock_digest": "sha256:9bc869ba3b026528beeb2ec727fa76a6d60f1109bd3916f6394ad04b868939b4",
+        "data_snapshot_digest": "2fe992dbea6fa2ec6902707780dee349a8814f7776318842f3f73e537829d900",
+        "fee_config_digest": "sha256:7f8587ba31e98b142e83bbcab0457bd850ef807d4d8c1f4198477f00cfeefbb3",
+        "calendar_digest": "sha256:e31b801de740b584cf179719e77b262141464bf6b126645522cbebd2de18a0d8",
+        "execution_model_version": "m0-execution-1",
+        "rule_versions": [
+          [
+            "execution-mode",
+            "HISTORICAL_OPENING_R21"
+          ],
+          [
+            "execution-policy",
+            "R2.1"
+          ],
+          [
+            "execution-clock",
+            "Asia/Shanghai|09:15:00|09:30:00|15:30:00"
+          ]
+        ],
+        "metric_convention_digest": "sha256:fd309744c864198eeefecfce4580d1ac692e744efa2d82a567ac9e20a27c71ea",
+        "benchmark_identity": "NONE",
+        "random_seed": 0
+      },
+      "run_identity": "sha256:02c6a901cdf0474d760e4d2a9d6b165f5fdc0e89bc5e3e64c0be78fd19ea4fca",
+      "snapshot_manifest": {
+        "snapshot_schema_version": "v3-historical-opening",
+        "snapshot_id": "2fe992dbea6fa2ec6902707780dee349a8814f7776318842f3f73e537829d900",
+        "created_at": "2026-10-12T17:12:11.623655+08:00",
+        "knowledge_cutoff": "2026-10-12T17:12:11.623655+08:00",
+        "provider_name": "chstockdata",
+        "provider_version": "0.4.2",
+        "adapter_version": "0.1.0",
+        "schemas": [
+          [
+            "corporate_action",
+            "v1"
+          ],
+          [
+            "daily_bar",
+            "v1"
+          ],
+          [
+            "historical_opening_evidence",
+            "historical-opening-evidence/1"
+          ],
+          [
+            "tradability_status",
+            "v1"
+          ],
+          [
+            "trading_session",
+            "v1"
+          ]
+        ],
+        "scope_instrument_ids": [
+          "XSHG:511010"
+        ],
+        "scope_start": "2026-09-08",
+        "scope_end": "2026-09-11",
+        "adjustment_policy": "RAW_WITH_POINT_IN_TIME_FACTORS",
+        "availability_policy": {
+          "allowed_bases": [
+            "EXCHANGE_RULE",
+            "UNKNOWN"
+          ],
+          "unknown_handling": "explicit"
+        },
+        "retrieved_at": "2026-10-12T17:12:11.623655+08:00",
+        "artifacts": [
+          {
+            "logical_partition": "corporate_action",
+            "checksum": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "row_count": 0
+          },
+          {
+            "logical_partition": "daily_bar",
+            "checksum": "8b9b5fef1a88c710d07db95078df1cf90541d7178bcfd78c60a76ca688c6f0bd",
+            "row_count": 4
+          },
+          {
+            "logical_partition": "historical_opening_evidence",
+            "checksum": "0d8e9d0670b92a6981d9b93551026fe18289f1578490095b620e386a65c94358",
+            "row_count": 1
+          },
+          {
+            "logical_partition": "tradability_status",
+            "checksum": "b5127839e147b3ddb548415389cdce3e4fd794a2b55ab8cc06feb7d4d8d0877a",
+            "row_count": 1
+          },
+          {
+            "logical_partition": "trading_session",
+            "checksum": "8290352a8034b8b46bd3a93e5d7ca6be0dea97fe52f98d180f89b3b77320e665",
+            "row_count": 7
+          }
+        ],
+        "quality_report_id": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+        "quality_status": "PASS",
+        "execution_policy": "R2.1",
+        "execution_clock": "Asia/Shanghai|09:15:00|09:30:00|15:30:00",
+        "execution_evidence_digest": "b959e6d03980dc67206ccfe85212661fe060eb6c646da675dfedcda10c37fcd0"
+      },
+      "plans": [
+        {
+          "instrument_id": {
+            "exchange": "XSHG",
+            "symbol": "511010"
+          },
+          "sleeve": "CORE",
+          "side": "BUY",
+          "order_quantity": 300,
+          "target_weight": "0.50",
+          "current_weight": "0.000",
+          "target_id": "target:2026-09-10",
+          "target_revision": 1,
+          "decision_for_trade_date": "2026-09-10",
+          "sizing_reference_price": "141.185"
+        }
+      ],
+      "fills": [
+        {
+          "fill_id": "fill:order:2026-09-11:XSHG:511010",
+          "order_id": "order:2026-09-11:XSHG:511010",
+          "instrument_id": {
+            "exchange": "XSHG",
+            "symbol": "511010"
+          },
+          "side": "BUY",
+          "quantity": 300,
+          "fill_price": "141.322",
+          "reference_open": "141.18",
+          "session_date": "2026-09-11",
+          "fees": {
+            "commission": {
+              "amount": "12.72",
+              "currency": "CNY"
+            },
+            "minimum_commission_adjustment": {
+              "amount": "0.00",
+              "currency": "CNY"
+            },
+            "stamp_tax": {
+              "amount": "0.00",
+              "currency": "CNY"
+            },
+            "transfer_fee": {
+              "amount": "0.00",
+              "currency": "CNY"
+            }
+          },
+          "source": "SIMULATED"
+        }
+      ],
+      "activation_orders": [
+        {
+          "order_id": "order:2026-09-11:XSHG:511010",
+          "instrument_id": {
+            "exchange": "XSHG",
+            "symbol": "511010"
+          },
+          "side": "BUY",
+          "planned_quantity": 300,
+          "submitted_quantity": 300,
+          "execution_session": "2026-09-11",
+          "sizing_reference_price_basis": "T_CLOSE",
+          "sizing_reference_price": "141.185",
+          "fill_price_model": "NEXT_SESSION_OPEN",
+          "target_id": "target:2026-09-10",
+          "target_revision": 1,
+          "decision_for_trade_date": "2026-09-10",
+          "status": "FILLED",
+          "reason_codes": [
+            "FILLED_AS_PLANNED"
+          ]
+        }
+      ],
+      "rejections": [],
+      "execution_at": "2026-09-11 09:30:00+08:00",
+      "raw_daily_open": "141.18",
+      "result_digest": "6d553da25617bf9732c32bbecf9e0f8ff8e4a606bdd9cfd884f9f00c87a99748"
+    },
+    "result": "PASS"
+  },
+  {
+    "symbol": "513100",
+    "scope": "LOCAL_REPLAY_OF_ACTUAL_LIVE_INPUTS_ONLY",
+    "original_tuple_equals_replay": false,
+    "content_digests_equal": true,
+    "source_bar_dates": [
+      "2026-09-08",
+      "2026-09-09",
+      "2026-09-10",
+      "2026-09-11"
+    ],
+    "replay_bar_dates": [
+      "2026-09-09",
+      "2026-09-08",
+      "2026-09-10",
+      "2026-09-11"
+    ],
+    "proof": {
+      "run_manifest": {
+        "manifest_schema_version": "m0-run-manifest-1",
+        "run_type": "BACKTEST",
+        "code_commit": "qualification-source",
+        "dependency_lock_digest": "sha256:9bc869ba3b026528beeb2ec727fa76a6d60f1109bd3916f6394ad04b868939b4",
+        "data_snapshot_digest": "c429c7aa0b06b9de76dfd8e299f77b5637f3b704686e5a7c8642735c58e7883a",
+        "fee_config_digest": "sha256:7f8587ba31e98b142e83bbcab0457bd850ef807d4d8c1f4198477f00cfeefbb3",
+        "calendar_digest": "sha256:e31b801de740b584cf179719e77b262141464bf6b126645522cbebd2de18a0d8",
+        "execution_model_version": "m0-execution-1",
+        "rule_versions": [
+          [
+            "execution-mode",
+            "HISTORICAL_OPENING_R21"
+          ],
+          [
+            "execution-policy",
+            "R2.1"
+          ],
+          [
+            "execution-clock",
+            "Asia/Shanghai|09:15:00|09:30:00|15:30:00"
+          ]
+        ],
+        "metric_convention_digest": "sha256:fd309744c864198eeefecfce4580d1ac692e744efa2d82a567ac9e20a27c71ea",
+        "benchmark_identity": "NONE",
+        "random_seed": 0
+      },
+      "run_identity": "sha256:d31386ffe2aaa810887e8d7faabc5f58a3bbcc6eb6f99d3ec783552ef9dddb9e",
+      "snapshot_manifest": {
+        "snapshot_schema_version": "v3-historical-opening",
+        "snapshot_id": "c429c7aa0b06b9de76dfd8e299f77b5637f3b704686e5a7c8642735c58e7883a",
+        "created_at": "2026-10-12T17:12:11.649772+08:00",
+        "knowledge_cutoff": "2026-10-12T17:12:11.649772+08:00",
+        "provider_name": "chstockdata",
+        "provider_version": "0.4.2",
+        "adapter_version": "0.1.0",
+        "schemas": [
+          [
+            "corporate_action",
+            "v1"
+          ],
+          [
+            "daily_bar",
+            "v1"
+          ],
+          [
+            "historical_opening_evidence",
+            "historical-opening-evidence/1"
+          ],
+          [
+            "tradability_status",
+            "v1"
+          ],
+          [
+            "trading_session",
+            "v1"
+          ]
+        ],
+        "scope_instrument_ids": [
+          "XSHG:513100"
+        ],
+        "scope_start": "2026-09-08",
+        "scope_end": "2026-09-11",
+        "adjustment_policy": "RAW_WITH_POINT_IN_TIME_FACTORS",
+        "availability_policy": {
+          "allowed_bases": [
+            "EXCHANGE_RULE",
+            "UNKNOWN"
+          ],
+          "unknown_handling": "explicit"
+        },
+        "retrieved_at": "2026-10-12T17:12:11.649772+08:00",
+        "artifacts": [
+          {
+            "logical_partition": "corporate_action",
+            "checksum": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "row_count": 0
+          },
+          {
+            "logical_partition": "daily_bar",
+            "checksum": "b91c83881bf998a8a98c6b9ed9f340c63a9b061b8949123dc01dda8913602404",
+            "row_count": 4
+          },
+          {
+            "logical_partition": "historical_opening_evidence",
+            "checksum": "6a1060071d99f6570d66ac7997df330d9a0d4e05eecc9791968eb9452277609d",
+            "row_count": 1
+          },
+          {
+            "logical_partition": "tradability_status",
+            "checksum": "b3bf34f7774022d431adb598ec8777e356e213366793c6befdfc90a4edfcd658",
+            "row_count": 1
+          },
+          {
+            "logical_partition": "trading_session",
+            "checksum": "8290352a8034b8b46bd3a93e5d7ca6be0dea97fe52f98d180f89b3b77320e665",
+            "row_count": 7
+          }
+        ],
+        "quality_report_id": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+        "quality_status": "PASS",
+        "execution_policy": "R2.1",
+        "execution_clock": "Asia/Shanghai|09:15:00|09:30:00|15:30:00",
+        "execution_evidence_digest": "d708535049dcb4e9cbeb4b7aabb794bc6b60da0f4f54d4098a3605e110f79246"
+      },
+      "plans": [
+        {
+          "instrument_id": {
+            "exchange": "XSHG",
+            "symbol": "513100"
+          },
+          "sleeve": "CORE",
+          "side": "BUY",
+          "order_quantity": 22500,
+          "target_weight": "0.50",
+          "current_weight": "0.000",
+          "target_id": "target:2026-09-10",
+          "target_revision": 1,
+          "decision_for_trade_date": "2026-09-10",
+          "sizing_reference_price": "2.219"
+        }
+      ],
+      "fills": [],
+      "activation_orders": [
+        {
+          "order_id": "order:2026-09-11:XSHG:513100",
+          "instrument_id": {
+            "exchange": "XSHG",
+            "symbol": "513100"
+          },
+          "side": "BUY",
+          "planned_quantity": 22500,
+          "submitted_quantity": null,
+          "execution_session": "2026-09-11",
+          "sizing_reference_price_basis": "T_CLOSE",
+          "sizing_reference_price": "2.219",
+          "fill_price_model": "NEXT_SESSION_OPEN",
+          "target_id": "target:2026-09-10",
+          "target_revision": 1,
+          "decision_for_trade_date": "2026-09-10",
+          "status": "REJECTED",
+          "reason_codes": [
+            "SUSPENDED"
+          ]
+        }
+      ],
+      "rejections": [
+        {
+          "rejection_id": "reject:order:2026-09-11:XSHG:513100",
+          "order_id": "order:2026-09-11:XSHG:513100",
+          "instrument_id": {
+            "exchange": "XSHG",
+            "symbol": "513100"
+          },
+          "side": "BUY",
+          "code": "SUSPENDED",
+          "message": "activation rejected XSHG:513100",
+          "session_date": "2026-09-11",
+          "observed": "status=UNKNOWN"
+        }
+      ],
+      "execution_at": "2026-09-11 09:30:00+08:00",
+      "raw_daily_open": "2.198",
+      "result_digest": "4339d86bac4b2186f996c5edfb3e026756f84e53e66b5fd6157c7f9dbb00b64f"
+    },
+    "result": "PASS"
+  },
+  {
+    "symbol": "159509",
+    "scope": "LOCAL_REPLAY_OF_ACTUAL_LIVE_INPUTS_ONLY",
+    "original_tuple_equals_replay": false,
+    "content_digests_equal": true,
+    "source_bar_dates": [
+      "2026-09-08",
+      "2026-09-09",
+      "2026-09-10",
+      "2026-09-11"
+    ],
+    "replay_bar_dates": [
+      "2026-09-10",
+      "2026-09-09",
+      "2026-09-11",
+      "2026-09-08"
+    ],
+    "proof": {
+      "run_manifest": {
+        "manifest_schema_version": "m0-run-manifest-1",
+        "run_type": "BACKTEST",
+        "code_commit": "qualification-source",
+        "dependency_lock_digest": "sha256:9bc869ba3b026528beeb2ec727fa76a6d60f1109bd3916f6394ad04b868939b4",
+        "data_snapshot_digest": "cceb4a545b9d963e83c5b68c7d4be1351101d7010d86164eeb8fa2751585437d",
+        "fee_config_digest": "sha256:7f8587ba31e98b142e83bbcab0457bd850ef807d4d8c1f4198477f00cfeefbb3",
+        "calendar_digest": "sha256:feb4f6d43a366ac96339e4d73b068ff9f601e6ecb02726e2f0ade95c9a0ea787",
+        "execution_model_version": "m0-execution-1",
+        "rule_versions": [
+          [
+            "execution-mode",
+            "HISTORICAL_OPENING_R21"
+          ],
+          [
+            "execution-policy",
+            "R2.1"
+          ],
+          [
+            "execution-clock",
+            "Asia/Shanghai|09:15:00|09:30:00|15:30:00"
+          ]
+        ],
+        "metric_convention_digest": "sha256:fd309744c864198eeefecfce4580d1ac692e744efa2d82a567ac9e20a27c71ea",
+        "benchmark_identity": "NONE",
+        "random_seed": 0
+      },
+      "run_identity": "sha256:aa9cefe8c935947e8cbb2f8cec6e14479068b97a2acf249483917c0035a5ae1e",
+      "snapshot_manifest": {
+        "snapshot_schema_version": "v3-historical-opening",
+        "snapshot_id": "cceb4a545b9d963e83c5b68c7d4be1351101d7010d86164eeb8fa2751585437d",
+        "created_at": "2026-10-12T17:12:11.675758+08:00",
+        "knowledge_cutoff": "2026-10-12T17:12:11.675758+08:00",
+        "provider_name": "chstockdata",
+        "provider_version": "0.4.2",
+        "adapter_version": "0.1.0",
+        "schemas": [
+          [
+            "corporate_action",
+            "v1"
+          ],
+          [
+            "daily_bar",
+            "v1"
+          ],
+          [
+            "historical_opening_evidence",
+            "historical-opening-evidence/1"
+          ],
+          [
+            "tradability_status",
+            "v1"
+          ],
+          [
+            "trading_session",
+            "v1"
+          ]
+        ],
+        "scope_instrument_ids": [
+          "XSHE:159509"
+        ],
+        "scope_start": "2026-09-08",
+        "scope_end": "2026-09-11",
+        "adjustment_policy": "RAW_WITH_POINT_IN_TIME_FACTORS",
+        "availability_policy": {
+          "allowed_bases": [
+            "EXCHANGE_RULE",
+            "UNKNOWN"
+          ],
+          "unknown_handling": "explicit"
+        },
+        "retrieved_at": "2026-10-12T17:12:11.675758+08:00",
+        "artifacts": [
+          {
+            "logical_partition": "corporate_action",
+            "checksum": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "row_count": 0
+          },
+          {
+            "logical_partition": "daily_bar",
+            "checksum": "2b30e3eb4f4a5e86cf491cd760fb4e8fd692e3a04f39725953f80063cebcaf41",
+            "row_count": 4
+          },
+          {
+            "logical_partition": "historical_opening_evidence",
+            "checksum": "3ffd2578694ad526239e5c57498e1a9f7ef404da97e50e409a5d94b7b27a3248",
+            "row_count": 1
+          },
+          {
+            "logical_partition": "tradability_status",
+            "checksum": "c2ef6f3ec21c6d3f929c0b8b67ddfddd0f86ecb3549e0b703bf88bd9ffeea0b6",
+            "row_count": 1
+          },
+          {
+            "logical_partition": "trading_session",
+            "checksum": "b88c2086d32344ec1c6302bc95a27abb15a97dd7317621d41aae2d4ec0f8953b",
+            "row_count": 7
+          }
+        ],
+        "quality_report_id": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+        "quality_status": "PASS",
+        "execution_policy": "R2.1",
+        "execution_clock": "Asia/Shanghai|09:15:00|09:30:00|15:30:00",
+        "execution_evidence_digest": "db5dd29412e2a5126dc35b829bd62243306cb6480259feab9c47ce359084d34a"
+      },
+      "plans": [
+        {
+          "instrument_id": {
+            "exchange": "XSHE",
+            "symbol": "159509"
+          },
+          "sleeve": "CORE",
+          "side": "BUY",
+          "order_quantity": 17500,
+          "target_weight": "0.50",
+          "current_weight": "0.000",
+          "target_id": "target:2026-09-10",
+          "target_revision": 1,
+          "decision_for_trade_date": "2026-09-10",
+          "sizing_reference_price": "2.841"
+        }
+      ],
+      "fills": [],
+      "activation_orders": [
+        {
+          "order_id": "order:2026-09-11:XSHE:159509",
+          "instrument_id": {
+            "exchange": "XSHE",
+            "symbol": "159509"
+          },
+          "side": "BUY",
+          "planned_quantity": 17500,
+          "submitted_quantity": null,
+          "execution_session": "2026-09-11",
+          "sizing_reference_price_basis": "T_CLOSE",
+          "sizing_reference_price": "2.841",
+          "fill_price_model": "NEXT_SESSION_OPEN",
+          "target_id": "target:2026-09-10",
+          "target_revision": 1,
+          "decision_for_trade_date": "2026-09-10",
+          "status": "REJECTED",
+          "reason_codes": [
+            "SUSPENDED"
+          ]
+        }
+      ],
+      "rejections": [
+        {
+          "rejection_id": "reject:order:2026-09-11:XSHE:159509",
+          "order_id": "order:2026-09-11:XSHE:159509",
+          "instrument_id": {
+            "exchange": "XSHE",
+            "symbol": "159509"
+          },
+          "side": "BUY",
+          "code": "SUSPENDED",
+          "message": "activation rejected XSHE:159509",
+          "session_date": "2026-09-11",
+          "observed": "status=UNKNOWN"
+        }
+      ],
+      "execution_at": "2026-09-11 09:30:00+08:00",
+      "raw_daily_open": "2.812",
+      "result_digest": "b721fc51005ab9df2ffc8b2051fb894925480ee191076752af82eb464be3cfc6"
+    },
+    "result": "PASS"
+  }
+]

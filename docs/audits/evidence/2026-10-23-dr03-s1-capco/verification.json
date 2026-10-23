@@ -1,0 +1,868 @@
+{
+  "generated_at": "2026-10-23",
+  "task": "DR03-S1 CAPCO historical industry membership bounded qualification",
+  "baseline": {
+    "head": "a2072d0c722d7f7935309a15cef945bc8ecbef08",
+    "origin_main": "5584f5fcacccef9a9531a7a32b8463ea6771d312",
+    "scope": "READ_ONLY / QUALIFICATION_ONLY",
+    "new_network_requests": 0,
+    "code_changed": false,
+    "git_commit": false,
+    "git_push": false
+  },
+  "inputs": {
+    "s0a_manifest_sha256": "3b35b3076030b8d653533b1683042a7064320a15c6af7309041b00066d18bbb9",
+    "s0a_manifest_files_verified": 31,
+    "s0a_manifest_mismatches": 0,
+    "pdfs": {
+      "2025H1": {
+        "file": "capco-pdf-by-code.pdf",
+        "sha256": "b622b76b96d59611db36b01888cf6afd8cd711c5753a19ab8547e74bb0bb8228",
+        "bytes": 4626417,
+        "pages": 114,
+        "unique_codes": 5413,
+        "creation_date": "D:20250929082317+08'00'",
+        "mod_date": "D:20250929082317+08'00'",
+        "producer": "Microsoft® Excel® 2016",
+        "creator": "Microsoft® Excel® 2016"
+      },
+      "2025H2": {
+        "file": "capco-pdf-2025H2-by-code.pdf",
+        "sha256": "b1d0140572b20de11cd62ca478edb4da6e229928b216116df6345b3c2e461f58",
+        "bytes": 772144,
+        "pages": 158,
+        "unique_codes": 5463,
+        "creation_date": "D:20260331095443+08'00'",
+        "mod_date": "D:20260331095443+08'00'",
+        "producer": "iText® Core 8.0.0 (AGPL version) ©2000-2023 Apryse Group NV",
+        "creator": "None"
+      },
+      "2026H1": {
+        "file": "capco-pdf-2026H1-by-code.pdf",
+        "sha256": "1f1862ae2199a82a3a35c62f16a7d576120bca97f3de608989c8897df9b6c8a6",
+        "bytes": 782339,
+        "pages": 160,
+        "unique_codes": 5521,
+        "creation_date": "D:20260928112141+08'00'",
+        "mod_date": "D:20260928112141+08'00'",
+        "producer": "iText® Core 8.0.0 (AGPL version) ©2000-2023 Apryse Group NV",
+        "creator": "None"
+      }
+    },
+    "bse_map": {
+      "file": "capco-pdf-bse-code-map.pdf",
+      "sha256": "f85a6691a74a8c7e4d2bb838277161b9d0496f52cc66ddde4ba0211153401c3d",
+      "bytes": 190213,
+      "pages": 6,
+      "http_last_modified": "2026-03-27T12:14:12Z"
+    },
+    "by_industry_2025H1": {
+      "file": "capco-pdf-by-industry.pdf",
+      "sha256": "caa7d96b05ff9ec2165aa3b4cb69edd69c8b1a1a0f99198c4cfcf85727f1d7bc",
+      "pages": 129,
+      "unique_codes": 5413,
+      "set_equals_by_code": true
+    },
+    "taxonomy_guide": {
+      "file": "capco-taxonomy-guide.js",
+      "sha256": "b7ad99d947fad5b71b3464d55d19530012bd91ad5465574d82846ee519b4f584",
+      "page_date": "2023-05-21",
+      "title": "中国上市公司协会上市公司行业统计分类指引",
+      "saved_body": "CHAPTER_1_ARTICLES_1_3_ONLY",
+      "full_table_saved": false,
+      "version_year_in_body": false
+    },
+    "article_data": {
+      "2025H1": {
+        "file": "capco-article-2025H1.js",
+        "sha256": "b408b41fd2c932c74e9704211ad82117458035483c933f722fca3ba85d0e1b8b",
+        "date": "2025-09-30"
+      },
+      "2025H2": {
+        "file": "capco-article-2025H2.js",
+        "sha256": "800821d377c1b29705aa371b20e9d8a2f84a9dda14442023d9f0d32f9a07cd65",
+        "date": "2026-04-03"
+      },
+      "2026H1": {
+        "file": "capco-article-2026H1.js",
+        "sha256": "e2e4ac866954985d1bbd2c501b16f288f0542b62b1963053cff41215443ef92a",
+        "date": "2026-09-30"
+      }
+    },
+    "dr01_raw": {
+      "official-SH-main.response.bin": "743ba070a791d053d319c7ed30b889c23b51575373a73bf81f8aa2a995b8a201",
+      "official-SH-star.response.bin": "672da3dad4b8443c690ce116361645a55e7a3e9e204de5ad60a0e8beb8281e72",
+      "official-SZ-A.response.bin": "780b9f26515921b5f04c06bb6ffe5b25de57c283b1e87c993036c3ce0bc36332"
+    },
+    "dr03_raw": {
+      "sse-current-1.raw": "f9135be9dcbeff464ecacc7cbf8a1832949d4790c937d1315d701afae91eb20f",
+      "sse-current-8.raw": "32cb90c706464a6e8502b652569a42eba265a9cc85e03a740193c6b3e322e2e4",
+      "szse-current.raw": "5ce958d8b34c099c9fb3dc8bdaf7f5d3a99868e98b159b1a73fa1cb6cd91442d"
+    }
+  },
+  "time_semantics": {
+    "2025H1": {
+      "report_period": "2025H1",
+      "page_date": "2025-09-30",
+      "pdf_creation": "2025-09-29T08:23:17+08:00",
+      "http_last_modified": "2026-03-27T12:14:12Z",
+      "url_path": "/file/202603/...",
+      "effective_date_stated": false,
+      "known_at_proven": false,
+      "note": "PDF creation 2025-09-29 and page date 2025-09-30 do not prove the current bytes were available then; the file is served from a 2026-03 path and last modified 2026-03-27.",
+      "current_bytes_object_last_modified": "2026-03-27",
+      "first_known_proven": false
+    },
+    "2025H2": {
+      "report_period": "2025H2",
+      "page_date": "2026-04-03",
+      "pdf_creation": "2026-03-31T09:54:43+08:00",
+      "http_last_modified": "2026-04-03T06:49:48Z",
+      "url_path": "/file/202604/...",
+      "effective_date_stated": false,
+      "known_at_proven": false,
+      "earliest_corroborated_publication_date": "2026-04-03",
+      "first_known_proven": false
+    },
+    "2026H1": {
+      "report_period": "2026H1",
+      "page_date": "2026-09-30",
+      "pdf_creation": "2026-09-28T11:21:41+08:00",
+      "http_last_modified": "2026-09-30T06:19:30Z",
+      "url_path": "/file/202609/gwfile/...",
+      "effective_date_stated": false,
+      "known_at_proven": false,
+      "earliest_corroborated_publication_date": "2026-09-30",
+      "first_known_proven": false
+    }
+  },
+  "taxonomy": {
+    "menlei_codes": 19,
+    "cilei_codes": 10,
+    "dajia_codes": 83,
+    "code_name_mapping_identical_across_three_versions": true,
+    "code_set_identical_across_three_versions": true,
+    "pdf_explicit_standard_name_or_year": false,
+    "guide_full_table_or_version": false,
+    "2024_11_22_csrc_standard_announcement_in_saved_bundle": true,
+    "2024_standard_body_saved": false,
+    "status": "UNRESOLVED"
+  },
+  "membership": {
+    "2025H1": {
+      "total_unique_codes": 5413,
+      "contract_a": 5136,
+      "sh_contract_a": 2274,
+      "sz_contract_a": 2862,
+      "b_shares": 8,
+      "b_share_codes": [
+        "200468",
+        "200512",
+        "200706",
+        "200771",
+        "200992",
+        "900929",
+        "900939",
+        "900948"
+      ],
+      "bse": 267,
+      "cdr_689009": 1,
+      "outside_302132": 1,
+      "empty_cilei": 1727,
+      "c_rows": 3686,
+      "c_rows_without_cilei": 0,
+      "non_c_with_cilei": 0,
+      "menlei_codes": 19,
+      "cilei_codes": 10,
+      "dajia_codes": 83,
+      "duplicates": 0
+    },
+    "2025H2": {
+      "total_unique_codes": 5463,
+      "contract_a": 5169,
+      "sh_contract_a": 2294,
+      "sz_contract_a": 2875,
+      "b_shares": 7,
+      "b_share_codes": [
+        "200468",
+        "200512",
+        "200706",
+        "200992",
+        "900929",
+        "900939",
+        "900948"
+      ],
+      "bse": 285,
+      "cdr_689009": 1,
+      "outside_302132": 1,
+      "empty_cilei": 1728,
+      "c_rows": 3735,
+      "c_rows_without_cilei": 0,
+      "non_c_with_cilei": 0,
+      "menlei_codes": 19,
+      "cilei_codes": 10,
+      "dajia_codes": 83,
+      "duplicates": 0
+    },
+    "2026H1": {
+      "total_unique_codes": 5521,
+      "contract_a": 5194,
+      "sh_contract_a": 2306,
+      "sz_contract_a": 2888,
+      "b_shares": 7,
+      "b_share_codes": [
+        "200468",
+        "200512",
+        "200706",
+        "200992",
+        "900929",
+        "900939",
+        "900948"
+      ],
+      "bse": 318,
+      "cdr_689009": 1,
+      "outside_302132": 1,
+      "empty_cilei": 1720,
+      "c_rows": 3801,
+      "c_rows_without_cilei": 0,
+      "non_c_with_cilei": 0,
+      "menlei_codes": 19,
+      "cilei_codes": 10,
+      "dajia_codes": 83,
+      "duplicates": 0
+    }
+  },
+  "cross_version_diffs": {
+    "2025H1->2025H2": {
+      "added": 60,
+      "removed": 10,
+      "common": 5403,
+      "exact": 5397,
+      "menlei_changes": 3,
+      "dajia_changes": 6,
+      "dajia_changes_same_menlei": 3,
+      "cilei_changes": 4,
+      "menlei_change_examples": [
+        {
+          "code": "002310",
+          "from_menlei": "N",
+          "to_menlei": "D",
+          "from_dajia": "77",
+          "to_dajia": "44"
+        },
+        {
+          "code": "001267",
+          "from_menlei": "E",
+          "to_menlei": "C",
+          "from_dajia": "48",
+          "to_dajia": "39"
+        },
+        {
+          "code": "600052",
+          "from_menlei": "R",
+          "to_menlei": "L",
+          "from_dajia": "87",
+          "to_dajia": "72"
+        }
+      ]
+    },
+    "2025H2->2026H1": {
+      "added": 75,
+      "removed": 17,
+      "common": 5446,
+      "exact": 5401,
+      "menlei_changes": 19,
+      "dajia_changes": 45,
+      "dajia_changes_same_menlei": 26,
+      "cilei_changes": 28,
+      "menlei_change_examples": [
+        {
+          "code": "000631",
+          "from_menlei": "K",
+          "to_menlei": "D",
+          "from_dajia": "70",
+          "to_dajia": "44"
+        },
+        {
+          "code": "603588",
+          "from_menlei": "N",
+          "to_menlei": "C",
+          "from_dajia": "77",
+          "to_dajia": "42"
+        },
+        {
+          "code": "603007",
+          "from_menlei": "E",
+          "to_menlei": "C",
+          "from_dajia": "48",
+          "to_dajia": "36"
+        },
+        {
+          "code": "603316",
+          "from_menlei": "E",
+          "to_menlei": "C",
+          "from_dajia": "48",
+          "to_dajia": "39"
+        },
+        {
+          "code": "000663",
+          "from_menlei": "A",
+          "to_menlei": "C",
+          "from_dajia": "02",
+          "to_dajia": "20"
+        },
+        {
+          "code": "300277",
+          "from_menlei": "I",
+          "to_menlei": "C",
+          "from_dajia": "65",
+          "to_dajia": "34"
+        },
+        {
+          "code": "002210",
+          "from_menlei": "L",
+          "to_menlei": "D",
+          "from_dajia": "72",
+          "to_dajia": "44"
+        },
+        {
+          "code": "301601",
+          "from_menlei": "M",
+          "to_menlei": "C",
+          "from_dajia": "74",
+          "to_dajia": "35"
+        },
+        {
+          "code": "920770",
+          "from_menlei": "C",
+          "to_menlei": "D",
+          "from_dajia": "38",
+          "to_dajia": "44"
+        },
+        {
+          "code": "002721",
+          "from_menlei": "C",
+          "to_menlei": "I",
+          "from_dajia": "24",
+          "to_dajia": "65"
+        }
+      ]
+    },
+    "2025H1->2026H1": {
+      "added": 135,
+      "removed": 27,
+      "common": 5386,
+      "exact": 5335,
+      "menlei_changes": 22,
+      "dajia_changes": 51,
+      "dajia_changes_same_menlei": 29,
+      "cilei_changes": 32,
+      "menlei_change_examples": [
+        {
+          "code": "000631",
+          "from_menlei": "K",
+          "to_menlei": "D",
+          "from_dajia": "70",
+          "to_dajia": "44"
+        },
+        {
+          "code": "603588",
+          "from_menlei": "N",
+          "to_menlei": "C",
+          "from_dajia": "77",
+          "to_dajia": "42"
+        },
+        {
+          "code": "002310",
+          "from_menlei": "N",
+          "to_menlei": "D",
+          "from_dajia": "77",
+          "to_dajia": "44"
+        },
+        {
+          "code": "603007",
+          "from_menlei": "E",
+          "to_menlei": "C",
+          "from_dajia": "48",
+          "to_dajia": "36"
+        },
+        {
+          "code": "603316",
+          "from_menlei": "E",
+          "to_menlei": "C",
+          "from_dajia": "48",
+          "to_dajia": "39"
+        },
+        {
+          "code": "000663",
+          "from_menlei": "A",
+          "to_menlei": "C",
+          "from_dajia": "02",
+          "to_dajia": "20"
+        },
+        {
+          "code": "300277",
+          "from_menlei": "I",
+          "to_menlei": "C",
+          "from_dajia": "65",
+          "to_dajia": "34"
+        },
+        {
+          "code": "001267",
+          "from_menlei": "E",
+          "to_menlei": "C",
+          "from_dajia": "48",
+          "to_dajia": "39"
+        },
+        {
+          "code": "002210",
+          "from_menlei": "L",
+          "to_menlei": "D",
+          "from_dajia": "72",
+          "to_dajia": "44"
+        },
+        {
+          "code": "301601",
+          "from_menlei": "M",
+          "to_menlei": "C",
+          "from_dajia": "74",
+          "to_dajia": "35"
+        }
+      ]
+    }
+  },
+  "bse_checks": {
+    "text_rows": 248,
+    "json_rows": 246,
+    "json_missing_seqs": [
+      174,
+      187
+    ],
+    "old_to_new_text": 248,
+    "json_old_to_new": 246,
+    "h1_old_codes": 242,
+    "h1_old_codes_mapped": 242,
+    "h1_old_codes_unmapped": [],
+    "h1_new_920_codes": 25,
+    "h1_new_920_in_map_new": 6,
+    "map_old_not_in_h1": [
+      "430489",
+      "830799",
+      "831445",
+      "833819",
+      "834682",
+      "839167"
+    ],
+    "map_old_not_in_h1_new_present": {
+      "430489": true,
+      "830799": true,
+      "831445": true,
+      "833819": true,
+      "834682": true,
+      "839167": true
+    },
+    "missing_json_rows": [
+      {
+        "seq": 174,
+        "name": "*ST 广道",
+        "listing": "2021-11-15",
+        "old": "839680",
+        "new": "920680"
+      },
+      {
+        "seq": 187,
+        "name": "*ST 云创",
+        "listing": "2021-08-26",
+        "old": "835305",
+        "new": "920305"
+      }
+    ],
+    "h1_920_not_in_map_new_set": [
+      "920002",
+      "920008",
+      "920016",
+      "920019",
+      "920027",
+      "920029",
+      "920060",
+      "920066",
+      "920068",
+      "920082",
+      "920088",
+      "920098",
+      "920099",
+      "920106",
+      "920108",
+      "920111",
+      "920116",
+      "920118",
+      "920128"
+    ],
+    "h1_920_not_in_map_new_set_note": "These codes have no old-to-new mapping record in the 2025H1 map; whether each was a direct 920 listing is not individually proven."
+  },
+  "current_check_2026H1_vs_dr03_2026_10_22": {
+    "snapshot_date": "2026-10-22",
+    "dr03_current_candidate": 5223,
+    "capco_2026H1_contract_a": 5194,
+    "common": 5192,
+    "coverage_pct": 99.41,
+    "dr03_only": 31,
+    "dr03_only_codes": [
+      "001232",
+      "001246",
+      "001248",
+      "001399",
+      "301569",
+      "301583",
+      "301655",
+      "301660",
+      "301677",
+      "301686",
+      "301688",
+      "301689",
+      "301697",
+      "301699",
+      "301707",
+      "301716",
+      "301717",
+      "301718",
+      "601091",
+      "601123",
+      "603448",
+      "603468",
+      "688797",
+      "688801",
+      "688806",
+      "688825",
+      "688826",
+      "688828",
+      "688835",
+      "688836",
+      "688837"
+    ],
+    "dr03_only_listing_dates": {
+      "001232": "2026-08-04",
+      "001246": "2026-09-30",
+      "001248": "2026-07-02",
+      "001399": "2026-06-26",
+      "301569": "2026-10-15",
+      "301583": "2026-07-10",
+      "301655": "2026-08-20",
+      "301660": "2026-10-13",
+      "301677": "2026-07-30",
+      "301686": "2026-09-22",
+      "301688": "2026-09-02",
+      "301689": "2026-09-10",
+      "301697": "2026-09-01",
+      "301699": "2026-09-09",
+      "301707": "2026-08-07",
+      "301716": "2026-09-29",
+      "301717": "2026-08-11",
+      "301718": "2026-10-22",
+      "601091": "2026-09-17",
+      "601123": "2026-09-01",
+      "603448": "2026-09-07",
+      "603468": "2026-08-06",
+      "688797": "2026-06-24",
+      "688801": "2026-09-11",
+      "688806": "2026-07-21",
+      "688825": "2026-07-27",
+      "688826": "2026-08-18",
+      "688828": "2026-08-11",
+      "688835": "2026-08-25",
+      "688836": "2026-08-19",
+      "688837": "2026-09-16"
+    },
+    "dr03_only_listed_after_2026_06_30": 29,
+    "dr03_only_listed_before_2026_07_01": [
+      "001399",
+      "688797"
+    ],
+    "capco_only": 2,
+    "capco_only_codes": [
+      "601059",
+      "601198"
+    ],
+    "capco_only_records": {
+      "601059": [
+        {
+          "security": "SH:601059",
+          "name": "信达证券",
+          "source": "sse-delisted",
+          "listing": "2023-02-01",
+          "delisting": "2026-10-19",
+          "board_current": "1",
+          "stock_type_current": "1",
+          "industry_current": "J",
+          "industry_label_current": "金融业",
+          "historical_known_at": null,
+          "historical_type_and_board": "UNVERIFIED",
+          "ambiguous_duplicate": false
+        }
+      ],
+      "601198": [
+        {
+          "security": "SH:601198",
+          "name": "东兴证券",
+          "source": "sse-delisted",
+          "listing": "2015-02-26",
+          "delisting": "2026-10-19",
+          "board_current": "1",
+          "stock_type_current": "1",
+          "industry_current": "J",
+          "industry_label_current": "金融业",
+          "historical_known_at": null,
+          "historical_type_and_board": "UNVERIFIED",
+          "ambiguous_duplicate": false
+        }
+      ]
+    },
+    "689009_in_capco": true,
+    "302132_in_capco": true,
+    "689009_in_dr03_raw": true,
+    "302132_in_dr03_raw": true
+  },
+  "samples": {
+    "601059": {
+      "in_capco": {
+        "2025H1": {
+          "menlei": "J",
+          "menlei_name": "金融业",
+          "cilei": "",
+          "dajia": "67"
+        },
+        "2025H2": {
+          "menlei": "J",
+          "menlei_name": "金融业",
+          "cilei": "",
+          "dajia": "67"
+        },
+        "2026H1": {
+          "menlei": "J",
+          "menlei_name": "金融业",
+          "cilei": "",
+          "dajia": "67"
+        }
+      },
+      "in_dr01_raw": true,
+      "in_dr03_current": false,
+      "in_dr03_current_raw": false,
+      "in_dr03_delisted_raw": true,
+      "in_dr03_current_or_delisted_raw": false
+    },
+    "601198": {
+      "in_capco": {
+        "2025H1": {
+          "menlei": "J",
+          "menlei_name": "金融业",
+          "cilei": "",
+          "dajia": "67"
+        },
+        "2025H2": {
+          "menlei": "J",
+          "menlei_name": "金融业",
+          "cilei": "",
+          "dajia": "67"
+        },
+        "2026H1": {
+          "menlei": "J",
+          "menlei_name": "金融业",
+          "cilei": "",
+          "dajia": "67"
+        }
+      },
+      "in_dr01_raw": true,
+      "in_dr03_current": false,
+      "in_dr03_current_raw": false,
+      "in_dr03_delisted_raw": true,
+      "in_dr03_current_or_delisted_raw": false
+    },
+    "301718": {
+      "in_capco": {
+        "2025H1": null,
+        "2025H2": null,
+        "2026H1": null
+      },
+      "in_dr01_raw": false,
+      "in_dr03_current": true,
+      "in_dr03_current_raw": true,
+      "in_dr03_delisted_raw": false,
+      "in_dr03_current_or_delisted_raw": true
+    },
+    "689009": {
+      "in_capco": {
+        "2025H1": {
+          "menlei": "C",
+          "menlei_name": "制造业",
+          "cilei": "CH",
+          "dajia": "39"
+        },
+        "2025H2": {
+          "menlei": "C",
+          "menlei_name": "制造业",
+          "cilei": "CH",
+          "dajia": "39"
+        },
+        "2026H1": {
+          "menlei": "C",
+          "menlei_name": "制造业",
+          "cilei": "CG",
+          "dajia": "37"
+        }
+      },
+      "in_dr01_raw": true,
+      "in_dr03_current": false,
+      "in_dr03_current_raw": true,
+      "in_dr03_delisted_raw": false,
+      "in_dr03_current_or_delisted_raw": true
+    },
+    "302132": {
+      "in_capco": {
+        "2025H1": {
+          "menlei": "C",
+          "menlei_name": "制造业",
+          "cilei": "CH",
+          "dajia": "39"
+        },
+        "2025H2": {
+          "menlei": "C",
+          "menlei_name": "制造业",
+          "cilei": "CH",
+          "dajia": "39"
+        },
+        "2026H1": {
+          "menlei": "C",
+          "menlei_name": "制造业",
+          "cilei": "CG",
+          "dajia": "37"
+        }
+      },
+      "in_dr01_raw": true,
+      "in_dr03_current": false,
+      "in_dr03_current_raw": true,
+      "in_dr03_delisted_raw": false,
+      "in_dr03_current_or_delisted_raw": true
+    },
+    "688797": {
+      "in_capco": {
+        "2025H1": null,
+        "2025H2": null,
+        "2026H1": null
+      },
+      "in_dr01_raw": true,
+      "in_dr03_current": true,
+      "in_dr03_current_raw": true,
+      "in_dr03_delisted_raw": false,
+      "in_dr03_current_or_delisted_raw": true
+    },
+    "001399": {
+      "in_capco": {
+        "2025H1": null,
+        "2025H2": null,
+        "2026H1": null
+      },
+      "in_dr01_raw": true,
+      "in_dr03_current": true,
+      "in_dr03_current_raw": true,
+      "in_dr03_delisted_raw": false,
+      "in_dr03_current_or_delisted_raw": true
+    },
+    "835305": {
+      "in_capco": {
+        "2025H1": {
+          "menlei": "I",
+          "menlei_name": "信息传输、软件和信息技术服务业",
+          "cilei": "",
+          "dajia": "65"
+        },
+        "2025H2": {
+          "menlei": "I",
+          "menlei_name": "信息传输、软件和信息技术服务业",
+          "cilei": "",
+          "dajia": "65"
+        },
+        "2026H1": null
+      },
+      "in_dr01_raw": false,
+      "in_dr03_current": false,
+      "in_dr03_current_raw": false,
+      "in_dr03_delisted_raw": false,
+      "in_dr03_current_or_delisted_raw": false
+    },
+    "839680": {
+      "in_capco": {
+        "2025H1": {
+          "menlei": "I",
+          "menlei_name": "信息传输、软件和信息技术服务业",
+          "cilei": "",
+          "dajia": "65"
+        },
+        "2025H2": null,
+        "2026H1": null
+      },
+      "in_dr01_raw": false,
+      "in_dr03_current": false,
+      "in_dr03_current_raw": false,
+      "in_dr03_delisted_raw": false,
+      "in_dr03_current_or_delisted_raw": false
+    },
+    "920680": {
+      "in_capco": {
+        "2025H1": null,
+        "2025H2": null,
+        "2026H1": null
+      },
+      "in_dr01_raw": false,
+      "in_dr03_current": false,
+      "in_dr03_current_raw": false,
+      "in_dr03_delisted_raw": false,
+      "in_dr03_current_or_delisted_raw": false
+    },
+    "920305": {
+      "in_capco": {
+        "2025H1": null,
+        "2025H2": {
+          "menlei": "I",
+          "menlei_name": "信息传输、软件和信息技术服务业",
+          "cilei": "",
+          "dajia": "65"
+        },
+        "2026H1": null
+      },
+      "in_dr01_raw": false,
+      "in_dr03_current": false,
+      "in_dr03_current_raw": false,
+      "in_dr03_delisted_raw": false,
+      "in_dr03_current_or_delisted_raw": false
+    }
+  },
+  "gates": {
+    "DR03_CURRENT_GATE": "NOT_PASSED",
+    "DR03_HISTORICAL_GATE": "NOT_PASSED",
+    "IMPLEMENTATION_AUTHORIZED": "NO",
+    "RELEASE_AUTHORIZED": "NO",
+    "OWNER_ACCEPTANCE_REQUIRED": "YES"
+  },
+  "scope_deviation": "NONE",
+  "decision": {
+    "CURRENT_DECISION": "STOP",
+    "SOURCE_QUALIFICATION": "PARTIAL",
+    "CONTRACT_SEMANTICS_MATCH": "NO__SOURCE_SEMANTICS_MISMATCH_FOR_HISTORICAL_REPLAY; CURRENT_SCAN_PARTIAL_ONLY",
+    "SOURCE_SEMANTICS_MISMATCH": "YES__HISTORICAL_REPLAY",
+    "TAXONOMY_VERSION_STATUS": "UNRESOLVED__PDF_NO_STANDARD_NAME_OR_YEAR; 2023_GUIDE_SAVED_AS_CHAPTER_1_ARTICLES_1_3_ONLY; 3_PDFS_IDENTICAL_CODE_SYSTEM; 2024_CSRC_STANDARD_ANNOUNCEMENT_BODY_NOT_SAVED; LEVEL_NOT_FROZEN_BY_CONTRACT",
+    "KNOWN_AT_QUALIFICATION": "NOT_PROVEN__2025H1_CURRENT_BYTES_OBJECT_TIME_2026-03-27_NO_ARCHIVE; 2025H2_2026H1_PAGE_DATE_AND_OBJECT_TIME_CORROBORATED_ONLY",
+    "EFFECTIVE_DATE_QUALIFICATION": "NOT_STATED__ALL_THREE_VERSIONS",
+    "CURRENT_MEMBERSHIP_COVERAGE": "PARTIAL__2026H1_5194_CONTRACT_A; 5192/5223_DR03_2026-10-22_COMMON; 31_DR03_ONLY (29_POST_H1, 001399_688797_PRE_H1_END); 2_CAPCO_ONLY_DELISTED; NO_UNCLASSIFIED_DENOMINATOR",
+    "HISTORICAL_MEMBERSHIP_COVERAGE": "NOT_QUALIFIED__3_SEMIANNUAL_SNAPSHOTS_BRACKET_ONLY; NOT_DAILY_PIT; 2025H1_FIRST_KNOWN_UNPROVEN_OBJECT_TIME_2026-03-27; NO_EFFECTIVE_OR_MIGRATION_DATES",
+    "HISTORICAL_UNIVERSE_EVIDENCE": "INCOMPLETE_EVIDENCE__NO_SAME_DAY_INDEPENDENT_DENOMINATOR",
+    "CURRENT_UNIVERSE_EVIDENCE": "INCOMPLETE_EVIDENCE__NO_SAME_DAY_DENOMINATOR_FOR_2026H1",
+    "SCOPE_DEVIATION": "NONE",
+    "OWNER_ACCEPTANCE_REQUIRED": "YES",
+    "UNIVERSE_IDENTITY_STATUS": "BOUNDED_IDENTITY_OK__UNIQUE_6_DIGIT_CODES; NO_DUPLICATES; EXCHANGE_INFERRED_BY_CODE_FAMILY; BSE_MAP_248_TEXT_ROWS_246_JSON_ROWS_CORRECTED; 242/242_2025H1_OLD_CODES_MAPPED; 19_920_CODES_NOT_IN_MAP_NEW_SET; SAME_DAY_COMPLETENESS_UNPROVEN",
+    "CONFIRMED_BLOCKERS": "SEMIANNUAL_ONLY_VS_DAILY_EFFECTIVE_KNOWN_AT; NO_EFFECTIVE_DATE; NO_KNOWN_AT; 2025H1_CURRENT_BYTES_OBJECT_TIME_2026-03-27_ORIGINAL_ARCHIVE_MISSING; NO_UNCLASSIFIED_DENOMINATOR; NO_EXPLICIT_TOTAL_OR_EXCHANGE_COLUMN; CURRENT_2026H1_MISSING_31_DR03_CODES; 001399_688797_PRE_H1_END_UNEXPLAINED; TAXONOMY_VERSION_UNRESOLVED; NO_SAME_DAY_INDEPENDENT_UNIVERSE",
+    "UNRESOLVED_EVIDENCE": "2023_GUIDE_FULL_TABLE_AND_VERSION; 2024_CSRC_STANDARD_BODY_AND_RELATION; 2025H1_ORIGINAL_2025-09_BYTES_OR_ARCHIVE; OFFICIAL_CUTOFF_EFFECTIVE_AND_KNOWN_AT; SAME_DAY_UNIVERSES_FOR_3_SNAPSHOTS; 001399_688797_INCLUSION_REASON; 920680_920305_LIFECYCLE; 2025H2_2026H1_BY_INDUSTRY_PDFS; EXACT_S07_S_E_BINDING",
+    "NEXT_MINIMAL_ACTION": "OWNER_REVIEW_OF_SOURCE_SEMANTICS_MISMATCH_AND_CURRENT_GAP__REQUIRE_CONTRACT_CHANGE_OR_ARCHIVAL_EFFECTIVE_KNOWN_AT_EVIDENCE__NO_IMPLEMENTATION",
+    "CURRENT_SCAN": "PARTIAL_NOT_PASSED__5192/5223_COMMON_31_MISSING_NO_UNCLASSIFIED_DENOMINATOR",
+    "HISTORICAL_REPLAY": "SOURCE_SEMANTICS_MISMATCH__NOT_PASSED"
+  }
+}

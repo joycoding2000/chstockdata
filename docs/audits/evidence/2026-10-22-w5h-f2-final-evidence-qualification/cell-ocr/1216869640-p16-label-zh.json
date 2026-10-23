@@ -1,0 +1,123 @@
+{
+    "id":  "1216869640",
+    "text":  "经 营 活 动 产 生 的 现 金 流 量 净 570 〉",
+    "pit_qualified":  false,
+    "engine":  "Windows.Media.Ocr existing zh-Hans-CN",
+    "maximum_image_dimension":  10000,
+    "machine_seconds":  0.026791699999999998,
+    "pixel_height":  114,
+    "image_sha256":  "125a2f961cfcac8662f07527d9e1eb2ab4f4cd7d05fb1c1e086b337f62042d86",
+    "pixel_width":  2034,
+    "source_sha256":  "d6fecbc0aa8be3e9a8eb2837454af517e58ab29d9f9cbd3e85ac76cf9f752fb8",
+    "physical_page":  16,
+    "lines":  [
+                  {
+                      "text":  "经 营 活 动 产 生 的 现 金 流 量 净",
+                      "words":  [
+                                    {
+                                        "y":  26,
+                                        "height":  59,
+                                        "width":  56,
+                                        "text":  "经",
+                                        "x":  391
+                                    },
+                                    {
+                                        "y":  27,
+                                        "height":  60,
+                                        "width":  57,
+                                        "text":  "营",
+                                        "x":  447
+                                    },
+                                    {
+                                        "y":  30,
+                                        "height":  57,
+                                        "width":  53,
+                                        "text":  "活",
+                                        "x":  507
+                                    },
+                                    {
+                                        "y":  27,
+                                        "height":  58,
+                                        "width":  54,
+                                        "text":  "动",
+                                        "x":  564
+                                    },
+                                    {
+                                        "y":  27,
+                                        "height":  59,
+                                        "width":  55,
+                                        "text":  "产",
+                                        "x":  623
+                                    },
+                                    {
+                                        "y":  29,
+                                        "height":  55,
+                                        "width":  53,
+                                        "text":  "生",
+                                        "x":  680
+                                    },
+                                    {
+                                        "y":  29,
+                                        "height":  56,
+                                        "width":  53,
+                                        "text":  "的",
+                                        "x":  735
+                                    },
+                                    {
+                                        "y":  29,
+                                        "height":  56,
+                                        "width":  55,
+                                        "text":  "现",
+                                        "x":  793
+                                    },
+                                    {
+                                        "y":  28,
+                                        "height":  57,
+                                        "width":  50,
+                                        "text":  "金",
+                                        "x":  854
+                                    },
+                                    {
+                                        "y":  29,
+                                        "height":  56,
+                                        "width":  55,
+                                        "text":  "流",
+                                        "x":  908
+                                    },
+                                    {
+                                        "y":  29,
+                                        "height":  56,
+                                        "width":  56,
+                                        "text":  "量",
+                                        "x":  964
+                                    },
+                                    {
+                                        "y":  27,
+                                        "height":  60,
+                                        "width":  58,
+                                        "text":  "净",
+                                        "x":  1021
+                                    }
+                                ]
+                  },
+                  {
+                      "text":  "570 〉",
+                      "words":  [
+                                    {
+                                        "y":  29,
+                                        "height":  56,
+                                        "width":  103,
+                                        "text":  "570",
+                                        "x":  1803
+                                    },
+                                    {
+                                        "y":  28,
+                                        "height":  57,
+                                        "width":  17,
+                                        "text":  "〉",
+                                        "x":  1916
+                                    }
+                                ]
+                  }
+              ]
+}

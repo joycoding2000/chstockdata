@@ -1,0 +1,29 @@
+{
+  "argv": [
+    "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\09\\01a11feb-cbea-7790-a83e-57b1dd555e13\\v042-unified\\sios-candidate\\Scripts\\python.exe",
+    "-B",
+    "-m",
+    "pytest",
+    "tests/qualification/test_chstockdata_etf_gate.py",
+    "-k",
+    "test_live_tradability_adjustment_and_freshness",
+    "-q",
+    "--tb=long",
+    "-p",
+    "no:cacheprovider",
+    "--basetemp=D:\\Dev\\Projects\\chstockdata\\build\\history-recovery\\live-tmp",
+    "--junitxml=D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-09-v0.4.2-history-recovery\\sios-blocker.xml"
+  ],
+  "cwd": "D:\\Dev\\Projects\\chstockdata\\build\\v042-unified\\sios",
+  "exit": 1,
+  "wheel_sha256": "b76b065a06cd1d91868880a7b57584f598b6fd4cb42931e9a33700bc99a88c7a",
+  "environment_overrides": {
+    "PYTHONPATH": "D:\\Dev\\Projects\\chstockdata\\build\\v042-unified\\sios\\src",
+    "PYTHONDONTWRITEBYTECODE": "1",
+    "SIOS_CHSTOCKDATA_LIVE_QUALIFICATION": "1",
+    "CHSTOCKDATA_VIPDOC_HISTORY_DIR": "D:\\Dev\\Projects\\chstockdata\\.rh3a2-vipdoc",
+    "CHSTOCKDATA_CACHE_DIR": "D:\\Dev\\Projects\\chstockdata\\build\\history-recovery\\live-cache",
+    "TEMP": "D:\\Dev\\Projects\\chstockdata\\build\\history-recovery\\temp",
+    "TMP": "D:\\Dev\\Projects\\chstockdata\\build\\history-recovery\\temp"
+  }
+}

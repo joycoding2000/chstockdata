@@ -1,0 +1,159 @@
+{
+  "generated_at": "2026-10-19T21:31:39.949635+08:00",
+  "exclusions": [
+    "manifest.json (self)",
+    "final_validation.json (validation of this manifest)"
+  ],
+  "artifacts": [
+    {
+      "path": "docs/audits/2026-10-19-w5h-historical-financial-pit-feasibility.md",
+      "bytes": 31391,
+      "sha256": "f771dfd4c28bf73ce6bbded8a493ad4163da44e5a455007b8b2bcc7deda2e7f5"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-19-w5h/analysis.json",
+      "bytes": 14517,
+      "sha256": "7f4a231860c79ea405e1457f8cc2f7c922067944e986dabd01c94ebd477977f5"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-19-w5h/before.json",
+      "bytes": 3417244,
+      "sha256": "77253660aa72090fc9f26484526d3c56c84e069d13e2eb2c7d0ca38b33af69e7"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-19-w5h/code_inventory.json",
+      "bytes": 2388,
+      "sha256": "678608aa2ae297c7ec7b00451e9248a6ffcf46dca0ddc873acd594c0965e9e03"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-19-w5h/correction_2019.html",
+      "bytes": 37137,
+      "sha256": "32401bcbc41c30a95754300455a12f3e2e0e0668ac303d70b2db6573ffd9af90"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-19-w5h/correction_2019.txt",
+      "bytes": 23524,
+      "sha256": "0353ada9166075db16201c4657e90f885ed526d4db51a5d0fef27bdc5db82ab2"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-19-w5h/eastmoney_600518_2020.json",
+      "bytes": 138455,
+      "sha256": "780c380d9d26b6a4b607f98c100d4a84b4395f0c196813a3a76d6e2d135e1cc4"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-19-w5h/eastmoney_600518_2020_public_replay.json",
+      "bytes": 3475,
+      "sha256": "7f8abc0fdbc2db97fb5814f9d04b3ecab5e39b16bca6bed0a5a6616739642c88"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-19-w5h/eastmoney_600518_2025.json",
+      "bytes": 141250,
+      "sha256": "973c2a8d0ac4a01b058ef570f510909f93fa512a2ff9e75bf4a764f1cc81b81a"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-19-w5h/eastmoney_600518_2025_public_replay.json",
+      "bytes": 3046,
+      "sha256": "cb434b4f0a4154e7f963f4ff784bc58f019803877484a27e0566c7d9fd890372"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-19-w5h/eastmoney_600519_2025.json",
+      "bytes": 140379,
+      "sha256": "cab28b33c788920a8e410f77ef55bb38674a6037d517b05404b5203a70f0c515"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-19-w5h/eastmoney_600519_2025_public_replay.json",
+      "bytes": 3037,
+      "sha256": "175a36a2fc6cda5346d669a89db342b6968314686f49540c5ee01d63ccafd08f"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-19-w5h/focused.junit.xml",
+      "bytes": 5147,
+      "sha256": "98136f6313351aabd1f4858760a8e5589f9922f57f246108c5f3f7ad0c0c7876"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-19-w5h/focused.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-19-w5h/focused.stdout.txt",
+      "bytes": 101,
+      "sha256": "bb90aff1a733e27a0c92020ddd9358a76ece3307b2b705653f696cd00b2cb04c"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-19-w5h/original_2017.html",
+      "bytes": 669806,
+      "sha256": "f3bc0297c76a492b7ec0cb04a2eacb0f134c16ffa57fcd215d1632865835a626"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-19-w5h/original_2017.txt",
+      "bytes": 57994,
+      "sha256": "38e77c4d26d586d5a4d6b42321e1220092fd4d7d20428d94d23b2285de95a1ea"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-19-w5h/probe_sources.py",
+      "bytes": 3388,
+      "sha256": "7f5cea06bc08e91075a88467278af263759905431cbbf574c9f750800d7c56a4"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-19-w5h/protection.stdout.txt",
+      "bytes": 6997,
+      "sha256": "273673812b189ca95915a8f917edd9dc6d7d2e27034c37e790cf36f419315679"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-19-w5h/public_llb_replay.txt",
+      "bytes": 10611,
+      "sha256": "03078dd600e26d8075e41b1a455c451b3d3c97c1e5e20265de7a4e24bce0ebef"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-19-w5h/public_lrb_replay.txt",
+      "bytes": 9433,
+      "sha256": "e780167c4de9bfb78eaa3d854e00d32c4d74bc1fd983e9bb7602794535bbb73e"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-19-w5h/replay.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-19-w5h/replay.stdout.txt",
+      "bytes": 10446,
+      "sha256": "e0f525ac274059862003ac1910e11b8fb716daf936fb62ebbbf60fcf821c53b6"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-19-w5h/replay_evidence.py",
+      "bytes": 7357,
+      "sha256": "fe01258929c13a4faf5f1ca8cefde9cc433f408ccf7f37e9260245aaddee27e3"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-19-w5h/requests.json",
+      "bytes": 5711,
+      "sha256": "3c858bc12b50d0f9fb8f7e4f32c6735ae3b3c2b944bd0da45288b35c7a93988e"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-19-w5h/sina_600518_llb.json",
+      "bytes": 1080118,
+      "sha256": "023c5712e3ed875ec4c88a74c1585aee829f23fd614e58ad3b5ac9a9ab6d1345"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-19-w5h/sina_600518_lrb.json",
+      "bytes": 1172164,
+      "sha256": "6cb84e68b918b274b994f69732c0c957430db58bad1d665477c31f549d612591"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-19-w5h/verification.json",
+      "bytes": 6995,
+      "sha256": "5d93ecde140c9ff9dad403c4e1b5bd5929594f5f430a89849c97eefb66045c53"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-19-w5h/verify_local.py",
+      "bytes": 2968,
+      "sha256": "fe3c49f355b13ec8a9b26981aa9f0d19cd558b66673787fa47494347328c90d0"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-19-w5h/web_evidence.json",
+      "bytes": 3788,
+      "sha256": "4743e11f6028522bff7dc73e176eccb9171aac0a9b48e3618ef48f86d857e8b5"
+    }
+  ]
+}

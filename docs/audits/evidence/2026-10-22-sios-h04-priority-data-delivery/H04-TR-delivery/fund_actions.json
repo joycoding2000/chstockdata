@@ -1,0 +1,469 @@
+{
+  "scope": "2023 warmup audit and 2024-2025 implemented distributions and unit changes",
+  "annual_audits": [
+    {
+      "instrument_id": "SH:513530",
+      "period_start": "2023-01-01",
+      "period_end": "2023-12-31",
+      "source_file": "sources/033-513530-2023-official-annual.raw",
+      "extracted_file": "extracted/033-513530-2023-official-annual.json",
+      "cash_status": "CONFIRMED_NO_CASH_EVENT_IN_REPORT_SCOPE",
+      "cash_per_10_shares_annual": "0",
+      "holder_unit_changes": "CONFIRMED_NONE_IN_REPORT_SCOPE",
+      "cash_evidence": {
+        "kind": "pdf_page",
+        "one_based_page": 9,
+        "excerpt": "据当年的实际存续期计算。3.3过去三年基金的利润分配情况注：本基金未实施过利润分配。"
+      },
+      "share_evidence": {
+        "kind": "pdf_page",
+        "one_based_page": 62,
+        "excerpt": "0.00减：本报告期基金总赎回份额45,000,000.00本报告期基金拆分变动份额-本报告期期末基金份额总额113,938,710.00§11重大事件揭示11.1基金份额持有人大会决议本报告期内未召开基金份额持有人大会。11.2基金管理人、基金托管人的专门基金托管部门的重大人事变动基金管理人的重大人事变动：2023年4月18日，经公司董事会批准董元星先生不再担任公司副总经理。上述人事变动已按相关规定备案、报告。报告期内本基金托管人的专门基金"
+      },
+      "evidence_role": "EX_POST_COMPLETENESS_AUDIT_NOT_HISTORICAL_SIGNAL",
+      "source_sha256": "b14d1d628fe2cf1bdd31f1d83af126cd2f3f99383acb545fdd0e73612e281d12",
+      "source_url": "https://www.huatai-pb.com/upload/pdf/1711726892235-htbrzzggtggxtzjyxkfszszqtzjj(QDII)2023nndbg.pdf"
+    },
+    {
+      "instrument_id": "SH:513530",
+      "period_start": "2024-01-01",
+      "period_end": "2024-12-31",
+      "source_file": "sources/031-513530-2024-official-annual.raw",
+      "extracted_file": "extracted/031-513530-2024-official-annual.json",
+      "cash_status": "CONFIRMED_NO_CASH_EVENT_IN_REPORT_SCOPE",
+      "cash_per_10_shares_annual": "0",
+      "holder_unit_changes": "CONFIRMED_NONE_IN_REPORT_SCOPE",
+      "cash_evidence": {
+        "kind": "pdf_page",
+        "one_based_page": 10,
+        "excerpt": "年度报告第10页共70页3.3过去三年基金的利润分配情况注：本基金未实施过利润分配。§4管理人报告4.1基金管理人及基金经理情况4.1.1基金管理人及其管理基金的经验本基金管理人为华泰柏瑞基金管理有限公司。华泰柏瑞基金管理有限公司是经中国证监会批准，于2004年11月18日成立的合资基金管理公司，注册资本为2亿元人民币。目前的股东构成为华泰证券股份有限公司、柏瑞投资有限责任公司（原AIGGIC）和苏州新区高新技术产业股份有限公司，出资比例"
+      },
+      "share_evidence": {
+        "kind": "pdf_page",
+        "one_based_page": 63,
+        "excerpt": ".00减：本报告期基金总赎回份额227,000,000.00本报告期基金拆分变动份额-本报告期期末基金份额总额878,438,710.00§11重大事件揭示11.1基金份额持有人大会决议本报告期内未召开基金份额持有人大会。11.2基金管理人、基金托管人的专门基金托管部门的重大人事变动基金管理人重大人事变动："
+      },
+      "evidence_role": "EX_POST_COMPLETENESS_AUDIT_NOT_HISTORICAL_SIGNAL",
+      "source_sha256": "9392c4c4f488641a3c76ecd025ff1e8540a85b27c9509b7d11ac6fcd64154b5e",
+      "source_url": "https://www.huatai-pb.com/upload/pdf/1743341385351-htbrzzggtggxtzjyxkfszszqtzjj(QDII)2024nndbg.pdf"
+    },
+    {
+      "instrument_id": "SH:513530",
+      "period_start": "2025-01-01",
+      "period_end": "2025-12-31",
+      "source_file": "sources/029-513530-2025-official-annual.raw",
+      "extracted_file": "extracted/029-513530-2025-official-annual.json",
+      "cash_status": "SEVEN_IMPLEMENTED_CASH_EVENTS",
+      "cash_per_10_shares_annual": "0.9000",
+      "holder_unit_changes": "CONFIRMED_NONE_IN_REPORT_SCOPE",
+      "cash_evidence": {
+        "kind": "pdf_page",
+        "one_based_page": 10,
+        "excerpt": "分红数现金形式发放总额再投资形式发放总额年度利润分配合计备注2025年0.9000135,779,483.90-135,779,483.90-2024年-----2023年-----合计0.9000135,779,483.90-135,779,483.90-§4管理人报告4.1基金管理人及基金经理情况4.1.1基金管理人及其管理基金的经验本基金管理人为华泰柏瑞基金管理有限公司。华泰柏瑞基金管理有限公司是经中国证监会批准，于2004年11月"
+      },
+      "share_evidence": {
+        "kind": "pdf_page",
+        "one_based_page": 71,
+        "excerpt": ".00减：本报告期基金总赎回份额756,000,000.00本报告期基金拆分变动份额-本报告期期末基金份额总额2,281,938,710.00§11重大事件揭示11.1基金份额持有人大会决议本报告期内未召开基金份额持有人大会。11.2基金管理人、基金托管人的专门基金托管部门的重大人事变动基金管理人重大人事变动：经公司董事会审议通过，田汉卿女士于2025年4月30日起不再担任公司副总经理。经公司董事会审议通过，韩勇先生于2025年5月9日起不再"
+      },
+      "evidence_role": "EX_POST_COMPLETENESS_AUDIT_NOT_HISTORICAL_SIGNAL",
+      "source_sha256": "2d87224441f28fb547a606012477dd59ab06987222de4831f3d6b318ddaf9dda",
+      "source_url": "https://www.huatai-pb.com/upload/pdf/1774875917048-52-1kk48d7w35iv2.pdf"
+    },
+    {
+      "instrument_id": "SH:513990",
+      "period_start": "2023-01-01",
+      "period_end": "2023-12-31",
+      "source_file": "sources/051-513990-2023-official-annual.raw",
+      "extracted_file": "extracted/051-513990-2023-official-annual.json",
+      "cash_status": "CONFIRMED_NO_CASH_EVENT_IN_REPORT_SCOPE",
+      "cash_per_10_shares_annual": "0",
+      "holder_unit_changes": "CONFIRMED_NONE_IN_REPORT_SCOPE",
+      "cash_evidence": {
+        "kind": "pdf_page",
+        "one_based_page": 9,
+        "excerpt": "增长率按当年实际存续期计算。3.3过去三年基金的利润分配情况本基金过去三年未进行利润分配。§4管理人报告4.1基金管理人及基金经理情况4.1.1基金管理人及其管理基金的经验招商基金管理有限公司于2002年12月27日经中国证监会【2002】100号文批准设立。目前，公司注册资本金为人民币13.1亿元，招商银行股份有限公司持有公司全部股权的55%，招商证券股份有限公司持有公司全部股权的45%。招商基金管理有限公司首批获得企业年金基金投资管理人资格"
+      },
+      "share_evidence": {
+        "kind": "pdf_page",
+        "one_based_page": 56,
+        "excerpt": "0.00减：报告期基金总赎回份额123,000,000.00本报告期期间基金拆分变动份额（份额减少以\"-\"填列）-本报告期期末基金份额总额73,000,000.00§11重大事件揭示11.1基金份额持有人大会决议本报告期未召开基金份额持有人大会。11.2基金管理人、基金托管人的专门基金托管部门的重大人事变动"
+      },
+      "evidence_role": "EX_POST_COMPLETENESS_AUDIT_NOT_HISTORICAL_SIGNAL",
+      "source_sha256": "ca84978f1d5b940fa8cb095bd4c66c7f81bc6e5ee7ea638c4a97b1c8b06be54b",
+      "source_url": "https://static.cmfchina.com/fundarticle/2020329/10066619654475.pdf"
+    },
+    {
+      "instrument_id": "SH:513990",
+      "period_start": "2024-01-01",
+      "period_end": "2024-12-31",
+      "source_file": "sources/049-513990-2024-official-annual.raw",
+      "extracted_file": "extracted/049-513990-2024-official-annual.json",
+      "cash_status": "CONFIRMED_NO_CASH_EVENT_IN_REPORT_SCOPE",
+      "cash_per_10_shares_annual": "0",
+      "holder_unit_changes": "CONFIRMED_NONE_IN_REPORT_SCOPE",
+      "cash_evidence": {
+        "kind": "pdf_page",
+        "one_based_page": 9,
+        "excerpt": "增长率按当年实际存续期计算。3.3过去三年基金的利润分配情况本基金过去三年未进行利润分配。§4管理人报告4.1基金管理人及基金经理情况4.1.1基金管理人及其管理基金的经验招商基金管理有限公司于2002年12月27日经中国证监会【2002】100号文批准设立。目前，公司注册资本金为人民币13.1亿元，招商银行股份有限公司持有公司全部股权的55%，招商证券股份有限公司持有公司全部股权的45%。招商基金管理有限公司拥有公开募集证券投资基金管理、基金"
+      },
+      "share_evidence": {
+        "kind": "pdf_page",
+        "one_based_page": 58,
+        "excerpt": "易型开放式指数证券投资基金2024年年度报告第57页共62页本报告期期间基金拆分变动份额（份额减少以\"-\"填列）-本报告期期末基金份额总额97,000,000.00§11重大事件揭示11.1基金份额持有人大会决议本报告期未召开基金份额持有人大会。11.2基金管理人、基金托管人的专门基金托管部门的重大人事变动本报告期内，本基金管理人未发生重大人事变动。本报告期内，本基金托管人的专门基金托管部门无重大人事变动。11.3涉及基金管理人、基金财产、基金托管业务的诉讼本报告期无涉"
+      },
+      "evidence_role": "EX_POST_COMPLETENESS_AUDIT_NOT_HISTORICAL_SIGNAL",
+      "source_sha256": "f6b39e2db36bb74ee57dcf829d90805d4fd9e3f608846e25b1ace5928ac190f2",
+      "source_url": "https://static.cmfchina.com/fundarticle/20250328/20014578305863.pdf"
+    },
+    {
+      "instrument_id": "SH:513990",
+      "period_start": "2025-01-01",
+      "period_end": "2025-12-31",
+      "source_file": "sources/047-513990-2025-official-annual.raw",
+      "extracted_file": "extracted/047-513990-2025-official-annual.json",
+      "cash_status": "CONFIRMED_NO_CASH_EVENT_IN_REPORT_SCOPE",
+      "cash_per_10_shares_annual": "0",
+      "holder_unit_changes": "CONFIRMED_NONE_IN_REPORT_SCOPE",
+      "cash_evidence": {
+        "kind": "pdf_page",
+        "one_based_page": 9,
+        "excerpt": "25年年度报告第8页共66页3.3过去三年基金的利润分配情况本基金过去三年未进行利润分配。§4管理人报告4.1基金管理人及基金经理情况4.1.1基金管理人及其管理基金的经验招商基金管理有限公司于2002年12月27日经中国证监会【2002】100号文批准设立。目前，公司注册资本金为人民币13.1亿元，招商银行股份有限公司持有公司全部股权的55%，招商证券股份有限公司持有公司全部股权的45%。招商基金管理有限公司拥有公开募集证券投资基金管理、基金"
+      },
+      "share_evidence": {
+        "kind": "pdf_page",
+        "one_based_page": 59,
+        "excerpt": ".00减：本报告期基金总赎回份额129,000,000.00本报告期期间基金拆分变动份额（份额减少以\"-\"填列）-本报告期期末基金份额总额68,000,000.00§11重大事件揭示11.1基金份额持有人大会决议本报告期未召开基金份额持有人大会。11.2基金管理人、基金托管人的专门基金托管部门的重大人事变动根据本基金管理人2025年5月20日的公告，经招商基金管理有限公司第七届董事会2025年第四次会议审议通过，同意徐勇先生辞任公司总经理职务，聘任钟文岳先生为公司总经理"
+      },
+      "evidence_role": "EX_POST_COMPLETENESS_AUDIT_NOT_HISTORICAL_SIGNAL",
+      "source_sha256": "5cfb59683d35771192c67a32d0e80c6ae96f9015a4f8d104cf5531bbe2073a87",
+      "source_url": "https://static.cmfchina.com/fundarticle/20260331/20021255700209.pdf"
+    }
+  ],
+  "events": [
+    {
+      "event_id": "SH:513530:CASH:2025-06-16",
+      "instrument_id": "SH:513530",
+      "status": "implemented",
+      "announcement_date": "2025-06-11",
+      "announcement_available_at": "2025-06-11T23:59:59+08:00",
+      "announcement_time_precision": "DATE; conservative date-end inference, not observed timestamp",
+      "equity_record_date": "2025-06-13",
+      "ex_dividend_date": "2025-06-16",
+      "payment_date": "2025-06-19",
+      "cash_per_10_shares_cny": "0.2000",
+      "cash_per_share_cny": "0.0200",
+      "share_ratio": "1",
+      "cash_available_not_before": "2025-06-19T23:59:59+08:00",
+      "cash_availability_basis": "ISSUER_PICKUP_DATE_FOR_REGISTERED_DESIGNATED_HOLDER; date-end conservative availability, next eligible session only",
+      "broker_actual_credit_observed_at": null,
+      "unregistered_holder_cash_available_at": null,
+      "source_file": "sources/040-513530-2025-06-11-official-dividend.raw",
+      "extracted_file": "extracted/040-513530-2025-06-11-official-dividend.json",
+      "evidence": {
+        "identity": {
+          "kind": "pdf_page",
+          "one_based_page": 2,
+          "excerpt": "投资交易型开放式指数证券投资基金（QDII）基金简称港股红利基金主代码513530基金合同生效日2022年4月8日基金管理人名称华泰柏瑞基金管理有限公司基金托管人名称交通银行股份有限公司公告依据《公开募集证券投资基金信息披露管理办法》、《华泰柏瑞中证港股通高股息投资交易型开放式指数证券投资基金（QDII）基金合同》、《华泰柏瑞中证港股通高股息投资交易型开放式指数证券投资基金（QDII）招募说明书》收益分配基准日2025年5月30日截止收益"
+        },
+        "unit": {
+          "kind": "pdf_page",
+          "one_based_page": 2,
+          "excerpt": "金可供分配利润（单位：人民币元）318,353,952.68本次分红方案（单位：元/10份基金份额）0.2000有关年度分红次数的说明2025年第一次分红注：1、基金管理人可以每月定期对基金相对标的指数的超额收益率进行评估，当基金累计报酬率超过标的指数同期累计报酬率达到1％以上，可进行收益分配。2、本基金收益分配采用现金方式。2.与分红相关的其他信息权益登记日2025年06月13日除息日2025年06月16日现金红利发放日202"
+        },
+        "effective": {
+          "kind": "pdf_page",
+          "one_based_page": 2,
+          "excerpt": "式。2.与分红相关的其他信息权益登记日2025年06月13日除息日2025年06月16日现金红利发放日2025年06月19日分红对象权益登记日下午上海证券交易所交易结束后，在中国证券登记结算有限责任公司上海分公司登记在册的本基金全体基金份额持有人。税收相关事项的说明根据财政部、国家税务总局财税[2002]128号《关于开放式证券投资基金有关税收问题的通知》及财税[2008]1号《关于企业所得税若干优惠政策的通知》的规定，对"
+        },
+        "cash": {
+          "kind": "pdf_page",
+          "one_based_page": 3,
+          "excerpt": "者的现金红利金额通过资金结算系统划付给被指定交易的证券公司，投资者可在2025年6月19日领取现金红利。对未办理指定交易的投资者的现金红利暂由中国证券登记结算有限责任公司上海分公司保管，待其办理指定交易并经确认后即将其尚未领取的现金红利划付给被指定交易的证券公司，投资者在办理指定交易后的第二个交易日可领取现金红利。2、咨询方式投资者可拨打本公司客户服务电话（400-888-0001）或登陆本公司网站（www.huatai-pb"
+        }
+      },
+      "source_sha256": "f5ca99f7e572f30d0f0a063f9d099b6bef35d7327c80e25e966eff05a4bad50d",
+      "source_url": "https://www.huatai-pb.com/upload/pdf/1749541435191-htbrzzggtggxtzjyxkfszszqtzjjQDIIfhgg.pdf"
+    },
+    {
+      "event_id": "SH:513530:CASH:2025-07-14",
+      "instrument_id": "SH:513530",
+      "status": "implemented",
+      "announcement_date": "2025-07-09",
+      "announcement_available_at": "2025-07-09T23:59:59+08:00",
+      "announcement_time_precision": "DATE; conservative date-end inference, not observed timestamp",
+      "equity_record_date": "2025-07-11",
+      "ex_dividend_date": "2025-07-14",
+      "payment_date": "2025-07-21",
+      "cash_per_10_shares_cny": "0.2000",
+      "cash_per_share_cny": "0.0200",
+      "share_ratio": "1",
+      "cash_available_not_before": "2025-07-21T23:59:59+08:00",
+      "cash_availability_basis": "ISSUER_PICKUP_DATE_FOR_REGISTERED_DESIGNATED_HOLDER; date-end conservative availability, next eligible session only",
+      "broker_actual_credit_observed_at": null,
+      "unregistered_holder_cash_available_at": null,
+      "source_file": "sources/039-513530-2025-07-09-official-dividend.raw",
+      "extracted_file": "extracted/039-513530-2025-07-09-official-dividend.json",
+      "evidence": {
+        "identity": {
+          "kind": "pdf_page",
+          "one_based_page": 2,
+          "excerpt": "投资交易型开放式指数证券投资基金（QDII）基金简称港股红利基金主代码513530基金合同生效日2022年4月8日基金管理人名称华泰柏瑞基金管理有限公司基金托管人名称交通银行股份有限公司公告依据《公开募集证券投资基金信息披露管理办法》、《华泰柏瑞中证港股通高股息投资交易型开放式指数证券投资基金（QDII）基金合同》、《华泰柏瑞中证港股通高股息投资交易型开放式指数证券投资基金（QDII）招募说明书》收益分配基准日2025年6月30日截止收益"
+        },
+        "unit": {
+          "kind": "pdf_page",
+          "one_based_page": 2,
+          "excerpt": "金可供分配利润（单位：人民币元）415,824,381.09本次分红方案（单位：元/10份基金份额）0.2000有关年度分红次数的说明2025年第二次分红注：1、基金管理人可以每月定期对基金相对标的指数的超额收益率进行评估，当基金累计报酬率超过标的指数同期累计报酬率达到1％以上，可进行收益分配。2、本基金收益分配采用现金方式。2.与分红相关的其他信息权益登记日2025年7月11日除息日2025年7月14日现金红利发放日2025年"
+        },
+        "effective": {
+          "kind": "pdf_page",
+          "one_based_page": 2,
+          "excerpt": "方式。2.与分红相关的其他信息权益登记日2025年7月11日除息日2025年7月14日现金红利发放日2025年7月21日分红对象权益登记日下午上海证券交易所交易结束后，在中国证券登记结算有限责任公司上海分公司登记在册的本基金全体基金份额持有人。税收相关事项的说明根据财政部、国家税务总局财税[2002]128号《关于开放式证券投资基金有关税收问题的通知》及财税[2008]1号《关于企业所得税若干优惠政策的通知》的规定，对投资"
+        },
+        "cash": {
+          "kind": "pdf_page",
+          "one_based_page": 3,
+          "excerpt": "者的现金红利金额通过资金结算系统划付给被指定交易的证券公司，投资者可在2025年7月21日领取现金红利。对未办理指定交易的投资者的现金红利暂由中国证券登记结算有限责任公司上海分公司保管，待其办理指定交易并经确认后即将其尚未领取的现金红利划付给被指定交易的证券公司，投资者在办理指定交易后的第二个交易日可领取现金红利。2、咨询方式投资者可拨打本公司客户服务电话（400-888-0001）或登陆本公司网站（www.huatai-pb"
+        }
+      },
+      "source_sha256": "48aa4cd4991efbb6643782cfb75af7b690a8a2606f1f3311abe56a1017cebb19",
+      "source_url": "https://www.huatai-pb.com/upload/pdf/1751967549877-htbrzzggtggxtzjyxkfszszqtzjj(QDII)fhgg.pdf"
+    },
+    {
+      "event_id": "SH:513530:CASH:2025-08-18",
+      "instrument_id": "SH:513530",
+      "status": "implemented",
+      "announcement_date": "2025-08-13",
+      "announcement_available_at": "2025-08-13T23:59:59+08:00",
+      "announcement_time_precision": "DATE; conservative date-end inference, not observed timestamp",
+      "equity_record_date": "2025-08-15",
+      "ex_dividend_date": "2025-08-18",
+      "payment_date": "2025-08-25",
+      "cash_per_10_shares_cny": "0.1000",
+      "cash_per_share_cny": "0.0100",
+      "share_ratio": "1",
+      "cash_available_not_before": "2025-08-25T23:59:59+08:00",
+      "cash_availability_basis": "ISSUER_PICKUP_DATE_FOR_REGISTERED_DESIGNATED_HOLDER; date-end conservative availability, next eligible session only",
+      "broker_actual_credit_observed_at": null,
+      "unregistered_holder_cash_available_at": null,
+      "source_file": "sources/038-513530-2025-08-13-official-dividend.raw",
+      "extracted_file": "extracted/038-513530-2025-08-13-official-dividend.json",
+      "evidence": {
+        "identity": {
+          "kind": "pdf_page",
+          "one_based_page": 2,
+          "excerpt": "投资交易型开放式指数证券投资基金（QDII）基金简称港股红利基金主代码513530基金合同生效日2022年4月8日基金管理人名称华泰柏瑞基金管理有限公司基金托管人名称交通银行股份有限公司公告依据《公开募集证券投资基金信息披露管理办法》、《华泰柏瑞中证港股通高股息投资交易型开放式指数证券投资基金（QDII）基金合同》、《华泰柏瑞中证港股通高股息投资交易型开放式指数证券投资基金（QDII）招募说明书》收益分配基准日2025年7月31日截止收益"
+        },
+        "unit": {
+          "kind": "pdf_page",
+          "one_based_page": 2,
+          "excerpt": "金可供分配利润（单位：人民币元）410,737,053.15本次分红方案（单位：元/10份基金份额）0.1000有关年度分红次数的说明2025年第三次分红注：1、基金管理人可以每月定期对基金相对标的指数的超额收益率进行评估，当基金累计报酬率超过标的指数同期累计报酬率达到1％以上，可进行收益分配。2、本基金收益分配采用现金方式。2.与分红相关的其他信息权益登记日2025年8月15日除息日2025年8月18日现金红利发放日2025年"
+        },
+        "effective": {
+          "kind": "pdf_page",
+          "one_based_page": 2,
+          "excerpt": "方式。2.与分红相关的其他信息权益登记日2025年8月15日除息日2025年8月18日现金红利发放日2025年8月25日分红对象权益登记日下午上海证券交易所交易结束后，在中国证券登记结算有限责任公司上海分公司登记在册的本基金全体基金份额持有人。税收相关事项的说明根据财政部、国家税务总局财税[2002]128号《关于开放式证券投资基金有关税收问题的通知》及财税[2008]1号《关于企业所得税若干优惠政策的通知》的规定，对投资"
+        },
+        "cash": {
+          "kind": "pdf_page",
+          "one_based_page": 3,
+          "excerpt": "者的现金红利金额通过资金结算系统划付给被指定交易的证券公司，投资者可在2025年8月25日领取现金红利。对未办理指定交易的投资者的现金红利暂由中国证券登记结算有限责任公司上海分公司保管，待其办理指定交易并经确认后即将其尚未领取的现金红利划付给被指定交易的证券公司，投资者在办理指定交易后的第二个交易日可领取现金红利。2、咨询方式投资者可拨打本公司客户服务电话（400-888-0001）或登陆本公司网站（www.huatai-pb"
+        }
+      },
+      "source_sha256": "4c1e2546ee5d7282471a696437a424f769e3c8997d197e86f3723113581c602e",
+      "source_url": "https://www.huatai-pb.com/upload/pdf/1754985109770-htbrzzggtggxtzjyxkfszszqtzjj(QDII)fhgg.pdf"
+    },
+    {
+      "event_id": "SH:513530:CASH:2025-09-15",
+      "instrument_id": "SH:513530",
+      "status": "implemented",
+      "announcement_date": "2025-09-10",
+      "announcement_available_at": "2025-09-10T23:59:59+08:00",
+      "announcement_time_precision": "DATE; conservative date-end inference, not observed timestamp",
+      "equity_record_date": "2025-09-12",
+      "ex_dividend_date": "2025-09-15",
+      "payment_date": "2025-09-22",
+      "cash_per_10_shares_cny": "0.1000",
+      "cash_per_share_cny": "0.0100",
+      "share_ratio": "1",
+      "cash_available_not_before": "2025-09-22T23:59:59+08:00",
+      "cash_availability_basis": "ISSUER_PICKUP_DATE_FOR_REGISTERED_DESIGNATED_HOLDER; date-end conservative availability, next eligible session only",
+      "broker_actual_credit_observed_at": null,
+      "unregistered_holder_cash_available_at": null,
+      "source_file": "sources/037-513530-2025-09-10-official-dividend.raw",
+      "extracted_file": "extracted/037-513530-2025-09-10-official-dividend.json",
+      "evidence": {
+        "identity": {
+          "kind": "pdf_page",
+          "one_based_page": 2,
+          "excerpt": "投资交易型开放式指数证券投资基金（QDII）基金简称港股红利基金主代码513530基金合同生效日2022年4月8日基金管理人名称华泰柏瑞基金管理有限公司基金托管人名称交通银行股份有限公司公告依据《公开募集证券投资基金信息披露管理办法》、《华泰柏瑞中证港股通高股息投资交易型开放式指数证券投资基金（QDII）基金合同》、《华泰柏瑞中证港股通高股息投资交易型开放式指数证券投资基金（QDII）招募说明书》收益分配基准日2025年8月29日截止收益"
+        },
+        "unit": {
+          "kind": "pdf_page",
+          "one_based_page": 2,
+          "excerpt": "金可供分配利润（单位：人民币元）362,046,549.40本次分红方案（单位：元/10份基金份额）0.1000有关年度分红次数的说明2025年第四次分红注：1、基金管理人可以每月定期对基金相对标的指数的超额收益率进行评估，当基金累计报酬率超过标的指数同期累计报酬率达到1％以上，可进行收益分配。2、本基金收益分配采用现金方式。2.与分红相关的其他信息权益登记日2025年9月12日除息日2025年9月15日现金红利发放日2025年"
+        },
+        "effective": {
+          "kind": "pdf_page",
+          "one_based_page": 2,
+          "excerpt": "方式。2.与分红相关的其他信息权益登记日2025年9月12日除息日2025年9月15日现金红利发放日2025年9月22日分红对象权益登记日下午上海证券交易所交易结束后，在中国证券登记结算有限责任公司上海分公司登记在册的本基金全体基金份额持有人。税收相关事项的说明根据财政部、国家税务总局财税[2002]128号《关于开放式证券投资基金有关税收问题的通知》及财税[2008]1号《关于企业所得税若干优惠政策的通知》的规定，对投资"
+        },
+        "cash": {
+          "kind": "pdf_page",
+          "one_based_page": 3,
+          "excerpt": "者的现金红利金额通过资金结算系统划付给被指定交易的证券公司，投资者可在2025年9月22日领取现金红利。对未办理指定交易的投资者的现金红利暂由中国证券登记结算有限责任公司上海分公司保管，待其办理指定交易并经确认后即将其尚未领取的现金红利划付给被指定交易的证券公司，投资者在办理指定交易后的第二个交易日可领取现金红利。2、咨询方式投资者可拨打本公司客户服务电话（400-888-0001）或登陆本公司网站（www.huatai-pb"
+        }
+      },
+      "source_sha256": "543f94a90666a226d67761a36efa3fa4cd4b26bd1aa8ea9219e3232d66393dc9",
+      "source_url": "https://www.huatai-pb.com/upload/pdf/1757404023358-htbrzzggtggxtzjyxkfszszqtzjj(QDII)fhgg.pdf"
+    },
+    {
+      "event_id": "SH:513530:CASH:2025-10-20",
+      "instrument_id": "SH:513530",
+      "status": "implemented",
+      "announcement_date": "2025-10-15",
+      "announcement_available_at": "2025-10-15T23:59:59+08:00",
+      "announcement_time_precision": "DATE; conservative date-end inference, not observed timestamp",
+      "equity_record_date": "2025-10-17",
+      "ex_dividend_date": "2025-10-20",
+      "payment_date": "2025-10-27",
+      "cash_per_10_shares_cny": "0.1000",
+      "cash_per_share_cny": "0.0100",
+      "share_ratio": "1",
+      "cash_available_not_before": "2025-10-27T23:59:59+08:00",
+      "cash_availability_basis": "ISSUER_PICKUP_DATE_FOR_REGISTERED_DESIGNATED_HOLDER; date-end conservative availability, next eligible session only",
+      "broker_actual_credit_observed_at": null,
+      "unregistered_holder_cash_available_at": null,
+      "source_file": "sources/036-513530-2025-10-15-official-dividend.raw",
+      "extracted_file": "extracted/036-513530-2025-10-15-official-dividend.json",
+      "evidence": {
+        "identity": {
+          "kind": "pdf_page",
+          "one_based_page": 2,
+          "excerpt": "投资交易型开放式指数证券投资基金（QDII）基金简称港股红利基金主代码513530基金合同生效日2022年4月8日基金管理人名称华泰柏瑞基金管理有限公司基金托管人名称交通银行股份有限公司公告依据《公开募集证券投资基金信息披露管理办法》、《华泰柏瑞中证港股通高股息投资交易型开放式指数证券投资基金（QDII）基金合同》、《华泰柏瑞中证港股通高股息投资交易型开放式指数证券投资基金（QDII）招募说明书》收益分配基准日2025年9月30日截止收益"
+        },
+        "unit": {
+          "kind": "pdf_page",
+          "one_based_page": 2,
+          "excerpt": "金可供分配利润（单位：人民币元）362,456,710.59本次分红方案（单位：元/10份基金份额）0.1000有关年度分红次数的说明2025年第五次分红注：1、基金管理人可以每月定期对基金相对标的指数的超额收益率进行评估，当基金累计报酬率超过标的指数同期累计报酬率达到1％以上，可进行收益分配。2、本基金收益分配采用现金方式。2.与分红相关的其他信息权益登记日2025年10月17日除息日2025年10月20日现金红利发放日202"
+        },
+        "effective": {
+          "kind": "pdf_page",
+          "one_based_page": 2,
+          "excerpt": "式。2.与分红相关的其他信息权益登记日2025年10月17日除息日2025年10月20日现金红利发放日2025年10月27日分红对象权益登记日下午上海证券交易所交易结束后，在中国证券登记结算有限责任公司上海分公司登记在册的本基金全体基金份额持有人。税收相关事项的说明根据财政部、国家税务总局财税[2002]128号《关于开放式证券投资基金有关税收问题的通知》及财税[2008]1号《关于企业所得税若干优惠政策的通知》的规定，对"
+        },
+        "cash": {
+          "kind": "pdf_page",
+          "one_based_page": 3,
+          "excerpt": "者的现金红利金额通过资金结算系统划付给被指定交易的证券公司，投资者可在2025年10月27日领取现金红利。对未办理指定交易的投资者的现金红利暂由中国证券登记结算有限责任公司上海分公司保管，待其办理指定交易并经确认后即将其尚未领取的现金红利划付给被指定交易的证券公司，投资者在办理指定交易后的第二个交易日可领取现金红利。2、咨询方式投资者可拨打本公司客户服务电话（400-888-0001）或登陆本公司网站（www.huatai-p"
+        }
+      },
+      "source_sha256": "587a7d6ef9e0b027af9fc87f0b19045336e0a3be6832ae5071c994ef30295136",
+      "source_url": "https://www.huatai-pb.com/upload/pdf/1760434382058-htbrzzggtggxtzjyxkfszszqtzjj(QDII)fhgg.pdf"
+    },
+    {
+      "event_id": "SH:513530:CASH:2025-11-17",
+      "instrument_id": "SH:513530",
+      "status": "implemented",
+      "announcement_date": "2025-11-12",
+      "announcement_available_at": "2025-11-12T23:59:59+08:00",
+      "announcement_time_precision": "DATE; conservative date-end inference, not observed timestamp",
+      "equity_record_date": "2025-11-14",
+      "ex_dividend_date": "2025-11-17",
+      "payment_date": "2025-11-24",
+      "cash_per_10_shares_cny": "0.1000",
+      "cash_per_share_cny": "0.0100",
+      "share_ratio": "1",
+      "cash_available_not_before": "2025-11-24T23:59:59+08:00",
+      "cash_availability_basis": "ISSUER_PICKUP_DATE_FOR_REGISTERED_DESIGNATED_HOLDER; date-end conservative availability, next eligible session only",
+      "broker_actual_credit_observed_at": null,
+      "unregistered_holder_cash_available_at": null,
+      "source_file": "sources/035-513530-2025-11-12-official-dividend.raw",
+      "extracted_file": "extracted/035-513530-2025-11-12-official-dividend.json",
+      "evidence": {
+        "identity": {
+          "kind": "pdf_page",
+          "one_based_page": 2,
+          "excerpt": "投资交易型开放式指数证券投资基金（QDII）基金简称港股红利基金主代码513530基金合同生效日2022年4月8日基金管理人名称华泰柏瑞基金管理有限公司基金托管人名称交通银行股份有限公司公告依据《公开募集证券投资基金信息披露管理办法》、《华泰柏瑞中证港股通高股息投资交易型开放式指数证券投资基金（QDII）基金合同》、《华泰柏瑞中证港股通高股息投资交易型开放式指数证券投资基金（QDII）招募说明书》收益分配基准日2025年10月31日截止收"
+        },
+        "unit": {
+          "kind": "pdf_page",
+          "one_based_page": 2,
+          "excerpt": "金可供分配利润（单位：人民币元）370,784,823.63本次分红方案（单位：元/10份基金份额）0.1000有关年度分红次数的说明2025年第六次分红注：1、基金管理人可以每月定期对基金相对标的指数的超额收益率进行评估，当基金累计报酬率超过标的指数同期累计报酬率达到1％以上，可进行收益分配。2、本基金收益分配采用现金方式。2.与分红相关的其他信息权益登记日2025年11月14日除息日2025年11月17日现金红利发放日202"
+        },
+        "effective": {
+          "kind": "pdf_page",
+          "one_based_page": 2,
+          "excerpt": "式。2.与分红相关的其他信息权益登记日2025年11月14日除息日2025年11月17日现金红利发放日2025年11月24日分红对象权益登记日下午上海证券交易所交易结束后，在中国证券登记结算有限责任公司上海分公司登记在册的本基金全体基金份额持有人。税收相关事项的说明根据财政部、国家税务总局财税[2002]128号《关于开放式证券投资基金有关税收问题的通知》及财税[2008]1号《关于企业所得税若干优惠政策的通知》的规定，对"
+        },
+        "cash": {
+          "kind": "pdf_page",
+          "one_based_page": 3,
+          "excerpt": "者的现金红利金额通过资金结算系统划付给被指定交易的证券公司，投资者可在2025年11月24日领取现金红利。对未办理指定交易的投资者的现金红利暂由中国证券登记结算有限责任公司上海分公司保管，待其办理指定交易并经确认后即将其尚未领取的现金红利划付给被指定交易的证券公司，投资者在办理指定交易后的第二个交易日可领取现金红利。2、咨询方式投资者可拨打本公司客户服务电话（400-888-0001）或登陆本公司网站（www.huatai-p"
+        }
+      },
+      "source_sha256": "dfa6df7121a62f3bb12fe5c3ce19e37a19316fbf04f6bebc220bcd954b5c2bec",
+      "source_url": "https://www.huatai-pb.com/upload/pdf/1762849917878-htbrzzggtggxtzjyxkfszszqtzjj(QDII)fhgg.pdf"
+    },
+    {
+      "event_id": "SH:513530:CASH:2025-12-15",
+      "instrument_id": "SH:513530",
+      "status": "implemented",
+      "announcement_date": "2025-12-10",
+      "announcement_available_at": "2025-12-10T23:59:59+08:00",
+      "announcement_time_precision": "DATE; conservative date-end inference, not observed timestamp",
+      "equity_record_date": "2025-12-12",
+      "ex_dividend_date": "2025-12-15",
+      "payment_date": "2025-12-22",
+      "cash_per_10_shares_cny": "0.1000",
+      "cash_per_share_cny": "0.0100",
+      "share_ratio": "1",
+      "cash_available_not_before": "2025-12-22T23:59:59+08:00",
+      "cash_availability_basis": "ISSUER_PICKUP_DATE_FOR_REGISTERED_DESIGNATED_HOLDER; date-end conservative availability, next eligible session only",
+      "broker_actual_credit_observed_at": null,
+      "unregistered_holder_cash_available_at": null,
+      "source_file": "sources/034-513530-2025-12-10-official-dividend.raw",
+      "extracted_file": "extracted/034-513530-2025-12-10-official-dividend.json",
+      "evidence": {
+        "identity": {
+          "kind": "pdf_page",
+          "one_based_page": 2,
+          "excerpt": "投资交易型开放式指数证券投资基金（QDII）基金简称港股红利基金主代码513530基金合同生效日2022年4月8日基金管理人名称华泰柏瑞基金管理有限公司基金托管人名称交通银行股份有限公司公告依据《公开募集证券投资基金信息披露管理办法》、《华泰柏瑞中证港股通高股息投资交易型开放式指数证券投资基金（QDII）基金合同》、《华泰柏瑞中证港股通高股息投资交易型开放式指数证券投资基金（QDII）招募说明书》收益分配基准日2025年11月28日基准日"
+        },
+        "unit": {
+          "kind": "pdf_page",
+          "one_based_page": 2,
+          "excerpt": "金可供分配利润（单位：人民币元）476,349,030.55本次分红方案（单位：元/10份基金份额）0.1000有关年度分红次数的说明2025年第七次分红注：1、基金管理人可以每月定期对基金相对标的指数的超额收益率进行评估，当基金累计报酬率超过标的指数同期累计报酬率达到1％以上，可进行收益分配。2、本基金收益分配采用现金方式。2.与分红相关的其他信息权益登记日2025年12月12日除息日2025年12月15日现金红利发放日202"
+        },
+        "effective": {
+          "kind": "pdf_page",
+          "one_based_page": 2,
+          "excerpt": "式。2.与分红相关的其他信息权益登记日2025年12月12日除息日2025年12月15日现金红利发放日2025年12月22日分红对象权益登记日下午上海证券交易所交易结束后，在中国证券登记结算有限责任公司上海分公司登记在册的本基金全体基金份额持有人。税收相关事项的说明根据财政部、国家税务总局财税[2002]128号《关于开放式证券投资基金有关税收问题的通知》及财税[2008]1号《关于企业所得税若干优惠政策的通知》的规定，对"
+        },
+        "cash": {
+          "kind": "pdf_page",
+          "one_based_page": 3,
+          "excerpt": "者的现金红利金额通过资金结算系统划付给被指定交易的证券公司，投资者可在2025年12月22日领取现金红利。对未办理指定交易的投资者的现金红利暂由中国证券登记结算有限责任公司上海分公司保管，待其办理指定交易并经确认后即将其尚未领取的现金红利划付给被指定交易的证券公司，投资者在办理指定交易后的第二个交易日可领取现金红利。2、咨询方式投资者可拨打本公司客户服务电话（400-888-0001）或登陆本公司网站（www.huatai-p"
+        }
+      },
+      "source_sha256": "b4f69adb8084969cc1807bcfd989b2335f544bff6e251023dd2b1292540f5b33",
+      "source_url": "https://www.huatai-pb.com/upload/pdf/1765270006034-20251209-164619-201.pdf"
+    }
+  ],
+  "per_fund": {
+    "SH:513530": "QUALIFIED_POSITIVE_EVENTS_2025_NO_EVENT_2023_2024",
+    "SH:513990": "CONFIRMED_NO_EVENT_2023_2025"
+  },
+  "failed_2026_10_19_queries": {
+    "date": "2026-10-19T16:35:00+08:00",
+    "funds": [
+      "513530",
+      "513990"
+    ],
+    "status": "failed",
+    "failure_kind": "request_error",
+    "vendor_raw_response_preserved_by_original_task": false,
+    "not_evidence_of_no_distributions": true
+  },
+  "annual_reports_are_signal_inputs": false
+}

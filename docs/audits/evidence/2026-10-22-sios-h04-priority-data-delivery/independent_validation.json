@@ -1,0 +1,20 @@
+{
+  "schema_version": "H04-INDEPENDENT-RECEIPT-1",
+  "integrity_and_economic_accounting_pass": true,
+  "errors": [],
+  "qualified_raw_and_economic_rows": 1370,
+  "cash_events": 7,
+  "official_annual_audits": 6,
+  "independently_reextracted_original_pdfs": 24,
+  "fund_snapshot_count": 8,
+  "sector_observation_count": 88,
+  "holding_security_snapshot_rows": 868,
+  "TR_gate": "PASS_FOR_CONSUMER_REVIEW",
+  "attribution_gate": "PARTIAL_WITH_NAMED_GAPS",
+  "consumer_identity": "CHSTOCKDATA_SEPARATE_PROCESS_OFFLINE_RECEIVER; not independent SIOS acceptance",
+  "SIOS_consumer_acceptance": "PENDING",
+  "H04_research_resumption_authorized": false,
+  "network_direct_http_requests": 61,
+  "network_direct_body_bytes": 37415572,
+  "full_stack_transport_exact_bytes": null
+}

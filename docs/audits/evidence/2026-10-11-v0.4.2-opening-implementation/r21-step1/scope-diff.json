@@ -1,0 +1,40 @@
+{
+  "modified_existing": [
+    {
+      "file": "docs/releases/v0.4.2/change-requests/CR-historical-opening-execution.md",
+      "change": "modified"
+    },
+    {
+      "file": "pyproject.toml",
+      "change": "modified"
+    },
+    {
+      "file": "src/chstockdata/__init__.py",
+      "change": "modified"
+    }
+  ],
+  "new_files": [
+    "docs/historical-opening-evidence.md",
+    "tests/test_historical_opening_evidence.py",
+    "dist/v042-unified/chstockdata-0.4.2-py3-none-any.whl",
+    "docs/audits/2026-10-11-v0.4.2-opening-implementation.md",
+    "src/chstockdata/opening_evidence.py",
+    "src/chstockdata/opening_known_events.json",
+    "tests/fixtures/opening/159509-20260911.pdf",
+    "tests/fixtures/opening/manifest.json",
+    "tests/fixtures/opening/sse_688432_interval.bin",
+    "tests/fixtures/opening/szse_159509_announcements_control.bin",
+    "tests/fixtures/opening/szse_159915_announcements.bin"
+  ],
+  "allowed_existing_modifications": [
+    "src/chstockdata/__init__.py",
+    "pyproject.toml"
+  ],
+  "baseline": "../../baseline.json",
+  "statement": "Isolation only; no original D repository, protected worktree, old wheel/pin or SIOS edits by implementer",
+  "other_attribution": {
+    "docs/releases/v0.4.2/change-requests/CR-historical-opening-execution.md": "root coordinator Owner R2.1 append, not implementation edits",
+    "docs/audits/2026-10-11-v0.4.2-opening-implementation.md": "root coordinator audit, not implementation edits",
+    "dist/v042-unified/chstockdata-0.4.2-py3-none-any.whl": "preexisting isolation copy Step0 preserved old wheel, no new wheel by Step1 implementer"
+  }
+}

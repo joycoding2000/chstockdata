@@ -1,0 +1,56 @@
+FF                                                                       [100%]
+================================== FAILURES ===================================
+_ test_capability_failure_does_not_short_circuit_other_securities_or_actions __
+
+tmp_path = WindowsPath('C:/Users/Administrator/.codex/visualizations/2026/10/10/01a125dd-33f2-78d3-abe7-45e0928975d0/v042-opening-implementation/evidence/r21-step3/red-temp/test_capability_failure_does_n0')
+
+    def test_capability_failure_does_not_short_circuit_other_securities_or_actions(tmp_path):
+>       outcomes = live.CapabilityOutcomes("contract", directory=tmp_path)
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+E       AttributeError: module 'live_qualification' has no attribute 'CapabilityOutcomes'
+
+tests\qualification\test_live_r21_contract.py:9: AttributeError
+_______ test_actual_candidate_client_is_explicit_and_pin_remains_legacy _______
+
+    def test_actual_candidate_client_is_explicit_and_pin_remains_legacy():
+        import chstockdata
+        from systematic_investing.adapters.chstockdata.provider import (
+            PINNED_CHSTOCKDATA_VERSION,
+            ChStockDataConfigurationError,
+            LibraryChStockDataClient,
+        )
+    
+        assert chstockdata.__version__ == "0.4.2"
+        assert PINNED_CHSTOCKDATA_VERSION == "0.3.0"
+        with pytest.raises(ChStockDataConfigurationError):
+            LibraryChStockDataClient()
+>       assert live.live_provider().capability_evidence().provider_version == "0.4.2"
+               ^^^^^^^^^^^^^^^^^^^^
+
+tests\qualification\test_live_r21_contract.py:38: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\qualification\live_qualification.py:32: in live_provider
+    client = LibraryChStockDataClient()
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+src\systematic_investing\adapters\chstockdata\provider.py:323: in __init__
+    validate_library_version(version)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+version = '0.4.2', pinned = '0.3.0'
+
+    def validate_library_version(
+        version: str, *, pinned: str = PINNED_CHSTOCKDATA_VERSION
+    ) -> str:
+        """Fail closed unless the resolved vendor release is the pinned one."""
+        if version != pinned:
+>           raise ChStockDataConfigurationError(
+                f"chstockdata {version!r} does not match the pinned qualified release "
+                f"{pinned!r}; upgrades require contract, ETF, golden, and smoke re-qualification"
+            )
+E           systematic_investing.adapters.chstockdata.provider.ChStockDataConfigurationError: chstockdata '0.4.2' does not match the pinned qualified release '0.3.0'; upgrades require contract, ETF, golden, and smoke re-qualification
+
+src\systematic_investing\adapters\chstockdata\provider.py:262: ChStockDataConfigurationError
+=========================== short test summary info ===========================
+FAILED tests/qualification/test_live_r21_contract.py::test_capability_failure_does_not_short_circuit_other_securities_or_actions
+FAILED tests/qualification/test_live_r21_contract.py::test_actual_candidate_client_is_explicit_and_pin_remains_legacy
+2 failed in 1.14s

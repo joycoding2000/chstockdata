@@ -1,0 +1,97 @@
+{
+    "id":  "1216869640",
+    "text":  "归 属 于 公 司 股 东 的 净 利 润",
+    "pit_qualified":  false,
+    "engine":  "Windows.Media.Ocr existing zh-Hans-CN",
+    "maximum_image_dimension":  10000,
+    "machine_seconds":  0.033935599999999996,
+    "pixel_height":  114,
+    "image_sha256":  "d53a8073d58dcd87d6aca94c4037db8cb4e93872b5017010bf9b0582070b53b3",
+    "pixel_width":  2004,
+    "source_sha256":  "d6fecbc0aa8be3e9a8eb2837454af517e58ab29d9f9cbd3e85ac76cf9f752fb8",
+    "physical_page":  203,
+    "lines":  [
+                  {
+                      "text":  "归 属 于 公 司 股 东 的 净 利 润",
+                      "words":  [
+                                    {
+                                        "y":  26,
+                                        "height":  58,
+                                        "width":  54,
+                                        "text":  "归",
+                                        "x":  550
+                                    },
+                                    {
+                                        "y":  27,
+                                        "height":  58,
+                                        "width":  56,
+                                        "text":  "属",
+                                        "x":  610
+                                    },
+                                    {
+                                        "y":  29,
+                                        "height":  58,
+                                        "width":  61,
+                                        "text":  "于",
+                                        "x":  666
+                                    },
+                                    {
+                                        "y":  27,
+                                        "height":  59,
+                                        "width":  57,
+                                        "text":  "公",
+                                        "x":  786
+                                    },
+                                    {
+                                        "y":  27,
+                                        "height":  59,
+                                        "width":  56,
+                                        "text":  "司",
+                                        "x":  848
+                                    },
+                                    {
+                                        "y":  29,
+                                        "height":  57,
+                                        "width":  57,
+                                        "text":  "股",
+                                        "x":  909
+                                    },
+                                    {
+                                        "y":  26,
+                                        "height":  59,
+                                        "width":  61,
+                                        "text":  "东",
+                                        "x":  967
+                                    },
+                                    {
+                                        "y":  26,
+                                        "height":  58,
+                                        "width":  58,
+                                        "text":  "的",
+                                        "x":  1029
+                                    },
+                                    {
+                                        "y":  26,
+                                        "height":  60,
+                                        "width":  58,
+                                        "text":  "净",
+                                        "x":  1091
+                                    },
+                                    {
+                                        "y":  26,
+                                        "height":  61,
+                                        "width":  56,
+                                        "text":  "利",
+                                        "x":  1151
+                                    },
+                                    {
+                                        "y":  27,
+                                        "height":  60,
+                                        "width":  61,
+                                        "text":  "润",
+                                        "x":  1209
+                                    }
+                                ]
+                  }
+              ]
+}

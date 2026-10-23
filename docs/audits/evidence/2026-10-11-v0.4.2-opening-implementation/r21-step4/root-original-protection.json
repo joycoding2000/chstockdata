@@ -1,0 +1,56 @@
+{
+  "executor": "root",
+  "original_protection": {
+    "argv": [
+      "C:/Users/Administrator/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe",
+      "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\verify_r21_protection.py"
+    ],
+    "sandbox_permissions": "require_escalated",
+    "exit_code": 0,
+    "first_sandbox_attempt": "PermissionError reading original protected old wheel; no filesystem mutation",
+    "result": {
+      "original_chstockdata_head": "42bd44ef4d695aa3e88cfab4ebc3417660d0437a",
+      "original_chstockdata_files_checked": 758,
+      "original_chstockdata_differences": [
+        "docs/releases/v0.4.2/change-requests/CR-historical-opening-execution.md"
+      ],
+      "original_sios_head": "fafdb6d3942ba52baa9480da7c8674dab1487f5d",
+      "original_sios_files_checked": 244,
+      "original_sios_differences": [],
+      "old_wheel_sha256": "b76b065a06cd1d91868880a7b57584f598b6fd4cb42931e9a33700bc99a88c7a",
+      "original_cr_prefix_preserved": true,
+      "isolated_chstockdata_modified_baseline_files": [
+        "docs/releases/v0.4.2/change-requests/CR-historical-opening-execution.md",
+        "pyproject.toml",
+        "src/chstockdata/__init__.py"
+      ],
+      "isolated_sios_modified_frozen_files": [
+        "src/systematic_investing/adapters/chstockdata/provider.py",
+        "src/systematic_investing/backtest/engine.py",
+        "src/systematic_investing/backtest/execution.py",
+        "src/systematic_investing/data/ports.py",
+        "src/systematic_investing/data/quality.py",
+        "src/systematic_investing/data/snapshots.py",
+        "src/systematic_investing/research/cli.py",
+        "src/systematic_investing/research/intake.py",
+        "src/systematic_investing/research/oos.py",
+        "src/systematic_investing/research/runner.py",
+        "tests/contract/test_chstockdata_provider.py",
+        "tests/qualification/live_qualification.py",
+        "tests/qualification/test_chstockdata_etf_gate.py"
+      ]
+    }
+  },
+  "ta_protection": {
+    "method": "read-only SHA256 of all before-manifest entries plus git -c safe.directory HEAD and full porcelain status comparison",
+    "baseline": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\ta-step4-protection-before.json",
+    "exit_code": 0,
+    "result": {
+      "head": "3f2704f3af572bf3f1b70fe0dc4ddd1c9972908c",
+      "files_checked": 986,
+      "changed": [],
+      "status_unchanged": true,
+      "head_unchanged": true
+    }
+  }
+}

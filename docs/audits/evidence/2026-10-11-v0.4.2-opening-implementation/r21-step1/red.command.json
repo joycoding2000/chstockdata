@@ -1,0 +1,21 @@
+{
+  "argv": [
+    "C:/Users/Administrator/.codex/visualizations/2026/10/09/01a11feb-cbea-7790-a83e-57b1dd555e13/v042-unified/sios-candidate/Scripts/python.exe",
+    "-B",
+    "-m",
+    "pytest",
+    "tests/test_historical_opening_evidence.py",
+    "-q",
+    "-p",
+    "no:cacheprovider",
+    "--junitxml=../evidence/r21-step1/red.xml"
+  ],
+  "cwd": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\chstockdata",
+  "env": {
+    "PYTHONPATH": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\chstockdata\\src",
+    "PYTHONDONTWRITEBYTECODE": "1"
+  },
+  "exit_code": 1,
+  "phase": "RED before production module/export existed",
+  "source_identity_note": "Original module and export absent. Initial test source hash was not captured contemporaneously; immutable red log and JUnit retain actual assertions and outcome. Later rounds include exact command/source hashes."
+}

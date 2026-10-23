@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html class="" lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width">
+<meta name="copyright" content="本页版权归中国博时基金所有。all rights reserved">
+<meta name="version" content="2017版">
+<meta name="author" content="BOSERA FUNDS">
+<meta name="apple-itunes-app" content="app-id=672198904">
+<link rel="shortcut icon" href="/static/images/favicon.ico">
+		<title>博时基金-首页</title>
+		<meta name="keywords" content="博时,基金产品,定投,基金,博时基金,基金网,基金净值,基金净值查询,基金定投,基金投资理财,每日基金净值查询,开放式基金净值,网上交易">
+		<meta name="description" content="博时基金是中国内地首批成立的五家基金管理公司之一。注册资本1亿元人民币。博时基金是我国共同基金和专户资产管理规模最大的基金公司之一。博时网上交易请登录快e通平台。专业理财服务热线：95105568。">
+<script src="/static/js/rev-manifest-b0e63394e1.js" charset="utf-8"></script>
+<script src="/static/js/assetsLoader-4acf7e81fe.js" charset="utf-8"></script>
+<!--[if IE 8]>
+<script>
+  window.BROWSER_IE8 = true;
+</script>
+<![endif]-->
+<script>
+  var __devConfig = {
+    debug: true,
+    jsBase: 'http://localhost:9000',
+    cssBase: 'http://localhost:8899/css'
+  };
+  var __revConfig = {
+    jsBase: '/static/js',
+    cssBase: '/static/css'
+  };
+  assetsLoader.setDefault(__revConfig);
+  assetsLoader({
+    css: [
+      'icon.css',
+      'main.css',
+      'ui.css'
+    ],
+    js: [
+      'boot.js',
+      'vendor.js',
+      'commons.js',
+      'ui.js',
+      'validate.methods.js',
+      'plugin.js',
+      'init.js'
+    ]
+  });
+</script>
+<script>
+	assetsLoader({
+		css : ['index.css'],
+		js : ['index.js']
+	});
+</script>
+</head>
+<body>
+	<div class="g-top">
+		<div class="container">
+			<div class="external-nav">
+				<a class="external-nav_link" href="http://capital.bosera.com/index.html" target="_blank"
+					rel="noopener">博时资本</a>
+				<a class="external-nav_link" href="https://www.boserawealth.com/index" target="_blank"
+					rel="noopener">博时财富</a>
+				<a class="external-nav_link" href="/english/index.html" target="_blank">English</a>
+			</div>
+			<div class="assistant-nav">
+				<span id="userNotice" data-trade-host="https://trade.bosera.com/indi/api/www/" style="display: none">
+					欢迎回来，<span id="userName"></span>&nbsp;&nbsp;
+					<span class="assistant-nav_link assistant-nav_link--highlight" id="logoutBtn">安全退出</span>
+				</span>
+				<a class="assistant-nav_link" href="/column/index.do?classid=00020002001100001" target="_blank">帮助中心</a>
+				<a class="assistant-nav_link last" id="onlineService" href="/service/webchat/robot.jsp"
+					target="_blank">在线客服</a>
+			</div>
+		</div>
+	</div>
+<div class="g-header">
+	<div class="container">
+		<h1 class="logo-wrap">
+		  <a class="logo" href="/index.html" title="博时基金">博时基金</a>
+		</h1>
+    <div class="nav-wrap" style="width: 930px;">
+      <ul class="nav" id="topNav" data-focus-id="index">
+        <li><a class="nav_link" id="indexMenu" href="/index.html">首页</a></li
+          ><li><a class="nav_link" id="fundMenu" href="/fund/index.html">基金产品</a></li
+          ><li><a class="nav_link" href="https://trade.bosera.com/indi/pension/index" target="_blank" rel="noopener">养老专区</a></li
+          >
+          <!-- <li><a class="nav_link" href="https://trade.bosera.com/indi/specialfund/index" target="_blank" rel="noopener">高端理财</a></li> -->
+          <li><a class="nav_link" href="https://trade.bosera.com/indi/fundportfolio/propaganda" target="_blank" rel="noopener">博乐智投</a></li
+          ><li class="dropdown-nav J_dropdownNav">
+            <span class="nav_link J_rootNav">&nbsp;企业理财&nbsp;</span>
+          <ul class="sub-nav">
+            <li><a class="sub-nav_link" href="https://trade.bosera.com/corp/asset/share/list" target="_blank">企业法人</a></li>
+            <li><a class="sub-nav_link last-child" href="https://trade.bosera.com/pro/asset/share/list" target="_blank">专业投资者</a></li>
+          </ul>
+        </li
+        ><li class="dropdown-nav J_dropdownNav">
+          <span class="nav_link J_rootNav">专户与养老金</span>
+          <ul class="sub-nav">
+            <li><a class="sub-nav_link" id="netAccountMenu" href="/column/index.do?classid=00020002000700010004">专户理财</a></li>
+            <li><a class="sub-nav_link last-child" id="pensionFundMenu" href="/column/index.do?classid=00020002000600090001">养老基金</a></li>
+          </ul>
+        </li
+        ><li><a class="nav_link" id="aboutMenu" href="/column/index.do?classid=00020002000200010001" >关于博时</a></li>
+      </ul>
+      <div class="account-nav" id="accountNav" style="display: none">
+        <a class="btn-primary btn--middle" href="https://trade.bosera.com/indi/api/www/myaccturl.do">我的账户</a>
+      </div>
+      <div class="header-action" id="headerAction" style="display: none">
+        <a class="btn-primary btn--middle" href="https://trade.bosera.com/indi/login" target="_blank">登录</a>
+        <a class="btn-default btn--middle" href="https://trade.bosera.com/indi/openacct/mobilenoform" target="_blank">注册</a>
+      </div>
+    </div>
+    <!-- .nav-wrap -->
+  </div>
+  <!-- .container -->
+</div>
+<!-- .g-header -->
+<div class="app-bar" id="appBar">
+  <div class="app-bar_con"><span class="app-bar_close" id="appBarClose">关闭</span><img class="app-bar_img" src="/static/images/common/app_bar_image.png"><a class="app-bar_more" id="appBarMore" href="https://sj.qq.com/appdetail/com.boshijj">查看</a></div>
+</div>
+<!-- Android Phone Download AppBar -->
+  <div class="hero" id="heroSlider">
+    <ul class="slides">
+            <li><a href="https://www.bosera.com/column/infoDetail.do?infoid=2976964&classid=0002000200130002" style="background-image: url(/swf/images/1792483327800.jpg)"></a></li>
+            <li><a href="https://www.bosera.com/column/infoDetail.do?infoid=2974324&classid=00020002000200020003" style="background-image: url(/swf/images/1784024113880.jpg)" target="_blank"></a></li>
+            <li><a style="background-image: url(/swf/images/1699327246733.png)"></a></li>
+            <li><a href="https://www.bosera.com/column/infoDetailBlank.do?classid=0002000200090010&infoid=2972749" style="background-image: url(/swf/images/1777362821577.jpg)"></a></li>
+            <li><a style="background-image: url(/swf/images/1735866747416.jpg)"></a></li>
+    </ul>
+  </div>
+  <!-- .hero end -->
+<div class="main" id="main">
+  <div class="container">
+    <div class="promos">
+      <ul class="promos_list">
+        <li class="promos_item first">
+          <a
+            class="promos_link promos_link--purse"
+            href="/minisite/boserapurse1708/index.html" target="_blank">
+            <div class="name">博时钱包<span class="tag">现金宝</span></div>
+            <div class="copywriting">申赎灵活 收益看得见</div>
+            <div class="yield"><em>1.006</em><span>%</span></div>
+            <div class="yield-date"><span>2026-10-22</span><br>七日年化收益率</div>
+          </a>
+        </li>
+        <li class="promos_item"><a class="promos_link promos_link--gold" href="/minisite/promos/gold0316/index.html" target="_blank" rel="noopener" style="background-image: url(/static/images/page/index_promos_gold.png?v=20180423);"></a></li>
+        <li class="promos_item"><a class="promos_link promos_link--investment" href="https://trade.bosera.com/indi/fundportfolio/propaganda" target="_blank" rel="noopener" style="background-image: url(/static/images/page/index_promos_investgroup.png?v=20220519);"></a></li>
+        <li class="promos_item"><a class="promos_link promos_link--investgroup" href="/fund/017837.html" target="_blank" rel="noopener" style="background-image: url(/static/images/page/index_promos_indexbond.jpg?v=20240627);"></a></li>
+      </ul>
+    </div>
+    <!-- .promos end -->
+            <div class="products products--b">
+              <div class="products_head">
+                <h3>优选债基</h3>
+                <h4>稳健理财</h4>
+              </div>
+              <table class="products_list">
+                <thead>
+                  <tr>
+                    <td class="products_col-empty">&nbsp;</td>
+                    <td class="products_col-a">基金</td>
+                    <td class="products_col-b">收益</td>
+                    <td class="products_col-c">单位净值</td>
+                    <td class="products_col-d">&nbsp;</td>
+                    <td class="products_col-e">&nbsp;</td>
+                    <td class="products_col-empty">&nbsp;</td>
+                  </tr>
+                </thead>
+                <tbody>
+                    <tr class="products_item">
+                      <td class="products_col-empty">&nbsp;</td>
+                      <td>
+                        <a class="name" href="/fund/009271.html" target="_blank">博时信用优选债券A</a><span class="code">009271</span>
+                          <span class="product-tag-wrap">
+                          </span>
+                      </td>
+                      <td><span class="yield"><span class="number"><em>1.30</em>%</span><br><span class="range">近一年收益率</span></span></td>
+                      <td><span class="revenue">1.1719</span><br><span class="range">2026-10-22</span></td>
+                      <td><a class="btn-default" href="https://trade.bosera.com/indi/api/www/buyfundurl.do?fundCode=009271" target="_blank">购买</a></td>
+                      <td><span class="copywriting">0.1元起购，灵活申赎</span></td>
+                      <td class="products_col-empty">&nbsp;</td>
+                    </tr>
+                </tbody>
+              </table>
+            </div>
+        <!-- 样式2 end -->
+        <!-- 样式3 end -->
+          <div class="hot-thematic">
+            <div class="hot-thematic_head">
+              <h3>热门权益</h3>
+              <h4>跟上市场，投资好基</h4>
+            </div>
+            <div class="hot-thematic_panel" id="hotThematicSlider">
+              <ul class="hot-thematic_list slides">
+                  <li class="hot-thematic_item">
+                    <div class="hot-thematic_title">
+                      <a class="name" href="/fund/021550.html" target="_blank">博时中证红利低波动100ETF联接A</a>
+                      <span class="code">021550</span>
+                        <span class="product-tag-wrap">
+                        </span>
+                    </div>
+                    <span class="hot-thematic_yield">
+                      <span class="number">
+                        <em>-1.86</em>%
+                      </span>
+                      <span class="range">近一年收益率</span>
+                    </span>
+                    <span class="hot-thematic_copywriting"></span>
+                  </li>  
+                  <li class="hot-thematic_item">
+                    <div class="hot-thematic_title">
+                      <a class="name" href="/fund/018132.html" target="_blank">博时中证有色金属矿业主题指数A</a>
+                      <span class="code">018132</span>
+                        <span class="product-tag-wrap">
+                        </span>
+                    </div>
+                    <span class="hot-thematic_yield">
+                      <span class="number">
+                        <em>-7.04</em>%
+                      </span>
+                      <span class="range">近一年收益率</span>
+                    </span>
+                    <span class="hot-thematic_copywriting"></span>
+                  </li>  
+                  <li class="hot-thematic_item">
+                    <div class="hot-thematic_title">
+                      <a class="name" href="/fund/020691.html" target="_blank">博时中证全指通信设备指数发起式A</a>
+                      <span class="code">020691</span>
+                        <span class="product-tag-wrap">
+                        </span>
+                    </div>
+                    <span class="hot-thematic_yield">
+                      <span class="number">
+                        <em>15.00</em>%
+                      </span>
+                      <span class="range">近一年收益率</span>
+                    </span>
+                    <span class="hot-thematic_copywriting"></span>
+                  </li>  
+              </ul>
+            </div>
+          </div>
+        <!-- 样式2 end -->
+        <!-- 样式3 end -->
+    <div class="fastpass">
+      <ul class="fastpass_list">
+        <li class="fastpass_item">
+          <a class="fastpass_link" href="/minisite/dt2015/index.html" target="_blank" style="background-image: url(/static/images/page/index_fastpass_schedule.png);">定投专区</a>
+        </li>
+        <li class="fastpass_item">
+        	<span class="fastpass_link" style="background-image: url(/static/images/page/index_fastpass_vip.png?v=20240718);">会员专区</span>
+        </li>
+        <li class="fastpass_item">
+          <span class="fastpass_link" style="background-image: url(/static/images/page/index_fastpass_discount.png?v=20210205);">优惠购基</span>
+        </li>
+        <li class="fastpass_item">
+          <a class="fastpass_link" href="/minisite/yanglao/index.html" target="_blank" style="background-image: url(/static/images/page/index_fastpass_pension.png);">养老专区</a>
+        </li>
+      </ul>
+    </div>
+    <div class="info-wrap">
+      <div class="info">
+        <div class="info_head">
+          <h3>信息披露</h3><a class="more" href="/column/index.do?classid=00020002000200020002" target="_blank">更多</a>
+        </div>
+        <ul class="info_list">
+            <li class="info_item">
+              <a class="info_link" href="/column/infoDetail.do?infoid=2968455&classid=00020002000200020002" target="_blank">博时基金管理有限公司澄清公告</a>
+              <span class="info_date">2025-09-09</span>
+            </li>
+            <li class="info_item">
+              <a class="info_link" href="/column/infoDetail.do?infoid=2977010&classid=00020002000200020002" target="_blank">博时纳斯达克100交易型开放式指数证券投资基金（QDII）溢价风险提示公告</a>
+              <span class="info_date">2026-10-22</span>
+            </li>
+            <li class="info_item">
+              <a class="info_link" href="/column/infoDetail.do?infoid=2977009&classid=00020002000200020002" target="_blank">博时标普500交易型开放式指数证券投资基金溢价风险提示公告</a>
+              <span class="info_date">2026-10-22</span>
+            </li>
+            <li class="info_item">
+              <a class="info_link" href="/column/infoDetail.do?infoid=2977008&classid=00020002000200020002" target="_blank">博时纳斯达克100交易型开放式指数证券投资基金（QDII）溢价风险提示及停复牌公告</a>
+              <span class="info_date">2026-10-22</span>
+            </li>
+            <li class="info_item">
+              <a class="info_link" href="/column/infoDetail.do?infoid=2977007&classid=00020002000200020002" target="_blank">博时标普500交易型开放式指数证券投资基金溢价风险提示公告</a>
+              <span class="info_date">2026-10-22</span>
+            </li>
+        </ul>
+      </div>
+      <div class="info last">
+        <div class="info_head">
+          <h3>公司动态</h3><a class="more" href="/column/index.do?classid=00020002000200020003" target="_blank">更多</a>
+        </div>
+        <ul class="info_list">
+            <li class="info_item">
+              <a class="info_link" href="/column/infoDetail.do?infoid=2976868&classid=00020002000200020003" target="_blank">抓关键、破难题、谋创新，以运作新规为契机推动高质量发展</a>
+              <span class="info_date">2026-10-13</span>
+            </li>
+            <li class="info_item">
+              <a class="info_link" href="/column/infoDetail.do?infoid=2974324&classid=00020002000200020003" target="_blank">廿八载价值深耕，博时基金奋进高质量发展新征程</a>
+              <span class="info_date">2026-07-14</span>
+            </li>
+            <li class="info_item">
+              <a class="info_link" href="/column/infoDetail.do?infoid=2972241&classid=00020002000200020003" target="_blank">2026年全民国家安全教育日主题海报（七)</a>
+              <span class="info_date">2026-04-17</span>
+            </li>
+            <li class="info_item">
+              <a class="info_link" href="/column/infoDetail.do?infoid=2972228&classid=00020002000200020003" target="_blank">2026年全民国家安全教育日主题海报（六）</a>
+              <span class="info_date">2026-04-17</span>
+            </li>
+            <li class="info_item">
+              <a class="info_link" href="/column/infoDetail.do?infoid=2972240&classid=00020002000200020003" target="_blank">2026年全民国家安全教育日主题海报（五)</a>
+              <span class="info_date">2026-04-16</span>
+            </li>
+        </ul>
+      </div>
+    </div>
+    <div class="info-wrap">
+      <div class="info info--special">
+        <div class="info_head">
+          <h3>宏观大视野</h3>
+          <a class="more" href="/column/index.do?classid=0002000200020005" target="_blank">更多</a>
+        </div>
+        <a class="info-special_link" href="/column/infoDetail.do?infoid=2977013&classid=0002000200020005" target="_blank">
+          <img src="/static/images/page/index_brief_hgdsy.jpg?v=20180413">
+          <h4>市场并非单纯交易“更激进的加息”</h4>
+          <p></p>
+        </a>
+      </div
+      ><div class="info info--special">
+        <div class="info_head">
+          <h3>走近基金经理</h3>
+          <a class="more" href="/column/index.do?classid=0002000200130001" target="_blank">更多</a>
+        </div>
+	      <a class="info-special_link" href="/column/infoDetail.do?infoid=2975905&classid=0002000200130001" target="_blank">
+	        <img src="/static/images/page/index_brief_manager.jpg?v=20170811">
+	        <h4>博时基金杨振建：三重逻辑共振 红利资产或迎配置窗口</h4>
+          <p>今年市场主线偏科技与硬科技成长，科创50等弹性资产领涨并不意</p>
+	      </a>
+      </div
+      ><div class="info info--special last">
+        <div class="info_head">
+          <h3>博时投资汇</h3>
+          <a class="more" href="/column/index.do?classid=0002000200130002" target="_blank">更多</a>
+        </div>
+	      <a class="info-special_link" href="/column/infoDetail.do?infoid=2976964&classid=0002000200130002" target="_blank">
+	        <img src="/static/images/page/index_brief_tzh.jpg?v=20170811">
+	        <h4>博时基金2026年第四季度宏观策略报告</h4>
+	        <p>全球资产方面，三季度权益资产总体下跌，原油明显上涨。2026</p>
+	      </a>
+      </div>
+    </div>
+    <!-- .info-wrap -->
+    <!-- 投教专区样式start -->
+	<style type="text/css">
+    .clearfix:before,
+    .clearfix:after {
+      content: " ";
+      display: table;
+    }
+    .clearfix:after {
+      clear: both;
+    }
+    .education-wrap .info {
+      width: 100%;
+    }
+    .education-title {
+      padding: 8px 0;
+    }
+    .education-title h4 {
+      display: inline-block;
+      margin: 0;
+    }
+    .education-title .more {
+      float: right;
+      font-size: 12px;
+    }
+    .education-title .more-last {
+      	margin-right: 2.4%;
+    }
+	.education-thumb-list{
+		display: flax;
+		justify-content:space-between
+	}
+    .education-thumb-list>li {
+      padding: 0;
+      width: 49.4%;
+      margin-right: 1.2%;
+    }
+	.education-thumb-list .education-thumb-li {
+		background: none;
+	}
+	.education-thumb-li h4 {
+		margin-bottom: 6px;
+		height:19px;
+	}
+	.education-thumb-li p {
+		margin: 0 0 6px 0;
+		height:19px;
+		color:#999;
+	}
+    .education-thumb-list>li a {
+      display: inline-block;
+    }
+    .education-thumb-list>li img {
+      width: 100%;
+    }
+    .education-thumb-list>li:last-child {
+      margin-right: 0;
+    }
+    .education-live-thumb-list>li {
+      width: 47.6%;
+      margin-right: 2.4%;
+    }
+    .education-special-wrap .education-info {
+      float: left;
+    }
+    .education-live-info {
+      width: 50.6%;
+    }
+    .education-news-info {
+      width: 100%;
+    }
+    .education-news-info .info_link {
+      max-width: 300px;
+    }
+    .info_introduce{
+      overflow:hidden;
+      text-overflow:ellipsis;
+      display:-webkit-box;
+      -webkit-line-clamp:1;
+      -webkit-box-orient:vertical;
+    }
+    .education-banner {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .education-banner a {
+      display: block;
+      flex: 1;
+    }
+    .education-banner img {
+      display: block;
+      width: 100%;
+    }
+  </style>
+	<!-- 投教专区样式end -->
+	<!-- 投教专区start -->
+	  <div class="info-wrap education-wrap">
+	    <div class="info">
+	      <div class="info_head">
+	        <h3>投教专区</h3>
+	      </div>
+	      <div class="education-banner" >
+	      	<a href="/column/index.do?classid=0002000200140001" target="_blank" rel="noopener" >
+	          <img src="/static/images/page/bosera-tv.png" alt="博时TV" >
+	         </a>
+	         <a href="/column/index.do?classid=0002000200140003" target="_blank" rel="noopener" >
+	          <img src="/static/images/page/invest-knowledge.png" alt="投资知识集锦" >
+	         </a>
+	      </div>
+	      <div class="education-special-wrap clearfix">
+	        <div class="education-info education-news-info">
+	          <div class="education-title">
+	            <h4>投资知识集锦</h4>
+	            <a class="more" href="/column/index.do?classid=0002000200140003">更多</a>
+	          </div>
+	          <ul>
+	              <li class="info_item">
+	                <a class="info_link" href="/column/infoDetail.do?infoid=2975078&classid=0002000200140003" target="_blank" rel="noopener">【热点科普】告别“单打独斗”，这个被忽视的策略正在成为新共识</a>
+	                <span class="info_date">2026-09-09</span>
+	              </li> 
+	              <li class="info_item">
+	                <a class="info_link" href="/column/infoDetail.do?infoid=2975079&classid=0002000200140003" target="_blank" rel="noopener">【基金行业话养老】如何为退休生活添砖加瓦？</a>
+	                <span class="info_date">2026-09-02</span>
+	              </li> 
+	              <li class="info_item">
+	                <a class="info_link" href="/column/infoDetail.do?infoid=2975077&classid=0002000200140003" target="_blank" rel="noopener">如何平衡养老投资的“不可能三角”？</a>
+	                <span class="info_date">2026-08-26</span>
+	              </li> 
+	              <li class="info_item">
+	                <a class="info_link" href="/column/infoDetail.do?infoid=2975076&classid=0002000200140003" target="_blank" rel="noopener">开户破1.5亿，你的养老“第三支柱”建好了吗？</a>
+	                <span class="info_date">2026-08-19</span>
+	              </li> 
+	              <li class="info_item">
+	                <a class="info_link" href="/column/infoDetail.do?infoid=2975075&classid=0002000200140003" target="_blank" rel="noopener">养老储蓄别踩坑！避免陷入认知误区</a>
+	                <span class="info_date">2026-08-12</span>
+	              </li> 
+	              <li class="info_item">
+	                <a class="info_link" href="/column/infoDetail.do?infoid=2975074&classid=0002000200140003" target="_blank" rel="noopener">【基金行业话养老】市场震荡期，拿什么守护我们的养老钱？</a>
+	                <span class="info_date">2026-08-05</span>
+	              </li> 
+	              <li class="info_item">
+	                <a class="info_link" href="/column/infoDetail.do?infoid=2975073&classid=0002000200140003" target="_blank" rel="noopener">恒指港股通指数面面观</a>
+	                <span class="info_date">2026-07-29</span>
+	              </li> 
+	          </ul>
+	        </div>
+	      </div>
+	    </div>
+	  </div>
+  <!-- 投教专区end -->
+  </div>
+  <!-- .container -->
+</div>
+<!-- .main -->
+<div class="g-footer">
+  <div class="container">
+    <div class="footer-nav-wrap">
+      <div class="footer-nav">
+        <dl class="footer-nav_list">
+          <dt>新手指南</dt>
+          <dd><a class="footer-nav_link" href="https://trade.bosera.com/indi/openacct/mobilenoform" target="_blank">个人开户</a></dd>
+          <dd><a class="footer-nav_link" href="/column/index.do?classid=00020002000500030001" target="_blank">投资者教育</a></dd>
+        </dl>
+        <dl class="footer-nav_list">
+          <dt>交易须知</dt>
+          <dd><a class="footer-nav_link" href="/column/index.do?classid=0002000200100001" target="_blank">业务规则</a></dd>
+          <dd><a class="footer-nav_link" href="/column/index.do?classid=00020002001100002" target="_blank">费率优惠</a></dd>
+          <dd><a class="footer-nav_link" href="/column/infoDetail.do?infoid=1415734&classid=000200020011000050001" target="_blank">风险提示</a></dd>
+          <dd><a class="footer-nav_link" href="/column/infoDetail.do?infoid=1415742&classid=000200020011000050001" target="_blank">权益须知</a></dd>
+        </dl>
+        <dl class="footer-nav_list">
+          <dt>法律条款</dt>
+          <dd><a class="footer-nav_link" href="/column/infoDetail.do?infoid=1415741&classid=000200020011000050001" target="_blank">免责条款</a></dd>
+          <dd><a class="footer-nav_link" href="/column/index.do?classid=000200020005000300030001" target="_blank">反洗钱专栏</a></dd>
+          <dd><a class="footer-nav_link" href="/column/index.do?classid=000200020005000300040001" target="_blank">防范证券欺诈活动</a></dd>
+          <dd><a class="footer-nav_link" href="/column/infoDetail.do?infoid=2737595&classid=000200020011000050001" target="_blank">隐私政策</a></dd>
+        </dl>
+        <dl class="footer-nav_list">
+          <dt>客户服务</dt>
+          <dd><a class="footer-nav_link" href="https://bosera.hotjob.cn" target="_blank">加入我们</a></dd>
+          <dd><a class="footer-nav_link" href="/column/index.do?classid=00020002001100003" target="_blank">下载中心</a></dd>
+          <dd><a class="footer-nav_link" href="/column/index.do?classid=0002000200020004" target="_blank">联系我们</a></dd>
+          <dd><a class="footer-nav_link" href="/column/infoDetail.do?infoid=12398&classid=0002000200110002" target="_blank">应急处理提示</a></dd>
+        </dl>
+      </div>
+      <div class="footer-qr">
+        <ul class="footer-qr_tab" id="footerQrTab">
+          <li class="text-primary" data-target="#footerAppQr">APP</li
+          ><li data-target="#footerWechatQr">微信</li>
+        </ul>
+        <div class="footer-qr_con"><img class="footer-qr_img" id="footerAppQr" src="/static/images/common/app_qr_code.png?v=20180124"><img class="footer-qr_img" id="footerWechatQr" src="/static/images/common/wechat_qr_code.png" style="display:none"></div>
+      </div>
+      <!-- .footer-qr end -->
+    </div>
+    <!-- .footer-nav-wrap end -->
+    <div class="footer-copyright">
+      <p>客服热线：95105568　客服邮箱：service@bosera.com&nbsp;&nbsp;
+        <span
+          class="J_popover"
+          data-placement="top-left"
+          data-width="156"
+          data-content="&lt;a class=&quot;footer-qr_popover-item&quot; href=&quot;http://www.weibo.com/bosera&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/static/images/common/weibo_qr_code.png&quot;&gt;点击关注微博&lt;/a&gt;"
+          ><i class="icon icon-weibo"></i></span>&nbsp;&nbsp;
+        <span
+          class="J_popover"
+          data-placement="top-left"
+          data-width="300"
+          data-content="&lt;span class=&quot;footer-qr_popover-item&quot;&gt;&lt;img src=&quot;/static/images/common/wechat_qr_code.png&quot;&gt;博时服务号&lt;/span&gt;&lt;span class=&quot;footer-qr_popover-item&quot;&gt;&lt;img src=&quot;/static/images/common/wechat_tzh_qr_code.png&quot;&gt;博时投资汇&lt;/span&gt;"
+          ><i class="icon icon-wechat"></i></span>
+      </p>
+      <p>人工服务时间：工作日9：00－21：00，公休日及法定节假日（十一和春节除外）9：00－17：00<p>
+	    <p><a class="footer-nav_link" target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=44030402003685"><img src="/static/images/common/beian.png"/>粤公网安备 44030402003685号</a> &copy;2026 博时基金管理有限公司 版权所有 <a class="footer-nav_link" href="https://beian.miit.gov.cn/#/Integrated/index" target="_blank" title="粤ICP备10063309号">粤ICP备10063309号</a>&nbsp;本网站支持IPv6</p>
+    </div>
+  </div>
+</div>
+<div class="container" id="sideToolbarContainer">
+  <div class="side-toolbar" id="sideToolbar">
+    <ul class="side-toolbar_list">
+      <li class="side-toolbar_item">
+        <span class="side-toolbar_link side-toolbar_link--qr" id="sideToolbarQr" title="扫描下载手机APP">
+	        <span class="side-toolbar_qr">
+	          <span class="side-toolbar_qr-title">扫描下载手机APP</span>
+	          <img src="/static/images/common/app_qr_code.png?v=20180124">
+	        </span>
+        </span>
+      </li>
+      <li class="side-toolbar_item">
+        <a class="side-toolbar_link side-toolbar_link--service" id="sideToolbarService" href="/service/webchat/robot.jsp" title="在线客服" target="_blank">在线客服</a>
+      </li>
+      <li class="side-toolbar_item">
+        <span class="side-toolbar_link side-toolbar_link--backtop" id="sideToolbarBackTop" title="返回顶部">返回顶部</span>
+      </li>
+    </ul>
+  </div>
+</div>
+<script>
+  // 百度统计代码
+  var _hmt = _hmt || [];
+  (function() {
+    var hm = document.createElement("script");
+    hm.src = "//hm.baidu.com/hm.js?3c5b5c9332a21f25e5643038564d17c1";
+    var s = document.getElementsByTagName("script")[0]; 
+    s.parentNode.insertBefore(hm, s);
+  })();
+</script>
+</body>
+</html>
+

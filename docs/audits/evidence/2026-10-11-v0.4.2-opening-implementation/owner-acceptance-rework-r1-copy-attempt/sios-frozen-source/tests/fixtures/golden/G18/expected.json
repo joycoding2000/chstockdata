@@ -1,0 +1,95 @@
+{
+  "schema_version": "golden-expected-v1",
+  "runs": {
+    "approved_profile_governs": {
+      "sessions": [
+        {
+          "session_date": "2026-09-11",
+          "cash": "100000",
+          "market_value": "0",
+          "total_equity": "100000",
+          "nav": "1",
+          "valuation_status": "COMPLETE",
+          "decision_blocked_reason": null,
+          "orders": [],
+          "fills": [],
+          "rejections": [],
+          "plans": [
+            {"instrument_id": "XSHE:000001", "sleeve": "CORE", "side": "BUY", "order_quantity": 100, "target_weight": "0.012", "sizing_reference_price": "12.00"}
+          ]
+        },
+        {
+          "session_date": "2026-09-14",
+          "cash": "98792.99",
+          "market_value": "1220.00",
+          "total_equity": "100012.99",
+          "nav": "1.0001299",
+          "valuation_status": "COMPLETE",
+          "decision_blocked_reason": null,
+          "orders": [
+            {"instrument_id": "XSHE:000001", "side": "BUY", "planned_quantity": 100, "submitted_quantity": 100, "status": "FILLED", "reason_codes": ["FILLED_AS_PLANNED"]}
+          ],
+          "fills": [
+            {"instrument_id": "XSHE:000001", "side": "BUY", "quantity": 100, "fill_price": "12.02", "reference_open": "12.00", "commission": "0.36", "minimum_commission_adjustment": "4.64", "stamp_tax": "0", "transfer_fee": "0.01", "total_fees": "5.01"}
+          ],
+          "rejections": [],
+          "plans": [],
+          "target": null
+        }
+      ],
+      "final": {
+        "cash": "98792.99",
+        "equity": "100012.99",
+        "nav": "1.0001299",
+        "positions": [
+          {"instrument_id": "XSHE:000001", "total_quantity": 100, "sellable_quantity": 0}
+        ]
+      }
+    },
+    "fail_closed_unknown_profile": {
+      "sessions": [
+        {
+          "session_date": "2026-09-11",
+          "cash": "100000",
+          "market_value": "0",
+          "total_equity": "100000",
+          "nav": "1",
+          "valuation_status": "COMPLETE",
+          "decision_blocked_reason": "MISSING_INSTRUMENT_RULES",
+          "orders": [],
+          "fills": [],
+          "rejections": [],
+          "plans": [],
+          "target": {
+            "target_id": "target:2026-09-11",
+            "revision": 1,
+            "decision_for_trade_date": "2026-09-14",
+            "valuation_equity": "100000",
+            "cash_weight": "0.95",
+            "addressed_instruments": ["XSHG:588000"]
+          }
+        },
+        {
+          "session_date": "2026-09-14",
+          "cash": "100000",
+          "market_value": "0",
+          "total_equity": "100000",
+          "nav": "1",
+          "valuation_status": "COMPLETE",
+          "decision_blocked_reason": null,
+          "orders": [],
+          "fills": [],
+          "rejections": [],
+          "plans": [],
+          "target": null
+        }
+      ],
+      "final": {
+        "cash": "100000",
+        "equity": "100000",
+        "nav": "1",
+        "positions": []
+      }
+    }
+  }
+}

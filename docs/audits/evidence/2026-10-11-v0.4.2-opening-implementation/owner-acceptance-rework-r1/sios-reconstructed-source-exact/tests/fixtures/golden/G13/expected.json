@@ -1,0 +1,96 @@
+{
+  "schema_version": "golden-expected-v1",
+  "runs": {
+    "mark_to_market": {
+      "sessions": [
+        {
+          "session_date": "2026-09-11",
+          "cash": "1000",
+          "market_value": "4000.00",
+          "total_equity": "5000.00",
+          "nav": "0.05",
+          "valuation_status": "COMPLETE",
+          "decision_blocked_reason": null,
+          "orders": [],
+          "fills": [],
+          "rejections": [],
+          "plans": [],
+          "target": null
+        },
+        {
+          "session_date": "2026-09-14",
+          "cash": "1000",
+          "market_value": "4100.00",
+          "total_equity": "5100.00",
+          "nav": "0.051",
+          "valuation_status": "COMPLETE",
+          "decision_blocked_reason": null,
+          "orders": [],
+          "fills": [],
+          "rejections": [],
+          "plans": [],
+          "target": null
+        }
+      ],
+      "final": {
+        "cash": "1000",
+        "equity": "5100.00",
+        "nav": "0.051",
+        "positions": [
+          {"instrument_id": "XSHG:510300", "total_quantity": 1000, "sellable_quantity": 1000, "average_cost": "4.00"}
+        ]
+      }
+    },
+    "forced_liquidation": {
+      "sessions": [
+        {
+          "session_date": "2026-09-11",
+          "cash": "1000",
+          "market_value": "4000.00",
+          "total_equity": "5000.00",
+          "nav": "0.05",
+          "valuation_status": "COMPLETE",
+          "decision_blocked_reason": null,
+          "orders": [],
+          "fills": [],
+          "rejections": [],
+          "plans": [
+            {"instrument_id": "XSHG:510300", "sleeve": "CORE", "side": "SELL", "order_quantity": 1000, "target_weight": "0", "sizing_reference_price": "4.00"}
+          ],
+          "target": {
+            "target_id": "target:2026-09-11",
+            "revision": 1,
+            "decision_for_trade_date": "2026-09-14",
+            "valuation_equity": "5000.00",
+            "cash_weight": "1.00",
+            "sleeve_weights": {"CORE": "0.00"}
+          }
+        },
+        {
+          "session_date": "2026-09-14",
+          "cash": "5090.00",
+          "market_value": "0",
+          "total_equity": "5090.00",
+          "nav": "0.0509",
+          "valuation_status": "COMPLETE",
+          "decision_blocked_reason": null,
+          "orders": [
+            {"instrument_id": "XSHG:510300", "side": "SELL", "planned_quantity": 1000, "submitted_quantity": 1000, "status": "FILLED", "reason_codes": ["FILLED_AS_PLANNED"]}
+          ],
+          "fills": [
+            {"instrument_id": "XSHG:510300", "side": "SELL", "quantity": 1000, "fill_price": "4.095", "reference_open": "4.10", "commission": "1.23", "minimum_commission_adjustment": "3.77", "stamp_tax": "0", "transfer_fee": "0", "total_fees": "5.00"}
+          ],
+          "rejections": [],
+          "plans": [],
+          "target": null
+        }
+      ],
+      "final": {
+        "cash": "5090.00",
+        "equity": "5090.00",
+        "nav": "0.0509",
+        "positions": []
+      }
+    }
+  }
+}

@@ -1,0 +1,232 @@
+{
+  "candidate": {
+    "environment": {
+      "python_executable": "D:\\Dev\\Projects\\chstockdata\\.venv\\Scripts\\python.exe",
+      "python_version": "3.14.5 (tags/v3.14.5:5607950, May 10 2026, 10:43:50) [MSC v.1944 64 bit (AMD64)]",
+      "pytest_version": "9.1.1",
+      "git_executable": "C:\\Program Files\\Git\\cmd\\git.EXE",
+      "cwd": "D:\\Dev\\Projects\\chstockdata",
+      "pytest_args": [
+        "-m",
+        "not network",
+        "tests/test_rh1_git_line_endings.py::test_crlf_preserves_added_line_discrimination[False]",
+        "tests/test_rh1_git_line_endings.py::test_crlf_preserves_added_line_discrimination[True]",
+        "-vv",
+        "--tb=short",
+        "-p",
+        "no:cacheprovider",
+        "--basetemp=D:\\Dev\\Projects\\chstockdata\\.pytest_cache\\dr04-p-investigation-d6edb4b21fba\\candidate-pytest-temp",
+        "--junitxml=D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-18-dr04-p-failure-investigation\\candidate.xml"
+      ],
+      "pytest_exit_code": 1,
+      "loaded_package_file": "D:\\Dev\\Projects\\chstockdata\\src\\chstockdata\\__init__.py",
+      "git_environment": {
+        "GIT_DIR": null,
+        "GIT_WORK_TREE": null,
+        "GIT_COMMON_DIR": null,
+        "GIT_CEILING_DIRECTORIES": null,
+        "GIT_CONFIG_COUNT": null,
+        "GIT_CONFIG_NOSYSTEM": null,
+        "GIT_CONFIG_GLOBAL": null,
+        "GIT_CONFIG_SYSTEM": null
+      },
+      "git_config_parameters_present": false
+    },
+    "calls_count": 16,
+    "git_return_codes": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      129,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      129
+    ],
+    "diagnostics": [
+      {
+        "cwd": "D:\\Dev\\Projects\\chstockdata\\.pytest_cache\\dr04-p-investigation-d6edb4b21fba\\candidate-pytest-temp\\test_crlf_preserves_added_line0",
+        "failing_command": [
+          "git",
+          "diff",
+          "--no-ext-diff",
+          "--ignore-cr-at-eol",
+          "--unified=0",
+          "0a143d2d3a551eebf6d8dcfc8cfff6c1bb329bdb",
+          "--",
+          "src",
+          "tests"
+        ],
+        "diff_exit_code": 129,
+        "diff_stderr_first_line": "warning: Limiting comparison with pathspecs is only supported if both paths are directories.",
+        "rev_parse_command": [
+          "git",
+          "rev-parse",
+          "--show-toplevel"
+        ],
+        "rev_parse_exit_code": 128,
+        "rev_parse_stdout": "",
+        "rev_parse_stderr": "fatal: detected dubious ownership in repository at 'D:/Dev/Projects/chstockdata/.pytest_cache/dr04-p-investigation-d6edb4b21fba/candidate-pytest-temp/test_crlf_preserves_added_line0'\n'D:/Dev/Projects/chstockdata/.pytest_cache/dr04-p-investigation-d6edb4b21fba/candidate-pytest-temp/test_crlf_preserves_added_line0' is owned by:\n\tBUILTIN/Administrators (S-1-5-32-544)\nbut the current user is:\n\tCHINAMI-4QO1VLN/Administrator (S-1-5-21-701489968-3502970438-2090242251-500)\nTo add an exception for this directory, call:\n\n\tgit config --global --add safe.directory D:/Dev/Projects/chstockdata/.pytest_cache/dr04-p-investigation-d6edb4b21fba/candidate-pytest-temp/test_crlf_preserves_added_line0\n",
+        "git_dir_present": true,
+        "head_text": "ref: refs/heads/master\n",
+        "local_config": "[core]\n\trepositoryformatversion = 0\n\tfilemode = false\n\tbare = false\n\tlogallrefupdates = true\n\tsymlinks = false\n\tignorecase = true\n[user]\n\tname = Gate Fixture\n\temail = gate@example.invalid\n",
+        "worktree_crlf_count": 6,
+        "worktree_lf_count": 6,
+        "worktree_bytes": 60
+      },
+      {
+        "cwd": "D:\\Dev\\Projects\\chstockdata\\.pytest_cache\\dr04-p-investigation-d6edb4b21fba\\candidate-pytest-temp\\test_crlf_preserves_added_line1",
+        "failing_command": [
+          "git",
+          "diff",
+          "--no-ext-diff",
+          "--ignore-cr-at-eol",
+          "--unified=0",
+          "6c942894c94f07c4ebce411677b409804eb2d451",
+          "--",
+          "src",
+          "tests"
+        ],
+        "diff_exit_code": 129,
+        "diff_stderr_first_line": "warning: Limiting comparison with pathspecs is only supported if both paths are directories.",
+        "rev_parse_command": [
+          "git",
+          "rev-parse",
+          "--show-toplevel"
+        ],
+        "rev_parse_exit_code": 128,
+        "rev_parse_stdout": "",
+        "rev_parse_stderr": "fatal: detected dubious ownership in repository at 'D:/Dev/Projects/chstockdata/.pytest_cache/dr04-p-investigation-d6edb4b21fba/candidate-pytest-temp/test_crlf_preserves_added_line1'\n'D:/Dev/Projects/chstockdata/.pytest_cache/dr04-p-investigation-d6edb4b21fba/candidate-pytest-temp/test_crlf_preserves_added_line1' is owned by:\n\tBUILTIN/Administrators (S-1-5-32-544)\nbut the current user is:\n\tCHINAMI-4QO1VLN/Administrator (S-1-5-21-701489968-3502970438-2090242251-500)\nTo add an exception for this directory, call:\n\n\tgit config --global --add safe.directory D:/Dev/Projects/chstockdata/.pytest_cache/dr04-p-investigation-d6edb4b21fba/candidate-pytest-temp/test_crlf_preserves_added_line1\n",
+        "git_dir_present": true,
+        "head_text": "ref: refs/heads/master\n",
+        "local_config": "[core]\n\trepositoryformatversion = 0\n\tfilemode = false\n\tbare = false\n\tlogallrefupdates = true\n\tsymlinks = false\n\tignorecase = true\n[user]\n\tname = Gate Fixture\n\temail = gate@example.invalid\n",
+        "worktree_crlf_count": 6,
+        "worktree_lf_count": 6,
+        "worktree_bytes": 60
+      }
+    ]
+  },
+  "baseline": {
+    "environment": {
+      "python_executable": "D:\\Dev\\Projects\\chstockdata\\.venv\\Scripts\\python.exe",
+      "python_version": "3.14.5 (tags/v3.14.5:5607950, May 10 2026, 10:43:50) [MSC v.1944 64 bit (AMD64)]",
+      "pytest_version": "9.1.1",
+      "git_executable": "C:\\Program Files\\Git\\cmd\\git.EXE",
+      "cwd": "D:\\Dev\\Projects\\chstockdata\\.pytest_cache\\dr04-p-investigation-d6edb4b21fba\\baseline-v0.4.2",
+      "pytest_args": [
+        "-m",
+        "not network",
+        "tests/test_rh1_git_line_endings.py::test_crlf_preserves_added_line_discrimination[False]",
+        "tests/test_rh1_git_line_endings.py::test_crlf_preserves_added_line_discrimination[True]",
+        "-vv",
+        "--tb=short",
+        "-p",
+        "no:cacheprovider",
+        "--basetemp=D:\\Dev\\Projects\\chstockdata\\.pytest_cache\\dr04-p-investigation-d6edb4b21fba\\baseline-pytest-temp",
+        "--junitxml=D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-18-dr04-p-failure-investigation\\baseline.xml"
+      ],
+      "pytest_exit_code": 1,
+      "loaded_package_file": "D:\\Dev\\Projects\\chstockdata\\.pytest_cache\\dr04-p-investigation-d6edb4b21fba\\baseline-v0.4.2\\src\\chstockdata\\__init__.py",
+      "git_environment": {
+        "GIT_DIR": null,
+        "GIT_WORK_TREE": null,
+        "GIT_COMMON_DIR": null,
+        "GIT_CEILING_DIRECTORIES": null,
+        "GIT_CONFIG_COUNT": null,
+        "GIT_CONFIG_NOSYSTEM": null,
+        "GIT_CONFIG_GLOBAL": null,
+        "GIT_CONFIG_SYSTEM": null
+      },
+      "git_config_parameters_present": false
+    },
+    "calls_count": 16,
+    "git_return_codes": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      129,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      129
+    ],
+    "diagnostics": [
+      {
+        "cwd": "D:\\Dev\\Projects\\chstockdata\\.pytest_cache\\dr04-p-investigation-d6edb4b21fba\\baseline-pytest-temp\\test_crlf_preserves_added_line0",
+        "failing_command": [
+          "git",
+          "diff",
+          "--no-ext-diff",
+          "--ignore-cr-at-eol",
+          "--unified=0",
+          "7366377d4a3a56bbcb0a4fd1e754fc6fe047a4eb",
+          "--",
+          "src",
+          "tests"
+        ],
+        "diff_exit_code": 129,
+        "diff_stderr_first_line": "warning: Limiting comparison with pathspecs is only supported if both paths are directories.",
+        "rev_parse_command": [
+          "git",
+          "rev-parse",
+          "--show-toplevel"
+        ],
+        "rev_parse_exit_code": 128,
+        "rev_parse_stdout": "",
+        "rev_parse_stderr": "fatal: detected dubious ownership in repository at 'D:/Dev/Projects/chstockdata/.pytest_cache/dr04-p-investigation-d6edb4b21fba/baseline-pytest-temp/test_crlf_preserves_added_line0'\n'D:/Dev/Projects/chstockdata/.pytest_cache/dr04-p-investigation-d6edb4b21fba/baseline-pytest-temp/test_crlf_preserves_added_line0' is owned by:\n\tBUILTIN/Administrators (S-1-5-32-544)\nbut the current user is:\n\tCHINAMI-4QO1VLN/Administrator (S-1-5-21-701489968-3502970438-2090242251-500)\nTo add an exception for this directory, call:\n\n\tgit config --global --add safe.directory D:/Dev/Projects/chstockdata/.pytest_cache/dr04-p-investigation-d6edb4b21fba/baseline-pytest-temp/test_crlf_preserves_added_line0\n",
+        "git_dir_present": true,
+        "head_text": "ref: refs/heads/master\n",
+        "local_config": "[core]\n\trepositoryformatversion = 0\n\tfilemode = false\n\tbare = false\n\tlogallrefupdates = true\n\tsymlinks = false\n\tignorecase = true\n[user]\n\tname = Gate Fixture\n\temail = gate@example.invalid\n",
+        "worktree_crlf_count": 6,
+        "worktree_lf_count": 6,
+        "worktree_bytes": 60
+      },
+      {
+        "cwd": "D:\\Dev\\Projects\\chstockdata\\.pytest_cache\\dr04-p-investigation-d6edb4b21fba\\baseline-pytest-temp\\test_crlf_preserves_added_line1",
+        "failing_command": [
+          "git",
+          "diff",
+          "--no-ext-diff",
+          "--ignore-cr-at-eol",
+          "--unified=0",
+          "6b72b9034e82948561df5926c093e7125235282b",
+          "--",
+          "src",
+          "tests"
+        ],
+        "diff_exit_code": 129,
+        "diff_stderr_first_line": "warning: Limiting comparison with pathspecs is only supported if both paths are directories.",
+        "rev_parse_command": [
+          "git",
+          "rev-parse",
+          "--show-toplevel"
+        ],
+        "rev_parse_exit_code": 128,
+        "rev_parse_stdout": "",
+        "rev_parse_stderr": "fatal: detected dubious ownership in repository at 'D:/Dev/Projects/chstockdata/.pytest_cache/dr04-p-investigation-d6edb4b21fba/baseline-pytest-temp/test_crlf_preserves_added_line1'\n'D:/Dev/Projects/chstockdata/.pytest_cache/dr04-p-investigation-d6edb4b21fba/baseline-pytest-temp/test_crlf_preserves_added_line1' is owned by:\n\tBUILTIN/Administrators (S-1-5-32-544)\nbut the current user is:\n\tCHINAMI-4QO1VLN/Administrator (S-1-5-21-701489968-3502970438-2090242251-500)\nTo add an exception for this directory, call:\n\n\tgit config --global --add safe.directory D:/Dev/Projects/chstockdata/.pytest_cache/dr04-p-investigation-d6edb4b21fba/baseline-pytest-temp/test_crlf_preserves_added_line1\n",
+        "git_dir_present": true,
+        "head_text": "ref: refs/heads/master\n",
+        "local_config": "[core]\n\trepositoryformatversion = 0\n\tfilemode = false\n\tbare = false\n\tlogallrefupdates = true\n\tsymlinks = false\n\tignorecase = true\n[user]\n\tname = Gate Fixture\n\temail = gate@example.invalid\n",
+        "worktree_crlf_count": 6,
+        "worktree_lf_count": 6,
+        "worktree_bytes": 60
+      }
+    ]
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "inputs": [
+    {
+      "path": "AGENTS.md",
+      "sha256": "cd29b01d7fe742c9571db2bbfcb7b59bddd3b84d4bc81bbfbc0af1488c4c7586"
+    },
+    {
+      "path": "docs/MISHI_RADAR_V0_1_SPEC_R3_2_SCOPE_APPROVED_DATA_PENDING_2026-10-16.md",
+      "sha256": "9b98641d4602fcd2a35c28520f9160a3fbf935ce1c43e89d466a473419e5bd62"
+    },
+    {
+      "path": "docs/MISHI_RADAR_TO_CHSTOCKDATA_DR01_DR06_CONSUMER_REQUEST_2026-10-16.md",
+      "sha256": "35609c8cbf823dbb86a681ea15c27f7f598892b7ea73f46ecde5025e85ff8866"
+    },
+    {
+      "path": "docs/audits/2026-10-20-w5h-r4-tdx-revision-root-cause-and-archival-pit.md",
+      "sha256": "f4b68c112d25fc0de4969c37ae497411d2a8e36e988e17769ccc8257c326f33b"
+    },
+    {
+      "path": "docs/audits/2026-10-20-w5h-r5-historical-disclosure-scale-cost-screen.md",
+      "sha256": "e9238c3cfa4d32ab6820943cd5ae803142da96a19fdce11bfa35072c360f4b1f"
+    },
+    {
+      "path": "docs/audits/2026-10-21-w5h-r6-version-exception-qualification.md",
+      "sha256": "045cba72e06960682155cf9fcc7681a432ea44b082c355174021aed3c72bba94"
+    },
+    {
+      "path": "docs/audits/2026-10-21-w5h-r6-f1-parser-correction.md",
+      "sha256": "29dae951c44f67c94da17228cc5aff3c68f43746bf72cf2ab7dd266938ed6af0"
+    },
+    {
+      "path": "docs/audits/2026-10-21-w5h-f2-automated-pit-vertical-slice.md",
+      "sha256": "9a65a94dc72b4c9b472a3faa81a432ff4beddd1f2ca09c7f3d316b97f08c1817"
+    },
+    {
+      "path": "docs/audits/2026-10-21-w5h-f2-source-closure.md",
+      "sha256": "5d93061a01af9e64f14d56d923cb1a23cc1bf4924a39e05c92f7175716ea8659"
+    }
+  ],
+  "owner_request_sha256": "e7643943979ae791ac9f4b64c14275242a1ea8bbbf0141dc508ee7f716ed6617",
+  "scope": "Latest Owner FIX_ONLY/FREE_ONLY/NO_NETWORK overrides earlier route recommendations; S07 product Gate remains NOT_PASSED"
+}

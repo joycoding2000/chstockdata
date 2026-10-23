@@ -1,0 +1,69 @@
+{
+  "captured_at": "2026-10-19T23:07:08.445022+08:00",
+  "bounded_client_roots": [
+    {
+      "path": "C:\\new_hxzq_hc",
+      "exists": true,
+      "cw_directory_exists": true,
+      "cw_files": [],
+      "TdxQuant_directory": false,
+      "MiniQmt_userdata": false
+    },
+    {
+      "path": "C:\\zd_zxzq_gm",
+      "exists": true,
+      "cw_directory_exists": true,
+      "cw_files": [],
+      "TdxQuant_directory": false,
+      "MiniQmt_userdata": false
+    }
+  ],
+  "packages": {
+    "mootdx": {
+      "installed": true,
+      "module_path": "C:\\Users\\Administrator\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\site-packages\\mootdx\\__init__.py"
+    },
+    "baostock": {
+      "installed": true,
+      "module_path": "D:\\Dev\\Projects\\chstockdata\\.venv\\Lib\\site-packages\\baostock\\__init__.py"
+    },
+    "akshare": {
+      "installed": true,
+      "module_path": "C:\\Users\\Administrator\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\site-packages\\akshare\\__init__.py"
+    },
+    "xtquant": {
+      "installed": false,
+      "module_path": null
+    },
+    "TdxQuant": {
+      "installed": false,
+      "module_path": null
+    },
+    "jqdatasdk": {
+      "installed": false,
+      "module_path": null
+    },
+    "rqdatac": {
+      "installed": false,
+      "module_path": null
+    },
+    "tqcenter": {
+      "installed": false,
+      "module_path": null
+    },
+    "tqserver": {
+      "installed": false,
+      "module_path": null
+    },
+    "tdxaidata": {
+      "installed": false,
+      "module_path": null
+    },
+    "tdxquant": {
+      "installed": false,
+      "module_path": null
+    }
+  },
+  "no_credentials_read": true,
+  "limits": "Named installed client roots and current Python environment only, not a full disk or all accounts inventory."
+}

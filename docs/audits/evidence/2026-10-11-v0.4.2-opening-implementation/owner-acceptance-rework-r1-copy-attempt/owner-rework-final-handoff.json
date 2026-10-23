@@ -1,0 +1,57 @@
+{
+  "phase": "v0.4.2 R1-R5 + R2.1",
+  "step": "Owner minimum REWORK r1 complete, waiting independent acceptance",
+  "flags": {
+    "CURRENT_DECISION": "FIX_ONLY",
+    "OWNER_REVIEW_FINDING": "CONFIRMED_INTERVAL_DEFECT",
+    "INTERVAL_REWORK": "PASS",
+    "SIOS_SOURCE_DIFF_COMPLETE": "YES",
+    "SCOPE_EXPANSION": "NO",
+    "PACKAGE_TESTS": "PASS_796_PLUS_1_ORIGINAL_OPTIONAL_SKIP_15_ORIGINAL_NETWORK_DESELECT",
+    "SIOS_OFFLINE": "PASS_973_PLUS_5_DEFAULT_LIVE_OPTIN_SKIP",
+    "SIOS_MANDATORY_LIVE": "PASS_ACTUAL_5_ZERO_SKIP_54_CAPABILITIES",
+    "TRADINGAGENTS_RELATIVE_COMPAT": "PASS_RELATIVE_123_PLUS_7_IDENTICAL_BASELINE_FAILURES",
+    "NEW_WHEEL_SHA256": "1dd58350678fbb07d3b545165708d814f93fb94f965dc2da33bad2fab7ff779c",
+    "NEW_SOURCE_SHA256": "d81fb0a62a9fa4cc9823ca9ad1920f380a110d50351dd0b7b465f735d3021572",
+    "READY_FOR_OWNER_REVIEW": "YES",
+    "OWNER_ACCEPTANCE": "PENDING",
+    "RELEASE_AUTHORIZED": "NO",
+    "PUBLISH_AUTHORIZED": "NO",
+    "NEXT_PHASE_AUTHORIZED": "NO"
+  },
+  "original_ch_commit": "42bd44ef4d695aa3e88cfab4ebc3417660d0437a",
+  "candidate_is_gitless_snapshot": true,
+  "new_commit": null,
+  "candidate_source_sha256": "d81fb0a62a9fa4cc9823ca9ad1920f380a110d50351dd0b7b465f735d3021572",
+  "candidate_wheel_sha256": "1dd58350678fbb07d3b545165708d814f93fb94f965dc2da33bad2fab7ff779c",
+  "sios_complete_diff_and_reconstruction": true,
+  "unresolved_mandatory_blockers": [],
+  "known_limits": [
+    {
+      "classification": "UNRESOLVED_RISK",
+      "fact": "Bounded single-host minute activity and current official query do not prove strict precise-time fill, full-day/PIT or all-history completeness."
+    },
+    {
+      "classification": "UNRESOLVED_RISK",
+      "fact": "Legacy full historical PIT suspension remains UNKNOWN/fail-closed; QDII halt controls are source controls, not product expansion."
+    },
+    {
+      "classification": "UNRESOLVED_RISK",
+      "fact": "TA seven baseline failures and inherited chstockdata<0.3 metadata remain visible; TA pipcheck not mandatory and not rerun."
+    },
+    {
+      "classification": "KNOWN_LIMITATION",
+      "fact": "Package one optional MCP skip independently covered by actual MCP profile;15 original network deselections. SIOS five default live-optin skips independently executed as5 mandatory livePASS."
+    },
+    {
+      "classification": "KNOWN_LIMITATION",
+      "fact": "Saved74raw/12points replay uses this new installed wheel offline; it is not this run live evidence."
+    },
+    {
+      "classification": "KNOWN_LIMITATION",
+      "fact": "Gitless SIOS test process injects actual source SHA in runner/oos only; production resolver unchanged."
+    }
+  ],
+  "recommended_next_action": "Owner independent acceptance only",
+  "finished_at_utc": "2026-10-13T14:15:12.854923+00:00"
+}

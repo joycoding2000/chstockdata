@@ -1,0 +1,48 @@
+{
+  "schema_version": "golden-expected-v1",
+  "runs": {
+    "default": {
+      "sessions": [
+        {
+          "session_date": "2026-09-11",
+          "cash": "100000",
+          "market_value": "0",
+          "total_equity": "100000",
+          "nav": "1",
+          "valuation_status": "COMPLETE",
+          "decision_blocked_reason": null,
+          "orders": [],
+          "fills": [],
+          "rejections": [],
+          "plans": [
+            {"instrument_id": "XSHE:000001", "sleeve": "CORE", "side": "BUY", "order_quantity": 100, "target_weight": "0.012", "sizing_reference_price": "12.00"}
+          ]
+        },
+        {
+          "session_date": "2026-09-14",
+          "cash": "100000",
+          "market_value": "0",
+          "total_equity": "100000",
+          "nav": "1",
+          "valuation_status": "COMPLETE",
+          "decision_blocked_reason": null,
+          "fills": [],
+          "orders": [
+            {"instrument_id": "XSHE:000001", "side": "BUY", "planned_quantity": 100, "submitted_quantity": null, "status": "REJECTED", "reason_codes": ["BUY_BLOCKED_UPPER_LIMIT"]}
+          ],
+          "rejections": [
+            {"instrument_id": "XSHE:000001", "side": "BUY", "code": "BUY_BLOCKED_UPPER_LIMIT"}
+          ],
+          "plans": [],
+          "target": null
+        }
+      ],
+      "final": {
+        "cash": "100000",
+        "equity": "100000",
+        "nav": "1",
+        "positions": []
+      }
+    }
+  }
+}

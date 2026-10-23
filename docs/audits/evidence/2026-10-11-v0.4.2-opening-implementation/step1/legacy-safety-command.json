@@ -1,0 +1,26 @@
+{
+  "argv": [
+    "C:/Users/Administrator/.codex/visualizations/2026/10/09/01a11feb-cbea-7790-a83e-57b1dd555e13/v042-unified/sios-candidate/Scripts/python.exe",
+    "-m",
+    "pytest",
+    "tests/test_suspension_source_semantics.py",
+    "tests/test_suspension_structured.py",
+    "-q",
+    "--tb=short",
+    "-rA",
+    "-p",
+    "no:cacheprovider",
+    "--basetemp=C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\legacy-safety-tmp",
+    "--junitxml=C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\evidence\\step1\\legacy-safety.xml"
+  ],
+  "cwd": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\chstockdata",
+  "environment": {
+    "PYTHONPATH": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\chstockdata\\src",
+    "PYTHONDONTWRITEBYTECODE": "1",
+    "PYTHONUTF8": "1",
+    "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1"
+  },
+  "exit": 0,
+  "test_scope": "legacy-only; no new implementation qualification",
+  "wheel": "OLD dependency env used read-only; source import is isolated snapshot"
+}

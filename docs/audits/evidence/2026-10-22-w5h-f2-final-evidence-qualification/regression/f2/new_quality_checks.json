@@ -1,0 +1,567 @@
+{
+  "denominator": 70,
+  "passed": 70,
+  "all_pass": true,
+  "checks": [
+    {
+      "id": "1216273938",
+      "field": "NP",
+      "period": "2022-12-31",
+      "column": "current",
+      "check": "ACTUAL_IDENTITY_LOCATION_UNIT_SIGN_DURATION_PROVENANCE",
+      "pass": true
+    },
+    {
+      "id": "1216273938",
+      "field": "OCF",
+      "period": "2022-12-31",
+      "column": "current",
+      "check": "ACTUAL_IDENTITY_LOCATION_UNIT_SIGN_DURATION_PROVENANCE",
+      "pass": true
+    },
+    {
+      "id": "1216273938",
+      "field": "EQ",
+      "period": "2022-12-31",
+      "column": "current",
+      "check": "ACTUAL_IDENTITY_LOCATION_UNIT_SIGN_DURATION_PROVENANCE",
+      "pass": true
+    },
+    {
+      "id": "1216281757",
+      "field": "NP",
+      "period": "2022-12-31",
+      "column": "current",
+      "check": "ACTUAL_IDENTITY_LOCATION_UNIT_SIGN_DURATION_PROVENANCE",
+      "pass": true
+    },
+    {
+      "id": "1216281757",
+      "field": "OCF",
+      "period": "2022-12-31",
+      "column": "current",
+      "check": "ACTUAL_IDENTITY_LOCATION_UNIT_SIGN_DURATION_PROVENANCE",
+      "pass": true
+    },
+    {
+      "id": "1216281757",
+      "field": "EQ",
+      "period": "2022-12-31",
+      "column": "current",
+      "check": "ACTUAL_IDENTITY_LOCATION_UNIT_SIGN_DURATION_PROVENANCE",
+      "pass": true
+    },
+    {
+      "id": "1216282265",
+      "field": "NP",
+      "period": "2022-12-31",
+      "column": "current",
+      "check": "ACTUAL_IDENTITY_LOCATION_UNIT_SIGN_DURATION_PROVENANCE",
+      "pass": true
+    },
+    {
+      "id": "1216282265",
+      "field": "OCF",
+      "period": "2022-12-31",
+      "column": "current",
+      "check": "ACTUAL_IDENTITY_LOCATION_UNIT_SIGN_DURATION_PROVENANCE",
+      "pass": true
+    },
+    {
+      "id": "1216282265",
+      "field": "EQ",
+      "period": "2022-12-31",
+      "column": "current",
+      "check": "ACTUAL_IDENTITY_LOCATION_UNIT_SIGN_DURATION_PROVENANCE",
+      "pass": true
+    },
+    {
+      "id": "1216084559",
+      "field": "NP",
+      "period": "2022-12-31",
+      "column": "current",
+      "check": "ACTUAL_IDENTITY_LOCATION_UNIT_SIGN_DURATION_PROVENANCE",
+      "pass": true
+    },
+    {
+      "id": "1216084559",
+      "field": "OCF",
+      "period": "2022-12-31",
+      "column": "current",
+      "check": "ACTUAL_IDENTITY_LOCATION_UNIT_SIGN_DURATION_PROVENANCE",
+      "pass": true
+    },
+    {
+      "id": "1216084559",
+      "field": "EQ",
+      "period": "2022-12-31",
+      "column": "current",
+      "check": "ACTUAL_IDENTITY_LOCATION_UNIT_SIGN_DURATION_PROVENANCE",
+      "pass": true
+    },
+    {
+      "id": "1216696970",
+      "field": "NP",
+      "period": "2023-03-31",
+      "column": "current",
+      "check": "ACTUAL_IDENTITY_LOCATION_UNIT_SIGN_DURATION_PROVENANCE",
+      "pass": true
+    },
+    {
+      "id": "1216696970",
+      "field": "OCF",
+      "period": "2023-03-31",
+      "column": "current",
+      "check": "ACTUAL_IDENTITY_LOCATION_UNIT_SIGN_DURATION_PROVENANCE",
+      "pass": true
+    },
+    {
+      "id": "1216696970",
+      "field": "EQ",
+      "period": "2023-03-31",
+      "column": "current",
+      "check": "ACTUAL_IDENTITY_LOCATION_UNIT_SIGN_DURATION_PROVENANCE",
+      "pass": true
+    },
+    {
+      "id": "1217710575",
+      "field": "NP",
+      "period": "2023-06-30",
+      "column": "current",
+      "check": "ACTUAL_IDENTITY_LOCATION_UNIT_SIGN_DURATION_PROVENANCE",
+      "pass": true
+    },
+    {
+      "id": "1217710575",
+      "field": "OCF",
+      "period": "2023-06-30",
+      "column": "current",
+      "check": "ACTUAL_IDENTITY_LOCATION_UNIT_SIGN_DURATION_PROVENANCE",
+      "pass": true
+    },
+    {
+      "id": "1217710575",
+      "field": "EQ",
+      "period": "2023-06-30",
+      "column": "current",
+      "check": "ACTUAL_IDENTITY_LOCATION_UNIT_SIGN_DURATION_PROVENANCE",
+      "pass": true
+    },
+    {
+      "id": "1218204096",
+      "field": "NP",
+      "period": "2023-09-30",
+      "column": "current",
+      "check": "ACTUAL_IDENTITY_LOCATION_UNIT_SIGN_DURATION_PROVENANCE",
+      "pass": true
+    },
+    {
+      "id": "1218204096",
+      "field": "OCF",
+      "period": "2023-09-30",
+      "column": "current",
+      "check": "ACTUAL_IDENTITY_LOCATION_UNIT_SIGN_DURATION_PROVENANCE",
+      "pass": true
+    },
+    {
+      "id": "1218204096",
+      "field": "EQ",
+      "period": "2023-09-30",
+      "column": "current",
+      "check": "ACTUAL_IDENTITY_LOCATION_UNIT_SIGN_DURATION_PROVENANCE",
+      "pass": true
+    },
+    {
+      "id": "1221084198",
+      "field": "NP",
+      "period": "2024-06-30",
+      "column": "current",
+      "check": "ACTUAL_IDENTITY_LOCATION_UNIT_SIGN_DURATION_PROVENANCE",
+      "pass": true
+    },
+    {
+      "id": "1221084198",
+      "field": "OCF",
+      "period": "2024-06-30",
+      "column": "current",
+      "check": "ACTUAL_IDENTITY_LOCATION_UNIT_SIGN_DURATION_PROVENANCE",
+      "pass": true
+    },
+    {
+      "id": "1221084198",
+      "field": "EQ",
+      "period": "2024-06-30",
+      "column": "current",
+      "check": "ACTUAL_IDENTITY_LOCATION_UNIT_SIGN_DURATION_PROVENANCE",
+      "pass": true
+    },
+    {
+      "id": "1216696970",
+      "field": "EQ",
+      "period": "2022-12-31",
+      "column": "comparative",
+      "check": "ACTUAL_IDENTITY_LOCATION_UNIT_SIGN_DURATION_PROVENANCE",
+      "pass": true
+    },
+    {
+      "id": "1217710575",
+      "field": "EQ",
+      "period": "2022-12-31",
+      "column": "comparative",
+      "check": "ACTUAL_IDENTITY_LOCATION_UNIT_SIGN_DURATION_PROVENANCE",
+      "pass": true
+    },
+    {
+      "id": "1218204096",
+      "field": "EQ",
+      "period": "2022-12-31",
+      "column": "comparative",
+      "check": "ACTUAL_IDENTITY_LOCATION_UNIT_SIGN_DURATION_PROVENANCE",
+      "pass": true
+    },
+    {
+      "id": "1221084198",
+      "field": "EQ",
+      "period": "2023-12-31",
+      "column": "comparative",
+      "check": "ACTUAL_IDENTITY_LOCATION_UNIT_SIGN_DURATION_PROVENANCE",
+      "pass": true
+    },
+    {
+      "id": "1216686497",
+      "field": "NP",
+      "period": "2023-03-31",
+      "column": "current",
+      "check": "ACTUAL_IDENTITY_LOCATION_UNIT_SIGN_DURATION_PROVENANCE",
+      "pass": true
+    },
+    {
+      "id": "1216686497",
+      "field": "OCF",
+      "period": "2023-03-31",
+      "column": "current",
+      "check": "ACTUAL_IDENTITY_LOCATION_UNIT_SIGN_DURATION_PROVENANCE",
+      "pass": true
+    },
+    {
+      "id": "1216686497",
+      "field": "EQ",
+      "period": "2023-03-31",
+      "column": "current",
+      "check": "ACTUAL_IDENTITY_LOCATION_UNIT_SIGN_DURATION_PROVENANCE",
+      "pass": true
+    },
+    {
+      "id": "1217713835",
+      "field": "NP",
+      "period": "2023-06-30",
+      "column": "current",
+      "check": "ACTUAL_IDENTITY_LOCATION_UNIT_SIGN_DURATION_PROVENANCE",
+      "pass": true
+    },
+    {
+      "id": "1217713835",
+      "field": "OCF",
+      "period": "2023-06-30",
+      "column": "current",
+      "check": "ACTUAL_IDENTITY_LOCATION_UNIT_SIGN_DURATION_PROVENANCE",
+      "pass": true
+    },
+    {
+      "id": "1217713835",
+      "field": "EQ",
+      "period": "2023-06-30",
+      "column": "current",
+      "check": "ACTUAL_IDENTITY_LOCATION_UNIT_SIGN_DURATION_PROVENANCE",
+      "pass": true
+    },
+    {
+      "id": "1218181044",
+      "field": "NP",
+      "period": "2023-09-30",
+      "column": "current",
+      "check": "ACTUAL_IDENTITY_LOCATION_UNIT_SIGN_DURATION_PROVENANCE",
+      "pass": true
+    },
+    {
+      "id": "1218181044",
+      "field": "OCF",
+      "period": "2023-09-30",
+      "column": "current",
+      "check": "ACTUAL_IDENTITY_LOCATION_UNIT_SIGN_DURATION_PROVENANCE",
+      "pass": true
+    },
+    {
+      "id": "1218181044",
+      "field": "EQ",
+      "period": "2023-09-30",
+      "column": "current",
+      "check": "ACTUAL_IDENTITY_LOCATION_UNIT_SIGN_DURATION_PROVENANCE",
+      "pass": true
+    },
+    {
+      "id": "1204829467",
+      "field": "NP",
+      "period": "2018-03-31",
+      "column": "current",
+      "check": "ACTUAL_IDENTITY_LOCATION_UNIT_SIGN_DURATION_PROVENANCE",
+      "pass": true
+    },
+    {
+      "id": "1204829467",
+      "field": "OCF",
+      "period": "2018-03-31",
+      "column": "current",
+      "check": "ACTUAL_IDENTITY_LOCATION_UNIT_SIGN_DURATION_PROVENANCE",
+      "pass": true
+    },
+    {
+      "id": "1204829467",
+      "field": "EQ",
+      "period": "2018-03-31",
+      "column": "current",
+      "check": "ACTUAL_IDENTITY_LOCATION_UNIT_SIGN_DURATION_PROVENANCE",
+      "pass": true
+    },
+    {
+      "id": "1205349494",
+      "field": "NP",
+      "period": "2018-06-30",
+      "column": "current",
+      "check": "ACTUAL_IDENTITY_LOCATION_UNIT_SIGN_DURATION_PROVENANCE",
+      "pass": true
+    },
+    {
+      "id": "1205349494",
+      "field": "OCF",
+      "period": "2018-06-30",
+      "column": "current",
+      "check": "ACTUAL_IDENTITY_LOCATION_UNIT_SIGN_DURATION_PROVENANCE",
+      "pass": true
+    },
+    {
+      "id": "1205349494",
+      "field": "EQ",
+      "period": "2018-06-30",
+      "column": "current",
+      "check": "ACTUAL_IDENTITY_LOCATION_UNIT_SIGN_DURATION_PROVENANCE",
+      "pass": true
+    },
+    {
+      "id": "1205546609",
+      "field": "NP",
+      "period": "2018-09-30",
+      "column": "current",
+      "check": "ACTUAL_IDENTITY_LOCATION_UNIT_SIGN_DURATION_PROVENANCE",
+      "pass": true
+    },
+    {
+      "id": "1205546609",
+      "field": "OCF",
+      "period": "2018-09-30",
+      "column": "current",
+      "check": "ACTUAL_IDENTITY_LOCATION_UNIT_SIGN_DURATION_PROVENANCE",
+      "pass": true
+    },
+    {
+      "id": "1205546609",
+      "field": "EQ",
+      "period": "2018-09-30",
+      "column": "current",
+      "check": "ACTUAL_IDENTITY_LOCATION_UNIT_SIGN_DURATION_PROVENANCE",
+      "pass": true
+    },
+    {
+      "id": "1206168279",
+      "field": "NP",
+      "period": "2019-03-31",
+      "column": "current",
+      "check": "ACTUAL_IDENTITY_LOCATION_UNIT_SIGN_DURATION_PROVENANCE",
+      "pass": true
+    },
+    {
+      "id": "1206168279",
+      "field": "OCF",
+      "period": "2019-03-31",
+      "column": "current",
+      "check": "ACTUAL_IDENTITY_LOCATION_UNIT_SIGN_DURATION_PROVENANCE",
+      "pass": true
+    },
+    {
+      "id": "1206168279",
+      "field": "EQ",
+      "period": "2019-03-31",
+      "column": "current",
+      "check": "ACTUAL_IDENTITY_LOCATION_UNIT_SIGN_DURATION_PROVENANCE",
+      "pass": true
+    },
+    {
+      "id": "1216686497",
+      "field": "EQ",
+      "period": "2022-12-31",
+      "column": "unadjusted",
+      "check": "ACTUAL_IDENTITY_LOCATION_UNIT_SIGN_DURATION_PROVENANCE",
+      "pass": true
+    },
+    {
+      "id": "1216686497",
+      "field": "EQ",
+      "period": "2022-12-31",
+      "column": "adjusted",
+      "check": "ACTUAL_IDENTITY_LOCATION_UNIT_SIGN_DURATION_PROVENANCE",
+      "pass": true
+    },
+    {
+      "id": "1217713835",
+      "field": "EQ",
+      "period": "2022-12-31",
+      "column": "unadjusted",
+      "check": "ACTUAL_IDENTITY_LOCATION_UNIT_SIGN_DURATION_PROVENANCE",
+      "pass": true
+    },
+    {
+      "id": "1217713835",
+      "field": "EQ",
+      "period": "2022-12-31",
+      "column": "adjusted",
+      "check": "ACTUAL_IDENTITY_LOCATION_UNIT_SIGN_DURATION_PROVENANCE",
+      "pass": true
+    },
+    {
+      "id": "1218181044",
+      "field": "EQ",
+      "period": "2022-12-31",
+      "column": "unadjusted",
+      "check": "ACTUAL_IDENTITY_LOCATION_UNIT_SIGN_DURATION_PROVENANCE",
+      "pass": true
+    },
+    {
+      "id": "1218181044",
+      "field": "EQ",
+      "period": "2022-12-31",
+      "column": "adjusted",
+      "check": "ACTUAL_IDENTITY_LOCATION_UNIT_SIGN_DURATION_PROVENANCE",
+      "pass": true
+    },
+    {
+      "id": "1204829467",
+      "field": "EQ",
+      "period": "2017-12-31",
+      "column": "comparative",
+      "check": "ACTUAL_IDENTITY_LOCATION_UNIT_SIGN_DURATION_PROVENANCE",
+      "pass": true
+    },
+    {
+      "id": "1205349494",
+      "field": "EQ",
+      "period": "2017-12-31",
+      "column": "comparative",
+      "check": "ACTUAL_IDENTITY_LOCATION_UNIT_SIGN_DURATION_PROVENANCE",
+      "pass": true
+    },
+    {
+      "id": "1205546609",
+      "field": "EQ",
+      "period": "2017-12-31",
+      "column": "adjusted",
+      "check": "ACTUAL_IDENTITY_LOCATION_UNIT_SIGN_DURATION_PROVENANCE",
+      "pass": true
+    },
+    {
+      "id": "1206168279",
+      "field": "NP",
+      "period": "2018-03-31",
+      "column": "unadjusted",
+      "check": "ACTUAL_IDENTITY_LOCATION_UNIT_SIGN_DURATION_PROVENANCE",
+      "pass": true
+    },
+    {
+      "id": "1206168279",
+      "field": "NP",
+      "period": "2018-03-31",
+      "column": "adjusted",
+      "check": "ACTUAL_IDENTITY_LOCATION_UNIT_SIGN_DURATION_PROVENANCE",
+      "pass": true
+    },
+    {
+      "id": "1206168279",
+      "field": "OCF",
+      "period": "2018-03-31",
+      "column": "unadjusted",
+      "check": "ACTUAL_IDENTITY_LOCATION_UNIT_SIGN_DURATION_PROVENANCE",
+      "pass": true
+    },
+    {
+      "id": "1206168279",
+      "field": "OCF",
+      "period": "2018-03-31",
+      "column": "adjusted",
+      "check": "ACTUAL_IDENTITY_LOCATION_UNIT_SIGN_DURATION_PROVENANCE",
+      "pass": true
+    },
+    {
+      "id": "1218181044",
+      "field": "NP",
+      "period": "2023-09-30",
+      "column": "current",
+      "check": "ACTUAL_IDENTITY_LOCATION_UNIT_SIGN_DURATION_PROVENANCE",
+      "pass": true
+    },
+    {
+      "id": "1218204096",
+      "field": "NP",
+      "period": "2023-09-30",
+      "column": "current",
+      "check": "ACTUAL_IDENTITY_LOCATION_UNIT_SIGN_DURATION_PROVENANCE",
+      "pass": true
+    },
+    {
+      "id": "1218181044",
+      "field": "OCF",
+      "duration": "SINGLE_QUARTER",
+      "check": "DASH_IS_UNKNOWN_NOT_ZERO",
+      "pass": true
+    },
+    {
+      "id": "1218204096",
+      "field": "OCF",
+      "duration": "SINGLE_QUARTER",
+      "check": "DASH_IS_UNKNOWN_NOT_ZERO",
+      "pass": true
+    },
+    {
+      "id": "1219747900",
+      "field": "EQ",
+      "period": "2022-12-31",
+      "column": "unadjusted",
+      "check": "ACTUAL_IDENTITY_LOCATION_UNIT_SIGN_DURATION_PROVENANCE",
+      "pass": true
+    },
+    {
+      "id": "1219747900",
+      "field": "EQ",
+      "period": "2022-12-31",
+      "column": "adjusted",
+      "check": "ACTUAL_IDENTITY_LOCATION_UNIT_SIGN_DURATION_PROVENANCE",
+      "pass": true
+    },
+    {
+      "id": "1219747900",
+      "field": "EQ",
+      "period": "2022-01-01",
+      "column": "unadjusted",
+      "check": "ACTUAL_IDENTITY_LOCATION_UNIT_SIGN_DURATION_PROVENANCE",
+      "pass": true
+    },
+    {
+      "id": "1219747900",
+      "field": "EQ",
+      "period": "2022-01-01",
+      "column": "adjusted",
+      "check": "ACTUAL_IDENTITY_LOCATION_UNIT_SIGN_DURATION_PROVENANCE",
+      "pass": true
+    }
+  ],
+  "wrong_accepted_values": 0,
+  "scope": "Only independently checked facts; unscored candidates are not certified."
+}

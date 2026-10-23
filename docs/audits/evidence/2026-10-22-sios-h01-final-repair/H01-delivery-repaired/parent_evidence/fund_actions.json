@@ -1,0 +1,307 @@
+{
+  "events": [],
+  "per_instrument": [
+    {
+      "instrument_id": "XSHG:513500",
+      "status": "normal_empty",
+      "coverage": "complete_ex_post_implemented_event_facts",
+      "items": [],
+      "f10_source_file": "sources/002-513500-fhsp.raw",
+      "f10_source_sha256": "6d6fe65f5fe4c3bc478011a6720ef052fd609f0a7786d2dbef81a24c9f29f0e8",
+      "implemented_cash_events": 0,
+      "split_events": 0,
+      "cancelled_or_proposed_index_coverage": "UNKNOWN_NOT_NEEDED_FOR_ZERO_IMPLEMENTED_ACTION_FACTS",
+      "historical_asof_event_index_coverage": "NOT_ATTESTED",
+      "economic_entitlement_at": null,
+      "actual_cash_payment_at": null,
+      "backtest_cash_available_at": null,
+      "cash_timing_applicability": "NOT_APPLICABLE_NO_IMPLEMENTED_CASH_EVENT"
+    },
+    {
+      "instrument_id": "XSHG:513030",
+      "status": "normal_empty",
+      "coverage": "complete_ex_post_implemented_event_facts",
+      "items": [],
+      "f10_source_file": "sources/003-513030-fhsp.raw",
+      "f10_source_sha256": "53d1e797d6df08ba4d1253f36fe49e9cd7f67e42084dff0a661e8dbbac4fb962",
+      "implemented_cash_events": 0,
+      "split_events": 0,
+      "cancelled_or_proposed_index_coverage": "UNKNOWN_NOT_NEEDED_FOR_ZERO_IMPLEMENTED_ACTION_FACTS",
+      "historical_asof_event_index_coverage": "NOT_ATTESTED",
+      "economic_entitlement_at": null,
+      "actual_cash_payment_at": null,
+      "backtest_cash_available_at": null,
+      "cash_timing_applicability": "NOT_APPLICABLE_NO_IMPLEMENTED_CASH_EVENT"
+    },
+    {
+      "instrument_id": "XSHG:513520",
+      "status": "normal_empty",
+      "coverage": "complete_ex_post_implemented_event_facts",
+      "items": [],
+      "f10_source_file": "sources/004-513520-fhsp.raw",
+      "f10_source_sha256": "110cd22d7fb33767a597368e291c8e0888473688b851cf0b7ac9c03df49110ea",
+      "implemented_cash_events": 0,
+      "split_events": 0,
+      "cancelled_or_proposed_index_coverage": "UNKNOWN_NOT_NEEDED_FOR_ZERO_IMPLEMENTED_ACTION_FACTS",
+      "historical_asof_event_index_coverage": "NOT_ATTESTED",
+      "economic_entitlement_at": null,
+      "actual_cash_payment_at": null,
+      "backtest_cash_available_at": null,
+      "cash_timing_applicability": "NOT_APPLICABLE_NO_IMPLEMENTED_CASH_EVENT"
+    }
+  ],
+  "issuer_report_evidence": [
+    {
+      "instrument_id": "XSHG:513030",
+      "period_start": "2025-01-01",
+      "period_end": "2025-12-31",
+      "published_date": "2026-03-31",
+      "published_at": null,
+      "captured_at": "2026-10-22T13:37:13.769217+00:00",
+      "source_file": "sources/040-513030-2025-official-annual.raw",
+      "source_sha256": "e240351af7101f4b60f0d1befbdd56bdd97ce0920b95769967bd9b3ea6f388ec",
+      "source_url": "https://www.huaan.com.cn/upload2010/2026/03/31/012354735_2a75fbf4-be72-3e8b-8234-d49e2bfaf126.pdf",
+      "cash_status": "normal_empty",
+      "split_status": "normal_empty",
+      "cash_evidence": [
+        {
+          "kind": "pdf_page",
+          "one_based_index": 8,
+          "excerpt": "金每年净值增长率及其与同期业绩比较基准收益率的比较3.3过去三年基金的利润分配情况无。"
+        }
+      ],
+      "split_evidence": [
+        {
+          "kind": "pdf_page",
+          "one_based_index": 58,
+          "excerpt": "：本报告期基金总赎回份额94,500,000.00本报告期基金拆分变动份额-本报告期期末基金份额总额952,279,000.00§11重大事件揭示11.1基金份额持有人大会决议报告期内无基金份额持有人大会决议。11."
+        }
+      ],
+      "usage": "EX_POST_FACT_RECONCILIATION_ONLY_NOT_HISTORICAL_SIGNAL_INFORMATION"
+    },
+    {
+      "instrument_id": "XSHG:513030",
+      "period_start": "2024-01-01",
+      "period_end": "2024-12-31",
+      "published_date": "2025-03-31",
+      "published_at": null,
+      "captured_at": "2026-10-22T13:37:15.262721+00:00",
+      "source_file": "sources/041-513030-2024-official-annual.raw",
+      "source_sha256": "0fd3076589bb438ffe4990f4e499ea35431e6df11f139a4801fdffb5f4551621",
+      "source_url": "https://www.huaan.com.cn/upload2010/2025/03/31/012758981_ca1bef5e-4a57-358c-ba60-b8ee22a773b7.pdf",
+      "cash_status": "normal_empty",
+      "split_status": "normal_empty",
+      "cash_evidence": [
+        {
+          "kind": "pdf_page",
+          "one_based_index": 8,
+          "excerpt": "金每年净值增长率及其与同期业绩比较基准收益率的比较3.3过去三年基金的利润分配情况无。"
+        }
+      ],
+      "split_evidence": [
+        {
+          "kind": "pdf_page",
+          "one_based_index": 57,
+          "excerpt": "本报告期基金总赎回份额393,500,000.00本报告期基金拆分变动份额-本报告期期末基金份额总额607,279,000.00§11重大事件揭示11.1基金份额持有人大会决议报告期内无基金份额持有人大会决议。11."
+        }
+      ],
+      "usage": "EX_POST_FACT_RECONCILIATION_ONLY_NOT_HISTORICAL_SIGNAL_INFORMATION"
+    },
+    {
+      "instrument_id": "XSHG:513030",
+      "period_start": "2023-01-01",
+      "period_end": "2023-12-31",
+      "published_date": "2024-03-27",
+      "published_at": null,
+      "captured_at": "2026-10-22T13:37:16.638011+00:00",
+      "source_file": "sources/042-513030-2023-official-annual.raw",
+      "source_sha256": "f1f9fb3db4b688cef1859b135eb4b331e3b46829557f0cdf86386728fd0eb5e9",
+      "source_url": "https://www.huaan.com.cn/upload2010/2024/03/27/011902922_1dea5978-2034-3935-b4de-eade52191234.pdf",
+      "cash_status": "normal_empty",
+      "split_status": "normal_empty",
+      "cash_evidence": [
+        {
+          "kind": "pdf_page",
+          "one_based_index": 8,
+          "excerpt": "金每年净值增长率及其与同期业绩比较基准收益率的比较3.3过去三年基金的利润分配情况无。"
+        }
+      ],
+      "split_evidence": [
+        {
+          "kind": "pdf_page",
+          "one_based_index": 58,
+          "excerpt": "本报告期基金总赎回份额245,500,000.00本报告期基金拆分变动份额-本报告期期末基金份额总额411,779,000.00§11重大事件揭示11.1基金份额持有人大会决议报告期内无基金份额持有人大会决议。11."
+        }
+      ],
+      "usage": "EX_POST_FACT_RECONCILIATION_ONLY_NOT_HISTORICAL_SIGNAL_INFORMATION"
+    },
+    {
+      "instrument_id": "XSHG:513500",
+      "period_start": "2025-01-01",
+      "period_end": "2025-12-31",
+      "published_date": "2026-03-31",
+      "published_at": null,
+      "captured_at": "2026-10-22T13:42:26.772386+00:00",
+      "source_file": "sources/058-513500-2025-official-annual.raw",
+      "source_sha256": "c6763aabeaa4c23d7947ea6deab61a9995b6f64531e10e8325c1a6ae1cd0ba5b",
+      "source_url": "https://www.bosera.com/common/downloadFile.do?fileId=30273228A78195CB461011A9C342122D",
+      "cash_status": "normal_empty",
+      "split_status": "normal_empty",
+      "cash_evidence": [
+        {
+          "kind": "ooxml_body_block",
+          "one_based_index": 186,
+          "excerpt": "本报告期内本基金未进行收益分配。"
+        }
+      ],
+      "split_evidence": [
+        {
+          "kind": "ooxml_body_block",
+          "one_based_index": 616,
+          "excerpt": "本报告期基金总赎回份额246,000,000.00本报告期基金拆分变动份额-本报告期期末基金份额总额9,810,638,570.00"
+        }
+      ],
+      "usage": "EX_POST_FACT_RECONCILIATION_ONLY_NOT_HISTORICAL_SIGNAL_INFORMATION"
+    },
+    {
+      "instrument_id": "XSHG:513500",
+      "period_start": "2024-01-01",
+      "period_end": "2024-12-31",
+      "published_date": "2025-03-31",
+      "published_at": null,
+      "captured_at": "2026-10-22T13:42:27.895790+00:00",
+      "source_file": "sources/059-513500-2024-official-annual.raw",
+      "source_sha256": "c7a8baa8d0578027abb4515383a2cb5987fbaf8de3abd544a7b8e0a632af89d1",
+      "source_url": "https://www.bosera.com/common/downloadFile.do?fileId=6B5804E60B2EE3D9DE5CC0C3A3CAA2E1",
+      "cash_status": "normal_empty",
+      "split_status": "normal_empty",
+      "cash_evidence": [
+        {
+          "kind": "ooxml_body_block",
+          "one_based_index": 190,
+          "excerpt": "本报告期内本基金未进行收益分配。"
+        }
+      ],
+      "split_evidence": [
+        {
+          "kind": "ooxml_body_block",
+          "one_based_index": 622,
+          "excerpt": "：本报告期基金总赎回份额40,000,000.00本报告期基金拆分变动份额-本报告期期末基金份额总额7,928,638,570.00"
+        }
+      ],
+      "usage": "EX_POST_FACT_RECONCILIATION_ONLY_NOT_HISTORICAL_SIGNAL_INFORMATION"
+    },
+    {
+      "instrument_id": "XSHG:513500",
+      "period_start": "2023-01-01",
+      "period_end": "2023-12-31",
+      "published_date": "2024-03-29",
+      "published_at": null,
+      "captured_at": "2026-10-22T13:42:28.881963+00:00",
+      "source_file": "sources/060-513500-2023-official-annual.raw",
+      "source_sha256": "c512c1d11467dc5f01b559c2ea08487499f13b87aca060e903105ab6eb83ac72",
+      "source_url": "https://www.bosera.com/common/downloadFile.do?fileId=C42B6609BC8B6019EC1B1858154C825C",
+      "cash_status": "normal_empty",
+      "split_status": "normal_empty",
+      "cash_evidence": [
+        {
+          "kind": "ooxml_body_block",
+          "one_based_index": 193,
+          "excerpt": "本报告期内本基金未进行收益分配。"
+        }
+      ],
+      "split_evidence": [
+        {
+          "kind": "ooxml_body_block",
+          "one_based_index": 629,
+          "excerpt": "告期基金总赎回份额4,096,000,000.00本报告期基金拆分变动份额-本报告期期末基金份额总额5,294,638,570.00"
+        }
+      ],
+      "usage": "EX_POST_FACT_RECONCILIATION_ONLY_NOT_HISTORICAL_SIGNAL_INFORMATION"
+    },
+    {
+      "instrument_id": "XSHG:513520",
+      "period_start": "2023-01-01",
+      "period_end": "2023-12-31",
+      "published_date": "2024-03-28",
+      "published_at": null,
+      "captured_at": "2026-10-22T13:42:31.186018+00:00",
+      "source_file": "sources/061-513520-2023-official-annual.raw",
+      "source_sha256": "e5b25a2a2acd4986591755f2c45d1c5e7ffe82976fdf963d95f52a4cb06b683c",
+      "source_url": "https://www.chinaamc.com.cn/front/ui/contentcore/resource/download?ID=385767",
+      "cash_status": "normal_empty",
+      "split_status": "normal_empty",
+      "cash_evidence": [
+        {
+          "kind": "pdf_page",
+          "one_based_index": 8,
+          "excerpt": "023年年度报告73.3过去三年基金的利润分配情况本基金过去三年无利润分配事项。§4管理人报告4.1基金管理人及基金经理情况4.1.1基金管理人及其管理基金的经验华夏基金管理有限公司成立于1998年4月9日，是经中国证"
+        }
+      ],
+      "split_evidence": [
+        {
+          "kind": "pdf_page",
+          "one_based_index": 49,
+          "excerpt": "：本报告期基金总赎回份额18,000,000.00本报告期基金拆分变动份额-本报告期期末基金份额总额485,887,188.00§11重大事件揭示11.1基金份额持有人大会决议本报告期内，本基金无基金份额持有人大会决"
+        }
+      ],
+      "usage": "EX_POST_FACT_RECONCILIATION_ONLY_NOT_HISTORICAL_SIGNAL_INFORMATION"
+    },
+    {
+      "instrument_id": "XSHG:513520",
+      "period_start": "2024-01-01",
+      "period_end": "2024-12-31",
+      "published_date": "2025-03-31",
+      "published_at": null,
+      "captured_at": "2026-10-22T13:42:32.399990+00:00",
+      "source_file": "sources/062-513520-2024-official-annual.raw",
+      "source_sha256": "02b2ebec08617d0da8665f5fc7bcfd2d448dfb8def9396cd72174d20f6a6d749",
+      "source_url": "https://www.chinaamc.com.cn/upload/resources/file/2025/03/28/137sh华夏野村日经225交易型开放式指数证券投资基金（QDII）2024年年度报告.pdf",
+      "cash_status": "normal_empty",
+      "split_status": "normal_empty",
+      "cash_evidence": [
+        {
+          "kind": "pdf_page",
+          "one_based_index": 7,
+          "excerpt": "基准收益率的对比图3.3过去三年基金的利润分配情况本基金过去三年无利润分配事项。"
+        }
+      ],
+      "split_evidence": [
+        {
+          "kind": "pdf_page",
+          "one_based_index": 49,
+          "excerpt": "减：本报告期基金总赎回份额1,500,000.00本报告期基金拆分变动份额-本报告期期末基金份额总额707,887,188.00§11重大事件揭示"
+        }
+      ],
+      "usage": "EX_POST_FACT_RECONCILIATION_ONLY_NOT_HISTORICAL_SIGNAL_INFORMATION"
+    },
+    {
+      "instrument_id": "XSHG:513520",
+      "period_start": "2025-01-01",
+      "period_end": "2025-12-31",
+      "published_date": "2026-03-31",
+      "published_at": null,
+      "captured_at": "2026-10-22T13:42:33.711390+00:00",
+      "source_file": "sources/063-513520-2025-official-annual.raw",
+      "source_sha256": "becf39103858140d59e4e083b44a17f13ac16eb347afaa4c48cd09030817b379",
+      "source_url": "https://www.chinaamc.com.cn/upload/resources/file/2026/03/31/157b6ea7a7e7431ca4c836d4eb783e45.pdf",
+      "cash_status": "normal_empty",
+      "split_status": "normal_empty",
+      "cash_evidence": [
+        {
+          "kind": "pdf_page",
+          "one_based_index": 7,
+          "excerpt": "基准收益率的对比图3.3过去三年基金的利润分配情况本基金过去三年无利润分配事项。§4管理人报告4.1基金管理人及基金经理情况4.1.1基金管理人及其管理基金的经验华夏基金管理有限公司成立于1998年4月9日，是经中国证"
+        }
+      ],
+      "split_evidence": [
+        {
+          "kind": "pdf_page",
+          "one_based_index": 48,
+          "excerpt": "本报告期基金总赎回份额144,000,000.00本报告期基金拆分变动份额-本报告期期末基金份额总额1,000,387,188.00"
+        }
+      ],
+      "usage": "EX_POST_FACT_RECONCILIATION_ONLY_NOT_HISTORICAL_SIGNAL_INFORMATION"
+    }
+  ]
+}

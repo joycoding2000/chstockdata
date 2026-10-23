@@ -1,0 +1,182 @@
+{
+  "argv": [
+    "../evidence/r21-step1/run_live.py"
+  ],
+  "cwd": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\chstockdata",
+  "env": {
+    "PYTHONPATH": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\chstockdata\\src",
+    "PYTHONDONTWRITEBYTECODE": "1"
+  },
+  "source_sha256": {
+    "src\\chstockdata\\opening_evidence.py": "80034dd19056702155105610873a8012db8da0e3bd7533400404699374d7d432",
+    "src\\chstockdata\\opening_known_events.json": "16cb9df03879accfe982874553ba3814c4b4f3dc4c1e63316e9576ae6820d9ca"
+  },
+  "versions": {
+    "pytest": "9.1.1",
+    "requests": "2.34.2",
+    "pandas": "3.0.6",
+    "mootdx": "0.11.7",
+    "tdxpy": "0.2.7"
+  },
+  "pypdf_version": "6.10.0",
+  "pypdf_path": "C:\\Users/Administrator/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/Lib/site-packages\\pypdf\\__init__.py",
+  "policy": "R2.1",
+  "maximum_public_reader_points": 12,
+  "maximum_tdx_pages_per_point": 9,
+  "maximum_official_query_pages_per_point": 4,
+  "automatic_retries": false,
+  "server_discovery": false,
+  "server": [
+    "110.41.147.114",
+    7709
+  ],
+  "recording_note": "TDX raw is complete parser-returned rows, not raw TCP bytes; official raw is original HTTP body.",
+  "results": [
+    {
+      "instrument": "510300",
+      "session_date": "2026-09-11",
+      "expected": "OPEN_ACTIVITY_CONFIRMED",
+      "actual": "OPEN_ACTIVITY_CONFIRMED",
+      "reason": "certified_0930_activity_current_query_no_known_block",
+      "pass": true,
+      "request_start": 1,
+      "request_end": 8,
+      "started_at": "2026-10-11T07:32:41.201195+00:00",
+      "result_file": "510300-2026-09-11.json"
+    },
+    {
+      "instrument": "159915",
+      "session_date": "2026-09-11",
+      "expected": "OPEN_ACTIVITY_CONFIRMED",
+      "actual": "OPEN_ACTIVITY_CONFIRMED",
+      "reason": "certified_0930_activity_current_query_no_known_block",
+      "pass": true,
+      "request_start": 9,
+      "request_end": 16,
+      "started_at": "2026-10-11T07:32:42.016985+00:00",
+      "result_file": "159915-2026-09-11.json"
+    },
+    {
+      "instrument": "518880",
+      "session_date": "2026-09-11",
+      "expected": "OPEN_ACTIVITY_CONFIRMED",
+      "actual": "OPEN_ACTIVITY_CONFIRMED",
+      "reason": "certified_0930_activity_current_query_no_known_block",
+      "pass": true,
+      "request_start": 17,
+      "request_end": 25,
+      "started_at": "2026-10-11T07:32:43.851548+00:00",
+      "result_file": "518880-2026-09-11.json"
+    },
+    {
+      "instrument": "511010",
+      "session_date": "2026-09-11",
+      "expected": "OPEN_ACTIVITY_CONFIRMED",
+      "actual": "OPEN_ACTIVITY_CONFIRMED",
+      "reason": "certified_0930_activity_current_query_no_known_block",
+      "pass": true,
+      "request_start": 26,
+      "request_end": 29,
+      "started_at": "2026-10-11T07:32:44.744676+00:00",
+      "result_file": "511010-2026-09-11.json"
+    },
+    {
+      "instrument": "513100",
+      "session_date": "2026-09-11",
+      "expected": "BLOCKED_CONFIRMED",
+      "actual": "BLOCKED_CONFIRMED",
+      "reason": "certified_official_block_at_target",
+      "pass": true,
+      "request_start": 30,
+      "request_end": 35,
+      "started_at": "2026-10-11T07:32:45.341740+00:00",
+      "result_file": "513100-2026-09-11.json"
+    },
+    {
+      "instrument": "159509",
+      "session_date": "2026-09-11",
+      "expected": "BLOCKED_CONFIRMED",
+      "actual": "BLOCKED_CONFIRMED",
+      "reason": "certified_official_block_at_target",
+      "pass": true,
+      "request_start": 36,
+      "request_end": 42,
+      "started_at": "2026-10-11T07:32:46.088869+00:00",
+      "result_file": "159509-2026-09-11.json"
+    },
+    {
+      "instrument": "688432",
+      "session_date": "2026-08-31",
+      "expected": "BLOCKED_CONFIRMED",
+      "actual": "BLOCKED_CONFIRMED",
+      "reason": "certified_official_block_at_target",
+      "pass": true,
+      "request_start": 43,
+      "request_end": 45,
+      "started_at": "2026-10-11T07:32:47.958192+00:00",
+      "result_file": "688432-2026-08-31.json"
+    },
+    {
+      "instrument": "688432",
+      "session_date": "2026-09-14",
+      "expected": "OPEN_ACTIVITY_CONFIRMED",
+      "actual": "OPEN_ACTIVITY_CONFIRMED",
+      "reason": "certified_0930_activity_current_query_no_known_block",
+      "pass": true,
+      "request_start": 46,
+      "request_end": 53,
+      "started_at": "2026-10-11T07:32:48.463622+00:00",
+      "result_file": "688432-2026-09-14.json"
+    },
+    {
+      "instrument": "000002",
+      "session_date": "2015-12-18",
+      "expected": "OPEN_ACTIVITY_CONFIRMED",
+      "actual": "OPEN_ACTIVITY_CONFIRMED",
+      "reason": "certified_0930_activity_current_query_no_known_block",
+      "pass": true,
+      "request_start": 54,
+      "request_end": 58,
+      "started_at": "2026-10-11T07:32:49.349001+00:00",
+      "result_file": "000002-2015-12-18.json"
+    },
+    {
+      "instrument": "000002",
+      "session_date": "2016-01-04",
+      "expected": "BLOCKED_CONFIRMED",
+      "actual": "BLOCKED_CONFIRMED",
+      "reason": "certified_official_block_at_target",
+      "pass": true,
+      "request_start": 59,
+      "request_end": 61,
+      "started_at": "2026-10-11T07:32:50.102159+00:00",
+      "result_file": "000002-2016-01-04.json"
+    },
+    {
+      "instrument": "510300",
+      "session_date": "2016-12-30",
+      "expected": "OPEN_ACTIVITY_CONFIRMED",
+      "actual": "OPEN_ACTIVITY_CONFIRMED",
+      "reason": "certified_0930_activity_current_query_no_known_block",
+      "pass": true,
+      "request_start": 62,
+      "request_end": 66,
+      "started_at": "2026-10-11T07:32:50.617555+00:00",
+      "result_file": "510300-2016-12-30.json"
+    },
+    {
+      "instrument": "510300",
+      "session_date": "2022-12-30",
+      "expected": "OPEN_ACTIVITY_CONFIRMED",
+      "actual": "OPEN_ACTIVITY_CONFIRMED",
+      "reason": "certified_0930_activity_current_query_no_known_block",
+      "pass": true,
+      "request_start": 67,
+      "request_end": 74,
+      "started_at": "2026-10-11T07:32:51.271703+00:00",
+      "result_file": "510300-2022-12-30.json"
+    }
+  ],
+  "request_count": 74,
+  "exit_code": 0
+}

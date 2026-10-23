@@ -1,0 +1,113 @@
+[
+  {
+    "name": "environment",
+    "argv": [
+      "D:\\Dev\\Projects\\chstockdata\\build\\v042-qualification\\gate\\Scripts\\python.exe",
+      "-m",
+      "pip",
+      "freeze"
+    ],
+    "cwd": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\chstockdata",
+    "exit": 0,
+    "candidate_wheel_sha256": null,
+    "log": "environment.log",
+    "exit_file": "environment.exit",
+    "command_started_at": "2026-10-12T21:25:27.878031+08:00",
+    "command_finished_at": "2026-10-12T21:25:33.615115+08:00",
+    "environment_overrides": {
+      "PYTHONPATH": null,
+      "PYTHONUTF8": "1",
+      "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+      "SIOS_CHSTOCKDATA_LIVE_QUALIFICATION": null,
+      "CHSTOCKDATA_VIPDOC_HISTORY_DIR": null,
+      "CHSTOCKDATA_CACHE_DIR": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\cache\\r21-data",
+      "TEMP": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\temp\\r21-step4",
+      "TMP": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\temp\\r21-step4"
+    }
+  },
+  {
+    "name": "build",
+    "argv": [
+      "D:\\Dev\\Projects\\chstockdata\\build\\v042-qualification\\gate\\Scripts\\python.exe",
+      "-m",
+      "build",
+      "--outdir",
+      "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\dist\\r21-unified"
+    ],
+    "cwd": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\chstockdata",
+    "exit": 0,
+    "candidate_wheel_sha256": "44e8f2a3b421a0a015de75a29d5ddf209e38d03307a496600ae34e6bb2d616a0",
+    "log": "build.log",
+    "exit_file": "build.exit",
+    "command_started_at": "2026-10-12T21:25:33.616118+08:00",
+    "command_finished_at": "2026-10-12T21:25:54.913169+08:00",
+    "environment_overrides": {
+      "PYTHONPATH": null,
+      "PYTHONUTF8": "1",
+      "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+      "SIOS_CHSTOCKDATA_LIVE_QUALIFICATION": null,
+      "CHSTOCKDATA_VIPDOC_HISTORY_DIR": null,
+      "CHSTOCKDATA_CACHE_DIR": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\cache\\r21-data",
+      "TEMP": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\temp\\r21-step4",
+      "TMP": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\temp\\r21-step4"
+    }
+  },
+  {
+    "name": "twine",
+    "argv": [
+      "D:\\Dev\\Projects\\chstockdata\\build\\v042-qualification\\gate\\Scripts\\python.exe",
+      "-m",
+      "twine",
+      "check",
+      "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\dist\\r21-unified\\chstockdata-0.4.2-py3-none-any.whl",
+      "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\dist\\r21-unified\\chstockdata-0.4.2.tar.gz"
+    ],
+    "cwd": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\chstockdata",
+    "exit": 0,
+    "candidate_wheel_sha256": "44e8f2a3b421a0a015de75a29d5ddf209e38d03307a496600ae34e6bb2d616a0",
+    "log": "twine.log",
+    "exit_file": "twine.exit",
+    "command_started_at": "2026-10-12T21:25:54.947182+08:00",
+    "command_finished_at": "2026-10-12T21:25:58.185467+08:00",
+    "environment_overrides": {
+      "PYTHONPATH": null,
+      "PYTHONUTF8": "1",
+      "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+      "SIOS_CHSTOCKDATA_LIVE_QUALIFICATION": null,
+      "CHSTOCKDATA_VIPDOC_HISTORY_DIR": null,
+      "CHSTOCKDATA_CACHE_DIR": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\cache\\r21-data",
+      "TEMP": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\temp\\r21-step4",
+      "TMP": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\temp\\r21-step4"
+    }
+  },
+  {
+    "name": "core-create",
+    "argv": [
+      "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+      "-m",
+      "venv",
+      "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\profiles\\r21-unified\\core"
+    ],
+    "cwd": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation",
+    "exit": 0,
+    "candidate_wheel_sha256": "44e8f2a3b421a0a015de75a29d5ddf209e38d03307a496600ae34e6bb2d616a0",
+    "log": "core-create.log",
+    "exit_file": "core-create.exit",
+    "command_started_at": "2026-10-12T21:26:11.383463+08:00",
+    "command_finished_at": "2026-10-12T21:26:19.738446+08:00",
+    "environment_overrides": {
+      "PYTHONPATH": null,
+      "PYTHONUTF8": "1",
+      "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+      "SIOS_CHSTOCKDATA_LIVE_QUALIFICATION": null,
+      "CHSTOCKDATA_VIPDOC_HISTORY_DIR": null,
+      "CHSTOCKDATA_CACHE_DIR": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\cache\\r21-data",
+      "TEMP": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\temp\\r21-step4",
+      "TMP": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\temp\\r21-step4"
+    }
+  }
+]
+ation\\temp\\r21-step4"
+    }
+  }
+]

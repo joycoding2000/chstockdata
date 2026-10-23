@@ -1,0 +1,164 @@
+{
+  "budget": 8,
+  "no_retries": true,
+  "timeout_seconds": 15,
+  "max_body_bytes": 2000000,
+  "requests": [
+    {
+      "id": "sina_600518_lrb",
+      "url": "https://quotes.sina.cn/cn/api/openapi.php/CompanyFinanceService.getFinanceReport2022",
+      "params": {
+        "paperCode": "sh600518",
+        "source": "lrb",
+        "type": "0",
+        "page": "1",
+        "num": "60"
+      },
+      "requested_at": "2026-10-19T19:54:37.697451+08:00",
+      "http_status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "file": "sina_600518_lrb.json",
+      "bytes": 1172164,
+      "sha256": "6cb84e68b918b274b994f69732c0c957430db58bad1d665477c31f549d612591",
+      "status": "response_saved",
+      "elapsed_seconds": 0.633
+    },
+    {
+      "id": "sina_600518_fzb",
+      "url": "https://quotes.sina.cn/cn/api/openapi.php/CompanyFinanceService.getFinanceReport2022",
+      "params": {
+        "paperCode": "sh600518",
+        "source": "fzb",
+        "type": "0",
+        "page": "1",
+        "num": "60"
+      },
+      "requested_at": "2026-10-19T19:54:38.331737+08:00",
+      "http_status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "status": "request_failed",
+      "error_type": "ValueError",
+      "elapsed_seconds": 0.395
+    },
+    {
+      "id": "sina_600518_llb",
+      "url": "https://quotes.sina.cn/cn/api/openapi.php/CompanyFinanceService.getFinanceReport2022",
+      "params": {
+        "paperCode": "sh600518",
+        "source": "llb",
+        "type": "0",
+        "page": "1",
+        "num": "60"
+      },
+      "requested_at": "2026-10-19T19:54:38.727436+08:00",
+      "http_status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "file": "sina_600518_llb.json",
+      "bytes": 1080118,
+      "sha256": "023c5712e3ed875ec4c88a74c1585aee829f23fd614e58ad3b5ac9a9ab6d1345",
+      "status": "response_saved",
+      "elapsed_seconds": 0.508
+    },
+    {
+      "id": "eastmoney_600518_2025",
+      "url": "https://datacenter-web.eastmoney.com/api/data/v1/get",
+      "params": {
+        "reportName": "RPT_VALUEANALYSIS_DET",
+        "columns": "ALL",
+        "filter": "(SECURITY_CODE=\"600518\")(TRADE_DATE>='2025-01-01')(TRADE_DATE<='2025-12-31')",
+        "pageSize": "500",
+        "pageNumber": "1",
+        "sortColumns": "TRADE_DATE",
+        "sortTypes": "-1",
+        "source": "WEB",
+        "client": "WEB"
+      },
+      "requested_at": "2026-10-19T19:54:39.236298+08:00",
+      "http_status": 200,
+      "content_type": "text/plain;charset=UTF-8",
+      "file": "eastmoney_600518_2025.json",
+      "bytes": 141250,
+      "sha256": "973c2a8d0ac4a01b058ef570f510909f93fa512a2ff9e75bf4a764f1cc81b81a",
+      "status": "response_saved",
+      "elapsed_seconds": 0.711
+    },
+    {
+      "id": "eastmoney_600519_2025",
+      "url": "https://datacenter-web.eastmoney.com/api/data/v1/get",
+      "params": {
+        "reportName": "RPT_VALUEANALYSIS_DET",
+        "columns": "ALL",
+        "filter": "(SECURITY_CODE=\"600519\")(TRADE_DATE>='2025-01-01')(TRADE_DATE<='2025-12-31')",
+        "pageSize": "500",
+        "pageNumber": "1",
+        "sortColumns": "TRADE_DATE",
+        "sortTypes": "-1",
+        "source": "WEB",
+        "client": "WEB"
+      },
+      "requested_at": "2026-10-19T19:54:39.947753+08:00",
+      "http_status": 200,
+      "content_type": "text/plain;charset=UTF-8",
+      "file": "eastmoney_600519_2025.json",
+      "bytes": 140379,
+      "sha256": "cab28b33c788920a8e410f77ef55bb38674a6037d517b05404b5203a70f0c515",
+      "status": "response_saved",
+      "elapsed_seconds": 0.278
+    },
+    {
+      "id": "eastmoney_600518_2020",
+      "url": "https://datacenter-web.eastmoney.com/api/data/v1/get",
+      "params": {
+        "reportName": "RPT_VALUEANALYSIS_DET",
+        "columns": "ALL",
+        "filter": "(SECURITY_CODE=\"600518\")(TRADE_DATE>='2020-01-01')(TRADE_DATE<='2020-12-31')",
+        "pageSize": "500",
+        "pageNumber": "1",
+        "sortColumns": "TRADE_DATE",
+        "sortTypes": "-1",
+        "source": "WEB",
+        "client": "WEB"
+      },
+      "requested_at": "2026-10-19T19:54:40.226592+08:00",
+      "http_status": 200,
+      "content_type": "text/plain;charset=UTF-8",
+      "file": "eastmoney_600518_2020.json",
+      "bytes": 138455,
+      "sha256": "780c380d9d26b6a4b607f98c100d4a84b4395f0c196813a3a76d6e2d135e1cc4",
+      "status": "response_saved",
+      "elapsed_seconds": 0.325
+    },
+    {
+      "id": "original_2017",
+      "url": "https://vip.stock.finance.sina.com.cn/corp/view/vCB_AllBulletinDetail.php",
+      "params": {
+        "id": "4346342",
+        "stockid": "600518"
+      },
+      "requested_at": "2026-10-19T19:54:40.552111+08:00",
+      "http_status": 200,
+      "content_type": "text/html; charset=gbk",
+      "file": "original_2017.html",
+      "bytes": 669806,
+      "sha256": "f3bc0297c76a492b7ec0cb04a2eacb0f134c16ffa57fcd215d1632865835a626",
+      "status": "response_saved",
+      "elapsed_seconds": 2.688
+    },
+    {
+      "id": "correction_2019",
+      "url": "https://vip.stock.finance.sina.com.cn/corp/view/vCB_AllBulletinDetail.php",
+      "params": {
+        "id": "5335860",
+        "stockid": "600518"
+      },
+      "requested_at": "2026-10-19T19:54:43.240158+08:00",
+      "http_status": 200,
+      "content_type": "text/html; charset=gbk",
+      "file": "correction_2019.html",
+      "bytes": 37137,
+      "sha256": "32401bcbc41c30a95754300455a12f3e2e0e0668ac303d70b2db6573ffd9af90",
+      "status": "response_saved",
+      "elapsed_seconds": 0.066
+    }
+  ]
+}

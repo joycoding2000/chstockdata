@@ -1,0 +1,21 @@
+F....
+======================================================================
+FAIL: test_ex_date_claim_is_not_spendable_cash (__main__.EconomicEventTests.test_ex_date_claim_is_not_spendable_cash)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\Dev\Projects\chstockdata\docs\audits\evidence\2026-10-22-sios-h04-priority-data-delivery\test_h04_offline.py", line 23, in test_ex_date_claim_is_not_spendable_cash
+    self.assertEqual(unit_book("2025-06-19", [event]), (D("0.02"), D("0")))
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Tuples differ: (Decimal('0'), Decimal('0.02')) != (Decimal('0.02'), Decimal('0'))
+
+First differing element 0:
+Decimal('0')
+Decimal('0.02')
+
+- (Decimal('0'), Decimal('0.02'))
++ (Decimal('0.02'), Decimal('0'))
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.034s
+
+FAILED (failures=1)

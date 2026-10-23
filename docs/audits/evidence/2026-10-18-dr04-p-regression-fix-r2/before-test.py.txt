@@ -1,0 +1,52 @@
+"""CRLF storage must not hide real source additions or relabel legacy debt."""
+from __future__ import annotations
+
+import importlib.util
+import subprocess
+from pathlib import Path
+
+import pytest
+
+
+def _gate_module():
+    path = Path(__file__).resolve().parents[1] / 'scripts/check_rh1_static.py'
+    spec = importlib.util.spec_from_file_location('rh1_release_gate', path)
+    assert spec is not None and spec.loader is not None
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    return module
+
+
+@pytest.mark.parametrize('modify_existing', [False, True])
+def test_crlf_preserves_added_line_discrimination(tmp_path, modify_existing):
+    def git(*args):
+        return subprocess.check_output(
+            ['git', '-c', f'safe.directory={tmp_path.as_posix()}',
+             '-c', 'core.autocrlf=false', *args], cwd=tmp_path
+        )
+    git('init', '-q')
+    git('config', 'user.name', 'Gate Fixture')
+    git('config', 'user.email', 'gate@example.invalid')
+    source = tmp_path / 'src/sample.py'
+    source.parent.mkdir()
+    original = b'import os\n\ndef existing():\n    return 1\n'
+    source.write_bytes(original)
+    git('add', 'src/sample.py')
+    git('commit', '-qm', 'LF baseline with visible legacy unused import')
+    baseline = git('rev-parse', 'HEAD').decode().strip()
+    updated = original.replace(b'return 1', b'return 2') if modify_existing else original
+    source.write_bytes((updated + b'\nx = 1; y = 2\n').replace(b'\n', b'\r\n'))
+    git('add', 'src/sample.py')
+    gate = _gate_module()
+    gate.ROOT = tmp_path
+    gate.BASELINE_SHA = baseline
+    ranges = gate._added_line_ranges()
+    assert not gate._is_added_line(
+        {'filename': str(source), 'location': {'row': 1}}, ranges
+    ), 'CRLF-only storage must not make an existing warning a new warning'
+    assert gate._is_added_line(
+        {'filename': str(source), 'location': {'row': 6}}, ranges
+    ), 'new source lines must remain subject to RH1'
+    assert gate._is_added_line(
+        {'filename': str(source), 'location': {'row': 4}}, ranges
+    ) is modify_existing, 'substantive changes to existing lines must remain subject to RH1'

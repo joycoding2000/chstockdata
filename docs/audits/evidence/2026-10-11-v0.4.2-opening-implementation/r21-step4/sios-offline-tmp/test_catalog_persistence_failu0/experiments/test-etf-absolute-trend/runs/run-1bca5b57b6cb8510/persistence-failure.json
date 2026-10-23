@@ -1,0 +1,1 @@
+{"artifact_type":"BASIC_RUN_PERSISTENCE_FAILURE","lineage_id":"test-etf-absolute-trend","reason_codes":["RUN_PERSISTENCE_FAILED: catalog append: OSError: injected catalog persistence failure"],"run_ref":"test-etf-absolute-trend/runs/run-1bca5b57b6cb8510","schema_version":"research-persistence-failure-1","status":"RUN_FAILED_KERNEL"}

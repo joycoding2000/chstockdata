@@ -1,0 +1,18 @@
+test_access_restriction_stops_source (__main__.ScreenEvidence.test_access_restriction_stops_source) ... ok
+test_authorities_and_tracked_tree_preserved (__main__.ScreenEvidence.test_authorities_and_tracked_tree_preserved) ... ok
+test_byte_budget_before_network (__main__.ScreenEvidence.test_byte_budget_before_network) ... ok
+test_controls_not_replaced_and_never_promoted (__main__.ScreenEvidence.test_controls_not_replaced_and_never_promoted) ... ok
+test_every_response_identity_and_budget (__main__.ScreenEvidence.test_every_response_identity_and_budget) ... ok
+test_no_stale_calendar_substitution (__main__.ScreenEvidence.test_no_stale_calendar_substitution) ... ok
+test_offline_replay_matches_saved_analysis (__main__.ScreenEvidence.test_offline_replay_matches_saved_analysis) ... ok
+test_old_regression_is_separate_and_limited (__main__.ScreenEvidence.test_old_regression_is_separate_and_limited) ... ok
+test_real_window_and_warmup (__main__.ScreenEvidence.test_real_window_and_warmup) ... ok
+test_report_decisions_match_actual_evidence (__main__.ScreenEvidence.test_report_decisions_match_actual_evidence) ... ok
+test_request_budget_before_network (__main__.ScreenEvidence.test_request_budget_before_network) ... ok
+test_retry_limit_before_network (__main__.ScreenEvidence.test_retry_limit_before_network) ... ok
+test_universe_denominators_do_not_hide_unknowns (__main__.ScreenEvidence.test_universe_denominators_do_not_hide_unknowns) ... ok
+
+----------------------------------------------------------------------
+Ran 13 tests in 4.356s
+
+OK

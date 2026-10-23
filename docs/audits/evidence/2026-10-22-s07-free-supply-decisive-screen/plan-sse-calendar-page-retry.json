@@ -1,0 +1,9 @@
+{
+  "id": "sse-calendar-page-retry",
+  "url": "https://www.sse.com.cn/services/tradingservice/tradingcalendar/",
+  "params": null,
+  "max_bytes": 5000000,
+  "registered_at": "2026-10-22T20:53:40.882681+08:00",
+  "method": "GET",
+  "retry_of": "sse-calendar-page"
+}

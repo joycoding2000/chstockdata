@@ -1,0 +1,36 @@
+{
+  "name": "candidate-crlf-2-diff-check",
+  "argv": [
+    "git",
+    "-c",
+    "core.autocrlf=false",
+    "-c",
+    "core.whitespace=trailing-space,space-before-tab,cr-at-eol",
+    "diff",
+    "--no-index",
+    "--check",
+    "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\chstockdata\\tests\\test_historical_opening_evidence.py",
+    "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\chstockdata-owner-rework\\tests\\test_historical_opening_evidence.py"
+  ],
+  "cwd": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation",
+  "exit": 1,
+  "candidate_wheel_sha256": "1dd58350678fbb07d3b545165708d814f93fb94f965dc2da33bad2fab7ff779c",
+  "candidate_source_sha256": "d81fb0a62a9fa4cc9823ca9ad1920f380a110d50351dd0b7b465f735d3021572",
+  "sios_full_source_sha256": "573c8540e094e2c2c1d82788541a65d42424c707fa307a06c73d330483c75eb5",
+  "sios_runtime_source_sha256": "73376752616edc41b1560e0cea40a7cdb6190d2795c83dab34d19fdcffd4186f",
+  "sios_patch_sha256": "cbf403397631eed42fe542364587c3f75eb6150b88017c7390da2828644d4873",
+  "log": "candidate-crlf-2-diff-check.log",
+  "exit_file": "candidate-crlf-2-diff-check.exit",
+  "command_started_at": "2026-10-13T21:49:10.989004+08:00",
+  "command_finished_at": "2026-10-13T21:49:11.314516+08:00",
+  "environment_overrides": {
+    "PYTHONPATH": null,
+    "PYTHONUTF8": "1",
+    "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+    "SIOS_CHSTOCKDATA_LIVE_QUALIFICATION": null,
+    "CHSTOCKDATA_VIPDOC_HISTORY_DIR": null,
+    "CHSTOCKDATA_CACHE_DIR": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\cache\\owner-rework-r1-data",
+    "TEMP": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\temp\\owner-rework-r1-gate",
+    "TMP": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\temp\\owner-rework-r1-gate"
+  }
+}

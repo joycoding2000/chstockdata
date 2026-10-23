@@ -1,0 +1,1 @@
+{"until": 1791834135.3015606, "rounds": 1, "reason": "4 台服务器能建通达信 client，但 bars readiness canary 全部失败。该结论仅约束 bars 能力；其它 capability 将按 transport 可用分别验证。", "persisted_at": 1791812535.3015606, "transport_ok": true}

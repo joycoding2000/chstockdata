@@ -1,0 +1,1242 @@
+{
+  "test_only_injection": [
+    "_run:git cat-file baseline existence",
+    "_added_line_ranges:exact baseline blobs to candidate source via SequenceMatcher"
+  ],
+  "production_script_unchanged": true,
+  "candidate_root": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\chstockdata",
+  "baseline_commit": "143eb5a61e11003a4b29461eeb78deec0ab8d8e5",
+  "baseline_files": {
+    "src/chstockdata/__init__.py": {
+      "git_blob": "555fa0d7b0aae1f6e7e5f3947755a1002474fd04",
+      "sha256": "7f143dd16b6ac7260bd356046746d30390e241500884ad20c0dfc388616b4afd"
+    },
+    "src/chstockdata/_easy_tdx_bridge.py": {
+      "git_blob": "8be4d3e59064e9877dcece63278bac3ee71c6463",
+      "sha256": "11bf0334ba5b223ee87921dc61a83919bb3d43b083e2f6f17911dde0994dee95"
+    },
+    "src/chstockdata/a_stock.py": {
+      "git_blob": "9139e4af0bf243f21d643cd3dd72239a7dfd2c21",
+      "sha256": "48841b5226bef2a1a89d26d8b3b01597fad2eacebd6e17820d0dd01306a31dd3"
+    },
+    "src/chstockdata/adjusted_bars.py": {
+      "git_blob": "2de5b46e6627ee75e88f8c07ed31c090b495e6cb",
+      "sha256": "926c7f0986a29c9288379510879690a9040401892923b80bd23920099bb37e27"
+    },
+    "src/chstockdata/block_trades.py": {
+      "git_blob": "524969208543e04951fc43fa06485905c1a8645f",
+      "sha256": "517b513bedccb4edb91264a494f1c22ff348c359e6284180da8e49f2223cfdeb"
+    },
+    "src/chstockdata/board_flow.py": {
+      "git_blob": "4a89d8c79c83380c1e81ce2b3b724f0075583f0d",
+      "sha256": "8beeca253d1f270bf34d8678296a998b236c1c4a057c2dad41511bf4bde2cead"
+    },
+    "src/chstockdata/chips.py": {
+      "git_blob": "b083972a5239f9185cf3c51783aea02afef79572",
+      "sha256": "2d3baccc8128f9feb9e36afcca2671f32161b890daebb88c8f5c5dc3d3caafb9"
+    },
+    "src/chstockdata/config.py": {
+      "git_blob": "f4e09eb23cbc087489b3085f97b507c0ca22bf6d",
+      "sha256": "1c9d086514e6aa575432ac9bd6e5cd9dfe5fc5b67e46374d8f66bf4e093ad889"
+    },
+    "src/chstockdata/corporate_actions.py": {
+      "git_blob": "ade19fe1b46d8e1516e954606ca889b8b3a20ef6",
+      "sha256": "31782d224fabcd1f546af747f76c37ce3afaeea1a3b0abd2dbb78157480cd80a"
+    },
+    "src/chstockdata/etf_options.py": {
+      "git_blob": "f3a04b7f84b65dfd6a73c42e55fa2fdd280b2ef3",
+      "sha256": "b896a49c96309af2bc3f8462157c24fa3ad7c050e1d83966e837f57d478c83d6"
+    },
+    "src/chstockdata/hot_rank.py": {
+      "git_blob": "fa6611ab8e0184d9d36f3aaa53b9ce68b63ea011",
+      "sha256": "88519f6c7f74b6f1d927ecd92be8e89a5b491656c2c95ea4826334c69275b72a"
+    },
+    "src/chstockdata/investor_qa.py": {
+      "git_blob": "319242a7c7583fd1d205e8513f0db621c7f47d65",
+      "sha256": "ddff2f1089a8aa503d525b5242d0fa06af8d9f3967566fbd38ab535843c6ebb0"
+    },
+    "src/chstockdata/limit_up.py": {
+      "git_blob": "733eb87a7c647c8ab4691d2cfaf0a34e610e93bb",
+      "sha256": "b2ea76d76207b8d3e58905e747f925c28de189f13e2f376c0b7e03148e1f4316"
+    },
+    "src/chstockdata/market_breadth.py": {
+      "git_blob": "83f57b632aac646bbc791bc28934127416450a5f",
+      "sha256": "4fd08e6239a4424b2f86da6ee334bb17190f50bd2434a787d53291101b398c0c"
+    },
+    "src/chstockdata/mcp_server.py": {
+      "git_blob": "07466c3ed9e8aa1570f32d26af6f56d10b3898c0",
+      "sha256": "26e26245ffb15a6559b2a78daef6f6a7bc647c4f03c31e6d5dd557565e64755f"
+    },
+    "src/chstockdata/northbound_data.py": {
+      "git_blob": "4f85e09f9a67fc8f14c9ee07123e4b41520becd5",
+      "sha256": "e84ab1c53a0bc5ed71e389a8168a02863d540127d2aa45648c33b25511708310"
+    },
+    "src/chstockdata/northbound_store.py": {
+      "git_blob": "d003ea838e96981f10b58705c21b07400af43882",
+      "sha256": "005100757fe6328e8f559890312a56ac37a226a922b705cc13f0cb615007fbcb"
+    },
+    "src/chstockdata/point_in_time.py": {
+      "git_blob": "5574a99b4e4ee0ab5dd3fa55bd944e096fd5ed01",
+      "sha256": "567305e5c0438ca8ca881c7acbc952cb5467947483b920326eb1642f845ed2c2"
+    },
+    "src/chstockdata/policy_news.py": {
+      "git_blob": "380db023df6da40e3d145be96ff6068d49188400",
+      "sha256": "9630b70b74c3efd29d45f990b30cd9e516299e5fa179277f71515416a50cbc94"
+    },
+    "src/chstockdata/policy_news_models.py": {
+      "git_blob": "8fcc704efdd75104ca3c7276a557fdfdb8b887de",
+      "sha256": "fd5511fc156a570130649899f8f92bde4fda00c6394f6df6c5ff35a88f538470"
+    },
+    "src/chstockdata/policy_news_registry.py": {
+      "git_blob": "94d8f134781439dc7383f5734a9d45621eab2d04",
+      "sha256": "aca68a40bd15f65f9542cc5fcc13bb79043cfb5dbd6e9b6cfcf197f4f6a2e7a1"
+    },
+    "src/chstockdata/policy_news_sources.py": {
+      "git_blob": "7c1e14bb69f4e4f4ea0b01841cf213a7b0ea9160",
+      "sha256": "8bbb8dd4e7f5f819832c8a2f91d9040bef879887b515f7ed3e0e18ec405efbe4"
+    },
+    "src/chstockdata/provenance.py": {
+      "git_blob": "980df1b10b62970c8e769c81eb76e767d0d32a15",
+      "sha256": "f1ce13dc4fcfa7147bd1ee3f9ecb83785f4fd3f3a8587c59f39d8bcca0897c95"
+    },
+    "src/chstockdata/py.typed": {
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "src/chstockdata/refresh_vipdoc.py": {
+      "git_blob": "666ed73dafc92d5be96e33756f116af20e1264e8",
+      "sha256": "f92768007f13a690bbe39177f87100ba9c07f516f2fae400c795a921c19ca814"
+    },
+    "src/chstockdata/source_context.py": {
+      "git_blob": "4191a23fc80850757cd612ecade968b1d18a252f",
+      "sha256": "2f157d9cf4dd096e409368daabe4992656450cbd9d380adf58f02f0253066eb8"
+    },
+    "src/chstockdata/tdx_bridge.py": {
+      "git_blob": "0a5bb0bb9350797f4d49c38025549f2bc985415f",
+      "sha256": "f520e2d992e07b90dab432f99c8c2419388d67bf991afbd1c405067f41b00610"
+    },
+    "src/chstockdata/trading_calendar.py": {
+      "git_blob": "1f2b23a5afd33cac8be7f2a578438a1ec4f52172",
+      "sha256": "11dbf4b3d09a4ff59d00cddd874c0e04eda913b32b09a9ef05794da018941a8a"
+    },
+    "src/chstockdata/utils.py": {
+      "git_blob": "280e07be4a4bc40947654a35832ef578e756c6a8",
+      "sha256": "f280cececda3c4e82c1366a10004aa791037133925ff969207467226eca4a02d"
+    },
+    "src/chstockdata/vendor_errors.py": {
+      "git_blob": "5a6d85bdb8c0a5ff7f8fb40030a0ba5162865ab1",
+      "sha256": "0933b2daa8aaec0a24b17e0f01b51fb4813009969859ac6649000d7667e431ae"
+    },
+    "src/chstockdata/vipdoc_history.py": {
+      "git_blob": "1101c438d1a2bf27f39983b845ad083fc3c984f0",
+      "sha256": "c0ff4fc5f65866c5d7d7a62a8aa3c3aa3caac76aece111f047e1ca3e6788cfe3"
+    },
+    "tests/conftest.py": {
+      "git_blob": "b1d8655578364d54b77295cbb1f1c26185dad83d",
+      "sha256": "2f639891ff5cac614ce9d298d83ca70ddac64f42324dc06c555d62bfe395cb21"
+    },
+    "tests/fixtures/block_trades/eastmoney-600519-2025-12-12-sanitized.json": {
+      "git_blob": "41d1247847aadee4558745efabb0c6f59bf7b11c",
+      "sha256": "dc61dd9207c9b976957ae803e6ad491017d5e3f2ee14f524884a02c0a63752da"
+    },
+    "tests/fixtures/market_breadth/real_2026-09-04_close.json": {
+      "git_blob": "33e709112e7e70e48c4ce1f727895a38a07d6eaa",
+      "sha256": "b71496e0255f35ef6293171b3c73f3caad6ec100d5d8b30a47cacb5d0cd7badd"
+    },
+    "tests/fixtures/market_breadth/real_2026-09-07_intraday.json": {
+      "git_blob": "67b29cf7db4e2df214e2df418f824171c0e60918",
+      "sha256": "182c92cf4c814572240f24c607618023a978e1b3e6c1e76544c195be2e425b0f"
+    },
+    "tests/test_astock_cls_v1.py": {
+      "git_blob": "223475daeed32e338a7f8d1c121ba48786bac2d5",
+      "sha256": "3b417d6d48e2354b538ab109f14bccf83e07c8b57ee35d1a8ddba5c4a71ca5a2"
+    },
+    "tests/test_astock_daily_lhb.py": {
+      "git_blob": "0fe2b4fa8148bdb6e86dee0d70e4b054786060ef",
+      "sha256": "ce1fe3eeea27e160e0c2562fb30157436c93cae957fe9094a9b35aac14801e39"
+    },
+    "tests/test_astock_earnings_forecast.py": {
+      "git_blob": "4df94463690dc4344842a203921386392e6be49b",
+      "sha256": "c62efdc752a1e498e3e0f447ce102031a559b00d3fd67fa725ec1194092a0d83"
+    },
+    "tests/test_astock_eastmoney_fix.py": {
+      "git_blob": "36cf643f69c198a7c844c4ae2b26e432630a0236",
+      "sha256": "11615d3375b54851fa0c075423a1b3982a6f699b003294ca6c2979e3a250dad6"
+    },
+    "tests/test_astock_em_post.py": {
+      "git_blob": "7e3d852182b89be95735ab422c008e1866a3106f",
+      "sha256": "f13964dab5cae4629e86ee546bc7b9e3aea0c141c92499ca437931ca986079e5"
+    },
+    "tests/test_astock_financial_yoy_alignment.py": {
+      "git_blob": "0d777d69ae1a2eb207447518911f98e2ac4469cd",
+      "sha256": "8d92a4e9a1d2b50435c0cd40b016c63d43a39b171f8d4d204ead30436f8cb36e"
+    },
+    "tests/test_astock_fundamentals_fix.py": {
+      "git_blob": "439bc530a794e0c4d586efd89ab01820051d6559",
+      "sha256": "08e3be02551b1875f489786563e1ccc05ddc711cd69be7cdb836ccee87a69110"
+    },
+    "tests/test_astock_interface_fix.py": {
+      "git_blob": "30499a0c29f1fd142b8f796e525a65ca26b3865d",
+      "sha256": "9f688b69fb146f0eb99285b0e4cd61fc7aba881746126dafdb388c0584c9e2e5"
+    },
+    "tests/test_astock_kline_vipdoc_chain.py": {
+      "git_blob": "13c8ba528ec28823286eff2d1608cff8c8a5431f",
+      "sha256": "eca1bde1683ab164538767c3410bfd6266ef810bf7c266fe09a2862b22eafe28"
+    },
+    "tests/test_astock_lhb_seat_dimension.py": {
+      "git_blob": "14ec0290db17c0b2bb692f2df03bc2b73ace034f",
+      "sha256": "e3eecb63dfd797a6349ded13f6d04f2899c56262dc0b7df1b1e9ad2d54fb7743"
+    },
+    "tests/test_astock_listing_status.py": {
+      "git_blob": "9abc92481515e3b7c8bf823461f27b1570b3e5d1",
+      "sha256": "fed51ca2d8920a4fa5ac5eb21d925b36b978320f93e283e44e1b59b5fc254adf"
+    },
+    "tests/test_astock_macro_indicators.py": {
+      "git_blob": "09e9473410a7d8842ee59f37ce162e05ae7c5c51",
+      "sha256": "3be2caa42f397ffd3b7bc5eb8b040c7d7acb5e43310dd37afe1837cccb7b19f2"
+    },
+    "tests/test_astock_margin_valuation.py": {
+      "git_blob": "88667a1dc34807c8bdba31fef356118a840f8c37",
+      "sha256": "2253e9ac0daeccac8d6c3af69de26e874ddf6e93222249750296f2843e2d78fa"
+    },
+    "tests/test_astock_pledge_buyback.py": {
+      "git_blob": "4bbe7ea6294d8b70bb68c5444238349a7fe55ad9",
+      "sha256": "e2402bb6bdc42b92b60cccb4ffed8a01ec434f64dedb40f5a130f67d1c848b4e"
+    },
+    "tests/test_astock_push2_source_scan.py": {
+      "git_blob": "d80686901402a76de8fe586d5a4af6aa6148db2e",
+      "sha256": "909e1d3e65733bd4140967e8d7a0eb8cfe82b80fc541b72b2e1a6f8bba2ad619"
+    },
+    "tests/test_astock_quote_fallback.py": {
+      "git_blob": "a4c9bb1eb1257d4277c9091f05d4a64ffe549de3",
+      "sha256": "3f95b7681246412c38395a85cc14d834dd7b336ce5d10716f75d570fe3763191"
+    },
+    "tests/test_astock_research_reports.py": {
+      "git_blob": "f59597bfab0d8cc95b596be53287abf0a864f2ef",
+      "sha256": "6d701f33d4878bf1751874fe62db733941bcc2cd97908abe73021a251284c633"
+    },
+    "tests/test_astock_silent_failure_sentinel.py": {
+      "git_blob": "d63834ff5db9ce2622462c9cf671500933f8bc43",
+      "sha256": "4c41a3180223bcce0aa4defa442359791d1e4916240fdcfbae0d26e8b699a34e"
+    },
+    "tests/test_astock_tdx_fallback.py": {
+      "git_blob": "152b08c9c85502a4aedd9441bdcad60bbfc8d141",
+      "sha256": "eb65cb6193adf1d0dbb79198eae713df0ce02a7745e8159eedf514bb86fafb86"
+    },
+    "tests/test_astock_tencent_quote_fix.py": {
+      "git_blob": "2aa1df89c9922294c6ac6f025868f115ca212cd5",
+      "sha256": "219e60432136b755d6c7f9299a9194a18951bc4dec27675c2e17b85caf754225"
+    },
+    "tests/test_astock_ticker_routing.py": {
+      "git_blob": "62939089e1682c0f46e53b2d4b6d8f166bac44c8",
+      "sha256": "e2301e36eb88cfa7d0bbc358500f40f7bba6d015d37d4185183c17eafeeafb87"
+    },
+    "tests/test_astock_v0221_fix.py": {
+      "git_blob": "6d8869f72e0279149034151527b96737783d3d59",
+      "sha256": "722e8bf07625495aade5aef26d140d1bc5edac6616a4c25b51fa4ac85b563a3f"
+    },
+    "tests/test_board_flow.py": {
+      "git_blob": "bfe94b951c07c201a42340b90d3c22e26c8e14ef",
+      "sha256": "cb882d81c658aef617db40221523fffee16888d5217927264626856caf0960ca"
+    },
+    "tests/test_calendar_consumers.py": {
+      "git_blob": "b1a3cb3a49f7872b76cbaf0a7c4e4bcba2dc9730",
+      "sha256": "1b31967650b904160f4fb54f78ec2b60e7c0f1a8359a0df7bbd8aa52b5d66f84"
+    },
+    "tests/test_chip_distribution.py": {
+      "git_blob": "5dfb6d7bd0f80134bc11115ec8db498570b6c4ce",
+      "sha256": "a69e1d621a09672921d9cd76024476bf5be7463940115428a23635d0884043c7"
+    },
+    "tests/test_data_layer_live_smoke.py": {
+      "git_blob": "ba80b2b5bcbca96782f68fabb40d91e0afcf3f67",
+      "sha256": "67752da57c13b52bc315cacf5df1090769037221262dc7fdf544aae9ddf467b5"
+    },
+    "tests/test_easy_tdx_bridge.py": {
+      "git_blob": "25176faf8b80514626d2b3976baddcf0d56fdb1a",
+      "sha256": "2de5db95d677f9f04aca796fe78240a531b606e32cab1d5fa113bf0c39cf3a7c"
+    },
+    "tests/test_etf_options.py": {
+      "git_blob": "53f5faa4bdfaaffd95245e203013c06d6053c444",
+      "sha256": "f9c29ece26e2e049a2e248e01655052fb3e95d9161382e58f3dfabd7f326181c"
+    },
+    "tests/test_free_block_trades.py": {
+      "git_blob": "1b6608aa7b4204cc5673db71cfacac478957ee9b",
+      "sha256": "6a109dd552acc866a09d5ccb307db76906eb6d288244a34e5c861f11af897aa8"
+    },
+    "tests/test_free_market_breadth.py": {
+      "git_blob": "416532f1299b9a5ca5fd51205342755575538b7a",
+      "sha256": "c86cfe9efec68f6a8f9d118be47691907d326349e5446837703212dc25a9735c"
+    },
+    "tests/test_free_northbound_history.py": {
+      "git_blob": "17931b48af0a21fe9a59124a6343102dccd4a689",
+      "sha256": "0bb05a74d7d7757a95240739b20eb7184e7e47c1c0b581497bfa21dc70e14be4"
+    },
+    "tests/test_fund_corporate_actions.py": {
+      "git_blob": "6ff4df7995deb94e4df49dae6bfb9f34e6db70f3",
+      "sha256": "dbdcd59ff390b96821647603f545a09de9b36d303a5f0b6a2f3929632f720d66"
+    },
+    "tests/test_hot_rank.py": {
+      "git_blob": "815a2df7d2a11431fcf152bd92db8ca3a400ba14",
+      "sha256": "6297669c5b6893f63bd33df9c4d0f50cc797a48859f90c1cea0ef5e478c31a6a"
+    },
+    "tests/test_investor_qa.py": {
+      "git_blob": "36e8d5e522bd2629859c3b5b7277b7e38212059e",
+      "sha256": "9b46589569e3e0aba5c855374d059908a09a09bfefb5400f238dada5065ef1cc"
+    },
+    "tests/test_limit_up.py": {
+      "git_blob": "d39f9e26bf6bd6e202e951c2c0c881b640ae16a2",
+      "sha256": "00f29749b5fc1ff33ee4241a2a5976ecfc2a9a6835b2743e4dc3c05b80ca6299"
+    },
+    "tests/test_mootdx_server_selection.py": {
+      "git_blob": "ea341a8e7377a9663468f34441decfcd191f20a7",
+      "sha256": "925841d100c4cf72759a49b01ed23d765707610fe968f02d1ce706a3cf0df787"
+    },
+    "tests/test_refresh_vipdoc_history.py": {
+      "git_blob": "52a8bc3c385cb6fc2d6ccb4fd6ef83cd613f39b2",
+      "sha256": "8d12d3ac27833a56b28dd8894c4ccfab4abff8fbe0bd0cdc31bdcb3caa6d405d"
+    },
+    "tests/test_tdx_bridge_health.py": {
+      "git_blob": "8869f8c805a15e94e10f92e86616842e662eb7c4",
+      "sha256": "a41604ceb8adaab95166eacf0fc8e2f51cd08cdae403477216a0dad0bb20a5b5"
+    },
+    "tests/test_tdx_request_hygiene.py": {
+      "git_blob": "709094969ec0e8886afbc13a5e608f227676b288",
+      "sha256": "afe8c499c007cb33b705aa4cd6a23feb92471ec7860d1e9e45ca07c2df06cd17"
+    },
+    "tests/test_vipdoc_history.py": {
+      "git_blob": "445057ab2045de78d0d6900017a538645d967caf",
+      "sha256": "dd49d6746bb26e2c450ef1f84ac54d20bea75fc58b705e817700e14f99f2a424"
+    }
+  },
+  "candidate_files": {
+    "src/chstockdata/__init__.py": "1df1d07ce517fa0d466e525d648d92c4397c0f6def9f0e7f8e1ae130ed82540c",
+    "src/chstockdata/_easy_tdx_bridge.py": "071562128916eaae80607f33ec841dead0d006b9ed8addc5448cb2fadc91ea3f",
+    "src/chstockdata/a_stock.py": "3eb18bfa41a76e8263d870fe849941ef1d5c71d4c21948274f53ac0f6f06d89a",
+    "src/chstockdata/adjusted_bars.py": "068be60a95c311ad326764dd151d9891038256db83227e936c57dfa8121308bc",
+    "src/chstockdata/block_trades.py": "517b513bedccb4edb91264a494f1c22ff348c359e6284180da8e49f2223cfdeb",
+    "src/chstockdata/board_flow.py": "8beeca253d1f270bf34d8678296a998b236c1c4a057c2dad41511bf4bde2cead",
+    "src/chstockdata/capabilities.py": "6bc174f3a4f860f98f9125fd54afe2c1a0132528f3f4618950409ed3928369e0",
+    "src/chstockdata/chips.py": "2d3baccc8128f9feb9e36afcca2671f32161b890daebb88c8f5c5dc3d3caafb9",
+    "src/chstockdata/config.py": "3ff725216cae899b0f02146ea228c9a0856f9c746a735ff4f6fe74f447fc9050",
+    "src/chstockdata/corporate_actions.py": "1c1cf8d72e2b1c07da3a38bec750ceaf4e5ccfd971037c6fad30b05acad63818",
+    "src/chstockdata/daily_bars.py": "96d0233ba30b13568bb99f115efc16cb939efc27d33867403367b84e8c6039db",
+    "src/chstockdata/delisting.py": "5401a82cf97c9c1455522cda2525ab777c222d4a9c196dc2c41b8052902ffc38",
+    "src/chstockdata/etf_options.py": "b896a49c96309af2bc3f8462157c24fa3ad7c050e1d83966e837f57d478c83d6",
+    "src/chstockdata/fetch_result.py": "91a40d5376868f081d793bb989b0050fe852e64e79fcd8505817c1219c4242e5",
+    "src/chstockdata/hot_rank.py": "88519f6c7f74b6f1d927ecd92be8e89a5b491656c2c95ea4826334c69275b72a",
+    "src/chstockdata/investor_qa.py": "ddff2f1089a8aa503d525b5242d0fa06af8d9f3967566fbd38ab535843c6ebb0",
+    "src/chstockdata/limit_up.py": "b2ea76d76207b8d3e58905e747f925c28de189f13e2f376c0b7e03148e1f4316",
+    "src/chstockdata/market_breadth.py": "4fd08e6239a4424b2f86da6ee334bb17190f50bd2434a787d53291101b398c0c",
+    "src/chstockdata/mcp_server.py": "00e159ac1347bf6db06b29943cdfd1da7551c7284f2828a2b7dddeb5d19b9921",
+    "src/chstockdata/northbound_data.py": "ecf6a95086410612605e208916e9b510e125c4547367811c4a8e7b31a18308a3",
+    "src/chstockdata/northbound_store.py": "41e9df444a7e0dbe20a5a97dd0b99001ee151d84475425b590630ccc07ca75c2",
+    "src/chstockdata/opening_evidence.py": "8e48f46373f974f665807dc3e2db8d7b8520588b699c7bce9fbf8c20986061a8",
+    "src/chstockdata/point_in_time.py": "0d4b29e72065a54b1d23094cd02b3374ebf8295a45458d8f81c5e3d2d28de499",
+    "src/chstockdata/policy_news.py": "9630b70b74c3efd29d45f990b30cd9e516299e5fa179277f71515416a50cbc94",
+    "src/chstockdata/policy_news_models.py": "fd5511fc156a570130649899f8f92bde4fda00c6394f6df6c5ff35a88f538470",
+    "src/chstockdata/policy_news_registry.py": "aca68a40bd15f65f9542cc5fcc13bb79043cfb5dbd6e9b6cfcf197f4f6a2e7a1",
+    "src/chstockdata/policy_news_sources.py": "8bbb8dd4e7f5f819832c8a2f91d9040bef879887b515f7ed3e0e18ec405efbe4",
+    "src/chstockdata/provenance.py": "f1ce13dc4fcfa7147bd1ee3f9ecb83785f4fd3f3a8587c59f39d8bcca0897c95",
+    "src/chstockdata/quote_chain.py": "21659d3800186c910acf98fca29537d6d66c31ebdf0d5629df074614c9c56705",
+    "src/chstockdata/refresh_vipdoc.py": "f92768007f13a690bbe39177f87100ba9c07f516f2fae400c795a921c19ca814",
+    "src/chstockdata/routing_observation.py": "0fafe036ccf3f6e73193de14bd11d539759bad23b36e4050e3a2c350bb06c2da",
+    "src/chstockdata/source_context.py": "2f157d9cf4dd096e409368daabe4992656450cbd9d380adf58f02f0253066eb8",
+    "src/chstockdata/suspension.py": "5f06f02d029d0ad20bee7ea6d9cda711cc19d55046ae6700c8b8b522ddba69db",
+    "src/chstockdata/tdx_bridge.py": "f520e2d992e07b90dab432f99c8c2419388d67bf991afbd1c405067f41b00610",
+    "src/chstockdata/tradability.py": "2f46729bf0e28952b4e912513ac473f08d685964a27c372dd502e3d7a802555a",
+    "src/chstockdata/trading_calendar.py": "ad2d0fe81f479f8316e6d1660f6385822d0c385b81ead518a5fd0508020d4c2a",
+    "src/chstockdata/utils.py": "f280cececda3c4e82c1366a10004aa791037133925ff969207467226eca4a02d",
+    "src/chstockdata/vendor_errors.py": "fedd9ad016eaeb8ae6896082b4d9a18f54d9899241be280f957965a92ae1db02",
+    "src/chstockdata/vipdoc_history.py": "712cbfc69228aaa580f47a9874958f3a8a1896ea0610828148aeb5b8a94e9dc8",
+    "tests/conftest.py": "bc758809a12251731566b8f40a15a3ae2a77dc98a497fb4bc69767fee62232db",
+    "tests/test_astock_cls_v1.py": "3b417d6d48e2354b538ab109f14bccf83e07c8b57ee35d1a8ddba5c4a71ca5a2",
+    "tests/test_astock_daily_lhb.py": "ce1fe3eeea27e160e0c2562fb30157436c93cae957fe9094a9b35aac14801e39",
+    "tests/test_astock_earnings_forecast.py": "c62efdc752a1e498e3e0f447ce102031a559b00d3fd67fa725ec1194092a0d83",
+    "tests/test_astock_eastmoney_fix.py": "11615d3375b54851fa0c075423a1b3982a6f699b003294ca6c2979e3a250dad6",
+    "tests/test_astock_em_post.py": "f13964dab5cae4629e86ee546bc7b9e3aea0c141c92499ca437931ca986079e5",
+    "tests/test_astock_financial_yoy_alignment.py": "0e47e1df51e7cb84d32c4024d873089f3ffc4fa97e496f306621c1b69b816520",
+    "tests/test_astock_fundamentals_fix.py": "53fea4c2f98856038a31c5af9de22e910d841a2cf905d7bf806ff4c3c094d4d6",
+    "tests/test_astock_interface_fix.py": "9f688b69fb146f0eb99285b0e4cd61fc7aba881746126dafdb388c0584c9e2e5",
+    "tests/test_astock_kline_vipdoc_chain.py": "84eb30b77cc06df3eea3e65e039921afccb65df65d49e1a9ca8730da0349517a",
+    "tests/test_astock_lhb_seat_dimension.py": "e3eecb63dfd797a6349ded13f6d04f2899c56262dc0b7df1b1e9ad2d54fb7743",
+    "tests/test_astock_listing_status.py": "624a6e723058f5e88425b4c47c88f53907865e1a7c0d7f41b6e2a9ddcdf75d46",
+    "tests/test_astock_macro_indicators.py": "3be2caa42f397ffd3b7bc5eb8b040c7d7acb5e43310dd37afe1837cccb7b19f2",
+    "tests/test_astock_margin_valuation.py": "2253e9ac0daeccac8d6c3af69de26e874ddf6e93222249750296f2843e2d78fa",
+    "tests/test_astock_pledge_buyback.py": "e2402bb6bdc42b92b60cccb4ffed8a01ec434f64dedb40f5a130f67d1c848b4e",
+    "tests/test_astock_push2_source_scan.py": "909e1d3e65733bd4140967e8d7a0eb8cfe82b80fc541b72b2e1a6f8bba2ad619",
+    "tests/test_astock_quote_fallback.py": "601d48e1b1e9bc8a62d7c58b968696ff3cc2e7a083c90282d292c1b9fde98f91",
+    "tests/test_astock_research_reports.py": "6d701f33d4878bf1751874fe62db733941bcc2cd97908abe73021a251284c633",
+    "tests/test_astock_silent_failure_sentinel.py": "3c28416f3d1342fee045fc6d0af943e88679a994bb06c7dab83a2e61acca3b31",
+    "tests/test_astock_tdx_fallback.py": "eb65cb6193adf1d0dbb79198eae713df0ce02a7745e8159eedf514bb86fafb86",
+    "tests/test_astock_tencent_quote_fix.py": "219e60432136b755d6c7f9299a9194a18951bc4dec27675c2e17b85caf754225",
+    "tests/test_astock_ticker_routing.py": "e2301e36eb88cfa7d0bbc358500f40f7bba6d015d37d4185183c17eafeeafb87",
+    "tests/test_astock_v0221_fix.py": "722e8bf07625495aade5aef26d140d1bc5edac6616a4c25b51fa4ac85b563a3f",
+    "tests/test_board_flow.py": "cb882d81c658aef617db40221523fffee16888d5217927264626856caf0960ca",
+    "tests/test_cached_ohlcv_structured.py": "ee759dda79db33114d1642d6a9903d35c81bd8287387f60d49a509bad489fd7e",
+    "tests/test_calendar_consumers.py": "1b31967650b904160f4fb54f78ec2b60e7c0f1a8359a0df7bbd8aa52b5d66f84",
+    "tests/test_capability_isolation.py": "968c7aeaea5cc1b75bd3a77d0c4f2d50172054db1f781068037c9f5abc4e816e",
+    "tests/test_chip_distribution.py": "a69e1d621a09672921d9cd76024476bf5be7463940115428a23635d0884043c7",
+    "tests/test_config_and_warmup_regression.py": "0f82ea4cbbdd062053ecf9788d832f5c3fdd9ad2f83623af02563f8c5e507cea",
+    "tests/test_daily_bars_contract.py": "d2634f9d30c07e1fed14a70c2abf42c310f1774e15c9a7ef3a9cba7875fa5690",
+    "tests/test_daily_bars_legacy_compat.py": "9e54c8d2b0d00155b198ba9f7b102e3d0e715f6bb9a9246120422af32c97f55c",
+    "tests/test_daily_bars_routing.py": "e1b5102d62d7e3af69a5da536ecdec823744b47673ec663c6c69539b58fd2170",
+    "tests/test_daily_bars_schema.py": "f9ff124e4e0bd2743c55aa0030587bf7b8b824e391e619ad17bacd059d7eb952",
+    "tests/test_data_layer_live_smoke.py": "67752da57c13b52bc315cacf5df1090769037221262dc7fdf544aae9ddf467b5",
+    "tests/test_delisting_structured.py": "e4db6147c0a37077153ecd4c82404f5711bd43db8a7da9f075fb1e63a063461d",
+    "tests/test_easy_tdx_bridge.py": "2de5db95d677f9f04aca796fe78240a531b606e32cab1d5fa113bf0c39cf3a7c",
+    "tests/test_etf_options.py": "f9c29ece26e2e049a2e248e01655052fb3e95d9161382e58f3dfabd7f326181c",
+    "tests/test_fetch_result_core.py": "d61aed7e2a80f52a4cbf051f447c3b274a3689ac744613768a6e5b4e5d5cee77",
+    "tests/test_free_block_trades.py": "6a109dd552acc866a09d5ccb307db76906eb6d288244a34e5c861f11af897aa8",
+    "tests/test_free_market_breadth.py": "c86cfe9efec68f6a8f9d118be47691907d326349e5446837703212dc25a9735c",
+    "tests/test_free_northbound_history.py": "0bb05a74d7d7757a95240739b20eb7184e7e47c1c0b581497bfa21dc70e14be4",
+    "tests/test_fund_corporate_actions.py": "9c64f3895e931eaeebe95a6961d17b5f966348aeeb93cc8f9dd18b03de5f2706",
+    "tests/test_historical_opening_evidence.py": "7865b3c6721ebd01b4e9dcedcdc326312b977d41d50b979bdfbc9c7b78aeb804",
+    "tests/test_hot_rank.py": "6297669c5b6893f63bd33df9c4d0f50cc797a48859f90c1cea0ef5e478c31a6a",
+    "tests/test_investor_qa.py": "9b46589569e3e0aba5c855374d059908a09a09bfefb5400f238dada5065ef1cc",
+    "tests/test_limit_up.py": "00f29749b5fc1ff33ee4241a2a5976ecfc2a9a6835b2743e4dc3c05b80ca6299",
+    "tests/test_live_capability_probes.py": "3cf75349a29d6c216d324356580a11b1678341571ad8439ed5649c26c36a17cf",
+    "tests/test_market_date.py": "843536683c14e4ac0701c6967b73e905ed38bdaea3446534c05890f962742e68",
+    "tests/test_mcp_server.py": "44c199a02bf319b1f010d035aff73e94f02eb09ea55a5edc10fcb017dfe92f72",
+    "tests/test_mootdx_capability_health.py": "fd929cf307c34fb514e0c848371d72233d7f7da6476c898f1e3f130e12d2d37c",
+    "tests/test_mootdx_capability_isolation.py": "1ef6a22b33a62adb2e003897b81d65ec1204d7265b840a189f6394a3c821e6d6",
+    "tests/test_mootdx_server_selection.py": "09766996fb79cccab8c417608fbd004747db1c36dca926e108b6c768f4db73cc",
+    "tests/test_refresh_vipdoc_history.py": "8d12d3ac27833a56b28dd8894c4ccfab4abff8fbe0bd0cdc31bdcb3caa6d405d",
+    "tests/test_release_version.py": "a2320a815a0f6652ebf8b1fccdfdd7659389ea5c41f27ca459c02f2474882aec",
+    "tests/test_routing_observation.py": "aab4ba6f9860cb44748e0d13ccc80119654f43d7fa640d7566d8eb5ca7752710",
+    "tests/test_structured_semantics_phase11.py": "85953d446df79aa489d7c04b4f9a24ee68b332e515965796fefda6d6d7d5c604",
+    "tests/test_suspension_source_semantics.py": "8697836874ba39b6765af4eb38a1517a51d4e0cc1a2d7074060ac47f0cf3bdd0",
+    "tests/test_suspension_structured.py": "4e5d26b477d6042db5a2cab2f5dfa254b7c96628a43c339ef592e030f397ae71",
+    "tests/test_tdx_bridge_health.py": "a41604ceb8adaab95166eacf0fc8e2f51cd08cdae403477216a0dad0bb20a5b5",
+    "tests/test_tdx_request_hygiene.py": "afe8c499c007cb33b705aa4cd6a23feb92471ec7860d1e9e45ca07c2df06cd17",
+    "tests/test_tradability.py": "3a28ee0d5bafd5587540063f1dec5745ccd01047853539013230f0331b6b49cc",
+    "tests/test_trading_calendar_structured.py": "053efbc6ade24f861b5c206a8b230452952ea28eb36bb5fe80522f8f5ef68001",
+    "tests/test_vipdoc_history.py": "dd49d6746bb26e2c450ef1f84ac54d20bea75fc58b705e817700e14f99f2a424",
+    "tests/test_vipdoc_price_scale.py": "2a1d352ba09def2cb752a339d81b79b1ac11035a4ac1b47c25a2dc753cf9c90b"
+  },
+  "added_line_ranges": {
+    "src/chstockdata/__init__.py": [
+      [
+        3,
+        7
+      ],
+      [
+        101,
+        107
+      ],
+      [
+        138,
+        171
+      ],
+      [
+        214,
+        215
+      ],
+      [
+        225,
+        242
+      ]
+    ],
+    "src/chstockdata/a_stock.py": [
+      [
+        203,
+        206
+      ],
+      [
+        214,
+        214
+      ],
+      [
+        218,
+        220
+      ],
+      [
+        271,
+        279
+      ],
+      [
+        288,
+        288
+      ],
+      [
+        296,
+        313
+      ],
+      [
+        535,
+        548
+      ],
+      [
+        708,
+        715
+      ],
+      [
+        807,
+        881
+      ],
+      [
+        888,
+        903
+      ],
+      [
+        908,
+        908
+      ],
+      [
+        912,
+        915
+      ],
+      [
+        917,
+        919
+      ],
+      [
+        930,
+        936
+      ],
+      [
+        938,
+        952
+      ],
+      [
+        986,
+        986
+      ],
+      [
+        1001,
+        1003
+      ],
+      [
+        1018,
+        1018
+      ],
+      [
+        1030,
+        1031
+      ],
+      [
+        1036,
+        1036
+      ],
+      [
+        1039,
+        1052
+      ],
+      [
+        1059,
+        1059
+      ],
+      [
+        1063,
+        1063
+      ],
+      [
+        1078,
+        1081
+      ],
+      [
+        1086,
+        1086
+      ],
+      [
+        1089,
+        1089
+      ],
+      [
+        1094,
+        1109
+      ],
+      [
+        1113,
+        1113
+      ],
+      [
+        1115,
+        1115
+      ],
+      [
+        1118,
+        1123
+      ],
+      [
+        1131,
+        1179
+      ],
+      [
+        1189,
+        1194
+      ],
+      [
+        1197,
+        1197
+      ],
+      [
+        1203,
+        1212
+      ],
+      [
+        1215,
+        1215
+      ],
+      [
+        1222,
+        1231
+      ],
+      [
+        1237,
+        1240
+      ],
+      [
+        1246,
+        1249
+      ],
+      [
+        1251,
+        1251
+      ],
+      [
+        1411,
+        1414
+      ],
+      [
+        1417,
+        1422
+      ],
+      [
+        1516,
+        1529
+      ],
+      [
+        1531,
+        1532
+      ],
+      [
+        1536,
+        1562
+      ],
+      [
+        1564,
+        1564
+      ],
+      [
+        1566,
+        1570
+      ],
+      [
+        2270,
+        2272
+      ],
+      [
+        2326,
+        2326
+      ],
+      [
+        2357,
+        2362
+      ],
+      [
+        2367,
+        2373
+      ],
+      [
+        2492,
+        2498
+      ],
+      [
+        2500,
+        2501
+      ],
+      [
+        2505,
+        2505
+      ],
+      [
+        2507,
+        2507
+      ],
+      [
+        2509,
+        2509
+      ],
+      [
+        2518,
+        2518
+      ],
+      [
+        2521,
+        2604
+      ],
+      [
+        2606,
+        2606
+      ],
+      [
+        2608,
+        2612
+      ],
+      [
+        2628,
+        2653
+      ],
+      [
+        2655,
+        2662
+      ],
+      [
+        2666,
+        2666
+      ],
+      [
+        2673,
+        2682
+      ],
+      [
+        2815,
+        2833
+      ],
+      [
+        2850,
+        2852
+      ],
+      [
+        2979,
+        2984
+      ],
+      [
+        2986,
+        2990
+      ],
+      [
+        2992,
+        2995
+      ],
+      [
+        5701,
+        5702
+      ],
+      [
+        5839,
+        5840
+      ],
+      [
+        5842,
+        5842
+      ],
+      [
+        5849,
+        5849
+      ],
+      [
+        5851,
+        5853
+      ],
+      [
+        5855,
+        5855
+      ],
+      [
+        5857,
+        5861
+      ],
+      [
+        5863,
+        5863
+      ],
+      [
+        5865,
+        5866
+      ],
+      [
+        5871,
+        5881
+      ],
+      [
+        6093,
+        6094
+      ],
+      [
+        6096,
+        6096
+      ]
+    ],
+    "src/chstockdata/adjusted_bars.py": [
+      [
+        3,
+        4
+      ],
+      [
+        567,
+        569
+      ],
+      [
+        586,
+        588
+      ]
+    ],
+    "src/chstockdata/capabilities.py": [
+      [
+        1,
+        2147483647
+      ]
+    ],
+    "src/chstockdata/config.py": [
+      [
+        109,
+        130
+      ],
+      [
+        140,
+        146
+      ],
+      [
+        161,
+        167
+      ]
+    ],
+    "src/chstockdata/daily_bars.py": [
+      [
+        1,
+        2147483647
+      ]
+    ],
+    "src/chstockdata/delisting.py": [
+      [
+        1,
+        2147483647
+      ]
+    ],
+    "src/chstockdata/fetch_result.py": [
+      [
+        1,
+        2147483647
+      ]
+    ],
+    "src/chstockdata/mcp_server.py": [
+      [
+        24,
+        25
+      ],
+      [
+        85,
+        109
+      ],
+      [
+        112,
+        112
+      ]
+    ],
+    "src/chstockdata/opening_evidence.py": [
+      [
+        1,
+        2147483647
+      ]
+    ],
+    "src/chstockdata/quote_chain.py": [
+      [
+        1,
+        2147483647
+      ]
+    ],
+    "src/chstockdata/routing_observation.py": [
+      [
+        1,
+        2147483647
+      ]
+    ],
+    "src/chstockdata/suspension.py": [
+      [
+        1,
+        2147483647
+      ]
+    ],
+    "src/chstockdata/tradability.py": [
+      [
+        1,
+        2147483647
+      ]
+    ],
+    "src/chstockdata/trading_calendar.py": [
+      [
+        27,
+        28
+      ],
+      [
+        35,
+        52
+      ],
+      [
+        63,
+        75
+      ],
+      [
+        91,
+        91
+      ],
+      [
+        139,
+        139
+      ],
+      [
+        159,
+        318
+      ],
+      [
+        326,
+        328
+      ],
+      [
+        368,
+        370
+      ],
+      [
+        381,
+        383
+      ],
+      [
+        405,
+        533
+      ],
+      [
+        555,
+        615
+      ],
+      [
+        618,
+        619
+      ],
+      [
+        621,
+        621
+      ],
+      [
+        624,
+        629
+      ],
+      [
+        631,
+        656
+      ],
+      [
+        666,
+        671
+      ],
+      [
+        674,
+        674
+      ],
+      [
+        684,
+        756
+      ],
+      [
+        775,
+        778
+      ],
+      [
+        832,
+        833
+      ],
+      [
+        835,
+        836
+      ],
+      [
+        842,
+        842
+      ]
+    ],
+    "src/chstockdata/vendor_errors.py": [
+      [
+        28,
+        35
+      ],
+      [
+        123,
+        150
+      ],
+      [
+        159,
+        159
+      ]
+    ],
+    "src/chstockdata/vipdoc_history.py": [
+      [
+        9,
+        12
+      ],
+      [
+        48,
+        48
+      ],
+      [
+        56,
+        67
+      ],
+      [
+        101,
+        102
+      ],
+      [
+        108,
+        108
+      ],
+      [
+        132,
+        140
+      ],
+      [
+        144,
+        144
+      ]
+    ],
+    "tests/conftest.py": [
+      [
+        40,
+        40
+      ],
+      [
+        43,
+        59
+      ],
+      [
+        70,
+        73
+      ],
+      [
+        77,
+        84
+      ],
+      [
+        87,
+        93
+      ],
+      [
+        95,
+        95
+      ],
+      [
+        110,
+        110
+      ],
+      [
+        119,
+        125
+      ]
+    ],
+    "tests/test_astock_financial_yoy_alignment.py": [
+      [
+        223,
+        223
+      ]
+    ],
+    "tests/test_astock_fundamentals_fix.py": [
+      [
+        57,
+        57
+      ]
+    ],
+    "tests/test_astock_kline_vipdoc_chain.py": [
+      [
+        58,
+        63
+      ],
+      [
+        66,
+        71
+      ],
+      [
+        73,
+        73
+      ],
+      [
+        78,
+        78
+      ]
+    ],
+    "tests/test_astock_listing_status.py": [
+      [
+        12,
+        12
+      ],
+      [
+        17,
+        24
+      ]
+    ],
+    "tests/test_astock_quote_fallback.py": [
+      [
+        202,
+        202
+      ],
+      [
+        220,
+        220
+      ]
+    ],
+    "tests/test_astock_silent_failure_sentinel.py": [
+      [
+        25,
+        27
+      ],
+      [
+        73,
+        75
+      ]
+    ],
+    "tests/test_cached_ohlcv_structured.py": [
+      [
+        1,
+        2147483647
+      ]
+    ],
+    "tests/test_capability_isolation.py": [
+      [
+        1,
+        2147483647
+      ]
+    ],
+    "tests/test_config_and_warmup_regression.py": [
+      [
+        1,
+        2147483647
+      ]
+    ],
+    "tests/test_daily_bars_contract.py": [
+      [
+        1,
+        2147483647
+      ]
+    ],
+    "tests/test_daily_bars_legacy_compat.py": [
+      [
+        1,
+        2147483647
+      ]
+    ],
+    "tests/test_daily_bars_routing.py": [
+      [
+        1,
+        2147483647
+      ]
+    ],
+    "tests/test_daily_bars_schema.py": [
+      [
+        1,
+        2147483647
+      ]
+    ],
+    "tests/test_delisting_structured.py": [
+      [
+        1,
+        2147483647
+      ]
+    ],
+    "tests/test_fetch_result_core.py": [
+      [
+        1,
+        2147483647
+      ]
+    ],
+    "tests/test_fund_corporate_actions.py": [
+      [
+        155,
+        156
+      ]
+    ],
+    "tests/test_historical_opening_evidence.py": [
+      [
+        1,
+        2147483647
+      ]
+    ],
+    "tests/test_live_capability_probes.py": [
+      [
+        1,
+        2147483647
+      ]
+    ],
+    "tests/test_market_date.py": [
+      [
+        1,
+        2147483647
+      ]
+    ],
+    "tests/test_mcp_server.py": [
+      [
+        1,
+        2147483647
+      ]
+    ],
+    "tests/test_mootdx_capability_health.py": [
+      [
+        1,
+        2147483647
+      ]
+    ],
+    "tests/test_mootdx_capability_isolation.py": [
+      [
+        1,
+        2147483647
+      ]
+    ],
+    "tests/test_mootdx_server_selection.py": [
+      [
+        158,
+        158
+      ],
+      [
+        160,
+        160
+      ]
+    ],
+    "tests/test_release_version.py": [
+      [
+        1,
+        2147483647
+      ]
+    ],
+    "tests/test_routing_observation.py": [
+      [
+        1,
+        2147483647
+      ]
+    ],
+    "tests/test_structured_semantics_phase11.py": [
+      [
+        1,
+        2147483647
+      ]
+    ],
+    "tests/test_suspension_source_semantics.py": [
+      [
+        1,
+        2147483647
+      ]
+    ],
+    "tests/test_suspension_structured.py": [
+      [
+        1,
+        2147483647
+      ]
+    ],
+    "tests/test_tradability.py": [
+      [
+        1,
+        2147483647
+      ]
+    ],
+    "tests/test_trading_calendar_structured.py": [
+      [
+        1,
+        2147483647
+      ]
+    ],
+    "tests/test_vipdoc_price_scale.py": [
+      [
+        1,
+        2147483647
+      ]
+    ]
+  },
+  "runner_sha256": "b1ca096478becc287dfe206f92f677a7a8c15f054b7c5ec7f1df124fdcf361a6",
+  "script_sha256": "997095bd3ac678d951c1c6cda887e9f60d59d5e3888f83c1291deff830efdcf2"
+}

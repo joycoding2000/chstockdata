@@ -1,0 +1,128 @@
+[
+  {
+    "symbol": "510300",
+    "scope": "LOCAL_REPLAY_OF_ACTUAL_LIVE_INPUTS_ONLY",
+    "original_tuple_equals_replay": false,
+    "content_digests_equal": true,
+    "source_bar_dates": [
+      "2026-09-08",
+      "2026-09-09",
+      "2026-09-10",
+      "2026-09-11"
+    ],
+    "replay_bar_dates": [
+      "2026-09-10",
+      "2026-09-09",
+      "2026-09-08",
+      "2026-09-11"
+    ],
+    "result": "FAIL",
+    "exception_type": "AssertionError",
+    "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\evidence\\r21-step3\\reproduce_live_engine.py\", line 36, in <module>\n    item[\"proof\"] = execution_proof(source_order.daily_bars[0].instrument_id,\n                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\live_qualification.py\", line 203, in execution_proof\n    assert loaded == snapshot and replay == dataset\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n"
+  },
+  {
+    "symbol": "159915",
+    "scope": "LOCAL_REPLAY_OF_ACTUAL_LIVE_INPUTS_ONLY",
+    "original_tuple_equals_replay": false,
+    "content_digests_equal": true,
+    "source_bar_dates": [
+      "2026-09-08",
+      "2026-09-09",
+      "2026-09-10",
+      "2026-09-11"
+    ],
+    "replay_bar_dates": [
+      "2026-09-09",
+      "2026-09-10",
+      "2026-09-08",
+      "2026-09-11"
+    ],
+    "result": "FAIL",
+    "exception_type": "AssertionError",
+    "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\evidence\\r21-step3\\reproduce_live_engine.py\", line 36, in <module>\n    item[\"proof\"] = execution_proof(source_order.daily_bars[0].instrument_id,\n                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\live_qualification.py\", line 203, in execution_proof\n    assert loaded == snapshot and replay == dataset\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n"
+  },
+  {
+    "symbol": "518880",
+    "scope": "LOCAL_REPLAY_OF_ACTUAL_LIVE_INPUTS_ONLY",
+    "original_tuple_equals_replay": false,
+    "content_digests_equal": true,
+    "source_bar_dates": [
+      "2026-09-08",
+      "2026-09-09",
+      "2026-09-10",
+      "2026-09-11"
+    ],
+    "replay_bar_dates": [
+      "2026-09-08",
+      "2026-09-10",
+      "2026-09-09",
+      "2026-09-11"
+    ],
+    "result": "FAIL",
+    "exception_type": "AssertionError",
+    "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\evidence\\r21-step3\\reproduce_live_engine.py\", line 36, in <module>\n    item[\"proof\"] = execution_proof(source_order.daily_bars[0].instrument_id,\n                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\live_qualification.py\", line 203, in execution_proof\n    assert loaded == snapshot and replay == dataset\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n"
+  },
+  {
+    "symbol": "511010",
+    "scope": "LOCAL_REPLAY_OF_ACTUAL_LIVE_INPUTS_ONLY",
+    "original_tuple_equals_replay": false,
+    "content_digests_equal": true,
+    "source_bar_dates": [
+      "2026-09-08",
+      "2026-09-09",
+      "2026-09-10",
+      "2026-09-11"
+    ],
+    "replay_bar_dates": [
+      "2026-09-10",
+      "2026-09-08",
+      "2026-09-11",
+      "2026-09-09"
+    ],
+    "result": "FAIL",
+    "exception_type": "AssertionError",
+    "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\evidence\\r21-step3\\reproduce_live_engine.py\", line 36, in <module>\n    item[\"proof\"] = execution_proof(source_order.daily_bars[0].instrument_id,\n                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\live_qualification.py\", line 203, in execution_proof\n    assert loaded == snapshot and replay == dataset\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n"
+  },
+  {
+    "symbol": "513100",
+    "scope": "LOCAL_REPLAY_OF_ACTUAL_LIVE_INPUTS_ONLY",
+    "original_tuple_equals_replay": false,
+    "content_digests_equal": true,
+    "source_bar_dates": [
+      "2026-09-08",
+      "2026-09-09",
+      "2026-09-10",
+      "2026-09-11"
+    ],
+    "replay_bar_dates": [
+      "2026-09-09",
+      "2026-09-08",
+      "2026-09-10",
+      "2026-09-11"
+    ],
+    "result": "FAIL",
+    "exception_type": "AssertionError",
+    "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\evidence\\r21-step3\\reproduce_live_engine.py\", line 36, in <module>\n    item[\"proof\"] = execution_proof(source_order.daily_bars[0].instrument_id,\n                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\live_qualification.py\", line 203, in execution_proof\n    assert loaded == snapshot and replay == dataset\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n"
+  },
+  {
+    "symbol": "159509",
+    "scope": "LOCAL_REPLAY_OF_ACTUAL_LIVE_INPUTS_ONLY",
+    "original_tuple_equals_replay": false,
+    "content_digests_equal": true,
+    "source_bar_dates": [
+      "2026-09-08",
+      "2026-09-09",
+      "2026-09-10",
+      "2026-09-11"
+    ],
+    "replay_bar_dates": [
+      "2026-09-10",
+      "2026-09-09",
+      "2026-09-11",
+      "2026-09-08"
+    ],
+    "result": "FAIL",
+    "exception_type": "AssertionError",
+    "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\evidence\\r21-step3\\reproduce_live_engine.py\", line 36, in <module>\n    item[\"proof\"] = execution_proof(source_order.daily_bars[0].instrument_id,\n                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\live_qualification.py\", line 203, in execution_proof\n    assert loaded == snapshot and replay == dataset\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n"
+  }
+]

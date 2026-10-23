@@ -1,0 +1,70 @@
+[
+  {
+    "name": "tdx-official-vipdata",
+    "url": "https://www.tdx.com.cn/article/vipdata.html",
+    "params": null,
+    "retrieved_at": "2026-10-09T13:03:34.304268+00:00",
+    "http_status": 200,
+    "content_type": "text/html",
+    "bytes": 25376,
+    "sha256": "92b455e0e5eb03637eb55c98514a3f392e071bb1bab1d7b639d9ca9919de0c61"
+  },
+  {
+    "name": "tdx-official-realtime",
+    "url": "https://help.tdx.com.cn/quant/docs/markdown/mindoc-1hjbidnohpjn4/mindoc-1hlir5r0t9hgc.html",
+    "params": null,
+    "retrieved_at": "2026-10-09T13:03:34.626496+00:00",
+    "http_status": 200,
+    "content_type": "text/html",
+    "bytes": 141136,
+    "sha256": "c9051b9d6907e70620b8c2efb57641968b4a9843e35286ce0a25fabb36c077b6"
+  },
+  {
+    "name": "sse-suspend",
+    "url": "https://static.sse.com.cn/disclosure/listedinfo/announcement/c/new/2026-08-29/688432_20260829_8CDF.pdf",
+    "params": null,
+    "retrieved_at": "2026-10-09T13:03:37.211086+00:00",
+    "http_status": 200,
+    "content_type": "text/html; charset=utf-8",
+    "bytes": 7373,
+    "sha256": "06da10bc588928264399f17d7717d0fe036da8e6bf1d3f55a7ed000c8dc471e9"
+  },
+  {
+    "name": "vanke-issuer-history",
+    "url": "https://static.cninfo.com.cn/finalpage/2016-07-02/1202445845.PDF",
+    "params": null,
+    "retrieved_at": "2026-10-09T13:03:37.528586+00:00",
+    "http_status": 200,
+    "content_type": "application/pdf",
+    "bytes": 1343906,
+    "sha256": "d1e3f6de50f64b5fda46a93b39a28b0573b3541e85e98e2107fdb8f361c818f3"
+  },
+  {
+    "name": "vanke-fund-disclosure",
+    "url": "https://static.cninfo.com.cn/finalpage/2016-08-29/1202629464.PDF",
+    "params": null,
+    "retrieved_at": "2026-10-09T13:03:40.391124+00:00",
+    "http_status": 200,
+    "content_type": "application/pdf",
+    "bytes": 1388060,
+    "sha256": "3bd3084bae486a56ba03cc55e45df43573fa6da6063017341fe0bd4ca06e94ce"
+  },
+  {
+    "name": "sse-resume-query",
+    "url": "https://query.sse.com.cn/security/stock/queryCompanyBulletin.do",
+    "params": {
+      "isPagination": "true",
+      "productId": "688432",
+      "beginDate": "2026-09-11",
+      "endDate": "2026-09-14",
+      "pageHelp.pageSize": "100",
+      "pageHelp.pageNo": "1"
+    },
+    "retrieved_at": "2026-10-09T13:03:40.737755+00:00",
+    "http_status": 200,
+    "content_type": "application/json;charset=UTF-8",
+    "bytes": 558,
+    "sha256": "da78572cda6d2864451fd0922095dae61203e276341e66966550d5a08060ea0d",
+    "matching_announcements": []
+  }
+]

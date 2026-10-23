@@ -1,0 +1,88 @@
+..F..                                                                    [100%]
+================================== FAILURES ===================================
+___ TestLiveEtfQualification.test_live_tradability_adjustment_and_freshness ___
+
+self = <test_chstockdata_etf_gate.TestLiveEtfQualification object at 0x000001CEB34578F0>
+
+    @live_qualification
+    def test_live_tradability_adjustment_and_freshness(self) -> None:
+        from dataclasses import replace
+        from datetime import timedelta
+        from live_qualification import (CapabilityOutcomes, live_provider, matrix_requests,
+            require_success, historical_gap, opening_fact, freshness_proof, execution_proof)
+    
+        provider = live_provider()
+        outcomes = CapabilityOutcomes("test_live_tradability_adjustment_and_freshness")
+        def raw_bars(request):
+            bars = require_success(provider.fetch_daily_bars(request.bar_request))
+            for bar in bars.records:
+                assert bar.adjustment_mode.value == "RAW"
+                assert bar.availability.retrieved_at is not None
+                assert bar.availability.retrieved_at.utcoffset() is not None
+                if bar.availability.information_available_at is not None:
+                    assert bar.availability.information_available_at <= bar.availability.retrieved_at
+            return bars
+        for request in matrix_requests(MATRIX):
+            instrument, session = request.instrument_id, request.tradability_request.session_date
+            gap = outcomes.check(instrument, "LEGACY_PIT_FAIL_CLOSED", lambda:
+                historical_gap(provider, request.tradability_request))
+            opening = outcomes.check(instrument, "HISTORICAL_OPENING_R21", lambda:
+                opening_fact(provider, instrument, session))
+            actions = outcomes.check(instrument, "ADJUSTMENT_ACTIONS", lambda:
+                require_success(provider.fetch_corporate_actions(request.corporate_action_request), nonempty=False))
+            bars = outcomes.check(instrument, "RAW_AVAILABILITY", lambda: raw_bars(request))
+            calendar = outcomes.check(instrument, "EXECUTION_CALENDAR", lambda:
+                require_success(provider.fetch_calendar(replace(request.calendar_request,
+                    end_date=session + timedelta(days=3)))))
+            outcomes.check(instrument, "FRESHNESS_STALE_MISSING", lambda:
+                freshness_proof(bars, calendar, instrument, session))
+            outcomes.check(instrument, "SNAPSHOT_ENGINE_RAW_FILL_IDENTITY", lambda:
+                execution_proof(instrument, session, bars, calendar, actions, gap, opening,
+                    directory=outcomes.directory / "snapshots"))
+        # These are source controls, not additions to the qualified M0 universe.
+        from systematic_investing.data.ports import CalendarRequest, DailyBarRequest, TradabilityRequest
+        from datetime import date
+        session = date.fromisoformat(EVALUATION_SESSION)
+        for canonical in ("XSHG:513100", "XSHE:159509"):
+            instrument = InstrumentId.parse(canonical)
+            gap = outcomes.check(instrument, "CONTROL_LEGACY_PIT", lambda:
+                historical_gap(provider, TradabilityRequest((instrument,), session)))
+            opening = outcomes.check(instrument, "OFFICIAL_HALT_CONTROL", lambda:
+                opening_fact(provider, instrument, session, blocked=True))
+            bars = outcomes.check(instrument, "CONTROL_RAW_BARS", lambda:
+                require_success(provider.fetch_daily_bars(DailyBarRequest((instrument,),
+                    date.fromisoformat(MATRIX["window"]["start"]), session))))
+            calendar = outcomes.check(instrument, "CONTROL_CALENDAR", lambda:
+                require_success(provider.fetch_calendar(CalendarRequest(instrument.exchange.value,
+                    date.fromisoformat(MATRIX["window"]["start"]), session + timedelta(days=3)))))
+            outcomes.check(instrument, "CONTROL_ENGINE_NO_FILL_NO_RETRY", lambda:
+                execution_proof(instrument, session, bars, calendar, None, gap, opening,
+                    directory=outcomes.directory / "snapshots", blocked=True))
+>       outcomes.finish()
+
+tests\qualification\test_chstockdata_etf_gate.py:310: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <live_qualification.CapabilityOutcomes object at 0x000001CEB3570B00>
+
+    def finish(self):
+        self.directory.mkdir(parents=True, exist_ok=True)
+        report = {"test": self.name, "outcomes": self.results}
+        (self.directory / f"{self.name}.json").write_text(
+            json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
+        )
+        failures = [f"{item['instrument_id']}:{item['capability']}:{item['error']}"
+                    for item in self.results if item["status"] == "FAIL"]
+>       assert not failures, "\n".join(failures)
+               ^^^^^^^^^^^^
+E       AssertionError: XSHG:510300:SNAPSHOT_ENGINE_RAW_FILL_IDENTITY:{'type': 'AssertionError', 'message': ''}
+E       XSHE:159915:SNAPSHOT_ENGINE_RAW_FILL_IDENTITY:{'type': 'AssertionError', 'message': ''}
+E       XSHG:518880:SNAPSHOT_ENGINE_RAW_FILL_IDENTITY:{'type': 'AssertionError', 'message': ''}
+E       XSHG:511010:SNAPSHOT_ENGINE_RAW_FILL_IDENTITY:{'type': 'AssertionError', 'message': ''}
+E       XSHG:513100:CONTROL_ENGINE_NO_FILL_NO_RETRY:{'type': 'AssertionError', 'message': ''}
+E       XSHE:159509:CONTROL_ENGINE_NO_FILL_NO_RETRY:{'type': 'AssertionError', 'message': ''}
+
+tests\qualification\live_qualification.py:87: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/qualification/test_chstockdata_etf_gate.py::TestLiveEtfQualification::test_live_tradability_adjustment_and_freshness
+1 failed, 4 passed in 133.61s (0:02:13)

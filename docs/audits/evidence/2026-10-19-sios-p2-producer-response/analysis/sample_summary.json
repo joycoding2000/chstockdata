@@ -1,0 +1,560 @@
+{
+  "not_a_consumer_ready_bundle": true,
+  "request_count_live": 22,
+  "http_success": 19,
+  "dce_official_outcomes": [
+    {
+      "name": "dce_20210104",
+      "url": "https://www.dce.com.cn/dcereport/publicweb/dailystat/dayQuotes",
+      "method": "POST",
+      "payload": {
+        "contractId": "",
+        "lang": "zh",
+        "optionSeries": "",
+        "statisticsType": "0",
+        "tradeDate": "20210104",
+        "tradeType": "1",
+        "varietyId": "all"
+      },
+      "requested_at": "2026-10-19T08:32:20.252109+00:00",
+      "outcome": "REQUEST_FAILURE",
+      "exception_type": "ConnectionError",
+      "completed_at": "2026-10-19T08:32:25.265279+00:00"
+    },
+    {
+      "name": "dce_20230630",
+      "url": "https://www.dce.com.cn/dcereport/publicweb/dailystat/dayQuotes",
+      "method": "POST",
+      "payload": {
+        "contractId": "",
+        "lang": "zh",
+        "optionSeries": "",
+        "statisticsType": "0",
+        "tradeDate": "20230630",
+        "tradeType": "1",
+        "varietyId": "all"
+      },
+      "requested_at": "2026-10-19T08:32:25.265859+00:00",
+      "outcome": "REQUEST_FAILURE",
+      "exception_type": "ConnectionError",
+      "completed_at": "2026-10-19T08:32:30.288159+00:00"
+    },
+    {
+      "name": "dce_20251231",
+      "url": "https://www.dce.com.cn/dcereport/publicweb/dailystat/dayQuotes",
+      "method": "POST",
+      "payload": {
+        "contractId": "",
+        "lang": "zh",
+        "optionSeries": "",
+        "statisticsType": "0",
+        "tradeDate": "20251231",
+        "tradeType": "1",
+        "varietyId": "all"
+      },
+      "requested_at": "2026-10-19T08:32:30.288681+00:00",
+      "outcome": "REQUEST_FAILURE",
+      "exception_type": "ConnectionError",
+      "completed_at": "2026-10-19T08:32:35.304469+00:00"
+    }
+  ],
+  "shfe": [
+    {
+      "date": "20200102",
+      "raw_rows": 236,
+      "update_date": "20200102 20:00:37",
+      "months": {
+        "RB": [],
+        "BU": []
+      },
+      "counts": {
+        "RB": 0,
+        "BU": 0
+      }
+    },
+    {
+      "date": "20210104",
+      "raw_rows": 264,
+      "update_date": "20210104 20:00:44",
+      "months": {
+        "RB": [
+          "RB2101",
+          "RB2102",
+          "RB2103",
+          "RB2104",
+          "RB2105",
+          "RB2106",
+          "RB2107",
+          "RB2108",
+          "RB2109",
+          "RB2110",
+          "RB2111",
+          "RB2112"
+        ],
+        "BU": [
+          "BU2101",
+          "BU2102",
+          "BU2103",
+          "BU2104",
+          "BU2105",
+          "BU2106",
+          "BU2109",
+          "BU2112",
+          "BU2203",
+          "BU2206",
+          "BU2209",
+          "BU2212"
+        ]
+      },
+      "counts": {
+        "RB": 12,
+        "BU": 12
+      }
+    },
+    {
+      "date": "20230630",
+      "raw_rows": 280,
+      "update_date": "20230630 20:00:35",
+      "months": {
+        "RB": [
+          "RB2307",
+          "RB2308",
+          "RB2309",
+          "RB2310",
+          "RB2311",
+          "RB2312",
+          "RB2401",
+          "RB2402",
+          "RB2403",
+          "RB2404",
+          "RB2405",
+          "RB2406"
+        ],
+        "BU": [
+          "BU2307",
+          "BU2308",
+          "BU2309",
+          "BU2310",
+          "BU2311",
+          "BU2312",
+          "BU2401",
+          "BU2402",
+          "BU2403",
+          "BU2404",
+          "BU2405",
+          "BU2406",
+          "BU2409",
+          "BU2412",
+          "BU2503",
+          "BU2506"
+        ]
+      },
+      "counts": {
+        "RB": 12,
+        "BU": 16
+      }
+    },
+    {
+      "date": "20251231",
+      "raw_rows": 330,
+      "update_date": "20251231 15:45:14",
+      "months": {
+        "RB": [
+          "RB2601",
+          "RB2602",
+          "RB2603",
+          "RB2604",
+          "RB2605",
+          "RB2606",
+          "RB2607",
+          "RB2608",
+          "RB2609",
+          "RB2610",
+          "RB2611",
+          "RB2612"
+        ],
+        "BU": [
+          "BU2601",
+          "BU2602",
+          "BU2603",
+          "BU2604",
+          "BU2605",
+          "BU2606",
+          "BU2607",
+          "BU2608",
+          "BU2609",
+          "BU2610",
+          "BU2611",
+          "BU2612",
+          "BU2703",
+          "BU2706",
+          "BU2709",
+          "BU2712"
+        ]
+      },
+      "counts": {
+        "RB": 12,
+        "BU": 16
+      }
+    }
+  ],
+  "sina": [
+    {
+      "contract": "RB2105",
+      "raw_rows": 242,
+      "raw_start": "2020-05-18",
+      "raw_end": "2021-05-14",
+      "in_scope_rows": 242,
+      "nonpositive_or_missing_settlement_in_scope": 0,
+      "nonpositive_by_year": {},
+      "duplicate_dates": 0
+    },
+    {
+      "contract": "BU2106",
+      "raw_rows": 484,
+      "raw_start": "2019-06-18",
+      "raw_end": "2021-06-11",
+      "in_scope_rows": 349,
+      "nonpositive_or_missing_settlement_in_scope": 0,
+      "nonpositive_by_year": {},
+      "duplicate_dates": 0
+    },
+    {
+      "contract": "C2105",
+      "raw_rows": 241,
+      "raw_start": "2020-05-20",
+      "raw_end": "2021-05-19",
+      "in_scope_rows": 241,
+      "nonpositive_or_missing_settlement_in_scope": 41,
+      "nonpositive_by_year": {
+        "2020": 41
+      },
+      "duplicate_dates": 0
+    },
+    {
+      "contract": "CS2105",
+      "raw_rows": 242,
+      "raw_start": "2020-05-20",
+      "raw_end": "2021-05-19",
+      "in_scope_rows": 242,
+      "nonpositive_or_missing_settlement_in_scope": 41,
+      "nonpositive_by_year": {
+        "2020": 41
+      },
+      "duplicate_dates": 0
+    },
+    {
+      "contract": "PP2105",
+      "raw_rows": 243,
+      "raw_start": "2020-05-20",
+      "raw_end": "2021-05-19",
+      "in_scope_rows": 243,
+      "nonpositive_or_missing_settlement_in_scope": 41,
+      "nonpositive_by_year": {
+        "2020": 41
+      },
+      "duplicate_dates": 0
+    },
+    {
+      "contract": "RB2310",
+      "raw_rows": 242,
+      "raw_start": "2022-10-18",
+      "raw_end": "2023-10-16",
+      "in_scope_rows": 242,
+      "nonpositive_or_missing_settlement_in_scope": 1,
+      "nonpositive_by_year": {
+        "2023": 1
+      },
+      "duplicate_dates": 0
+    },
+    {
+      "contract": "BU2309",
+      "raw_rows": 478,
+      "raw_start": "2021-09-23",
+      "raw_end": "2023-09-15",
+      "in_scope_rows": 478,
+      "nonpositive_or_missing_settlement_in_scope": 1,
+      "nonpositive_by_year": {
+        "2021": 1
+      },
+      "duplicate_dates": 0
+    },
+    {
+      "contract": "C2309",
+      "raw_rows": 243,
+      "raw_start": "2022-09-16",
+      "raw_end": "2023-09-14",
+      "in_scope_rows": 243,
+      "nonpositive_or_missing_settlement_in_scope": 0,
+      "nonpositive_by_year": {},
+      "duplicate_dates": 0
+    },
+    {
+      "contract": "CS2309",
+      "raw_rows": 241,
+      "raw_start": "2022-09-16",
+      "raw_end": "2023-09-12",
+      "in_scope_rows": 241,
+      "nonpositive_or_missing_settlement_in_scope": 0,
+      "nonpositive_by_year": {},
+      "duplicate_dates": 0
+    },
+    {
+      "contract": "PP2309",
+      "raw_rows": 243,
+      "raw_start": "2022-09-16",
+      "raw_end": "2023-09-14",
+      "in_scope_rows": 243,
+      "nonpositive_or_missing_settlement_in_scope": 0,
+      "nonpositive_by_year": {},
+      "duplicate_dates": 0
+    },
+    {
+      "contract": "RB2601",
+      "raw_rows": 242,
+      "raw_start": "2025-01-16",
+      "raw_end": "2026-01-15",
+      "in_scope_rows": 233,
+      "nonpositive_or_missing_settlement_in_scope": 0,
+      "nonpositive_by_year": {},
+      "duplicate_dates": 0
+    },
+    {
+      "contract": "BU2601",
+      "raw_rows": 230,
+      "raw_start": "2025-01-17",
+      "raw_end": "2026-01-13",
+      "in_scope_rows": 223,
+      "nonpositive_or_missing_settlement_in_scope": 0,
+      "nonpositive_by_year": {},
+      "duplicate_dates": 0
+    },
+    {
+      "contract": "C2605",
+      "raw_rows": 240,
+      "raw_start": "2025-05-20",
+      "raw_end": "2026-05-19",
+      "in_scope_rows": 155,
+      "nonpositive_or_missing_settlement_in_scope": 0,
+      "nonpositive_by_year": {},
+      "duplicate_dates": 0
+    },
+    {
+      "contract": "CS2605",
+      "raw_rows": 237,
+      "raw_start": "2025-05-20",
+      "raw_end": "2026-05-18",
+      "in_scope_rows": 154,
+      "nonpositive_or_missing_settlement_in_scope": 0,
+      "nonpositive_by_year": {},
+      "duplicate_dates": 0
+    },
+    {
+      "contract": "PP2605",
+      "raw_rows": 242,
+      "raw_start": "2025-05-20",
+      "raw_end": "2026-05-19",
+      "in_scope_rows": 155,
+      "nonpositive_or_missing_settlement_in_scope": 0,
+      "nonpositive_by_year": {},
+      "duplicate_dates": 0
+    }
+  ],
+  "anchors": [
+    {
+      "trade_date": "2021-01-04",
+      "contract_id": "RB2105",
+      "open": "4354.000",
+      "high": "4407.000",
+      "low": "4307.000",
+      "close": "4383.000",
+      "settlement": "4346.000",
+      "volume": "1420698",
+      "open_interest": "1220915",
+      "quality_flags": "NO_FIELD_VALUE_FLAGS_IN_SAMPLE"
+    },
+    {
+      "trade_date": "2021-01-04",
+      "contract_id": "BU2106",
+      "open": "2540.000",
+      "high": "2626.000",
+      "low": "2504.000",
+      "close": "2620.000",
+      "settlement": "2584.000",
+      "volume": "539195",
+      "open_interest": "416459",
+      "quality_flags": "NO_FIELD_VALUE_FLAGS_IN_SAMPLE"
+    },
+    {
+      "trade_date": "2021-01-04",
+      "contract_id": "C2105",
+      "open": "2755.000",
+      "high": "2779.000",
+      "low": "2741.000",
+      "close": "2746.000",
+      "settlement": "2761.000",
+      "volume": "633210",
+      "open_interest": "1059080",
+      "quality_flags": "NO_FIELD_VALUE_FLAGS_IN_SAMPLE"
+    },
+    {
+      "trade_date": "2021-01-04",
+      "contract_id": "CS2105",
+      "open": "3095.000",
+      "high": "3138.000",
+      "low": "3079.000",
+      "close": "3089.000",
+      "settlement": "3113.000",
+      "volume": "97776",
+      "open_interest": "117088",
+      "quality_flags": "NO_FIELD_VALUE_FLAGS_IN_SAMPLE"
+    },
+    {
+      "trade_date": "2021-01-04",
+      "contract_id": "PP2105",
+      "open": "8041.000",
+      "high": "8067.000",
+      "low": "7934.000",
+      "close": "8032.000",
+      "settlement": "8000.000",
+      "volume": "340849",
+      "open_interest": "275229",
+      "quality_flags": "NO_FIELD_VALUE_FLAGS_IN_SAMPLE"
+    },
+    {
+      "trade_date": "2023-06-30",
+      "contract_id": "RB2310",
+      "open": "3725.000",
+      "high": "3777.000",
+      "low": "3711.000",
+      "close": "3721.000",
+      "settlement": "3746.000",
+      "volume": "1704726",
+      "open_interest": "1802556",
+      "quality_flags": "NO_FIELD_VALUE_FLAGS_IN_SAMPLE"
+    },
+    {
+      "trade_date": "2023-06-30",
+      "contract_id": "BU2309",
+      "open": "3634.000",
+      "high": "3644.000",
+      "low": "3604.000",
+      "close": "3622.000",
+      "settlement": "3626.000",
+      "volume": "28188",
+      "open_interest": "84385",
+      "quality_flags": "NO_FIELD_VALUE_FLAGS_IN_SAMPLE"
+    },
+    {
+      "trade_date": "2023-06-30",
+      "contract_id": "C2309",
+      "open": "2708.000",
+      "high": "2740.000",
+      "low": "2708.000",
+      "close": "2728.000",
+      "settlement": "2726.000",
+      "volume": "421494",
+      "open_interest": "888641",
+      "quality_flags": "NO_FIELD_VALUE_FLAGS_IN_SAMPLE"
+    },
+    {
+      "trade_date": "2023-06-30",
+      "contract_id": "CS2309",
+      "open": "3094.000",
+      "high": "3150.000",
+      "low": "3092.000",
+      "close": "3136.000",
+      "settlement": "3131.000",
+      "volume": "324745",
+      "open_interest": "235972",
+      "quality_flags": "NO_FIELD_VALUE_FLAGS_IN_SAMPLE"
+    },
+    {
+      "trade_date": "2023-06-30",
+      "contract_id": "PP2309",
+      "open": "7028.000",
+      "high": "7087.000",
+      "low": "7027.000",
+      "close": "7072.000",
+      "settlement": "7064.000",
+      "volume": "340811",
+      "open_interest": "647462",
+      "quality_flags": "NO_FIELD_VALUE_FLAGS_IN_SAMPLE"
+    },
+    {
+      "trade_date": "2025-12-31",
+      "contract_id": "RB2601",
+      "open": "3119.000",
+      "high": "3119.000",
+      "low": "3091.000",
+      "close": "3100.000",
+      "settlement": "3105.000",
+      "volume": "28379",
+      "open_interest": "20666",
+      "quality_flags": "NO_FIELD_VALUE_FLAGS_IN_SAMPLE"
+    },
+    {
+      "trade_date": "2025-12-31",
+      "contract_id": "BU2601",
+      "open": "3010.000",
+      "high": "3028.000",
+      "low": "2960.000",
+      "close": "2979.000",
+      "settlement": "2980.000",
+      "volume": "3209",
+      "open_interest": "6780",
+      "quality_flags": "NO_FIELD_VALUE_FLAGS_IN_SAMPLE"
+    },
+    {
+      "trade_date": "2025-12-31",
+      "contract_id": "C2605",
+      "open": "2256.000",
+      "high": "2263.000",
+      "low": "2252.000",
+      "close": "2255.000",
+      "settlement": "2256.000",
+      "volume": "107696",
+      "open_interest": "505726",
+      "quality_flags": "NO_FIELD_VALUE_FLAGS_IN_SAMPLE"
+    },
+    {
+      "trade_date": "2025-12-31",
+      "contract_id": "CS2605",
+      "open": "2571.000",
+      "high": "2577.000",
+      "low": "2562.000",
+      "close": "2565.000",
+      "settlement": "2571.000",
+      "volume": "13216",
+      "open_interest": "40988",
+      "quality_flags": "NO_FIELD_VALUE_FLAGS_IN_SAMPLE"
+    },
+    {
+      "trade_date": "2025-12-31",
+      "contract_id": "PP2605",
+      "open": "6348.000",
+      "high": "6375.000",
+      "low": "6326.000",
+      "close": "6348.000",
+      "settlement": "6345.000",
+      "volume": "352722",
+      "open_interest": "507887",
+      "quality_flags": "NO_FIELD_VALUE_FLAGS_IN_SAMPLE"
+    }
+  ],
+  "export_rows": 95,
+  "source_aware_unique_rows": 95,
+  "shfe_sina_comparison_fields": 42,
+  "shfe_sina_equal_fields": 42,
+  "mismatches": [],
+  "sina_anomaly_rows_in_scope": 125,
+  "full_2020_2025_coverage": "NOT_TESTED",
+  "dce_all_month_universe": "UNVERIFIED",
+  "metadata_history": "UNVERIFIED",
+  "checks": {
+    "raw_sha256": "PASS",
+    "sample_trade_dates": "PASS",
+    "source_aware_uniqueness": "PASS",
+    "csv_roundtrip_row_count": "PASS"
+  }
+}

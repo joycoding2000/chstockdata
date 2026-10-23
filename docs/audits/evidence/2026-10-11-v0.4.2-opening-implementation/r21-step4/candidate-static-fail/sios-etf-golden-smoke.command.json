@@ -1,0 +1,28 @@
+{
+  "name": "sios-etf-golden-smoke",
+  "argv": [
+    "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\profiles\\r21-final\\sios-candidate\\Scripts\\python.exe",
+    "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\evidence\\r21-step4\\run_sios_tests.py",
+    "sios-etf-golden-smoke",
+    "tests/qualification",
+    "tests/golden",
+    "tests/parity"
+  ],
+  "cwd": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os",
+  "exit": 0,
+  "candidate_wheel_sha256": "d955ea4ef7c2bffaf5d30751fde88580911303b863a3120ac3d87337270267f8",
+  "log": "sios-etf-golden-smoke.log",
+  "exit_file": "sios-etf-golden-smoke.exit",
+  "command_started_at": "2026-10-12T21:31:35.874426+08:00",
+  "command_finished_at": "2026-10-12T21:31:40.427700+08:00",
+  "environment_overrides": {
+    "PYTHONPATH": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\src",
+    "PYTHONUTF8": "1",
+    "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+    "SIOS_CHSTOCKDATA_LIVE_QUALIFICATION": null,
+    "CHSTOCKDATA_VIPDOC_HISTORY_DIR": null,
+    "CHSTOCKDATA_CACHE_DIR": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\cache\\r21-data",
+    "TEMP": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\temp\\r21-step4",
+    "TMP": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\temp\\r21-step4"
+  }
+}

@@ -1,0 +1,105 @@
+....F                                                                    [100%]
+================================== FAILURES ===================================
+___ test_recorded_helper_chain_proves_real_engine_fill_before_live[511010] ____
+
+tmp_path = WindowsPath('C:/Users/Administrator/.codex/visualizations/2026/10/10/01a125dd-33f2-78d3-abe7-45e0928975d0/v042-opening-implementation/evidence/r21-step3/engine-red-temp/test_recorded_helper_chain_pro1')
+symbol = '511010'
+
+    @pytest.mark.parametrize("symbol", ["510300", "511010"])
+    def test_recorded_helper_chain_proves_real_engine_fill_before_live(tmp_path, symbol):
+        import json
+        from dataclasses import replace
+        from datetime import date, datetime
+        from pathlib import Path
+        from etf_qualification import build_provider, load_payloads, load_matrix
+        from systematic_investing.data.contracts import ProviderSuccess
+        from systematic_investing.domain.historical_opening import HistoricalOpeningEvidence, HISTORICAL_SUSPENSION_GAP
+        from systematic_investing.domain.market import Availability, AvailabilityBasis, TradabilityStatus, TradabilityStatusKind
+        request = next(request for request in live.matrix_requests(load_matrix()) if request.instrument_id.symbol == symbol)
+        now = datetime.now(live.MARKET_TIMEZONE)
+        provider = build_provider(load_payloads(), retrieved_at=now)
+        bars = provider.fetch_daily_bars(request.bar_request)
+        calendar = provider.fetch_calendar(request.calendar_request)
+        sessions = calendar.records + (replace(calendar.records[-1], session_date=date(2026, 9, 14), is_open=True),)
+        calendar = replace(calendar, records=sessions)
+        actions = provider.fetch_corporate_actions(request.corporate_action_request)
+        fixture = Path(__file__).resolve().parents[1] / f"fixtures/chstockdata/historical_opening/{symbol}-2026-09-11.json"
+        fact = HistoricalOpeningEvidence.from_payload(json.loads(fixture.read_text(encoding="utf-8"))["data"])
+        opening = ProviderSuccess((fact,), bars.evidence)
+        gap = TradabilityStatus(request.instrument_id, request.tradability_request.session_date,
+            TradabilityStatusKind.UNKNOWN, HISTORICAL_SUSPENSION_GAP,
+            Availability(None, now, AvailabilityBasis.UNKNOWN), "recorded-gap")
+>       proof = live.execution_proof(request.instrument_id, request.tradability_request.session_date,
+            bars, calendar, actions, (None, (gap,)), opening, directory=tmp_path)
+
+tests\qualification\test_live_r21_contract.py:90: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+instrument = InstrumentId(exchange=<Exchange.XSHG: 'XSHG'>, symbol='511010')
+session = datetime.date(2026, 9, 11)
+bars_result = ProviderSuccess(records=(DailyBar(schema_version='v1', instrument_id=InstrumentId(exchange=<Exchange.XSHG: 'XSHG'>, sy...cord_count=4, payload_checksum='sha256:c499bca5090af28ee5ca62c651e6ad415e814ec2910a40001723c99da69196a6', warnings=()))
+calendar_result = ProviderSuccess(records=(TradingSession(calendar_id='XSHG', session_date=datetime.date(2026, 9, 8), is_open=True, note...cord_count=4, payload_checksum='sha256:228b4c2106fd59f7f144944b9127173f40730d30218c358eadf828ae37ad078b', warnings=()))
+actions_result = ProviderSuccess(records=(), evidence=ProviderEvidence(evidence_id='chstockdata:corporate_actions:7a8148c420592bdc:3805...cord_count=0, payload_checksum='sha256:3805f590b0f2b5022a3e2a80f2a40c6a3a6f7789eddc815b751733efb313a096', warnings=()))
+gap_result = (None, (TradabilityStatus(instrument_id=InstrumentId(exchange=<Exchange.XSHG: 'XSHG'>, symbol='511010'), session_date=...e.timedelta(seconds=28800))), availability_basis=<AvailabilityBasis.UNKNOWN: 'UNKNOWN'>), provenance='recorded-gap'),))
+opening_result = ProviderSuccess(records=(HistoricalOpeningEvidence(payload_json='{"evidence_hash":"763d26612eae03fe915a4f49a883286b1c4...cord_count=4, payload_checksum='sha256:c499bca5090af28ee5ca62c651e6ad415e814ec2910a40001723c99da69196a6', warnings=()))
+directory = WindowsPath('C:/Users/Administrator/.codex/visualizations/2026/10/10/01a125dd-33f2-78d3-abe7-45e0928975d0/v042-opening-implementation/evidence/r21-step3/engine-red-temp/test_recorded_helper_chain_pro1')
+blocked = False
+
+    def execution_proof(instrument, session, bars_result, calendar_result, actions_result,
+                        gap_result, opening_result, *, directory, blocked=False):
+        """Real adapter records -> v3 replay -> real engine -> RAW-open fill proof."""
+        from systematic_investing.backtest.engine import DailyBarEngine, EngineClock
+        from systematic_investing.backtest.execution import ExecutionModel
+        from systematic_investing.data.quality import CanonicalDataset
+        from systematic_investing.data.snapshots import SnapshotWriter, SnapshotReader, manifest_to_dict
+        from systematic_investing.domain.execution import AccountFeeConfig, BrokerFeeProfile
+        from systematic_investing.domain.historical_opening import ExecutionEligibilityMode, OPENING_CLOCK_ID
+        from systematic_investing.domain.market import MarketCalendar, TradeSide
+        from systematic_investing.domain.runs import RunManifest
+        from systematic_investing.domain.money import Money
+        from systematic_investing.instrument_master.repository import default_m0_master
+    
+        bars = require_success(bars_result).records
+        sessions = require_success(calendar_result).records
+        # Halt controls isolate event eligibility; they do not qualify QDII actions.
+        actions = () if blocked else require_success(actions_result, nonempty=False).records
+        facts = require_success(opening_result).records
+        assert gap_result is not None, "no certified legacy failure"
+        _, gap = gap_result
+        mode = ExecutionEligibilityMode.HISTORICAL_OPENING_R21
+        dataset = CanonicalDataset(bars, sessions, gap, actions, (), facts)
+        now = datetime.now(MARKET_TIMEZONE)
+        snapshot = SnapshotWriter("chstockdata", "0.4.2", ChStockDataProvider.ADAPTER_VERSION).persist(
+            dataset, snapshot_dir=Path(directory) / instrument.symbol,
+            created_at=now, knowledge_cutoff=now, retrieved_at=now, execution_eligibility_mode=mode)
+        loaded, replay = SnapshotReader().load(Path(directory) / instrument.symbol, execution_eligibility_mode=mode)
+        assert loaded == snapshot and replay == dataset
+        assert snapshot.snapshot_schema_version == "v3-historical-opening"
+        assert snapshot.execution_policy == "R2.1" and snapshot.execution_clock == OPENING_CLOCK_ID
+        calendar = MarketCalendar(instrument.exchange.value, sessions[0].snapshot_version, sessions)
+        previous = max(s.session_date for s in sessions if s.is_open and s.session_date < session)
+        target = QualificationTargets(instrument, previous)
+        master = default_m0_master()
+        if blocked:
+            # A separate test-only master isolates event veto. Production QDII scope stays rejected.
+            reference = master.resolve_instrument(InstrumentId.parse("XSHG:510300"), session)
+            master.register_instrument(replace(reference, instrument_id=instrument, display_name="official-halt-control"))
+        fees = AccountFeeConfig("LIVE-QUALIFICATION", "1", (
+            BrokerFeeProfile("ACCT:MAIN", "1", Decimal("0.0003"), Decimal("5"),
+                             "qualification-test-account", date(2022, 1, 4), None),))
+        model = ExecutionModel(Decimal("0.001"), Decimal("0.001"))
+        engine = DailyBarEngine(calendar=calendar, clock=EngineClock.shanghai(), master=master,
+            account_fees=fees, execution_model=model, bars=replay.daily_bars,
+            tradability=replay.tradability, corporate_actions=replay.corporate_actions,
+            historical_opening_evidence=replay.historical_opening_evidence,
+            execution_eligibility_mode=mode, target_source=target, initial_cash=Money(Decimal("100000")))
+        result = engine.run(start_session=previous, end_session=session)
+        plans = result.session(previous).plans
+>       assert plans and plans[0].order_quantity > 0, "empty plan cannot prove eligibility"
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       AssertionError: empty plan cannot prove eligibility
+
+tests\qualification\live_qualification.py:225: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/qualification/test_live_r21_contract.py::test_recorded_helper_chain_proves_real_engine_fill_before_live[511010]
+1 failed, 4 passed in 1.55s

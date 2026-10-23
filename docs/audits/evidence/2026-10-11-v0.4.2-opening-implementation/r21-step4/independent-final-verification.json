@@ -1,0 +1,64 @@
+{
+  "executor": "root independent verification",
+  "source_only_sha256": "5a5c9097abe4703d9bd709b55d824b7d41a954b89a1f053e6fd6385e7a18516c",
+  "wheel_sha256": "3fd4f0b7334e310851495b8b13d4c7c55d21cde719acf9e00ff880ccb822f42e",
+  "sdist_sha256": "306c07dd3a9534720cd2f93c6edb5b1a7a0e4a4a1f1d40ca3a71ba42d5bbf88b",
+  "source_only_files_equal_current_and_prebuild": 765,
+  "installed_members_verified_per_profile": {
+    "core": 41,
+    "sdist": 41,
+    "mcp": 41,
+    "baostock": 41,
+    "sios-candidate": 41,
+    "ta-candidate": 41
+  },
+  "sdist_fixture_files_verified": 9,
+  "results": {
+    "package-tests": {
+      "tests": 775,
+      "passed": 774,
+      "failed": 0,
+      "errors": 0,
+      "skipped": 1
+    },
+    "sios-provider-contract": {
+      "tests": 67,
+      "passed": 67,
+      "failed": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "sios-etf-golden-smoke": {
+      "tests": 170,
+      "passed": 165,
+      "failed": 0,
+      "errors": 0,
+      "skipped": 5
+    },
+    "sios-offline": {
+      "tests": 978,
+      "passed": 973,
+      "failed": 0,
+      "errors": 0,
+      "skipped": 5
+    },
+    "ta-candidate": {
+      "tests": 130,
+      "passed": 123,
+      "failed": 7,
+      "errors": 0,
+      "skipped": 0
+    },
+    "live": {
+      "tests": 5,
+      "passed": 5,
+      "failed": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  },
+  "mandatory_zero_exit_commands_verified": 53,
+  "actual_final_live_raw_files_verified": 111,
+  "exit_code": 0,
+  "claim": "identities and actual evidence independently checked; no new network or repeated full suites"
+}

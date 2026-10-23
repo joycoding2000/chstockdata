@@ -1,0 +1,52 @@
+{
+  "task": "S07_FREE_SUPPLY_DECISIVE_SCREEN",
+  "registered_at": "2026-10-22T20:52:27.413001+08:00",
+  "owner_network_budget": "Explicitly authorized in this chat: 授权上述预算",
+  "limits": {
+    "requests": 120,
+    "total_bytes": 100000000,
+    "single_bytes": 20000000,
+    "retries_per_request": 1
+  },
+  "automatic_retries": 0,
+  "redirects": false,
+  "free_only": true,
+  "production_changes": false,
+  "deep_financial_extraction_new_securities": 0,
+  "controls": [
+    "SH:600519",
+    "SZ:000002"
+  ],
+  "old_regression_only": {
+    "security": "SH:600518",
+    "date": "2020-01-09"
+  },
+  "calendar_rule": "Latest completed SH/SZ session at observation time, 252 NAV sessions; 65 warmup; no stale-cache substitution",
+  "pe_date_selection_before_valuation": [
+    "s-1 and s; e-1 and e",
+    "2025Q3 actual disclosure: prior market close and first permissible close after date-only disclosure",
+    "2025FY actual disclosure: same rule; if unverified, use preregistered calendar-near quarter/year-end controls, label NOT_DISCLOSURE_VERIFIED"
+  ],
+  "pe_checks": [
+    "specified business day",
+    "parent TTM denominator",
+    "historical shares/cap",
+    "input available by T",
+    "revision policy and vintage",
+    "S07 compatibility"
+  ],
+  "boundary_selection": {
+    "listing": "earliest verified listing in actual s..e; tie by exchange:ticker",
+    "exit": "earliest verified delisting in actual s..e; tie by exchange:ticker",
+    "industry": "earliest verifiable effective migration in actual s..e; tie by exchange:ticker; UNKNOWN if no complete event source"
+  },
+  "source_routes": [
+    "existing Sina index calendar",
+    "existing Eastmoney daily valuations and disclosure schedule",
+    "existing Baidu TTM",
+    "official SSE/SZSE current and terminated security lists",
+    "official/free industry classification evidence; existing local identity and VIPDOC"
+  ],
+  "route_stop": "403/401/429 or explicit access restriction stops that source path; no bypass. Missing vintage stops PIT qualification, not other independent routes.",
+  "no_full_market_financial_download_or_reconstruction": true
+}

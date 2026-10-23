@@ -1,0 +1,19 @@
+{
+  "argv": [
+    "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\profiles\\owner-rework-r1\\sios-candidate\\Scripts\\python.exe",
+    "-c",
+    "import sys, hashlib, json, zipfile\nfrom pathlib import Path\nroot=Path(sys.argv[1]); work=root.parent\nimport chstockdata\npackage=Path(chstockdata.__file__).parent\nassert package==work/'wheel/chstockdata'\nwheel=work/'chstockdata-0.4.2-py3-none-any.whl'\nassert hashlib.sha256(wheel.read_bytes()).hexdigest()=='1dd58350678fbb07d3b545165708d814f93fb94f965dc2da33bad2fab7ff779c'\nwith zipfile.ZipFile(wheel) as z:\n    for n in z.namelist():\n        if n.startswith('chstockdata/') and not n.endswith('/'):\n            assert (work/'wheel'/n).read_bytes()==z.read(n), n\nfiles={p.relative_to(root).as_posix():hashlib.sha256(p.read_bytes()).hexdigest() for p in sorted((root/'src').rglob('*.py'))}\ntree=hashlib.sha256(json.dumps(files,sort_keys=True,separators=(',',':')).encode()).hexdigest()\nimport systematic_investing.research.runner as runner\nimport systematic_investing.research.oos as oos\nrunner.resolve_code_commit=lambda:'source_tree_sha256:'+tree\noos.resolve_code_commit=lambda:'source_tree_sha256:'+tree\nprint(json.dumps({'wheel_sha256':hashlib.sha256(wheel.read_bytes()).hexdigest(),'chstockdata_file':str(package),'sios_runtime_sha256':tree,'test_only_identity_injection':['research.runner','research.oos']}))\nimport pytest\nraise SystemExit(pytest.main(sys.argv[2:]))\n",
+    "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\13\\01a135d1-a42d-73a3-b19f-dc0968e4ca6c\\owner-rework-r2\\systematic-investing-os",
+    "tests/component/test_owner_r2_interval_contract.py",
+    "-q",
+    "-p",
+    "no:cacheprovider",
+    "--basetemp",
+    "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\13\\01a135d1-a42d-73a3-b19f-dc0968e4ca6c\\owner-rework-r2\\temp\\green-final",
+    "--junitxml",
+    "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-11-v0.4.2-opening-implementation\\owner-acceptance-rework-r2\\green-final.xml"
+  ],
+  "cwd": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\13\\01a135d1-a42d-73a3-b19f-dc0968e4ca6c\\owner-rework-r2\\systematic-investing-os",
+  "exit": 1,
+  "log_sha256": "3c616a1bd10207a3946e8e8bf66ff67d4a4e4be33f72f859198532543b6883ab"
+}

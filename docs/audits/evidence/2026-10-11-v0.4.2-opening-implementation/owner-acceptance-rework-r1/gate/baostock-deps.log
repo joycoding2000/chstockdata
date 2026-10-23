@@ -1,0 +1,116 @@
+{
+  "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+  "executable": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\profiles\\owner-rework-r1\\baostock\\Scripts\\python.exe",
+  "dependencies": [
+    {
+      "name": "baostock",
+      "version": "0.9.4",
+      "installation_path": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\profiles\\owner-rework-r1\\baostock\\Lib\\site-packages"
+    },
+    {
+      "name": "certifi",
+      "version": "2026.7.22",
+      "installation_path": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\profiles\\owner-rework-r1\\baostock\\Lib\\site-packages"
+    },
+    {
+      "name": "charset-normalizer",
+      "version": "3.5.2",
+      "installation_path": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\profiles\\owner-rework-r1\\baostock\\Lib\\site-packages"
+    },
+    {
+      "name": "chstockdata",
+      "version": "0.4.2",
+      "installation_path": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\profiles\\owner-rework-r1\\baostock\\Lib\\site-packages"
+    },
+    {
+      "name": "colorama",
+      "version": "0.4.6",
+      "installation_path": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\profiles\\owner-rework-r1\\baostock\\Lib\\site-packages"
+    },
+    {
+      "name": "idna",
+      "version": "3.20",
+      "installation_path": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\profiles\\owner-rework-r1\\baostock\\Lib\\site-packages"
+    },
+    {
+      "name": "iniconfig",
+      "version": "2.3.1",
+      "installation_path": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\profiles\\owner-rework-r1\\baostock\\Lib\\site-packages"
+    },
+    {
+      "name": "lxml",
+      "version": "6.1.3",
+      "installation_path": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\profiles\\owner-rework-r1\\baostock\\Lib\\site-packages"
+    },
+    {
+      "name": "numpy",
+      "version": "2.5.4",
+      "installation_path": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\profiles\\owner-rework-r1\\baostock\\Lib\\site-packages"
+    },
+    {
+      "name": "packaging",
+      "version": "26.3",
+      "installation_path": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\profiles\\owner-rework-r1\\baostock\\Lib\\site-packages"
+    },
+    {
+      "name": "pandas",
+      "version": "3.0.6",
+      "installation_path": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\profiles\\owner-rework-r1\\baostock\\Lib\\site-packages"
+    },
+    {
+      "name": "pip",
+      "version": "25.0.1",
+      "installation_path": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\profiles\\owner-rework-r1\\baostock\\Lib\\site-packages"
+    },
+    {
+      "name": "pluggy",
+      "version": "1.6.0",
+      "installation_path": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\profiles\\owner-rework-r1\\baostock\\Lib\\site-packages"
+    },
+    {
+      "name": "Pygments",
+      "version": "2.21.0",
+      "installation_path": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\profiles\\owner-rework-r1\\baostock\\Lib\\site-packages"
+    },
+    {
+      "name": "pytest",
+      "version": "9.1.1",
+      "installation_path": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\profiles\\owner-rework-r1\\baostock\\Lib\\site-packages"
+    },
+    {
+      "name": "python-dateutil",
+      "version": "2.9.0.post0",
+      "installation_path": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\profiles\\owner-rework-r1\\baostock\\Lib\\site-packages"
+    },
+    {
+      "name": "requests",
+      "version": "2.34.2",
+      "installation_path": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\profiles\\owner-rework-r1\\baostock\\Lib\\site-packages"
+    },
+    {
+      "name": "six",
+      "version": "1.17.0",
+      "installation_path": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\profiles\\owner-rework-r1\\baostock\\Lib\\site-packages"
+    },
+    {
+      "name": "stockstats",
+      "version": "0.6.9",
+      "installation_path": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\profiles\\owner-rework-r1\\baostock\\Lib\\site-packages"
+    },
+    {
+      "name": "typing_extensions",
+      "version": "4.16.0",
+      "installation_path": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\profiles\\owner-rework-r1\\baostock\\Lib\\site-packages"
+    },
+    {
+      "name": "tzdata",
+      "version": "2026.5",
+      "installation_path": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\profiles\\owner-rework-r1\\baostock\\Lib\\site-packages"
+    },
+    {
+      "name": "urllib3",
+      "version": "2.8.0",
+      "installation_path": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\profiles\\owner-rework-r1\\baostock\\Lib\\site-packages"
+    }
+  ]
+}

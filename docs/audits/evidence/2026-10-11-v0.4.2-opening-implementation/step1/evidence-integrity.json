@@ -1,0 +1,9 @@
+{
+  "raw_records_checked": 5,
+  "raw_and_parsed_errors": [],
+  "isolated_source_baseline_entries_checked": 758,
+  "isolated_source_differences": [
+    "docs/releases/v0.4.2/change-requests/CR-historical-opening-execution.md"
+  ],
+  "note": "byte equality only; does not certify source coverage or candidate Gate"
+}

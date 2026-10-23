@@ -1,0 +1,22 @@
+{
+  "created_at_utc": "2026-10-10T04:18:06+00:00",
+  "source": "mootdx / tdxpy existing repository environment",
+  "mootdx_version": "0.11.7",
+  "tdxpy_version": "0.2.7",
+  "server": {
+    "host": "110.41.147.114",
+    "port": 7709
+  },
+  "server_discovery": "disabled; explicit single host",
+  "timeout_seconds": 4,
+  "automatic_retry": false,
+  "heartbeat": false,
+  "maximum_query_count": 4,
+  "page_size": 800,
+  "completed_query_count": 4,
+  "error_count": 0,
+  "response_file": "tdx_opening_page_final_responses.jsonl",
+  "response_file_sha256": "5875d32c619d59f18f3bf5f448f1bc8d5f027fc6ce012409e6ab7fb5659a3a34",
+  "response_file_bytes": 115865,
+  "data_note": "Complete parser-returned 0xfb5 rows; time resolution is HH:MM."
+}

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="3" skipped="0" tests="16" time="0.313" timestamp="2026-10-14T10:33:31.787063+08:00" hostname="CHINAMI-4QO1VLN"><testcase classname="tests.component.test_owner_r2_interval_contract" name="test_cross_repository_interval[2015-12-18-OPEN_ACTIVITY_CONFIRMED-False]" time="0.006" /><testcase classname="tests.component.test_owner_r2_interval_contract" name="test_cross_repository_interval[2016-01-04-UNKNOWN-True]" time="0.003" /><testcase classname="tests.component.test_owner_r2_interval_contract" name="test_cross_repository_interval[2016-07-04-UNKNOWN-False]" time="0.003" /><testcase classname="tests.component.test_owner_r2_interval_contract" name="test_cross_repository_interval[2016-07-05-OPEN_ACTIVITY_CONFIRMED-False]" time="0.002"><failure message="AssertionError: ProviderFailure(error_code=&lt;ProviderErrorCode.MALFORMED_DATA: 'MALFORMED_DATA'&gt;, message='official interval vetoes ope...8c7fd87d14a884011209ba32fd986fdc0a8ad24', warnings=()), cause=ValueError('official interval vetoes opening execution'))&#10;assert False&#10; +  where False = isinstance(ProviderFailure(error_code=&lt;ProviderErrorCode.MALFORMED_DATA: 'MALFORMED_DATA'&gt;, message='official interval vetoes ope...8c7fd87d14a884011209ba32fd986fdc0a8ad24', warnings=()), cause=ValueError('official interval vetoes opening execution')), ProviderSuccess)">day = '2016-07-05', status = 'OPEN_ACTIVITY_CONFIRMED', blocked = False
+monkeypatch = &lt;_pytest.monkeypatch.MonkeyPatch object at 0x000001E61DB73890&gt;
+
+    @pytest.mark.parametrize('day,status,blocked', [
+        ('2015-12-18', 'OPEN_ACTIVITY_CONFIRMED', False),
+        ('2016-01-04', 'UNKNOWN', True),
+        ('2016-07-04', 'UNKNOWN', False),
+        ('2016-07-05', 'OPEN_ACTIVITY_CONFIRMED', False),
+        ('2022-12-30', 'OPEN_ACTIVITY_CONFIRMED', False),
+    ])
+    def test_cross_repository_interval(day, status, blocked, monkeypatch):
+        result = fetch(day)
+        assert result.data['opening_status'] == status
+        assert result.data['official_block_at_target'] is blocked
+        response = consume(result, monkeypatch)
+&gt;       assert isinstance(response, ProviderSuccess), response
+E       AssertionError: ProviderFailure(error_code=&lt;ProviderErrorCode.MALFORMED_DATA: 'MALFORMED_DATA'&gt;, message='official interval vetoes ope...8c7fd87d14a884011209ba32fd986fdc0a8ad24', warnings=()), cause=ValueError('official interval vetoes opening execution'))
+E       assert False
+E        +  where False = isinstance(ProviderFailure(error_code=&lt;ProviderErrorCode.MALFORMED_DATA: 'MALFORMED_DATA'&gt;, message='official interval vetoes ope...8c7fd87d14a884011209ba32fd986fdc0a8ad24', warnings=()), cause=ValueError('official interval vetoes opening execution')), ProviderSuccess)
+
+tests\component\test_owner_r2_interval_contract.py:82: AssertionError</failure></testcase><testcase classname="tests.component.test_owner_r2_interval_contract" name="test_cross_repository_interval[2022-12-30-OPEN_ACTIVITY_CONFIRMED-False]" time="0.003"><failure message="AssertionError: ProviderFailure(error_code=&lt;ProviderErrorCode.MALFORMED_DATA: 'MALFORMED_DATA'&gt;, message='official interval vetoes ope...e9fc43e14c79a2b06259c056b10fb29c598311a', warnings=()), cause=ValueError('official interval vetoes opening execution'))&#10;assert False&#10; +  where False = isinstance(ProviderFailure(error_code=&lt;ProviderErrorCode.MALFORMED_DATA: 'MALFORMED_DATA'&gt;, message='official interval vetoes ope...e9fc43e14c79a2b06259c056b10fb29c598311a', warnings=()), cause=ValueError('official interval vetoes opening execution')), ProviderSuccess)">day = '2022-12-30', status = 'OPEN_ACTIVITY_CONFIRMED', blocked = False
+monkeypatch = &lt;_pytest.monkeypatch.MonkeyPatch object at 0x000001E61DB738F0&gt;
+
+    @pytest.mark.parametrize('day,status,blocked', [
+        ('2015-12-18', 'OPEN_ACTIVITY_CONFIRMED', False),
+        ('2016-01-04', 'UNKNOWN', True),
+        ('2016-07-04', 'UNKNOWN', False),
+        ('2016-07-05', 'OPEN_ACTIVITY_CONFIRMED', False),
+        ('2022-12-30', 'OPEN_ACTIVITY_CONFIRMED', False),
+    ])
+    def test_cross_repository_interval(day, status, blocked, monkeypatch):
+        result = fetch(day)
+        assert result.data['opening_status'] == status
+        assert result.data['official_block_at_target'] is blocked
+        response = consume(result, monkeypatch)
+&gt;       assert isinstance(response, ProviderSuccess), response
+E       AssertionError: ProviderFailure(error_code=&lt;ProviderErrorCode.MALFORMED_DATA: 'MALFORMED_DATA'&gt;, message='official interval vetoes ope...e9fc43e14c79a2b06259c056b10fb29c598311a', warnings=()), cause=ValueError('official interval vetoes opening execution'))
+E       assert False
+E        +  where False = isinstance(ProviderFailure(error_code=&lt;ProviderErrorCode.MALFORMED_DATA: 'MALFORMED_DATA'&gt;, message='official interval vetoes ope...e9fc43e14c79a2b06259c056b10fb29c598311a', warnings=()), cause=ValueError('official interval vetoes opening execution')), ProviderSuccess)
+
+tests\component\test_owner_r2_interval_contract.py:82: AssertionError</failure></testcase><testcase classname="tests.component.test_owner_r2_interval_contract" name="test_later_session_requires_both_sources[False-False]" time="0.003" /><testcase classname="tests.component.test_owner_r2_interval_contract" name="test_later_session_requires_both_sources[True-True]" time="0.003" /><testcase classname="tests.component.test_owner_r2_interval_contract" name="test_caller_cannot_authenticate_resume[resume_date]" time="0.004" /><testcase classname="tests.component.test_owner_r2_interval_contract" name="test_caller_cannot_authenticate_resume[verified]" time="0.004" /><testcase classname="tests.component.test_owner_r2_interval_contract" name="test_caller_cannot_authenticate_resume[source_url]" time="0.004" /><testcase classname="tests.component.test_owner_r2_interval_contract" name="test_caller_cannot_authenticate_resume[source_sha]" time="0.004" /><testcase classname="tests.component.test_owner_r2_interval_contract" name="test_caller_cannot_authenticate_resume[source_kind]" time="0.004" /><testcase classname="tests.component.test_owner_r2_interval_contract" name="test_caller_cannot_authenticate_resume[new_halt]" time="0.004" /><testcase classname="tests.component.test_owner_r2_interval_contract" name="test_hash_resealed_positive_cannot_override_halt_or_resume_day[2016-01-04]" time="0.002" /><testcase classname="tests.component.test_owner_r2_interval_contract" name="test_hash_resealed_positive_cannot_override_halt_or_resume_day[2016-07-04]" time="0.002" /><testcase classname="tests.component.test_owner_r2_interval_contract" name="test_payload_hash_snapshot_and_replay" time="0.007"><failure message="AssertionError: ProviderFailure(error_code=&lt;ProviderErrorCode.MALFORMED_DATA: 'MALFORMED_DATA'&gt;, message='official interval vetoes ope...7fba284733284472c2f5b610afaad4237506e57', warnings=()), cause=ValueError('official interval vetoes opening execution'))&#10;assert False&#10; +  where False = isinstance(ProviderFailure(error_code=&lt;ProviderErrorCode.MALFORMED_DATA: 'MALFORMED_DATA'&gt;, message='official interval vetoes ope...7fba284733284472c2f5b610afaad4237506e57', warnings=()), cause=ValueError('official interval vetoes opening execution')), ProviderSuccess)">tmp_path = WindowsPath('C:/Users/Administrator/.codex/visualizations/2026/10/13/01a135d1-a42d-73a3-b19f-dc0968e4ca6c/owner-rework-r2/temp/red/test_payload_hash_snapshot_and0')
+monkeypatch = &lt;_pytest.monkeypatch.MonkeyPatch object at 0x000001E61DB7F560&gt;
+
+    def test_payload_hash_snapshot_and_replay(tmp_path, monkeypatch):
+        result = fetch('2022-12-30')
+        response = consume(result, monkeypatch)
+&gt;       assert isinstance(response, ProviderSuccess), response
+E       AssertionError: ProviderFailure(error_code=&lt;ProviderErrorCode.MALFORMED_DATA: 'MALFORMED_DATA'&gt;, message='official interval vetoes ope...7fba284733284472c2f5b610afaad4237506e57', warnings=()), cause=ValueError('official interval vetoes opening execution'))
+E       assert False
+E        +  where False = isinstance(ProviderFailure(error_code=&lt;ProviderErrorCode.MALFORMED_DATA: 'MALFORMED_DATA'&gt;, message='official interval vetoes ope...7fba284733284472c2f5b610afaad4237506e57', warnings=()), cause=ValueError('official interval vetoes opening execution')), ProviderSuccess)
+
+tests\component\test_owner_r2_interval_contract.py:136: AssertionError</failure></testcase></testsuite></testsuites>

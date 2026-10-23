@@ -1,0 +1,83 @@
+{
+    "id":  "1216741269",
+    "text":  "！ 3 ` 四 1 过 72367 ． 4",
+    "pit_qualified":  false,
+    "engine":  "Windows.Media.Ocr existing zh-Hans-CN",
+    "maximum_image_dimension":  10000,
+    "machine_seconds":  0.0147564,
+    "pixel_height":  96,
+    "image_sha256":  "913a6944d123fac89fcd98b333a937e34b058749fd707439b9f3b919dc6a5bc5",
+    "pixel_width":  588,
+    "source_sha256":  "28f31493c52375f096a45ad326ad8421357f9e73252858ae236d6fa715aad2d2",
+    "physical_page":  208,
+    "lines":  [
+                  {
+                      "text":  "！ 3 ` 四 1 过 72367 ． 4",
+                      "words":  [
+                                    {
+                                        "y":  33,
+                                        "height":  48,
+                                        "width":  15,
+                                        "text":  "！",
+                                        "x":  128
+                                    },
+                                    {
+                                        "y":  32,
+                                        "height":  48,
+                                        "width":  25,
+                                        "text":  "3",
+                                        "x":  153
+                                    },
+                                    {
+                                        "y":  71,
+                                        "height":  12,
+                                        "width":  16,
+                                        "text":  "`",
+                                        "x":  183
+                                    },
+                                    {
+                                        "y":  32,
+                                        "height":  49,
+                                        "width":  57,
+                                        "text":  "四",
+                                        "x":  200
+                                    },
+                                    {
+                                        "y":  33,
+                                        "height":  47,
+                                        "width":  17,
+                                        "text":  "1",
+                                        "x":  265
+                                    },
+                                    {
+                                        "y":  32,
+                                        "height":  51,
+                                        "width":  44,
+                                        "text":  "过",
+                                        "x":  289
+                                    },
+                                    {
+                                        "y":  33,
+                                        "height":  50,
+                                        "width":  171,
+                                        "text":  "72367",
+                                        "x":  336
+                                    },
+                                    {
+                                        "y":  68,
+                                        "height":  12,
+                                        "width":  11,
+                                        "text":  "．",
+                                        "x":  508
+                                    },
+                                    {
+                                        "y":  33,
+                                        "height":  48,
+                                        "width":  27,
+                                        "text":  "4",
+                                        "x":  523
+                                    }
+                                ]
+                  }
+              ]
+}

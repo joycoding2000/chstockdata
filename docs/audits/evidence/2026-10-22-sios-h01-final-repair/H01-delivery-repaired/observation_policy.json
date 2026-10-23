@@ -1,0 +1,26 @@
+{
+  "policy": "INCLUDE_KNOWN_REPORTED_DAILY_BAR",
+  "consumer_executed": false,
+  "references": {
+    "consumer-engine.py": [
+      251,
+      1124
+    ],
+    "consumer-etf_relative_momentum.py": [
+      117,
+      120,
+      140,
+      141
+    ],
+    "consumer-market.py": [
+      164,
+      211
+    ]
+  },
+  "contract_sha256": {
+    "consumer-engine.py": "7238da0d62680311d33292febe5c2aad85f285f2be0c467021a6b8bc726d5e53",
+    "consumer-etf_relative_momentum.py": "6bec44559f0bcb01898cddd58466ec7525c391fc93639ed12dad915f9477ca99",
+    "consumer-market.py": "ab3c3bd63c2579e4215f96b10e82ca931c23e8d5116c98b13ee0bed5c72a0d60"
+  },
+  "scope": "Existing known DailyBar observations include a genuine reported zero-turnover bar. Tradability is a separate contract; no strategy or calendar rule is changed."
+}

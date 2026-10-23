@@ -1,0 +1,406 @@
+{
+  "created_at": "2026-10-22T21:25:06.699234+08:00",
+  "head": "5584f5fcacccef9a9531a7a32b8463ea6771d312",
+  "report": {
+    "path": "docs\\audits\\2026-10-22-s07-free-supply-decisive-screen.md",
+    "sha256": "c616b406fe2018d5b36ece5526e1b5063e3857524fb4267dd9ab92d84074f34b"
+  },
+  "files": [
+    {
+      "name": "analyze.py",
+      "bytes": 22230,
+      "sha256": "4dd52858b243dc8fe90e27832cdc2b648cd1a6cf718a302150efad2f5f07b337"
+    },
+    {
+      "name": "authority-identities.json",
+      "bytes": 3592,
+      "sha256": "b1e249a964ac3b7acb86c2d23b03e24144161b67f045de3b789319fb0296f123"
+    },
+    {
+      "name": "baostock-doc-allStock-post.raw",
+      "bytes": 585,
+      "sha256": "7ddfd282cf707e781e2c8cfe73147b0dcb962b364d6ecc05e8ca81a4076337c7"
+    },
+    {
+      "name": "baostock-doc-allStock.raw",
+      "bytes": 683,
+      "sha256": "e31cbae9fb5183792cbca3300d5b03046ec87d215daf1d1423a4bd0c83586cf8"
+    },
+    {
+      "name": "baostock-doc-dataExplain-post.raw",
+      "bytes": 181371,
+      "sha256": "bcea92bddcafbf3aaadbf0483a9631433b9efbcb1c84b22c2cf30e53cfa58751"
+    },
+    {
+      "name": "baostock-doc-stockBasic-post.raw",
+      "bytes": 2114,
+      "sha256": "f8d5ba4ff8f3f664dc7f3fa8205a03e7827aa025044f16e4aa41aa5d3f0f70c8"
+    },
+    {
+      "name": "baostock-doc-stockBasic.raw",
+      "bytes": 683,
+      "sha256": "e31cbae9fb5183792cbca3300d5b03046ec87d215daf1d1423a4bd0c83586cf8"
+    },
+    {
+      "name": "baostock-doc-stockIndustry-post.raw",
+      "bytes": 1922,
+      "sha256": "c465300588502ffd0c6b2d5dc45c5412194ad8ae9c0260f5a34dca5de3266e50"
+    },
+    {
+      "name": "baostock-doc-stockIndustry.raw",
+      "bytes": 683,
+      "sha256": "e31cbae9fb5183792cbca3300d5b03046ec87d215daf1d1423a4bd0c83586cf8"
+    },
+    {
+      "name": "baostock-doc-valuationDaily-post.raw",
+      "bytes": 2197,
+      "sha256": "c196b69f5375b9fb8659f7f924547a4c1072b8d587fe5ef9c3f07401f9155718"
+    },
+    {
+      "name": "baostock-doc-valuationDaily.raw",
+      "bytes": 683,
+      "sha256": "e31cbae9fb5183792cbca3300d5b03046ec87d215daf1d1423a4bd0c83586cf8"
+    },
+    {
+      "name": "before.json",
+      "bytes": 4968,
+      "sha256": "c659a717df19442d9ce74d1dd85ac76abd3aa8d83b00440851e5411b59bf2526"
+    },
+    {
+      "name": "boundary-controls.json",
+      "bytes": 1337,
+      "sha256": "aac2c1cd5038ad6ff3e73f8aab2a3bee89c6e4dae7ae1a2871728bf659f50e52"
+    },
+    {
+      "name": "calendar-sh000001-retry.raw",
+      "bytes": 118671,
+      "sha256": "dcbe734748a5566d8a8c8e345f2720e2e997743c39429537256bda179cc169a8"
+    },
+    {
+      "name": "calendar-sz399001-retry.raw",
+      "bytes": 121758,
+      "sha256": "230d17b317c55beaa0a38bc826d27663115efeb0e6df034468f9b76bdaf32ff7"
+    },
+    {
+      "name": "calendar.json",
+      "bytes": 31616,
+      "sha256": "153dd1b7c4d606a57df5c388b226050b22da42f71b77b508b227786f45fb6e3a"
+    },
+    {
+      "name": "cninfo-industry-doc.raw",
+      "bytes": 89,
+      "sha256": "63a984f0018aa9a74ab27e1f732ce2ebcbbba92d7bc656a5d8602889e46b51c6"
+    },
+    {
+      "name": "daily-coverage.csv",
+      "bytes": 44285,
+      "sha256": "5e3e27698fd8b789c498c8be43d1c7a4b9a699c073ecdcf0bb7477ee0dc9280e"
+    },
+    {
+      "name": "em-valuation-method-js.raw",
+      "bytes": 81792,
+      "sha256": "15cea82af40e315e875ecd94a2c1bfd6459f11d6faeada118b98ae4c1c43cd2a"
+    },
+    {
+      "name": "em-valuation-method-page.raw",
+      "bytes": 184628,
+      "sha256": "b4fc41e16368d2bcc37ef7915d408ba9c13f40f8f3136080ff022ddd3c51f545"
+    },
+    {
+      "name": "pe-analysis.json",
+      "bytes": 32354,
+      "sha256": "602601bbbd58c6a2b6dac8289f1c62c349a4a7fb3d0c5bad411ae48f35131e0e"
+    },
+    {
+      "name": "pe-baidu-000002.raw",
+      "bytes": 76,
+      "sha256": "f2be3e3ba74dfd3327e22de72483245db16b85264c88ce2ef7f37130523c58e0"
+    },
+    {
+      "name": "pe-baidu-600519.raw",
+      "bytes": 76,
+      "sha256": "b4560f08936e4180c379bb1afad1b4447260bdf59841ec2f7e6e85532513bb5e"
+    },
+    {
+      "name": "pe-baidu-canonical-000002.raw",
+      "bytes": 10111,
+      "sha256": "efbfb32d1f51db938ddfdde8565701d0275b067cebfb9ef278adeb247f961e5d"
+    },
+    {
+      "name": "pe-baidu-canonical-600519.raw",
+      "bytes": 10110,
+      "sha256": "970fdd6d417bc224078a8bdbc200dc32be5d30b28297a442091233ec51a45fbe"
+    },
+    {
+      "name": "pe-controls.json",
+      "bytes": 3035,
+      "sha256": "5c11838f03c7e23d20e60b76a67b43f70ae83af631d13b9cd17b5d8ba61f4a20"
+    },
+    {
+      "name": "pe-em-000002.raw",
+      "bytes": 146384,
+      "sha256": "77ed1fa3de84aa46398b5706e5e489b08250a12fa6aa825cf8ff8da5ed49a1c0"
+    },
+    {
+      "name": "pe-em-600519.raw",
+      "bytes": 147581,
+      "sha256": "db175dc02a13583ad8971080cfe08d220c882c4ddd01b782a25ea1c603f1b8d6"
+    },
+    {
+      "name": "plan-baostock-doc-allStock-post.json",
+      "bytes": 277,
+      "sha256": "e1e6f9512fc3604c7625aec0e21d4dd7ff96074865a70b2179098ce438da419c"
+    },
+    {
+      "name": "plan-baostock-doc-allStock.json",
+      "bytes": 252,
+      "sha256": "941c7398ce873a70ca1142d9b71a09d58aa590e9957c09ce83b827885bb6628c"
+    },
+    {
+      "name": "plan-baostock-doc-dataExplain-post.json",
+      "bytes": 264,
+      "sha256": "f89c64f0ab5dd3a7d1129bf41613eba7c9b9b4bb299149f7539abfc8ff534480"
+    },
+    {
+      "name": "plan-baostock-doc-stockBasic-post.json",
+      "bytes": 283,
+      "sha256": "dd92eba8ae0d18543c10ead8ca454b2a213cd04ca1958b788ebd11266685e486"
+    },
+    {
+      "name": "plan-baostock-doc-stockBasic.json",
+      "bytes": 256,
+      "sha256": "98a539a0f67172cf45aa88f1818b272cdbc2cf3f0906b08013f475c91ba2ddc9"
+    },
+    {
+      "name": "plan-baostock-doc-stockIndustry-post.json",
+      "bytes": 292,
+      "sha256": "5d623c6ea9785d9f3b3abec47d64c7f4fbfcc48d00027c2a52c54ba206e53a0d"
+    },
+    {
+      "name": "plan-baostock-doc-stockIndustry.json",
+      "bytes": 262,
+      "sha256": "61900a2ace2ad989b765d02d8b3c6ce8446231674ea886375a04c35597877f05"
+    },
+    {
+      "name": "plan-baostock-doc-valuationDaily-post.json",
+      "bytes": 295,
+      "sha256": "1a45c082a5f8e8578760d2ac229cd0d477084393becdc12bda931835c9677e3f"
+    },
+    {
+      "name": "plan-baostock-doc-valuationDaily.json",
+      "bytes": 264,
+      "sha256": "0d8f6bf4a41daec9381c79f2a8362a3ece5044bf27390add68737ade436a9879"
+    },
+    {
+      "name": "plan-calendar-sh000001-retry.json",
+      "bytes": 390,
+      "sha256": "718143665208b63d7fc1b536d846e025574fbbb2394df922814fb155d1f3a439"
+    },
+    {
+      "name": "plan-calendar-sh000001.json",
+      "bytes": 369,
+      "sha256": "b1e6faab3f2528dba80942b0d5fce9d5ecbd1d7bb7424733924517cbe046b170"
+    },
+    {
+      "name": "plan-calendar-sz399001-retry.json",
+      "bytes": 390,
+      "sha256": "8374dba1bfe109c53d0c43b32295b87e41eb71217784d64e6f611d83a5eedc02"
+    },
+    {
+      "name": "plan-calendar-sz399001.json",
+      "bytes": 369,
+      "sha256": "3bd3f6a3bce5b435cad47c096675827b22cde4fb80d420b8d61ba542dfddeac5"
+    },
+    {
+      "name": "plan-cninfo-industry-doc.json",
+      "bytes": 317,
+      "sha256": "5bd85cad689da15e21fe25a69c387b72a74ccc34fcacf5350e3282c44b396cb3"
+    },
+    {
+      "name": "plan-em-valuation-method-js.json",
+      "bytes": 249,
+      "sha256": "c4dd6dcc4c0842e4254ddd93d23b1cccb07eb9323558354be2de44a0605f4014"
+    },
+    {
+      "name": "plan-em-valuation-method-page.json",
+      "bytes": 247,
+      "sha256": "327cd6277e3e3e1310690c432016ea6576f4ae1bc6d5b39d366e1c155103d9f5"
+    },
+    {
+      "name": "plan-pe-baidu-000002.json",
+      "bytes": 594,
+      "sha256": "171a2d1067e7cb7143c3b0d6681c067ca591130292617a0018d8a095cebed3d1"
+    },
+    {
+      "name": "plan-pe-baidu-600519.json",
+      "bytes": 594,
+      "sha256": "d00b7c59575702a27dda380ddcdd36afaf440d817c8e69d67f764acdc12de370"
+    },
+    {
+      "name": "plan-pe-baidu-canonical-000002.json",
+      "bytes": 593,
+      "sha256": "8e97f6d14592858ed42610ff64efa90d067fa5af739139b0a89590f3ea6af9c7"
+    },
+    {
+      "name": "plan-pe-baidu-canonical-600519.json",
+      "bytes": 593,
+      "sha256": "14748acde75a58510df65e8b7e0f9e4a8742b8e5faea2576dae5ca9551d49384"
+    },
+    {
+      "name": "plan-pe-em-000002.json",
+      "bytes": 548,
+      "sha256": "2b599c2ee335333c382af6792da8e720850b72e511f45de2dc2ac867a683f131"
+    },
+    {
+      "name": "plan-pe-em-600519.json",
+      "bytes": 548,
+      "sha256": "28bb76e325b35fe86a776772a464152d2e9d6b45ee2a26b6d7a7f3eb96f4e2bd"
+    },
+    {
+      "name": "plan-schedule-000002.json",
+      "bytes": 498,
+      "sha256": "86577136d2f9b278521c25c045a3a053d8bcf377cbd7945c97bae297b0e6d710"
+    },
+    {
+      "name": "plan-schedule-600519.json",
+      "bytes": 498,
+      "sha256": "b0fa1cfa81c1390a61180c898b23673f73450cb9400196b1e1b14a5559581e45"
+    },
+    {
+      "name": "plan-sse-calendar-page-retry.json",
+      "bytes": 274,
+      "sha256": "171b773560af3a617318a192f71d533e3a3994442ccaa6e715f296e0c1ceaee2"
+    },
+    {
+      "name": "plan-sse-calendar-page.json",
+      "bytes": 253,
+      "sha256": "46fa021ee7e34e909678033ae3a8b51ee5c80f24cf5f1f352fd0463c2fb826ec"
+    },
+    {
+      "name": "plan-sse-current-1.json",
+      "bytes": 617,
+      "sha256": "41c68cbcc681dcdfb8785b1a440ed775c3474f5d72dadc6df98b4ae6f307a46c"
+    },
+    {
+      "name": "plan-sse-current-8.json",
+      "bytes": 617,
+      "sha256": "64d6291daaea2a5fdae3a8c7abd2a05987713f8fdd1675604ace6c9c879291c0"
+    },
+    {
+      "name": "plan-sse-delisted.json",
+      "bytes": 598,
+      "sha256": "801f25a2e055e2acee3945fce137cfa37c17204da5cd85f5ff5405986077d6d3"
+    },
+    {
+      "name": "plan-szse-current.json",
+      "bytes": 338,
+      "sha256": "29d9b6f22131148ffe572f1aec7cc72b4698d65084b9f27ccd9c6e474612c0e7"
+    },
+    {
+      "name": "plan-szse-delisted.json",
+      "bytes": 344,
+      "sha256": "cd0a31ec9370c17a5501a85e7124340be4a7b80168e26552160f1b8fb5815098"
+    },
+    {
+      "name": "plan-ths-000002-benefit.json",
+      "bytes": 413,
+      "sha256": "ee425fb319eab13b6649ff1b081767acf0f0ce65dc7744dcd8cb4e6f689d84e4"
+    },
+    {
+      "name": "registration.json",
+      "bytes": 2183,
+      "sha256": "00e60c2b3a91efe303593c007f20a09cc20018d4865d5db2e20b907c82c381e5"
+    },
+    {
+      "name": "requests.json",
+      "bytes": 29285,
+      "sha256": "f2159ef09fbc83464cefd28d008472d40cd91a2b356af94f7c28e0d851700555"
+    },
+    {
+      "name": "schedule-000002.raw",
+      "bytes": 31698,
+      "sha256": "9f56b203782d98234c45a79111cb7684da6e4f9a367436539498c0c504911464"
+    },
+    {
+      "name": "schedule-600519.raw",
+      "bytes": 31682,
+      "sha256": "bdc2291dd46f564e378e0d1883bbeb8dddae7283141ae00a97e374cff5caa6ca"
+    },
+    {
+      "name": "screen.py",
+      "bytes": 18290,
+      "sha256": "a687bc2224ffc5f5c3dc427fe381d290c8ceefac3a6ff92e0911fa03739bc1e2"
+    },
+    {
+      "name": "sse-calendar-page-retry.raw",
+      "bytes": 150,
+      "sha256": "d03c9c9c5fef19b7e84125dd79b77167d00e1df5f56da4818992e23e67360bbb"
+    },
+    {
+      "name": "sse-current-1.raw",
+      "bytes": 1944405,
+      "sha256": "f9135be9dcbeff464ecacc7cbf8a1832949d4790c937d1315d701afae91eb20f"
+    },
+    {
+      "name": "sse-current-8.raw",
+      "bytes": 715278,
+      "sha256": "32cb90c706464a6e8502b652569a42eba265a9cc85e03a740193c6b3e322e2e4"
+    },
+    {
+      "name": "sse-delisted.raw",
+      "bytes": 159703,
+      "sha256": "23527feb01621472d04fdbb8b8193f4c3d5dda2f75dcb5ced9da72d41c404582"
+    },
+    {
+      "name": "szse-current.raw",
+      "bytes": 545613,
+      "sha256": "5ce958d8b34c099c9fb3dc8bdaf7f5d3a99868e98b159b1a73fa1cb6cd91442d"
+    },
+    {
+      "name": "szse-delisted.raw",
+      "bytes": 10839,
+      "sha256": "fdb186b963a37a04c7bbd268d4ddd9067304f6000516038d9b85f1862f7b200a"
+    },
+    {
+      "name": "ths-000002-benefit.raw",
+      "bytes": 314269,
+      "sha256": "e838ef638250356762880d66213ed4c1d3eba11689b68335102ee20c4fa05922"
+    },
+    {
+      "name": "universe.json",
+      "bytes": 2371521,
+      "sha256": "e35ebae68954bb8b894d739f20e94ce9f82748db3be514260713288cad89319e"
+    },
+    {
+      "name": "verification.json",
+      "bytes": 592,
+      "sha256": "fb3f1492dc356c666e6c6a98ca6477f621828f8fb79815bb26dd318b297b348e"
+    },
+    {
+      "name": "verification.txt",
+      "bytes": 1564,
+      "sha256": "1a881ecd80ee3442a33e6affdcb6f43ae9661f79a82d22fb71d4c144bf78f1a7"
+    },
+    {
+      "name": "verify.py",
+      "bytes": 13447,
+      "sha256": "63abfa9fabeeacabca384e0d5a8a453c52c582735b52f008593388b7e2d8f9b0"
+    },
+    {
+      "name": "vipdoc-inventory.json",
+      "bytes": 3300700,
+      "sha256": "886785cfbd52c5a38ddf62897ab33310dc1e87a4f71c67b9209bb2b14aacb4d3"
+    }
+  ],
+  "excluded": [
+    "manifest.json itself",
+    "temporary verification runtime",
+    "Python bytecode cache"
+  ],
+  "status": "?? docs/DR01-current-free-data-feasibility-2026-10-19.md\n?? docs/DR02-DR06-consolidated-gap-report.md\n?? docs/MISHI_RADAR_TO_CHSTOCKDATA_DR01_DR06_CONSUMER_REQUEST_2026-10-16.md\n?? docs/MISHI_RADAR_V0_1_SPEC_R3_2_SCOPE_APPROVED_DATA_PENDING_2026-10-16.md\n?? docs/SIOS-P2-to-chstockdata-handoff-2026-10-19.zip\n?? docs/audits/2026-10-09-v0.4.2-history-recovery-conclusion.md\n?? docs/audits/2026-10-09-v0.4.2-official-history-and-sios-final-decision.md\n?? docs/audits/2026-10-09-v0.4.2-release-closeout.md\n?? docs/audits/2026-10-09-v0.4.2-unified-gate.md\n?? docs/audits/2026-10-10-v0.4.2-tdx-historical-execution-feasibility.md\n?? docs/audits/2026-10-11-v0.4.2-opening-implementation.md\n?? docs/audits/2026-10-14-v0.4.2-controlled-release.md\n?? docs/audits/2026-10-18-dr04-p-implementation.md\n?? docs/audits/2026-10-18-dr04-p-preflight.md\n?? docs/audits/2026-10-18-dr04-p-regression-fix.md\n?? docs/audits/2026-10-18-dr04-p-regression-root-cause.md\n?? docs/audits/2026-10-19-sios-p2-producer-response.md\n?? docs/audits/2026-10-19-w5h-historical-financial-pit-feasibility.md\n?? docs/audits/2026-10-20-w5h-r2-alternative-source-qualification.md\n?? docs/audits/2026-10-22-mishi-s07-real-window-admission-preflight.md\n?? docs/audits/2026-10-22-mishi-s07-real-window-dependencies.json\n?? docs/audits/2026-10-22-s07-free-supply-decisive-screen.md\n?? docs/audits/2026-10-22-w5h-f2-final-evidence-qualification.md\n?? docs/audits/DR01-current-free-data-feasibility-2026-10-19.md\n?? docs/audits/evidence/2026-10-09-v0.4.2-history-recovery/\n?? docs/audits/evidence/2026-10-09-v0.4.2-release/\n?? docs/audits/evidence/2026-10-09-v0.4.2-unified-gate/\n?? docs/audits/evidence/2026-10-10-v0.4.2-tdx-historical-execution/probe_tdx_history.py\n?? docs/audits/evidence/2026-10-10-v0.4.2-tdx-historical-execution/probe_tdx_opening_pages.py\n?? docs/audits/evidence/2026-10-10-v0.4.2-tdx-historical-execution/probe_tdx_opening_pages_final.py\n?? docs/audits/evidence/2026-10-10-v0.4.2-tdx-historical-execution/probe_tdx_opening_pages_followup.py\n?? docs/audits/evidence/2026-10-10-v0.4.2-tdx-historical-execution/tdx_history_manifest.json\n?? docs/audits/evidence/2026-10-10-v0.4.2-tdx-historical-execution/tdx_opening_page_final_manifest.json\n?? docs/audits/evidence/2026-10-10-v0.4.2-tdx-historical-execution/tdx_opening_page_followup_manifest.json\n?? docs/audits/evidence/2026-10-10-v0.4.2-tdx-historical-execution/tdx_opening_page_manifest.json\n?? docs/audits/evidence/2026-10-11-v0.4.2-opening-implementation/\n?? docs/audits/evidence/2026-10-14-v0.4.2-controlled-release/\n?? docs/audits/evidence/2026-10-18-dr04-p-failure-investigation/\n?? docs/audits/evidence/2026-10-18-dr04-p-implementation/\n?? docs/audits/evidence/2026-10-18-dr04-p-owner-acceptance/focused.stderr.txt\n?? docs/audits/evidence/2026-10-18-dr04-p-owner-acceptance/ruff.stderr.txt\n?? docs/audits/evidence/2026-10-18-dr04-p-owner-acceptance/worktree-before.json\n?? docs/audits/evidence/2026-10-18-dr04-p-preflight/\n?? docs/audits/evidence/2026-10-18-dr04-p-regression-fix-r2/before-test.py.txt\n?? docs/audits/evidence/2026-10-18-dr04-p-regression-fix-r2/before.diff\n?? docs/audits/evidence/2026-10-18-dr04-p-regression-fix-r2/before.json\n?? docs/audits/evidence/2026-10-18-dr04-p-regression-fix-r2/finalize.py\n?? docs/audits/evidence/2026-10-18-dr04-p-regression-fix-r2/focused.stderr.txt\n?? docs/audits/evidence/2026-10-18-dr04-p-regression-fix-r2/regression.stderr.txt\n?? docs/audits/evidence/2026-10-18-dr04-p-regression-fix-r2/resume.py\n?? docs/audits/evidence/2026-10-18-dr04-p-regression-fix-r2/verify.py\n?? docs/audits/evidence/2026-10-18-dr04-p-regression-fix/\n?? docs/audits/evidence/2026-10-18-dr04-p-type-identity-fix/before.json\n?? docs/audits/evidence/2026-10-18-dr04-p-type-identity-fix/finalize.py\n?? docs/audits/evidence/2026-10-18-dr04-p-type-identity-fix/focused.stderr.txt\n?? docs/audits/evidence/2026-10-18-dr04-p-type-identity-fix/full.stderr.txt\n?? docs/audits/evidence/2026-10-18-dr04-p-type-identity-fix/module-before.txt\n?? docs/audits/evidence/2026-10-18-dr04-p-type-identity-fix/red.stderr.txt\n?? docs/audits/evidence/2026-10-18-dr04-p-type-identity-fix/tests-before.txt\n?? docs/audits/evidence/2026-10-18-dr04-p-type-identity-fix/tracked-before.diff\n?? docs/audits/evidence/2026-10-18-dr04-p-type-identity-fix/verify.py\n?? docs/audits/evidence/2026-10-19-sios-p2-producer-response/\n?? docs/audits/evidence/2026-10-19-w5h/\n?? docs/audits/evidence/2026-10-20-w5h-r2/\n?? docs/audits/evidence/2026-10-22-s07-free-supply-decisive-screen/\n?? docs/audits/evidence/2026-10-22-w5h-f2-final-evidence-qualification/\n?? docs/dr04-minimum-consumer-contract-owner-review.md\n?? docs/plans/\n",
+  "offline_inspection_failure_preserved": {
+    "type": "SyntaxError",
+    "cause": "Assignment expression in a one-off comprehension iterable",
+    "effect": "Inspection command only; no network or evidence mutation; replaced by explicit offline analyzer"
+  }
+}

@@ -1,0 +1,224 @@
+{
+  "generated_at": "2026-10-19T08:39:58.481659+00:00",
+  "files": [
+    {
+      "path": "docs/audits/2026-10-19-sios-p2-producer-response.md",
+      "bytes": 18672,
+      "sha256": "327610beb4fa1d2c8a133cc6b5aa67fe05369c7a11ebf44422fce163115ea645"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-19-sios-p2-producer-response/analysis/anchor_rows.csv",
+      "bytes": 1716,
+      "sha256": "590704c5ea9e8395eff7a7aed28008dbcaf016a4ac6db3b43afa47c56502f99b"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-19-sios-p2-producer-response/analysis/daily_sample.csv",
+      "bytes": 43438,
+      "sha256": "07237ae1f6b198fa4d6ead381cfd789496712dda846fb88ed1fa0bf54a7513dc"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-19-sios-p2-producer-response/analysis/NOT_ACCEPTED.md",
+      "bytes": 443,
+      "sha256": "acfc3923d752b22b77ec3b2b359cd2d6beb1b21d4ed8a5c3c38ef3bfe25d44cd"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-19-sios-p2-producer-response/analysis/sample_summary.json",
+      "bytes": 14550,
+      "sha256": "4fc04f0daaf1acbd82669ccd3983fd60d1e05d8e85eb235ea9ed277c63e1e961"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-19-sios-p2-producer-response/analysis/shfe_sina_crosscheck.csv",
+      "bytes": 1962,
+      "sha256": "cfbedfb1565838db4049c5d88eea9183238665ec4a7c4af91b5642ef60575b11"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-19-sios-p2-producer-response/analysis/sina_settlement_anomalies.csv",
+      "bytes": 9763,
+      "sha256": "0459ad9078dd89564fcedd77f42e0be725336f886ba82c86ed3f1355356bb028"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-19-sios-p2-producer-response/analysis-r2/anchor_rows.csv",
+      "bytes": 1716,
+      "sha256": "590704c5ea9e8395eff7a7aed28008dbcaf016a4ac6db3b43afa47c56502f99b"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-19-sios-p2-producer-response/analysis-r2/daily_sample.csv",
+      "bytes": 54683,
+      "sha256": "d1bd1c73c5a6b0fe338c109625983ad8166f452a72fb2703497b248ca59d4d48"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-19-sios-p2-producer-response/analysis-r2/sample_summary.json",
+      "bytes": 15282,
+      "sha256": "28a8c73ec86ecdd15b64a67925f765842cd9979ebfd88e07e2aa21faabbcc5a1"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-19-sios-p2-producer-response/analysis-r2/shfe_sina_crosscheck.csv",
+      "bytes": 1962,
+      "sha256": "cfbedfb1565838db4049c5d88eea9183238665ec4a7c4af91b5642ef60575b11"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-19-sios-p2-producer-response/analysis-r2/sina_settlement_anomalies.csv",
+      "bytes": 9763,
+      "sha256": "0459ad9078dd89564fcedd77f42e0be725336f886ba82c86ed3f1355356bb028"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-19-sios-p2-producer-response/analyze_samples.py",
+      "bytes": 8757,
+      "sha256": "6f586407c1be577f81a0d47d21858f195d00c3d8d521c1e56808a30baf97727c"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-19-sios-p2-producer-response/live/baseline.json",
+      "bytes": 2294269,
+      "sha256": "2d08b80ddb2de6f30ada5e41b2a973b1cf32c45fbfabc539336c1631acef9966"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-19-sios-p2-producer-response/live/capture_result.json",
+      "bytes": 157,
+      "sha256": "e58e0097948ea0fd47de72ad5412a75451a6b082c3bd706471685e80e5b18f31"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-19-sios-p2-producer-response/live/requests.json",
+      "bytes": 13177,
+      "sha256": "a9c77aab6737d0794faa6ca57d6252131eaf571dcb6f4ec9e7ecb57d03f21758"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-19-sios-p2-producer-response/live/shfe_20200102.raw",
+      "bytes": 84249,
+      "sha256": "6008ecb9fdfcfc25fb43cc264621a5e6e367fb31e6b4d6c3482f8d5a914f203a"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-19-sios-p2-producer-response/live/shfe_20210104.raw",
+      "bytes": 106371,
+      "sha256": "e35cbaee341b4aef46d8960c9a30dc907d6690ee1ca00e34a247ee6ea8ef5a85"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-19-sios-p2-producer-response/live/shfe_20230630.raw",
+      "bytes": 123524,
+      "sha256": "52244ff8869a6ae96f809757b185088e5439fbd0fb1118940da138669d965996"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-19-sios-p2-producer-response/live/shfe_20251231.raw",
+      "bytes": 122653,
+      "sha256": "922cd6943ceb114f6b3e20e2c278133a3615b619f959f601c4c51be79819b6c3"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-19-sios-p2-producer-response/live/sina_BU2106.raw",
+      "bytes": 56391,
+      "sha256": "4d5f5d419d2cd689a4dcd91eeff7a9bacd858f5a17e3b7e698515cbcb6ebdd33"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-19-sios-p2-producer-response/live/sina_BU2309.raw",
+      "bytes": 55588,
+      "sha256": "6062f1d1121ab88924c6316ac17ce036026d716474acbc5bf22490e75d1762df"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-19-sios-p2-producer-response/live/sina_BU2601.raw",
+      "bytes": 26643,
+      "sha256": "91a5e2e28bfda1bbdb2519a22b184ea6c8a5f296cc6be9910cac8e73c49599db"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-19-sios-p2-producer-response/live/sina_C2105.raw",
+      "bytes": 28720,
+      "sha256": "2c56358bde9b12247df8ea3aceb384536bb0243e6daeca5e3c337a63cec63828"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-19-sios-p2-producer-response/live/sina_C2309.raw",
+      "bytes": 28762,
+      "sha256": "0c9e4976c638ef99e3a1af6c8291686c50e3a972aefda042b78bb88d56eab769"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-19-sios-p2-producer-response/live/sina_C2605.raw",
+      "bytes": 28536,
+      "sha256": "dbe5cea6f0cc1220dbfd6c33c237f6daafb287cf38d70b9205c17e3ca4feec89"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-19-sios-p2-producer-response/live/sina_CS2105.raw",
+      "bytes": 28303,
+      "sha256": "3afa016db7208d0df19844db3a72d7b77ed3c233b1aa31c6420d90c5d5d0fd42"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-19-sios-p2-producer-response/live/sina_CS2309.raw",
+      "bytes": 28301,
+      "sha256": "2520650520d0c7373e2d84ce6bdbbe7dd977b3778750a78357dc9ea18ab58a63"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-19-sios-p2-producer-response/live/sina_CS2605.raw",
+      "bytes": 27555,
+      "sha256": "b1d80947ce4a51c7f59e0a3bc16ef41acda2c90043742eadce97f64c4a4ccabe"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-19-sios-p2-producer-response/live/sina_PP2105.raw",
+      "bytes": 28556,
+      "sha256": "40e7c4487156c8098f9d0c4ee6f9ca95372b55c0fb817de3e09ac9127e3d7c53"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-19-sios-p2-producer-response/live/sina_PP2309.raw",
+      "bytes": 28675,
+      "sha256": "9bb74e68c1210c48e060196413c1524bdba394a78c428726cae2bbd28a5995e0"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-19-sios-p2-producer-response/live/sina_PP2605.raw",
+      "bytes": 28617,
+      "sha256": "ceae0d60f1f6b3527682c6391b6005160ea6184435e502a19051db240b99da52"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-19-sios-p2-producer-response/live/sina_RB2105.raw",
+      "bytes": 29073,
+      "sha256": "77e790165e7ad50c3d9079afc57a4a6e64989ce28d515f13bfd247c41c3985c1"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-19-sios-p2-producer-response/live/sina_RB2310.raw",
+      "bytes": 29159,
+      "sha256": "24c63fab5339ad3f69bd4e0881443603627a4b6aaafafc8acba2c8aa6d4cb3cc"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-19-sios-p2-producer-response/live/sina_RB2601.raw",
+      "bytes": 28906,
+      "sha256": "7c8594edd3a0eb8c7f0f73ce56da51eaa7dce9e1898d96014663b27a173977ee"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-19-sios-p2-producer-response/probe_history.py",
+      "bytes": 5140,
+      "sha256": "12d238a6fd7527e4d07d85d8985b79d5e0bbc3b2320214770edc2d3d142786c3"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-19-sios-p2-producer-response/sandbox/baseline.json",
+      "bytes": 2293895,
+      "sha256": "3a5904c35820a472c52df1f0b49e086b8dfb579a856cd55963797ce72a8b8dec"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-19-sios-p2-producer-response/sandbox/capture_result.json",
+      "bytes": 155,
+      "sha256": "0d0a18cd167a65eb07a26362a401e6ec213befd62db72b81e27a0b8f353cc09b"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-19-sios-p2-producer-response/sandbox/requests.json",
+      "bytes": 542,
+      "sha256": "5faf486dcd2be4df7cd24753b6859a62d175cd750ad1388b8c8a2ae743746eef"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-19-sios-p2-producer-response/sandbox/shfe_20210104.raw",
+      "bytes": 106371,
+      "sha256": "e35cbaee341b4aef46d8960c9a30dc907d6690ee1ca00e34a247ee6ea8ef5a85"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-19-sios-p2-producer-response/source_inventory.json",
+      "bytes": 1653,
+      "sha256": "3ef72a2fb7b27ca993a37e2faa61661e51a12bf3606420eb835cc61ab0d26fb1"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-19-sios-p2-producer-response/verification.json",
+      "bytes": 4420,
+      "sha256": "a3d303b725ff30892466b8ba04a61b8abdb22d926ccdc6460da178fd487a7359"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-19-sios-p2-producer-response/verify_evidence.py",
+      "bytes": 6852,
+      "sha256": "db3da72f1fd36aa13f854bb0ec18fc94f1e15dff3de22c7b490726b138c77089"
+    }
+  ],
+  "excluded": [
+    "artifact_manifest.json (self)",
+    "__pycache__"
+  ]
+}

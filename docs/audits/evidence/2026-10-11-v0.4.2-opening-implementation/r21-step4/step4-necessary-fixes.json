@@ -1,0 +1,31 @@
+{
+  "packaging_fix": "MANIFEST.in recursive-include tests/fixtures *; source/sdist exact 9 fixture members",
+  "lint": {
+    "files": {
+      "src/chstockdata/opening_evidence.py": {
+        "before_sha256": "8e48f46373f974f665807dc3e2db8d7b8520588b699c7bce9fbf8c20986061a8",
+        "after_sha256": "28c0a538832425f81227becf9bc965cc44faec0292ceac6a457727f4ac27e278"
+      },
+      "tests/test_historical_opening_evidence.py": {
+        "before_sha256": "7865b3c6721ebd01b4e9dcedcdc326312b977d41d50b979bdfbc9c7b78aeb804",
+        "after_sha256": "09f230f20f5fd3bd323cf9434f7ff54577fa1b6e48b6d245141790cb7ef0f205"
+      }
+    },
+    "rules": [
+      "I001",
+      "UP035",
+      "FURB157",
+      "RUF007",
+      "SIM102",
+      "RUF022"
+    ],
+    "preserved_contract_exceptions": [
+      "ValueError payload status via TRY004 exact noqa",
+      "vendor observation and cleanup catchall via BLE001/S110 exact noqa"
+    ],
+    "source_local_recheck": "128 PASS",
+    "independent_root_recheck": "independent-lint-local.xml",
+    "diff": "step4-lint-only.patch"
+  },
+  "scope_expansion": false
+}

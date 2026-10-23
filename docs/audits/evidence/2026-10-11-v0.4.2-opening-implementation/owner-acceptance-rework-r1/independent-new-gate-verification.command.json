@@ -1,0 +1,13 @@
+{
+  "argv": [
+    "C:/Users/Administrator/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe",
+    "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\evidence\\owner-acceptance-rework-r1\\verify_new_gate_independent.py"
+  ],
+  "cwd": "D:\\Dev\\Projects\\chstockdata",
+  "exit": 0,
+  "mode": "authorized read-only elevated verification",
+  "script_sha256": "05fbdaac9ece4614f6d8696481f9a7e2966db9f590873c103c2133ead61209bc",
+  "log": "independent-new-gate-verification.log",
+  "result": "independent-new-gate-verification.json",
+  "note": "Actual command results independently returned exit 0; saved report also retained as stdout log."
+}

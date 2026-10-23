@@ -1,0 +1,3076 @@
+FFFFFFFF....................................................F........... [ 17%]
+........................................................................ [ 34%]
+..................................................F..................... [ 51%]
+.............................F........FF......F..FFFF.FF..F.FFFFFF..FFFF [ 68%]
+FFFFFFF................................................................. [ 85%]
+FFFFF.......................................................             [100%]
+================================== FAILURES ===================================
+__________ TestCashDividend.test_dividend_credits_cash_exactly_once ___________
+
+self = <test_corporate_actions.TestCashDividend object at 0x000002D2BF24DD30>
+make_engine = <function make_engine.<locals>.build at 0x000002D2C0F4DDA0>
+bar_factory = <function bar_factory.<locals>.build at 0x000002D2C0F4DC60>
+predetermined_targets = <class 'conftest.PredeterminedTargetSource'>
+
+    def test_dividend_credits_cash_exactly_once(
+        self, make_engine, bar_factory, predetermined_targets
+    ):
+        engine = self.engine(
+            make_engine, bar_factory, predetermined_targets
+        )
+    
+>       result = engine.run(start_session=S_0910, end_session=S_0911)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\component\test_corporate_actions.py:135: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+src\systematic_investing\backtest\engine.py:759: in run
+    outcome = self._run_session(
+src\systematic_investing\backtest\engine.py:785: in _run_session
+    effects, cash, positions, quantity_changed = self._apply_effective_corporate_actions(
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <systematic_investing.backtest.engine.DailyBarEngine object at 0x000002D2C0EC5490>
+session_date = datetime.date(2026, 9, 11)
+cash = Money(amount=Decimal('1000'), currency='CNY')
+positions = (Position(instrument_id=InstrumentId(exchange=<Exchange.XSHE: 'XSHE'>, symbol='000001'), lots=(AcquisitionLot(quantity...ed_session=datetime.date(2026, 9, 1), sellable_from=datetime.date(2026, 9, 2), acquisition_price=Decimal('12.00')),)),)
+applied_action_ids = set(), quantity_change_sessions = {}
+
+    def _apply_effective_corporate_actions(
+        self,
+        *,
+        session_date: date,
+        cash: Money,
+        positions: tuple[Position, ...],
+        applied_action_ids: set[str],
+        quantity_change_sessions: dict[InstrumentId, date],
+    ) -> tuple[
+        tuple[CorporateActionEffect, ...],
+        Money,
+        tuple[Position, ...],
+        frozenset[InstrumentId],
+    ]:
+        """Apply every action that is effective and knowable at this session.
+    
+        An action whose information was not knowable at the activation cutoff
+        is applied at the first later session where it becomes knowable, so
+        the ledger never uses information before it existed. Cash dividends
+        are applied before share-changing records on the same session so the
+        cash is computed on the pre-change quantity.
+        """
+        cutoff = self._clock.activation_cutoff(session_date)
+        effective = tuple(
+            action
+            for action in self._corporate_actions
+            if action.action_id not in applied_action_ids
+            and action.ex_date <= session_date
+            and action.availability.information_known_at(cutoff) is True
+        )
+        if not effective:
+            return (), cash, positions, frozenset()
+        positions_by_id = {position.instrument_id: position for position in positions}
+        effects: list[CorporateActionEffect] = []
+        quantity_changed: set[InstrumentId] = set()
+        for action in sorted(effective, key=_corporate_action_order):
+>           posting = apply_corporate_action(
+                action=action,
+                position=positions_by_id.get(action.instrument_id),
+                cash=cash,
+                session_date=session_date,
+                recorded_at=self._clock.execution_at(session_date),
+            historical_opening_evidence={fact.instrument_id: fact for fact in self._historical_opening_evidence if fact.session_date == session_date},
+            execution_eligibility_mode=self._execution_eligibility_mode,
+                fraction_price=(
+                    self._fraction_price_for(action.instrument_id, session_date)
+                    if self._accounting_semantics
+                    is AccountingSemantics.CURRENT_M0_ACCOUNTING_2
+                    else None
+                ),
+                accounting_semantics=self._accounting_semantics,
+            )
+E           TypeError: apply_corporate_action() got an unexpected keyword argument 'historical_opening_evidence'
+
+src\systematic_investing\backtest\engine.py:886: TypeError
+__ TestCashDividend.test_holdings_are_unchanged_and_valued_at_the_raw_close ___
+
+self = <test_corporate_actions.TestCashDividend object at 0x000002D2BF465880>
+make_engine = <function make_engine.<locals>.build at 0x000002D2C0FAD9E0>
+bar_factory = <function bar_factory.<locals>.build at 0x000002D2C0FADB20>
+predetermined_targets = <class 'conftest.PredeterminedTargetSource'>
+
+    def test_holdings_are_unchanged_and_valued_at_the_raw_close(
+        self, make_engine, bar_factory, predetermined_targets
+    ):
+        engine = self.engine(
+            make_engine, bar_factory, predetermined_targets
+        )
+    
+>       result = engine.run(start_session=S_0910, end_session=S_0911)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\component\test_corporate_actions.py:160: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+src\systematic_investing\backtest\engine.py:759: in run
+    outcome = self._run_session(
+src\systematic_investing\backtest\engine.py:785: in _run_session
+    effects, cash, positions, quantity_changed = self._apply_effective_corporate_actions(
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <systematic_investing.backtest.engine.DailyBarEngine object at 0x000002D2C1081490>
+session_date = datetime.date(2026, 9, 11)
+cash = Money(amount=Decimal('1000'), currency='CNY')
+positions = (Position(instrument_id=InstrumentId(exchange=<Exchange.XSHE: 'XSHE'>, symbol='000001'), lots=(AcquisitionLot(quantity...ed_session=datetime.date(2026, 9, 1), sellable_from=datetime.date(2026, 9, 2), acquisition_price=Decimal('12.00')),)),)
+applied_action_ids = set(), quantity_change_sessions = {}
+
+    def _apply_effective_corporate_actions(
+        self,
+        *,
+        session_date: date,
+        cash: Money,
+        positions: tuple[Position, ...],
+        applied_action_ids: set[str],
+        quantity_change_sessions: dict[InstrumentId, date],
+    ) -> tuple[
+        tuple[CorporateActionEffect, ...],
+        Money,
+        tuple[Position, ...],
+        frozenset[InstrumentId],
+    ]:
+        """Apply every action that is effective and knowable at this session.
+    
+        An action whose information was not knowable at the activation cutoff
+        is applied at the first later session where it becomes knowable, so
+        the ledger never uses information before it existed. Cash dividends
+        are applied before share-changing records on the same session so the
+        cash is computed on the pre-change quantity.
+        """
+        cutoff = self._clock.activation_cutoff(session_date)
+        effective = tuple(
+            action
+            for action in self._corporate_actions
+            if action.action_id not in applied_action_ids
+            and action.ex_date <= session_date
+            and action.availability.information_known_at(cutoff) is True
+        )
+        if not effective:
+            return (), cash, positions, frozenset()
+        positions_by_id = {position.instrument_id: position for position in positions}
+        effects: list[CorporateActionEffect] = []
+        quantity_changed: set[InstrumentId] = set()
+        for action in sorted(effective, key=_corporate_action_order):
+>           posting = apply_corporate_action(
+                action=action,
+                position=positions_by_id.get(action.instrument_id),
+                cash=cash,
+                session_date=session_date,
+                recorded_at=self._clock.execution_at(session_date),
+            historical_opening_evidence={fact.instrument_id: fact for fact in self._historical_opening_evidence if fact.session_date == session_date},
+            execution_eligibility_mode=self._execution_eligibility_mode,
+                fraction_price=(
+                    self._fraction_price_for(action.instrument_id, session_date)
+                    if self._accounting_semantics
+                    is AccountingSemantics.CURRENT_M0_ACCOUNTING_2
+                    else None
+                ),
+                accounting_semantics=self._accounting_semantics,
+            )
+E           TypeError: apply_corporate_action() got an unexpected keyword argument 'historical_opening_evidence'
+
+src\systematic_investing\backtest\engine.py:886: TypeError
+_ TestQuantityChangingActions.test_split_scales_lots_and_preserves_sellability _
+
+self = <test_corporate_actions.TestQuantityChangingActions object at 0x000002D2BF467EF0>
+make_engine = <function make_engine.<locals>.build at 0x000002D2C0FADBC0>
+bar_factory = <function bar_factory.<locals>.build at 0x000002D2C0FAE020>
+predetermined_targets = <class 'conftest.PredeterminedTargetSource'>
+
+    def test_split_scales_lots_and_preserves_sellability(
+        self, make_engine, bar_factory, predetermined_targets
+    ):
+        engine = self.engine(make_engine, bar_factory, predetermined_targets)
+    
+>       result = engine.run(start_session=S_0910, end_session=S_0911)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\component\test_corporate_actions.py:212: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+src\systematic_investing\backtest\engine.py:759: in run
+    outcome = self._run_session(
+src\systematic_investing\backtest\engine.py:785: in _run_session
+    effects, cash, positions, quantity_changed = self._apply_effective_corporate_actions(
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <systematic_investing.backtest.engine.DailyBarEngine object at 0x000002D2BF454860>
+session_date = datetime.date(2026, 9, 11)
+cash = Money(amount=Decimal('1000'), currency='CNY')
+positions = (Position(instrument_id=InstrumentId(exchange=<Exchange.XSHE: 'XSHE'>, symbol='000001'), lots=(AcquisitionLot(quantity...ed_session=datetime.date(2026, 9, 1), sellable_from=datetime.date(2026, 9, 2), acquisition_price=Decimal('12.00')),)),)
+applied_action_ids = set(), quantity_change_sessions = {}
+
+    def _apply_effective_corporate_actions(
+        self,
+        *,
+        session_date: date,
+        cash: Money,
+        positions: tuple[Position, ...],
+        applied_action_ids: set[str],
+        quantity_change_sessions: dict[InstrumentId, date],
+    ) -> tuple[
+        tuple[CorporateActionEffect, ...],
+        Money,
+        tuple[Position, ...],
+        frozenset[InstrumentId],
+    ]:
+        """Apply every action that is effective and knowable at this session.
+    
+        An action whose information was not knowable at the activation cutoff
+        is applied at the first later session where it becomes knowable, so
+        the ledger never uses information before it existed. Cash dividends
+        are applied before share-changing records on the same session so the
+        cash is computed on the pre-change quantity.
+        """
+        cutoff = self._clock.activation_cutoff(session_date)
+        effective = tuple(
+            action
+            for action in self._corporate_actions
+            if action.action_id not in applied_action_ids
+            and action.ex_date <= session_date
+            and action.availability.information_known_at(cutoff) is True
+        )
+        if not effective:
+            return (), cash, positions, frozenset()
+        positions_by_id = {position.instrument_id: position for position in positions}
+        effects: list[CorporateActionEffect] = []
+        quantity_changed: set[InstrumentId] = set()
+        for action in sorted(effective, key=_corporate_action_order):
+>           posting = apply_corporate_action(
+                action=action,
+                position=positions_by_id.get(action.instrument_id),
+                cash=cash,
+                session_date=session_date,
+                recorded_at=self._clock.execution_at(session_date),
+            historical_opening_evidence={fact.instrument_id: fact for fact in self._historical_opening_evidence if fact.session_date == session_date},
+            execution_eligibility_mode=self._execution_eligibility_mode,
+                fraction_price=(
+                    self._fraction_price_for(action.instrument_id, session_date)
+                    if self._accounting_semantics
+                    is AccountingSemantics.CURRENT_M0_ACCOUNTING_2
+                    else None
+                ),
+                accounting_semantics=self._accounting_semantics,
+            )
+E           TypeError: apply_corporate_action() got an unexpected keyword argument 'historical_opening_evidence'
+
+src\systematic_investing\backtest\engine.py:886: TypeError
+_ TestQuantityChangingActions.test_action_unknown_at_activation_is_applied_when_first_known _
+
+self = <test_corporate_actions.TestQuantityChangingActions object at 0x000002D2BF4656D0>
+make_engine = <function make_engine.<locals>.build at 0x000002D2C0FAEC00>
+bar_factory = <function bar_factory.<locals>.build at 0x000002D2C0FAED40>
+predetermined_targets = <class 'conftest.PredeterminedTargetSource'>
+
+    def test_action_unknown_at_activation_is_applied_when_first_known(
+        self, make_engine, bar_factory, predetermined_targets
+    ):
+        # Announced at 10:00 on the ex-date, after the 09:15 activation cutoff:
+        # the ledger must not apply it retroactively at 2026-09-11.
+        engine = self.engine(
+            make_engine,
+            bar_factory,
+            predetermined_targets,
+            information_available_at=datetime(2026, 9, 11, 10, 0, tzinfo=UTC),
+            extra_session=True,
+        )
+    
+>       result = engine.run(start_session=S_0910, end_session=S_0914)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\component\test_corporate_actions.py:238: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+src\systematic_investing\backtest\engine.py:759: in run
+    outcome = self._run_session(
+src\systematic_investing\backtest\engine.py:785: in _run_session
+    effects, cash, positions, quantity_changed = self._apply_effective_corporate_actions(
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <systematic_investing.backtest.engine.DailyBarEngine object at 0x000002D2C1711700>
+session_date = datetime.date(2026, 9, 14)
+cash = Money(amount=Decimal('1000'), currency='CNY')
+positions = (Position(instrument_id=InstrumentId(exchange=<Exchange.XSHE: 'XSHE'>, symbol='000001'), lots=(AcquisitionLot(quantity...ed_session=datetime.date(2026, 9, 1), sellable_from=datetime.date(2026, 9, 2), acquisition_price=Decimal('12.00')),)),)
+applied_action_ids = set(), quantity_change_sessions = {}
+
+    def _apply_effective_corporate_actions(
+        self,
+        *,
+        session_date: date,
+        cash: Money,
+        positions: tuple[Position, ...],
+        applied_action_ids: set[str],
+        quantity_change_sessions: dict[InstrumentId, date],
+    ) -> tuple[
+        tuple[CorporateActionEffect, ...],
+        Money,
+        tuple[Position, ...],
+        frozenset[InstrumentId],
+    ]:
+        """Apply every action that is effective and knowable at this session.
+    
+        An action whose information was not knowable at the activation cutoff
+        is applied at the first later session where it becomes knowable, so
+        the ledger never uses information before it existed. Cash dividends
+        are applied before share-changing records on the same session so the
+        cash is computed on the pre-change quantity.
+        """
+        cutoff = self._clock.activation_cutoff(session_date)
+        effective = tuple(
+            action
+            for action in self._corporate_actions
+            if action.action_id not in applied_action_ids
+            and action.ex_date <= session_date
+            and action.availability.information_known_at(cutoff) is True
+        )
+        if not effective:
+            return (), cash, positions, frozenset()
+        positions_by_id = {position.instrument_id: position for position in positions}
+        effects: list[CorporateActionEffect] = []
+        quantity_changed: set[InstrumentId] = set()
+        for action in sorted(effective, key=_corporate_action_order):
+>           posting = apply_corporate_action(
+                action=action,
+                position=positions_by_id.get(action.instrument_id),
+                cash=cash,
+                session_date=session_date,
+                recorded_at=self._clock.execution_at(session_date),
+            historical_opening_evidence={fact.instrument_id: fact for fact in self._historical_opening_evidence if fact.session_date == session_date},
+            execution_eligibility_mode=self._execution_eligibility_mode,
+                fraction_price=(
+                    self._fraction_price_for(action.instrument_id, session_date)
+                    if self._accounting_semantics
+                    is AccountingSemantics.CURRENT_M0_ACCOUNTING_2
+                    else None
+                ),
+                accounting_semantics=self._accounting_semantics,
+            )
+E           TypeError: apply_corporate_action() got an unexpected keyword argument 'historical_opening_evidence'
+
+src\systematic_investing\backtest\engine.py:886: TypeError
+_ TestInterveningActionInvalidation.test_pending_sell_is_invalidated_without_a_substitute _
+
+self = <test_corporate_actions.TestInterveningActionInvalidation object at 0x000002D2BF4647D0>
+make_engine = <function make_engine.<locals>.build at 0x000002D2C0FAF880>
+bar_factory = <function bar_factory.<locals>.build at 0x000002D2C0FAF9C0>
+target_contribution = <function target_contribution.<locals>.build at 0x000002D2C0FAFB00>
+predetermined_targets = <class 'conftest.PredeterminedTargetSource'>
+tradability_factory = <function tradability_factory.<locals>.build at 0x000002D2C0FAFC40>
+
+    def test_pending_sell_is_invalidated_without_a_substitute(
+        self,
+        make_engine,
+        bar_factory,
+        target_contribution,
+        predetermined_targets,
+        tradability_factory,
+    ):
+        engine = self.engine(
+            make_engine,
+            bar_factory,
+            target_contribution,
+            predetermined_targets,
+            tradability_factory,
+            with_split=True,
+        )
+    
+>       result = engine.run(start_session=S_0910, end_session=S_0911)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\component\test_corporate_actions.py:306: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+src\systematic_investing\backtest\engine.py:759: in run
+    outcome = self._run_session(
+src\systematic_investing\backtest\engine.py:785: in _run_session
+    effects, cash, positions, quantity_changed = self._apply_effective_corporate_actions(
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <systematic_investing.backtest.engine.DailyBarEngine object at 0x000002D2C17125A0>
+session_date = datetime.date(2026, 9, 11)
+cash = Money(amount=Decimal('1000'), currency='CNY')
+positions = (Position(instrument_id=InstrumentId(exchange=<Exchange.XSHE: 'XSHE'>, symbol='000001'), lots=(AcquisitionLot(quantity...ed_session=datetime.date(2026, 9, 1), sellable_from=datetime.date(2026, 9, 2), acquisition_price=Decimal('12.00')),)),)
+applied_action_ids = set(), quantity_change_sessions = {}
+
+    def _apply_effective_corporate_actions(
+        self,
+        *,
+        session_date: date,
+        cash: Money,
+        positions: tuple[Position, ...],
+        applied_action_ids: set[str],
+        quantity_change_sessions: dict[InstrumentId, date],
+    ) -> tuple[
+        tuple[CorporateActionEffect, ...],
+        Money,
+        tuple[Position, ...],
+        frozenset[InstrumentId],
+    ]:
+        """Apply every action that is effective and knowable at this session.
+    
+        An action whose information was not knowable at the activation cutoff
+        is applied at the first later session where it becomes knowable, so
+        the ledger never uses information before it existed. Cash dividends
+        are applied before share-changing records on the same session so the
+        cash is computed on the pre-change quantity.
+        """
+        cutoff = self._clock.activation_cutoff(session_date)
+        effective = tuple(
+            action
+            for action in self._corporate_actions
+            if action.action_id not in applied_action_ids
+            and action.ex_date <= session_date
+            and action.availability.information_known_at(cutoff) is True
+        )
+        if not effective:
+            return (), cash, positions, frozenset()
+        positions_by_id = {position.instrument_id: position for position in positions}
+        effects: list[CorporateActionEffect] = []
+        quantity_changed: set[InstrumentId] = set()
+        for action in sorted(effective, key=_corporate_action_order):
+>           posting = apply_corporate_action(
+                action=action,
+                position=positions_by_id.get(action.instrument_id),
+                cash=cash,
+                session_date=session_date,
+                recorded_at=self._clock.execution_at(session_date),
+            historical_opening_evidence={fact.instrument_id: fact for fact in self._historical_opening_evidence if fact.session_date == session_date},
+            execution_eligibility_mode=self._execution_eligibility_mode,
+                fraction_price=(
+                    self._fraction_price_for(action.instrument_id, session_date)
+                    if self._accounting_semantics
+                    is AccountingSemantics.CURRENT_M0_ACCOUNTING_2
+                    else None
+                ),
+                accounting_semantics=self._accounting_semantics,
+            )
+E           TypeError: apply_corporate_action() got an unexpected keyword argument 'historical_opening_evidence'
+
+src\systematic_investing\backtest\engine.py:886: TypeError
+_ TestInterveningActionInvalidation.test_locked_target_is_untouched_by_the_intervening_action _
+
+self = <test_corporate_actions.TestInterveningActionInvalidation object at 0x000002D2BF464170>
+make_engine = <function make_engine.<locals>.build at 0x000002D2C1550860>
+bar_factory = <function bar_factory.<locals>.build at 0x000002D2C15509A0>
+target_contribution = <function target_contribution.<locals>.build at 0x000002D2C1550AE0>
+predetermined_targets = <class 'conftest.PredeterminedTargetSource'>
+tradability_factory = <function tradability_factory.<locals>.build at 0x000002D2C1550C20>
+
+    def test_locked_target_is_untouched_by_the_intervening_action(
+        self,
+        make_engine,
+        bar_factory,
+        target_contribution,
+        predetermined_targets,
+        tradability_factory,
+    ):
+        with_split = self.engine(
+            make_engine,
+            bar_factory,
+            target_contribution,
+            predetermined_targets,
+            tradability_factory,
+            with_split=True,
+        )
+        without_split = self.engine(
+            make_engine,
+            bar_factory,
+            target_contribution,
+            predetermined_targets,
+            tradability_factory,
+            with_split=False,
+        )
+    
+>       split_result = with_split.run(start_session=S_0910, end_session=S_0911)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\component\test_corporate_actions.py:345: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+src\systematic_investing\backtest\engine.py:759: in run
+    outcome = self._run_session(
+src\systematic_investing\backtest\engine.py:785: in _run_session
+    effects, cash, positions, quantity_changed = self._apply_effective_corporate_actions(
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <systematic_investing.backtest.engine.DailyBarEngine object at 0x000002D2C1718DA0>
+session_date = datetime.date(2026, 9, 11)
+cash = Money(amount=Decimal('1000'), currency='CNY')
+positions = (Position(instrument_id=InstrumentId(exchange=<Exchange.XSHE: 'XSHE'>, symbol='000001'), lots=(AcquisitionLot(quantity...ed_session=datetime.date(2026, 9, 1), sellable_from=datetime.date(2026, 9, 2), acquisition_price=Decimal('12.00')),)),)
+applied_action_ids = set(), quantity_change_sessions = {}
+
+    def _apply_effective_corporate_actions(
+        self,
+        *,
+        session_date: date,
+        cash: Money,
+        positions: tuple[Position, ...],
+        applied_action_ids: set[str],
+        quantity_change_sessions: dict[InstrumentId, date],
+    ) -> tuple[
+        tuple[CorporateActionEffect, ...],
+        Money,
+        tuple[Position, ...],
+        frozenset[InstrumentId],
+    ]:
+        """Apply every action that is effective and knowable at this session.
+    
+        An action whose information was not knowable at the activation cutoff
+        is applied at the first later session where it becomes knowable, so
+        the ledger never uses information before it existed. Cash dividends
+        are applied before share-changing records on the same session so the
+        cash is computed on the pre-change quantity.
+        """
+        cutoff = self._clock.activation_cutoff(session_date)
+        effective = tuple(
+            action
+            for action in self._corporate_actions
+            if action.action_id not in applied_action_ids
+            and action.ex_date <= session_date
+            and action.availability.information_known_at(cutoff) is True
+        )
+        if not effective:
+            return (), cash, positions, frozenset()
+        positions_by_id = {position.instrument_id: position for position in positions}
+        effects: list[CorporateActionEffect] = []
+        quantity_changed: set[InstrumentId] = set()
+        for action in sorted(effective, key=_corporate_action_order):
+>           posting = apply_corporate_action(
+                action=action,
+                position=positions_by_id.get(action.instrument_id),
+                cash=cash,
+                session_date=session_date,
+                recorded_at=self._clock.execution_at(session_date),
+            historical_opening_evidence={fact.instrument_id: fact for fact in self._historical_opening_evidence if fact.session_date == session_date},
+            execution_eligibility_mode=self._execution_eligibility_mode,
+                fraction_price=(
+                    self._fraction_price_for(action.instrument_id, session_date)
+                    if self._accounting_semantics
+                    is AccountingSemantics.CURRENT_M0_ACCOUNTING_2
+                    else None
+                ),
+                accounting_semantics=self._accounting_semantics,
+            )
+E           TypeError: apply_corporate_action() got an unexpected keyword argument 'historical_opening_evidence'
+
+src\systematic_investing\backtest\engine.py:886: TypeError
+_ TestNonQuantityChangingAction.test_cash_dividend_does_not_invalidate_a_pending_buy _
+
+self = <test_corporate_actions.TestNonQuantityChangingAction object at 0x000002D2BF464620>
+make_engine = <function make_engine.<locals>.build at 0x000002D2C1551800>
+bar_factory = <function bar_factory.<locals>.build at 0x000002D2C1551940>
+target_contribution = <function target_contribution.<locals>.build at 0x000002D2C1551A80>
+predetermined_targets = <class 'conftest.PredeterminedTargetSource'>
+tradability_factory = <function tradability_factory.<locals>.build at 0x000002D2C1551BC0>
+
+    def test_cash_dividend_does_not_invalidate_a_pending_buy(
+        self,
+        make_engine,
+        bar_factory,
+        target_contribution,
+        predetermined_targets,
+        tradability_factory,
+    ):
+        bars = (
+            bar_factory(XSHE_000001, S_0910, open="12.00", close="12.00"),
+            bar_factory(
+                XSHE_000001, S_0911, open="12.00", close="12.00", pre_close="12.00"
+            ),
+        )
+        source = predetermined_targets(
+            {S_0910: (target_contribution(XSHE_000001, "0.012"),)}
+        )
+        engine = make_engine(
+            bars=bars,
+            tradability=(tradability_factory(XSHE_000001, S_0911),),
+            corporate_actions=(
+                corporate_action(
+                    action_kind=CorporateActionKind.CASH_DIVIDEND,
+                    cash_amount=Money(Decimal("0.50")),
+                    information_available_at=ANNOUNCED_AFTER_DECISION,
+                ),
+            ),
+            target_source=source,
+        )
+    
+>       result = engine.run(start_session=S_0910, end_session=S_0911)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\component\test_corporate_actions.py:391: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+src\systematic_investing\backtest\engine.py:759: in run
+    outcome = self._run_session(
+src\systematic_investing\backtest\engine.py:785: in _run_session
+    effects, cash, positions, quantity_changed = self._apply_effective_corporate_actions(
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <systematic_investing.backtest.engine.DailyBarEngine object at 0x000002D2C1774350>
+session_date = datetime.date(2026, 9, 11)
+cash = Money(amount=Decimal('100000'), currency='CNY'), positions = ()
+applied_action_ids = set(), quantity_change_sessions = {}
+
+    def _apply_effective_corporate_actions(
+        self,
+        *,
+        session_date: date,
+        cash: Money,
+        positions: tuple[Position, ...],
+        applied_action_ids: set[str],
+        quantity_change_sessions: dict[InstrumentId, date],
+    ) -> tuple[
+        tuple[CorporateActionEffect, ...],
+        Money,
+        tuple[Position, ...],
+        frozenset[InstrumentId],
+    ]:
+        """Apply every action that is effective and knowable at this session.
+    
+        An action whose information was not knowable at the activation cutoff
+        is applied at the first later session where it becomes knowable, so
+        the ledger never uses information before it existed. Cash dividends
+        are applied before share-changing records on the same session so the
+        cash is computed on the pre-change quantity.
+        """
+        cutoff = self._clock.activation_cutoff(session_date)
+        effective = tuple(
+            action
+            for action in self._corporate_actions
+            if action.action_id not in applied_action_ids
+            and action.ex_date <= session_date
+            and action.availability.information_known_at(cutoff) is True
+        )
+        if not effective:
+            return (), cash, positions, frozenset()
+        positions_by_id = {position.instrument_id: position for position in positions}
+        effects: list[CorporateActionEffect] = []
+        quantity_changed: set[InstrumentId] = set()
+        for action in sorted(effective, key=_corporate_action_order):
+>           posting = apply_corporate_action(
+                action=action,
+                position=positions_by_id.get(action.instrument_id),
+                cash=cash,
+                session_date=session_date,
+                recorded_at=self._clock.execution_at(session_date),
+            historical_opening_evidence={fact.instrument_id: fact for fact in self._historical_opening_evidence if fact.session_date == session_date},
+            execution_eligibility_mode=self._execution_eligibility_mode,
+                fraction_price=(
+                    self._fraction_price_for(action.instrument_id, session_date)
+                    if self._accounting_semantics
+                    is AccountingSemantics.CURRENT_M0_ACCOUNTING_2
+                    else None
+                ),
+                accounting_semantics=self._accounting_semantics,
+            )
+E           TypeError: apply_corporate_action() got an unexpected keyword argument 'historical_opening_evidence'
+
+src\systematic_investing\backtest\engine.py:886: TypeError
+__ TestInvalidatedPrice.test_quantity_change_invalidates_a_pre_action_price ___
+
+self = <test_corporate_actions.TestInvalidatedPrice object at 0x000002D2BF45FDA0>
+make_engine = <function make_engine.<locals>.build at 0x000002D2C1552480>
+bar_factory = <function bar_factory.<locals>.build at 0x000002D2C15525C0>
+target_contribution = <function target_contribution.<locals>.build at 0x000002D2C1552700>
+predetermined_targets = <class 'conftest.PredeterminedTargetSource'>
+tradability_factory = <function tradability_factory.<locals>.build at 0x000002D2C1552840>
+
+    def test_quantity_change_invalidates_a_pre_action_price(
+        self,
+        make_engine,
+        bar_factory,
+        target_contribution,
+        predetermined_targets,
+        tradability_factory,
+    ):
+        bars = (bar_factory(XSHE_000001, S_0910, open="12.00", close="12.00"),)
+        source = predetermined_targets(
+            {S_0910: (target_contribution(XSHE_000001, "0"),)}
+        )
+        engine = make_engine(
+            bars=bars,
+            tradability=(
+                tradability_factory(
+                    XSHE_000001, S_0911, TradabilityStatusKind.SUSPENDED
+                ),
+            ),
+            corporate_actions=(
+                corporate_action(
+                    action_kind=CorporateActionKind.SPLIT,
+                    share_ratio=Decimal("2.0"),
+                ),
+            ),
+            target_source=source,
+            initial_cash=Money(Decimal("1000")),
+            initial_positions=(held_position(),),
+        )
+    
+>       result = engine.run(start_session=S_0910, end_session=S_0911)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\component\test_corporate_actions.py:435: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+src\systematic_investing\backtest\engine.py:759: in run
+    outcome = self._run_session(
+src\systematic_investing\backtest\engine.py:785: in _run_session
+    effects, cash, positions, quantity_changed = self._apply_effective_corporate_actions(
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <systematic_investing.backtest.engine.DailyBarEngine object at 0x000002D2C1789970>
+session_date = datetime.date(2026, 9, 11)
+cash = Money(amount=Decimal('1000'), currency='CNY')
+positions = (Position(instrument_id=InstrumentId(exchange=<Exchange.XSHE: 'XSHE'>, symbol='000001'), lots=(AcquisitionLot(quantity...ed_session=datetime.date(2026, 9, 1), sellable_from=datetime.date(2026, 9, 2), acquisition_price=Decimal('12.00')),)),)
+applied_action_ids = set(), quantity_change_sessions = {}
+
+    def _apply_effective_corporate_actions(
+        self,
+        *,
+        session_date: date,
+        cash: Money,
+        positions: tuple[Position, ...],
+        applied_action_ids: set[str],
+        quantity_change_sessions: dict[InstrumentId, date],
+    ) -> tuple[
+        tuple[CorporateActionEffect, ...],
+        Money,
+        tuple[Position, ...],
+        frozenset[InstrumentId],
+    ]:
+        """Apply every action that is effective and knowable at this session.
+    
+        An action whose information was not knowable at the activation cutoff
+        is applied at the first later session where it becomes knowable, so
+        the ledger never uses information before it existed. Cash dividends
+        are applied before share-changing records on the same session so the
+        cash is computed on the pre-change quantity.
+        """
+        cutoff = self._clock.activation_cutoff(session_date)
+        effective = tuple(
+            action
+            for action in self._corporate_actions
+            if action.action_id not in applied_action_ids
+            and action.ex_date <= session_date
+            and action.availability.information_known_at(cutoff) is True
+        )
+        if not effective:
+            return (), cash, positions, frozenset()
+        positions_by_id = {position.instrument_id: position for position in positions}
+        effects: list[CorporateActionEffect] = []
+        quantity_changed: set[InstrumentId] = set()
+        for action in sorted(effective, key=_corporate_action_order):
+>           posting = apply_corporate_action(
+                action=action,
+                position=positions_by_id.get(action.instrument_id),
+                cash=cash,
+                session_date=session_date,
+                recorded_at=self._clock.execution_at(session_date),
+            historical_opening_evidence={fact.instrument_id: fact for fact in self._historical_opening_evidence if fact.session_date == session_date},
+            execution_eligibility_mode=self._execution_eligibility_mode,
+                fraction_price=(
+                    self._fraction_price_for(action.instrument_id, session_date)
+                    if self._accounting_semantics
+                    is AccountingSemantics.CURRENT_M0_ACCOUNTING_2
+                    else None
+                ),
+                accounting_semantics=self._accounting_semantics,
+            )
+E           TypeError: apply_corporate_action() got an unexpected keyword argument 'historical_opening_evidence'
+
+src\systematic_investing\backtest\engine.py:886: TypeError
+_ TestNoLookahead.test_mutating_all_data_after_t_leaves_the_t_decision_identical _
+
+self = <test_no_lookahead.TestNoLookahead object at 0x000002D2C0E19FA0>
+make_engine = <function make_engine.<locals>.build at 0x000002D2E2A5B420>
+bar_factory = <function bar_factory.<locals>.build at 0x000002D2E2A5B2E0>
+target_contribution = <function target_contribution.<locals>.build at 0x000002D2E2A5B560>
+predetermined_targets = <class 'conftest.PredeterminedTargetSource'>
+tradability_factory = <function tradability_factory.<locals>.build at 0x000002D2E2A5B6A0>
+
+    def test_mutating_all_data_after_t_leaves_the_t_decision_identical(
+        self,
+        make_engine,
+        bar_factory,
+        target_contribution,
+        predetermined_targets,
+        tradability_factory,
+    ):
+        baseline = self.baseline_engine(
+            make_engine,
+            bar_factory,
+            target_contribution,
+            predetermined_targets,
+            tradability_factory,
+        ).run(start_session=S_0910, end_session=S_0914)
+        mutated = self.mutated_engine(
+            make_engine,
+            bar_factory,
+            target_contribution,
+            predetermined_targets,
+            tradability_factory,
+>       ).run(start_session=S_0910, end_session=S_0914)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\component\test_no_lookahead.py:148: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+src\systematic_investing\backtest\engine.py:759: in run
+    outcome = self._run_session(
+src\systematic_investing\backtest\engine.py:785: in _run_session
+    effects, cash, positions, quantity_changed = self._apply_effective_corporate_actions(
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <systematic_investing.backtest.engine.DailyBarEngine object at 0x000002D2C1719520>
+session_date = datetime.date(2026, 9, 14)
+cash = Money(amount=Decimal('98792.99'), currency='CNY')
+positions = (Position(instrument_id=InstrumentId(exchange=<Exchange.XSHE: 'XSHE'>, symbol='000001'), lots=(AcquisitionLot(quantity..._session=datetime.date(2026, 9, 11), sellable_from=datetime.date(2026, 9, 14), acquisition_price=Decimal('12.02')),)),)
+applied_action_ids = set(), quantity_change_sessions = {}
+
+    def _apply_effective_corporate_actions(
+        self,
+        *,
+        session_date: date,
+        cash: Money,
+        positions: tuple[Position, ...],
+        applied_action_ids: set[str],
+        quantity_change_sessions: dict[InstrumentId, date],
+    ) -> tuple[
+        tuple[CorporateActionEffect, ...],
+        Money,
+        tuple[Position, ...],
+        frozenset[InstrumentId],
+    ]:
+        """Apply every action that is effective and knowable at this session.
+    
+        An action whose information was not knowable at the activation cutoff
+        is applied at the first later session where it becomes knowable, so
+        the ledger never uses information before it existed. Cash dividends
+        are applied before share-changing records on the same session so the
+        cash is computed on the pre-change quantity.
+        """
+        cutoff = self._clock.activation_cutoff(session_date)
+        effective = tuple(
+            action
+            for action in self._corporate_actions
+            if action.action_id not in applied_action_ids
+            and action.ex_date <= session_date
+            and action.availability.information_known_at(cutoff) is True
+        )
+        if not effective:
+            return (), cash, positions, frozenset()
+        positions_by_id = {position.instrument_id: position for position in positions}
+        effects: list[CorporateActionEffect] = []
+        quantity_changed: set[InstrumentId] = set()
+        for action in sorted(effective, key=_corporate_action_order):
+>           posting = apply_corporate_action(
+                action=action,
+                position=positions_by_id.get(action.instrument_id),
+                cash=cash,
+                session_date=session_date,
+                recorded_at=self._clock.execution_at(session_date),
+            historical_opening_evidence={fact.instrument_id: fact for fact in self._historical_opening_evidence if fact.session_date == session_date},
+            execution_eligibility_mode=self._execution_eligibility_mode,
+                fraction_price=(
+                    self._fraction_price_for(action.instrument_id, session_date)
+                    if self._accounting_semantics
+                    is AccountingSemantics.CURRENT_M0_ACCOUNTING_2
+                    else None
+                ),
+                accounting_semantics=self._accounting_semantics,
+            )
+E           TypeError: apply_corporate_action() got an unexpected keyword argument 'historical_opening_evidence'
+
+src\systematic_investing\backtest\engine.py:886: TypeError
+_ TestTradabilityMapping.test_historical_session_uses_the_exchange_rule_open_time _
+
+self = <test_chstockdata_provider.TestTradabilityMapping object at 0x000002D2C0EF76B0>
+
+    def test_historical_session_uses_the_exchange_rule_open_time(self) -> None:
+        fixture = load_fixture("suspension_xshg_600519_20260911.json")
+        provider = provider_with(
+            RawVendorResponse(
+                capability="tradability",
+                payload={
+                    **fixture.payload,
+                    "snapshot_date": "2026-06-01",
+                    "as_of_date": "2026-06-01",
+                    "observed_at": "2026-09-11T18:05:00+08:00",
+                },
+                upstream_source=fixture.upstream_source,
+            ),
+            capability="tradability",
+        )
+        request = TradabilityRequest(
+            instrument_ids=(XSHG_600519,), session_date=date(2026, 6, 1)
+        )
+    
+        result = provider.fetch_tradability(request)
+    
+        assert isinstance(result, ProviderSuccess)
+        availability = result.records[0].availability
+>       assert availability.availability_basis is AvailabilityBasis.EXCHANGE_RULE
+E       AssertionError: assert <AvailabilityBasis.UNKNOWN: 'UNKNOWN'> is <AvailabilityBasis.EXCHANGE_RULE: 'EXCHANGE_RULE'>
+E        +  where <AvailabilityBasis.UNKNOWN: 'UNKNOWN'> = Availability(information_available_at=None, retrieved_at=datetime.datetime(2026, 9, 11, 18, 5, tzinfo=datetime.timezone(datetime.timedelta(seconds=28800))), availability_basis=<AvailabilityBasis.UNKNOWN: 'UNKNOWN'>).availability_basis
+E        +  and   <AvailabilityBasis.EXCHANGE_RULE: 'EXCHANGE_RULE'> = AvailabilityBasis.EXCHANGE_RULE
+
+tests\contract\test_chstockdata_provider.py:819: AssertionError
+_____ test_scenario_replays_identically_from_two_isolated_snapshots[G11] ______
+
+scenario_id = 'G11'
+tmp_path = WindowsPath('C:/Users/Administrator/.codex/visualizations/2026/10/10/01a125dd-33f2-78d3-abe7-45e0928975d0/v042-opening-implementation/evidence/r21-step2/tmp/test_scenario_replays_identica10')
+
+    @pytest.mark.parametrize("scenario_id", SCENARIOS)
+    def test_scenario_replays_identically_from_two_isolated_snapshots(
+        scenario_id: str, tmp_path: Path
+    ) -> None:
+        scenario = load_scenario(scenario_id)
+        if scenario.kind == "metrics":
+            return
+    
+        for run_name in scenario.expected["runs"]:
+>           in_memory = run_scenario(scenario, run_name=run_name)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\integration\test_reproducibility.py:39: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\golden\golden_harness.py:662: in run_scenario
+    result = engine.run(
+src\systematic_investing\backtest\engine.py:759: in run
+    outcome = self._run_session(
+src\systematic_investing\backtest\engine.py:785: in _run_session
+    effects, cash, positions, quantity_changed = self._apply_effective_corporate_actions(
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <systematic_investing.backtest.engine.DailyBarEngine object at 0x000002D2E1575E20>
+session_date = datetime.date(2026, 9, 11)
+cash = Money(amount=Decimal('1000'), currency='CNY')
+positions = (Position(instrument_id=InstrumentId(exchange=<Exchange.XSHE: 'XSHE'>, symbol='000001'), lots=(AcquisitionLot(quantity...ed_session=datetime.date(2026, 9, 1), sellable_from=datetime.date(2026, 9, 2), acquisition_price=Decimal('12.00')),)),)
+applied_action_ids = set(), quantity_change_sessions = {}
+
+    def _apply_effective_corporate_actions(
+        self,
+        *,
+        session_date: date,
+        cash: Money,
+        positions: tuple[Position, ...],
+        applied_action_ids: set[str],
+        quantity_change_sessions: dict[InstrumentId, date],
+    ) -> tuple[
+        tuple[CorporateActionEffect, ...],
+        Money,
+        tuple[Position, ...],
+        frozenset[InstrumentId],
+    ]:
+        """Apply every action that is effective and knowable at this session.
+    
+        An action whose information was not knowable at the activation cutoff
+        is applied at the first later session where it becomes knowable, so
+        the ledger never uses information before it existed. Cash dividends
+        are applied before share-changing records on the same session so the
+        cash is computed on the pre-change quantity.
+        """
+        cutoff = self._clock.activation_cutoff(session_date)
+        effective = tuple(
+            action
+            for action in self._corporate_actions
+            if action.action_id not in applied_action_ids
+            and action.ex_date <= session_date
+            and action.availability.information_known_at(cutoff) is True
+        )
+        if not effective:
+            return (), cash, positions, frozenset()
+        positions_by_id = {position.instrument_id: position for position in positions}
+        effects: list[CorporateActionEffect] = []
+        quantity_changed: set[InstrumentId] = set()
+        for action in sorted(effective, key=_corporate_action_order):
+>           posting = apply_corporate_action(
+                action=action,
+                position=positions_by_id.get(action.instrument_id),
+                cash=cash,
+                session_date=session_date,
+                recorded_at=self._clock.execution_at(session_date),
+            historical_opening_evidence={fact.instrument_id: fact for fact in self._historical_opening_evidence if fact.session_date == session_date},
+            execution_eligibility_mode=self._execution_eligibility_mode,
+                fraction_price=(
+                    self._fraction_price_for(action.instrument_id, session_date)
+                    if self._accounting_semantics
+                    is AccountingSemantics.CURRENT_M0_ACCOUNTING_2
+                    else None
+                ),
+                accounting_semantics=self._accounting_semantics,
+            )
+E           TypeError: apply_corporate_action() got an unexpected keyword argument 'historical_opening_evidence'
+
+src\systematic_investing\backtest\engine.py:886: TypeError
+_____ test_scenario_replays_identically_from_two_isolated_snapshots[G20] ______
+
+scenario_id = 'G20'
+tmp_path = WindowsPath('C:/Users/Administrator/.codex/visualizations/2026/10/10/01a125dd-33f2-78d3-abe7-45e0928975d0/v042-opening-implementation/evidence/r21-step2/tmp/test_scenario_replays_identica19')
+
+    @pytest.mark.parametrize("scenario_id", SCENARIOS)
+    def test_scenario_replays_identically_from_two_isolated_snapshots(
+        scenario_id: str, tmp_path: Path
+    ) -> None:
+        scenario = load_scenario(scenario_id)
+        if scenario.kind == "metrics":
+            return
+    
+        for run_name in scenario.expected["runs"]:
+>           in_memory = run_scenario(scenario, run_name=run_name)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\integration\test_reproducibility.py:39: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\golden\golden_harness.py:662: in run_scenario
+    result = engine.run(
+src\systematic_investing\backtest\engine.py:759: in run
+    outcome = self._run_session(
+src\systematic_investing\backtest\engine.py:785: in _run_session
+    effects, cash, positions, quantity_changed = self._apply_effective_corporate_actions(
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <systematic_investing.backtest.engine.DailyBarEngine object at 0x000002D2E1579F70>
+session_date = datetime.date(2026, 9, 14)
+cash = Money(amount=Decimal('1000'), currency='CNY')
+positions = (Position(instrument_id=InstrumentId(exchange=<Exchange.XSHE: 'XSHE'>, symbol='000001'), lots=(AcquisitionLot(quantity...ed_session=datetime.date(2026, 9, 1), sellable_from=datetime.date(2026, 9, 2), acquisition_price=Decimal('10.00')),)),)
+applied_action_ids = set(), quantity_change_sessions = {}
+
+    def _apply_effective_corporate_actions(
+        self,
+        *,
+        session_date: date,
+        cash: Money,
+        positions: tuple[Position, ...],
+        applied_action_ids: set[str],
+        quantity_change_sessions: dict[InstrumentId, date],
+    ) -> tuple[
+        tuple[CorporateActionEffect, ...],
+        Money,
+        tuple[Position, ...],
+        frozenset[InstrumentId],
+    ]:
+        """Apply every action that is effective and knowable at this session.
+    
+        An action whose information was not knowable at the activation cutoff
+        is applied at the first later session where it becomes knowable, so
+        the ledger never uses information before it existed. Cash dividends
+        are applied before share-changing records on the same session so the
+        cash is computed on the pre-change quantity.
+        """
+        cutoff = self._clock.activation_cutoff(session_date)
+        effective = tuple(
+            action
+            for action in self._corporate_actions
+            if action.action_id not in applied_action_ids
+            and action.ex_date <= session_date
+            and action.availability.information_known_at(cutoff) is True
+        )
+        if not effective:
+            return (), cash, positions, frozenset()
+        positions_by_id = {position.instrument_id: position for position in positions}
+        effects: list[CorporateActionEffect] = []
+        quantity_changed: set[InstrumentId] = set()
+        for action in sorted(effective, key=_corporate_action_order):
+>           posting = apply_corporate_action(
+                action=action,
+                position=positions_by_id.get(action.instrument_id),
+                cash=cash,
+                session_date=session_date,
+                recorded_at=self._clock.execution_at(session_date),
+            historical_opening_evidence={fact.instrument_id: fact for fact in self._historical_opening_evidence if fact.session_date == session_date},
+            execution_eligibility_mode=self._execution_eligibility_mode,
+                fraction_price=(
+                    self._fraction_price_for(action.instrument_id, session_date)
+                    if self._accounting_semantics
+                    is AccountingSemantics.CURRENT_M0_ACCOUNTING_2
+                    else None
+                ),
+                accounting_semantics=self._accounting_semantics,
+            )
+E           TypeError: apply_corporate_action() got an unexpected keyword argument 'historical_opening_evidence'
+
+src\systematic_investing\backtest\engine.py:886: TypeError
+_____ test_scenario_replays_identically_from_two_isolated_snapshots[G21] ______
+
+scenario_id = 'G21'
+tmp_path = WindowsPath('C:/Users/Administrator/.codex/visualizations/2026/10/10/01a125dd-33f2-78d3-abe7-45e0928975d0/v042-opening-implementation/evidence/r21-step2/tmp/test_scenario_replays_identica20')
+
+    @pytest.mark.parametrize("scenario_id", SCENARIOS)
+    def test_scenario_replays_identically_from_two_isolated_snapshots(
+        scenario_id: str, tmp_path: Path
+    ) -> None:
+        scenario = load_scenario(scenario_id)
+        if scenario.kind == "metrics":
+            return
+    
+        for run_name in scenario.expected["runs"]:
+>           in_memory = run_scenario(scenario, run_name=run_name)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\integration\test_reproducibility.py:39: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\golden\golden_harness.py:662: in run_scenario
+    result = engine.run(
+src\systematic_investing\backtest\engine.py:759: in run
+    outcome = self._run_session(
+src\systematic_investing\backtest\engine.py:785: in _run_session
+    effects, cash, positions, quantity_changed = self._apply_effective_corporate_actions(
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <systematic_investing.backtest.engine.DailyBarEngine object at 0x000002D2E1564AD0>
+session_date = datetime.date(2026, 9, 11)
+cash = Money(amount=Decimal('1000'), currency='CNY')
+positions = (Position(instrument_id=InstrumentId(exchange=<Exchange.XSHE: 'XSHE'>, symbol='000001'), lots=(AcquisitionLot(quantity...ed_session=datetime.date(2026, 9, 1), sellable_from=datetime.date(2026, 9, 2), acquisition_price=Decimal('12.00')),)),)
+applied_action_ids = set(), quantity_change_sessions = {}
+
+    def _apply_effective_corporate_actions(
+        self,
+        *,
+        session_date: date,
+        cash: Money,
+        positions: tuple[Position, ...],
+        applied_action_ids: set[str],
+        quantity_change_sessions: dict[InstrumentId, date],
+    ) -> tuple[
+        tuple[CorporateActionEffect, ...],
+        Money,
+        tuple[Position, ...],
+        frozenset[InstrumentId],
+    ]:
+        """Apply every action that is effective and knowable at this session.
+    
+        An action whose information was not knowable at the activation cutoff
+        is applied at the first later session where it becomes knowable, so
+        the ledger never uses information before it existed. Cash dividends
+        are applied before share-changing records on the same session so the
+        cash is computed on the pre-change quantity.
+        """
+        cutoff = self._clock.activation_cutoff(session_date)
+        effective = tuple(
+            action
+            for action in self._corporate_actions
+            if action.action_id not in applied_action_ids
+            and action.ex_date <= session_date
+            and action.availability.information_known_at(cutoff) is True
+        )
+        if not effective:
+            return (), cash, positions, frozenset()
+        positions_by_id = {position.instrument_id: position for position in positions}
+        effects: list[CorporateActionEffect] = []
+        quantity_changed: set[InstrumentId] = set()
+        for action in sorted(effective, key=_corporate_action_order):
+>           posting = apply_corporate_action(
+                action=action,
+                position=positions_by_id.get(action.instrument_id),
+                cash=cash,
+                session_date=session_date,
+                recorded_at=self._clock.execution_at(session_date),
+            historical_opening_evidence={fact.instrument_id: fact for fact in self._historical_opening_evidence if fact.session_date == session_date},
+            execution_eligibility_mode=self._execution_eligibility_mode,
+                fraction_price=(
+                    self._fraction_price_for(action.instrument_id, session_date)
+                    if self._accounting_semantics
+                    is AccountingSemantics.CURRENT_M0_ACCOUNTING_2
+                    else None
+                ),
+                accounting_semantics=self._accounting_semantics,
+            )
+E           TypeError: apply_corporate_action() got an unexpected keyword argument 'historical_opening_evidence'
+
+src\systematic_investing\backtest\engine.py:886: TypeError
+__________ test_basic_backtest_runs_variants_and_selects_by_priority __________
+
+screened_root = WindowsPath('C:/Users/Administrator/.codex/visualizations/2026/10/10/01a125dd-33f2-78d3-abe7-45e0928975d0/v042-opening-implementation/evidence/r21-step2/tmp/test_basic_backtest_runs_varia0/experiments')
+tmp_path = WindowsPath('C:/Users/Administrator/.codex/visualizations/2026/10/10/01a125dd-33f2-78d3-abe7-45e0928975d0/v042-opening-implementation/evidence/r21-step2/tmp/test_basic_backtest_runs_varia0')
+capsys = <_pytest.capture.CaptureFixture object at 0x000002D2E157D6A0>
+
+    def test_basic_backtest_runs_variants_and_selects_by_priority(
+        screened_root: Path, tmp_path: Path, capsys: pytest.CaptureFixture
+    ) -> None:
+        snapshot_dir = _write_snapshot(tmp_path)
+        intent_path = Path(screened_root.parent) / "intent.json"
+        if not intent_path.exists():
+            intent_path = tmp_path / "intent.json"
+            intent_path.write_text(json.dumps(_intent_payload()), encoding="utf-8")
+    
+        exit_code = main(
+            [
+                "basic-backtest",
+                "--intent",
+                str(intent_path),
+                "--snapshot",
+                str(snapshot_dir / "manifest.json"),
+                "--root",
+                str(screened_root),
+            ]
+        )
+    
+>       assert exit_code == 0
+E       assert 1 == 0
+
+tests\integration\test_research_cli.py:406: AssertionError
+---------------------------- Captured stdout setup ----------------------------
+{"catalog_sequence":1,"command":"screen","intent_digest":"sha256:f2b0922a3461081c28e01ce9d59fc669b4686e46ecbdc94547fbe769fe26d545","lineage_id":"test-etf-absolute-trend","reason_codes":[],"schema_version":"research-cli-output-1","screen_digest":"sha256:49d1033407edc42a785971c4474a4eeb228f04bbc5fe3033f419139bb0a44f81","verdict":"SCREEN_PASS"}
+---------------------------- Captured stderr call -----------------------------
+{"schema_version": "research-cli-output-1", "command": "basic-backtest", "error": "RUN_WIRING_FAILED: StrategyRunError: code commit could not be resolved: Command '['git', 'rev-parse', 'HEAD']' returned non-zero exit status 128."}
+__________ test_catalog_persistence_failure_leaves_explained_marker ___________
+
+screened_root = WindowsPath('C:/Users/Administrator/.codex/visualizations/2026/10/10/01a125dd-33f2-78d3-abe7-45e0928975d0/v042-opening-implementation/evidence/r21-step2/tmp/test_catalog_persistence_failu0/experiments')
+tmp_path = WindowsPath('C:/Users/Administrator/.codex/visualizations/2026/10/10/01a125dd-33f2-78d3-abe7-45e0928975d0/v042-opening-implementation/evidence/r21-step2/tmp/test_catalog_persistence_failu0')
+capsys = <_pytest.capture.CaptureFixture object at 0x000002D2E1575730>
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x000002D2E1576900>
+
+    def test_catalog_persistence_failure_leaves_explained_marker(
+        screened_root: Path,
+        tmp_path: Path,
+        capsys: pytest.CaptureFixture,
+        monkeypatch: pytest.MonkeyPatch,
+    ) -> None:
+        snapshot_dir = _write_snapshot(tmp_path)
+        intent_path = screened_root / "test-etf-absolute-trend" / "intent.json"
+    
+        def fail_catalog_append(*args: object, **kwargs: object) -> object:
+            raise OSError("injected catalog persistence failure")
+    
+        monkeypatch.setattr(cli_module, "append_entry", fail_catalog_append)
+        exit_code = main(
+            [
+                "basic-backtest",
+                "--intent",
+                str(intent_path),
+                "--snapshot",
+                str(snapshot_dir / "manifest.json"),
+                "--root",
+                str(screened_root),
+            ]
+        )
+    
+        assert exit_code != 0
+        capsys.readouterr()
+        runs_root = screened_root / "test-etf-absolute-trend" / "runs"
+        run_dirs = tuple(path for path in runs_root.iterdir() if path.is_dir())
+        assert len(run_dirs) == 1
+        marker = run_dirs[0] / "persistence-failure.json"
+>       assert marker.exists()
+E       AssertionError: assert False
+E        +  where False = exists()
+E        +    where exists = WindowsPath('C:/Users/Administrator/.codex/visualizations/2026/10/10/01a125dd-33f2-78d3-abe7-45e0928975d0/v042-opening...est_catalog_persistence_failu0/experiments/test-etf-absolute-trend/runs/run-6947ea09393f6bdd/persistence-failure.json').exists
+
+tests\integration\test_research_cli.py:526: AssertionError
+---------------------------- Captured stdout setup ----------------------------
+{"catalog_sequence":1,"command":"screen","intent_digest":"sha256:f2b0922a3461081c28e01ce9d59fc669b4686e46ecbdc94547fbe769fe26d545","lineage_id":"test-etf-absolute-trend","reason_codes":[],"schema_version":"research-cli-output-1","screen_digest":"sha256:49d1033407edc42a785971c4474a4eeb228f04bbc5fe3033f419139bb0a44f81","verdict":"SCREEN_PASS"}
+______________ test_clean_basic_run_passes_catalog_verification _______________
+
+screened_root = WindowsPath('C:/Users/Administrator/.codex/visualizations/2026/10/10/01a125dd-33f2-78d3-abe7-45e0928975d0/v042-opening-implementation/evidence/r21-step2/tmp/test_clean_basic_run_passes_ca0/experiments')
+tmp_path = WindowsPath('C:/Users/Administrator/.codex/visualizations/2026/10/10/01a125dd-33f2-78d3-abe7-45e0928975d0/v042-opening-implementation/evidence/r21-step2/tmp/test_clean_basic_run_passes_ca0')
+capsys = <_pytest.capture.CaptureFixture object at 0x000002D2E1594AD0>
+
+    def test_clean_basic_run_passes_catalog_verification(
+        screened_root: Path, tmp_path: Path, capsys: pytest.CaptureFixture
+    ) -> None:
+        """A complete screen + Basic run must verify cleanly.
+    
+        Every persisted artifact (each run's manifest, result, and report) is
+        catalogued with its own digest, so verify recomputes each file's bytes
+        against the recorded digest and PASSes without any findings.
+        """
+        snapshot_dir = _write_snapshot(tmp_path)
+        intent_path = tmp_path / "intent.json"
+        intent_path.write_text(json.dumps(_intent_payload()), encoding="utf-8")
+        exit_code = main(
+            [
+                "basic-backtest",
+                "--intent",
+                str(intent_path),
+                "--snapshot",
+                str(snapshot_dir / "manifest.json"),
+                "--root",
+                str(screened_root),
+            ]
+        )
+>       assert exit_code == 0
+E       assert 1 == 0
+
+tests\integration\test_research_cli.py:562: AssertionError
+---------------------------- Captured stdout setup ----------------------------
+{"catalog_sequence":1,"command":"screen","intent_digest":"sha256:f2b0922a3461081c28e01ce9d59fc669b4686e46ecbdc94547fbe769fe26d545","lineage_id":"test-etf-absolute-trend","reason_codes":[],"schema_version":"research-cli-output-1","screen_digest":"sha256:49d1033407edc42a785971c4474a4eeb228f04bbc5fe3033f419139bb0a44f81","verdict":"SCREEN_PASS"}
+---------------------------- Captured stderr call -----------------------------
+{"schema_version": "research-cli-output-1", "command": "basic-backtest", "error": "RUN_WIRING_FAILED: StrategyRunError: code commit could not be resolved: Command '['git', 'rev-parse', 'HEAD']' returned non-zero exit status 128."}
+______ test_run_artifacts_are_catalogued_per_file_with_their_own_digests ______
+
+screened_root = WindowsPath('C:/Users/Administrator/.codex/visualizations/2026/10/10/01a125dd-33f2-78d3-abe7-45e0928975d0/v042-opening-implementation/evidence/r21-step2/tmp/test_run_artifacts_are_catalog0/experiments')
+tmp_path = WindowsPath('C:/Users/Administrator/.codex/visualizations/2026/10/10/01a125dd-33f2-78d3-abe7-45e0928975d0/v042-opening-implementation/evidence/r21-step2/tmp/test_run_artifacts_are_catalog0')
+capsys = <_pytest.capture.CaptureFixture object at 0x000002D2E1566420>
+
+    def test_run_artifacts_are_catalogued_per_file_with_their_own_digests(
+        screened_root: Path, tmp_path: Path, capsys: pytest.CaptureFixture
+    ) -> None:
+        snapshot_dir = _write_snapshot(tmp_path)
+        intent_path = tmp_path / "intent.json"
+        intent_path.write_text(json.dumps(_intent_payload()), encoding="utf-8")
+        exit_code = main(
+            [
+                "basic-backtest",
+                "--intent",
+                str(intent_path),
+                "--snapshot",
+                str(snapshot_dir / "manifest.json"),
+                "--root",
+                str(screened_root),
+            ]
+        )
+>       assert exit_code == 0
+E       assert 1 == 0
+
+tests\integration\test_research_cli.py:590: AssertionError
+---------------------------- Captured stdout setup ----------------------------
+{"catalog_sequence":1,"command":"screen","intent_digest":"sha256:f2b0922a3461081c28e01ce9d59fc669b4686e46ecbdc94547fbe769fe26d545","lineage_id":"test-etf-absolute-trend","reason_codes":[],"schema_version":"research-cli-output-1","screen_digest":"sha256:49d1033407edc42a785971c4474a4eeb228f04bbc5fe3033f419139bb0a44f81","verdict":"SCREEN_PASS"}
+---------------------------- Captured stderr call -----------------------------
+{"schema_version": "research-cli-output-1", "command": "basic-backtest", "error": "RUN_WIRING_FAILED: StrategyRunError: code commit could not be resolved: Command '['git', 'rev-parse', 'HEAD']' returned non-zero exit status 128."}
+____________ test_failed_run_result_digest_matches_persisted_bytes ____________
+
+tmp_path = WindowsPath('C:/Users/Administrator/.codex/visualizations/2026/10/10/01a125dd-33f2-78d3-abe7-45e0928975d0/v042-opening-implementation/evidence/r21-step2/tmp/test_failed_run_result_digest_0')
+capsys = <_pytest.capture.CaptureFixture object at 0x000002D2E1589E50>
+
+    def test_failed_run_result_digest_matches_persisted_bytes(
+        tmp_path: Path, capsys: pytest.CaptureFixture
+    ) -> None:
+        """A typed failed run's digest must verify against its own bytes.
+    
+        The runner computes the result digest over exactly the bytes that get
+        persisted, for pass, rejection, and failure outcomes alike.
+        """
+        import hashlib
+    
+        from systematic_investing.research.artifacts import canonical_json_bytes
+    
+        snapshot_dir = _write_snapshot(tmp_path)
+        payload = _intent_payload()
+        payload["parameter_variants"] = [
+            {"variant_id": "broken", "parameters": {"sma_sessions": "abc"}},
+            {"variant_id": "sma-2", "parameters": {"sma_sessions": "2"}},
+        ]
+        payload["parameter_priority"] = ["broken", "sma-2"]
+        root = tmp_path / "experiments"
+        intent_path = tmp_path / "intent.json"
+        intent_path.write_text(json.dumps(payload), encoding="utf-8")
+        exit_code = main(["screen", "--intent", str(intent_path), "--root", str(root)])
+        assert exit_code == 0
+        capsys.readouterr()
+        exit_code = main(
+            [
+                "basic-backtest",
+                "--intent",
+                str(intent_path),
+                "--snapshot",
+                str(snapshot_dir / "manifest.json"),
+                "--root",
+                str(root),
+            ]
+        )
+>       assert exit_code == 0
+E       assert 1 == 0
+
+tests\integration\test_research_cli.py:650: AssertionError
+---------------------------- Captured stderr call -----------------------------
+{"schema_version": "research-cli-output-1", "command": "basic-backtest", "error": "RUN_WIRING_FAILED: StrategyRunError: code commit could not be resolved: Command '['git', 'rev-parse', 'HEAD']' returned non-zero exit status 128."}
+_______ test_priority_first_pass_wins_even_when_other_return_is_higher ________
+
+screened_root = WindowsPath('C:/Users/Administrator/.codex/visualizations/2026/10/10/01a125dd-33f2-78d3-abe7-45e0928975d0/v042-opening-implementation/evidence/r21-step2/tmp/test_priority_first_pass_wins_0/experiments')
+tmp_path = WindowsPath('C:/Users/Administrator/.codex/visualizations/2026/10/10/01a125dd-33f2-78d3-abe7-45e0928975d0/v042-opening-implementation/evidence/r21-step2/tmp/test_priority_first_pass_wins_0')
+capsys = <_pytest.capture.CaptureFixture object at 0x000002D2E158D430>
+
+    def test_priority_first_pass_wins_even_when_other_return_is_higher(
+        screened_root: Path, tmp_path: Path, capsys: pytest.CaptureFixture
+    ) -> None:
+        snapshot_dir = _write_snapshot(tmp_path)
+        intent_path = tmp_path / "intent.json"
+        intent_path.write_text(json.dumps(_intent_payload()), encoding="utf-8")
+        main(
+            [
+                "basic-backtest",
+                "--intent",
+                str(intent_path),
+                "--snapshot",
+                str(snapshot_dir / "manifest.json"),
+                "--root",
+                str(screened_root),
+            ]
+        )
+>       output = json.loads(capsys.readouterr().out)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\integration\test_research_cli.py:723: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+C:\Users\Administrator\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\json\__init__.py:346: in loads
+    return _default_decoder.decode(s)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\Administrator\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\json\decoder.py:338: in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <json.decoder.JSONDecoder object at 0x000002D2BEFEAA80>, s = '', idx = 0
+
+    def raw_decode(self, s, idx=0):
+        """Decode a JSON document from ``s`` (a ``str`` beginning with
+        a JSON document) and return a 2-tuple of the Python
+        representation and the index in ``s`` where the document ended.
+    
+        This can be used to decode a JSON document from a string that may
+        have extraneous data at the end.
+    
+        """
+        try:
+            obj, end = self.scan_once(s, idx)
+        except StopIteration as err:
+>           raise JSONDecodeError("Expecting value", s, err.value) from None
+E           json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+C:\Users\Administrator\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\json\decoder.py:356: JSONDecodeError
+---------------------------- Captured stdout setup ----------------------------
+{"catalog_sequence":1,"command":"screen","intent_digest":"sha256:f2b0922a3461081c28e01ce9d59fc669b4686e46ecbdc94547fbe769fe26d545","lineage_id":"test-etf-absolute-trend","reason_codes":[],"schema_version":"research-cli-output-1","screen_digest":"sha256:49d1033407edc42a785971c4474a4eeb228f04bbc5fe3033f419139bb0a44f81","verdict":"SCREEN_PASS"}
+_______ test_re_run_same_manifest_creates_new_attempt_with_same_digest ________
+
+screened_root = WindowsPath('C:/Users/Administrator/.codex/visualizations/2026/10/10/01a125dd-33f2-78d3-abe7-45e0928975d0/v042-opening-implementation/evidence/r21-step2/tmp/test_re_run_same_manifest_crea0/experiments')
+tmp_path = WindowsPath('C:/Users/Administrator/.codex/visualizations/2026/10/10/01a125dd-33f2-78d3-abe7-45e0928975d0/v042-opening-implementation/evidence/r21-step2/tmp/test_re_run_same_manifest_crea0')
+capsys = <_pytest.capture.CaptureFixture object at 0x000002D2E1577E00>
+
+    def test_re_run_same_manifest_creates_new_attempt_with_same_digest(
+        screened_root: Path, tmp_path: Path, capsys: pytest.CaptureFixture
+    ) -> None:
+        snapshot_dir = _write_snapshot(tmp_path)
+        intent_path = tmp_path / "intent.json"
+        intent_path.write_text(json.dumps(_intent_payload()), encoding="utf-8")
+        argv = [
+            "basic-backtest",
+            "--intent",
+            str(intent_path),
+            "--snapshot",
+            str(snapshot_dir / "manifest.json"),
+            "--root",
+            str(screened_root),
+        ]
+>       assert main(argv) == 0
+E       AssertionError: assert 1 == 0
+E        +  where 1 = main(['basic-backtest', '--intent', 'C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe...ing-implementation\\evidence\\r21-step2\\tmp\\test_re_run_same_manifest_crea0\\snapshot\\manifest.json', '--root', ...])
+
+tests\integration\test_research_cli.py:761: AssertionError
+---------------------------- Captured stdout setup ----------------------------
+{"catalog_sequence":1,"command":"screen","intent_digest":"sha256:f2b0922a3461081c28e01ce9d59fc669b4686e46ecbdc94547fbe769fe26d545","lineage_id":"test-etf-absolute-trend","reason_codes":[],"schema_version":"research-cli-output-1","screen_digest":"sha256:49d1033407edc42a785971c4474a4eeb228f04bbc5fe3033f419139bb0a44f81","verdict":"SCREEN_PASS"}
+---------------------------- Captured stderr call -----------------------------
+{"schema_version": "research-cli-output-1", "command": "basic-backtest", "error": "RUN_WIRING_FAILED: StrategyRunError: code commit could not be resolved: Command '['git', 'rev-parse', 'HEAD']' returned non-zero exit status 128."}
+______________ test_basic_backtest_retains_all_rejected_attempts ______________
+
+tmp_path = WindowsPath('C:/Users/Administrator/.codex/visualizations/2026/10/10/01a125dd-33f2-78d3-abe7-45e0928975d0/v042-opening-implementation/evidence/r21-step2/tmp/test_basic_backtest_retains_al0')
+
+    def test_basic_backtest_retains_all_rejected_attempts(tmp_path: Path) -> None:
+        root = tmp_path / "experiments"
+        payload = _intent_payload()
+        payload["basic_promotion_rule"]["min_nav_observations"] = "99999"
+        intent_path = _write_intent(tmp_path, payload)
+        exit_code = main(["screen", "--intent", str(intent_path), "--root", str(root)])
+        assert exit_code == 0
+        snapshot_dir = _write_snapshot(tmp_path)
+    
+        exit_code = main(
+            [
+                "basic-backtest",
+                "--intent",
+                str(intent_path),
+                "--snapshot",
+                str(snapshot_dir / "manifest.json"),
+                "--root",
+                str(root),
+            ]
+        )
+    
+>       assert exit_code == 0
+E       assert 1 == 0
+
+tests\integration\test_research_cli.py:844: AssertionError
+---------------------------- Captured stdout call -----------------------------
+{"catalog_sequence":1,"command":"screen","intent_digest":"sha256:8da36327db917892e52b86deb5ddfed390dd4050c6237f75fa50c31fd803650d","lineage_id":"test-etf-absolute-trend","reason_codes":[],"schema_version":"research-cli-output-1","screen_digest":"sha256:16b839a0f2b766d6982d2ebac55969f5d8c53456592e599824e63460ee5a7334","verdict":"SCREEN_PASS"}
+---------------------------- Captured stderr call -----------------------------
+{"schema_version": "research-cli-output-1", "command": "basic-backtest", "error": "RUN_WIRING_FAILED: StrategyRunError: code commit could not be resolved: Command '['git', 'rev-parse', 'HEAD']' returned non-zero exit status 128."}
+___________________ test_verify_fails_on_tampered_artifact ____________________
+
+screened_root = WindowsPath('C:/Users/Administrator/.codex/visualizations/2026/10/10/01a125dd-33f2-78d3-abe7-45e0928975d0/v042-opening-implementation/evidence/r21-step2/tmp/test_verify_fails_on_tampered_0/experiments')
+tmp_path = WindowsPath('C:/Users/Administrator/.codex/visualizations/2026/10/10/01a125dd-33f2-78d3-abe7-45e0928975d0/v042-opening-implementation/evidence/r21-step2/tmp/test_verify_fails_on_tampered_0')
+capsys = <_pytest.capture.CaptureFixture object at 0x000002D2E1588980>
+
+    def test_verify_fails_on_tampered_artifact(
+        screened_root: Path, tmp_path: Path, capsys: pytest.CaptureFixture
+    ) -> None:
+        snapshot_dir = _write_snapshot(tmp_path)
+        intent_path = tmp_path / "intent.json"
+        intent_path.write_text(json.dumps(_intent_payload()), encoding="utf-8")
+        exit_code = main(
+            [
+                "basic-backtest",
+                "--intent",
+                str(intent_path),
+                "--snapshot",
+                str(snapshot_dir / "manifest.json"),
+                "--root",
+                str(screened_root),
+            ]
+        )
+>       assert exit_code == 0
+E       assert 1 == 0
+
+tests\integration\test_research_cli.py:883: AssertionError
+---------------------------- Captured stdout setup ----------------------------
+{"catalog_sequence":1,"command":"screen","intent_digest":"sha256:f2b0922a3461081c28e01ce9d59fc669b4686e46ecbdc94547fbe769fe26d545","lineage_id":"test-etf-absolute-trend","reason_codes":[],"schema_version":"research-cli-output-1","screen_digest":"sha256:49d1033407edc42a785971c4474a4eeb228f04bbc5fe3033f419139bb0a44f81","verdict":"SCREEN_PASS"}
+---------------------------- Captured stderr call -----------------------------
+{"schema_version": "research-cli-output-1", "command": "basic-backtest", "error": "RUN_WIRING_FAILED: StrategyRunError: code commit could not be resolved: Command '['git', 'rev-parse', 'HEAD']' returned non-zero exit status 128."}
+___________ test_oos_run_refuses_freeze_bound_implementation_drift ____________
+
+tmp_path = WindowsPath('C:/Users/Administrator/.codex/visualizations/2026/10/10/01a125dd-33f2-78d3-abe7-45e0928975d0/v042-opening-implementation/evidence/r21-step2/tmp/test_oos_run_refuses_freeze_bo0')
+capsys = <_pytest.capture.CaptureFixture object at 0x000002D2E157AA50>
+
+    def test_oos_run_refuses_freeze_bound_implementation_drift(
+        tmp_path: Path, capsys: pytest.CaptureFixture
+    ) -> None:
+        """A self-consistent, re-signed freeze whose bound implementation digest
+        differs from the running code is located by its derived freeze_id and
+        refused by the freeze-identity enforcement BEFORE any data is opened:
+        the failure names the typed reason on stderr and no reveal, result, or
+        verdict is persisted."""
+>       root = _basic_pass_root(tmp_path, capsys)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\integration\test_research_cli.py:1119: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+tmp_path = WindowsPath('C:/Users/Administrator/.codex/visualizations/2026/10/10/01a125dd-33f2-78d3-abe7-45e0928975d0/v042-opening-implementation/evidence/r21-step2/tmp/test_oos_run_refuses_freeze_bo0')
+capsys = <_pytest.capture.CaptureFixture object at 0x000002D2E157AA50>
+root_name = 'experiments'
+
+    def _basic_pass_root(
+        tmp_path: Path, capsys: pytest.CaptureFixture, root_name: str = "experiments"
+    ) -> Path:
+        """A lineage with a screen, a Basic backtest, and a Basic PASS selection."""
+        root = tmp_path / root_name
+        intent_path = tmp_path / "intent.json"
+        intent_path.write_text(json.dumps(_intent_payload()), encoding="utf-8")
+        assert main(["screen", "--intent", str(intent_path), "--root", str(root)]) == 0
+        snapshot_dir = _write_snapshot(tmp_path)
+>       assert (
+            main(
+                [
+                    "basic-backtest",
+                    "--intent",
+                    str(intent_path),
+                    "--snapshot",
+                    str(snapshot_dir / "manifest.json"),
+                    "--root",
+                    str(root),
+                ]
+            )
+            == 0
+        )
+E       AssertionError: assert 1 == 0
+E        +  where 1 = main(['basic-backtest', '--intent', 'C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe...ing-implementation\\evidence\\r21-step2\\tmp\\test_oos_run_refuses_freeze_bo0\\snapshot\\manifest.json', '--root', ...])
+
+tests\integration\test_research_cli.py:1014: AssertionError
+---------------------------- Captured stdout call -----------------------------
+{"catalog_sequence":1,"command":"screen","intent_digest":"sha256:f2b0922a3461081c28e01ce9d59fc669b4686e46ecbdc94547fbe769fe26d545","lineage_id":"test-etf-absolute-trend","reason_codes":[],"schema_version":"research-cli-output-1","screen_digest":"sha256:49d1033407edc42a785971c4474a4eeb228f04bbc5fe3033f419139bb0a44f81","verdict":"SCREEN_PASS"}
+---------------------------- Captured stderr call -----------------------------
+{"schema_version": "research-cli-output-1", "command": "basic-backtest", "error": "RUN_WIRING_FAILED: StrategyRunError: code commit could not be resolved: Command '['git', 'rev-parse', 'HEAD']' returned non-zero exit status 128."}
+_______________ test_oos_run_refuses_freeze_bound_kernel_drift ________________
+
+tmp_path = WindowsPath('C:/Users/Administrator/.codex/visualizations/2026/10/10/01a125dd-33f2-78d3-abe7-45e0928975d0/v042-opening-implementation/evidence/r21-step2/tmp/test_oos_run_refuses_freeze_bo1')
+capsys = <_pytest.capture.CaptureFixture object at 0x000002D2E156F800>
+
+    def test_oos_run_refuses_freeze_bound_kernel_drift(
+        tmp_path: Path, capsys: pytest.CaptureFixture
+    ) -> None:
+        """A self-consistent, re-signed freeze whose bound kernel identity
+        differs from the running kernel is located by its derived freeze_id and
+        refused by the freeze-identity enforcement BEFORE any data is opened."""
+>       root = _basic_pass_root(tmp_path, capsys)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\integration\test_research_cli.py:1155: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+tmp_path = WindowsPath('C:/Users/Administrator/.codex/visualizations/2026/10/10/01a125dd-33f2-78d3-abe7-45e0928975d0/v042-opening-implementation/evidence/r21-step2/tmp/test_oos_run_refuses_freeze_bo1')
+capsys = <_pytest.capture.CaptureFixture object at 0x000002D2E156F800>
+root_name = 'experiments'
+
+    def _basic_pass_root(
+        tmp_path: Path, capsys: pytest.CaptureFixture, root_name: str = "experiments"
+    ) -> Path:
+        """A lineage with a screen, a Basic backtest, and a Basic PASS selection."""
+        root = tmp_path / root_name
+        intent_path = tmp_path / "intent.json"
+        intent_path.write_text(json.dumps(_intent_payload()), encoding="utf-8")
+        assert main(["screen", "--intent", str(intent_path), "--root", str(root)]) == 0
+        snapshot_dir = _write_snapshot(tmp_path)
+>       assert (
+            main(
+                [
+                    "basic-backtest",
+                    "--intent",
+                    str(intent_path),
+                    "--snapshot",
+                    str(snapshot_dir / "manifest.json"),
+                    "--root",
+                    str(root),
+                ]
+            )
+            == 0
+        )
+E       AssertionError: assert 1 == 0
+E        +  where 1 = main(['basic-backtest', '--intent', 'C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe...ing-implementation\\evidence\\r21-step2\\tmp\\test_oos_run_refuses_freeze_bo1\\snapshot\\manifest.json', '--root', ...])
+
+tests\integration\test_research_cli.py:1014: AssertionError
+---------------------------- Captured stdout call -----------------------------
+{"catalog_sequence":1,"command":"screen","intent_digest":"sha256:f2b0922a3461081c28e01ce9d59fc669b4686e46ecbdc94547fbe769fe26d545","lineage_id":"test-etf-absolute-trend","reason_codes":[],"schema_version":"research-cli-output-1","screen_digest":"sha256:49d1033407edc42a785971c4474a4eeb228f04bbc5fe3033f419139bb0a44f81","verdict":"SCREEN_PASS"}
+---------------------------- Captured stderr call -----------------------------
+{"schema_version": "research-cli-output-1", "command": "basic-backtest", "error": "RUN_WIRING_FAILED: StrategyRunError: code commit could not be resolved: Command '['git', 'rev-parse', 'HEAD']' returned non-zero exit status 128."}
+____________ test_oos_run_unknown_kernel_never_opens_the_snapshot _____________
+
+tmp_path = WindowsPath('C:/Users/Administrator/.codex/visualizations/2026/10/10/01a125dd-33f2-78d3-abe7-45e0928975d0/v042-opening-implementation/evidence/r21-step2/tmp/test_oos_run_unknown_kernel_ne0')
+capsys = <_pytest.capture.CaptureFixture object at 0x000002D2E156DD90>
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x000002D2E156C380>
+
+    def test_oos_run_unknown_kernel_never_opens_the_snapshot(
+        tmp_path: Path,
+        capsys: pytest.CaptureFixture,
+        monkeypatch: pytest.MonkeyPatch,
+    ) -> None:
+>       root = _basic_pass_root(tmp_path, capsys)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\integration\test_research_cli.py:1190: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+tmp_path = WindowsPath('C:/Users/Administrator/.codex/visualizations/2026/10/10/01a125dd-33f2-78d3-abe7-45e0928975d0/v042-opening-implementation/evidence/r21-step2/tmp/test_oos_run_unknown_kernel_ne0')
+capsys = <_pytest.capture.CaptureFixture object at 0x000002D2E156DD90>
+root_name = 'experiments'
+
+    def _basic_pass_root(
+        tmp_path: Path, capsys: pytest.CaptureFixture, root_name: str = "experiments"
+    ) -> Path:
+        """A lineage with a screen, a Basic backtest, and a Basic PASS selection."""
+        root = tmp_path / root_name
+        intent_path = tmp_path / "intent.json"
+        intent_path.write_text(json.dumps(_intent_payload()), encoding="utf-8")
+        assert main(["screen", "--intent", str(intent_path), "--root", str(root)]) == 0
+        snapshot_dir = _write_snapshot(tmp_path)
+>       assert (
+            main(
+                [
+                    "basic-backtest",
+                    "--intent",
+                    str(intent_path),
+                    "--snapshot",
+                    str(snapshot_dir / "manifest.json"),
+                    "--root",
+                    str(root),
+                ]
+            )
+            == 0
+        )
+E       AssertionError: assert 1 == 0
+E        +  where 1 = main(['basic-backtest', '--intent', 'C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe...ing-implementation\\evidence\\r21-step2\\tmp\\test_oos_run_unknown_kernel_ne0\\snapshot\\manifest.json', '--root', ...])
+
+tests\integration\test_research_cli.py:1014: AssertionError
+---------------------------- Captured stdout call -----------------------------
+{"catalog_sequence":1,"command":"screen","intent_digest":"sha256:f2b0922a3461081c28e01ce9d59fc669b4686e46ecbdc94547fbe769fe26d545","lineage_id":"test-etf-absolute-trend","reason_codes":[],"schema_version":"research-cli-output-1","screen_digest":"sha256:49d1033407edc42a785971c4474a4eeb228f04bbc5fe3033f419139bb0a44f81","verdict":"SCREEN_PASS"}
+---------------------------- Captured stderr call -----------------------------
+{"schema_version": "research-cli-output-1", "command": "basic-backtest", "error": "RUN_WIRING_FAILED: StrategyRunError: code commit could not be resolved: Command '['git', 'rev-parse', 'HEAD']' returned non-zero exit status 128."}
+________ test_oos_freeze_refuses_unsupported_kernel_before_persistence ________
+
+tmp_path = WindowsPath('C:/Users/Administrator/.codex/visualizations/2026/10/10/01a125dd-33f2-78d3-abe7-45e0928975d0/v042-opening-implementation/evidence/r21-step2/tmp/test_oos_freeze_refuses_unsupp0')
+capsys = <_pytest.capture.CaptureFixture object at 0x000002D2E158D970>
+
+    def test_oos_freeze_refuses_unsupported_kernel_before_persistence(
+        tmp_path: Path, capsys: pytest.CaptureFixture
+    ) -> None:
+>       root = _basic_pass_root(tmp_path, capsys)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\integration\test_research_cli.py:1222: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+tmp_path = WindowsPath('C:/Users/Administrator/.codex/visualizations/2026/10/10/01a125dd-33f2-78d3-abe7-45e0928975d0/v042-opening-implementation/evidence/r21-step2/tmp/test_oos_freeze_refuses_unsupp0')
+capsys = <_pytest.capture.CaptureFixture object at 0x000002D2E158D970>
+root_name = 'experiments'
+
+    def _basic_pass_root(
+        tmp_path: Path, capsys: pytest.CaptureFixture, root_name: str = "experiments"
+    ) -> Path:
+        """A lineage with a screen, a Basic backtest, and a Basic PASS selection."""
+        root = tmp_path / root_name
+        intent_path = tmp_path / "intent.json"
+        intent_path.write_text(json.dumps(_intent_payload()), encoding="utf-8")
+        assert main(["screen", "--intent", str(intent_path), "--root", str(root)]) == 0
+        snapshot_dir = _write_snapshot(tmp_path)
+>       assert (
+            main(
+                [
+                    "basic-backtest",
+                    "--intent",
+                    str(intent_path),
+                    "--snapshot",
+                    str(snapshot_dir / "manifest.json"),
+                    "--root",
+                    str(root),
+                ]
+            )
+            == 0
+        )
+E       AssertionError: assert 1 == 0
+E        +  where 1 = main(['basic-backtest', '--intent', 'C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe...ing-implementation\\evidence\\r21-step2\\tmp\\test_oos_freeze_refuses_unsupp0\\snapshot\\manifest.json', '--root', ...])
+
+tests\integration\test_research_cli.py:1014: AssertionError
+---------------------------- Captured stdout call -----------------------------
+{"catalog_sequence":1,"command":"screen","intent_digest":"sha256:f2b0922a3461081c28e01ce9d59fc669b4686e46ecbdc94547fbe769fe26d545","lineage_id":"test-etf-absolute-trend","reason_codes":[],"schema_version":"research-cli-output-1","screen_digest":"sha256:49d1033407edc42a785971c4474a4eeb228f04bbc5fe3033f419139bb0a44f81","verdict":"SCREEN_PASS"}
+---------------------------- Captured stderr call -----------------------------
+{"schema_version": "research-cli-output-1", "command": "basic-backtest", "error": "RUN_WIRING_FAILED: StrategyRunError: code commit could not be resolved: Command '['git', 'rev-parse', 'HEAD']' returned non-zero exit status 128."}
+_________ test_oos_run_refuses_corrupt_oos_snapshot_with_typed_error __________
+
+tmp_path = WindowsPath('C:/Users/Administrator/.codex/visualizations/2026/10/10/01a125dd-33f2-78d3-abe7-45e0928975d0/v042-opening-implementation/evidence/r21-step2/tmp/test_oos_run_refuses_corrupt_o0')
+capsys = <_pytest.capture.CaptureFixture object at 0x000002D2C1710830>
+
+    def test_oos_run_refuses_corrupt_oos_snapshot_with_typed_error(
+        tmp_path: Path, capsys: pytest.CaptureFixture
+    ) -> None:
+        """A checksum-violating OOS artifact is a typed CLI failure, not a
+        traceback; the reveal already exists and no verdict is written."""
+>       root = _basic_pass_root(tmp_path, capsys)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\integration\test_research_cli.py:1253: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+tmp_path = WindowsPath('C:/Users/Administrator/.codex/visualizations/2026/10/10/01a125dd-33f2-78d3-abe7-45e0928975d0/v042-opening-implementation/evidence/r21-step2/tmp/test_oos_run_refuses_corrupt_o0')
+capsys = <_pytest.capture.CaptureFixture object at 0x000002D2C1710830>
+root_name = 'experiments'
+
+    def _basic_pass_root(
+        tmp_path: Path, capsys: pytest.CaptureFixture, root_name: str = "experiments"
+    ) -> Path:
+        """A lineage with a screen, a Basic backtest, and a Basic PASS selection."""
+        root = tmp_path / root_name
+        intent_path = tmp_path / "intent.json"
+        intent_path.write_text(json.dumps(_intent_payload()), encoding="utf-8")
+        assert main(["screen", "--intent", str(intent_path), "--root", str(root)]) == 0
+        snapshot_dir = _write_snapshot(tmp_path)
+>       assert (
+            main(
+                [
+                    "basic-backtest",
+                    "--intent",
+                    str(intent_path),
+                    "--snapshot",
+                    str(snapshot_dir / "manifest.json"),
+                    "--root",
+                    str(root),
+                ]
+            )
+            == 0
+        )
+E       AssertionError: assert 1 == 0
+E        +  where 1 = main(['basic-backtest', '--intent', 'C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe...ing-implementation\\evidence\\r21-step2\\tmp\\test_oos_run_refuses_corrupt_o0\\snapshot\\manifest.json', '--root', ...])
+
+tests\integration\test_research_cli.py:1014: AssertionError
+---------------------------- Captured stdout call -----------------------------
+{"catalog_sequence":1,"command":"screen","intent_digest":"sha256:f2b0922a3461081c28e01ce9d59fc669b4686e46ecbdc94547fbe769fe26d545","lineage_id":"test-etf-absolute-trend","reason_codes":[],"schema_version":"research-cli-output-1","screen_digest":"sha256:49d1033407edc42a785971c4474a4eeb228f04bbc5fe3033f419139bb0a44f81","verdict":"SCREEN_PASS"}
+---------------------------- Captured stderr call -----------------------------
+{"schema_version": "research-cli-output-1", "command": "basic-backtest", "error": "RUN_WIRING_FAILED: StrategyRunError: code commit could not be resolved: Command '['git', 'rev-parse', 'HEAD']' returned non-zero exit status 128."}
+______________ test_oos_freeze_requires_selected_basic_candidate ______________
+
+tmp_path = WindowsPath('C:/Users/Administrator/.codex/visualizations/2026/10/10/01a125dd-33f2-78d3-abe7-45e0928975d0/v042-opening-implementation/evidence/r21-step2/tmp/test_oos_freeze_requires_selec0')
+
+    def test_oos_freeze_requires_selected_basic_candidate(tmp_path: Path) -> None:
+        root = tmp_path / "experiments"
+        payload = _intent_payload()
+        payload["basic_promotion_rule"]["min_nav_observations"] = "99999"
+        intent_path = tmp_path / "intent.json"
+        intent_path.write_text(json.dumps(payload), encoding="utf-8")
+        assert main(["screen", "--intent", str(intent_path), "--root", str(root)]) == 0
+        snapshot_dir = _write_snapshot(tmp_path)
+>       assert (
+            main(
+                [
+                    "basic-backtest",
+                    "--intent",
+                    str(intent_path),
+                    "--snapshot",
+                    str(snapshot_dir / "manifest.json"),
+                    "--root",
+                    str(root),
+                ]
+            )
+            == 0
+        )
+E       AssertionError: assert 1 == 0
+E        +  where 1 = main(['basic-backtest', '--intent', 'C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe...ing-implementation\\evidence\\r21-step2\\tmp\\test_oos_freeze_requires_selec0\\snapshot\\manifest.json', '--root', ...])
+
+tests\integration\test_research_cli.py:1305: AssertionError
+---------------------------- Captured stdout call -----------------------------
+{"catalog_sequence":1,"command":"screen","intent_digest":"sha256:8da36327db917892e52b86deb5ddfed390dd4050c6237f75fa50c31fd803650d","lineage_id":"test-etf-absolute-trend","reason_codes":[],"schema_version":"research-cli-output-1","screen_digest":"sha256:16b839a0f2b766d6982d2ebac55969f5d8c53456592e599824e63460ee5a7334","verdict":"SCREEN_PASS"}
+---------------------------- Captured stderr call -----------------------------
+{"schema_version": "research-cli-output-1", "command": "basic-backtest", "error": "RUN_WIRING_FAILED: StrategyRunError: code commit could not be resolved: Command '['git', 'rev-parse', 'HEAD']' returned non-zero exit status 128."}
+_____________ test_oos_freeze_persists_immutable_freeze_artifact ______________
+
+tmp_path = WindowsPath('C:/Users/Administrator/.codex/visualizations/2026/10/10/01a125dd-33f2-78d3-abe7-45e0928975d0/v042-opening-implementation/evidence/r21-step2/tmp/test_oos_freeze_persists_immut0')
+capsys = <_pytest.capture.CaptureFixture object at 0x000002D2E1574C80>
+
+    def test_oos_freeze_persists_immutable_freeze_artifact(
+        tmp_path: Path, capsys: pytest.CaptureFixture
+    ) -> None:
+>       root = _basic_pass_root(tmp_path, capsys)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\integration\test_research_cli.py:1326: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+tmp_path = WindowsPath('C:/Users/Administrator/.codex/visualizations/2026/10/10/01a125dd-33f2-78d3-abe7-45e0928975d0/v042-opening-implementation/evidence/r21-step2/tmp/test_oos_freeze_persists_immut0')
+capsys = <_pytest.capture.CaptureFixture object at 0x000002D2E1574C80>
+root_name = 'experiments'
+
+    def _basic_pass_root(
+        tmp_path: Path, capsys: pytest.CaptureFixture, root_name: str = "experiments"
+    ) -> Path:
+        """A lineage with a screen, a Basic backtest, and a Basic PASS selection."""
+        root = tmp_path / root_name
+        intent_path = tmp_path / "intent.json"
+        intent_path.write_text(json.dumps(_intent_payload()), encoding="utf-8")
+        assert main(["screen", "--intent", str(intent_path), "--root", str(root)]) == 0
+        snapshot_dir = _write_snapshot(tmp_path)
+>       assert (
+            main(
+                [
+                    "basic-backtest",
+                    "--intent",
+                    str(intent_path),
+                    "--snapshot",
+                    str(snapshot_dir / "manifest.json"),
+                    "--root",
+                    str(root),
+                ]
+            )
+            == 0
+        )
+E       AssertionError: assert 1 == 0
+E        +  where 1 = main(['basic-backtest', '--intent', 'C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe...ing-implementation\\evidence\\r21-step2\\tmp\\test_oos_freeze_persists_immut0\\snapshot\\manifest.json', '--root', ...])
+
+tests\integration\test_research_cli.py:1014: AssertionError
+---------------------------- Captured stdout call -----------------------------
+{"catalog_sequence":1,"command":"screen","intent_digest":"sha256:f2b0922a3461081c28e01ce9d59fc669b4686e46ecbdc94547fbe769fe26d545","lineage_id":"test-etf-absolute-trend","reason_codes":[],"schema_version":"research-cli-output-1","screen_digest":"sha256:49d1033407edc42a785971c4474a4eeb228f04bbc5fe3033f419139bb0a44f81","verdict":"SCREEN_PASS"}
+---------------------------- Captured stderr call -----------------------------
+{"schema_version": "research-cli-output-1", "command": "basic-backtest", "error": "RUN_WIRING_FAILED: StrategyRunError: code commit could not be resolved: Command '['git', 'rev-parse', 'HEAD']' returned non-zero exit status 128."}
+_____________ test_oos_freeze_is_idempotent_for_identical_content _____________
+
+tmp_path = WindowsPath('C:/Users/Administrator/.codex/visualizations/2026/10/10/01a125dd-33f2-78d3-abe7-45e0928975d0/v042-opening-implementation/evidence/r21-step2/tmp/test_oos_freeze_is_idempotent_0')
+capsys = <_pytest.capture.CaptureFixture object at 0x000002D2E1564AD0>
+
+    def test_oos_freeze_is_idempotent_for_identical_content(
+        tmp_path: Path, capsys: pytest.CaptureFixture
+    ) -> None:
+>       root = _basic_pass_root(tmp_path, capsys)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\integration\test_research_cli.py:1347: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+tmp_path = WindowsPath('C:/Users/Administrator/.codex/visualizations/2026/10/10/01a125dd-33f2-78d3-abe7-45e0928975d0/v042-opening-implementation/evidence/r21-step2/tmp/test_oos_freeze_is_idempotent_0')
+capsys = <_pytest.capture.CaptureFixture object at 0x000002D2E1564AD0>
+root_name = 'experiments'
+
+    def _basic_pass_root(
+        tmp_path: Path, capsys: pytest.CaptureFixture, root_name: str = "experiments"
+    ) -> Path:
+        """A lineage with a screen, a Basic backtest, and a Basic PASS selection."""
+        root = tmp_path / root_name
+        intent_path = tmp_path / "intent.json"
+        intent_path.write_text(json.dumps(_intent_payload()), encoding="utf-8")
+        assert main(["screen", "--intent", str(intent_path), "--root", str(root)]) == 0
+        snapshot_dir = _write_snapshot(tmp_path)
+>       assert (
+            main(
+                [
+                    "basic-backtest",
+                    "--intent",
+                    str(intent_path),
+                    "--snapshot",
+                    str(snapshot_dir / "manifest.json"),
+                    "--root",
+                    str(root),
+                ]
+            )
+            == 0
+        )
+E       AssertionError: assert 1 == 0
+E        +  where 1 = main(['basic-backtest', '--intent', 'C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe...ing-implementation\\evidence\\r21-step2\\tmp\\test_oos_freeze_is_idempotent_0\\snapshot\\manifest.json', '--root', ...])
+
+tests\integration\test_research_cli.py:1014: AssertionError
+---------------------------- Captured stdout call -----------------------------
+{"catalog_sequence":1,"command":"screen","intent_digest":"sha256:f2b0922a3461081c28e01ce9d59fc669b4686e46ecbdc94547fbe769fe26d545","lineage_id":"test-etf-absolute-trend","reason_codes":[],"schema_version":"research-cli-output-1","screen_digest":"sha256:49d1033407edc42a785971c4474a4eeb228f04bbc5fe3033f419139bb0a44f81","verdict":"SCREEN_PASS"}
+---------------------------- Captured stderr call -----------------------------
+{"schema_version": "research-cli-output-1", "command": "basic-backtest", "error": "RUN_WIRING_FAILED: StrategyRunError: code commit could not be resolved: Command '['git', 'rev-parse', 'HEAD']' returned non-zero exit status 128."}
+__________________ test_oos_run_records_exactly_one_verdict ___________________
+
+tmp_path = WindowsPath('C:/Users/Administrator/.codex/visualizations/2026/10/10/01a125dd-33f2-78d3-abe7-45e0928975d0/v042-opening-implementation/evidence/r21-step2/tmp/test_oos_run_records_exactly_o0')
+capsys = <_pytest.capture.CaptureFixture object at 0x000002D2E1587F80>
+
+    def test_oos_run_records_exactly_one_verdict(
+        tmp_path: Path, capsys: pytest.CaptureFixture
+    ) -> None:
+>       root = _basic_pass_root(tmp_path, capsys)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\integration\test_research_cli.py:1358: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+tmp_path = WindowsPath('C:/Users/Administrator/.codex/visualizations/2026/10/10/01a125dd-33f2-78d3-abe7-45e0928975d0/v042-opening-implementation/evidence/r21-step2/tmp/test_oos_run_records_exactly_o0')
+capsys = <_pytest.capture.CaptureFixture object at 0x000002D2E1587F80>
+root_name = 'experiments'
+
+    def _basic_pass_root(
+        tmp_path: Path, capsys: pytest.CaptureFixture, root_name: str = "experiments"
+    ) -> Path:
+        """A lineage with a screen, a Basic backtest, and a Basic PASS selection."""
+        root = tmp_path / root_name
+        intent_path = tmp_path / "intent.json"
+        intent_path.write_text(json.dumps(_intent_payload()), encoding="utf-8")
+        assert main(["screen", "--intent", str(intent_path), "--root", str(root)]) == 0
+        snapshot_dir = _write_snapshot(tmp_path)
+>       assert (
+            main(
+                [
+                    "basic-backtest",
+                    "--intent",
+                    str(intent_path),
+                    "--snapshot",
+                    str(snapshot_dir / "manifest.json"),
+                    "--root",
+                    str(root),
+                ]
+            )
+            == 0
+        )
+E       AssertionError: assert 1 == 0
+E        +  where 1 = main(['basic-backtest', '--intent', 'C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe...ing-implementation\\evidence\\r21-step2\\tmp\\test_oos_run_records_exactly_o0\\snapshot\\manifest.json', '--root', ...])
+
+tests\integration\test_research_cli.py:1014: AssertionError
+---------------------------- Captured stdout call -----------------------------
+{"catalog_sequence":1,"command":"screen","intent_digest":"sha256:f2b0922a3461081c28e01ce9d59fc669b4686e46ecbdc94547fbe769fe26d545","lineage_id":"test-etf-absolute-trend","reason_codes":[],"schema_version":"research-cli-output-1","screen_digest":"sha256:49d1033407edc42a785971c4474a4eeb228f04bbc5fe3033f419139bb0a44f81","verdict":"SCREEN_PASS"}
+---------------------------- Captured stderr call -----------------------------
+{"schema_version": "research-cli-output-1", "command": "basic-backtest", "error": "RUN_WIRING_FAILED: StrategyRunError: code commit could not be resolved: Command '['git', 'rev-parse', 'HEAD']' returned non-zero exit status 128."}
+____ test_oos_run_without_warm_up_snapshot_still_evaluates_short_lookback _____
+
+tmp_path = WindowsPath('C:/Users/Administrator/.codex/visualizations/2026/10/10/01a125dd-33f2-78d3-abe7-45e0928975d0/v042-opening-implementation/evidence/r21-step2/tmp/test_oos_run_without_warm_up_s0')
+capsys = <_pytest.capture.CaptureFixture object at 0x000002D2E1462C90>
+
+    def test_oos_run_without_warm_up_snapshot_still_evaluates_short_lookback(
+        tmp_path: Path, capsys: pytest.CaptureFixture
+    ) -> None:
+        """A strategy whose lookback fits inside the OOS window can be evaluated
+        on the OOS snapshot alone."""
+>       root = _basic_pass_root(tmp_path, capsys)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\integration\test_research_cli.py:1408: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+tmp_path = WindowsPath('C:/Users/Administrator/.codex/visualizations/2026/10/10/01a125dd-33f2-78d3-abe7-45e0928975d0/v042-opening-implementation/evidence/r21-step2/tmp/test_oos_run_without_warm_up_s0')
+capsys = <_pytest.capture.CaptureFixture object at 0x000002D2E1462C90>
+root_name = 'experiments'
+
+    def _basic_pass_root(
+        tmp_path: Path, capsys: pytest.CaptureFixture, root_name: str = "experiments"
+    ) -> Path:
+        """A lineage with a screen, a Basic backtest, and a Basic PASS selection."""
+        root = tmp_path / root_name
+        intent_path = tmp_path / "intent.json"
+        intent_path.write_text(json.dumps(_intent_payload()), encoding="utf-8")
+        assert main(["screen", "--intent", str(intent_path), "--root", str(root)]) == 0
+        snapshot_dir = _write_snapshot(tmp_path)
+>       assert (
+            main(
+                [
+                    "basic-backtest",
+                    "--intent",
+                    str(intent_path),
+                    "--snapshot",
+                    str(snapshot_dir / "manifest.json"),
+                    "--root",
+                    str(root),
+                ]
+            )
+            == 0
+        )
+E       AssertionError: assert 1 == 0
+E        +  where 1 = main(['basic-backtest', '--intent', 'C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe...ing-implementation\\evidence\\r21-step2\\tmp\\test_oos_run_without_warm_up_s0\\snapshot\\manifest.json', '--root', ...])
+
+tests\integration\test_research_cli.py:1014: AssertionError
+---------------------------- Captured stdout call -----------------------------
+{"catalog_sequence":1,"command":"screen","intent_digest":"sha256:f2b0922a3461081c28e01ce9d59fc669b4686e46ecbdc94547fbe769fe26d545","lineage_id":"test-etf-absolute-trend","reason_codes":[],"schema_version":"research-cli-output-1","screen_digest":"sha256:49d1033407edc42a785971c4474a4eeb228f04bbc5fe3033f419139bb0a44f81","verdict":"SCREEN_PASS"}
+---------------------------- Captured stderr call -----------------------------
+{"schema_version": "research-cli-output-1", "command": "basic-backtest", "error": "RUN_WIRING_FAILED: StrategyRunError: code commit could not be resolved: Command '['git', 'rev-parse', 'HEAD']' returned non-zero exit status 128."}
+______ test_oos_run_reveal_intent_persists_before_the_snapshot_is_opened ______
+
+tmp_path = WindowsPath('C:/Users/Administrator/.codex/visualizations/2026/10/10/01a125dd-33f2-78d3-abe7-45e0928975d0/v042-opening-implementation/evidence/r21-step2/tmp/test_oos_run_reveal_intent_per0')
+capsys = <_pytest.capture.CaptureFixture object at 0x000002D2E158F3E0>
+
+    def test_oos_run_reveal_intent_persists_before_the_snapshot_is_opened(
+        tmp_path: Path, capsys: pytest.CaptureFixture
+    ) -> None:
+        """The reveal artifact exists even when the run fails on a missing
+        snapshot, proving it is written before any OOS data is opened."""
+>       root = _basic_pass_root(tmp_path, capsys)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\integration\test_research_cli.py:1424: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+tmp_path = WindowsPath('C:/Users/Administrator/.codex/visualizations/2026/10/10/01a125dd-33f2-78d3-abe7-45e0928975d0/v042-opening-implementation/evidence/r21-step2/tmp/test_oos_run_reveal_intent_per0')
+capsys = <_pytest.capture.CaptureFixture object at 0x000002D2E158F3E0>
+root_name = 'experiments'
+
+    def _basic_pass_root(
+        tmp_path: Path, capsys: pytest.CaptureFixture, root_name: str = "experiments"
+    ) -> Path:
+        """A lineage with a screen, a Basic backtest, and a Basic PASS selection."""
+        root = tmp_path / root_name
+        intent_path = tmp_path / "intent.json"
+        intent_path.write_text(json.dumps(_intent_payload()), encoding="utf-8")
+        assert main(["screen", "--intent", str(intent_path), "--root", str(root)]) == 0
+        snapshot_dir = _write_snapshot(tmp_path)
+>       assert (
+            main(
+                [
+                    "basic-backtest",
+                    "--intent",
+                    str(intent_path),
+                    "--snapshot",
+                    str(snapshot_dir / "manifest.json"),
+                    "--root",
+                    str(root),
+                ]
+            )
+            == 0
+        )
+E       AssertionError: assert 1 == 0
+E        +  where 1 = main(['basic-backtest', '--intent', 'C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe...ing-implementation\\evidence\\r21-step2\\tmp\\test_oos_run_reveal_intent_per0\\snapshot\\manifest.json', '--root', ...])
+
+tests\integration\test_research_cli.py:1014: AssertionError
+---------------------------- Captured stdout call -----------------------------
+{"catalog_sequence":1,"command":"screen","intent_digest":"sha256:f2b0922a3461081c28e01ce9d59fc669b4686e46ecbdc94547fbe769fe26d545","lineage_id":"test-etf-absolute-trend","reason_codes":[],"schema_version":"research-cli-output-1","screen_digest":"sha256:49d1033407edc42a785971c4474a4eeb228f04bbc5fe3033f419139bb0a44f81","verdict":"SCREEN_PASS"}
+---------------------------- Captured stderr call -----------------------------
+{"schema_version": "research-cli-output-1", "command": "basic-backtest", "error": "RUN_WIRING_FAILED: StrategyRunError: code commit could not be resolved: Command '['git', 'rev-parse', 'HEAD']' returned non-zero exit status 128."}
+__ test_new_intent_version_cannot_freeze_an_already_revealed_lineage_window ___
+
+tmp_path = WindowsPath('C:/Users/Administrator/.codex/visualizations/2026/10/10/01a125dd-33f2-78d3-abe7-45e0928975d0/v042-opening-implementation/evidence/r21-step2/tmp/test_new_intent_version_cannot0')
+capsys = <_pytest.capture.CaptureFixture object at 0x000002D2E157E420>
+
+    def test_new_intent_version_cannot_freeze_an_already_revealed_lineage_window(
+        tmp_path: Path, capsys: pytest.CaptureFixture
+    ) -> None:
+>       root = _basic_pass_root(tmp_path, capsys)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\integration\test_research_cli.py:1441: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+tmp_path = WindowsPath('C:/Users/Administrator/.codex/visualizations/2026/10/10/01a125dd-33f2-78d3-abe7-45e0928975d0/v042-opening-implementation/evidence/r21-step2/tmp/test_new_intent_version_cannot0')
+capsys = <_pytest.capture.CaptureFixture object at 0x000002D2E157E420>
+root_name = 'experiments'
+
+    def _basic_pass_root(
+        tmp_path: Path, capsys: pytest.CaptureFixture, root_name: str = "experiments"
+    ) -> Path:
+        """A lineage with a screen, a Basic backtest, and a Basic PASS selection."""
+        root = tmp_path / root_name
+        intent_path = tmp_path / "intent.json"
+        intent_path.write_text(json.dumps(_intent_payload()), encoding="utf-8")
+        assert main(["screen", "--intent", str(intent_path), "--root", str(root)]) == 0
+        snapshot_dir = _write_snapshot(tmp_path)
+>       assert (
+            main(
+                [
+                    "basic-backtest",
+                    "--intent",
+                    str(intent_path),
+                    "--snapshot",
+                    str(snapshot_dir / "manifest.json"),
+                    "--root",
+                    str(root),
+                ]
+            )
+            == 0
+        )
+E       AssertionError: assert 1 == 0
+E        +  where 1 = main(['basic-backtest', '--intent', 'C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe...ing-implementation\\evidence\\r21-step2\\tmp\\test_new_intent_version_cannot0\\snapshot\\manifest.json', '--root', ...])
+
+tests\integration\test_research_cli.py:1014: AssertionError
+---------------------------- Captured stdout call -----------------------------
+{"catalog_sequence":1,"command":"screen","intent_digest":"sha256:f2b0922a3461081c28e01ce9d59fc669b4686e46ecbdc94547fbe769fe26d545","lineage_id":"test-etf-absolute-trend","reason_codes":[],"schema_version":"research-cli-output-1","screen_digest":"sha256:49d1033407edc42a785971c4474a4eeb228f04bbc5fe3033f419139bb0a44f81","verdict":"SCREEN_PASS"}
+---------------------------- Captured stderr call -----------------------------
+{"schema_version": "research-cli-output-1", "command": "basic-backtest", "error": "RUN_WIRING_FAILED: StrategyRunError: code commit could not be resolved: Command '['git', 'rev-parse', 'HEAD']' returned non-zero exit status 128."}
+_______________ test_oos_run_refuses_contaminated_oos_snapshot ________________
+
+tmp_path = WindowsPath('C:/Users/Administrator/.codex/visualizations/2026/10/10/01a125dd-33f2-78d3-abe7-45e0928975d0/v042-opening-implementation/evidence/r21-step2/tmp/test_oos_run_refuses_contamina0')
+capsys = <_pytest.capture.CaptureFixture object at 0x000002D2E15946E0>
+
+    def test_oos_run_refuses_contaminated_oos_snapshot(
+        tmp_path: Path, capsys: pytest.CaptureFixture
+    ) -> None:
+        """An OOS snapshot that contains Basic-window rows is refused; the Basic
+        window stays closed to the OOS runner."""
+>       root = _basic_pass_root(tmp_path, capsys)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\integration\test_research_cli.py:1487: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+tmp_path = WindowsPath('C:/Users/Administrator/.codex/visualizations/2026/10/10/01a125dd-33f2-78d3-abe7-45e0928975d0/v042-opening-implementation/evidence/r21-step2/tmp/test_oos_run_refuses_contamina0')
+capsys = <_pytest.capture.CaptureFixture object at 0x000002D2E15946E0>
+root_name = 'experiments'
+
+    def _basic_pass_root(
+        tmp_path: Path, capsys: pytest.CaptureFixture, root_name: str = "experiments"
+    ) -> Path:
+        """A lineage with a screen, a Basic backtest, and a Basic PASS selection."""
+        root = tmp_path / root_name
+        intent_path = tmp_path / "intent.json"
+        intent_path.write_text(json.dumps(_intent_payload()), encoding="utf-8")
+        assert main(["screen", "--intent", str(intent_path), "--root", str(root)]) == 0
+        snapshot_dir = _write_snapshot(tmp_path)
+>       assert (
+            main(
+                [
+                    "basic-backtest",
+                    "--intent",
+                    str(intent_path),
+                    "--snapshot",
+                    str(snapshot_dir / "manifest.json"),
+                    "--root",
+                    str(root),
+                ]
+            )
+            == 0
+        )
+E       AssertionError: assert 1 == 0
+E        +  where 1 = main(['basic-backtest', '--intent', 'C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe...ing-implementation\\evidence\\r21-step2\\tmp\\test_oos_run_refuses_contamina0\\snapshot\\manifest.json', '--root', ...])
+
+tests\integration\test_research_cli.py:1014: AssertionError
+---------------------------- Captured stdout call -----------------------------
+{"catalog_sequence":1,"command":"screen","intent_digest":"sha256:f2b0922a3461081c28e01ce9d59fc669b4686e46ecbdc94547fbe769fe26d545","lineage_id":"test-etf-absolute-trend","reason_codes":[],"schema_version":"research-cli-output-1","screen_digest":"sha256:49d1033407edc42a785971c4474a4eeb228f04bbc5fe3033f419139bb0a44f81","verdict":"SCREEN_PASS"}
+---------------------------- Captured stderr call -----------------------------
+{"schema_version": "research-cli-output-1", "command": "basic-backtest", "error": "RUN_WIRING_FAILED: StrategyRunError: code commit could not be resolved: Command '['git', 'rev-parse', 'HEAD']' returned non-zero exit status 128."}
+______________ test_oos_run_refuses_mismatched_warm_up_snapshot _______________
+
+tmp_path = WindowsPath('C:/Users/Administrator/.codex/visualizations/2026/10/10/01a125dd-33f2-78d3-abe7-45e0928975d0/v042-opening-implementation/evidence/r21-step2/tmp/test_oos_run_refuses_mismatche0')
+capsys = <_pytest.capture.CaptureFixture object at 0x000002D2E144E780>
+
+    def test_oos_run_refuses_mismatched_warm_up_snapshot(
+        tmp_path: Path, capsys: pytest.CaptureFixture
+    ) -> None:
+>       root = _basic_pass_root(tmp_path, capsys)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\integration\test_research_cli.py:1512: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+tmp_path = WindowsPath('C:/Users/Administrator/.codex/visualizations/2026/10/10/01a125dd-33f2-78d3-abe7-45e0928975d0/v042-opening-implementation/evidence/r21-step2/tmp/test_oos_run_refuses_mismatche0')
+capsys = <_pytest.capture.CaptureFixture object at 0x000002D2E144E780>
+root_name = 'experiments'
+
+    def _basic_pass_root(
+        tmp_path: Path, capsys: pytest.CaptureFixture, root_name: str = "experiments"
+    ) -> Path:
+        """A lineage with a screen, a Basic backtest, and a Basic PASS selection."""
+        root = tmp_path / root_name
+        intent_path = tmp_path / "intent.json"
+        intent_path.write_text(json.dumps(_intent_payload()), encoding="utf-8")
+        assert main(["screen", "--intent", str(intent_path), "--root", str(root)]) == 0
+        snapshot_dir = _write_snapshot(tmp_path)
+>       assert (
+            main(
+                [
+                    "basic-backtest",
+                    "--intent",
+                    str(intent_path),
+                    "--snapshot",
+                    str(snapshot_dir / "manifest.json"),
+                    "--root",
+                    str(root),
+                ]
+            )
+            == 0
+        )
+E       AssertionError: assert 1 == 0
+E        +  where 1 = main(['basic-backtest', '--intent', 'C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe...ing-implementation\\evidence\\r21-step2\\tmp\\test_oos_run_refuses_mismatche0\\snapshot\\manifest.json', '--root', ...])
+
+tests\integration\test_research_cli.py:1014: AssertionError
+---------------------------- Captured stdout call -----------------------------
+{"catalog_sequence":1,"command":"screen","intent_digest":"sha256:f2b0922a3461081c28e01ce9d59fc669b4686e46ecbdc94547fbe769fe26d545","lineage_id":"test-etf-absolute-trend","reason_codes":[],"schema_version":"research-cli-output-1","screen_digest":"sha256:49d1033407edc42a785971c4474a4eeb228f04bbc5fe3033f419139bb0a44f81","verdict":"SCREEN_PASS"}
+---------------------------- Captured stderr call -----------------------------
+{"schema_version": "research-cli-output-1", "command": "basic-backtest", "error": "RUN_WIRING_FAILED: StrategyRunError: code commit could not be resolved: Command '['git', 'rev-parse', 'HEAD']' returned non-zero exit status 128."}
+_____ test_no_oos_eligible_records_honest_outcome_without_materialization _____
+
+tmp_path = WindowsPath('C:/Users/Administrator/.codex/visualizations/2026/10/10/01a125dd-33f2-78d3-abe7-45e0928975d0/v042-opening-implementation/evidence/r21-step2/tmp/test_no_oos_eligible_records_h0')
+capsys = <_pytest.capture.CaptureFixture object at 0x000002D2E156FAD0>
+
+    def test_no_oos_eligible_records_honest_outcome_without_materialization(
+        tmp_path: Path, capsys: pytest.CaptureFixture
+    ) -> None:
+        root = tmp_path / "experiments"
+        payload = _intent_payload()
+        payload["basic_promotion_rule"]["min_nav_observations"] = "99999"
+        intent_path = tmp_path / "intent.json"
+        intent_path.write_text(json.dumps(payload), encoding="utf-8")
+        assert main(["screen", "--intent", str(intent_path), "--root", str(root)]) == 0
+        snapshot_dir = _write_snapshot(tmp_path)
+>       assert (
+            main(
+                [
+                    "basic-backtest",
+                    "--intent",
+                    str(intent_path),
+                    "--snapshot",
+                    str(snapshot_dir / "manifest.json"),
+                    "--root",
+                    str(root),
+                ]
+            )
+            == 0
+        )
+E       AssertionError: assert 1 == 0
+E        +  where 1 = main(['basic-backtest', '--intent', 'C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe...ing-implementation\\evidence\\r21-step2\\tmp\\test_no_oos_eligible_records_h0\\snapshot\\manifest.json', '--root', ...])
+
+tests\integration\test_research_cli.py:1540: AssertionError
+---------------------------- Captured stdout call -----------------------------
+{"catalog_sequence":1,"command":"screen","intent_digest":"sha256:8da36327db917892e52b86deb5ddfed390dd4050c6237f75fa50c31fd803650d","lineage_id":"test-etf-absolute-trend","reason_codes":[],"schema_version":"research-cli-output-1","screen_digest":"sha256:16b839a0f2b766d6982d2ebac55969f5d8c53456592e599824e63460ee5a7334","verdict":"SCREEN_PASS"}
+---------------------------- Captured stderr call -----------------------------
+{"schema_version": "research-cli-output-1", "command": "basic-backtest", "error": "RUN_WIRING_FAILED: StrategyRunError: code commit could not be resolved: Command '['git', 'rev-parse', 'HEAD']' returned non-zero exit status 128."}
+_______ test_no_oos_eligible_refuses_when_an_eligible_candidate_exists ________
+
+tmp_path = WindowsPath('C:/Users/Administrator/.codex/visualizations/2026/10/10/01a125dd-33f2-78d3-abe7-45e0928975d0/v042-opening-implementation/evidence/r21-step2/tmp/test_no_oos_eligible_refuses_w0')
+capsys = <_pytest.capture.CaptureFixture object at 0x000002D2E15877A0>
+
+    def test_no_oos_eligible_refuses_when_an_eligible_candidate_exists(
+        tmp_path: Path, capsys: pytest.CaptureFixture
+    ) -> None:
+>       root = _basic_pass_root(tmp_path, capsys)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\integration\test_research_cli.py:1575: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+tmp_path = WindowsPath('C:/Users/Administrator/.codex/visualizations/2026/10/10/01a125dd-33f2-78d3-abe7-45e0928975d0/v042-opening-implementation/evidence/r21-step2/tmp/test_no_oos_eligible_refuses_w0')
+capsys = <_pytest.capture.CaptureFixture object at 0x000002D2E15877A0>
+root_name = 'experiments'
+
+    def _basic_pass_root(
+        tmp_path: Path, capsys: pytest.CaptureFixture, root_name: str = "experiments"
+    ) -> Path:
+        """A lineage with a screen, a Basic backtest, and a Basic PASS selection."""
+        root = tmp_path / root_name
+        intent_path = tmp_path / "intent.json"
+        intent_path.write_text(json.dumps(_intent_payload()), encoding="utf-8")
+        assert main(["screen", "--intent", str(intent_path), "--root", str(root)]) == 0
+        snapshot_dir = _write_snapshot(tmp_path)
+>       assert (
+            main(
+                [
+                    "basic-backtest",
+                    "--intent",
+                    str(intent_path),
+                    "--snapshot",
+                    str(snapshot_dir / "manifest.json"),
+                    "--root",
+                    str(root),
+                ]
+            )
+            == 0
+        )
+E       AssertionError: assert 1 == 0
+E        +  where 1 = main(['basic-backtest', '--intent', 'C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe...ing-implementation\\evidence\\r21-step2\\tmp\\test_no_oos_eligible_refuses_w0\\snapshot\\manifest.json', '--root', ...])
+
+tests\integration\test_research_cli.py:1014: AssertionError
+---------------------------- Captured stdout call -----------------------------
+{"catalog_sequence":1,"command":"screen","intent_digest":"sha256:f2b0922a3461081c28e01ce9d59fc669b4686e46ecbdc94547fbe769fe26d545","lineage_id":"test-etf-absolute-trend","reason_codes":[],"schema_version":"research-cli-output-1","screen_digest":"sha256:49d1033407edc42a785971c4474a4eeb228f04bbc5fe3033f419139bb0a44f81","verdict":"SCREEN_PASS"}
+---------------------------- Captured stderr call -----------------------------
+{"schema_version": "research-cli-output-1", "command": "basic-backtest", "error": "RUN_WIRING_FAILED: StrategyRunError: code commit could not be resolved: Command '['git', 'rev-parse', 'HEAD']' returned non-zero exit status 128."}
+__________ test_provider_data_failure_is_retained_as_run_failed_data __________
+
+    def resolve_code_commit() -> str:
+        """The exact code state of the implementation under test.
+    
+        A clean worktree resolves to the HEAD commit; a dirty worktree gets a
+        unique fingerprint over the tracked diff and every untracked file's
+        content digest, so two different dirty states cannot share one run
+        identity.
+        """
+        try:
+>           head = subprocess.run(
+                ["git", "rev-parse", "HEAD"],
+                capture_output=True,
+                text=True,
+                check=True,
+            ).stdout.strip()
+
+src\systematic_investing\research\runner.py:329: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+input = None, capture_output = True, timeout = None, check = True
+popenargs = (['git', 'rev-parse', 'HEAD'],)
+kwargs = {'text': True, 'stdout': -1, 'stderr': -1}
+
+    def run(*popenargs,
+            input=None, capture_output=False, timeout=None, check=False, **kwargs):
+        """Run command with arguments and return a CompletedProcess instance.
+    
+        The returned instance will have attributes args, returncode, stdout and
+        stderr. By default, stdout and stderr are not captured, and those attributes
+        will be None. Pass stdout=PIPE and/or stderr=PIPE in order to capture them,
+        or pass capture_output=True to capture both.
+    
+        If check is True and the exit code was non-zero, it raises a
+        CalledProcessError. The CalledProcessError object will have the return code
+        in the returncode attribute, and output & stderr attributes if those streams
+        were captured.
+    
+        If timeout (seconds) is given and the process takes too long,
+         a TimeoutExpired exception will be raised.
+    
+        There is an optional argument "input", allowing you to
+        pass bytes or a string to the subprocess's stdin.  If you use this argument
+        you may not also use the Popen constructor's "stdin" argument, as
+        it will be used internally.
+    
+        By default, all communication is in bytes, and therefore any "input" should
+        be bytes, and the stdout and stderr will be bytes. If in text mode, any
+        "input" should be a string, and stdout and stderr will be strings decoded
+        according to locale encoding, or by "encoding" if set. Text mode is
+        triggered by setting any of text, encoding, errors or universal_newlines.
+    
+        The other arguments are the same as for the Popen constructor.
+        """
+        if input is not None:
+            if kwargs.get('stdin') is not None:
+                raise ValueError('stdin and input arguments may not both be used.')
+            kwargs['stdin'] = PIPE
+    
+        if capture_output:
+            if kwargs.get('stdout') is not None or kwargs.get('stderr') is not None:
+                raise ValueError('stdout and stderr arguments may not be used '
+                                 'with capture_output.')
+            kwargs['stdout'] = PIPE
+            kwargs['stderr'] = PIPE
+    
+        with Popen(*popenargs, **kwargs) as process:
+            try:
+                stdout, stderr = process.communicate(input, timeout=timeout)
+            except TimeoutExpired as exc:
+                process.kill()
+                if _mswindows:
+                    # Windows accumulates the output in a single blocking
+                    # read() call run on child threads, with the timeout
+                    # being done in a join() on those threads.  communicate()
+                    # _after_ kill() is required to collect that and add it
+                    # to the exception.
+                    exc.stdout, exc.stderr = process.communicate()
+                else:
+                    # POSIX _communicate already populated the output so
+                    # far into the TimeoutExpired exception.
+                    process.wait()
+                raise
+            except:  # Including KeyboardInterrupt, communicate handled that.
+                process.kill()
+                # We don't call process.wait() as .__exit__ does that for us.
+                raise
+            retcode = process.poll()
+            if check and retcode:
+>               raise CalledProcessError(retcode, process.args,
+                                         output=stdout, stderr=stderr)
+E               subprocess.CalledProcessError: Command '['git', 'rev-parse', 'HEAD']' returned non-zero exit status 128.
+
+C:\Users\Administrator\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\subprocess.py:571: CalledProcessError
+
+The above exception was the direct cause of the following exception:
+
+    def test_provider_data_failure_is_retained_as_run_failed_data() -> None:
+        """Ambiguous market facts are a provider data failure: the run is
+        retained as a typed ``RUN_FAILED_DATA`` outcome, not a kernel failure."""
+        sessions = _basic_sessions()
+        dataset = _dataset(sessions, duplicate_bar_on=sessions[5])
+    
+>       outcome = _run_variant(_basic_wiring(dataset), _basic_intent())
+                               ^^^^^^^^^^^^^^^^^^^^^^
+
+tests\research\test_research_reproducibility.py:311: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\research\test_research_reproducibility.py:198: in _basic_wiring
+    return build_basic_wiring(
+src\systematic_investing\research\runner.py:563: in build_basic_wiring
+    code_commit=resolve_code_commit(),
+                ^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+    def resolve_code_commit() -> str:
+        """The exact code state of the implementation under test.
+    
+        A clean worktree resolves to the HEAD commit; a dirty worktree gets a
+        unique fingerprint over the tracked diff and every untracked file's
+        content digest, so two different dirty states cannot share one run
+        identity.
+        """
+        try:
+            head = subprocess.run(
+                ["git", "rev-parse", "HEAD"],
+                capture_output=True,
+                text=True,
+                check=True,
+            ).stdout.strip()
+            diff = subprocess.run(
+                ["git", "diff", "HEAD", "--binary"],
+                capture_output=True,
+                check=True,
+            ).stdout
+            untracked_output = subprocess.run(
+                ["git", "ls-files", "--others", "--exclude-standard", "-z"],
+                capture_output=True,
+                text=True,
+                check=True,
+            ).stdout
+        except (OSError, subprocess.SubprocessError) as error:
+>           raise StrategyRunError(f"code commit could not be resolved: {error}") from error
+E           systematic_investing.research.runner.StrategyRunError: code commit could not be resolved: Command '['git', 'rev-parse', 'HEAD']' returned non-zero exit status 128.
+
+src\systematic_investing\research\runner.py:347: StrategyRunError
+_________ test_provider_failure_is_never_recorded_as_a_successful_run _________
+
+    def resolve_code_commit() -> str:
+        """The exact code state of the implementation under test.
+    
+        A clean worktree resolves to the HEAD commit; a dirty worktree gets a
+        unique fingerprint over the tracked diff and every untracked file's
+        content digest, so two different dirty states cannot share one run
+        identity.
+        """
+        try:
+>           head = subprocess.run(
+                ["git", "rev-parse", "HEAD"],
+                capture_output=True,
+                text=True,
+                check=True,
+            ).stdout.strip()
+
+src\systematic_investing\research\runner.py:329: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+input = None, capture_output = True, timeout = None, check = True
+popenargs = (['git', 'rev-parse', 'HEAD'],)
+kwargs = {'text': True, 'stdout': -1, 'stderr': -1}
+
+    def run(*popenargs,
+            input=None, capture_output=False, timeout=None, check=False, **kwargs):
+        """Run command with arguments and return a CompletedProcess instance.
+    
+        The returned instance will have attributes args, returncode, stdout and
+        stderr. By default, stdout and stderr are not captured, and those attributes
+        will be None. Pass stdout=PIPE and/or stderr=PIPE in order to capture them,
+        or pass capture_output=True to capture both.
+    
+        If check is True and the exit code was non-zero, it raises a
+        CalledProcessError. The CalledProcessError object will have the return code
+        in the returncode attribute, and output & stderr attributes if those streams
+        were captured.
+    
+        If timeout (seconds) is given and the process takes too long,
+         a TimeoutExpired exception will be raised.
+    
+        There is an optional argument "input", allowing you to
+        pass bytes or a string to the subprocess's stdin.  If you use this argument
+        you may not also use the Popen constructor's "stdin" argument, as
+        it will be used internally.
+    
+        By default, all communication is in bytes, and therefore any "input" should
+        be bytes, and the stdout and stderr will be bytes. If in text mode, any
+        "input" should be a string, and stdout and stderr will be strings decoded
+        according to locale encoding, or by "encoding" if set. Text mode is
+        triggered by setting any of text, encoding, errors or universal_newlines.
+    
+        The other arguments are the same as for the Popen constructor.
+        """
+        if input is not None:
+            if kwargs.get('stdin') is not None:
+                raise ValueError('stdin and input arguments may not both be used.')
+            kwargs['stdin'] = PIPE
+    
+        if capture_output:
+            if kwargs.get('stdout') is not None or kwargs.get('stderr') is not None:
+                raise ValueError('stdout and stderr arguments may not be used '
+                                 'with capture_output.')
+            kwargs['stdout'] = PIPE
+            kwargs['stderr'] = PIPE
+    
+        with Popen(*popenargs, **kwargs) as process:
+            try:
+                stdout, stderr = process.communicate(input, timeout=timeout)
+            except TimeoutExpired as exc:
+                process.kill()
+                if _mswindows:
+                    # Windows accumulates the output in a single blocking
+                    # read() call run on child threads, with the timeout
+                    # being done in a join() on those threads.  communicate()
+                    # _after_ kill() is required to collect that and add it
+                    # to the exception.
+                    exc.stdout, exc.stderr = process.communicate()
+                else:
+                    # POSIX _communicate already populated the output so
+                    # far into the TimeoutExpired exception.
+                    process.wait()
+                raise
+            except:  # Including KeyboardInterrupt, communicate handled that.
+                process.kill()
+                # We don't call process.wait() as .__exit__ does that for us.
+                raise
+            retcode = process.poll()
+            if check and retcode:
+>               raise CalledProcessError(retcode, process.args,
+                                         output=stdout, stderr=stderr)
+E               subprocess.CalledProcessError: Command '['git', 'rev-parse', 'HEAD']' returned non-zero exit status 128.
+
+C:\Users\Administrator\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\subprocess.py:571: CalledProcessError
+
+The above exception was the direct cause of the following exception:
+
+    def test_provider_failure_is_never_recorded_as_a_successful_run() -> None:
+        sessions = _basic_sessions()
+        dataset = _dataset(sessions, duplicate_bar_on=sessions[5])
+    
+>       outcome = _run_variant(_basic_wiring(dataset), _basic_intent())
+                               ^^^^^^^^^^^^^^^^^^^^^^
+
+tests\research\test_research_reproducibility.py:327: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\research\test_research_reproducibility.py:198: in _basic_wiring
+    return build_basic_wiring(
+src\systematic_investing\research\runner.py:563: in build_basic_wiring
+    code_commit=resolve_code_commit(),
+                ^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+    def resolve_code_commit() -> str:
+        """The exact code state of the implementation under test.
+    
+        A clean worktree resolves to the HEAD commit; a dirty worktree gets a
+        unique fingerprint over the tracked diff and every untracked file's
+        content digest, so two different dirty states cannot share one run
+        identity.
+        """
+        try:
+            head = subprocess.run(
+                ["git", "rev-parse", "HEAD"],
+                capture_output=True,
+                text=True,
+                check=True,
+            ).stdout.strip()
+            diff = subprocess.run(
+                ["git", "diff", "HEAD", "--binary"],
+                capture_output=True,
+                check=True,
+            ).stdout
+            untracked_output = subprocess.run(
+                ["git", "ls-files", "--others", "--exclude-standard", "-z"],
+                capture_output=True,
+                text=True,
+                check=True,
+            ).stdout
+        except (OSError, subprocess.SubprocessError) as error:
+>           raise StrategyRunError(f"code commit could not be resolved: {error}") from error
+E           systematic_investing.research.runner.StrategyRunError: code commit could not be resolved: Command '['git', 'rev-parse', 'HEAD']' returned non-zero exit status 128.
+
+src\systematic_investing\research\runner.py:347: StrategyRunError
+____________ test_compile_failure_is_retained_as_run_failed_kernel ____________
+
+    def resolve_code_commit() -> str:
+        """The exact code state of the implementation under test.
+    
+        A clean worktree resolves to the HEAD commit; a dirty worktree gets a
+        unique fingerprint over the tracked diff and every untracked file's
+        content digest, so two different dirty states cannot share one run
+        identity.
+        """
+        try:
+>           head = subprocess.run(
+                ["git", "rev-parse", "HEAD"],
+                capture_output=True,
+                text=True,
+                check=True,
+            ).stdout.strip()
+
+src\systematic_investing\research\runner.py:329: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+input = None, capture_output = True, timeout = None, check = True
+popenargs = (['git', 'rev-parse', 'HEAD'],)
+kwargs = {'text': True, 'stdout': -1, 'stderr': -1}
+
+    def run(*popenargs,
+            input=None, capture_output=False, timeout=None, check=False, **kwargs):
+        """Run command with arguments and return a CompletedProcess instance.
+    
+        The returned instance will have attributes args, returncode, stdout and
+        stderr. By default, stdout and stderr are not captured, and those attributes
+        will be None. Pass stdout=PIPE and/or stderr=PIPE in order to capture them,
+        or pass capture_output=True to capture both.
+    
+        If check is True and the exit code was non-zero, it raises a
+        CalledProcessError. The CalledProcessError object will have the return code
+        in the returncode attribute, and output & stderr attributes if those streams
+        were captured.
+    
+        If timeout (seconds) is given and the process takes too long,
+         a TimeoutExpired exception will be raised.
+    
+        There is an optional argument "input", allowing you to
+        pass bytes or a string to the subprocess's stdin.  If you use this argument
+        you may not also use the Popen constructor's "stdin" argument, as
+        it will be used internally.
+    
+        By default, all communication is in bytes, and therefore any "input" should
+        be bytes, and the stdout and stderr will be bytes. If in text mode, any
+        "input" should be a string, and stdout and stderr will be strings decoded
+        according to locale encoding, or by "encoding" if set. Text mode is
+        triggered by setting any of text, encoding, errors or universal_newlines.
+    
+        The other arguments are the same as for the Popen constructor.
+        """
+        if input is not None:
+            if kwargs.get('stdin') is not None:
+                raise ValueError('stdin and input arguments may not both be used.')
+            kwargs['stdin'] = PIPE
+    
+        if capture_output:
+            if kwargs.get('stdout') is not None or kwargs.get('stderr') is not None:
+                raise ValueError('stdout and stderr arguments may not be used '
+                                 'with capture_output.')
+            kwargs['stdout'] = PIPE
+            kwargs['stderr'] = PIPE
+    
+        with Popen(*popenargs, **kwargs) as process:
+            try:
+                stdout, stderr = process.communicate(input, timeout=timeout)
+            except TimeoutExpired as exc:
+                process.kill()
+                if _mswindows:
+                    # Windows accumulates the output in a single blocking
+                    # read() call run on child threads, with the timeout
+                    # being done in a join() on those threads.  communicate()
+                    # _after_ kill() is required to collect that and add it
+                    # to the exception.
+                    exc.stdout, exc.stderr = process.communicate()
+                else:
+                    # POSIX _communicate already populated the output so
+                    # far into the TimeoutExpired exception.
+                    process.wait()
+                raise
+            except:  # Including KeyboardInterrupt, communicate handled that.
+                process.kill()
+                # We don't call process.wait() as .__exit__ does that for us.
+                raise
+            retcode = process.poll()
+            if check and retcode:
+>               raise CalledProcessError(retcode, process.args,
+                                         output=stdout, stderr=stderr)
+E               subprocess.CalledProcessError: Command '['git', 'rev-parse', 'HEAD']' returned non-zero exit status 128.
+
+C:\Users\Administrator\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\subprocess.py:571: CalledProcessError
+
+The above exception was the direct cause of the following exception:
+
+    def test_compile_failure_is_retained_as_run_failed_kernel() -> None:
+        """An unknown canonical strategy id fails the run closed and is retained
+        as a typed ``RUN_FAILED_KERNEL`` outcome with its full artifact set."""
+        payload = _intent_payload()
+        payload["strategy_id"] = "no-such-strategy"
+    
+>       outcome = _run_variant(_basic_wiring(), CandidateIntent.from_dict(payload))
+                               ^^^^^^^^^^^^^^^
+
+tests\research\test_research_reproducibility.py:340: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\research\test_research_reproducibility.py:198: in _basic_wiring
+    return build_basic_wiring(
+src\systematic_investing\research\runner.py:563: in build_basic_wiring
+    code_commit=resolve_code_commit(),
+                ^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+    def resolve_code_commit() -> str:
+        """The exact code state of the implementation under test.
+    
+        A clean worktree resolves to the HEAD commit; a dirty worktree gets a
+        unique fingerprint over the tracked diff and every untracked file's
+        content digest, so two different dirty states cannot share one run
+        identity.
+        """
+        try:
+            head = subprocess.run(
+                ["git", "rev-parse", "HEAD"],
+                capture_output=True,
+                text=True,
+                check=True,
+            ).stdout.strip()
+            diff = subprocess.run(
+                ["git", "diff", "HEAD", "--binary"],
+                capture_output=True,
+                check=True,
+            ).stdout
+            untracked_output = subprocess.run(
+                ["git", "ls-files", "--others", "--exclude-standard", "-z"],
+                capture_output=True,
+                text=True,
+                check=True,
+            ).stdout
+        except (OSError, subprocess.SubprocessError) as error:
+>           raise StrategyRunError(f"code commit could not be resolved: {error}") from error
+E           systematic_investing.research.runner.StrategyRunError: code commit could not be resolved: Command '['git', 'rev-parse', 'HEAD']' returned non-zero exit status 128.
+
+src\systematic_investing\research\runner.py:347: StrategyRunError
+___________ test_same_kernel_rerun_produces_identical_result_digest ___________
+
+    def resolve_code_commit() -> str:
+        """The exact code state of the implementation under test.
+    
+        A clean worktree resolves to the HEAD commit; a dirty worktree gets a
+        unique fingerprint over the tracked diff and every untracked file's
+        content digest, so two different dirty states cannot share one run
+        identity.
+        """
+        try:
+>           head = subprocess.run(
+                ["git", "rev-parse", "HEAD"],
+                capture_output=True,
+                text=True,
+                check=True,
+            ).stdout.strip()
+
+src\systematic_investing\research\runner.py:329: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+input = None, capture_output = True, timeout = None, check = True
+popenargs = (['git', 'rev-parse', 'HEAD'],)
+kwargs = {'text': True, 'stdout': -1, 'stderr': -1}
+
+    def run(*popenargs,
+            input=None, capture_output=False, timeout=None, check=False, **kwargs):
+        """Run command with arguments and return a CompletedProcess instance.
+    
+        The returned instance will have attributes args, returncode, stdout and
+        stderr. By default, stdout and stderr are not captured, and those attributes
+        will be None. Pass stdout=PIPE and/or stderr=PIPE in order to capture them,
+        or pass capture_output=True to capture both.
+    
+        If check is True and the exit code was non-zero, it raises a
+        CalledProcessError. The CalledProcessError object will have the return code
+        in the returncode attribute, and output & stderr attributes if those streams
+        were captured.
+    
+        If timeout (seconds) is given and the process takes too long,
+         a TimeoutExpired exception will be raised.
+    
+        There is an optional argument "input", allowing you to
+        pass bytes or a string to the subprocess's stdin.  If you use this argument
+        you may not also use the Popen constructor's "stdin" argument, as
+        it will be used internally.
+    
+        By default, all communication is in bytes, and therefore any "input" should
+        be bytes, and the stdout and stderr will be bytes. If in text mode, any
+        "input" should be a string, and stdout and stderr will be strings decoded
+        according to locale encoding, or by "encoding" if set. Text mode is
+        triggered by setting any of text, encoding, errors or universal_newlines.
+    
+        The other arguments are the same as for the Popen constructor.
+        """
+        if input is not None:
+            if kwargs.get('stdin') is not None:
+                raise ValueError('stdin and input arguments may not both be used.')
+            kwargs['stdin'] = PIPE
+    
+        if capture_output:
+            if kwargs.get('stdout') is not None or kwargs.get('stderr') is not None:
+                raise ValueError('stdout and stderr arguments may not be used '
+                                 'with capture_output.')
+            kwargs['stdout'] = PIPE
+            kwargs['stderr'] = PIPE
+    
+        with Popen(*popenargs, **kwargs) as process:
+            try:
+                stdout, stderr = process.communicate(input, timeout=timeout)
+            except TimeoutExpired as exc:
+                process.kill()
+                if _mswindows:
+                    # Windows accumulates the output in a single blocking
+                    # read() call run on child threads, with the timeout
+                    # being done in a join() on those threads.  communicate()
+                    # _after_ kill() is required to collect that and add it
+                    # to the exception.
+                    exc.stdout, exc.stderr = process.communicate()
+                else:
+                    # POSIX _communicate already populated the output so
+                    # far into the TimeoutExpired exception.
+                    process.wait()
+                raise
+            except:  # Including KeyboardInterrupt, communicate handled that.
+                process.kill()
+                # We don't call process.wait() as .__exit__ does that for us.
+                raise
+            retcode = process.poll()
+            if check and retcode:
+>               raise CalledProcessError(retcode, process.args,
+                                         output=stdout, stderr=stderr)
+E               subprocess.CalledProcessError: Command '['git', 'rev-parse', 'HEAD']' returned non-zero exit status 128.
+
+C:\Users\Administrator\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\subprocess.py:571: CalledProcessError
+
+The above exception was the direct cause of the following exception:
+
+    def test_same_kernel_rerun_produces_identical_result_digest() -> None:
+        """Two isolated runs of the same variant against the same wiring replay
+        byte-identically: same result digest, payloads, and status."""
+>       wiring = _basic_wiring()
+                 ^^^^^^^^^^^^^^^
+
+tests\research\test_research_reproducibility.py:359: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\research\test_research_reproducibility.py:198: in _basic_wiring
+    return build_basic_wiring(
+src\systematic_investing\research\runner.py:563: in build_basic_wiring
+    code_commit=resolve_code_commit(),
+                ^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+    def resolve_code_commit() -> str:
+        """The exact code state of the implementation under test.
+    
+        A clean worktree resolves to the HEAD commit; a dirty worktree gets a
+        unique fingerprint over the tracked diff and every untracked file's
+        content digest, so two different dirty states cannot share one run
+        identity.
+        """
+        try:
+            head = subprocess.run(
+                ["git", "rev-parse", "HEAD"],
+                capture_output=True,
+                text=True,
+                check=True,
+            ).stdout.strip()
+            diff = subprocess.run(
+                ["git", "diff", "HEAD", "--binary"],
+                capture_output=True,
+                check=True,
+            ).stdout
+            untracked_output = subprocess.run(
+                ["git", "ls-files", "--others", "--exclude-standard", "-z"],
+                capture_output=True,
+                text=True,
+                check=True,
+            ).stdout
+        except (OSError, subprocess.SubprocessError) as error:
+>           raise StrategyRunError(f"code commit could not be resolved: {error}") from error
+E           systematic_investing.research.runner.StrategyRunError: code commit could not be resolved: Command '['git', 'rev-parse', 'HEAD']' returned non-zero exit status 128.
+
+src\systematic_investing\research\runner.py:347: StrategyRunError
+___________ test_rerun_persists_a_new_attempt_and_retains_both_runs ___________
+
+    def resolve_code_commit() -> str:
+        """The exact code state of the implementation under test.
+    
+        A clean worktree resolves to the HEAD commit; a dirty worktree gets a
+        unique fingerprint over the tracked diff and every untracked file's
+        content digest, so two different dirty states cannot share one run
+        identity.
+        """
+        try:
+>           head = subprocess.run(
+                ["git", "rev-parse", "HEAD"],
+                capture_output=True,
+                text=True,
+                check=True,
+            ).stdout.strip()
+
+src\systematic_investing\research\runner.py:329: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+input = None, capture_output = True, timeout = None, check = True
+popenargs = (['git', 'rev-parse', 'HEAD'],)
+kwargs = {'text': True, 'stdout': -1, 'stderr': -1}
+
+    def run(*popenargs,
+            input=None, capture_output=False, timeout=None, check=False, **kwargs):
+        """Run command with arguments and return a CompletedProcess instance.
+    
+        The returned instance will have attributes args, returncode, stdout and
+        stderr. By default, stdout and stderr are not captured, and those attributes
+        will be None. Pass stdout=PIPE and/or stderr=PIPE in order to capture them,
+        or pass capture_output=True to capture both.
+    
+        If check is True and the exit code was non-zero, it raises a
+        CalledProcessError. The CalledProcessError object will have the return code
+        in the returncode attribute, and output & stderr attributes if those streams
+        were captured.
+    
+        If timeout (seconds) is given and the process takes too long,
+         a TimeoutExpired exception will be raised.
+    
+        There is an optional argument "input", allowing you to
+        pass bytes or a string to the subprocess's stdin.  If you use this argument
+        you may not also use the Popen constructor's "stdin" argument, as
+        it will be used internally.
+    
+        By default, all communication is in bytes, and therefore any "input" should
+        be bytes, and the stdout and stderr will be bytes. If in text mode, any
+        "input" should be a string, and stdout and stderr will be strings decoded
+        according to locale encoding, or by "encoding" if set. Text mode is
+        triggered by setting any of text, encoding, errors or universal_newlines.
+    
+        The other arguments are the same as for the Popen constructor.
+        """
+        if input is not None:
+            if kwargs.get('stdin') is not None:
+                raise ValueError('stdin and input arguments may not both be used.')
+            kwargs['stdin'] = PIPE
+    
+        if capture_output:
+            if kwargs.get('stdout') is not None or kwargs.get('stderr') is not None:
+                raise ValueError('stdout and stderr arguments may not be used '
+                                 'with capture_output.')
+            kwargs['stdout'] = PIPE
+            kwargs['stderr'] = PIPE
+    
+        with Popen(*popenargs, **kwargs) as process:
+            try:
+                stdout, stderr = process.communicate(input, timeout=timeout)
+            except TimeoutExpired as exc:
+                process.kill()
+                if _mswindows:
+                    # Windows accumulates the output in a single blocking
+                    # read() call run on child threads, with the timeout
+                    # being done in a join() on those threads.  communicate()
+                    # _after_ kill() is required to collect that and add it
+                    # to the exception.
+                    exc.stdout, exc.stderr = process.communicate()
+                else:
+                    # POSIX _communicate already populated the output so
+                    # far into the TimeoutExpired exception.
+                    process.wait()
+                raise
+            except:  # Including KeyboardInterrupt, communicate handled that.
+                process.kill()
+                # We don't call process.wait() as .__exit__ does that for us.
+                raise
+            retcode = process.poll()
+            if check and retcode:
+>               raise CalledProcessError(retcode, process.args,
+                                         output=stdout, stderr=stderr)
+E               subprocess.CalledProcessError: Command '['git', 'rev-parse', 'HEAD']' returned non-zero exit status 128.
+
+C:\Users\Administrator\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\subprocess.py:571: CalledProcessError
+
+The above exception was the direct cause of the following exception:
+
+tmp_path = WindowsPath('C:/Users/Administrator/.codex/visualizations/2026/10/10/01a125dd-33f2-78d3-abe7-45e0928975d0/v042-opening-implementation/evidence/r21-step2/tmp/test_rerun_persists_a_new_atte0')
+
+    def test_rerun_persists_a_new_attempt_and_retains_both_runs(tmp_path: Path) -> None:
+        """The rerun shares one manifest identity but is retained as attempt 2 in
+        a new deterministic run directory; both attempts verify cleanly."""
+        root = tmp_path / "experiments"
+>       wiring = _basic_wiring()
+                 ^^^^^^^^^^^^^^^
+
+tests\research\test_research_reproducibility.py:376: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\research\test_research_reproducibility.py:198: in _basic_wiring
+    return build_basic_wiring(
+src\systematic_investing\research\runner.py:563: in build_basic_wiring
+    code_commit=resolve_code_commit(),
+                ^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+    def resolve_code_commit() -> str:
+        """The exact code state of the implementation under test.
+    
+        A clean worktree resolves to the HEAD commit; a dirty worktree gets a
+        unique fingerprint over the tracked diff and every untracked file's
+        content digest, so two different dirty states cannot share one run
+        identity.
+        """
+        try:
+            head = subprocess.run(
+                ["git", "rev-parse", "HEAD"],
+                capture_output=True,
+                text=True,
+                check=True,
+            ).stdout.strip()
+            diff = subprocess.run(
+                ["git", "diff", "HEAD", "--binary"],
+                capture_output=True,
+                check=True,
+            ).stdout
+            untracked_output = subprocess.run(
+                ["git", "ls-files", "--others", "--exclude-standard", "-z"],
+                capture_output=True,
+                text=True,
+                check=True,
+            ).stdout
+        except (OSError, subprocess.SubprocessError) as error:
+>           raise StrategyRunError(f"code commit could not be resolved: {error}") from error
+E           systematic_investing.research.runner.StrategyRunError: code commit could not be resolved: Command '['git', 'rev-parse', 'HEAD']' returned non-zero exit status 128.
+
+src\systematic_investing\research\runner.py:347: StrategyRunError
+=========================== short test summary info ===========================
+FAILED tests/component/test_corporate_actions.py::TestCashDividend::test_dividend_credits_cash_exactly_once
+FAILED tests/component/test_corporate_actions.py::TestCashDividend::test_holdings_are_unchanged_and_valued_at_the_raw_close
+FAILED tests/component/test_corporate_actions.py::TestQuantityChangingActions::test_split_scales_lots_and_preserves_sellability
+FAILED tests/component/test_corporate_actions.py::TestQuantityChangingActions::test_action_unknown_at_activation_is_applied_when_first_known
+FAILED tests/component/test_corporate_actions.py::TestInterveningActionInvalidation::test_pending_sell_is_invalidated_without_a_substitute
+FAILED tests/component/test_corporate_actions.py::TestInterveningActionInvalidation::test_locked_target_is_untouched_by_the_intervening_action
+FAILED tests/component/test_corporate_actions.py::TestNonQuantityChangingAction::test_cash_dividend_does_not_invalidate_a_pending_buy
+FAILED tests/component/test_corporate_actions.py::TestInvalidatedPrice::test_quantity_change_invalidates_a_pre_action_price
+FAILED tests/component/test_no_lookahead.py::TestNoLookahead::test_mutating_all_data_after_t_leaves_the_t_decision_identical
+FAILED tests/contract/test_chstockdata_provider.py::TestTradabilityMapping::test_historical_session_uses_the_exchange_rule_open_time
+FAILED tests/integration/test_reproducibility.py::test_scenario_replays_identically_from_two_isolated_snapshots[G11]
+FAILED tests/integration/test_reproducibility.py::test_scenario_replays_identically_from_two_isolated_snapshots[G20]
+FAILED tests/integration/test_reproducibility.py::test_scenario_replays_identically_from_two_isolated_snapshots[G21]
+FAILED tests/integration/test_research_cli.py::test_basic_backtest_runs_variants_and_selects_by_priority
+FAILED tests/integration/test_research_cli.py::test_catalog_persistence_failure_leaves_explained_marker
+FAILED tests/integration/test_research_cli.py::test_clean_basic_run_passes_catalog_verification
+FAILED tests/integration/test_research_cli.py::test_run_artifacts_are_catalogued_per_file_with_their_own_digests
+FAILED tests/integration/test_research_cli.py::test_failed_run_result_digest_matches_persisted_bytes
+FAILED tests/integration/test_research_cli.py::test_priority_first_pass_wins_even_when_other_return_is_higher
+FAILED tests/integration/test_research_cli.py::test_re_run_same_manifest_creates_new_attempt_with_same_digest
+FAILED tests/integration/test_research_cli.py::test_basic_backtest_retains_all_rejected_attempts
+FAILED tests/integration/test_research_cli.py::test_verify_fails_on_tampered_artifact
+FAILED tests/integration/test_research_cli.py::test_oos_run_refuses_freeze_bound_implementation_drift
+FAILED tests/integration/test_research_cli.py::test_oos_run_refuses_freeze_bound_kernel_drift
+FAILED tests/integration/test_research_cli.py::test_oos_run_unknown_kernel_never_opens_the_snapshot
+FAILED tests/integration/test_research_cli.py::test_oos_freeze_refuses_unsupported_kernel_before_persistence
+FAILED tests/integration/test_research_cli.py::test_oos_run_refuses_corrupt_oos_snapshot_with_typed_error
+FAILED tests/integration/test_research_cli.py::test_oos_freeze_requires_selected_basic_candidate
+FAILED tests/integration/test_research_cli.py::test_oos_freeze_persists_immutable_freeze_artifact
+FAILED tests/integration/test_research_cli.py::test_oos_freeze_is_idempotent_for_identical_content
+FAILED tests/integration/test_research_cli.py::test_oos_run_records_exactly_one_verdict
+FAILED tests/integration/test_research_cli.py::test_oos_run_without_warm_up_snapshot_still_evaluates_short_lookback
+FAILED tests/integration/test_research_cli.py::test_oos_run_reveal_intent_persists_before_the_snapshot_is_opened
+FAILED tests/integration/test_research_cli.py::test_new_intent_version_cannot_freeze_an_already_revealed_lineage_window
+FAILED tests/integration/test_research_cli.py::test_oos_run_refuses_contaminated_oos_snapshot
+FAILED tests/integration/test_research_cli.py::test_oos_run_refuses_mismatched_warm_up_snapshot
+FAILED tests/integration/test_research_cli.py::test_no_oos_eligible_records_honest_outcome_without_materialization
+FAILED tests/integration/test_research_cli.py::test_no_oos_eligible_refuses_when_an_eligible_candidate_exists
+FAILED tests/research/test_research_reproducibility.py::test_provider_data_failure_is_retained_as_run_failed_data
+FAILED tests/research/test_research_reproducibility.py::test_provider_failure_is_never_recorded_as_a_successful_run
+FAILED tests/research/test_research_reproducibility.py::test_compile_failure_is_retained_as_run_failed_kernel
+FAILED tests/research/test_research_reproducibility.py::test_same_kernel_rerun_produces_identical_result_digest
+FAILED tests/research/test_research_reproducibility.py::test_rerun_persists_a_new_attempt_and_retains_both_runs
+43 failed, 377 passed in 10.75s

@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "C:\Users\Administrator\.codex\visualizations\2026\10\10\01a125dd-33f2-78d3-abe7-45e0928975d0\v042-opening-implementation\evidence\r21-step4\finalize.py", line 47, in <module>
+    assert item['result']['snapshot_manifest']['manifest_schema_version']=='m0-data-snapshot-3'
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+KeyError: 'manifest_schema_version'

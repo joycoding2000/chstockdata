@@ -1,0 +1,2067 @@
+[
+  {
+    "name": "artifact-members",
+    "argv": [
+      "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+      "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\evidence\\r21-step4\\verify_artifacts.py"
+    ],
+    "cwd": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation",
+    "exit": 0,
+    "candidate_wheel_sha256": "3fd4f0b7334e310851495b8b13d4c7c55d21cde719acf9e00ff880ccb822f42e",
+    "log": "artifact-members.log",
+    "exit_file": "artifact-members.exit",
+    "command_started_at": "2026-10-12T21:39:56.402425+08:00",
+    "command_finished_at": "2026-10-12T21:39:57.067015+08:00",
+    "environment_overrides": {
+      "PYTHONPATH": null,
+      "PYTHONUTF8": "1",
+      "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+      "SIOS_CHSTOCKDATA_LIVE_QUALIFICATION": null,
+      "CHSTOCKDATA_VIPDOC_HISTORY_DIR": null,
+      "CHSTOCKDATA_CACHE_DIR": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\cache\\r21-data",
+      "TEMP": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\temp\\r21-step4",
+      "TMP": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\temp\\r21-step4"
+    },
+    "record_file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\evidence\\r21-step4\\artifact-members.command.json",
+    "candidate_source_only_sha256": "5a5c9097abe4703d9bd709b55d824b7d41a954b89a1f053e6fd6385e7a18516c",
+    "source_binding_basis": "source-only subset equals every prebuild frozen byte; final source stability independently rechecked"
+  },
+  {
+    "name": "baostock-create",
+    "argv": [
+      "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+      "-m",
+      "venv",
+      "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\profiles\\r21-qualified\\baostock"
+    ],
+    "cwd": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation",
+    "exit": 0,
+    "candidate_wheel_sha256": "3fd4f0b7334e310851495b8b13d4c7c55d21cde719acf9e00ff880ccb822f42e",
+    "log": "baostock-create.log",
+    "exit_file": "baostock-create.exit",
+    "command_started_at": "2026-10-12T21:43:13.903779+08:00",
+    "command_finished_at": "2026-10-12T21:43:21.476693+08:00",
+    "environment_overrides": {
+      "PYTHONPATH": null,
+      "PYTHONUTF8": "1",
+      "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+      "SIOS_CHSTOCKDATA_LIVE_QUALIFICATION": null,
+      "CHSTOCKDATA_VIPDOC_HISTORY_DIR": null,
+      "CHSTOCKDATA_CACHE_DIR": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\cache\\r21-data",
+      "TEMP": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\temp\\r21-step4",
+      "TMP": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\temp\\r21-step4"
+    },
+    "record_file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\evidence\\r21-step4\\baostock-create.command.json",
+    "candidate_source_only_sha256": "5a5c9097abe4703d9bd709b55d824b7d41a954b89a1f053e6fd6385e7a18516c",
+    "source_binding_basis": "source-only subset equals every prebuild frozen byte; final source stability independently rechecked"
+  },
+  {
+    "name": "baostock-deps",
+    "argv": [
+      "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\profiles\\r21-qualified\\baostock\\Scripts\\python.exe",
+      "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\evidence\\r21-step4\\dependencies.py"
+    ],
+    "cwd": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation",
+    "exit": 0,
+    "candidate_wheel_sha256": "3fd4f0b7334e310851495b8b13d4c7c55d21cde719acf9e00ff880ccb822f42e",
+    "log": "baostock-deps.log",
+    "exit_file": "baostock-deps.exit",
+    "command_started_at": "2026-10-12T21:44:03.189487+08:00",
+    "command_finished_at": "2026-10-12T21:44:03.599453+08:00",
+    "environment_overrides": {
+      "PYTHONPATH": null,
+      "PYTHONUTF8": "1",
+      "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+      "SIOS_CHSTOCKDATA_LIVE_QUALIFICATION": null,
+      "CHSTOCKDATA_VIPDOC_HISTORY_DIR": null,
+      "CHSTOCKDATA_CACHE_DIR": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\cache\\r21-data",
+      "TEMP": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\temp\\r21-step4",
+      "TMP": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\temp\\r21-step4"
+    },
+    "record_file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\evidence\\r21-step4\\baostock-deps.command.json",
+    "candidate_source_only_sha256": "5a5c9097abe4703d9bd709b55d824b7d41a954b89a1f053e6fd6385e7a18516c",
+    "source_binding_basis": "source-only subset equals every prebuild frozen byte; final source stability independently rechecked"
+  },
+  {
+    "name": "baostock-exports",
+    "argv": [
+      "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\profiles\\r21-qualified\\baostock\\Scripts\\python.exe",
+      "-c",
+      "import chstockdata, importlib.metadata as m; assert all(n in chstockdata.__all__ and hasattr(chstockdata,n) for n in ('fetch_realtime_quotes','fetch_daily_bars','fetch_trading_calendar','fetch_suspension_info','fetch_delisting_status','fetch_tradability','fetch_historical_opening_evidence','FetchAttempt','FetchMetadata','FetchResult')); assert {'chstockdata-mcp','chstockdata-refresh-vipdoc'} <= {e.name for e in m.entry_points(group='console_scripts')}; import baostock"
+    ],
+    "cwd": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation",
+    "exit": 0,
+    "candidate_wheel_sha256": "3fd4f0b7334e310851495b8b13d4c7c55d21cde719acf9e00ff880ccb822f42e",
+    "log": "baostock-exports.log",
+    "exit_file": "baostock-exports.exit",
+    "command_started_at": "2026-10-12T21:44:07.828088+08:00",
+    "command_finished_at": "2026-10-12T21:44:09.224346+08:00",
+    "environment_overrides": {
+      "PYTHONPATH": null,
+      "PYTHONUTF8": "1",
+      "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+      "SIOS_CHSTOCKDATA_LIVE_QUALIFICATION": null,
+      "CHSTOCKDATA_VIPDOC_HISTORY_DIR": null,
+      "CHSTOCKDATA_CACHE_DIR": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\cache\\r21-data",
+      "TEMP": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\temp\\r21-step4",
+      "TMP": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\temp\\r21-step4"
+    },
+    "record_file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\evidence\\r21-step4\\baostock-exports.command.json",
+    "candidate_source_only_sha256": "5a5c9097abe4703d9bd709b55d824b7d41a954b89a1f053e6fd6385e7a18516c",
+    "source_binding_basis": "source-only subset equals every prebuild frozen byte; final source stability independently rechecked"
+  },
+  {
+    "name": "baostock-identity",
+    "argv": [
+      "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\profiles\\r21-qualified\\baostock\\Scripts\\python.exe",
+      "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\evidence\\r21-step4\\run_gate.py",
+      "identity",
+      "baostock"
+    ],
+    "cwd": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation",
+    "exit": 0,
+    "candidate_wheel_sha256": "3fd4f0b7334e310851495b8b13d4c7c55d21cde719acf9e00ff880ccb822f42e",
+    "log": "baostock-identity.log",
+    "exit_file": "baostock-identity.exit",
+    "command_started_at": "2026-10-12T21:44:06.411140+08:00",
+    "command_finished_at": "2026-10-12T21:44:07.828088+08:00",
+    "environment_overrides": {
+      "PYTHONPATH": null,
+      "PYTHONUTF8": "1",
+      "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+      "SIOS_CHSTOCKDATA_LIVE_QUALIFICATION": null,
+      "CHSTOCKDATA_VIPDOC_HISTORY_DIR": null,
+      "CHSTOCKDATA_CACHE_DIR": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\cache\\r21-data",
+      "TEMP": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\temp\\r21-step4",
+      "TMP": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\temp\\r21-step4"
+    },
+    "record_file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\evidence\\r21-step4\\baostock-identity.command.json",
+    "candidate_source_only_sha256": "5a5c9097abe4703d9bd709b55d824b7d41a954b89a1f053e6fd6385e7a18516c",
+    "source_binding_basis": "source-only subset equals every prebuild frozen byte; final source stability independently rechecked"
+  },
+  {
+    "name": "baostock-install",
+    "argv": [
+      "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\profiles\\r21-qualified\\baostock\\Scripts\\python.exe",
+      "-m",
+      "pip",
+      "install",
+      "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\dist\\r21-qualified\\chstockdata-0.4.2-py3-none-any.whl[baostock]",
+      "pytest==9.1.1"
+    ],
+    "cwd": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation",
+    "exit": 0,
+    "candidate_wheel_sha256": "3fd4f0b7334e310851495b8b13d4c7c55d21cde719acf9e00ff880ccb822f42e",
+    "log": "baostock-install.log",
+    "exit_file": "baostock-install.exit",
+    "command_started_at": "2026-10-12T21:43:21.476693+08:00",
+    "command_finished_at": "2026-10-12T21:44:01.836545+08:00",
+    "environment_overrides": {
+      "PYTHONPATH": null,
+      "PYTHONUTF8": "1",
+      "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+      "SIOS_CHSTOCKDATA_LIVE_QUALIFICATION": null,
+      "CHSTOCKDATA_VIPDOC_HISTORY_DIR": null,
+      "CHSTOCKDATA_CACHE_DIR": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\cache\\r21-data",
+      "TEMP": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\temp\\r21-step4",
+      "TMP": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\temp\\r21-step4"
+    },
+    "record_file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\evidence\\r21-step4\\baostock-install.command.json",
+    "candidate_source_only_sha256": "5a5c9097abe4703d9bd709b55d824b7d41a954b89a1f053e6fd6385e7a18516c",
+    "source_binding_basis": "source-only subset equals every prebuild frozen byte; final source stability independently rechecked"
+  },
+  {
+    "name": "baostock-pip-check",
+    "argv": [
+      "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\profiles\\r21-qualified\\baostock\\Scripts\\python.exe",
+      "-m",
+      "pip",
+      "check"
+    ],
+    "cwd": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation",
+    "exit": 0,
+    "candidate_wheel_sha256": "3fd4f0b7334e310851495b8b13d4c7c55d21cde719acf9e00ff880ccb822f42e",
+    "log": "baostock-pip-check.log",
+    "exit_file": "baostock-pip-check.exit",
+    "command_started_at": "2026-10-12T21:44:01.836545+08:00",
+    "command_finished_at": "2026-10-12T21:44:03.188470+08:00",
+    "environment_overrides": {
+      "PYTHONPATH": null,
+      "PYTHONUTF8": "1",
+      "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+      "SIOS_CHSTOCKDATA_LIVE_QUALIFICATION": null,
+      "CHSTOCKDATA_VIPDOC_HISTORY_DIR": null,
+      "CHSTOCKDATA_CACHE_DIR": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\cache\\r21-data",
+      "TEMP": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\temp\\r21-step4",
+      "TMP": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\temp\\r21-step4"
+    },
+    "record_file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\evidence\\r21-step4\\baostock-pip-check.command.json",
+    "candidate_source_only_sha256": "5a5c9097abe4703d9bd709b55d824b7d41a954b89a1f053e6fd6385e7a18516c",
+    "source_binding_basis": "source-only subset equals every prebuild frozen byte; final source stability independently rechecked"
+  },
+  {
+    "name": "baostock-version",
+    "argv": [
+      "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\profiles\\r21-qualified\\baostock\\Scripts\\python.exe",
+      "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\chstockdata\\scripts\\check_release_version.py",
+      "--tag",
+      "v0.4.2",
+      "--project-root",
+      "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\chstockdata"
+    ],
+    "cwd": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation",
+    "exit": 0,
+    "candidate_wheel_sha256": "3fd4f0b7334e310851495b8b13d4c7c55d21cde719acf9e00ff880ccb822f42e",
+    "log": "baostock-version.log",
+    "exit_file": "baostock-version.exit",
+    "command_started_at": "2026-10-12T21:44:03.599453+08:00",
+    "command_finished_at": "2026-10-12T21:44:06.410136+08:00",
+    "environment_overrides": {
+      "PYTHONPATH": null,
+      "PYTHONUTF8": "1",
+      "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+      "SIOS_CHSTOCKDATA_LIVE_QUALIFICATION": null,
+      "CHSTOCKDATA_VIPDOC_HISTORY_DIR": null,
+      "CHSTOCKDATA_CACHE_DIR": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\cache\\r21-data",
+      "TEMP": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\temp\\r21-step4",
+      "TMP": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\temp\\r21-step4"
+    },
+    "record_file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\evidence\\r21-step4\\baostock-version.command.json",
+    "candidate_source_only_sha256": "5a5c9097abe4703d9bd709b55d824b7d41a954b89a1f053e6fd6385e7a18516c",
+    "source_binding_basis": "source-only subset equals every prebuild frozen byte; final source stability independently rechecked"
+  },
+  {
+    "name": "build-deps",
+    "argv": [
+      "D:\\Dev\\Projects\\chstockdata\\build\\v042-qualification\\gate\\Scripts\\python.exe",
+      "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\evidence\\r21-step4\\dependencies.py"
+    ],
+    "cwd": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation",
+    "exit": 0,
+    "candidate_wheel_sha256": "d955ea4ef7c2bffaf5d30751fde88580911303b863a3120ac3d87337270267f8",
+    "log": "build-deps.log",
+    "exit_file": "build-deps.exit",
+    "command_started_at": "2026-10-12T21:30:33.765657+08:00",
+    "command_finished_at": "2026-10-12T21:30:34.293195+08:00",
+    "environment_overrides": {
+      "PYTHONPATH": null,
+      "PYTHONUTF8": "1",
+      "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+      "SIOS_CHSTOCKDATA_LIVE_QUALIFICATION": null,
+      "CHSTOCKDATA_VIPDOC_HISTORY_DIR": null,
+      "CHSTOCKDATA_CACHE_DIR": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\cache\\r21-data",
+      "TEMP": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\temp\\r21-step4",
+      "TMP": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\temp\\r21-step4"
+    },
+    "record_file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\evidence\\r21-step4\\build-deps.command.json",
+    "candidate_source_only_sha256": "5a5c9097abe4703d9bd709b55d824b7d41a954b89a1f053e6fd6385e7a18516c",
+    "source_binding_basis": "source-only subset equals every prebuild frozen byte; final source stability independently rechecked"
+  },
+  {
+    "name": "build",
+    "argv": [
+      "D:\\Dev\\Projects\\chstockdata\\build\\v042-qualification\\gate\\Scripts\\python.exe",
+      "-m",
+      "build",
+      "--outdir",
+      "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\dist\\r21-qualified"
+    ],
+    "cwd": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\chstockdata",
+    "exit": 0,
+    "candidate_wheel_sha256": "3fd4f0b7334e310851495b8b13d4c7c55d21cde719acf9e00ff880ccb822f42e",
+    "log": "build.log",
+    "exit_file": "build.exit",
+    "command_started_at": "2026-10-12T21:38:08.998086+08:00",
+    "command_finished_at": "2026-10-12T21:38:25.835826+08:00",
+    "environment_overrides": {
+      "PYTHONPATH": null,
+      "PYTHONUTF8": "1",
+      "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+      "SIOS_CHSTOCKDATA_LIVE_QUALIFICATION": null,
+      "CHSTOCKDATA_VIPDOC_HISTORY_DIR": null,
+      "CHSTOCKDATA_CACHE_DIR": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\cache\\r21-data",
+      "TEMP": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\temp\\r21-step4",
+      "TMP": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\temp\\r21-step4"
+    },
+    "record_file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\evidence\\r21-step4\\build.command.json",
+    "candidate_source_only_sha256": "5a5c9097abe4703d9bd709b55d824b7d41a954b89a1f053e6fd6385e7a18516c",
+    "source_binding_basis": "source-only subset equals every prebuild frozen byte; final source stability independently rechecked"
+  },
+  {
+    "name": "compile",
+    "argv": [
+      "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\profiles\\r21-qualified\\sios-candidate\\Scripts\\python.exe",
+      "-m",
+      "compileall",
+      "-q",
+      "src",
+      "tests"
+    ],
+    "cwd": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\chstockdata",
+    "exit": 0,
+    "candidate_wheel_sha256": "3fd4f0b7334e310851495b8b13d4c7c55d21cde719acf9e00ff880ccb822f42e",
+    "log": "compile.log",
+    "exit_file": "compile.exit",
+    "command_started_at": "2026-10-12T21:42:19.490679+08:00",
+    "command_finished_at": "2026-10-12T21:42:20.391305+08:00",
+    "environment_overrides": {
+      "PYTHONPATH": null,
+      "PYTHONUTF8": "1",
+      "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+      "SIOS_CHSTOCKDATA_LIVE_QUALIFICATION": null,
+      "CHSTOCKDATA_VIPDOC_HISTORY_DIR": null,
+      "CHSTOCKDATA_CACHE_DIR": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\cache\\r21-data",
+      "TEMP": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\temp\\r21-step4",
+      "TMP": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\temp\\r21-step4"
+    },
+    "record_file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\evidence\\r21-step4\\compile.command.json",
+    "candidate_source_only_sha256": "5a5c9097abe4703d9bd709b55d824b7d41a954b89a1f053e6fd6385e7a18516c",
+    "source_binding_basis": "source-only subset equals every prebuild frozen byte; final source stability independently rechecked"
+  },
+  {
+    "name": "core-chstockdata-mcp",
+    "argv": [
+      "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\profiles\\r21-qualified\\core\\Scripts\\chstockdata-mcp.exe",
+      "--help"
+    ],
+    "cwd": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation",
+    "exit": 0,
+    "candidate_wheel_sha256": "3fd4f0b7334e310851495b8b13d4c7c55d21cde719acf9e00ff880ccb822f42e",
+    "log": "core-chstockdata-mcp.log",
+    "exit_file": "core-chstockdata-mcp.exit",
+    "command_started_at": "2026-10-12T21:40:42.919330+08:00",
+    "command_finished_at": "2026-10-12T21:40:44.503362+08:00",
+    "environment_overrides": {
+      "PYTHONPATH": null,
+      "PYTHONUTF8": "1",
+      "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+      "SIOS_CHSTOCKDATA_LIVE_QUALIFICATION": null,
+      "CHSTOCKDATA_VIPDOC_HISTORY_DIR": null,
+      "CHSTOCKDATA_CACHE_DIR": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\cache\\r21-data",
+      "TEMP": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\temp\\r21-step4",
+      "TMP": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\temp\\r21-step4"
+    },
+    "record_file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\evidence\\r21-step4\\core-chstockdata-mcp.command.json",
+    "candidate_source_only_sha256": "5a5c9097abe4703d9bd709b55d824b7d41a954b89a1f053e6fd6385e7a18516c",
+    "source_binding_basis": "source-only subset equals every prebuild frozen byte; final source stability independently rechecked"
+  },
+  {
+    "name": "core-chstockdata-refresh-vipdoc",
+    "argv": [
+      "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\profiles\\r21-qualified\\core\\Scripts\\chstockdata-refresh-vipdoc.exe",
+      "--help"
+    ],
+    "cwd": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation",
+    "exit": 0,
+    "candidate_wheel_sha256": "3fd4f0b7334e310851495b8b13d4c7c55d21cde719acf9e00ff880ccb822f42e",
+    "log": "core-chstockdata-refresh-vipdoc.log",
+    "exit_file": "core-chstockdata-refresh-vipdoc.exit",
+    "command_started_at": "2026-10-12T21:40:44.503362+08:00",
+    "command_finished_at": "2026-10-12T21:40:46.081929+08:00",
+    "environment_overrides": {
+      "PYTHONPATH": null,
+      "PYTHONUTF8": "1",
+      "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+      "SIOS_CHSTOCKDATA_LIVE_QUALIFICATION": null,
+      "CHSTOCKDATA_VIPDOC_HISTORY_DIR": null,
+      "CHSTOCKDATA_CACHE_DIR": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\cache\\r21-data",
+      "TEMP": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\temp\\r21-step4",
+      "TMP": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\temp\\r21-step4"
+    },
+    "record_file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\evidence\\r21-step4\\core-chstockdata-refresh-vipdoc.command.json",
+    "candidate_source_only_sha256": "5a5c9097abe4703d9bd709b55d824b7d41a954b89a1f053e6fd6385e7a18516c",
+    "source_binding_basis": "source-only subset equals every prebuild frozen byte; final source stability independently rechecked"
+  },
+  {
+    "name": "core-create",
+    "argv": [
+      "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+      "-m",
+      "venv",
+      "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\profiles\\r21-qualified\\core"
+    ],
+    "cwd": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation",
+    "exit": 0,
+    "candidate_wheel_sha256": "3fd4f0b7334e310851495b8b13d4c7c55d21cde719acf9e00ff880ccb822f42e",
+    "log": "core-create.log",
+    "exit_file": "core-create.exit",
+    "command_started_at": "2026-10-12T21:39:42.510905+08:00",
+    "command_finished_at": "2026-10-12T21:39:51.797487+08:00",
+    "environment_overrides": {
+      "PYTHONPATH": null,
+      "PYTHONUTF8": "1",
+      "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+      "SIOS_CHSTOCKDATA_LIVE_QUALIFICATION": null,
+      "CHSTOCKDATA_VIPDOC_HISTORY_DIR": null,
+      "CHSTOCKDATA_CACHE_DIR": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\cache\\r21-data",
+      "TEMP": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\temp\\r21-step4",
+      "TMP": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\temp\\r21-step4"
+    },
+    "record_file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\evidence\\r21-step4\\core-create.command.json",
+    "candidate_source_only_sha256": "5a5c9097abe4703d9bd709b55d824b7d41a954b89a1f053e6fd6385e7a18516c",
+    "source_binding_basis": "source-only subset equals every prebuild frozen byte; final source stability independently rechecked"
+  },
+  {
+    "name": "core-deps",
+    "argv": [
+      "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\profiles\\r21-qualified\\core\\Scripts\\python.exe",
+      "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\evidence\\r21-step4\\dependencies.py"
+    ],
+    "cwd": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation",
+    "exit": 0,
+    "candidate_wheel_sha256": "3fd4f0b7334e310851495b8b13d4c7c55d21cde719acf9e00ff880ccb822f42e",
+    "log": "core-deps.log",
+    "exit_file": "core-deps.exit",
+    "command_started_at": "2026-10-12T21:40:36.595499+08:00",
+    "command_finished_at": "2026-10-12T21:40:37.039586+08:00",
+    "environment_overrides": {
+      "PYTHONPATH": null,
+      "PYTHONUTF8": "1",
+      "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+      "SIOS_CHSTOCKDATA_LIVE_QUALIFICATION": null,
+      "CHSTOCKDATA_VIPDOC_HISTORY_DIR": null,
+      "CHSTOCKDATA_CACHE_DIR": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\cache\\r21-data",
+      "TEMP": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\temp\\r21-step4",
+      "TMP": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\temp\\r21-step4"
+    },
+    "record_file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\evidence\\r21-step4\\core-deps.command.json",
+    "candidate_source_only_sha256": "5a5c9097abe4703d9bd709b55d824b7d41a954b89a1f053e6fd6385e7a18516c",
+    "source_binding_basis": "source-only subset equals every prebuild frozen byte; final source stability independently rechecked"
+  },
+  {
+    "name": "core-exports",
+    "argv": [
+      "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\profiles\\r21-qualified\\core\\Scripts\\python.exe",
+      "-c",
+      "import chstockdata, importlib.metadata as m; assert all(n in chstockdata.__all__ and hasattr(chstockdata,n) for n in ('fetch_realtime_quotes','fetch_daily_bars','fetch_trading_calendar','fetch_suspension_info','fetch_delisting_status','fetch_tradability','fetch_historical_opening_evidence','FetchAttempt','FetchMetadata','FetchResult')); assert {'chstockdata-mcp','chstockdata-refresh-vipdoc'} <= {e.name for e in m.entry_points(group='console_scripts')}"
+    ],
+    "cwd": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation",
+    "exit": 0,
+    "candidate_wheel_sha256": "3fd4f0b7334e310851495b8b13d4c7c55d21cde719acf9e00ff880ccb822f42e",
+    "log": "core-exports.log",
+    "exit_file": "core-exports.exit",
+    "command_started_at": "2026-10-12T21:40:41.478065+08:00",
+    "command_finished_at": "2026-10-12T21:40:42.918320+08:00",
+    "environment_overrides": {
+      "PYTHONPATH": null,
+      "PYTHONUTF8": "1",
+      "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+      "SIOS_CHSTOCKDATA_LIVE_QUALIFICATION": null,
+      "CHSTOCKDATA_VIPDOC_HISTORY_DIR": null,
+      "CHSTOCKDATA_CACHE_DIR": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\cache\\r21-data",
+      "TEMP": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\temp\\r21-step4",
+      "TMP": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\temp\\r21-step4"
+    },
+    "record_file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\evidence\\r21-step4\\core-exports.command.json",
+    "candidate_source_only_sha256": "5a5c9097abe4703d9bd709b55d824b7d41a954b89a1f053e6fd6385e7a18516c",
+    "source_binding_basis": "source-only subset equals every prebuild frozen byte; final source stability independently rechecked"
+  },
+  {
+    "name": "core-identity",
+    "argv": [
+      "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\profiles\\r21-qualified\\core\\Scripts\\python.exe",
+      "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\evidence\\r21-step4\\run_gate.py",
+      "identity",
+      "core"
+    ],
+    "cwd": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation",
+    "exit": 0,
+    "candidate_wheel_sha256": "3fd4f0b7334e310851495b8b13d4c7c55d21cde719acf9e00ff880ccb822f42e",
+    "log": "core-identity.log",
+    "exit_file": "core-identity.exit",
+    "command_started_at": "2026-10-12T21:40:39.988485+08:00",
+    "command_finished_at": "2026-10-12T21:40:41.477055+08:00",
+    "environment_overrides": {
+      "PYTHONPATH": null,
+      "PYTHONUTF8": "1",
+      "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+      "SIOS_CHSTOCKDATA_LIVE_QUALIFICATION": null,
+      "CHSTOCKDATA_VIPDOC_HISTORY_DIR": null,
+      "CHSTOCKDATA_CACHE_DIR": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\cache\\r21-data",
+      "TEMP": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\temp\\r21-step4",
+      "TMP": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\temp\\r21-step4"
+    },
+    "record_file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\evidence\\r21-step4\\core-identity.command.json",
+    "candidate_source_only_sha256": "5a5c9097abe4703d9bd709b55d824b7d41a954b89a1f053e6fd6385e7a18516c",
+    "source_binding_basis": "source-only subset equals every prebuild frozen byte; final source stability independently rechecked"
+  },
+  {
+    "name": "core-install",
+    "argv": [
+      "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\profiles\\r21-qualified\\core\\Scripts\\python.exe",
+      "-m",
+      "pip",
+      "install",
+      "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\dist\\r21-qualified\\chstockdata-0.4.2-py3-none-any.whl",
+      "pytest==9.1.1"
+    ],
+    "cwd": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation",
+    "exit": 0,
+    "candidate_wheel_sha256": "3fd4f0b7334e310851495b8b13d4c7c55d21cde719acf9e00ff880ccb822f42e",
+    "log": "core-install.log",
+    "exit_file": "core-install.exit",
+    "command_started_at": "2026-10-12T21:39:51.798489+08:00",
+    "command_finished_at": "2026-10-12T21:40:35.177788+08:00",
+    "environment_overrides": {
+      "PYTHONPATH": null,
+      "PYTHONUTF8": "1",
+      "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+      "SIOS_CHSTOCKDATA_LIVE_QUALIFICATION": null,
+      "CHSTOCKDATA_VIPDOC_HISTORY_DIR": null,
+      "CHSTOCKDATA_CACHE_DIR": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\cache\\r21-data",
+      "TEMP": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\temp\\r21-step4",
+      "TMP": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\temp\\r21-step4"
+    },
+    "record_file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\evidence\\r21-step4\\core-install.command.json",
+    "candidate_source_only_sha256": "5a5c9097abe4703d9bd709b55d824b7d41a954b89a1f053e6fd6385e7a18516c",
+    "source_binding_basis": "source-only subset equals every prebuild frozen byte; final source stability independently rechecked"
+  },
+  {
+    "name": "core-pip-check",
+    "argv": [
+      "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\profiles\\r21-qualified\\core\\Scripts\\python.exe",
+      "-m",
+      "pip",
+      "check"
+    ],
+    "cwd": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation",
+    "exit": 0,
+    "candidate_wheel_sha256": "3fd4f0b7334e310851495b8b13d4c7c55d21cde719acf9e00ff880ccb822f42e",
+    "log": "core-pip-check.log",
+    "exit_file": "core-pip-check.exit",
+    "command_started_at": "2026-10-12T21:40:35.178986+08:00",
+    "command_finished_at": "2026-10-12T21:40:36.594499+08:00",
+    "environment_overrides": {
+      "PYTHONPATH": null,
+      "PYTHONUTF8": "1",
+      "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+      "SIOS_CHSTOCKDATA_LIVE_QUALIFICATION": null,
+      "CHSTOCKDATA_VIPDOC_HISTORY_DIR": null,
+      "CHSTOCKDATA_CACHE_DIR": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\cache\\r21-data",
+      "TEMP": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\temp\\r21-step4",
+      "TMP": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\temp\\r21-step4"
+    },
+    "record_file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\evidence\\r21-step4\\core-pip-check.command.json",
+    "candidate_source_only_sha256": "5a5c9097abe4703d9bd709b55d824b7d41a954b89a1f053e6fd6385e7a18516c",
+    "source_binding_basis": "source-only subset equals every prebuild frozen byte; final source stability independently rechecked"
+  },
+  {
+    "name": "core-version",
+    "argv": [
+      "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\profiles\\r21-qualified\\core\\Scripts\\python.exe",
+      "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\chstockdata\\scripts\\check_release_version.py",
+      "--tag",
+      "v0.4.2",
+      "--project-root",
+      "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\chstockdata"
+    ],
+    "cwd": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation",
+    "exit": 0,
+    "candidate_wheel_sha256": "3fd4f0b7334e310851495b8b13d4c7c55d21cde719acf9e00ff880ccb822f42e",
+    "log": "core-version.log",
+    "exit_file": "core-version.exit",
+    "command_started_at": "2026-10-12T21:40:37.039586+08:00",
+    "command_finished_at": "2026-10-12T21:40:39.987472+08:00",
+    "environment_overrides": {
+      "PYTHONPATH": null,
+      "PYTHONUTF8": "1",
+      "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+      "SIOS_CHSTOCKDATA_LIVE_QUALIFICATION": null,
+      "CHSTOCKDATA_VIPDOC_HISTORY_DIR": null,
+      "CHSTOCKDATA_CACHE_DIR": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\cache\\r21-data",
+      "TEMP": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\temp\\r21-step4",
+      "TMP": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\temp\\r21-step4"
+    },
+    "record_file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\evidence\\r21-step4\\core-version.command.json",
+    "candidate_source_only_sha256": "5a5c9097abe4703d9bd709b55d824b7d41a954b89a1f053e6fd6385e7a18516c",
+    "source_binding_basis": "source-only subset equals every prebuild frozen byte; final source stability independently rechecked"
+  },
+  {
+    "name": "environment",
+    "argv": [
+      "D:\\Dev\\Projects\\chstockdata\\build\\v042-qualification\\gate\\Scripts\\python.exe",
+      "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\evidence\\r21-step4\\dependencies.py"
+    ],
+    "cwd": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\chstockdata",
+    "exit": 0,
+    "candidate_wheel_sha256": null,
+    "log": "environment.log",
+    "exit_file": "environment.exit",
+    "command_started_at": "2026-10-12T21:38:08.558501+08:00",
+    "command_finished_at": "2026-10-12T21:38:08.998086+08:00",
+    "environment_overrides": {
+      "PYTHONPATH": null,
+      "PYTHONUTF8": "1",
+      "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+      "SIOS_CHSTOCKDATA_LIVE_QUALIFICATION": null,
+      "CHSTOCKDATA_VIPDOC_HISTORY_DIR": null,
+      "CHSTOCKDATA_CACHE_DIR": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\cache\\r21-data",
+      "TEMP": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\temp\\r21-step4",
+      "TMP": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\temp\\r21-step4"
+    },
+    "record_file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\evidence\\r21-step4\\environment.command.json",
+    "candidate_source_only_sha256": "5a5c9097abe4703d9bd709b55d824b7d41a954b89a1f053e6fd6385e7a18516c",
+    "source_binding_basis": "source-only subset equals every prebuild frozen byte; final source stability independently rechecked"
+  },
+  {
+    "name": "etf-exact-probe",
+    "argv": [
+      "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\profiles\\r21-qualified\\sios-candidate\\Scripts\\python.exe",
+      "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\evidence\\r21-step4\\run_gate.py",
+      "probe"
+    ],
+    "cwd": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation",
+    "exit": 0,
+    "candidate_wheel_sha256": "3fd4f0b7334e310851495b8b13d4c7c55d21cde719acf9e00ff880ccb822f42e",
+    "log": "etf-exact-probe.log",
+    "exit_file": "etf-exact-probe.exit",
+    "command_started_at": "2026-10-12T21:40:45.134925+08:00",
+    "command_finished_at": "2026-10-12T21:40:48.363941+08:00",
+    "environment_overrides": {
+      "PYTHONPATH": null,
+      "PYTHONUTF8": "1",
+      "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+      "SIOS_CHSTOCKDATA_LIVE_QUALIFICATION": null,
+      "CHSTOCKDATA_VIPDOC_HISTORY_DIR": null,
+      "CHSTOCKDATA_CACHE_DIR": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\cache\\r21-data",
+      "TEMP": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\temp\\r21-step4",
+      "TMP": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\temp\\r21-step4"
+    },
+    "record_file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\evidence\\r21-step4\\etf-exact-probe.command.json",
+    "candidate_source_only_sha256": "5a5c9097abe4703d9bd709b55d824b7d41a954b89a1f053e6fd6385e7a18516c",
+    "source_binding_basis": "source-only subset equals every prebuild frozen byte; final source stability independently rechecked"
+  },
+  {
+    "name": "final-evidence-check",
+    "argv": [
+      "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+      "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\evidence\\r21-step4\\finalize.py"
+    ],
+    "cwd": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation",
+    "exit": 0,
+    "candidate_wheel_sha256": "3fd4f0b7334e310851495b8b13d4c7c55d21cde719acf9e00ff880ccb822f42e",
+    "log": "final-evidence-check.log",
+    "exit_file": "final-evidence-check.exit",
+    "command_started_at": "2026-10-12T21:51:45.038292+08:00",
+    "command_finished_at": "2026-10-12T21:51:53.860946+08:00",
+    "environment_overrides": {
+      "PYTHONPATH": null,
+      "PYTHONUTF8": "1",
+      "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+      "SIOS_CHSTOCKDATA_LIVE_QUALIFICATION": null,
+      "CHSTOCKDATA_VIPDOC_HISTORY_DIR": null,
+      "CHSTOCKDATA_CACHE_DIR": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\cache\\r21-data",
+      "TEMP": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\temp\\r21-step4",
+      "TMP": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\temp\\r21-step4"
+    },
+    "record_file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\evidence\\r21-step4\\final-evidence-check.command.json",
+    "candidate_source_only_sha256": "5a5c9097abe4703d9bd709b55d824b7d41a954b89a1f053e6fd6385e7a18516c",
+    "source_binding_basis": "all source-only files equal prebuild immutable envelope, verified by final-evidence-check"
+  },
+  {
+    "name": "freeze-source-only",
+    "argv": [
+      "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+      "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\evidence\\r21-step4\\freeze_source_only.py"
+    ],
+    "cwd": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation",
+    "exit": 0,
+    "candidate_wheel_sha256": "3fd4f0b7334e310851495b8b13d4c7c55d21cde719acf9e00ff880ccb822f42e",
+    "log": "freeze-source-only.log",
+    "exit_file": "freeze-source-only.exit",
+    "command_started_at": "2026-10-12T21:46:17.848828+08:00",
+    "command_finished_at": "2026-10-12T21:46:18.414320+08:00",
+    "environment_overrides": {
+      "PYTHONPATH": null,
+      "PYTHONUTF8": "1",
+      "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+      "SIOS_CHSTOCKDATA_LIVE_QUALIFICATION": null,
+      "CHSTOCKDATA_VIPDOC_HISTORY_DIR": null,
+      "CHSTOCKDATA_CACHE_DIR": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\cache\\r21-data",
+      "TEMP": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\temp\\r21-step4",
+      "TMP": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\temp\\r21-step4"
+    },
+    "record_file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\evidence\\r21-step4\\freeze-source-only.command.json",
+    "candidate_source_only_sha256": "5a5c9097abe4703d9bd709b55d824b7d41a954b89a1f053e6fd6385e7a18516c",
+    "source_binding_basis": "source-only subset equals every prebuild frozen byte; final source stability independently rechecked"
+  },
+  {
+    "executor": "root",
+    "argv": [
+      "C:/Users/Administrator/.codex/visualizations/2026/10/09/01a11feb-cbea-7790-a83e-57b1dd555e13/v042-unified/sios-candidate/Scripts/python.exe",
+      "-B",
+      "-c",
+      "import sys; sys.path.append('C:/Users/Administrator/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/Lib/site-packages'); import pytest; raise SystemExit(pytest.main(['tests/test_historical_opening_evidence.py', 'tests/test_suspension_structured.py', 'tests/test_suspension_source_semantics.py', 'tests/test_vipdoc_price_scale.py', '-q', '-p', 'no:cacheprovider', '--basetemp', 'C:\\\\Users\\\\Administrator\\\\.codex\\\\visualizations\\\\2026\\\\10\\\\10\\\\01a125dd-33f2-78d3-abe7-45e0928975d0\\\\v042-opening-implementation\\\\evidence\\\\r21-step4\\\\independent-lint-local-temp', '--junitxml', 'C:\\\\Users\\\\Administrator\\\\.codex\\\\visualizations\\\\2026\\\\10\\\\10\\\\01a125dd-33f2-78d3-abe7-45e0928975d0\\\\v042-opening-implementation\\\\evidence\\\\r21-step4\\\\independent-lint-local.xml']))"
+    ],
+    "cwd": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\chstockdata",
+    "environment_overrides": {
+      "PYTHONPATH": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\chstockdata\\src",
+      "PYTHONUTF8": "1",
+      "PYTHONDONTWRITEBYTECODE": "1",
+      "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1"
+    },
+    "source_before": {
+      "src/chstockdata/opening_evidence.py": "28c0a538832425f81227becf9bc965cc44faec0292ceac6a457727f4ac27e278",
+      "src/chstockdata/opening_known_events.json": "a464e9fd2695f6cdb3a76c4ca87ce070702bec71fec504f496dfc2228044b95b",
+      "src/chstockdata/__init__.py": "1df1d07ce517fa0d466e525d648d92c4397c0f6def9f0e7f8e1ae130ed82540c",
+      "tests/test_historical_opening_evidence.py": "09f230f20f5fd3bd323cf9434f7ff54577fa1b6e48b6d245141790cb7ef0f205"
+    },
+    "source_after": {
+      "src/chstockdata/opening_evidence.py": "28c0a538832425f81227becf9bc965cc44faec0292ceac6a457727f4ac27e278",
+      "src/chstockdata/opening_known_events.json": "a464e9fd2695f6cdb3a76c4ca87ce070702bec71fec504f496dfc2228044b95b",
+      "src/chstockdata/__init__.py": "1df1d07ce517fa0d466e525d648d92c4397c0f6def9f0e7f8e1ae130ed82540c",
+      "tests/test_historical_opening_evidence.py": "09f230f20f5fd3bd323cf9434f7ff54577fa1b6e48b6d245141790cb7ef0f205"
+    },
+    "exit_code": 0,
+    "claim": "affected source local verification; same-wheel unified Gate recorded separately",
+    "record_file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\evidence\\r21-step4\\independent-lint-local.command.json",
+    "candidate_source_only_sha256": "5a5c9097abe4703d9bd709b55d824b7d41a954b89a1f053e6fd6385e7a18516c",
+    "source_binding_basis": "source-only subset equals every prebuild frozen byte; final source stability independently rechecked",
+    "name": "independent-lint-local-source",
+    "exit": 0
+  },
+  {
+    "name": "installed-wheel-74raw-replay",
+    "argv": [
+      "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\profiles\\r21-qualified\\sios-candidate\\Scripts\\python.exe",
+      "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\evidence\\r21-step4\\run_replay.py",
+      "installed-wheel-replay"
+    ],
+    "cwd": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation",
+    "exit": 0,
+    "candidate_wheel_sha256": "3fd4f0b7334e310851495b8b13d4c7c55d21cde719acf9e00ff880ccb822f42e",
+    "log": "installed-wheel-74raw-replay.log",
+    "exit_file": "installed-wheel-74raw-replay.exit",
+    "command_started_at": "2026-10-12T21:42:22.811506+08:00",
+    "command_finished_at": "2026-10-12T21:42:25.615247+08:00",
+    "environment_overrides": {
+      "PYTHONPATH": null,
+      "PYTHONUTF8": "1",
+      "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+      "SIOS_CHSTOCKDATA_LIVE_QUALIFICATION": null,
+      "CHSTOCKDATA_VIPDOC_HISTORY_DIR": null,
+      "CHSTOCKDATA_CACHE_DIR": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\cache\\r21-data",
+      "TEMP": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\temp\\r21-step4",
+      "TMP": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\temp\\r21-step4"
+    },
+    "record_file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\evidence\\r21-step4\\installed-wheel-74raw-replay.command.json",
+    "candidate_source_only_sha256": "5a5c9097abe4703d9bd709b55d824b7d41a954b89a1f053e6fd6385e7a18516c",
+    "source_binding_basis": "source-only subset equals every prebuild frozen byte; final source stability independently rechecked"
+  },
+  {
+    "name": "lint-local-recheck",
+    "argv": [
+      "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\profiles\\r21-final\\sios-candidate\\Scripts\\python.exe",
+      "-m",
+      "pytest",
+      "tests/test_historical_opening_evidence.py",
+      "tests/test_suspension_source_semantics.py",
+      "tests/test_suspension_structured.py",
+      "tests/test_vipdoc_price_scale.py",
+      "-q",
+      "-p",
+      "no:cacheprovider",
+      "--basetemp=C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\evidence\\r21-step4\\lint-local-tmp",
+      "--junitxml=C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\evidence\\r21-step4\\lint-local.xml"
+    ],
+    "cwd": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\chstockdata",
+    "exit": 0,
+    "candidate_wheel_sha256": "d955ea4ef7c2bffaf5d30751fde88580911303b863a3120ac3d87337270267f8",
+    "log": "lint-local-recheck.log",
+    "exit_file": "lint-local-recheck.exit",
+    "command_started_at": "2026-10-12T21:37:39.486028+08:00",
+    "command_finished_at": "2026-10-12T21:37:43.902891+08:00",
+    "environment_overrides": {
+      "PYTHONPATH": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\chstockdata\\src",
+      "PYTHONUTF8": "1",
+      "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+      "SIOS_CHSTOCKDATA_LIVE_QUALIFICATION": null,
+      "CHSTOCKDATA_VIPDOC_HISTORY_DIR": null,
+      "CHSTOCKDATA_CACHE_DIR": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\cache\\r21-data",
+      "TEMP": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\temp\\r21-step4",
+      "TMP": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\temp\\r21-step4"
+    },
+    "record_file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\evidence\\r21-step4\\lint-local-recheck.command.json",
+    "candidate_source_only_sha256": "5a5c9097abe4703d9bd709b55d824b7d41a954b89a1f053e6fd6385e7a18516c",
+    "source_binding_basis": "source-only subset equals every prebuild frozen byte; final source stability independently rechecked"
+  },
+  {
+    "name": "lint-safe-import-final",
+    "argv": [
+      "D:\\Dev\\Projects\\chstockdata\\build\\v042-qualification\\gate\\Scripts\\python.exe",
+      "-m",
+      "ruff",
+      "check",
+      "--select",
+      "I001",
+      "--fix",
+      "--no-cache",
+      "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\chstockdata\\src\\chstockdata\\opening_evidence.py"
+    ],
+    "cwd": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\chstockdata",
+    "exit": 0,
+    "candidate_wheel_sha256": "d955ea4ef7c2bffaf5d30751fde88580911303b863a3120ac3d87337270267f8",
+    "log": "lint-safe-import-final.log",
+    "exit_file": "lint-safe-import-final.exit",
+    "command_started_at": "2026-10-12T21:37:37.801593+08:00",
+    "command_finished_at": "2026-10-12T21:37:38.009073+08:00",
+    "environment_overrides": {
+      "PYTHONPATH": null,
+      "PYTHONUTF8": "1",
+      "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+      "SIOS_CHSTOCKDATA_LIVE_QUALIFICATION": null,
+      "CHSTOCKDATA_VIPDOC_HISTORY_DIR": null,
+      "CHSTOCKDATA_CACHE_DIR": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\cache\\r21-data",
+      "TEMP": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\temp\\r21-step4",
+      "TMP": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\temp\\r21-step4"
+    },
+    "record_file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\evidence\\r21-step4\\lint-safe-import-final.command.json",
+    "candidate_source_only_sha256": "5a5c9097abe4703d9bd709b55d824b7d41a954b89a1f053e6fd6385e7a18516c",
+    "source_binding_basis": "source-only subset equals every prebuild frozen byte; final source stability independently rechecked"
+  },
+  {
+    "name": "lint-static-recheck",
+    "argv": [
+      "D:\\Dev\\Projects\\chstockdata\\build\\v042-qualification\\gate\\Scripts\\python.exe",
+      "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\evidence\\r21-step4\\run_static.py"
+    ],
+    "cwd": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\chstockdata",
+    "exit": 0,
+    "candidate_wheel_sha256": "d955ea4ef7c2bffaf5d30751fde88580911303b863a3120ac3d87337270267f8",
+    "log": "lint-static-recheck.log",
+    "exit_file": "lint-static-recheck.exit",
+    "command_started_at": "2026-10-12T21:37:38.010088+08:00",
+    "command_finished_at": "2026-10-12T21:37:39.485029+08:00",
+    "environment_overrides": {
+      "PYTHONPATH": null,
+      "PYTHONUTF8": "1",
+      "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+      "SIOS_CHSTOCKDATA_LIVE_QUALIFICATION": null,
+      "CHSTOCKDATA_VIPDOC_HISTORY_DIR": null,
+      "CHSTOCKDATA_CACHE_DIR": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\cache\\r21-data",
+      "TEMP": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\temp\\r21-step4",
+      "TMP": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\temp\\r21-step4"
+    },
+    "record_file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\evidence\\r21-step4\\lint-static-recheck.command.json",
+    "candidate_source_only_sha256": "5a5c9097abe4703d9bd709b55d824b7d41a954b89a1f053e6fd6385e7a18516c",
+    "source_binding_basis": "source-only subset equals every prebuild frozen byte; final source stability independently rechecked"
+  },
+  {
+    "name": "mcp-create",
+    "argv": [
+      "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+      "-m",
+      "venv",
+      "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\profiles\\r21-qualified\\mcp"
+    ],
+    "cwd": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation",
+    "exit": 0,
+    "candidate_wheel_sha256": "3fd4f0b7334e310851495b8b13d4c7c55d21cde719acf9e00ff880ccb822f42e",
+    "log": "mcp-create.log",
+    "exit_file": "mcp-create.exit",
+    "command_started_at": "2026-10-12T21:41:52.323917+08:00",
+    "command_finished_at": "2026-10-12T21:42:00.206878+08:00",
+    "environment_overrides": {
+      "PYTHONPATH": null,
+      "PYTHONUTF8": "1",
+      "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+      "SIOS_CHSTOCKDATA_LIVE_QUALIFICATION": null,
+      "CHSTOCKDATA_VIPDOC_HISTORY_DIR": null,
+      "CHSTOCKDATA_CACHE_DIR": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\cache\\r21-data",
+      "TEMP": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\temp\\r21-step4",
+      "TMP": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\temp\\r21-step4"
+    },
+    "record_file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\evidence\\r21-step4\\mcp-create.command.json",
+    "candidate_source_only_sha256": "5a5c9097abe4703d9bd709b55d824b7d41a954b89a1f053e6fd6385e7a18516c",
+    "source_binding_basis": "source-only subset equals every prebuild frozen byte; final source stability independently rechecked"
+  },
+  {
+    "name": "mcp-deps",
+    "argv": [
+      "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\profiles\\r21-qualified\\mcp\\Scripts\\python.exe",
+      "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\evidence\\r21-step4\\dependencies.py"
+    ],
+    "cwd": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation",
+    "exit": 0,
+    "candidate_wheel_sha256": "3fd4f0b7334e310851495b8b13d4c7c55d21cde719acf9e00ff880ccb822f42e",
+    "log": "mcp-deps.log",
+    "exit_file": "mcp-deps.exit",
+    "command_started_at": "2026-10-12T21:43:06.510906+08:00",
+    "command_finished_at": "2026-10-12T21:43:06.949546+08:00",
+    "environment_overrides": {
+      "PYTHONPATH": null,
+      "PYTHONUTF8": "1",
+      "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+      "SIOS_CHSTOCKDATA_LIVE_QUALIFICATION": null,
+      "CHSTOCKDATA_VIPDOC_HISTORY_DIR": null,
+      "CHSTOCKDATA_CACHE_DIR": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\cache\\r21-data",
+      "TEMP": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\temp\\r21-step4",
+      "TMP": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\temp\\r21-step4"
+    },
+    "record_file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\evidence\\r21-step4\\mcp-deps.command.json",
+    "candidate_source_only_sha256": "5a5c9097abe4703d9bd709b55d824b7d41a954b89a1f053e6fd6385e7a18516c",
+    "source_binding_basis": "source-only subset equals every prebuild frozen byte; final source stability independently rechecked"
+  },
+  {
+    "name": "mcp-exports",
+    "argv": [
+      "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\profiles\\r21-qualified\\mcp\\Scripts\\python.exe",
+      "-c",
+      "import chstockdata, importlib.metadata as m; assert all(n in chstockdata.__all__ and hasattr(chstockdata,n) for n in ('fetch_realtime_quotes','fetch_daily_bars','fetch_trading_calendar','fetch_suspension_info','fetch_delisting_status','fetch_tradability','fetch_historical_opening_evidence','FetchAttempt','FetchMetadata','FetchResult')); assert {'chstockdata-mcp','chstockdata-refresh-vipdoc'} <= {e.name for e in m.entry_points(group='console_scripts')}; from chstockdata.mcp_server import build_server; assert build_server() is not None"
+    ],
+    "cwd": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation",
+    "exit": 0,
+    "candidate_wheel_sha256": "3fd4f0b7334e310851495b8b13d4c7c55d21cde719acf9e00ff880ccb822f42e",
+    "log": "mcp-exports.log",
+    "exit_file": "mcp-exports.exit",
+    "command_started_at": "2026-10-12T21:43:11.235903+08:00",
+    "command_finished_at": "2026-10-12T21:43:13.903779+08:00",
+    "environment_overrides": {
+      "PYTHONPATH": null,
+      "PYTHONUTF8": "1",
+      "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+      "SIOS_CHSTOCKDATA_LIVE_QUALIFICATION": null,
+      "CHSTOCKDATA_VIPDOC_HISTORY_DIR": null,
+      "CHSTOCKDATA_CACHE_DIR": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\cache\\r21-data",
+      "TEMP": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\temp\\r21-step4",
+      "TMP": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\temp\\r21-step4"
+    },
+    "record_file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\evidence\\r21-step4\\mcp-exports.command.json",
+    "candidate_source_only_sha256": "5a5c9097abe4703d9bd709b55d824b7d41a954b89a1f053e6fd6385e7a18516c",
+    "source_binding_basis": "source-only subset equals every prebuild frozen byte; final source stability independently rechecked"
+  },
+  {
+    "name": "mcp-identity",
+    "argv": [
+      "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\profiles\\r21-qualified\\mcp\\Scripts\\python.exe",
+      "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\evidence\\r21-step4\\run_gate.py",
+      "identity",
+      "mcp"
+    ],
+    "cwd": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation",
+    "exit": 0,
+    "candidate_wheel_sha256": "3fd4f0b7334e310851495b8b13d4c7c55d21cde719acf9e00ff880ccb822f42e",
+    "log": "mcp-identity.log",
+    "exit_file": "mcp-identity.exit",
+    "command_started_at": "2026-10-12T21:43:09.782729+08:00",
+    "command_finished_at": "2026-10-12T21:43:11.234905+08:00",
+    "environment_overrides": {
+      "PYTHONPATH": null,
+      "PYTHONUTF8": "1",
+      "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+      "SIOS_CHSTOCKDATA_LIVE_QUALIFICATION": null,
+      "CHSTOCKDATA_VIPDOC_HISTORY_DIR": null,
+      "CHSTOCKDATA_CACHE_DIR": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\cache\\r21-data",
+      "TEMP": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\temp\\r21-step4",
+      "TMP": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\temp\\r21-step4"
+    },
+    "record_file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\evidence\\r21-step4\\mcp-identity.command.json",
+    "candidate_source_only_sha256": "5a5c9097abe4703d9bd709b55d824b7d41a954b89a1f053e6fd6385e7a18516c",
+    "source_binding_basis": "source-only subset equals every prebuild frozen byte; final source stability independently rechecked"
+  },
+  {
+    "name": "mcp-install",
+    "argv": [
+      "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\profiles\\r21-qualified\\mcp\\Scripts\\python.exe",
+      "-m",
+      "pip",
+      "install",
+      "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\dist\\r21-qualified\\chstockdata-0.4.2-py3-none-any.whl[mcp]",
+      "pytest==9.1.1"
+    ],
+    "cwd": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation",
+    "exit": 0,
+    "candidate_wheel_sha256": "3fd4f0b7334e310851495b8b13d4c7c55d21cde719acf9e00ff880ccb822f42e",
+    "log": "mcp-install.log",
+    "exit_file": "mcp-install.exit",
+    "command_started_at": "2026-10-12T21:42:00.207872+08:00",
+    "command_finished_at": "2026-10-12T21:43:04.621540+08:00",
+    "environment_overrides": {
+      "PYTHONPATH": null,
+      "PYTHONUTF8": "1",
+      "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+      "SIOS_CHSTOCKDATA_LIVE_QUALIFICATION": null,
+      "CHSTOCKDATA_VIPDOC_HISTORY_DIR": null,
+      "CHSTOCKDATA_CACHE_DIR": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\cache\\r21-data",
+      "TEMP": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\temp\\r21-step4",
+      "TMP": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\temp\\r21-step4"
+    },
+    "record_file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\evidence\\r21-step4\\mcp-install.command.json",
+    "candidate_source_only_sha256": "5a5c9097abe4703d9bd709b55d824b7d41a954b89a1f053e6fd6385e7a18516c",
+    "source_binding_basis": "source-only subset equals every prebuild frozen byte; final source stability independently rechecked"
+  },
+  {
+    "name": "mcp-pip-check",
+    "argv": [
+      "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\profiles\\r21-qualified\\mcp\\Scripts\\python.exe",
+      "-m",
+      "pip",
+      "check"
+    ],
+    "cwd": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation",
+    "exit": 0,
+    "candidate_wheel_sha256": "3fd4f0b7334e310851495b8b13d4c7c55d21cde719acf9e00ff880ccb822f42e",
+    "log": "mcp-pip-check.log",
+    "exit_file": "mcp-pip-check.exit",
+    "command_started_at": "2026-10-12T21:43:04.622539+08:00",
+    "command_finished_at": "2026-10-12T21:43:06.509896+08:00",
+    "environment_overrides": {
+      "PYTHONPATH": null,
+      "PYTHONUTF8": "1",
+      "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+      "SIOS_CHSTOCKDATA_LIVE_QUALIFICATION": null,
+      "CHSTOCKDATA_VIPDOC_HISTORY_DIR": null,
+      "CHSTOCKDATA_CACHE_DIR": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\cache\\r21-data",
+      "TEMP": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\temp\\r21-step4",
+      "TMP": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\temp\\r21-step4"
+    },
+    "record_file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\evidence\\r21-step4\\mcp-pip-check.command.json",
+    "candidate_source_only_sha256": "5a5c9097abe4703d9bd709b55d824b7d41a954b89a1f053e6fd6385e7a18516c",
+    "source_binding_basis": "source-only subset equals every prebuild frozen byte; final source stability independently rechecked"
+  },
+  {
+    "name": "mcp-version",
+    "argv": [
+      "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\profiles\\r21-qualified\\mcp\\Scripts\\python.exe",
+      "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\chstockdata\\scripts\\check_release_version.py",
+      "--tag",
+      "v0.4.2",
+      "--project-root",
+      "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\chstockdata"
+    ],
+    "cwd": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation",
+    "exit": 0,
+    "candidate_wheel_sha256": "3fd4f0b7334e310851495b8b13d4c7c55d21cde719acf9e00ff880ccb822f42e",
+    "log": "mcp-version.log",
+    "exit_file": "mcp-version.exit",
+    "command_started_at": "2026-10-12T21:43:06.950554+08:00",
+    "command_finished_at": "2026-10-12T21:43:09.781727+08:00",
+    "environment_overrides": {
+      "PYTHONPATH": null,
+      "PYTHONUTF8": "1",
+      "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+      "SIOS_CHSTOCKDATA_LIVE_QUALIFICATION": null,
+      "CHSTOCKDATA_VIPDOC_HISTORY_DIR": null,
+      "CHSTOCKDATA_CACHE_DIR": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\cache\\r21-data",
+      "TEMP": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\temp\\r21-step4",
+      "TMP": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\temp\\r21-step4"
+    },
+    "record_file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\evidence\\r21-step4\\mcp-version.command.json",
+    "candidate_source_only_sha256": "5a5c9097abe4703d9bd709b55d824b7d41a954b89a1f053e6fd6385e7a18516c",
+    "source_binding_basis": "source-only subset equals every prebuild frozen byte; final source stability independently rechecked"
+  },
+  {
+    "name": "original-diff-check",
+    "argv": [
+      "git",
+      "-c",
+      "safe.directory=D:/Dev/Projects/chstockdata",
+      "-C",
+      "D:/Dev/Projects/chstockdata",
+      "diff",
+      "--check"
+    ],
+    "cwd": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation",
+    "exit": 0,
+    "candidate_wheel_sha256": "3fd4f0b7334e310851495b8b13d4c7c55d21cde719acf9e00ff880ccb822f42e",
+    "log": "original-diff-check.log",
+    "exit_file": "original-diff-check.exit",
+    "command_started_at": "2026-10-12T21:42:20.392305+08:00",
+    "command_finished_at": "2026-10-12T21:42:20.521240+08:00",
+    "environment_overrides": {
+      "PYTHONPATH": null,
+      "PYTHONUTF8": "1",
+      "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+      "SIOS_CHSTOCKDATA_LIVE_QUALIFICATION": null,
+      "CHSTOCKDATA_VIPDOC_HISTORY_DIR": null,
+      "CHSTOCKDATA_CACHE_DIR": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\cache\\r21-data",
+      "TEMP": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\temp\\r21-step4",
+      "TMP": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\temp\\r21-step4"
+    },
+    "record_file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\evidence\\r21-step4\\original-diff-check.command.json",
+    "candidate_source_only_sha256": "5a5c9097abe4703d9bd709b55d824b7d41a954b89a1f053e6fd6385e7a18516c",
+    "source_binding_basis": "source-only subset equals every prebuild frozen byte; final source stability independently rechecked"
+  },
+  {
+    "name": "package-suite-identity",
+    "argv": [
+      "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\profiles\\r21-qualified\\sios-candidate\\Scripts\\python.exe",
+      "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\evidence\\r21-step4\\run_gate.py",
+      "identity",
+      "sios-candidate"
+    ],
+    "cwd": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\chstockdata",
+    "exit": 0,
+    "candidate_wheel_sha256": "3fd4f0b7334e310851495b8b13d4c7c55d21cde719acf9e00ff880ccb822f42e",
+    "log": "package-suite-identity.log",
+    "exit_file": "package-suite-identity.exit",
+    "command_started_at": "2026-10-12T21:41:57.493459+08:00",
+    "command_finished_at": "2026-10-12T21:41:59.235519+08:00",
+    "environment_overrides": {
+      "PYTHONPATH": null,
+      "PYTHONUTF8": "1",
+      "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+      "SIOS_CHSTOCKDATA_LIVE_QUALIFICATION": null,
+      "CHSTOCKDATA_VIPDOC_HISTORY_DIR": null,
+      "CHSTOCKDATA_CACHE_DIR": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\cache\\r21-data",
+      "TEMP": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\temp\\r21-step4",
+      "TMP": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\temp\\r21-step4"
+    },
+    "record_file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\evidence\\r21-step4\\package-suite-identity.command.json",
+    "candidate_source_only_sha256": "5a5c9097abe4703d9bd709b55d824b7d41a954b89a1f053e6fd6385e7a18516c",
+    "source_binding_basis": "source-only subset equals every prebuild frozen byte; final source stability independently rechecked"
+  },
+  {
+    "name": "package-tests",
+    "argv": [
+      "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\profiles\\r21-qualified\\sios-candidate\\Scripts\\python.exe",
+      "-m",
+      "pytest",
+      "tests/",
+      "--no-header",
+      "-q",
+      "--tb=long",
+      "-rA",
+      "-p",
+      "no:cacheprovider",
+      "--basetemp=C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\evidence\\r21-step4\\package-tests-tmp",
+      "--junitxml=C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\evidence\\r21-step4\\package-tests.xml"
+    ],
+    "cwd": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\chstockdata",
+    "exit": 0,
+    "candidate_wheel_sha256": "3fd4f0b7334e310851495b8b13d4c7c55d21cde719acf9e00ff880ccb822f42e",
+    "log": "package-tests.log",
+    "exit_file": "package-tests.exit",
+    "command_started_at": "2026-10-12T21:41:59.237816+08:00",
+    "command_finished_at": "2026-10-12T21:42:19.479664+08:00",
+    "environment_overrides": {
+      "PYTHONPATH": null,
+      "PYTHONUTF8": "1",
+      "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+      "SIOS_CHSTOCKDATA_LIVE_QUALIFICATION": null,
+      "CHSTOCKDATA_VIPDOC_HISTORY_DIR": null,
+      "CHSTOCKDATA_CACHE_DIR": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\cache\\r21-data",
+      "TEMP": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\temp\\r21-step4",
+      "TMP": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\temp\\r21-step4"
+    },
+    "record_file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\evidence\\r21-step4\\package-tests.command.json",
+    "candidate_source_only_sha256": "5a5c9097abe4703d9bd709b55d824b7d41a954b89a1f053e6fd6385e7a18516c",
+    "source_binding_basis": "source-only subset equals every prebuild frozen byte; final source stability independently rechecked"
+  },
+  {
+    "name": "sdist-chstockdata-mcp",
+    "argv": [
+      "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\profiles\\r21-qualified\\sdist\\Scripts\\chstockdata-mcp.exe",
+      "--help"
+    ],
+    "cwd": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation",
+    "exit": 0,
+    "candidate_wheel_sha256": "3fd4f0b7334e310851495b8b13d4c7c55d21cde719acf9e00ff880ccb822f42e",
+    "log": "sdist-chstockdata-mcp.log",
+    "exit_file": "sdist-chstockdata-mcp.exit",
+    "command_started_at": "2026-10-12T21:41:49.267234+08:00",
+    "command_finished_at": "2026-10-12T21:41:50.778294+08:00",
+    "environment_overrides": {
+      "PYTHONPATH": null,
+      "PYTHONUTF8": "1",
+      "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+      "SIOS_CHSTOCKDATA_LIVE_QUALIFICATION": null,
+      "CHSTOCKDATA_VIPDOC_HISTORY_DIR": null,
+      "CHSTOCKDATA_CACHE_DIR": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\cache\\r21-data",
+      "TEMP": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\temp\\r21-step4",
+      "TMP": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\temp\\r21-step4"
+    },
+    "record_file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\evidence\\r21-step4\\sdist-chstockdata-mcp.command.json",
+    "candidate_source_only_sha256": "5a5c9097abe4703d9bd709b55d824b7d41a954b89a1f053e6fd6385e7a18516c",
+    "source_binding_basis": "source-only subset equals every prebuild frozen byte; final source stability independently rechecked"
+  },
+  {
+    "name": "sdist-chstockdata-refresh-vipdoc",
+    "argv": [
+      "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\profiles\\r21-qualified\\sdist\\Scripts\\chstockdata-refresh-vipdoc.exe",
+      "--help"
+    ],
+    "cwd": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation",
+    "exit": 0,
+    "candidate_wheel_sha256": "3fd4f0b7334e310851495b8b13d4c7c55d21cde719acf9e00ff880ccb822f42e",
+    "log": "sdist-chstockdata-refresh-vipdoc.log",
+    "exit_file": "sdist-chstockdata-refresh-vipdoc.exit",
+    "command_started_at": "2026-10-12T21:41:50.778294+08:00",
+    "command_finished_at": "2026-10-12T21:41:52.322915+08:00",
+    "environment_overrides": {
+      "PYTHONPATH": null,
+      "PYTHONUTF8": "1",
+      "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+      "SIOS_CHSTOCKDATA_LIVE_QUALIFICATION": null,
+      "CHSTOCKDATA_VIPDOC_HISTORY_DIR": null,
+      "CHSTOCKDATA_CACHE_DIR": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\cache\\r21-data",
+      "TEMP": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\temp\\r21-step4",
+      "TMP": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\temp\\r21-step4"
+    },
+    "record_file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\evidence\\r21-step4\\sdist-chstockdata-refresh-vipdoc.command.json",
+    "candidate_source_only_sha256": "5a5c9097abe4703d9bd709b55d824b7d41a954b89a1f053e6fd6385e7a18516c",
+    "source_binding_basis": "source-only subset equals every prebuild frozen byte; final source stability independently rechecked"
+  },
+  {
+    "name": "sdist-create",
+    "argv": [
+      "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+      "-m",
+      "venv",
+      "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\profiles\\r21-qualified\\sdist"
+    ],
+    "cwd": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation",
+    "exit": 0,
+    "candidate_wheel_sha256": "3fd4f0b7334e310851495b8b13d4c7c55d21cde719acf9e00ff880ccb822f42e",
+    "log": "sdist-create.log",
+    "exit_file": "sdist-create.exit",
+    "command_started_at": "2026-10-12T21:40:46.082930+08:00",
+    "command_finished_at": "2026-10-12T21:40:54.023094+08:00",
+    "environment_overrides": {
+      "PYTHONPATH": null,
+      "PYTHONUTF8": "1",
+      "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+      "SIOS_CHSTOCKDATA_LIVE_QUALIFICATION": null,
+      "CHSTOCKDATA_VIPDOC_HISTORY_DIR": null,
+      "CHSTOCKDATA_CACHE_DIR": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\cache\\r21-data",
+      "TEMP": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\temp\\r21-step4",
+      "TMP": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\temp\\r21-step4"
+    },
+    "record_file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\evidence\\r21-step4\\sdist-create.command.json",
+    "candidate_source_only_sha256": "5a5c9097abe4703d9bd709b55d824b7d41a954b89a1f053e6fd6385e7a18516c",
+    "source_binding_basis": "source-only subset equals every prebuild frozen byte; final source stability independently rechecked"
+  },
+  {
+    "name": "sdist-deps",
+    "argv": [
+      "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\profiles\\r21-qualified\\sdist\\Scripts\\python.exe",
+      "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\evidence\\r21-step4\\dependencies.py"
+    ],
+    "cwd": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation",
+    "exit": 0,
+    "candidate_wheel_sha256": "3fd4f0b7334e310851495b8b13d4c7c55d21cde719acf9e00ff880ccb822f42e",
+    "log": "sdist-deps.log",
+    "exit_file": "sdist-deps.exit",
+    "command_started_at": "2026-10-12T21:41:43.211926+08:00",
+    "command_finished_at": "2026-10-12T21:41:43.611919+08:00",
+    "environment_overrides": {
+      "PYTHONPATH": null,
+      "PYTHONUTF8": "1",
+      "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+      "SIOS_CHSTOCKDATA_LIVE_QUALIFICATION": null,
+      "CHSTOCKDATA_VIPDOC_HISTORY_DIR": null,
+      "CHSTOCKDATA_CACHE_DIR": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\cache\\r21-data",
+      "TEMP": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\temp\\r21-step4",
+      "TMP": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\temp\\r21-step4"
+    },
+    "record_file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\evidence\\r21-step4\\sdist-deps.command.json",
+    "candidate_source_only_sha256": "5a5c9097abe4703d9bd709b55d824b7d41a954b89a1f053e6fd6385e7a18516c",
+    "source_binding_basis": "source-only subset equals every prebuild frozen byte; final source stability independently rechecked"
+  },
+  {
+    "name": "sdist-exports",
+    "argv": [
+      "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\profiles\\r21-qualified\\sdist\\Scripts\\python.exe",
+      "-c",
+      "import chstockdata, importlib.metadata as m; assert all(n in chstockdata.__all__ and hasattr(chstockdata,n) for n in ('fetch_realtime_quotes','fetch_daily_bars','fetch_trading_calendar','fetch_suspension_info','fetch_delisting_status','fetch_tradability','fetch_historical_opening_evidence','FetchAttempt','FetchMetadata','FetchResult')); assert {'chstockdata-mcp','chstockdata-refresh-vipdoc'} <= {e.name for e in m.entry_points(group='console_scripts')}"
+    ],
+    "cwd": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation",
+    "exit": 0,
+    "candidate_wheel_sha256": "3fd4f0b7334e310851495b8b13d4c7c55d21cde719acf9e00ff880ccb822f42e",
+    "log": "sdist-exports.log",
+    "exit_file": "sdist-exports.exit",
+    "command_started_at": "2026-10-12T21:41:47.882696+08:00",
+    "command_finished_at": "2026-10-12T21:41:49.266236+08:00",
+    "environment_overrides": {
+      "PYTHONPATH": null,
+      "PYTHONUTF8": "1",
+      "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+      "SIOS_CHSTOCKDATA_LIVE_QUALIFICATION": null,
+      "CHSTOCKDATA_VIPDOC_HISTORY_DIR": null,
+      "CHSTOCKDATA_CACHE_DIR": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\cache\\r21-data",
+      "TEMP": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\temp\\r21-step4",
+      "TMP": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\temp\\r21-step4"
+    },
+    "record_file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\evidence\\r21-step4\\sdist-exports.command.json",
+    "candidate_source_only_sha256": "5a5c9097abe4703d9bd709b55d824b7d41a954b89a1f053e6fd6385e7a18516c",
+    "source_binding_basis": "source-only subset equals every prebuild frozen byte; final source stability independently rechecked"
+  },
+  {
+    "name": "sdist-identity",
+    "argv": [
+      "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\profiles\\r21-qualified\\sdist\\Scripts\\python.exe",
+      "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\evidence\\r21-step4\\run_gate.py",
+      "identity",
+      "sdist"
+    ],
+    "cwd": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation",
+    "exit": 0,
+    "candidate_wheel_sha256": "3fd4f0b7334e310851495b8b13d4c7c55d21cde719acf9e00ff880ccb822f42e",
+    "log": "sdist-identity.log",
+    "exit_file": "sdist-identity.exit",
+    "command_started_at": "2026-10-12T21:41:46.445934+08:00",
+    "command_finished_at": "2026-10-12T21:41:47.881163+08:00",
+    "environment_overrides": {
+      "PYTHONPATH": null,
+      "PYTHONUTF8": "1",
+      "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+      "SIOS_CHSTOCKDATA_LIVE_QUALIFICATION": null,
+      "CHSTOCKDATA_VIPDOC_HISTORY_DIR": null,
+      "CHSTOCKDATA_CACHE_DIR": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\cache\\r21-data",
+      "TEMP": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\temp\\r21-step4",
+      "TMP": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\temp\\r21-step4"
+    },
+    "record_file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\evidence\\r21-step4\\sdist-identity.command.json",
+    "candidate_source_only_sha256": "5a5c9097abe4703d9bd709b55d824b7d41a954b89a1f053e6fd6385e7a18516c",
+    "source_binding_basis": "source-only subset equals every prebuild frozen byte; final source stability independently rechecked"
+  },
+  {
+    "name": "sdist-install",
+    "argv": [
+      "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\profiles\\r21-qualified\\sdist\\Scripts\\python.exe",
+      "-m",
+      "pip",
+      "install",
+      "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\dist\\r21-qualified\\chstockdata-0.4.2.tar.gz",
+      "pytest==9.1.1"
+    ],
+    "cwd": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation",
+    "exit": 0,
+    "candidate_wheel_sha256": "3fd4f0b7334e310851495b8b13d4c7c55d21cde719acf9e00ff880ccb822f42e",
+    "log": "sdist-install.log",
+    "exit_file": "sdist-install.exit",
+    "command_started_at": "2026-10-12T21:40:54.023094+08:00",
+    "command_finished_at": "2026-10-12T21:41:41.899867+08:00",
+    "environment_overrides": {
+      "PYTHONPATH": null,
+      "PYTHONUTF8": "1",
+      "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+      "SIOS_CHSTOCKDATA_LIVE_QUALIFICATION": null,
+      "CHSTOCKDATA_VIPDOC_HISTORY_DIR": null,
+      "CHSTOCKDATA_CACHE_DIR": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\cache\\r21-data",
+      "TEMP": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\temp\\r21-step4",
+      "TMP": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\temp\\r21-step4"
+    },
+    "record_file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\evidence\\r21-step4\\sdist-install.command.json",
+    "candidate_source_only_sha256": "5a5c9097abe4703d9bd709b55d824b7d41a954b89a1f053e6fd6385e7a18516c",
+    "source_binding_basis": "source-only subset equals every prebuild frozen byte; final source stability independently rechecked"
+  },
+  {
+    "name": "sdist-pip-check",
+    "argv": [
+      "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\profiles\\r21-qualified\\sdist\\Scripts\\python.exe",
+      "-m",
+      "pip",
+      "check"
+    ],
+    "cwd": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation",
+    "exit": 0,
+    "candidate_wheel_sha256": "3fd4f0b7334e310851495b8b13d4c7c55d21cde719acf9e00ff880ccb822f42e",
+    "log": "sdist-pip-check.log",
+    "exit_file": "sdist-pip-check.exit",
+    "command_started_at": "2026-10-12T21:41:41.899867+08:00",
+    "command_finished_at": "2026-10-12T21:41:43.210906+08:00",
+    "environment_overrides": {
+      "PYTHONPATH": null,
+      "PYTHONUTF8": "1",
+      "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+      "SIOS_CHSTOCKDATA_LIVE_QUALIFICATION": null,
+      "CHSTOCKDATA_VIPDOC_HISTORY_DIR": null,
+      "CHSTOCKDATA_CACHE_DIR": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\cache\\r21-data",
+      "TEMP": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\temp\\r21-step4",
+      "TMP": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\temp\\r21-step4"
+    },
+    "record_file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\evidence\\r21-step4\\sdist-pip-check.command.json",
+    "candidate_source_only_sha256": "5a5c9097abe4703d9bd709b55d824b7d41a954b89a1f053e6fd6385e7a18516c",
+    "source_binding_basis": "source-only subset equals every prebuild frozen byte; final source stability independently rechecked"
+  },
+  {
+    "name": "sdist-version",
+    "argv": [
+      "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\profiles\\r21-qualified\\sdist\\Scripts\\python.exe",
+      "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\chstockdata\\scripts\\check_release_version.py",
+      "--tag",
+      "v0.4.2",
+      "--project-root",
+      "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\chstockdata"
+    ],
+    "cwd": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation",
+    "exit": 0,
+    "candidate_wheel_sha256": "3fd4f0b7334e310851495b8b13d4c7c55d21cde719acf9e00ff880ccb822f42e",
+    "log": "sdist-version.log",
+    "exit_file": "sdist-version.exit",
+    "command_started_at": "2026-10-12T21:41:43.611919+08:00",
+    "command_finished_at": "2026-10-12T21:41:46.445934+08:00",
+    "environment_overrides": {
+      "PYTHONPATH": null,
+      "PYTHONUTF8": "1",
+      "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+      "SIOS_CHSTOCKDATA_LIVE_QUALIFICATION": null,
+      "CHSTOCKDATA_VIPDOC_HISTORY_DIR": null,
+      "CHSTOCKDATA_CACHE_DIR": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\cache\\r21-data",
+      "TEMP": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\temp\\r21-step4",
+      "TMP": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\temp\\r21-step4"
+    },
+    "record_file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\evidence\\r21-step4\\sdist-version.command.json",
+    "candidate_source_only_sha256": "5a5c9097abe4703d9bd709b55d824b7d41a954b89a1f053e6fd6385e7a18516c",
+    "source_binding_basis": "source-only subset equals every prebuild frozen byte; final source stability independently rechecked"
+  },
+  {
+    "name": "sios-candidate-create",
+    "argv": [
+      "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+      "-m",
+      "venv",
+      "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\profiles\\r21-qualified\\sios-candidate"
+    ],
+    "cwd": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation",
+    "exit": 0,
+    "candidate_wheel_sha256": "3fd4f0b7334e310851495b8b13d4c7c55d21cde719acf9e00ff880ccb822f42e",
+    "log": "sios-candidate-create.log",
+    "exit_file": "sios-candidate-create.exit",
+    "command_started_at": "2026-10-12T21:39:43.619116+08:00",
+    "command_finished_at": "2026-10-12T21:39:51.937012+08:00",
+    "environment_overrides": {
+      "PYTHONPATH": null,
+      "PYTHONUTF8": "1",
+      "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+      "SIOS_CHSTOCKDATA_LIVE_QUALIFICATION": null,
+      "CHSTOCKDATA_VIPDOC_HISTORY_DIR": null,
+      "CHSTOCKDATA_CACHE_DIR": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\cache\\r21-data",
+      "TEMP": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\temp\\r21-step4",
+      "TMP": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\temp\\r21-step4"
+    },
+    "record_file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\evidence\\r21-step4\\sios-candidate-create.command.json",
+    "candidate_source_only_sha256": "5a5c9097abe4703d9bd709b55d824b7d41a954b89a1f053e6fd6385e7a18516c",
+    "source_binding_basis": "source-only subset equals every prebuild frozen byte; final source stability independently rechecked"
+  },
+  {
+    "name": "sios-candidate-install",
+    "argv": [
+      "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\profiles\\r21-qualified\\sios-candidate\\Scripts\\python.exe",
+      "-m",
+      "pip",
+      "install",
+      "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\dist\\r21-qualified\\chstockdata-0.4.2-py3-none-any.whl[mootdx,opening-pdf]",
+      "pytest==9.1.1"
+    ],
+    "cwd": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation",
+    "exit": 0,
+    "candidate_wheel_sha256": "3fd4f0b7334e310851495b8b13d4c7c55d21cde719acf9e00ff880ccb822f42e",
+    "log": "sios-candidate-install.log",
+    "exit_file": "sios-candidate-install.exit",
+    "command_started_at": "2026-10-12T21:39:51.937012+08:00",
+    "command_finished_at": "2026-10-12T21:40:40.285741+08:00",
+    "environment_overrides": {
+      "PYTHONPATH": null,
+      "PYTHONUTF8": "1",
+      "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+      "SIOS_CHSTOCKDATA_LIVE_QUALIFICATION": null,
+      "CHSTOCKDATA_VIPDOC_HISTORY_DIR": null,
+      "CHSTOCKDATA_CACHE_DIR": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\cache\\r21-data",
+      "TEMP": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\temp\\r21-step4",
+      "TMP": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\temp\\r21-step4"
+    },
+    "record_file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\evidence\\r21-step4\\sios-candidate-install.command.json",
+    "candidate_source_only_sha256": "5a5c9097abe4703d9bd709b55d824b7d41a954b89a1f053e6fd6385e7a18516c",
+    "source_binding_basis": "source-only subset equals every prebuild frozen byte; final source stability independently rechecked"
+  },
+  {
+    "name": "sios-certified-deps",
+    "argv": [
+      "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\profiles\\r21-qualified\\sios-candidate\\Scripts\\python.exe",
+      "-m",
+      "pip",
+      "install",
+      "mootdx==0.11.7",
+      "tdxpy==0.2.7",
+      "pypdf==6.10.0"
+    ],
+    "cwd": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation",
+    "exit": 0,
+    "candidate_wheel_sha256": "3fd4f0b7334e310851495b8b13d4c7c55d21cde719acf9e00ff880ccb822f42e",
+    "log": "sios-certified-deps.log",
+    "exit_file": "sios-certified-deps.exit",
+    "command_started_at": "2026-10-12T21:40:40.286739+08:00",
+    "command_finished_at": "2026-10-12T21:40:43.432807+08:00",
+    "environment_overrides": {
+      "PYTHONPATH": null,
+      "PYTHONUTF8": "1",
+      "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+      "SIOS_CHSTOCKDATA_LIVE_QUALIFICATION": null,
+      "CHSTOCKDATA_VIPDOC_HISTORY_DIR": null,
+      "CHSTOCKDATA_CACHE_DIR": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\cache\\r21-data",
+      "TEMP": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\temp\\r21-step4",
+      "TMP": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\temp\\r21-step4"
+    },
+    "record_file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\evidence\\r21-step4\\sios-certified-deps.command.json",
+    "candidate_source_only_sha256": "5a5c9097abe4703d9bd709b55d824b7d41a954b89a1f053e6fd6385e7a18516c",
+    "source_binding_basis": "source-only subset equals every prebuild frozen byte; final source stability independently rechecked"
+  },
+  {
+    "name": "sios-deps",
+    "argv": [
+      "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\profiles\\r21-qualified\\sios-candidate\\Scripts\\python.exe",
+      "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\evidence\\r21-step4\\dependencies.py"
+    ],
+    "cwd": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation",
+    "exit": 0,
+    "candidate_wheel_sha256": "3fd4f0b7334e310851495b8b13d4c7c55d21cde719acf9e00ff880ccb822f42e",
+    "log": "sios-deps.log",
+    "exit_file": "sios-deps.exit",
+    "command_started_at": "2026-10-12T21:40:44.680712+08:00",
+    "command_finished_at": "2026-10-12T21:40:45.133755+08:00",
+    "environment_overrides": {
+      "PYTHONPATH": null,
+      "PYTHONUTF8": "1",
+      "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+      "SIOS_CHSTOCKDATA_LIVE_QUALIFICATION": null,
+      "CHSTOCKDATA_VIPDOC_HISTORY_DIR": null,
+      "CHSTOCKDATA_CACHE_DIR": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\cache\\r21-data",
+      "TEMP": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\temp\\r21-step4",
+      "TMP": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\temp\\r21-step4"
+    },
+    "record_file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\evidence\\r21-step4\\sios-deps.command.json",
+    "candidate_source_only_sha256": "5a5c9097abe4703d9bd709b55d824b7d41a954b89a1f053e6fd6385e7a18516c",
+    "source_binding_basis": "source-only subset equals every prebuild frozen byte; final source stability independently rechecked"
+  },
+  {
+    "name": "sios-etf-golden-smoke",
+    "argv": [
+      "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\profiles\\r21-qualified\\sios-candidate\\Scripts\\python.exe",
+      "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\evidence\\r21-step4\\run_sios_tests.py",
+      "sios-etf-golden-smoke",
+      "tests/qualification",
+      "tests/golden",
+      "tests/parity"
+    ],
+    "cwd": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os",
+    "exit": 0,
+    "candidate_wheel_sha256": "3fd4f0b7334e310851495b8b13d4c7c55d21cde719acf9e00ff880ccb822f42e",
+    "log": "sios-etf-golden-smoke.log",
+    "exit_file": "sios-etf-golden-smoke.exit",
+    "command_started_at": "2026-10-12T21:42:01.213795+08:00",
+    "command_finished_at": "2026-10-12T21:42:05.223589+08:00",
+    "environment_overrides": {
+      "PYTHONPATH": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\src",
+      "PYTHONUTF8": "1",
+      "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+      "SIOS_CHSTOCKDATA_LIVE_QUALIFICATION": null,
+      "CHSTOCKDATA_VIPDOC_HISTORY_DIR": null,
+      "CHSTOCKDATA_CACHE_DIR": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\cache\\r21-data",
+      "TEMP": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\temp\\r21-step4",
+      "TMP": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\temp\\r21-step4"
+    },
+    "record_file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\evidence\\r21-step4\\sios-etf-golden-smoke.command.json",
+    "candidate_source_only_sha256": "5a5c9097abe4703d9bd709b55d824b7d41a954b89a1f053e6fd6385e7a18516c",
+    "source_binding_basis": "source-only subset equals every prebuild frozen byte; final source stability independently rechecked"
+  },
+  {
+    "name": "sios-offline",
+    "argv": [
+      "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\profiles\\r21-qualified\\sios-candidate\\Scripts\\python.exe",
+      "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\evidence\\r21-step4\\run_sios_tests.py",
+      "sios-offline",
+      "tests/"
+    ],
+    "cwd": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os",
+    "exit": 0,
+    "candidate_wheel_sha256": "3fd4f0b7334e310851495b8b13d4c7c55d21cde719acf9e00ff880ccb822f42e",
+    "log": "sios-offline.log",
+    "exit_file": "sios-offline.exit",
+    "command_started_at": "2026-10-12T21:42:05.224587+08:00",
+    "command_finished_at": "2026-10-12T21:42:24.455588+08:00",
+    "environment_overrides": {
+      "PYTHONPATH": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\src",
+      "PYTHONUTF8": "1",
+      "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+      "SIOS_CHSTOCKDATA_LIVE_QUALIFICATION": null,
+      "CHSTOCKDATA_VIPDOC_HISTORY_DIR": null,
+      "CHSTOCKDATA_CACHE_DIR": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\cache\\r21-data",
+      "TEMP": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\temp\\r21-step4",
+      "TMP": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\temp\\r21-step4"
+    },
+    "record_file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\evidence\\r21-step4\\sios-offline.command.json",
+    "candidate_source_only_sha256": "5a5c9097abe4703d9bd709b55d824b7d41a954b89a1f053e6fd6385e7a18516c",
+    "source_binding_basis": "source-only subset equals every prebuild frozen byte; final source stability independently rechecked"
+  },
+  {
+    "name": "sios-pip-check",
+    "argv": [
+      "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\profiles\\r21-qualified\\sios-candidate\\Scripts\\python.exe",
+      "-m",
+      "pip",
+      "check"
+    ],
+    "cwd": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation",
+    "exit": 0,
+    "candidate_wheel_sha256": "3fd4f0b7334e310851495b8b13d4c7c55d21cde719acf9e00ff880ccb822f42e",
+    "log": "sios-pip-check.log",
+    "exit_file": "sios-pip-check.exit",
+    "command_started_at": "2026-10-12T21:40:43.432807+08:00",
+    "command_finished_at": "2026-10-12T21:40:44.680712+08:00",
+    "environment_overrides": {
+      "PYTHONPATH": null,
+      "PYTHONUTF8": "1",
+      "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+      "SIOS_CHSTOCKDATA_LIVE_QUALIFICATION": null,
+      "CHSTOCKDATA_VIPDOC_HISTORY_DIR": null,
+      "CHSTOCKDATA_CACHE_DIR": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\cache\\r21-data",
+      "TEMP": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\temp\\r21-step4",
+      "TMP": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\temp\\r21-step4"
+    },
+    "record_file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\evidence\\r21-step4\\sios-pip-check.command.json",
+    "candidate_source_only_sha256": "5a5c9097abe4703d9bd709b55d824b7d41a954b89a1f053e6fd6385e7a18516c",
+    "source_binding_basis": "source-only subset equals every prebuild frozen byte; final source stability independently rechecked"
+  },
+  {
+    "name": "sios-provider-contract",
+    "argv": [
+      "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\profiles\\r21-qualified\\sios-candidate\\Scripts\\python.exe",
+      "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\evidence\\r21-step4\\run_sios_tests.py",
+      "sios-provider-contract",
+      "tests/contract/test_chstockdata_provider.py",
+      "tests/contract/test_provider_port.py"
+    ],
+    "cwd": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os",
+    "exit": 0,
+    "candidate_wheel_sha256": "3fd4f0b7334e310851495b8b13d4c7c55d21cde719acf9e00ff880ccb822f42e",
+    "log": "sios-provider-contract.log",
+    "exit_file": "sios-provider-contract.exit",
+    "command_started_at": "2026-10-12T21:41:58.643013+08:00",
+    "command_finished_at": "2026-10-12T21:42:01.213795+08:00",
+    "environment_overrides": {
+      "PYTHONPATH": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\src",
+      "PYTHONUTF8": "1",
+      "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+      "SIOS_CHSTOCKDATA_LIVE_QUALIFICATION": null,
+      "CHSTOCKDATA_VIPDOC_HISTORY_DIR": null,
+      "CHSTOCKDATA_CACHE_DIR": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\cache\\r21-data",
+      "TEMP": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\temp\\r21-step4",
+      "TMP": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\temp\\r21-step4"
+    },
+    "record_file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\evidence\\r21-step4\\sios-provider-contract.command.json",
+    "candidate_source_only_sha256": "5a5c9097abe4703d9bd709b55d824b7d41a954b89a1f053e6fd6385e7a18516c",
+    "source_binding_basis": "source-only subset equals every prebuild frozen byte; final source stability independently rechecked"
+  },
+  {
+    "name": "sios-required-live",
+    "argv": [
+      "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\profiles\\r21-qualified\\sios-candidate\\Scripts\\python.exe",
+      "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\evidence\\r21-step4\\run_live.py"
+    ],
+    "cwd": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os",
+    "exit": 0,
+    "candidate_wheel_sha256": "3fd4f0b7334e310851495b8b13d4c7c55d21cde719acf9e00ff880ccb822f42e",
+    "log": "sios-required-live.log",
+    "exit_file": "sios-required-live.exit",
+    "command_started_at": "2026-10-12T21:45:24.647481+08:00",
+    "command_finished_at": "2026-10-12T21:45:40.670618+08:00",
+    "environment_overrides": {
+      "PYTHONPATH": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\src",
+      "PYTHONUTF8": "1",
+      "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+      "SIOS_CHSTOCKDATA_LIVE_QUALIFICATION": "1",
+      "CHSTOCKDATA_VIPDOC_HISTORY_DIR": "D:\\Dev\\Projects\\chstockdata\\.rh3a2-vipdoc",
+      "CHSTOCKDATA_CACHE_DIR": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\cache\\r21-live",
+      "TEMP": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\temp\\r21-step4",
+      "TMP": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\temp\\r21-step4"
+    },
+    "record_file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\evidence\\r21-step4\\sios-required-live.command.json",
+    "candidate_source_only_sha256": "5a5c9097abe4703d9bd709b55d824b7d41a954b89a1f053e6fd6385e7a18516c",
+    "source_binding_basis": "source-only subset equals every prebuild frozen byte; final source stability independently rechecked"
+  },
+  {
+    "name": "static-final",
+    "argv": [
+      "D:\\Dev\\Projects\\chstockdata\\build\\v042-qualification\\gate\\Scripts\\python.exe",
+      "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\evidence\\r21-step4\\run_static.py"
+    ],
+    "cwd": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\chstockdata",
+    "exit": 0,
+    "candidate_wheel_sha256": "3fd4f0b7334e310851495b8b13d4c7c55d21cde719acf9e00ff880ccb822f42e",
+    "log": "static-final.log",
+    "exit_file": "static-final.exit",
+    "command_started_at": "2026-10-12T21:39:57.067015+08:00",
+    "command_finished_at": "2026-10-12T21:39:58.730177+08:00",
+    "environment_overrides": {
+      "PYTHONPATH": null,
+      "PYTHONUTF8": "1",
+      "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+      "SIOS_CHSTOCKDATA_LIVE_QUALIFICATION": null,
+      "CHSTOCKDATA_VIPDOC_HISTORY_DIR": null,
+      "CHSTOCKDATA_CACHE_DIR": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\cache\\r21-data",
+      "TEMP": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\temp\\r21-step4",
+      "TMP": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\temp\\r21-step4"
+    },
+    "record_file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\evidence\\r21-step4\\static-final.command.json",
+    "candidate_source_only_sha256": "5a5c9097abe4703d9bd709b55d824b7d41a954b89a1f053e6fd6385e7a18516c",
+    "source_binding_basis": "source-only subset equals every prebuild frozen byte; final source stability independently rechecked"
+  },
+  {
+    "name": "static-gitless",
+    "argv": [
+      "D:\\Dev\\Projects\\chstockdata\\build\\v042-qualification\\gate\\Scripts\\python.exe",
+      "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\evidence\\r21-step4\\run_static.py"
+    ],
+    "cwd": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\chstockdata",
+    "exit": 1,
+    "candidate_wheel_sha256": "d955ea4ef7c2bffaf5d30751fde88580911303b863a3120ac3d87337270267f8",
+    "log": "static-gitless.log",
+    "exit_file": "static-gitless.exit",
+    "command_started_at": "2026-10-12T21:34:49.469880+08:00",
+    "command_finished_at": "2026-10-12T21:34:51.726875+08:00",
+    "environment_overrides": {
+      "PYTHONPATH": null,
+      "PYTHONUTF8": "1",
+      "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+      "SIOS_CHSTOCKDATA_LIVE_QUALIFICATION": null,
+      "CHSTOCKDATA_VIPDOC_HISTORY_DIR": null,
+      "CHSTOCKDATA_CACHE_DIR": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\cache\\r21-data",
+      "TEMP": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\temp\\r21-step4",
+      "TMP": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\temp\\r21-step4"
+    },
+    "record_file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\evidence\\r21-step4\\static-gitless.command.json",
+    "candidate_source_only_sha256": "5a5c9097abe4703d9bd709b55d824b7d41a954b89a1f053e6fd6385e7a18516c",
+    "source_binding_basis": "source-only subset equals every prebuild frozen byte; final source stability independently rechecked"
+  },
+  {
+    "name": "static",
+    "argv": [
+      "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\profiles\\r21-final\\sios-candidate\\Scripts\\python.exe",
+      "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\chstockdata\\scripts\\check_rh1_static.py"
+    ],
+    "cwd": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\chstockdata",
+    "exit": 2,
+    "candidate_wheel_sha256": "d955ea4ef7c2bffaf5d30751fde88580911303b863a3120ac3d87337270267f8",
+    "log": "static.log",
+    "exit_file": "static.exit",
+    "command_started_at": "2026-10-12T21:31:55.340763+08:00",
+    "command_finished_at": "2026-10-12T21:31:55.630758+08:00",
+    "environment_overrides": {
+      "PYTHONPATH": null,
+      "PYTHONUTF8": "1",
+      "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+      "SIOS_CHSTOCKDATA_LIVE_QUALIFICATION": null,
+      "CHSTOCKDATA_VIPDOC_HISTORY_DIR": null,
+      "CHSTOCKDATA_CACHE_DIR": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\cache\\r21-data",
+      "TEMP": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\temp\\r21-step4",
+      "TMP": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\temp\\r21-step4"
+    },
+    "record_file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\evidence\\r21-step4\\static.command.json",
+    "candidate_source_only_sha256": "5a5c9097abe4703d9bd709b55d824b7d41a954b89a1f053e6fd6385e7a18516c",
+    "source_binding_basis": "source-only subset equals every prebuild frozen byte; final source stability independently rechecked"
+  },
+  {
+    "name": "ta-candidate-create",
+    "argv": [
+      "C:\\Users\\Administrator\\AppData\\Local\\Programs\\Python\\Python314\\python.exe",
+      "-m",
+      "venv",
+      "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\profiles\\r21-qualified\\ta-candidate"
+    ],
+    "cwd": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation",
+    "exit": 0,
+    "candidate_wheel_sha256": "3fd4f0b7334e310851495b8b13d4c7c55d21cde719acf9e00ff880ccb822f42e",
+    "log": "ta-candidate-create.log",
+    "exit_file": "ta-candidate-create.exit",
+    "command_started_at": "2026-10-12T21:39:44.720340+08:00",
+    "command_finished_at": "2026-10-12T21:39:54.726607+08:00",
+    "environment_overrides": {
+      "PYTHONPATH": null,
+      "PYTHONUTF8": "1",
+      "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+      "SIOS_CHSTOCKDATA_LIVE_QUALIFICATION": null,
+      "CHSTOCKDATA_VIPDOC_HISTORY_DIR": null,
+      "CHSTOCKDATA_CACHE_DIR": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\cache\\r21-data",
+      "TEMP": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\temp\\r21-step4",
+      "TMP": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\temp\\r21-step4"
+    },
+    "record_file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\evidence\\r21-step4\\ta-candidate-create.command.json",
+    "candidate_source_only_sha256": "5a5c9097abe4703d9bd709b55d824b7d41a954b89a1f053e6fd6385e7a18516c",
+    "source_binding_basis": "source-only subset equals every prebuild frozen byte; final source stability independently rechecked"
+  },
+  {
+    "name": "ta-candidate-install",
+    "argv": [
+      "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\profiles\\r21-qualified\\ta-candidate\\Scripts\\python.exe",
+      "-m",
+      "pip",
+      "install",
+      "--no-deps",
+      "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\dist\\r21-qualified\\chstockdata-0.4.2-py3-none-any.whl"
+    ],
+    "cwd": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation",
+    "exit": 0,
+    "candidate_wheel_sha256": "3fd4f0b7334e310851495b8b13d4c7c55d21cde719acf9e00ff880ccb822f42e",
+    "log": "ta-candidate-install.log",
+    "exit_file": "ta-candidate-install.exit",
+    "command_started_at": "2026-10-12T21:39:54.727636+08:00",
+    "command_finished_at": "2026-10-12T21:39:58.427513+08:00",
+    "environment_overrides": {
+      "PYTHONPATH": null,
+      "PYTHONUTF8": "1",
+      "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+      "SIOS_CHSTOCKDATA_LIVE_QUALIFICATION": null,
+      "CHSTOCKDATA_VIPDOC_HISTORY_DIR": null,
+      "CHSTOCKDATA_CACHE_DIR": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\cache\\r21-data",
+      "TEMP": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\temp\\r21-step4",
+      "TMP": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\temp\\r21-step4"
+    },
+    "record_file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\evidence\\r21-step4\\ta-candidate-install.command.json",
+    "candidate_source_only_sha256": "5a5c9097abe4703d9bd709b55d824b7d41a954b89a1f053e6fd6385e7a18516c",
+    "source_binding_basis": "source-only subset equals every prebuild frozen byte; final source stability independently rechecked"
+  },
+  {
+    "name": "ta-candidate",
+    "argv": [
+      "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\profiles\\r21-qualified\\ta-candidate\\Scripts\\python.exe",
+      "-m",
+      "pytest",
+      "tests/test_upstream_adapters.py",
+      "tests/test_trading_calendar.py",
+      "tests/test_f1_public_integration.py",
+      "tests/test_free_adjusted_bars.py",
+      "tests/test_point_in_time_fundamentals.py",
+      "tests/test_performance_optimization.py",
+      "tests/test_p1_listing_status_data_plane.py",
+      "tests/test_phase2_step3_projection.py",
+      "tests/test_phase2_step3_validation.py",
+      "-k",
+      "not stale_local_falls_back_online_and_labels_source and not stale_local_without_online_keeps_local_flagged and not missing_local_online_fallback_and_total_failure and not empty_or_missing_tree_returns_none",
+      "-q",
+      "--tb=long",
+      "-rA",
+      "-p",
+      "no:cacheprovider",
+      "--basetemp=C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\evidence\\r21-step4\\ta-candidate-tmp",
+      "--junitxml=C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\evidence\\r21-step4\\ta-candidate.xml"
+    ],
+    "cwd": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\TradingAgents-AStock-Private",
+    "exit": 1,
+    "candidate_wheel_sha256": "3fd4f0b7334e310851495b8b13d4c7c55d21cde719acf9e00ff880ccb822f42e",
+    "log": "ta-candidate.log",
+    "exit_file": "ta-candidate.exit",
+    "command_started_at": "2026-10-12T21:40:03.638319+08:00",
+    "command_finished_at": "2026-10-12T21:41:00.206936+08:00",
+    "environment_overrides": {
+      "PYTHONPATH": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\TradingAgents-AStock-Private",
+      "PYTHONUTF8": "1",
+      "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+      "SIOS_CHSTOCKDATA_LIVE_QUALIFICATION": null,
+      "CHSTOCKDATA_VIPDOC_HISTORY_DIR": null,
+      "CHSTOCKDATA_CACHE_DIR": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\cache\\r21-data",
+      "TEMP": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\temp\\r21-step4",
+      "TMP": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\temp\\r21-step4"
+    },
+    "record_file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\evidence\\r21-step4\\ta-candidate.command.json",
+    "candidate_source_only_sha256": "5a5c9097abe4703d9bd709b55d824b7d41a954b89a1f053e6fd6385e7a18516c",
+    "source_binding_basis": "source-only subset equals every prebuild frozen byte; final source stability independently rechecked"
+  },
+  {
+    "name": "ta-deps",
+    "argv": [
+      "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\profiles\\r21-qualified\\ta-candidate\\Scripts\\python.exe",
+      "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\evidence\\r21-step4\\dependencies.py"
+    ],
+    "cwd": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\TradingAgents-AStock-Private",
+    "exit": 0,
+    "candidate_wheel_sha256": "3fd4f0b7334e310851495b8b13d4c7c55d21cde719acf9e00ff880ccb822f42e",
+    "log": "ta-deps.log",
+    "exit_file": "ta-deps.exit",
+    "command_started_at": "2026-10-12T21:39:59.928843+08:00",
+    "command_finished_at": "2026-10-12T21:40:00.587142+08:00",
+    "environment_overrides": {
+      "PYTHONPATH": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\TradingAgents-AStock-Private",
+      "PYTHONUTF8": "1",
+      "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+      "SIOS_CHSTOCKDATA_LIVE_QUALIFICATION": null,
+      "CHSTOCKDATA_VIPDOC_HISTORY_DIR": null,
+      "CHSTOCKDATA_CACHE_DIR": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\cache\\r21-data",
+      "TEMP": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\temp\\r21-step4",
+      "TMP": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\temp\\r21-step4"
+    },
+    "record_file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\evidence\\r21-step4\\ta-deps.command.json",
+    "candidate_source_only_sha256": "5a5c9097abe4703d9bd709b55d824b7d41a954b89a1f053e6fd6385e7a18516c",
+    "source_binding_basis": "source-only subset equals every prebuild frozen byte; final source stability independently rechecked"
+  },
+  {
+    "name": "ta-identity",
+    "argv": [
+      "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\profiles\\r21-qualified\\ta-candidate\\Scripts\\python.exe",
+      "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\evidence\\r21-step4\\run_gate.py",
+      "identity",
+      "ta-candidate"
+    ],
+    "cwd": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\TradingAgents-AStock-Private",
+    "exit": 0,
+    "candidate_wheel_sha256": "3fd4f0b7334e310851495b8b13d4c7c55d21cde719acf9e00ff880ccb822f42e",
+    "log": "ta-identity.log",
+    "exit_file": "ta-identity.exit",
+    "command_started_at": "2026-10-12T21:40:00.588137+08:00",
+    "command_finished_at": "2026-10-12T21:40:03.637323+08:00",
+    "environment_overrides": {
+      "PYTHONPATH": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\TradingAgents-AStock-Private",
+      "PYTHONUTF8": "1",
+      "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+      "SIOS_CHSTOCKDATA_LIVE_QUALIFICATION": null,
+      "CHSTOCKDATA_VIPDOC_HISTORY_DIR": null,
+      "CHSTOCKDATA_CACHE_DIR": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\cache\\r21-data",
+      "TEMP": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\temp\\r21-step4",
+      "TMP": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\temp\\r21-step4"
+    },
+    "record_file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\evidence\\r21-step4\\ta-identity.command.json",
+    "candidate_source_only_sha256": "5a5c9097abe4703d9bd709b55d824b7d41a954b89a1f053e6fd6385e7a18516c",
+    "source_binding_basis": "source-only subset equals every prebuild frozen byte; final source stability independently rechecked"
+  },
+  {
+    "name": "ta-legacy",
+    "argv": [
+      "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\profiles\\r21-qualified\\ta-candidate\\Scripts\\python.exe",
+      "-B",
+      "D:/Dev/Projects/chstockdata/dist/consumer-v0.4.2/evidence/legacy_probe.py",
+      "0.4.2",
+      "D:\\Dev\\Projects\\chstockdata\\.rh3a2-vipdoc"
+    ],
+    "cwd": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\TradingAgents-AStock-Private",
+    "exit": 0,
+    "candidate_wheel_sha256": "3fd4f0b7334e310851495b8b13d4c7c55d21cde719acf9e00ff880ccb822f42e",
+    "log": "ta-legacy.log",
+    "exit_file": "ta-legacy.exit",
+    "command_started_at": "2026-10-12T21:41:00.207938+08:00",
+    "command_finished_at": "2026-10-12T21:41:03.586734+08:00",
+    "environment_overrides": {
+      "PYTHONPATH": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\TradingAgents-AStock-Private",
+      "PYTHONUTF8": "1",
+      "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+      "SIOS_CHSTOCKDATA_LIVE_QUALIFICATION": null,
+      "CHSTOCKDATA_VIPDOC_HISTORY_DIR": null,
+      "CHSTOCKDATA_CACHE_DIR": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\cache\\r21-data",
+      "TEMP": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\temp\\r21-step4",
+      "TMP": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\temp\\r21-step4"
+    },
+    "record_file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\evidence\\r21-step4\\ta-legacy.command.json",
+    "candidate_source_only_sha256": "5a5c9097abe4703d9bd709b55d824b7d41a954b89a1f053e6fd6385e7a18516c",
+    "source_binding_basis": "source-only subset equals every prebuild frozen byte; final source stability independently rechecked"
+  },
+  {
+    "name": "ta-pip-check",
+    "argv": [
+      "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\profiles\\r21-qualified\\ta-candidate\\Scripts\\python.exe",
+      "-m",
+      "pip",
+      "check"
+    ],
+    "cwd": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\TradingAgents-AStock-Private",
+    "exit": 1,
+    "candidate_wheel_sha256": "3fd4f0b7334e310851495b8b13d4c7c55d21cde719acf9e00ff880ccb822f42e",
+    "log": "ta-pip-check.log",
+    "exit_file": "ta-pip-check.exit",
+    "command_started_at": "2026-10-12T21:39:58.429513+08:00",
+    "command_finished_at": "2026-10-12T21:39:59.928843+08:00",
+    "environment_overrides": {
+      "PYTHONPATH": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\TradingAgents-AStock-Private",
+      "PYTHONUTF8": "1",
+      "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+      "SIOS_CHSTOCKDATA_LIVE_QUALIFICATION": null,
+      "CHSTOCKDATA_VIPDOC_HISTORY_DIR": null,
+      "CHSTOCKDATA_CACHE_DIR": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\cache\\r21-data",
+      "TEMP": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\temp\\r21-step4",
+      "TMP": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\temp\\r21-step4"
+    },
+    "record_file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\evidence\\r21-step4\\ta-pip-check.command.json",
+    "candidate_source_only_sha256": "5a5c9097abe4703d9bd709b55d824b7d41a954b89a1f053e6fd6385e7a18516c",
+    "source_binding_basis": "source-only subset equals every prebuild frozen byte; final source stability independently rechecked"
+  },
+  {
+    "name": "ta-source-binding",
+    "argv": [
+      "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\profiles\\r21-qualified\\ta-candidate\\Scripts\\python.exe",
+      "-c",
+      "import tradingagents,chstockdata; from pathlib import Path; from tradingagents.dataflows import a_stock; assert Path(tradingagents.__file__).resolve().is_relative_to(Path(r'C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\TradingAgents-AStock-Private').resolve()); print(tradingagents.__file__); print(a_stock.__file__); print(chstockdata.__file__)"
+    ],
+    "cwd": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\TradingAgents-AStock-Private",
+    "exit": 0,
+    "candidate_wheel_sha256": "3fd4f0b7334e310851495b8b13d4c7c55d21cde719acf9e00ff880ccb822f42e",
+    "log": "ta-source-binding.log",
+    "exit_file": "ta-source-binding.exit",
+    "command_started_at": "2026-10-12T21:41:03.586734+08:00",
+    "command_finished_at": "2026-10-12T21:41:06.322284+08:00",
+    "environment_overrides": {
+      "PYTHONPATH": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\TradingAgents-AStock-Private",
+      "PYTHONUTF8": "1",
+      "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+      "SIOS_CHSTOCKDATA_LIVE_QUALIFICATION": null,
+      "CHSTOCKDATA_VIPDOC_HISTORY_DIR": null,
+      "CHSTOCKDATA_CACHE_DIR": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\cache\\r21-data",
+      "TEMP": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\temp\\r21-step4",
+      "TMP": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\temp\\r21-step4"
+    },
+    "record_file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\evidence\\r21-step4\\ta-source-binding.command.json",
+    "candidate_source_only_sha256": "5a5c9097abe4703d9bd709b55d824b7d41a954b89a1f053e6fd6385e7a18516c",
+    "source_binding_basis": "source-only subset equals every prebuild frozen byte; final source stability independently rechecked"
+  },
+  {
+    "name": "twine",
+    "argv": [
+      "D:\\Dev\\Projects\\chstockdata\\build\\v042-qualification\\gate\\Scripts\\python.exe",
+      "-m",
+      "twine",
+      "check",
+      "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\dist\\r21-qualified\\chstockdata-0.4.2-py3-none-any.whl",
+      "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\dist\\r21-qualified\\chstockdata-0.4.2.tar.gz"
+    ],
+    "cwd": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\chstockdata",
+    "exit": 0,
+    "candidate_wheel_sha256": "3fd4f0b7334e310851495b8b13d4c7c55d21cde719acf9e00ff880ccb822f42e",
+    "log": "twine.log",
+    "exit_file": "twine.exit",
+    "command_started_at": "2026-10-12T21:38:25.868978+08:00",
+    "command_finished_at": "2026-10-12T21:38:27.334956+08:00",
+    "environment_overrides": {
+      "PYTHONPATH": null,
+      "PYTHONUTF8": "1",
+      "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+      "SIOS_CHSTOCKDATA_LIVE_QUALIFICATION": null,
+      "CHSTOCKDATA_VIPDOC_HISTORY_DIR": null,
+      "CHSTOCKDATA_CACHE_DIR": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\cache\\r21-data",
+      "TEMP": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\temp\\r21-step4",
+      "TMP": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\temp\\r21-step4"
+    },
+    "record_file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\evidence\\r21-step4\\twine.command.json",
+    "candidate_source_only_sha256": "5a5c9097abe4703d9bd709b55d824b7d41a954b89a1f053e6fd6385e7a18516c",
+    "source_binding_basis": "source-only subset equals every prebuild frozen byte; final source stability independently rechecked"
+  },
+  {
+    "name": "version-project",
+    "argv": [
+      "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\profiles\\r21-qualified\\sios-candidate\\Scripts\\python.exe",
+      "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\chstockdata\\scripts\\check_release_version.py",
+      "--tag",
+      "v0.4.2",
+      "--project-root",
+      "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\chstockdata",
+      "--project-only"
+    ],
+    "cwd": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\chstockdata",
+    "exit": 0,
+    "candidate_wheel_sha256": "3fd4f0b7334e310851495b8b13d4c7c55d21cde719acf9e00ff880ccb822f42e",
+    "log": "version-project.log",
+    "exit_file": "version-project.exit",
+    "command_started_at": "2026-10-12T21:42:20.522248+08:00",
+    "command_finished_at": "2026-10-12T21:42:20.964176+08:00",
+    "environment_overrides": {
+      "PYTHONPATH": null,
+      "PYTHONUTF8": "1",
+      "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+      "SIOS_CHSTOCKDATA_LIVE_QUALIFICATION": null,
+      "CHSTOCKDATA_VIPDOC_HISTORY_DIR": null,
+      "CHSTOCKDATA_CACHE_DIR": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\cache\\r21-data",
+      "TEMP": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\temp\\r21-step4",
+      "TMP": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\temp\\r21-step4"
+    },
+    "record_file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\evidence\\r21-step4\\version-project.command.json",
+    "candidate_source_only_sha256": "5a5c9097abe4703d9bd709b55d824b7d41a954b89a1f053e6fd6385e7a18516c",
+    "source_binding_basis": "source-only subset equals every prebuild frozen byte; final source stability independently rechecked"
+  }
+]

@@ -1,0 +1,14 @@
+{
+  "id": "calendar-sh000001",
+  "url": "https://money.finance.sina.com.cn/quotes_service/api/json_v2.php/CN_MarketData.getKLineData",
+  "params": {
+    "symbol": "sh000001",
+    "scale": "240",
+    "ma": "no",
+    "datalen": 1023
+  },
+  "max_bytes": 5000000,
+  "registered_at": "2026-10-22T20:52:29.426978+08:00",
+  "method": "GET",
+  "retry_of": null
+}

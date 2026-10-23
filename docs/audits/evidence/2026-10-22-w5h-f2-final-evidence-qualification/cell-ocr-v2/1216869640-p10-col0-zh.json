@@ -1,0 +1,83 @@
+{
+    "id":  "1216869640",
+    "text":  "242 ， 691 ， 342 ， 204 还 5",
+    "pit_qualified":  false,
+    "engine":  "Windows.Media.Ocr existing zh-Hans-CN",
+    "maximum_image_dimension":  10000,
+    "machine_seconds":  0.023417,
+    "pixel_height":  124,
+    "image_sha256":  "7aaac19d42fdcb494a8b8f838b04644089aa1ebf5382c0acb1d8f7f2c0b23c4d",
+    "pixel_width":  578,
+    "source_sha256":  "d6fecbc0aa8be3e9a8eb2837454af517e58ab29d9f9cbd3e85ac76cf9f752fb8",
+    "physical_page":  10,
+    "lines":  [
+                  {
+                      "text":  "242 ， 691 ， 342 ， 204 还 5",
+                      "words":  [
+                                    {
+                                        "y":  41,
+                                        "height":  31,
+                                        "width":  63,
+                                        "text":  "242",
+                                        "x":  167
+                                    },
+                                    {
+                                        "y":  66,
+                                        "height":  12,
+                                        "width":  8,
+                                        "text":  "，",
+                                        "x":  233
+                                    },
+                                    {
+                                        "y":  41,
+                                        "height":  31,
+                                        "width":  60,
+                                        "text":  "691",
+                                        "x":  242
+                                    },
+                                    {
+                                        "y":  65,
+                                        "height":  13,
+                                        "width":  6,
+                                        "text":  "，",
+                                        "x":  311
+                                    },
+                                    {
+                                        "y":  41,
+                                        "height":  31,
+                                        "width":  65,
+                                        "text":  "342",
+                                        "x":  321
+                                    },
+                                    {
+                                        "y":  66,
+                                        "height":  12,
+                                        "width":  8,
+                                        "text":  "，",
+                                        "x":  389
+                                    },
+                                    {
+                                        "y":  41,
+                                        "height":  31,
+                                        "width":  63,
+                                        "text":  "204",
+                                        "x":  401
+                                    },
+                                    {
+                                        "y":  41,
+                                        "height":  31,
+                                        "width":  31,
+                                        "text":  "还",
+                                        "x":  467
+                                    },
+                                    {
+                                        "y":  42,
+                                        "height":  30,
+                                        "width":  21,
+                                        "text":  "5",
+                                        "x":  501
+                                    }
+                                ]
+                  }
+              ]
+}

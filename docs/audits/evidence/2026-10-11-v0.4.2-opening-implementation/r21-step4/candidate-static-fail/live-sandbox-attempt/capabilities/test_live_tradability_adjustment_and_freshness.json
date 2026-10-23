@@ -1,0 +1,2341 @@
+{
+  "test": "test_live_tradability_adjustment_and_freshness",
+  "outcomes": [
+    {
+      "instrument_id": "XSHG:510300",
+      "capability": "LEGACY_PIT_FAIL_CLOSED",
+      "started_at": "2026-10-12T21:32:16.888151+08:00",
+      "finished_at": "2026-10-12T21:32:18.275522+08:00",
+      "status": "FAIL",
+      "error": {
+        "type": "AssertionError",
+        "message": ""
+      },
+      "error_locations": [
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\live_qualification.py",
+          "line": 70,
+          "function": "check"
+        },
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\test_chstockdata_etf_gate.py",
+          "line": 277,
+          "function": "<lambda>"
+        },
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\live_qualification.py",
+          "line": 106,
+          "function": "historical_gap"
+        }
+      ]
+    },
+    {
+      "instrument_id": "XSHG:510300",
+      "capability": "HISTORICAL_OPENING_R21",
+      "started_at": "2026-10-12T21:32:18.275522+08:00",
+      "finished_at": "2026-10-12T21:32:18.354064+08:00",
+      "status": "FAIL",
+      "error": {
+        "type": "AssertionError",
+        "message": ""
+      },
+      "error_locations": [
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\live_qualification.py",
+          "line": 70,
+          "function": "check"
+        },
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\test_chstockdata_etf_gate.py",
+          "line": 279,
+          "function": "<lambda>"
+        },
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\live_qualification.py",
+          "line": 126,
+          "function": "opening_fact"
+        }
+      ]
+    },
+    {
+      "instrument_id": "XSHG:510300",
+      "capability": "ADJUSTMENT_ACTIONS",
+      "started_at": "2026-10-12T21:32:18.354064+08:00",
+      "finished_at": "2026-10-12T21:32:21.273552+08:00",
+      "status": "FAIL",
+      "error": {
+        "type": "AssertionError",
+        "message": "ProviderFailure(error_code=<ProviderErrorCode.UNAVAILABLE_OR_RATE_LIMITED: 'UNAVAILABLE_OR_RATE_LIMITED'>, message='vendor corporate actions unavailable: status=failed, coverage=unavailable: 基金分红来源请求失败：_EastmoneyDataUnavailable', evidence=None, cause=ChStockDataUnavailableError('vendor corporate actions unavailable: status=failed, coverage=unavailable: 基金分红来源请求失败：_EastmoneyDataUnavailable'))"
+      },
+      "error_locations": [
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\live_qualification.py",
+          "line": 70,
+          "function": "check"
+        },
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\test_chstockdata_etf_gate.py",
+          "line": 281,
+          "function": "<lambda>"
+        },
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\live_qualification.py",
+          "line": 94,
+          "function": "require_success"
+        }
+      ]
+    },
+    {
+      "instrument_id": "XSHG:510300",
+      "capability": "RAW_AVAILABILITY",
+      "started_at": "2026-10-12T21:32:21.273552+08:00",
+      "finished_at": "2026-10-12T21:32:21.310744+08:00",
+      "status": "PASS",
+      "result": {
+        "records": [
+          {
+            "schema_version": "v1",
+            "instrument_id": {
+              "exchange": "XSHG",
+              "symbol": "510300"
+            },
+            "session_date": "2026-09-08",
+            "open": "4.638",
+            "high": "4.657",
+            "low": "4.61",
+            "close": "4.624",
+            "pre_close": "4.634",
+            "volume": "612512220",
+            "amount": "2838526720.0",
+            "currency": "CNY",
+            "volume_unit": "SHARE",
+            "amount_unit": "CNY",
+            "adjustment_mode": "RAW",
+            "adjustment_factor": null,
+            "availability": {
+              "information_available_at": "2026-09-08 15:00:00+08:00",
+              "retrieved_at": "2026-10-12 21:32:21.273552+08:00",
+              "availability_basis": "EXCHANGE_RULE"
+            },
+            "provider_evidence_id": "chstockdata:daily_bars:f936cc6abcd54af4:42df920779c5b6a8"
+          },
+          {
+            "schema_version": "v1",
+            "instrument_id": {
+              "exchange": "XSHG",
+              "symbol": "510300"
+            },
+            "session_date": "2026-09-09",
+            "open": "4.638",
+            "high": "4.648",
+            "low": "4.613",
+            "close": "4.637",
+            "pre_close": "4.624",
+            "volume": "573288654",
+            "amount": "2656716800.0",
+            "currency": "CNY",
+            "volume_unit": "SHARE",
+            "amount_unit": "CNY",
+            "adjustment_mode": "RAW",
+            "adjustment_factor": null,
+            "availability": {
+              "information_available_at": "2026-09-09 15:00:00+08:00",
+              "retrieved_at": "2026-10-12 21:32:21.273552+08:00",
+              "availability_basis": "EXCHANGE_RULE"
+            },
+            "provider_evidence_id": "chstockdata:daily_bars:f936cc6abcd54af4:42df920779c5b6a8"
+          },
+          {
+            "schema_version": "v1",
+            "instrument_id": {
+              "exchange": "XSHG",
+              "symbol": "510300"
+            },
+            "session_date": "2026-09-10",
+            "open": "4.617",
+            "high": "4.64",
+            "low": "4.599",
+            "close": "4.617",
+            "pre_close": "4.637",
+            "volume": "438854072",
+            "amount": "2026289536.0",
+            "currency": "CNY",
+            "volume_unit": "SHARE",
+            "amount_unit": "CNY",
+            "adjustment_mode": "RAW",
+            "adjustment_factor": null,
+            "availability": {
+              "information_available_at": "2026-09-10 15:00:00+08:00",
+              "retrieved_at": "2026-10-12 21:32:21.273552+08:00",
+              "availability_basis": "EXCHANGE_RULE"
+            },
+            "provider_evidence_id": "chstockdata:daily_bars:f936cc6abcd54af4:42df920779c5b6a8"
+          },
+          {
+            "schema_version": "v1",
+            "instrument_id": {
+              "exchange": "XSHG",
+              "symbol": "510300"
+            },
+            "session_date": "2026-09-11",
+            "open": "4.592",
+            "high": "4.592",
+            "low": "4.532",
+            "close": "4.579",
+            "pre_close": "4.617",
+            "volume": "966665182",
+            "amount": "4409406976.0",
+            "currency": "CNY",
+            "volume_unit": "SHARE",
+            "amount_unit": "CNY",
+            "adjustment_mode": "RAW",
+            "adjustment_factor": null,
+            "availability": {
+              "information_available_at": "2026-09-11 15:00:00+08:00",
+              "retrieved_at": "2026-10-12 21:32:21.273552+08:00",
+              "availability_basis": "EXCHANGE_RULE"
+            },
+            "provider_evidence_id": "chstockdata:daily_bars:f936cc6abcd54af4:42df920779c5b6a8"
+          }
+        ],
+        "evidence": {
+          "evidence_id": "chstockdata:daily_bars:f936cc6abcd54af4:42df920779c5b6a8",
+          "provider_name": "chstockdata",
+          "provider_version": "0.4.2",
+          "adapter_name": "chstockdata-provider",
+          "adapter_version": "0.1.0",
+          "capability": "daily_bars",
+          "request_digest": "sha256:f936cc6abcd54af4e6e1d64a2ae8adaa7efb04cfb20fb64bbcd7746a7efa4813",
+          "retrieved_at": "2026-10-12 21:32:21.273552+08:00",
+          "upstream_source": "chstockdata.load_vipdoc_daily (local TDX .day package)",
+          "record_count": 4,
+          "payload_checksum": "sha256:42df920779c5b6a80d70f5ecd605deba629f106e73fc062427f382d2b9144138",
+          "warnings": []
+        }
+      }
+    },
+    {
+      "instrument_id": "XSHG:510300",
+      "capability": "EXECUTION_CALENDAR",
+      "started_at": "2026-10-12T21:32:21.310744+08:00",
+      "finished_at": "2026-10-12T21:32:21.315756+08:00",
+      "status": "PASS",
+      "result": {
+        "records": [
+          {
+            "calendar_id": "XSHG",
+            "session_date": "2026-09-08",
+            "is_open": true,
+            "note": null,
+            "snapshot_version": "cal-4b13403f541da265"
+          },
+          {
+            "calendar_id": "XSHG",
+            "session_date": "2026-09-09",
+            "is_open": true,
+            "note": null,
+            "snapshot_version": "cal-4b13403f541da265"
+          },
+          {
+            "calendar_id": "XSHG",
+            "session_date": "2026-09-10",
+            "is_open": true,
+            "note": null,
+            "snapshot_version": "cal-4b13403f541da265"
+          },
+          {
+            "calendar_id": "XSHG",
+            "session_date": "2026-09-11",
+            "is_open": true,
+            "note": null,
+            "snapshot_version": "cal-4b13403f541da265"
+          },
+          {
+            "calendar_id": "XSHG",
+            "session_date": "2026-09-12",
+            "is_open": false,
+            "note": "inferred closed: absent from the vendor open-session list",
+            "snapshot_version": "cal-4b13403f541da265"
+          },
+          {
+            "calendar_id": "XSHG",
+            "session_date": "2026-09-13",
+            "is_open": false,
+            "note": "inferred closed: absent from the vendor open-session list",
+            "snapshot_version": "cal-4b13403f541da265"
+          },
+          {
+            "calendar_id": "XSHG",
+            "session_date": "2026-09-14",
+            "is_open": true,
+            "note": null,
+            "snapshot_version": "cal-4b13403f541da265"
+          }
+        ],
+        "evidence": {
+          "evidence_id": "chstockdata:trading_calendar:912fce8a39b0a9ce:4b13403f541da265",
+          "provider_name": "chstockdata",
+          "provider_version": "0.4.2",
+          "adapter_name": "chstockdata-provider",
+          "adapter_version": "0.1.0",
+          "capability": "trading_calendar",
+          "request_digest": "sha256:912fce8a39b0a9ce5e93da2a4acb28645cfface40724617246469927711a7084",
+          "retrieved_at": "2026-10-12 21:32:21.310744+08:00",
+          "upstream_source": "chstockdata.load_trading_calendar (sina_sh000001)",
+          "record_count": 7,
+          "payload_checksum": "sha256:4b13403f541da2650f1a51d636980371c108da1978b54aa5ce124d8214d3d1c8",
+          "warnings": []
+        }
+      }
+    },
+    {
+      "instrument_id": "XSHG:510300",
+      "capability": "FRESHNESS_STALE_MISSING",
+      "started_at": "2026-10-12T21:32:21.315756+08:00",
+      "finished_at": "2026-10-12T21:32:21.329763+08:00",
+      "status": "PASS",
+      "result": {
+        "fresh": {
+          "gate_name": "DATA_QUALITY_GATE",
+          "gate_version": "m0-quality-gate-1",
+          "purpose": "DECISION",
+          "status": "PASS",
+          "action": "PROCEED",
+          "evaluated_at": "2026-10-12 21:32:21.328764+08:00",
+          "checks": [],
+          "reason_codes": [],
+          "input_digests": {
+            "object_type": "mappingproxy"
+          }
+        },
+        "stale_control": {
+          "gate_name": "DATA_QUALITY_GATE",
+          "gate_version": "m0-quality-gate-1",
+          "purpose": "DECISION",
+          "status": "FAIL",
+          "action": "BLOCK_NEW_TARGET",
+          "evaluated_at": "2026-10-12 21:32:21.329763+08:00",
+          "checks": [
+            {
+              "check_id": "FRESHNESS",
+              "status": "FAIL",
+              "severity": "BLOCKING",
+              "reason_code": "STALE_INFORMATION",
+              "affected_scope": [
+                "XSHG:510300"
+              ],
+              "observed": "latest knowable session 2026-09-10; information age 1 open session(s)",
+              "expected": "information age at most 0 open session(s)",
+              "evidence_ids": []
+            }
+          ],
+          "reason_codes": [
+            "STALE_INFORMATION"
+          ],
+          "input_digests": {
+            "object_type": "mappingproxy"
+          }
+        },
+        "missing_control": {
+          "gate_name": "DATA_QUALITY_GATE",
+          "gate_version": "m0-quality-gate-1",
+          "purpose": "DECISION",
+          "status": "FAIL",
+          "action": "BLOCK_NEW_TARGET",
+          "evaluated_at": "2026-10-12 21:32:21.329763+08:00",
+          "checks": [
+            {
+              "check_id": "REQUIRED_FIELDS",
+              "status": "FAIL",
+              "severity": "BLOCKING",
+              "reason_code": "MISSING_REQUIRED_FIELD",
+              "affected_scope": [
+                "XSHG:510300",
+                "2026-09-08"
+              ],
+              "observed": "pre_close=None",
+              "expected": "pre_close present; missing values are never converted to zero",
+              "evidence_ids": []
+            },
+            {
+              "check_id": "REQUIRED_FIELDS",
+              "status": "FAIL",
+              "severity": "BLOCKING",
+              "reason_code": "MISSING_REQUIRED_FIELD",
+              "affected_scope": [
+                "XSHG:510300",
+                "2026-09-09"
+              ],
+              "observed": "pre_close=None",
+              "expected": "pre_close present; missing values are never converted to zero",
+              "evidence_ids": []
+            },
+            {
+              "check_id": "REQUIRED_FIELDS",
+              "status": "FAIL",
+              "severity": "BLOCKING",
+              "reason_code": "MISSING_REQUIRED_FIELD",
+              "affected_scope": [
+                "XSHG:510300",
+                "2026-09-10"
+              ],
+              "observed": "pre_close=None",
+              "expected": "pre_close present; missing values are never converted to zero",
+              "evidence_ids": []
+            },
+            {
+              "check_id": "REQUIRED_FIELDS",
+              "status": "FAIL",
+              "severity": "BLOCKING",
+              "reason_code": "MISSING_REQUIRED_FIELD",
+              "affected_scope": [
+                "XSHG:510300",
+                "2026-09-11"
+              ],
+              "observed": "pre_close=None",
+              "expected": "pre_close present; missing values are never converted to zero",
+              "evidence_ids": []
+            }
+          ],
+          "reason_codes": [
+            "MISSING_REQUIRED_FIELD"
+          ],
+          "input_digests": {
+            "object_type": "mappingproxy"
+          }
+        }
+      }
+    },
+    {
+      "instrument_id": "XSHG:510300",
+      "capability": "SNAPSHOT_ENGINE_RAW_FILL_IDENTITY",
+      "started_at": "2026-10-12T21:32:21.329763+08:00",
+      "finished_at": "2026-10-12T21:32:21.400964+08:00",
+      "status": "FAIL",
+      "error": {
+        "type": "AssertionError",
+        "message": "None"
+      },
+      "error_locations": [
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\live_qualification.py",
+          "line": 70,
+          "function": "check"
+        },
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\test_chstockdata_etf_gate.py",
+          "line": 289,
+          "function": "<lambda>"
+        },
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\live_qualification.py",
+          "line": 196,
+          "function": "execution_proof"
+        },
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\live_qualification.py",
+          "line": 94,
+          "function": "require_success"
+        }
+      ]
+    },
+    {
+      "instrument_id": "XSHE:159915",
+      "capability": "LEGACY_PIT_FAIL_CLOSED",
+      "started_at": "2026-10-12T21:32:21.400964+08:00",
+      "finished_at": "2026-10-12T21:32:21.402938+08:00",
+      "status": "FAIL",
+      "error": {
+        "type": "AssertionError",
+        "message": ""
+      },
+      "error_locations": [
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\live_qualification.py",
+          "line": 70,
+          "function": "check"
+        },
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\test_chstockdata_etf_gate.py",
+          "line": 277,
+          "function": "<lambda>"
+        },
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\live_qualification.py",
+          "line": 106,
+          "function": "historical_gap"
+        }
+      ]
+    },
+    {
+      "instrument_id": "XSHE:159915",
+      "capability": "HISTORICAL_OPENING_R21",
+      "started_at": "2026-10-12T21:32:21.402938+08:00",
+      "finished_at": "2026-10-12T21:32:21.463609+08:00",
+      "status": "FAIL",
+      "error": {
+        "type": "AssertionError",
+        "message": ""
+      },
+      "error_locations": [
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\live_qualification.py",
+          "line": 70,
+          "function": "check"
+        },
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\test_chstockdata_etf_gate.py",
+          "line": 279,
+          "function": "<lambda>"
+        },
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\live_qualification.py",
+          "line": 126,
+          "function": "opening_fact"
+        }
+      ]
+    },
+    {
+      "instrument_id": "XSHE:159915",
+      "capability": "ADJUSTMENT_ACTIONS",
+      "started_at": "2026-10-12T21:32:21.463609+08:00",
+      "finished_at": "2026-10-12T21:32:23.979574+08:00",
+      "status": "FAIL",
+      "error": {
+        "type": "AssertionError",
+        "message": "ProviderFailure(error_code=<ProviderErrorCode.UNAVAILABLE_OR_RATE_LIMITED: 'UNAVAILABLE_OR_RATE_LIMITED'>, message='vendor corporate actions unavailable: status=failed, coverage=unavailable: 基金分红来源请求失败：_EastmoneyDataUnavailable', evidence=None, cause=ChStockDataUnavailableError('vendor corporate actions unavailable: status=failed, coverage=unavailable: 基金分红来源请求失败：_EastmoneyDataUnavailable'))"
+      },
+      "error_locations": [
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\live_qualification.py",
+          "line": 70,
+          "function": "check"
+        },
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\test_chstockdata_etf_gate.py",
+          "line": 281,
+          "function": "<lambda>"
+        },
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\live_qualification.py",
+          "line": 94,
+          "function": "require_success"
+        }
+      ]
+    },
+    {
+      "instrument_id": "XSHE:159915",
+      "capability": "RAW_AVAILABILITY",
+      "started_at": "2026-10-12T21:32:23.979574+08:00",
+      "finished_at": "2026-10-12T21:32:24.024583+08:00",
+      "status": "PASS",
+      "result": {
+        "records": [
+          {
+            "schema_version": "v1",
+            "instrument_id": {
+              "exchange": "XSHE",
+              "symbol": "159915"
+            },
+            "session_date": "2026-09-08",
+            "open": "3.413",
+            "high": "3.436",
+            "low": "3.365",
+            "close": "3.376",
+            "pre_close": "3.414",
+            "volume": "1604818947",
+            "amount": "5455069696.0",
+            "currency": "CNY",
+            "volume_unit": "SHARE",
+            "amount_unit": "CNY",
+            "adjustment_mode": "RAW",
+            "adjustment_factor": null,
+            "availability": {
+              "information_available_at": "2026-09-08 15:00:00+08:00",
+              "retrieved_at": "2026-10-12 21:32:23.979574+08:00",
+              "availability_basis": "EXCHANGE_RULE"
+            },
+            "provider_evidence_id": "chstockdata:daily_bars:da738faa64de2a51:77b26077ef1e6c42"
+          },
+          {
+            "schema_version": "v1",
+            "instrument_id": {
+              "exchange": "XSHE",
+              "symbol": "159915"
+            },
+            "session_date": "2026-09-09",
+            "open": "3.41",
+            "high": "3.415",
+            "low": "3.346",
+            "close": "3.373",
+            "pre_close": "3.376",
+            "volume": "1098044295",
+            "amount": "3711044352.0",
+            "currency": "CNY",
+            "volume_unit": "SHARE",
+            "amount_unit": "CNY",
+            "adjustment_mode": "RAW",
+            "adjustment_factor": null,
+            "availability": {
+              "information_available_at": "2026-09-09 15:00:00+08:00",
+              "retrieved_at": "2026-10-12 21:32:23.979574+08:00",
+              "availability_basis": "EXCHANGE_RULE"
+            },
+            "provider_evidence_id": "chstockdata:daily_bars:da738faa64de2a51:77b26077ef1e6c42"
+          },
+          {
+            "schema_version": "v1",
+            "instrument_id": {
+              "exchange": "XSHE",
+              "symbol": "159915"
+            },
+            "session_date": "2026-09-10",
+            "open": "3.345",
+            "high": "3.387",
+            "low": "3.325",
+            "close": "3.358",
+            "pre_close": "3.373",
+            "volume": "1110436051",
+            "amount": "3730622976.0",
+            "currency": "CNY",
+            "volume_unit": "SHARE",
+            "amount_unit": "CNY",
+            "adjustment_mode": "RAW",
+            "adjustment_factor": null,
+            "availability": {
+              "information_available_at": "2026-09-10 15:00:00+08:00",
+              "retrieved_at": "2026-10-12 21:32:23.979574+08:00",
+              "availability_basis": "EXCHANGE_RULE"
+            },
+            "provider_evidence_id": "chstockdata:daily_bars:da738faa64de2a51:77b26077ef1e6c42"
+          },
+          {
+            "schema_version": "v1",
+            "instrument_id": {
+              "exchange": "XSHE",
+              "symbol": "159915"
+            },
+            "session_date": "2026-09-11",
+            "open": "3.323",
+            "high": "3.354",
+            "low": "3.28",
+            "close": "3.341",
+            "pre_close": "3.358",
+            "volume": "1905297197",
+            "amount": "6320258048.0",
+            "currency": "CNY",
+            "volume_unit": "SHARE",
+            "amount_unit": "CNY",
+            "adjustment_mode": "RAW",
+            "adjustment_factor": null,
+            "availability": {
+              "information_available_at": "2026-09-11 15:00:00+08:00",
+              "retrieved_at": "2026-10-12 21:32:23.979574+08:00",
+              "availability_basis": "EXCHANGE_RULE"
+            },
+            "provider_evidence_id": "chstockdata:daily_bars:da738faa64de2a51:77b26077ef1e6c42"
+          }
+        ],
+        "evidence": {
+          "evidence_id": "chstockdata:daily_bars:da738faa64de2a51:77b26077ef1e6c42",
+          "provider_name": "chstockdata",
+          "provider_version": "0.4.2",
+          "adapter_name": "chstockdata-provider",
+          "adapter_version": "0.1.0",
+          "capability": "daily_bars",
+          "request_digest": "sha256:da738faa64de2a517b11ae37c92a53028405c21dae5bff8e5429505fc3d5dbbf",
+          "retrieved_at": "2026-10-12 21:32:23.979574+08:00",
+          "upstream_source": "chstockdata.load_vipdoc_daily (local TDX .day package)",
+          "record_count": 4,
+          "payload_checksum": "sha256:77b26077ef1e6c425a5e167ebdf46deabf3d2f7ab990940883a97bdbf986c892",
+          "warnings": []
+        }
+      }
+    },
+    {
+      "instrument_id": "XSHE:159915",
+      "capability": "EXECUTION_CALENDAR",
+      "started_at": "2026-10-12T21:32:24.024583+08:00",
+      "finished_at": "2026-10-12T21:32:24.029619+08:00",
+      "status": "PASS",
+      "result": {
+        "records": [
+          {
+            "calendar_id": "XSHE",
+            "session_date": "2026-09-08",
+            "is_open": true,
+            "note": null,
+            "snapshot_version": "cal-4b13403f541da265"
+          },
+          {
+            "calendar_id": "XSHE",
+            "session_date": "2026-09-09",
+            "is_open": true,
+            "note": null,
+            "snapshot_version": "cal-4b13403f541da265"
+          },
+          {
+            "calendar_id": "XSHE",
+            "session_date": "2026-09-10",
+            "is_open": true,
+            "note": null,
+            "snapshot_version": "cal-4b13403f541da265"
+          },
+          {
+            "calendar_id": "XSHE",
+            "session_date": "2026-09-11",
+            "is_open": true,
+            "note": null,
+            "snapshot_version": "cal-4b13403f541da265"
+          },
+          {
+            "calendar_id": "XSHE",
+            "session_date": "2026-09-12",
+            "is_open": false,
+            "note": "inferred closed: absent from the vendor open-session list",
+            "snapshot_version": "cal-4b13403f541da265"
+          },
+          {
+            "calendar_id": "XSHE",
+            "session_date": "2026-09-13",
+            "is_open": false,
+            "note": "inferred closed: absent from the vendor open-session list",
+            "snapshot_version": "cal-4b13403f541da265"
+          },
+          {
+            "calendar_id": "XSHE",
+            "session_date": "2026-09-14",
+            "is_open": true,
+            "note": null,
+            "snapshot_version": "cal-4b13403f541da265"
+          }
+        ],
+        "evidence": {
+          "evidence_id": "chstockdata:trading_calendar:7d0cd385715fb3e1:4b13403f541da265",
+          "provider_name": "chstockdata",
+          "provider_version": "0.4.2",
+          "adapter_name": "chstockdata-provider",
+          "adapter_version": "0.1.0",
+          "capability": "trading_calendar",
+          "request_digest": "sha256:7d0cd385715fb3e1570e4bbd9559e3a7407fa4333f6a937aecb0942e6975a1c6",
+          "retrieved_at": "2026-10-12 21:32:24.024583+08:00",
+          "upstream_source": "chstockdata.load_trading_calendar (sina_sh000001)",
+          "record_count": 7,
+          "payload_checksum": "sha256:4b13403f541da2650f1a51d636980371c108da1978b54aa5ce124d8214d3d1c8",
+          "warnings": []
+        }
+      }
+    },
+    {
+      "instrument_id": "XSHE:159915",
+      "capability": "FRESHNESS_STALE_MISSING",
+      "started_at": "2026-10-12T21:32:24.029619+08:00",
+      "finished_at": "2026-10-12T21:32:24.030613+08:00",
+      "status": "PASS",
+      "result": {
+        "fresh": {
+          "gate_name": "DATA_QUALITY_GATE",
+          "gate_version": "m0-quality-gate-1",
+          "purpose": "DECISION",
+          "status": "PASS",
+          "action": "PROCEED",
+          "evaluated_at": "2026-10-12 21:32:24.029619+08:00",
+          "checks": [],
+          "reason_codes": [],
+          "input_digests": {
+            "object_type": "mappingproxy"
+          }
+        },
+        "stale_control": {
+          "gate_name": "DATA_QUALITY_GATE",
+          "gate_version": "m0-quality-gate-1",
+          "purpose": "DECISION",
+          "status": "FAIL",
+          "action": "BLOCK_NEW_TARGET",
+          "evaluated_at": "2026-10-12 21:32:24.030613+08:00",
+          "checks": [
+            {
+              "check_id": "FRESHNESS",
+              "status": "FAIL",
+              "severity": "BLOCKING",
+              "reason_code": "STALE_INFORMATION",
+              "affected_scope": [
+                "XSHE:159915"
+              ],
+              "observed": "latest knowable session 2026-09-10; information age 1 open session(s)",
+              "expected": "information age at most 0 open session(s)",
+              "evidence_ids": []
+            }
+          ],
+          "reason_codes": [
+            "STALE_INFORMATION"
+          ],
+          "input_digests": {
+            "object_type": "mappingproxy"
+          }
+        },
+        "missing_control": {
+          "gate_name": "DATA_QUALITY_GATE",
+          "gate_version": "m0-quality-gate-1",
+          "purpose": "DECISION",
+          "status": "FAIL",
+          "action": "BLOCK_NEW_TARGET",
+          "evaluated_at": "2026-10-12 21:32:24.030613+08:00",
+          "checks": [
+            {
+              "check_id": "REQUIRED_FIELDS",
+              "status": "FAIL",
+              "severity": "BLOCKING",
+              "reason_code": "MISSING_REQUIRED_FIELD",
+              "affected_scope": [
+                "XSHE:159915",
+                "2026-09-08"
+              ],
+              "observed": "pre_close=None",
+              "expected": "pre_close present; missing values are never converted to zero",
+              "evidence_ids": []
+            },
+            {
+              "check_id": "REQUIRED_FIELDS",
+              "status": "FAIL",
+              "severity": "BLOCKING",
+              "reason_code": "MISSING_REQUIRED_FIELD",
+              "affected_scope": [
+                "XSHE:159915",
+                "2026-09-09"
+              ],
+              "observed": "pre_close=None",
+              "expected": "pre_close present; missing values are never converted to zero",
+              "evidence_ids": []
+            },
+            {
+              "check_id": "REQUIRED_FIELDS",
+              "status": "FAIL",
+              "severity": "BLOCKING",
+              "reason_code": "MISSING_REQUIRED_FIELD",
+              "affected_scope": [
+                "XSHE:159915",
+                "2026-09-10"
+              ],
+              "observed": "pre_close=None",
+              "expected": "pre_close present; missing values are never converted to zero",
+              "evidence_ids": []
+            },
+            {
+              "check_id": "REQUIRED_FIELDS",
+              "status": "FAIL",
+              "severity": "BLOCKING",
+              "reason_code": "MISSING_REQUIRED_FIELD",
+              "affected_scope": [
+                "XSHE:159915",
+                "2026-09-11"
+              ],
+              "observed": "pre_close=None",
+              "expected": "pre_close present; missing values are never converted to zero",
+              "evidence_ids": []
+            }
+          ],
+          "reason_codes": [
+            "MISSING_REQUIRED_FIELD"
+          ],
+          "input_digests": {
+            "object_type": "mappingproxy"
+          }
+        }
+      }
+    },
+    {
+      "instrument_id": "XSHE:159915",
+      "capability": "SNAPSHOT_ENGINE_RAW_FILL_IDENTITY",
+      "started_at": "2026-10-12T21:32:24.030613+08:00",
+      "finished_at": "2026-10-12T21:32:24.030613+08:00",
+      "status": "FAIL",
+      "error": {
+        "type": "AssertionError",
+        "message": "None"
+      },
+      "error_locations": [
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\live_qualification.py",
+          "line": 70,
+          "function": "check"
+        },
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\test_chstockdata_etf_gate.py",
+          "line": 289,
+          "function": "<lambda>"
+        },
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\live_qualification.py",
+          "line": 196,
+          "function": "execution_proof"
+        },
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\live_qualification.py",
+          "line": 94,
+          "function": "require_success"
+        }
+      ]
+    },
+    {
+      "instrument_id": "XSHG:518880",
+      "capability": "LEGACY_PIT_FAIL_CLOSED",
+      "started_at": "2026-10-12T21:32:24.030613+08:00",
+      "finished_at": "2026-10-12T21:32:24.033608+08:00",
+      "status": "FAIL",
+      "error": {
+        "type": "AssertionError",
+        "message": ""
+      },
+      "error_locations": [
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\live_qualification.py",
+          "line": 70,
+          "function": "check"
+        },
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\test_chstockdata_etf_gate.py",
+          "line": 277,
+          "function": "<lambda>"
+        },
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\live_qualification.py",
+          "line": 106,
+          "function": "historical_gap"
+        }
+      ]
+    },
+    {
+      "instrument_id": "XSHG:518880",
+      "capability": "HISTORICAL_OPENING_R21",
+      "started_at": "2026-10-12T21:32:24.033608+08:00",
+      "finished_at": "2026-10-12T21:32:24.091795+08:00",
+      "status": "FAIL",
+      "error": {
+        "type": "AssertionError",
+        "message": ""
+      },
+      "error_locations": [
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\live_qualification.py",
+          "line": 70,
+          "function": "check"
+        },
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\test_chstockdata_etf_gate.py",
+          "line": 279,
+          "function": "<lambda>"
+        },
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\live_qualification.py",
+          "line": 126,
+          "function": "opening_fact"
+        }
+      ]
+    },
+    {
+      "instrument_id": "XSHG:518880",
+      "capability": "ADJUSTMENT_ACTIONS",
+      "started_at": "2026-10-12T21:32:24.091795+08:00",
+      "finished_at": "2026-10-12T21:32:26.880472+08:00",
+      "status": "FAIL",
+      "error": {
+        "type": "AssertionError",
+        "message": "ProviderFailure(error_code=<ProviderErrorCode.UNAVAILABLE_OR_RATE_LIMITED: 'UNAVAILABLE_OR_RATE_LIMITED'>, message='vendor corporate actions unavailable: status=failed, coverage=unavailable: 基金分红来源请求失败：_EastmoneyDataUnavailable', evidence=None, cause=ChStockDataUnavailableError('vendor corporate actions unavailable: status=failed, coverage=unavailable: 基金分红来源请求失败：_EastmoneyDataUnavailable'))"
+      },
+      "error_locations": [
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\live_qualification.py",
+          "line": 70,
+          "function": "check"
+        },
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\test_chstockdata_etf_gate.py",
+          "line": 281,
+          "function": "<lambda>"
+        },
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\live_qualification.py",
+          "line": 94,
+          "function": "require_success"
+        }
+      ]
+    },
+    {
+      "instrument_id": "XSHG:518880",
+      "capability": "RAW_AVAILABILITY",
+      "started_at": "2026-10-12T21:32:26.880472+08:00",
+      "finished_at": "2026-10-12T21:32:26.917004+08:00",
+      "status": "PASS",
+      "result": {
+        "records": [
+          {
+            "schema_version": "v1",
+            "instrument_id": {
+              "exchange": "XSHG",
+              "symbol": "518880"
+            },
+            "session_date": "2026-09-08",
+            "open": "9.102",
+            "high": "9.123",
+            "low": "9.039",
+            "close": "9.047",
+            "pre_close": "9.024",
+            "volume": "414397829",
+            "amount": "3766204928.0",
+            "currency": "CNY",
+            "volume_unit": "SHARE",
+            "amount_unit": "CNY",
+            "adjustment_mode": "RAW",
+            "adjustment_factor": null,
+            "availability": {
+              "information_available_at": "2026-09-08 15:00:00+08:00",
+              "retrieved_at": "2026-10-12 21:32:26.880472+08:00",
+              "availability_basis": "EXCHANGE_RULE"
+            },
+            "provider_evidence_id": "chstockdata:daily_bars:d262b114a465962e:21facc97f868f25b"
+          },
+          {
+            "schema_version": "v1",
+            "instrument_id": {
+              "exchange": "XSHG",
+              "symbol": "518880"
+            },
+            "session_date": "2026-09-09",
+            "open": "8.97",
+            "high": "9.052",
+            "low": "8.97",
+            "close": "9.041",
+            "pre_close": "9.047",
+            "volume": "448699652",
+            "amount": "4042974976.0",
+            "currency": "CNY",
+            "volume_unit": "SHARE",
+            "amount_unit": "CNY",
+            "adjustment_mode": "RAW",
+            "adjustment_factor": null,
+            "availability": {
+              "information_available_at": "2026-09-09 15:00:00+08:00",
+              "retrieved_at": "2026-10-12 21:32:26.880472+08:00",
+              "availability_basis": "EXCHANGE_RULE"
+            },
+            "provider_evidence_id": "chstockdata:daily_bars:d262b114a465962e:21facc97f868f25b"
+          },
+          {
+            "schema_version": "v1",
+            "instrument_id": {
+              "exchange": "XSHG",
+              "symbol": "518880"
+            },
+            "session_date": "2026-09-10",
+            "open": "9.06",
+            "high": "9.105",
+            "low": "9.051",
+            "close": "9.083",
+            "pre_close": "9.041",
+            "volume": "441013607",
+            "amount": "4001856256.0",
+            "currency": "CNY",
+            "volume_unit": "SHARE",
+            "amount_unit": "CNY",
+            "adjustment_mode": "RAW",
+            "adjustment_factor": null,
+            "availability": {
+              "information_available_at": "2026-09-10 15:00:00+08:00",
+              "retrieved_at": "2026-10-12 21:32:26.880472+08:00",
+              "availability_basis": "EXCHANGE_RULE"
+            },
+            "provider_evidence_id": "chstockdata:daily_bars:d262b114a465962e:21facc97f868f25b"
+          },
+          {
+            "schema_version": "v1",
+            "instrument_id": {
+              "exchange": "XSHG",
+              "symbol": "518880"
+            },
+            "session_date": "2026-09-11",
+            "open": "8.895",
+            "high": "8.963",
+            "low": "8.852",
+            "close": "8.943",
+            "pre_close": "9.083",
+            "volume": "617832329",
+            "amount": "5504843776.0",
+            "currency": "CNY",
+            "volume_unit": "SHARE",
+            "amount_unit": "CNY",
+            "adjustment_mode": "RAW",
+            "adjustment_factor": null,
+            "availability": {
+              "information_available_at": "2026-09-11 15:00:00+08:00",
+              "retrieved_at": "2026-10-12 21:32:26.880472+08:00",
+              "availability_basis": "EXCHANGE_RULE"
+            },
+            "provider_evidence_id": "chstockdata:daily_bars:d262b114a465962e:21facc97f868f25b"
+          }
+        ],
+        "evidence": {
+          "evidence_id": "chstockdata:daily_bars:d262b114a465962e:21facc97f868f25b",
+          "provider_name": "chstockdata",
+          "provider_version": "0.4.2",
+          "adapter_name": "chstockdata-provider",
+          "adapter_version": "0.1.0",
+          "capability": "daily_bars",
+          "request_digest": "sha256:d262b114a465962ef92635f369c2e728f3514fb0c74b3ec75ee028d358ea4497",
+          "retrieved_at": "2026-10-12 21:32:26.880472+08:00",
+          "upstream_source": "chstockdata.load_vipdoc_daily (local TDX .day package)",
+          "record_count": 4,
+          "payload_checksum": "sha256:21facc97f868f25b3b9fb4b6558210e7521fe108b2c92bc6dbc0f9221d622f22",
+          "warnings": []
+        }
+      }
+    },
+    {
+      "instrument_id": "XSHG:518880",
+      "capability": "EXECUTION_CALENDAR",
+      "started_at": "2026-10-12T21:32:26.917004+08:00",
+      "finished_at": "2026-10-12T21:32:26.923565+08:00",
+      "status": "PASS",
+      "result": {
+        "records": [
+          {
+            "calendar_id": "XSHG",
+            "session_date": "2026-09-08",
+            "is_open": true,
+            "note": null,
+            "snapshot_version": "cal-4b13403f541da265"
+          },
+          {
+            "calendar_id": "XSHG",
+            "session_date": "2026-09-09",
+            "is_open": true,
+            "note": null,
+            "snapshot_version": "cal-4b13403f541da265"
+          },
+          {
+            "calendar_id": "XSHG",
+            "session_date": "2026-09-10",
+            "is_open": true,
+            "note": null,
+            "snapshot_version": "cal-4b13403f541da265"
+          },
+          {
+            "calendar_id": "XSHG",
+            "session_date": "2026-09-11",
+            "is_open": true,
+            "note": null,
+            "snapshot_version": "cal-4b13403f541da265"
+          },
+          {
+            "calendar_id": "XSHG",
+            "session_date": "2026-09-12",
+            "is_open": false,
+            "note": "inferred closed: absent from the vendor open-session list",
+            "snapshot_version": "cal-4b13403f541da265"
+          },
+          {
+            "calendar_id": "XSHG",
+            "session_date": "2026-09-13",
+            "is_open": false,
+            "note": "inferred closed: absent from the vendor open-session list",
+            "snapshot_version": "cal-4b13403f541da265"
+          },
+          {
+            "calendar_id": "XSHG",
+            "session_date": "2026-09-14",
+            "is_open": true,
+            "note": null,
+            "snapshot_version": "cal-4b13403f541da265"
+          }
+        ],
+        "evidence": {
+          "evidence_id": "chstockdata:trading_calendar:912fce8a39b0a9ce:4b13403f541da265",
+          "provider_name": "chstockdata",
+          "provider_version": "0.4.2",
+          "adapter_name": "chstockdata-provider",
+          "adapter_version": "0.1.0",
+          "capability": "trading_calendar",
+          "request_digest": "sha256:912fce8a39b0a9ce5e93da2a4acb28645cfface40724617246469927711a7084",
+          "retrieved_at": "2026-10-12 21:32:26.917004+08:00",
+          "upstream_source": "chstockdata.load_trading_calendar (sina_sh000001)",
+          "record_count": 7,
+          "payload_checksum": "sha256:4b13403f541da2650f1a51d636980371c108da1978b54aa5ce124d8214d3d1c8",
+          "warnings": []
+        }
+      }
+    },
+    {
+      "instrument_id": "XSHG:518880",
+      "capability": "FRESHNESS_STALE_MISSING",
+      "started_at": "2026-10-12T21:32:26.923565+08:00",
+      "finished_at": "2026-10-12T21:32:26.924571+08:00",
+      "status": "PASS",
+      "result": {
+        "fresh": {
+          "gate_name": "DATA_QUALITY_GATE",
+          "gate_version": "m0-quality-gate-1",
+          "purpose": "DECISION",
+          "status": "PASS",
+          "action": "PROCEED",
+          "evaluated_at": "2026-10-12 21:32:26.923565+08:00",
+          "checks": [],
+          "reason_codes": [],
+          "input_digests": {
+            "object_type": "mappingproxy"
+          }
+        },
+        "stale_control": {
+          "gate_name": "DATA_QUALITY_GATE",
+          "gate_version": "m0-quality-gate-1",
+          "purpose": "DECISION",
+          "status": "FAIL",
+          "action": "BLOCK_NEW_TARGET",
+          "evaluated_at": "2026-10-12 21:32:26.923565+08:00",
+          "checks": [
+            {
+              "check_id": "FRESHNESS",
+              "status": "FAIL",
+              "severity": "BLOCKING",
+              "reason_code": "STALE_INFORMATION",
+              "affected_scope": [
+                "XSHG:518880"
+              ],
+              "observed": "latest knowable session 2026-09-10; information age 1 open session(s)",
+              "expected": "information age at most 0 open session(s)",
+              "evidence_ids": []
+            }
+          ],
+          "reason_codes": [
+            "STALE_INFORMATION"
+          ],
+          "input_digests": {
+            "object_type": "mappingproxy"
+          }
+        },
+        "missing_control": {
+          "gate_name": "DATA_QUALITY_GATE",
+          "gate_version": "m0-quality-gate-1",
+          "purpose": "DECISION",
+          "status": "FAIL",
+          "action": "BLOCK_NEW_TARGET",
+          "evaluated_at": "2026-10-12 21:32:26.923565+08:00",
+          "checks": [
+            {
+              "check_id": "REQUIRED_FIELDS",
+              "status": "FAIL",
+              "severity": "BLOCKING",
+              "reason_code": "MISSING_REQUIRED_FIELD",
+              "affected_scope": [
+                "XSHG:518880",
+                "2026-09-08"
+              ],
+              "observed": "pre_close=None",
+              "expected": "pre_close present; missing values are never converted to zero",
+              "evidence_ids": []
+            },
+            {
+              "check_id": "REQUIRED_FIELDS",
+              "status": "FAIL",
+              "severity": "BLOCKING",
+              "reason_code": "MISSING_REQUIRED_FIELD",
+              "affected_scope": [
+                "XSHG:518880",
+                "2026-09-09"
+              ],
+              "observed": "pre_close=None",
+              "expected": "pre_close present; missing values are never converted to zero",
+              "evidence_ids": []
+            },
+            {
+              "check_id": "REQUIRED_FIELDS",
+              "status": "FAIL",
+              "severity": "BLOCKING",
+              "reason_code": "MISSING_REQUIRED_FIELD",
+              "affected_scope": [
+                "XSHG:518880",
+                "2026-09-10"
+              ],
+              "observed": "pre_close=None",
+              "expected": "pre_close present; missing values are never converted to zero",
+              "evidence_ids": []
+            },
+            {
+              "check_id": "REQUIRED_FIELDS",
+              "status": "FAIL",
+              "severity": "BLOCKING",
+              "reason_code": "MISSING_REQUIRED_FIELD",
+              "affected_scope": [
+                "XSHG:518880",
+                "2026-09-11"
+              ],
+              "observed": "pre_close=None",
+              "expected": "pre_close present; missing values are never converted to zero",
+              "evidence_ids": []
+            }
+          ],
+          "reason_codes": [
+            "MISSING_REQUIRED_FIELD"
+          ],
+          "input_digests": {
+            "object_type": "mappingproxy"
+          }
+        }
+      }
+    },
+    {
+      "instrument_id": "XSHG:518880",
+      "capability": "SNAPSHOT_ENGINE_RAW_FILL_IDENTITY",
+      "started_at": "2026-10-12T21:32:26.924571+08:00",
+      "finished_at": "2026-10-12T21:32:26.924571+08:00",
+      "status": "FAIL",
+      "error": {
+        "type": "AssertionError",
+        "message": "None"
+      },
+      "error_locations": [
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\live_qualification.py",
+          "line": 70,
+          "function": "check"
+        },
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\test_chstockdata_etf_gate.py",
+          "line": 289,
+          "function": "<lambda>"
+        },
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\live_qualification.py",
+          "line": 196,
+          "function": "execution_proof"
+        },
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\live_qualification.py",
+          "line": 94,
+          "function": "require_success"
+        }
+      ]
+    },
+    {
+      "instrument_id": "XSHG:511010",
+      "capability": "LEGACY_PIT_FAIL_CLOSED",
+      "started_at": "2026-10-12T21:32:26.924571+08:00",
+      "finished_at": "2026-10-12T21:32:26.927567+08:00",
+      "status": "FAIL",
+      "error": {
+        "type": "AssertionError",
+        "message": ""
+      },
+      "error_locations": [
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\live_qualification.py",
+          "line": 70,
+          "function": "check"
+        },
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\test_chstockdata_etf_gate.py",
+          "line": 277,
+          "function": "<lambda>"
+        },
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\live_qualification.py",
+          "line": 106,
+          "function": "historical_gap"
+        }
+      ]
+    },
+    {
+      "instrument_id": "XSHG:511010",
+      "capability": "HISTORICAL_OPENING_R21",
+      "started_at": "2026-10-12T21:32:26.927567+08:00",
+      "finished_at": "2026-10-12T21:32:26.961011+08:00",
+      "status": "FAIL",
+      "error": {
+        "type": "AssertionError",
+        "message": ""
+      },
+      "error_locations": [
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\live_qualification.py",
+          "line": 70,
+          "function": "check"
+        },
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\test_chstockdata_etf_gate.py",
+          "line": 279,
+          "function": "<lambda>"
+        },
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\live_qualification.py",
+          "line": 126,
+          "function": "opening_fact"
+        }
+      ]
+    },
+    {
+      "instrument_id": "XSHG:511010",
+      "capability": "ADJUSTMENT_ACTIONS",
+      "started_at": "2026-10-12T21:32:26.961011+08:00",
+      "finished_at": "2026-10-12T21:32:29.219119+08:00",
+      "status": "FAIL",
+      "error": {
+        "type": "AssertionError",
+        "message": "ProviderFailure(error_code=<ProviderErrorCode.UNAVAILABLE_OR_RATE_LIMITED: 'UNAVAILABLE_OR_RATE_LIMITED'>, message='vendor corporate actions unavailable: status=failed, coverage=unavailable: 基金分红来源请求失败：_EastmoneyDataUnavailable', evidence=None, cause=ChStockDataUnavailableError('vendor corporate actions unavailable: status=failed, coverage=unavailable: 基金分红来源请求失败：_EastmoneyDataUnavailable'))"
+      },
+      "error_locations": [
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\live_qualification.py",
+          "line": 70,
+          "function": "check"
+        },
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\test_chstockdata_etf_gate.py",
+          "line": 281,
+          "function": "<lambda>"
+        },
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\live_qualification.py",
+          "line": 94,
+          "function": "require_success"
+        }
+      ]
+    },
+    {
+      "instrument_id": "XSHG:511010",
+      "capability": "RAW_AVAILABILITY",
+      "started_at": "2026-10-12T21:32:29.219119+08:00",
+      "finished_at": "2026-10-12T21:32:29.256396+08:00",
+      "status": "PASS",
+      "result": {
+        "records": [
+          {
+            "schema_version": "v1",
+            "instrument_id": {
+              "exchange": "XSHG",
+              "symbol": "511010"
+            },
+            "session_date": "2026-09-08",
+            "open": "141.223",
+            "high": "141.23",
+            "low": "141.182",
+            "close": "141.21",
+            "pre_close": "141.222",
+            "volume": "18685500",
+            "amount": "2638866432.0",
+            "currency": "CNY",
+            "volume_unit": "SHARE",
+            "amount_unit": "CNY",
+            "adjustment_mode": "RAW",
+            "adjustment_factor": null,
+            "availability": {
+              "information_available_at": "2026-09-08 15:00:00+08:00",
+              "retrieved_at": "2026-10-12 21:32:29.219654+08:00",
+              "availability_basis": "EXCHANGE_RULE"
+            },
+            "provider_evidence_id": "chstockdata:daily_bars:4221b6f5fb2265a9:0fe27001813e7bcf"
+          },
+          {
+            "schema_version": "v1",
+            "instrument_id": {
+              "exchange": "XSHG",
+              "symbol": "511010"
+            },
+            "session_date": "2026-09-09",
+            "open": "141.216",
+            "high": "141.224",
+            "low": "141.184",
+            "close": "141.211",
+            "pre_close": "141.21",
+            "volume": "28686698",
+            "amount": "4050815744.0",
+            "currency": "CNY",
+            "volume_unit": "SHARE",
+            "amount_unit": "CNY",
+            "adjustment_mode": "RAW",
+            "adjustment_factor": null,
+            "availability": {
+              "information_available_at": "2026-09-09 15:00:00+08:00",
+              "retrieved_at": "2026-10-12 21:32:29.219654+08:00",
+              "availability_basis": "EXCHANGE_RULE"
+            },
+            "provider_evidence_id": "chstockdata:daily_bars:4221b6f5fb2265a9:0fe27001813e7bcf"
+          },
+          {
+            "schema_version": "v1",
+            "instrument_id": {
+              "exchange": "XSHG",
+              "symbol": "511010"
+            },
+            "session_date": "2026-09-10",
+            "open": "141.21",
+            "high": "141.211",
+            "low": "141.169",
+            "close": "141.185",
+            "pre_close": "141.211",
+            "volume": "15530900",
+            "amount": "2192636672.0",
+            "currency": "CNY",
+            "volume_unit": "SHARE",
+            "amount_unit": "CNY",
+            "adjustment_mode": "RAW",
+            "adjustment_factor": null,
+            "availability": {
+              "information_available_at": "2026-09-10 15:00:00+08:00",
+              "retrieved_at": "2026-10-12 21:32:29.219654+08:00",
+              "availability_basis": "EXCHANGE_RULE"
+            },
+            "provider_evidence_id": "chstockdata:daily_bars:4221b6f5fb2265a9:0fe27001813e7bcf"
+          },
+          {
+            "schema_version": "v1",
+            "instrument_id": {
+              "exchange": "XSHG",
+              "symbol": "511010"
+            },
+            "session_date": "2026-09-11",
+            "open": "141.18",
+            "high": "141.185",
+            "low": "141.133",
+            "close": "141.146",
+            "pre_close": "141.185",
+            "volume": "19331300",
+            "amount": "2728766464.0",
+            "currency": "CNY",
+            "volume_unit": "SHARE",
+            "amount_unit": "CNY",
+            "adjustment_mode": "RAW",
+            "adjustment_factor": null,
+            "availability": {
+              "information_available_at": "2026-09-11 15:00:00+08:00",
+              "retrieved_at": "2026-10-12 21:32:29.219654+08:00",
+              "availability_basis": "EXCHANGE_RULE"
+            },
+            "provider_evidence_id": "chstockdata:daily_bars:4221b6f5fb2265a9:0fe27001813e7bcf"
+          }
+        ],
+        "evidence": {
+          "evidence_id": "chstockdata:daily_bars:4221b6f5fb2265a9:0fe27001813e7bcf",
+          "provider_name": "chstockdata",
+          "provider_version": "0.4.2",
+          "adapter_name": "chstockdata-provider",
+          "adapter_version": "0.1.0",
+          "capability": "daily_bars",
+          "request_digest": "sha256:4221b6f5fb2265a92eb93563ab8d2049879418538e61d3071d021de22a9a26c8",
+          "retrieved_at": "2026-10-12 21:32:29.219654+08:00",
+          "upstream_source": "chstockdata.load_vipdoc_daily (local TDX .day package)",
+          "record_count": 4,
+          "payload_checksum": "sha256:0fe27001813e7bcf1616387d1f6da5689126e3151c3d95526743e9a5ba659cf1",
+          "warnings": []
+        }
+      }
+    },
+    {
+      "instrument_id": "XSHG:511010",
+      "capability": "EXECUTION_CALENDAR",
+      "started_at": "2026-10-12T21:32:29.256396+08:00",
+      "finished_at": "2026-10-12T21:32:29.262492+08:00",
+      "status": "PASS",
+      "result": {
+        "records": [
+          {
+            "calendar_id": "XSHG",
+            "session_date": "2026-09-08",
+            "is_open": true,
+            "note": null,
+            "snapshot_version": "cal-4b13403f541da265"
+          },
+          {
+            "calendar_id": "XSHG",
+            "session_date": "2026-09-09",
+            "is_open": true,
+            "note": null,
+            "snapshot_version": "cal-4b13403f541da265"
+          },
+          {
+            "calendar_id": "XSHG",
+            "session_date": "2026-09-10",
+            "is_open": true,
+            "note": null,
+            "snapshot_version": "cal-4b13403f541da265"
+          },
+          {
+            "calendar_id": "XSHG",
+            "session_date": "2026-09-11",
+            "is_open": true,
+            "note": null,
+            "snapshot_version": "cal-4b13403f541da265"
+          },
+          {
+            "calendar_id": "XSHG",
+            "session_date": "2026-09-12",
+            "is_open": false,
+            "note": "inferred closed: absent from the vendor open-session list",
+            "snapshot_version": "cal-4b13403f541da265"
+          },
+          {
+            "calendar_id": "XSHG",
+            "session_date": "2026-09-13",
+            "is_open": false,
+            "note": "inferred closed: absent from the vendor open-session list",
+            "snapshot_version": "cal-4b13403f541da265"
+          },
+          {
+            "calendar_id": "XSHG",
+            "session_date": "2026-09-14",
+            "is_open": true,
+            "note": null,
+            "snapshot_version": "cal-4b13403f541da265"
+          }
+        ],
+        "evidence": {
+          "evidence_id": "chstockdata:trading_calendar:912fce8a39b0a9ce:4b13403f541da265",
+          "provider_name": "chstockdata",
+          "provider_version": "0.4.2",
+          "adapter_name": "chstockdata-provider",
+          "adapter_version": "0.1.0",
+          "capability": "trading_calendar",
+          "request_digest": "sha256:912fce8a39b0a9ce5e93da2a4acb28645cfface40724617246469927711a7084",
+          "retrieved_at": "2026-10-12 21:32:29.256396+08:00",
+          "upstream_source": "chstockdata.load_trading_calendar (sina_sh000001)",
+          "record_count": 7,
+          "payload_checksum": "sha256:4b13403f541da2650f1a51d636980371c108da1978b54aa5ce124d8214d3d1c8",
+          "warnings": []
+        }
+      }
+    },
+    {
+      "instrument_id": "XSHG:511010",
+      "capability": "FRESHNESS_STALE_MISSING",
+      "started_at": "2026-10-12T21:32:29.262492+08:00",
+      "finished_at": "2026-10-12T21:32:29.262492+08:00",
+      "status": "PASS",
+      "result": {
+        "fresh": {
+          "gate_name": "DATA_QUALITY_GATE",
+          "gate_version": "m0-quality-gate-1",
+          "purpose": "DECISION",
+          "status": "PASS",
+          "action": "PROCEED",
+          "evaluated_at": "2026-10-12 21:32:29.262492+08:00",
+          "checks": [],
+          "reason_codes": [],
+          "input_digests": {
+            "object_type": "mappingproxy"
+          }
+        },
+        "stale_control": {
+          "gate_name": "DATA_QUALITY_GATE",
+          "gate_version": "m0-quality-gate-1",
+          "purpose": "DECISION",
+          "status": "FAIL",
+          "action": "BLOCK_NEW_TARGET",
+          "evaluated_at": "2026-10-12 21:32:29.262492+08:00",
+          "checks": [
+            {
+              "check_id": "FRESHNESS",
+              "status": "FAIL",
+              "severity": "BLOCKING",
+              "reason_code": "STALE_INFORMATION",
+              "affected_scope": [
+                "XSHG:511010"
+              ],
+              "observed": "latest knowable session 2026-09-10; information age 1 open session(s)",
+              "expected": "information age at most 0 open session(s)",
+              "evidence_ids": []
+            }
+          ],
+          "reason_codes": [
+            "STALE_INFORMATION"
+          ],
+          "input_digests": {
+            "object_type": "mappingproxy"
+          }
+        },
+        "missing_control": {
+          "gate_name": "DATA_QUALITY_GATE",
+          "gate_version": "m0-quality-gate-1",
+          "purpose": "DECISION",
+          "status": "FAIL",
+          "action": "BLOCK_NEW_TARGET",
+          "evaluated_at": "2026-10-12 21:32:29.262492+08:00",
+          "checks": [
+            {
+              "check_id": "REQUIRED_FIELDS",
+              "status": "FAIL",
+              "severity": "BLOCKING",
+              "reason_code": "MISSING_REQUIRED_FIELD",
+              "affected_scope": [
+                "XSHG:511010",
+                "2026-09-08"
+              ],
+              "observed": "pre_close=None",
+              "expected": "pre_close present; missing values are never converted to zero",
+              "evidence_ids": []
+            },
+            {
+              "check_id": "REQUIRED_FIELDS",
+              "status": "FAIL",
+              "severity": "BLOCKING",
+              "reason_code": "MISSING_REQUIRED_FIELD",
+              "affected_scope": [
+                "XSHG:511010",
+                "2026-09-09"
+              ],
+              "observed": "pre_close=None",
+              "expected": "pre_close present; missing values are never converted to zero",
+              "evidence_ids": []
+            },
+            {
+              "check_id": "REQUIRED_FIELDS",
+              "status": "FAIL",
+              "severity": "BLOCKING",
+              "reason_code": "MISSING_REQUIRED_FIELD",
+              "affected_scope": [
+                "XSHG:511010",
+                "2026-09-10"
+              ],
+              "observed": "pre_close=None",
+              "expected": "pre_close present; missing values are never converted to zero",
+              "evidence_ids": []
+            },
+            {
+              "check_id": "REQUIRED_FIELDS",
+              "status": "FAIL",
+              "severity": "BLOCKING",
+              "reason_code": "MISSING_REQUIRED_FIELD",
+              "affected_scope": [
+                "XSHG:511010",
+                "2026-09-11"
+              ],
+              "observed": "pre_close=None",
+              "expected": "pre_close present; missing values are never converted to zero",
+              "evidence_ids": []
+            }
+          ],
+          "reason_codes": [
+            "MISSING_REQUIRED_FIELD"
+          ],
+          "input_digests": {
+            "object_type": "mappingproxy"
+          }
+        }
+      }
+    },
+    {
+      "instrument_id": "XSHG:511010",
+      "capability": "SNAPSHOT_ENGINE_RAW_FILL_IDENTITY",
+      "started_at": "2026-10-12T21:32:29.262492+08:00",
+      "finished_at": "2026-10-12T21:32:29.263496+08:00",
+      "status": "FAIL",
+      "error": {
+        "type": "AssertionError",
+        "message": "None"
+      },
+      "error_locations": [
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\live_qualification.py",
+          "line": 70,
+          "function": "check"
+        },
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\test_chstockdata_etf_gate.py",
+          "line": 289,
+          "function": "<lambda>"
+        },
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\live_qualification.py",
+          "line": 196,
+          "function": "execution_proof"
+        },
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\live_qualification.py",
+          "line": 94,
+          "function": "require_success"
+        }
+      ]
+    },
+    {
+      "instrument_id": "XSHG:513100",
+      "capability": "CONTROL_LEGACY_PIT",
+      "started_at": "2026-10-12T21:32:29.263496+08:00",
+      "finished_at": "2026-10-12T21:32:29.266496+08:00",
+      "status": "FAIL",
+      "error": {
+        "type": "AssertionError",
+        "message": ""
+      },
+      "error_locations": [
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\live_qualification.py",
+          "line": 70,
+          "function": "check"
+        },
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\test_chstockdata_etf_gate.py",
+          "line": 298,
+          "function": "<lambda>"
+        },
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\live_qualification.py",
+          "line": 106,
+          "function": "historical_gap"
+        }
+      ]
+    },
+    {
+      "instrument_id": "XSHG:513100",
+      "capability": "OFFICIAL_HALT_CONTROL",
+      "started_at": "2026-10-12T21:32:29.266496+08:00",
+      "finished_at": "2026-10-12T21:32:29.328714+08:00",
+      "status": "FAIL",
+      "error": {
+        "type": "AssertionError",
+        "message": ""
+      },
+      "error_locations": [
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\live_qualification.py",
+          "line": 70,
+          "function": "check"
+        },
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\test_chstockdata_etf_gate.py",
+          "line": 300,
+          "function": "<lambda>"
+        },
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\live_qualification.py",
+          "line": 126,
+          "function": "opening_fact"
+        }
+      ]
+    },
+    {
+      "instrument_id": "XSHG:513100",
+      "capability": "CONTROL_RAW_BARS",
+      "started_at": "2026-10-12T21:32:29.328714+08:00",
+      "finished_at": "2026-10-12T21:32:29.365028+08:00",
+      "status": "PASS",
+      "result": {
+        "records": [
+          {
+            "schema_version": "v1",
+            "instrument_id": {
+              "exchange": "XSHG",
+              "symbol": "513100"
+            },
+            "session_date": "2026-09-08",
+            "open": "2.239",
+            "high": "2.244",
+            "low": "2.23",
+            "close": "2.233",
+            "pre_close": "2.236",
+            "volume": "88521396",
+            "amount": "197981408.0",
+            "currency": "CNY",
+            "volume_unit": "SHARE",
+            "amount_unit": "CNY",
+            "adjustment_mode": "RAW",
+            "adjustment_factor": null,
+            "availability": {
+              "information_available_at": "2026-09-08 15:00:00+08:00",
+              "retrieved_at": "2026-10-12 21:32:29.328714+08:00",
+              "availability_basis": "EXCHANGE_RULE"
+            },
+            "provider_evidence_id": "chstockdata:daily_bars:93cd9581bb3c4278:67125101f2c87437"
+          },
+          {
+            "schema_version": "v1",
+            "instrument_id": {
+              "exchange": "XSHG",
+              "symbol": "513100"
+            },
+            "session_date": "2026-09-09",
+            "open": "2.233",
+            "high": "2.235",
+            "low": "2.225",
+            "close": "2.234",
+            "pre_close": "2.233",
+            "volume": "87576004",
+            "amount": "195292256.0",
+            "currency": "CNY",
+            "volume_unit": "SHARE",
+            "amount_unit": "CNY",
+            "adjustment_mode": "RAW",
+            "adjustment_factor": null,
+            "availability": {
+              "information_available_at": "2026-09-09 15:00:00+08:00",
+              "retrieved_at": "2026-10-12 21:32:29.328714+08:00",
+              "availability_basis": "EXCHANGE_RULE"
+            },
+            "provider_evidence_id": "chstockdata:daily_bars:93cd9581bb3c4278:67125101f2c87437"
+          },
+          {
+            "schema_version": "v1",
+            "instrument_id": {
+              "exchange": "XSHG",
+              "symbol": "513100"
+            },
+            "session_date": "2026-09-10",
+            "open": "2.218",
+            "high": "2.224",
+            "low": "2.216",
+            "close": "2.219",
+            "pre_close": "2.234",
+            "volume": "96507458",
+            "amount": "214298784.0",
+            "currency": "CNY",
+            "volume_unit": "SHARE",
+            "amount_unit": "CNY",
+            "adjustment_mode": "RAW",
+            "adjustment_factor": null,
+            "availability": {
+              "information_available_at": "2026-09-10 15:00:00+08:00",
+              "retrieved_at": "2026-10-12 21:32:29.328714+08:00",
+              "availability_basis": "EXCHANGE_RULE"
+            },
+            "provider_evidence_id": "chstockdata:daily_bars:93cd9581bb3c4278:67125101f2c87437"
+          },
+          {
+            "schema_version": "v1",
+            "instrument_id": {
+              "exchange": "XSHG",
+              "symbol": "513100"
+            },
+            "session_date": "2026-09-11",
+            "open": "2.198",
+            "high": "2.207",
+            "low": "2.186",
+            "close": "2.201",
+            "pre_close": "2.219",
+            "volume": "151476200",
+            "amount": "332371200.0",
+            "currency": "CNY",
+            "volume_unit": "SHARE",
+            "amount_unit": "CNY",
+            "adjustment_mode": "RAW",
+            "adjustment_factor": null,
+            "availability": {
+              "information_available_at": "2026-09-11 15:00:00+08:00",
+              "retrieved_at": "2026-10-12 21:32:29.328714+08:00",
+              "availability_basis": "EXCHANGE_RULE"
+            },
+            "provider_evidence_id": "chstockdata:daily_bars:93cd9581bb3c4278:67125101f2c87437"
+          }
+        ],
+        "evidence": {
+          "evidence_id": "chstockdata:daily_bars:93cd9581bb3c4278:67125101f2c87437",
+          "provider_name": "chstockdata",
+          "provider_version": "0.4.2",
+          "adapter_name": "chstockdata-provider",
+          "adapter_version": "0.1.0",
+          "capability": "daily_bars",
+          "request_digest": "sha256:93cd9581bb3c42786cfee5ae9503ed1fb05a169f1a0e58f588bf1730749c020e",
+          "retrieved_at": "2026-10-12 21:32:29.328714+08:00",
+          "upstream_source": "chstockdata.load_vipdoc_daily (local TDX .day package)",
+          "record_count": 4,
+          "payload_checksum": "sha256:67125101f2c87437d0bf86089e919deefea9eff574076416b827046af786e3fd",
+          "warnings": []
+        }
+      }
+    },
+    {
+      "instrument_id": "XSHG:513100",
+      "capability": "CONTROL_CALENDAR",
+      "started_at": "2026-10-12T21:32:29.365632+08:00",
+      "finished_at": "2026-10-12T21:32:29.372562+08:00",
+      "status": "PASS",
+      "result": {
+        "records": [
+          {
+            "calendar_id": "XSHG",
+            "session_date": "2026-09-08",
+            "is_open": true,
+            "note": null,
+            "snapshot_version": "cal-4b13403f541da265"
+          },
+          {
+            "calendar_id": "XSHG",
+            "session_date": "2026-09-09",
+            "is_open": true,
+            "note": null,
+            "snapshot_version": "cal-4b13403f541da265"
+          },
+          {
+            "calendar_id": "XSHG",
+            "session_date": "2026-09-10",
+            "is_open": true,
+            "note": null,
+            "snapshot_version": "cal-4b13403f541da265"
+          },
+          {
+            "calendar_id": "XSHG",
+            "session_date": "2026-09-11",
+            "is_open": true,
+            "note": null,
+            "snapshot_version": "cal-4b13403f541da265"
+          },
+          {
+            "calendar_id": "XSHG",
+            "session_date": "2026-09-12",
+            "is_open": false,
+            "note": "inferred closed: absent from the vendor open-session list",
+            "snapshot_version": "cal-4b13403f541da265"
+          },
+          {
+            "calendar_id": "XSHG",
+            "session_date": "2026-09-13",
+            "is_open": false,
+            "note": "inferred closed: absent from the vendor open-session list",
+            "snapshot_version": "cal-4b13403f541da265"
+          },
+          {
+            "calendar_id": "XSHG",
+            "session_date": "2026-09-14",
+            "is_open": true,
+            "note": null,
+            "snapshot_version": "cal-4b13403f541da265"
+          }
+        ],
+        "evidence": {
+          "evidence_id": "chstockdata:trading_calendar:912fce8a39b0a9ce:4b13403f541da265",
+          "provider_name": "chstockdata",
+          "provider_version": "0.4.2",
+          "adapter_name": "chstockdata-provider",
+          "adapter_version": "0.1.0",
+          "capability": "trading_calendar",
+          "request_digest": "sha256:912fce8a39b0a9ce5e93da2a4acb28645cfface40724617246469927711a7084",
+          "retrieved_at": "2026-10-12 21:32:29.365632+08:00",
+          "upstream_source": "chstockdata.load_trading_calendar (sina_sh000001)",
+          "record_count": 7,
+          "payload_checksum": "sha256:4b13403f541da2650f1a51d636980371c108da1978b54aa5ce124d8214d3d1c8",
+          "warnings": []
+        }
+      }
+    },
+    {
+      "instrument_id": "XSHG:513100",
+      "capability": "CONTROL_ENGINE_NO_FILL_NO_RETRY",
+      "started_at": "2026-10-12T21:32:29.372562+08:00",
+      "finished_at": "2026-10-12T21:32:29.372562+08:00",
+      "status": "FAIL",
+      "error": {
+        "type": "AssertionError",
+        "message": "None"
+      },
+      "error_locations": [
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\live_qualification.py",
+          "line": 70,
+          "function": "check"
+        },
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\test_chstockdata_etf_gate.py",
+          "line": 308,
+          "function": "<lambda>"
+        },
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\live_qualification.py",
+          "line": 197,
+          "function": "execution_proof"
+        },
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\live_qualification.py",
+          "line": 94,
+          "function": "require_success"
+        }
+      ]
+    },
+    {
+      "instrument_id": "XSHE:159509",
+      "capability": "CONTROL_LEGACY_PIT",
+      "started_at": "2026-10-12T21:32:29.372562+08:00",
+      "finished_at": "2026-10-12T21:32:29.376787+08:00",
+      "status": "FAIL",
+      "error": {
+        "type": "AssertionError",
+        "message": ""
+      },
+      "error_locations": [
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\live_qualification.py",
+          "line": 70,
+          "function": "check"
+        },
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\test_chstockdata_etf_gate.py",
+          "line": 298,
+          "function": "<lambda>"
+        },
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\live_qualification.py",
+          "line": 106,
+          "function": "historical_gap"
+        }
+      ]
+    },
+    {
+      "instrument_id": "XSHE:159509",
+      "capability": "OFFICIAL_HALT_CONTROL",
+      "started_at": "2026-10-12T21:32:29.376787+08:00",
+      "finished_at": "2026-10-12T21:32:29.407562+08:00",
+      "status": "FAIL",
+      "error": {
+        "type": "AssertionError",
+        "message": ""
+      },
+      "error_locations": [
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\live_qualification.py",
+          "line": 70,
+          "function": "check"
+        },
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\test_chstockdata_etf_gate.py",
+          "line": 300,
+          "function": "<lambda>"
+        },
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\live_qualification.py",
+          "line": 126,
+          "function": "opening_fact"
+        }
+      ]
+    },
+    {
+      "instrument_id": "XSHE:159509",
+      "capability": "CONTROL_RAW_BARS",
+      "started_at": "2026-10-12T21:32:29.407562+08:00",
+      "finished_at": "2026-10-12T21:32:29.424135+08:00",
+      "status": "PASS",
+      "result": {
+        "records": [
+          {
+            "schema_version": "v1",
+            "instrument_id": {
+              "exchange": "XSHE",
+              "symbol": "159509"
+            },
+            "session_date": "2026-09-08",
+            "open": "2.853",
+            "high": "2.855",
+            "low": "2.83",
+            "close": "2.844",
+            "pre_close": "2.846",
+            "volume": "186005246",
+            "amount": "529278304.0",
+            "currency": "CNY",
+            "volume_unit": "SHARE",
+            "amount_unit": "CNY",
+            "adjustment_mode": "RAW",
+            "adjustment_factor": null,
+            "availability": {
+              "information_available_at": "2026-09-08 15:00:00+08:00",
+              "retrieved_at": "2026-10-12 21:32:29.407562+08:00",
+              "availability_basis": "EXCHANGE_RULE"
+            },
+            "provider_evidence_id": "chstockdata:daily_bars:a767ffc2574c5a4c:55ef587e226e9530"
+          },
+          {
+            "schema_version": "v1",
+            "instrument_id": {
+              "exchange": "XSHE",
+              "symbol": "159509"
+            },
+            "session_date": "2026-09-09",
+            "open": "2.841",
+            "high": "2.85",
+            "low": "2.84",
+            "close": "2.848",
+            "pre_close": "2.844",
+            "volume": "117918044",
+            "amount": "335586464.0",
+            "currency": "CNY",
+            "volume_unit": "SHARE",
+            "amount_unit": "CNY",
+            "adjustment_mode": "RAW",
+            "adjustment_factor": null,
+            "availability": {
+              "information_available_at": "2026-09-09 15:00:00+08:00",
+              "retrieved_at": "2026-10-12 21:32:29.407562+08:00",
+              "availability_basis": "EXCHANGE_RULE"
+            },
+            "provider_evidence_id": "chstockdata:daily_bars:a767ffc2574c5a4c:55ef587e226e9530"
+          },
+          {
+            "schema_version": "v1",
+            "instrument_id": {
+              "exchange": "XSHE",
+              "symbol": "159509"
+            },
+            "session_date": "2026-09-10",
+            "open": "2.825",
+            "high": "2.848",
+            "low": "2.823",
+            "close": "2.841",
+            "pre_close": "2.848",
+            "volume": "116057878",
+            "amount": "329631168.0",
+            "currency": "CNY",
+            "volume_unit": "SHARE",
+            "amount_unit": "CNY",
+            "adjustment_mode": "RAW",
+            "adjustment_factor": null,
+            "availability": {
+              "information_available_at": "2026-09-10 15:00:00+08:00",
+              "retrieved_at": "2026-10-12 21:32:29.407562+08:00",
+              "availability_basis": "EXCHANGE_RULE"
+            },
+            "provider_evidence_id": "chstockdata:daily_bars:a767ffc2574c5a4c:55ef587e226e9530"
+          },
+          {
+            "schema_version": "v1",
+            "instrument_id": {
+              "exchange": "XSHE",
+              "symbol": "159509"
+            },
+            "session_date": "2026-09-11",
+            "open": "2.812",
+            "high": "2.832",
+            "low": "2.794",
+            "close": "2.832",
+            "pre_close": "2.841",
+            "volume": "183428540",
+            "amount": "516124160.0",
+            "currency": "CNY",
+            "volume_unit": "SHARE",
+            "amount_unit": "CNY",
+            "adjustment_mode": "RAW",
+            "adjustment_factor": null,
+            "availability": {
+              "information_available_at": "2026-09-11 15:00:00+08:00",
+              "retrieved_at": "2026-10-12 21:32:29.407562+08:00",
+              "availability_basis": "EXCHANGE_RULE"
+            },
+            "provider_evidence_id": "chstockdata:daily_bars:a767ffc2574c5a4c:55ef587e226e9530"
+          }
+        ],
+        "evidence": {
+          "evidence_id": "chstockdata:daily_bars:a767ffc2574c5a4c:55ef587e226e9530",
+          "provider_name": "chstockdata",
+          "provider_version": "0.4.2",
+          "adapter_name": "chstockdata-provider",
+          "adapter_version": "0.1.0",
+          "capability": "daily_bars",
+          "request_digest": "sha256:a767ffc2574c5a4c650df7e5ddc747665559c7caa1b10e1117c7c51e2bca114a",
+          "retrieved_at": "2026-10-12 21:32:29.407562+08:00",
+          "upstream_source": "chstockdata.load_vipdoc_daily (local TDX .day package)",
+          "record_count": 4,
+          "payload_checksum": "sha256:55ef587e226e9530008baa845d54ca4665129755b617a1181c7c184800e418a9",
+          "warnings": []
+        }
+      }
+    },
+    {
+      "instrument_id": "XSHE:159509",
+      "capability": "CONTROL_CALENDAR",
+      "started_at": "2026-10-12T21:32:29.424135+08:00",
+      "finished_at": "2026-10-12T21:32:29.430304+08:00",
+      "status": "PASS",
+      "result": {
+        "records": [
+          {
+            "calendar_id": "XSHE",
+            "session_date": "2026-09-08",
+            "is_open": true,
+            "note": null,
+            "snapshot_version": "cal-4b13403f541da265"
+          },
+          {
+            "calendar_id": "XSHE",
+            "session_date": "2026-09-09",
+            "is_open": true,
+            "note": null,
+            "snapshot_version": "cal-4b13403f541da265"
+          },
+          {
+            "calendar_id": "XSHE",
+            "session_date": "2026-09-10",
+            "is_open": true,
+            "note": null,
+            "snapshot_version": "cal-4b13403f541da265"
+          },
+          {
+            "calendar_id": "XSHE",
+            "session_date": "2026-09-11",
+            "is_open": true,
+            "note": null,
+            "snapshot_version": "cal-4b13403f541da265"
+          },
+          {
+            "calendar_id": "XSHE",
+            "session_date": "2026-09-12",
+            "is_open": false,
+            "note": "inferred closed: absent from the vendor open-session list",
+            "snapshot_version": "cal-4b13403f541da265"
+          },
+          {
+            "calendar_id": "XSHE",
+            "session_date": "2026-09-13",
+            "is_open": false,
+            "note": "inferred closed: absent from the vendor open-session list",
+            "snapshot_version": "cal-4b13403f541da265"
+          },
+          {
+            "calendar_id": "XSHE",
+            "session_date": "2026-09-14",
+            "is_open": true,
+            "note": null,
+            "snapshot_version": "cal-4b13403f541da265"
+          }
+        ],
+        "evidence": {
+          "evidence_id": "chstockdata:trading_calendar:7d0cd385715fb3e1:4b13403f541da265",
+          "provider_name": "chstockdata",
+          "provider_version": "0.4.2",
+          "adapter_name": "chstockdata-provider",
+          "adapter_version": "0.1.0",
+          "capability": "trading_calendar",
+          "request_digest": "sha256:7d0cd385715fb3e1570e4bbd9559e3a7407fa4333f6a937aecb0942e6975a1c6",
+          "retrieved_at": "2026-10-12 21:32:29.424135+08:00",
+          "upstream_source": "chstockdata.load_trading_calendar (sina_sh000001)",
+          "record_count": 7,
+          "payload_checksum": "sha256:4b13403f541da2650f1a51d636980371c108da1978b54aa5ce124d8214d3d1c8",
+          "warnings": []
+        }
+      }
+    },
+    {
+      "instrument_id": "XSHE:159509",
+      "capability": "CONTROL_ENGINE_NO_FILL_NO_RETRY",
+      "started_at": "2026-10-12T21:32:29.430304+08:00",
+      "finished_at": "2026-10-12T21:32:29.430304+08:00",
+      "status": "FAIL",
+      "error": {
+        "type": "AssertionError",
+        "message": "None"
+      },
+      "error_locations": [
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\live_qualification.py",
+          "line": 70,
+          "function": "check"
+        },
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\test_chstockdata_etf_gate.py",
+          "line": 308,
+          "function": "<lambda>"
+        },
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\live_qualification.py",
+          "line": 197,
+          "function": "execution_proof"
+        },
+        {
+          "file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification\\live_qualification.py",
+          "line": 94,
+          "function": "require_success"
+        }
+      ]
+    }
+  ]
+}

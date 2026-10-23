@@ -1,0 +1,82 @@
+{
+    "id":  "1217949874",
+    "text":  "1,751,463,043.10 5,977ß53t949.87 2.52+92,744.56 -523$40,688.07 539,001 676.80",
+    "pit_qualified":  false,
+    "engine":  "Windows.Media.Ocr existing en-US",
+    "maximum_image_dimension":  10000,
+    "machine_seconds":  0.062852499999999992,
+    "pixel_height":  2902,
+    "image_sha256":  "71eb3a0203d860c121c60c8db516d15a5e3cb3cfb0dc8be4282ad3438aa12c16",
+    "pixel_width":  416,
+    "source_sha256":  "5cefd1e1ef733ef5887b619e09ce792d52bd33e2710580616be5736da03cd33c",
+    "physical_page":  12,
+    "lines":  [
+                  {
+                      "text":  "1,751,463,043.10",
+                      "words":  [
+                                    {
+                                        "y":  589,
+                                        "height":  36,
+                                        "width":  229,
+                                        "text":  "1,751,463,043.10",
+                                        "x":  133
+                                    }
+                                ]
+                  },
+                  {
+                      "text":  "5,977ß53t949.87",
+                      "words":  [
+                                    {
+                                        "y":  657,
+                                        "height":  34,
+                                        "width":  231,
+                                        "text":  "5,977ß53t949.87",
+                                        "x":  131
+                                    }
+                                ]
+                  },
+                  {
+                      "text":  "2.52+92,744.56",
+                      "words":  [
+                                    {
+                                        "y":  2147,
+                                        "height":  36,
+                                        "width":  231,
+                                        "text":  "2.52+92,744.56",
+                                        "x":  131
+                                    }
+                                ]
+                  },
+                  {
+                      "text":  "-523$40,688.07",
+                      "words":  [
+                                    {
+                                        "y":  2632,
+                                        "height":  32,
+                                        "width":  218,
+                                        "text":  "-523$40,688.07",
+                                        "x":  145
+                                    }
+                                ]
+                  },
+                  {
+                      "text":  "539,001 676.80",
+                      "words":  [
+                                    {
+                                        "y":  2699,
+                                        "height":  33,
+                                        "width":  102,
+                                        "text":  "539,001",
+                                        "x":  157
+                                    },
+                                    {
+                                        "y":  2699,
+                                        "height":  30,
+                                        "width":  92,
+                                        "text":  "676.80",
+                                        "x":  271
+                                    }
+                                ]
+                  }
+              ]
+}

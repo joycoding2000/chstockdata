@@ -1,0 +1,13 @@
+{
+  "argv": [
+    "git",
+    "-c",
+    "safe.directory=C:/Users/Administrator/.codex/visualizations/2026/10/10/01a125dd-33f2-78d3-abe7-45e0928975d0/v042-opening-implementation/evidence/owner-acceptance-rework-r1/sios-reconstructed-source",
+    "apply",
+    "--whitespace=nowarn",
+    "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\evidence\\owner-acceptance-rework-r1\\sios-source-vs-frozen.patch"
+  ],
+  "cwd": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\evidence\\owner-acceptance-rework-r1\\sios-reconstructed-source",
+  "exit_code": 0,
+  "patch_sha256": "cbf403397631eed42fe542364587c3f75eb6150b88017c7390da2828644d4873"
+}

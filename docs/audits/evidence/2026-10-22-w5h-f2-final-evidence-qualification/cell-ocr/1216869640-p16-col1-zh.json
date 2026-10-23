@@ -1,0 +1,83 @@
+{
+    "id":  "1216869640",
+    "text":  "4 ， 113 ， 160 ， 94 \u0026 20",
+    "pit_qualified":  false,
+    "engine":  "Windows.Media.Ocr existing zh-Hans-CN",
+    "maximum_image_dimension":  10000,
+    "machine_seconds":  0.0165311,
+    "pixel_height":  96,
+    "image_sha256":  "9a655871a6fed59218a4c6961c625da5e2ef8fe6a7a10246d0f85175db60120d",
+    "pixel_width":  762,
+    "source_sha256":  "d6fecbc0aa8be3e9a8eb2837454af517e58ab29d9f9cbd3e85ac76cf9f752fb8",
+    "physical_page":  16,
+    "lines":  [
+                  {
+                      "text":  "4 ， 113 ， 160 ， 94 \u0026 20",
+                      "words":  [
+                                    {
+                                        "y":  19,
+                                        "height":  43,
+                                        "width":  28,
+                                        "text":  "4",
+                                        "x":  242
+                                    },
+                                    {
+                                        "y":  52,
+                                        "height":  21,
+                                        "width":  11,
+                                        "text":  "，",
+                                        "x":  275
+                                    },
+                                    {
+                                        "y":  18,
+                                        "height":  47,
+                                        "width":  91,
+                                        "text":  "113",
+                                        "x":  293
+                                    },
+                                    {
+                                        "y":  53,
+                                        "height":  18,
+                                        "width":  10,
+                                        "text":  "，",
+                                        "x":  388
+                                    },
+                                    {
+                                        "y":  17,
+                                        "height":  47,
+                                        "width":  89,
+                                        "text":  "160",
+                                        "x":  403
+                                    },
+                                    {
+                                        "y":  52,
+                                        "height":  19,
+                                        "width":  10,
+                                        "text":  "，",
+                                        "x":  498
+                                    },
+                                    {
+                                        "y":  17,
+                                        "height":  46,
+                                        "width":  61,
+                                        "text":  "94",
+                                        "x":  513
+                                    },
+                                    {
+                                        "y":  18,
+                                        "height":  45,
+                                        "width":  41,
+                                        "text":  "\u0026",
+                                        "x":  579
+                                    },
+                                    {
+                                        "y":  17,
+                                        "height":  45,
+                                        "width":  62,
+                                        "text":  "20",
+                                        "x":  624
+                                    }
+                                ]
+                  }
+              ]
+}

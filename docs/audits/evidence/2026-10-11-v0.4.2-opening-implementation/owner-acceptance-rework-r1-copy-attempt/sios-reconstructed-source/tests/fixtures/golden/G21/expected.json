@@ -1,0 +1,138 @@
+{
+  "schema_version": "golden-expected-v1",
+  "runs": {
+    "split_pending_exit": {
+      "sessions": [
+        {
+          "session_date": "2026-09-10",
+          "cash": "1000",
+          "market_value": "12000.00",
+          "total_equity": "13000.00",
+          "nav": "0.13",
+          "valuation_status": "COMPLETE",
+          "decision_blocked_reason": null,
+          "orders": [],
+          "fills": [],
+          "rejections": [],
+          "plans": [
+            {"instrument_id": "XSHE:000001", "sleeve": "CORE", "side": "SELL", "order_quantity": 1000, "target_weight": "0", "sizing_reference_price": "12.00"}
+          ],
+          "target": {
+            "target_id": "target:2026-09-10",
+            "revision": 1,
+            "decision_for_trade_date": "2026-09-11",
+            "valuation_equity": "13000.00",
+            "cash_weight": "1.00",
+            "sleeve_weights": {"CORE": "0.00"}
+          }
+        },
+        {
+          "session_date": "2026-09-11",
+          "cash": "1000",
+          "market_value": "12000.00",
+          "total_equity": "13000.00",
+          "nav": "0.13",
+          "valuation_status": "COMPLETE",
+          "decision_blocked_reason": null,
+          "orders": [],
+          "fills": [],
+          "rejections": [],
+          "invalidated_orders": [
+            {"instrument_id": "XSHE:000001", "side": "SELL", "planned_quantity": 1000, "submitted_quantity": null, "status": "INVALIDATED", "reason_codes": ["CORPORATE_ACTION_REPLAN_REQUIRED"]}
+          ],
+          "corporate_action_effects": [
+            {
+              "action_id": "ca:split:2026-09-11",
+              "instrument_id": "XSHE:000001",
+              "action_kind": "SPLIT",
+              "cash_delta": "0",
+              "quantity_delta": 1000
+            }
+          ],
+          "plans": [],
+          "target": null
+        },
+        {
+          "session_date": "2026-09-14",
+          "cash": "1000",
+          "market_value": "12000.00",
+          "total_equity": "13000.00",
+          "nav": "0.13",
+          "valuation_status": "COMPLETE",
+          "decision_blocked_reason": null,
+          "orders": [],
+          "fills": [],
+          "rejections": [],
+          "plans": [],
+          "target": null
+        }
+      ],
+      "final": {
+        "cash": "1000",
+        "equity": "13000.00",
+        "nav": "0.13",
+        "positions": [
+          {"instrument_id": "XSHE:000001", "total_quantity": 2000, "sellable_quantity": 2000, "average_cost": "6"}
+        ]
+      }
+    },
+    "no_action_variant": {
+      "sessions": [
+        {
+          "session_date": "2026-09-10",
+          "cash": "1000",
+          "market_value": "12000.00",
+          "total_equity": "13000.00",
+          "nav": "0.13",
+          "valuation_status": "COMPLETE",
+          "decision_blocked_reason": null,
+          "orders": [],
+          "fills": [],
+          "rejections": [],
+          "plans": [
+            {"instrument_id": "XSHE:000001", "sleeve": "CORE", "side": "SELL", "order_quantity": 1000, "target_weight": "0", "sizing_reference_price": "12.00"}
+          ]
+        },
+        {
+          "session_date": "2026-09-11",
+          "cash": "6981.94",
+          "market_value": "0",
+          "total_equity": "6981.94",
+          "nav": "0.0698194",
+          "valuation_status": "COMPLETE",
+          "decision_blocked_reason": null,
+          "orders": [
+            {"instrument_id": "XSHE:000001", "side": "SELL", "planned_quantity": 1000, "submitted_quantity": 1000, "status": "FILLED", "reason_codes": ["FILLED_AS_PLANNED"]}
+          ],
+          "fills": [
+            {"instrument_id": "XSHE:000001", "side": "SELL", "quantity": 1000, "fill_price": "5.99", "reference_open": "6.00", "commission": "1.80", "minimum_commission_adjustment": "3.20", "stamp_tax": "3.00", "transfer_fee": "0.06", "total_fees": "8.06"}
+          ],
+          "rejections": [],
+          "invalidated_orders": [],
+          "plans": [],
+          "target": null
+        },
+        {
+          "session_date": "2026-09-14",
+          "cash": "6981.94",
+          "market_value": "0",
+          "total_equity": "6981.94",
+          "nav": "0.0698194",
+          "valuation_status": "COMPLETE",
+          "decision_blocked_reason": null,
+          "orders": [],
+          "fills": [],
+          "rejections": [],
+          "plans": [],
+          "target": null
+        }
+      ],
+      "final": {
+        "cash": "6981.94",
+        "equity": "6981.94",
+        "nav": "0.0698194",
+        "positions": []
+      }
+    }
+  }
+}

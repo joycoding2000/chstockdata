@@ -1,0 +1,45 @@
+Looking in indexes: https://pypi.tuna.tsinghua.edu.cn/simple
+Processing c:\users\administrator\.codex\visualizations\2026\10\10\01a125dd-33f2-78d3-abe7-45e0928975d0\v042-opening-implementation\dist\r21-qualified\chstockdata-0.4.2-py3-none-any.whl
+Collecting pytest==9.1.1
+  Using cached https://pypi.tuna.tsinghua.edu.cn/packages/24/25/1de2678b631f5a49215c6c96fff41ba892b0a34df68d6d80292b1b48aa7f/pytest-9.1.1-py3-none-any.whl (386 kB)
+Collecting colorama>=0.4 (from pytest==9.1.1)
+  Using cached https://pypi.tuna.tsinghua.edu.cn/packages/d1/d6/3965ed04c63042e047cb6a3e6ed1a63a35087b6a609aa3a15ed8ac56c221/colorama-0.4.6-py2.py3-none-any.whl (25 kB)
+Collecting iniconfig>=1.0.1 (from pytest==9.1.1)
+  Using cached https://pypi.tuna.tsinghua.edu.cn/packages/56/43/4ca9e49d27a1fcf6bece6f6aec0ea46bb9112489b93d4b688fb415457bdb/iniconfig-2.3.1-py3-none-any.whl (7.6 kB)
+Collecting packaging>=22 (from pytest==9.1.1)
+  Using cached https://pypi.tuna.tsinghua.edu.cn/packages/63/34/ba1c580383c9eada3711951fef0795c80b829a078d72188184bcab9dd527/packaging-26.3-py3-none-any.whl (129 kB)
+Collecting pluggy<2,>=1.5 (from pytest==9.1.1)
+  Using cached https://pypi.tuna.tsinghua.edu.cn/packages/54/20/4d324d65cc6d9205fabedc306948156824eb9f0ee1633355a8f7ec5c66bf/pluggy-1.6.0-py3-none-any.whl (20 kB)
+Collecting pygments>=2.7.2 (from pytest==9.1.1)
+  Using cached https://pypi.tuna.tsinghua.edu.cn/packages/71/46/17f022dd3e953bf20a04a028a21ec746d942f8d2af30fa0f124fa0e6a684/pygments-2.21.0-py3-none-any.whl (1.3 MB)
+Collecting pandas>=2.3.0 (from chstockdata==0.4.2)
+  Using cached https://pypi.tuna.tsinghua.edu.cn/packages/bd/2a/14b3b17cd75cef4a1ee1af4234eb41cc1afe4103b98c2d80e8916abfd42b/pandas-3.0.6-cp312-cp312-win_amd64.whl (9.7 MB)
+Collecting numpy>=1.26.0 (from chstockdata==0.4.2)
+  Using cached https://pypi.tuna.tsinghua.edu.cn/packages/12/33/fefe62073dc8acfd0f2b9ed7c003af2f50aa61555e113e6db02b8f79f145/numpy-2.5.4-cp312-cp312-win_amd64.whl (12.6 MB)
+Collecting requests>=2.32.4 (from chstockdata==0.4.2)
+  Using cached https://pypi.tuna.tsinghua.edu.cn/packages/a0/f4/c67b0b3f1b9245e8d266f0f112c500d50e5b4e83cb6f3b71b6528104182a/requests-2.34.2-py3-none-any.whl (73 kB)
+Collecting python-dateutil>=2.9.0 (from chstockdata==0.4.2)
+  Using cached https://pypi.tuna.tsinghua.edu.cn/packages/ec/57/56b9bcc3c9c6a792fcbaf139543cee77261f3651ca9da0c93f5c1221264b/python_dateutil-2.9.0.post0-py2.py3-none-any.whl (229 kB)
+Collecting typing-extensions>=4.14.0 (from chstockdata==0.4.2)
+  Using cached https://pypi.tuna.tsinghua.edu.cn/packages/49/d3/b8441a820a491ddfc024b0b0cf0393375b75ea13866d9c66727e54c2fc80/typing_extensions-4.16.0-py3-none-any.whl (45 kB)
+Collecting lxml>=4.9.0 (from chstockdata==0.4.2)
+  Using cached https://pypi.tuna.tsinghua.edu.cn/packages/3a/5b/6ed903e4e6278a020c8a6f0dbbe78030d041840a6b4a64ea441a1e414077/lxml-6.1.3-cp312-cp312-win_amd64.whl (4.0 MB)
+Collecting stockstats>=0.6.5 (from chstockdata==0.4.2)
+  Using cached https://pypi.tuna.tsinghua.edu.cn/packages/da/17/a1e4d0782604b09fa39283fd130cafcd03596932e9dd5f9b5e62c525abfb/stockstats-0.6.9-py3-none-any.whl (32 kB)
+Collecting tzdata (from pandas>=2.3.0->chstockdata==0.4.2)
+  Using cached https://pypi.tuna.tsinghua.edu.cn/packages/94/21/1e5995a1c920cce14e4bffae20c665ec10e7ed03ab25e006cd741092b718/tzdata-2026.5-py2.py3-none-any.whl (347 kB)
+Collecting six>=1.5 (from python-dateutil>=2.9.0->chstockdata==0.4.2)
+  Using cached https://pypi.tuna.tsinghua.edu.cn/packages/b7/ce/149a00dd41f10bc29e5921b496af8b574d8413afcd5e30dfa0ed46c2cc5e/six-1.17.0-py2.py3-none-any.whl (11 kB)
+Collecting charset_normalizer<4,>=2 (from requests>=2.32.4->chstockdata==0.4.2)
+  Using cached https://pypi.tuna.tsinghua.edu.cn/packages/eb/e6/e6e083884cbcfd49c64865af05027fe7011be7b2d9179524f099a1b611f3/charset_normalizer-3.5.2-cp312-cp312-win_amd64.whl (207 kB)
+Collecting idna<4,>=2.5 (from requests>=2.32.4->chstockdata==0.4.2)
+  Using cached https://pypi.tuna.tsinghua.edu.cn/packages/58/a2/bb081bab032533a855d44de1d56f8e8426114ff1ba5d1f07a438a0a654f8/idna-3.20-py3-none-any.whl (69 kB)
+Collecting urllib3<3,>=1.26 (from requests>=2.32.4->chstockdata==0.4.2)
+  Using cached https://pypi.tuna.tsinghua.edu.cn/packages/92/9d/c4e665119135114480843e7ab388fa94d8480650450e6f8e26b70d323a4c/urllib3-2.8.0-py3-none-any.whl (135 kB)
+Collecting certifi>=2023.5.7 (from requests>=2.32.4->chstockdata==0.4.2)
+  Using cached https://pypi.tuna.tsinghua.edu.cn/packages/0b/a7/71ac2cff56fec219ed242bb11b8efb69fcc4bec75db06fb7bfe35de520e6/certifi-2026.7.22-py3-none-any.whl (136 kB)
+Installing collected packages: urllib3, tzdata, typing-extensions, six, pygments, pluggy, packaging, numpy, lxml, iniconfig, idna, colorama, charset_normalizer, certifi, requests, python-dateutil, pytest, pandas, stockstats, chstockdata
+Successfully installed certifi-2026.7.22 charset_normalizer-3.5.2 chstockdata-0.4.2 colorama-0.4.6 idna-3.20 iniconfig-2.3.1 lxml-6.1.3 numpy-2.5.4 packaging-26.3 pandas-3.0.6 pluggy-1.6.0 pygments-2.21.0 pytest-9.1.1 python-dateutil-2.9.0.post0 requests-2.34.2 six-1.17.0 stockstats-0.6.9 typing-extensions-4.16.0 tzdata-2026.5 urllib3-2.8.0
+
+[notice] A new release of pip is available: 25.0.1 -> 26.2.1
+[notice] To update, run: C:\Users\Administrator\.codex\visualizations\2026\10\10\01a125dd-33f2-78d3-abe7-45e0928975d0\v042-opening-implementation\profiles\r21-qualified\core\Scripts\python.exe -m pip install --upgrade pip

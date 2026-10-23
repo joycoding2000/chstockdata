@@ -1,0 +1,34 @@
+{
+  "current_decision": "FIX_ONLY",
+  "network_requests_allowed": 0,
+  "scans": [
+    "1216741269",
+    "1216869640",
+    "1217078313",
+    "1217949874",
+    "1218110511"
+  ],
+  "replies": [
+    "1216741268",
+    "1216741273",
+    "1217078312",
+    "1217078316",
+    "1217949872",
+    "1217949876"
+  ],
+  "only_new_outputs": "docs/audits/evidence/2026-10-22-w5h-f2-final-evidence-qualification",
+  "report": "docs/audits/2026-10-22-w5h-f2-final-evidence-qualification.md",
+  "ordered_work": [
+    "embedded image identity and table structure",
+    "constrained field recovery",
+    "reply scope and six FY2021 conflicts",
+    "field/period qualification and PIT replay",
+    "all frozen regression denominators",
+    "integrity and Owner Review"
+  ],
+  "stop_rule": "Stop on demonstrated material evidence gaps after bounded structural/targeted recovery; no new production architecture",
+  "product_gate": "MISHI_S07_HISTORICAL_GATE=NOT_PASSED",
+  "commit": false,
+  "push": false,
+  "production": false
+}

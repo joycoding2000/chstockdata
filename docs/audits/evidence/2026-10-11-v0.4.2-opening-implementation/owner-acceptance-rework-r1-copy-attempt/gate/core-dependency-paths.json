@@ -1,0 +1,55 @@
+{
+  "executable": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\profiles\\owner-rework-r1\\core\\Scripts\\python.exe",
+  "chstockdata_import": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\profiles\\owner-rework-r1\\core\\Lib\\site-packages\\chstockdata\\__init__.py",
+  "wheel_sha256": "1dd58350678fbb07d3b545165708d814f93fb94f965dc2da33bad2fab7ff779c",
+  "dependencies": [
+    {
+      "name": "chstockdata",
+      "version": "0.4.2",
+      "module_spec_origin": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\profiles\\owner-rework-r1\\core\\Lib\\site-packages\\chstockdata\\__init__.py",
+      "actual_import_path": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\profiles\\owner-rework-r1\\core\\Lib\\site-packages\\chstockdata\\__init__.py"
+    },
+    {
+      "name": "requests",
+      "version": "2.34.2",
+      "module_spec_origin": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\profiles\\owner-rework-r1\\core\\Lib\\site-packages\\requests\\__init__.py",
+      "actual_import_path": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\profiles\\owner-rework-r1\\core\\Lib\\site-packages\\requests\\__init__.py"
+    },
+    {
+      "name": "pandas",
+      "version": "3.0.6",
+      "module_spec_origin": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\profiles\\owner-rework-r1\\core\\Lib\\site-packages\\pandas\\__init__.py",
+      "actual_import_path": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\profiles\\owner-rework-r1\\core\\Lib\\site-packages\\pandas\\__init__.py"
+    },
+    {
+      "name": "mootdx",
+      "version": null,
+      "module_spec_origin": null,
+      "actual_import_path": null
+    },
+    {
+      "name": "tdxpy",
+      "version": null,
+      "module_spec_origin": null,
+      "actual_import_path": null
+    },
+    {
+      "name": "pypdf",
+      "version": null,
+      "module_spec_origin": null,
+      "actual_import_path": null
+    },
+    {
+      "name": "mcp",
+      "version": null,
+      "module_spec_origin": null,
+      "actual_import_path": null
+    },
+    {
+      "name": "baostock",
+      "version": null,
+      "module_spec_origin": null,
+      "actual_import_path": null
+    }
+  ]
+}

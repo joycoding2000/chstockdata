@@ -1,0 +1,37 @@
+{
+  "changed_files": [
+    "src/systematic_investing/domain/historical_opening.py",
+    "tests/component/test_owner_r2_interval_contract.py"
+  ],
+  "patch_sha256": "c7f7de76a60e81e684b8fcf4fbc46ea03eb3854595c57acbd5335a8ccecb7162",
+  "apply": [
+    {
+      "argv": [
+        "git",
+        "-c",
+        "core.autocrlf=false",
+        "apply",
+        "--whitespace=nowarn",
+        "--check",
+        "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-11-v0.4.2-opening-implementation\\owner-acceptance-rework-r2\\sios-source-vs-r1.patch"
+      ],
+      "cwd": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\13\\01a135d1-a42d-73a3-b19f-dc0968e4ca6c\\owner-rework-r2\\delta-reconstruction",
+      "exit": 0,
+      "output": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-c",
+        "core.autocrlf=false",
+        "apply",
+        "--whitespace=nowarn",
+        "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-11-v0.4.2-opening-implementation\\owner-acceptance-rework-r2\\sios-source-vs-r1.patch"
+      ],
+      "cwd": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\13\\01a135d1-a42d-73a3-b19f-dc0968e4ca6c\\owner-rework-r2\\delta-reconstruction",
+      "exit": 0,
+      "output": ""
+    }
+  ],
+  "all_257_files_equal": true
+}

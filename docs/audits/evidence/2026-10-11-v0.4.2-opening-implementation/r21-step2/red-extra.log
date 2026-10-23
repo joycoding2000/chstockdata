@@ -1,0 +1,126 @@
+................F.FFF.F...F...                                           [100%]
+================================== FAILURES ===================================
+______ test_qualified_new_ledger_matches_legacy_and_volume_is_not_quota _______
+
+make_engine = <function make_engine.<locals>.build at 0x000001D65796F1A0>
+bar_factory = <function bar_factory.<locals>.build at 0x000001D65796F240>
+target_contribution = <function target_contribution.<locals>.build at 0x000001D65796F9C0>
+predetermined_targets = <class 'conftest.PredeterminedTargetSource'>
+
+    def test_qualified_new_ledger_matches_legacy_and_volume_is_not_quota(make_engine,bar_factory,target_contribution,predetermined_targets):
+        args=(make_engine,bar_factory,target_contribution,predetermined_targets)
+        tz=api().SHANGHAI
+        known=TradabilityStatus(I,S1,TradabilityStatusKind.TRADABLE,None,Availability(datetime(2026,9,11,9,0,tzinfo=tz),datetime(2026,9,11,9,0,tzinfo=tz),AvailabilityBasis.OBSERVED),"qualified-baseline")
+        baseline,_=run((),(known,),*args,execution_eligibility_mode=api().ExecutionEligibilityMode.LEGACY)
+        new,_=run((mapped(payload()),),(gap(),),*args)
+        data=payload();data["tdx_activity"]["opening_volume_lots"]=1
+        altered,_=run((mapped(seal(data)),),(gap(),),*args)
+        assert baseline.fills==new.fills==altered.fills
+        assert baseline.cash_entries==new.cash_entries==altered.cash_entries
+        assert baseline.holdings_entries==new.holdings_entries
+        assert new.fills[0].quantity==new.session(S0).plans[0].order_quantity
+>       assert new.fills[0].price!=api().HistoricalOpeningEvidence.from_payload(payload()).payload["tdx_activity"]["last_opening_price"]
+               ^^^^^^^^^^^^^^^^^^
+E       AttributeError: 'Fill' object has no attribute 'price'
+
+tests\component\test_historical_opening_execution.py:160: AttributeError
+______ test_real_halt_controls_never_fill_or_retry_after_resume[513100] _______
+
+symbol = '513100'
+make_engine = <function make_engine.<locals>.build at 0x000001D65788D1C0>
+bar_factory = <function bar_factory.<locals>.build at 0x000001D65788CFE0>
+target_contribution = <function target_contribution.<locals>.build at 0x000001D65788D580>
+predetermined_targets = <class 'conftest.PredeterminedTargetSource'>
+
+    @pytest.mark.parametrize("symbol",["513100","159509"])
+    def test_real_halt_controls_never_fill_or_retry_after_resume(symbol,make_engine,bar_factory,target_contribution,predetermined_targets):
+        from systematic_investing.backtest.engine import EngineClock
+        from systematic_investing.domain.market import MarketCalendar,TradingSession
+        instrument=InstrumentId.parse(("XSHG:" if symbol.startswith("5") else "XSHE:")+symbol)
+        # Registration reuses approved ETF rules; event eligibility is the subject.
+        from systematic_investing.instrument_master.repository import default_m0_master
+        master=default_m0_master()
+>       reference=master.instrument(I,S1)
+                  ^^^^^^^^^^^^^^^^^
+E       AttributeError: 'InstrumentMaster' object has no attribute 'instrument'. Did you mean: '_instruments'?
+
+tests\component\test_historical_opening_execution.py:177: AttributeError
+______ test_real_halt_controls_never_fill_or_retry_after_resume[159509] _______
+
+symbol = '159509'
+make_engine = <function make_engine.<locals>.build at 0x000001D65788E160>
+bar_factory = <function bar_factory.<locals>.build at 0x000001D65788E2A0>
+target_contribution = <function target_contribution.<locals>.build at 0x000001D65788E3E0>
+predetermined_targets = <class 'conftest.PredeterminedTargetSource'>
+
+    @pytest.mark.parametrize("symbol",["513100","159509"])
+    def test_real_halt_controls_never_fill_or_retry_after_resume(symbol,make_engine,bar_factory,target_contribution,predetermined_targets):
+        from systematic_investing.backtest.engine import EngineClock
+        from systematic_investing.domain.market import MarketCalendar,TradingSession
+        instrument=InstrumentId.parse(("XSHG:" if symbol.startswith("5") else "XSHE:")+symbol)
+        # Registration reuses approved ETF rules; event eligibility is the subject.
+        from systematic_investing.instrument_master.repository import default_m0_master
+        master=default_m0_master()
+>       reference=master.instrument(I,S1)
+                  ^^^^^^^^^^^^^^^^^
+E       AttributeError: 'InstrumentMaster' object has no attribute 'instrument'. Did you mean: '_instruments'?
+
+tests\component\test_historical_opening_execution.py:177: AttributeError
+_______________ test_late_and_unknown_strategy_pit_still_blocks _______________
+
+bar_factory = <function bar_factory.<locals>.build at 0x000001D65788D3A0>
+m0_master = <systematic_investing.instrument_master.repository.InstrumentMaster object at 0x000001D6566B43B0>
+
+    def test_late_and_unknown_strategy_pit_still_blocks(bar_factory,m0_master):
+        from systematic_investing.data.quality import DataQualityGate,DatasetPolicy,UnknownHandling,GateAction
+        # Execution facts do not participate in required strategy PIT checks.
+        base=CanonicalDataset((bar_factory(I,S1,open="4",close="4"),),(),(gap(),),(),(),(mapped(payload()),))
+        gate=DataQualityGate(m0_master,DatasetPolicy())
+>       result=gate.evaluate(base,information_cutoff=datetime(2026,9,11,8,tzinfo=UTC),retrieved_at=datetime(2026,10,12,tzinfo=UTC),action=GateAction.INCREASE_EXPOSURE)
+                                                                                                                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       AttributeError: type object 'GateAction' has no attribute 'INCREASE_EXPOSURE'
+
+tests\component\test_historical_opening_execution.py:195: AttributeError
+________ test_actual_legacy_failure_constructs_only_unknown_constraint ________
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x000001D6566B9160>
+
+    def test_actual_legacy_failure_constructs_only_unknown_constraint(monkeypatch):
+        import chstockdata
+        from chstockdata import a_stock,suspension
+        from chstockdata.fetch_result import FetchAttempt
+        snapshot={"rows":[],"reported_count":0,"snapshot_pages":1,"retrieved_at":NOW.isoformat(),"status":"normal_empty","reason":None,"attempts":[FetchAttempt("eastmoney","eastmoney:suspension","normal_empty",NOW.isoformat(),0,record_count=0)]}
+        monkeypatch.setattr(suspension,"_load_suspension_snapshot",lambda _:snapshot)
+        monkeypatch.setattr(a_stock,"_load_suspension_snapshot",lambda _:snapshot)
+        monkeypatch.setattr(a_stock,"_today",lambda:date(2026,10,12))
+        provider=ChStockDataProvider(client=LibraryChStockDataClient(library=chstockdata,historical_opening_candidate=True),clock=lambda:NOW)
+        request=TradabilityRequest((I,),DAY)
+        failure=provider.fetch_tradability(request)
+        assert isinstance(failure,ProviderFailure)
+>       assert isinstance(failure.cause,HistoricalSuspensionUnavailableError)
+E       AssertionError: assert False
+E        +  where False = isinstance(ChStockDataMalformedError('tradability payload must declare a boolean suspended flag'), HistoricalSuspensionUnavailableError)
+E        +    where ChStockDataMalformedError('tradability payload must declare a boolean suspended flag') = ProviderFailure(error_code=<ProviderErrorCode.MALFORMED_DATA: 'MALFORMED_DATA'>, message='tradability payload must dec...5a55eff74', warnings=()), cause=ChStockDataMalformedError('tradability payload must declare a boolean suspended flag')).cause
+
+tests\unit\test_historical_opening_provider.py:36: AssertionError
+________ test_old_client_missing_optional_method_is_typed_unsupported _________
+
+    def test_old_client_missing_optional_method_is_typed_unsupported():
+        provider=ChStockDataProvider(client=SimpleNamespace(provider_version=lambda:"0.3.0"),clock=lambda:NOW)
+        result=provider.fetch_historical_opening_evidence(HistoricalOpeningRequest((I,),DAY))
+        assert isinstance(result,ProviderFailure)
+>       assert result.error_code.value=="UNSUPPORTED_CAPABILITY"
+E       AssertionError: assert 'INTERNAL_ADAPTER_ERROR' == 'UNSUPPORTED_CAPABILITY'
+E         
+E         - UNSUPPORTED_CAPABILITY
+E         + INTERNAL_ADAPTER_ERROR
+
+tests\unit\test_historical_opening_provider.py:58: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/component/test_historical_opening_execution.py::test_qualified_new_ledger_matches_legacy_and_volume_is_not_quota
+FAILED tests/component/test_historical_opening_execution.py::test_real_halt_controls_never_fill_or_retry_after_resume[513100]
+FAILED tests/component/test_historical_opening_execution.py::test_real_halt_controls_never_fill_or_retry_after_resume[159509]
+FAILED tests/component/test_historical_opening_execution.py::test_late_and_unknown_strategy_pit_still_blocks
+FAILED tests/unit/test_historical_opening_provider.py::test_actual_legacy_failure_constructs_only_unknown_constraint
+FAILED tests/unit/test_historical_opening_provider.py::test_old_client_missing_optional_method_is_typed_unsupported
+6 failed, 24 passed in 2.31s

@@ -1,0 +1,29 @@
+{
+  "name": "etf-exact-probe",
+  "argv": [
+    "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\profiles\\owner-rework-r1\\sios-candidate\\Scripts\\python.exe",
+    "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\evidence\\owner-acceptance-rework-r1\\gate\\run_gate.py",
+    "probe"
+  ],
+  "cwd": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation",
+  "exit": 0,
+  "candidate_wheel_sha256": "1dd58350678fbb07d3b545165708d814f93fb94f965dc2da33bad2fab7ff779c",
+  "candidate_source_sha256": "d81fb0a62a9fa4cc9823ca9ad1920f380a110d50351dd0b7b465f735d3021572",
+  "sios_full_source_sha256": "573c8540e094e2c2c1d82788541a65d42424c707fa307a06c73d330483c75eb5",
+  "sios_runtime_source_sha256": "73376752616edc41b1560e0cea40a7cdb6190d2795c83dab34d19fdcffd4186f",
+  "sios_patch_sha256": "cbf403397631eed42fe542364587c3f75eb6150b88017c7390da2828644d4873",
+  "log": "etf-exact-probe.log",
+  "exit_file": "etf-exact-probe.exit",
+  "command_started_at": "2026-10-13T21:45:54.359752+08:00",
+  "command_finished_at": "2026-10-13T21:45:58.640753+08:00",
+  "environment_overrides": {
+    "PYTHONPATH": null,
+    "PYTHONUTF8": "1",
+    "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+    "SIOS_CHSTOCKDATA_LIVE_QUALIFICATION": null,
+    "CHSTOCKDATA_VIPDOC_HISTORY_DIR": null,
+    "CHSTOCKDATA_CACHE_DIR": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\cache\\owner-rework-r1-data",
+    "TEMP": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\temp\\owner-rework-r1-gate",
+    "TMP": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\temp\\owner-rework-r1-gate"
+  }
+}

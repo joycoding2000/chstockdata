@@ -1,0 +1,276 @@
+{
+  "phase": "v0.4.2 R1-R5 + R2.1",
+  "step": "Step4 unified candidate",
+  "gate_verdict": "PASS_CANDIDATE",
+  "owner_acceptance": "PENDING",
+  "release_authorized": false,
+  "publish_authorized": false,
+  "next_phase_authorized": false,
+  "scope_expansion": false,
+  "base_commit": "42bd44ef4d695aa3e88cfab4ebc3417660d0437a",
+  "snapshot_git_status": "no .git; isolated source content identity, no new commit",
+  "candidate_source_kind": "source-only SHA256; not Git commit",
+  "candidate_source_sha256": "5a5c9097abe4703d9bd709b55d824b7d41a954b89a1f053e6fd6385e7a18516c",
+  "candidate_prebuild_envelope_sha256": "3c3c28fd696c9e4f66149cd3cf386b645ba603c03736cb9fab31ab863474779c",
+  "candidate_wheel_sha256": "3fd4f0b7334e310851495b8b13d4c7c55d21cde719acf9e00ff880ccb822f42e",
+  "candidate_sdist_sha256": "306c07dd3a9534720cd2f93c6edb5b1a7a0e4a4a1f1d40ca3a71ba42d5bbf88b",
+  "candidate_paths": {
+    "wheel": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\dist\\r21-qualified\\chstockdata-0.4.2-py3-none-any.whl",
+    "sdist": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\dist\\r21-qualified\\chstockdata-0.4.2.tar.gz"
+  },
+  "results": {
+    "package-tests": {
+      "path": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\evidence\\r21-step4\\package-tests.xml",
+      "sha256": "b6fee494605dd6f83326a4b0ed025f8038369eec85de16d2c1782c792f9819b4",
+      "tests": 775,
+      "passed": 774,
+      "failures": {},
+      "errors": [],
+      "skipped": [
+        {
+          "classname": "tests.test_mcp_server",
+          "name": "test_build_server_accepts_supported_mcp_api",
+          "time": "0.001"
+        }
+      ]
+    },
+    "sios-provider-contract": {
+      "path": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\evidence\\r21-step4\\sios-provider-contract.xml",
+      "sha256": "f7430edbe4d9ee922802ed08f04e44527cdaee091336852edfd328553685f688",
+      "tests": 67,
+      "passed": 67,
+      "failures": {},
+      "errors": [],
+      "skipped": []
+    },
+    "sios-etf-golden-smoke": {
+      "path": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\evidence\\r21-step4\\sios-etf-golden-smoke.xml",
+      "sha256": "01b5d9da1bd13c95c4cfffcdac9aec399741c69b3587da640c676983c580870a",
+      "tests": 170,
+      "passed": 165,
+      "failures": {},
+      "errors": [],
+      "skipped": [
+        {
+          "classname": "tests.qualification.test_chstockdata_etf_gate.TestLiveEtfQualification",
+          "name": "test_live_routing_and_ohlcv_pre_close",
+          "time": "0.000"
+        },
+        {
+          "classname": "tests.qualification.test_chstockdata_etf_gate.TestLiveEtfQualification",
+          "name": "test_live_units_calendar_and_history_coverage",
+          "time": "0.000"
+        },
+        {
+          "classname": "tests.qualification.test_chstockdata_etf_gate.TestLiveEtfQualification",
+          "name": "test_live_tradability_adjustment_and_freshness",
+          "time": "0.000"
+        },
+        {
+          "classname": "tests.qualification.test_chstockdata_etf_gate.TestLiveEtfQualification",
+          "name": "test_live_provider_version_evidence",
+          "time": "0.000"
+        },
+        {
+          "classname": "tests.qualification.test_chstockdata_etf_gate.TestLiveEtfQualification",
+          "name": "test_live_client_requires_the_pinned_release",
+          "time": "0.000"
+        }
+      ]
+    },
+    "sios-offline": {
+      "path": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\evidence\\r21-step4\\sios-offline.xml",
+      "sha256": "5af4ce397134142a67e10495b6c17c0a20af35096e3da2edd462da533f73fbb5",
+      "tests": 978,
+      "passed": 973,
+      "failures": {},
+      "errors": [],
+      "skipped": [
+        {
+          "classname": "tests.qualification.test_chstockdata_etf_gate.TestLiveEtfQualification",
+          "name": "test_live_routing_and_ohlcv_pre_close",
+          "time": "0.000"
+        },
+        {
+          "classname": "tests.qualification.test_chstockdata_etf_gate.TestLiveEtfQualification",
+          "name": "test_live_units_calendar_and_history_coverage",
+          "time": "0.000"
+        },
+        {
+          "classname": "tests.qualification.test_chstockdata_etf_gate.TestLiveEtfQualification",
+          "name": "test_live_tradability_adjustment_and_freshness",
+          "time": "0.000"
+        },
+        {
+          "classname": "tests.qualification.test_chstockdata_etf_gate.TestLiveEtfQualification",
+          "name": "test_live_provider_version_evidence",
+          "time": "0.000"
+        },
+        {
+          "classname": "tests.qualification.test_chstockdata_etf_gate.TestLiveEtfQualification",
+          "name": "test_live_client_requires_the_pinned_release",
+          "time": "0.000"
+        }
+      ]
+    },
+    "ta-candidate": {
+      "path": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\evidence\\r21-step4\\ta-candidate.xml",
+      "sha256": "20f094e7610fe640df6dc060da271827d07084bdd4cf7e0ba44e169e4837aaa4",
+      "tests": 130,
+      "passed": 123,
+      "failures": {
+        "tests.test_free_adjusted_bars::test_get_adjusted_bars_uses_existing_loader_and_rejects_stale": {
+          "message": "AssertionError: assert 'mootdx' in 'a_stock._load_ohlcv_astock（CSV/PIT → structured daily-bars engine）'\n +  where 'a_stock._load_ohlcv_astock（CSV/PIT → structured daily-bars engine）' = AdjustedBars(code='600519', adjust='qfq', period='D', frame=        Date       Open       High        Low      Close  ...nts_in_window=[], factor_first_event='2025-06-26', factor_last_event='2026-06-26', limitations=['窗口内无除权事件，复权序列与原始价一致']).daily_source"
+        },
+        "tests.test_phase2_step3_validation::test_full_output_numeric_scan_covers_conflict_risk_and_final_fields": {
+          "message": "tradingagents.agents.utils.phase2_projection.PromptProjectionError: required identity, health, limitations, upstream results, and decision-critical input exceed effective prompt capacity"
+        },
+        "tests.test_phase2_step3_validation::test_date_exemption_requires_exact_admitted_or_cited_metadata": {
+          "message": "pydantic_core._pydantic_core.ValidationError: 1 validation error for GroundedStatementPayload\n  Value error, factual numeric literals must use a GroundedValueRef slot [type=value_error, input_value={'statement_kind': 'inter...s=()), 'value_refs': ()}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error"
+        },
+        "tests.test_phase2_step3_validation::test_derived_metric_numeric_render_uses_its_closed_source_evidence": {
+          "message": "tradingagents.agents.utils.phase2_projection.Phase2ContractValidationError: interpretation/monitoring statement lacks Fact/Material or recursively grounded upstream input"
+        },
+        "tests.test_phase2_step3_validation::test_scoped_absence_requires_a_matching_normal_empty_datahealth_source": {
+          "message": "tradingagents.agents.utils.phase2_projection.PromptProjectionError: required identity, health, limitations, upstream results, and decision-critical input exceed effective prompt capacity"
+        },
+        "tests.test_phase2_step3_validation::test_basis_counts_distinct_result_store_roots_and_requires_two_effective_domains": {
+          "message": "tradingagents.agents.utils.phase2_projection.PromptProjectionError: required identity, health, limitations, upstream results, and decision-critical input exceed effective prompt capacity"
+        },
+        "tests.test_phase2_step3_validation::test_basis_excludes_boilerplate_domains_and_retains_event_risk_inputs_for_partial_work": {
+          "message": "StopIteration"
+        }
+      },
+      "errors": [],
+      "skipped": []
+    },
+    "live": {
+      "path": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\evidence\\r21-step4\\final-live\\live.xml",
+      "sha256": "f2327ce1c3effab20eb79efe016738433ff8b7e8829ad87bc785d2811b75a8a4",
+      "tests": 5,
+      "passed": 5,
+      "failures": {},
+      "errors": [],
+      "skipped": []
+    }
+  },
+  "required_zero_exit_commands": [
+    "build",
+    "twine",
+    "artifact-members",
+    "static-final",
+    "compile",
+    "version-project",
+    "original-diff-check",
+    "package-tests",
+    "sios-provider-contract",
+    "sios-etf-golden-smoke",
+    "sios-offline",
+    "sios-required-live",
+    "installed-wheel-74raw-replay",
+    "etf-exact-probe",
+    "ta-identity",
+    "ta-source-binding",
+    "ta-legacy",
+    "core-create",
+    "core-install",
+    "core-pip-check",
+    "core-version",
+    "core-identity",
+    "core-exports",
+    "core-deps",
+    "sdist-create",
+    "sdist-install",
+    "sdist-pip-check",
+    "sdist-version",
+    "sdist-identity",
+    "sdist-exports",
+    "sdist-deps",
+    "mcp-create",
+    "mcp-install",
+    "mcp-pip-check",
+    "mcp-version",
+    "mcp-identity",
+    "mcp-exports",
+    "mcp-deps",
+    "baostock-create",
+    "baostock-install",
+    "baostock-pip-check",
+    "baostock-version",
+    "baostock-identity",
+    "baostock-exports",
+    "baostock-deps",
+    "sios-candidate-create",
+    "sios-candidate-install",
+    "sios-certified-deps",
+    "sios-pip-check",
+    "sios-deps",
+    "ta-candidate-create",
+    "ta-candidate-install",
+    "ta-deps"
+  ],
+  "actual_required_live": {
+    "passed": 5,
+    "failed": 0,
+    "skipped": 0,
+    "xfail": 0,
+    "deselected": 0,
+    "capabilities_passed": 54,
+    "raw_calls": 111,
+    "directory": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\evidence\\r21-step4\\final-live"
+  },
+  "etf_exact_price_cases_passed": 4,
+  "legacy_probe_cases_passed": 5,
+  "ta_relative_compatibility": "PASS_123_PLUS_7_IDENTICAL_BASELINE_FAILURES",
+  "ta_pip_check": "EXIT1_KNOWN_FROZEN_METADATA_CONSTRAINT",
+  "saved_raw_replay": {
+    "points": 12,
+    "raw_responses": 74,
+    "network": false,
+    "same_final_wheel": true
+  },
+  "frozen_var_files": 6007,
+  "frozen_var_unchanged": true,
+  "unresolved_mandatory_blockers": [],
+  "limitations": [
+    {
+      "classification": "UNRESOLVED_RISK",
+      "fact": "Only certified single-host bounded minute activity + current official query; strict exact-time order fill/full-day/PIT/all-history completeness not proven"
+    },
+    {
+      "classification": "UNRESOLVED_RISK",
+      "fact": "Legacy complete historical PIT suspension remains UNKNOWN/fail-closed; QDII halt controls are source controls, not ETF product qualification"
+    },
+    {
+      "classification": "UNRESOLVED_RISK",
+      "fact": "TA inherited dependency metadata constraint remains incompatible with 0.4.2; actual pipcheck1 and seven frozen baseline failures retained"
+    },
+    {
+      "classification": "KNOWN_LIMITATION",
+      "fact": "Package one optional MCP skip in non-MCP test profile; separately actual MCP profile exports/build_server pass;15 network smoke deselected by original package marker contract"
+    },
+    {
+      "classification": "KNOWN_LIMITATION",
+      "fact": "SIOS offline five default live optin skips; same original five mandatory live nodes independently actually executed and passed"
+    },
+    {
+      "classification": "KNOWN_LIMITATION",
+      "fact": "Gitless snapshot research runner/oos public test-only source identity injection; production resolver unchanged; code_commit field represents source SHA256"
+    }
+  ],
+  "retained_invalid_or_superseded_attempts": [
+    "preliminary/ + dist/r21-unified (missing fixtures)",
+    "candidate-static-fail/ + dist/r21-final (12 lint findings)",
+    "live-sandbox-attempt/ (network-layer denial actual4PASS1FAIL)",
+    "live-snapshot-reuse-attempt/ (actual111 requests success;6 snapshot immutable path refusals;4PASS1FAIL)",
+    "freeze-source-only-cache-drift-attempt.log (tool cache drift excluded and explicitly bound)",
+    "commands-initial-invalid.json (parallel journal race; replaced by per-command records)"
+  ],
+  "recommended_next_action": "Independent root review/protection audit and Owner Acceptance; no publication or next-phase advancement",
+  "finished_at": "2026-10-12T13:51:53.842708+00:00",
+  "old_wheel_verification_scope": {
+    "agent_scope": "copied protected old wheel hash verified; original direct read sandbox denied",
+    "independent_root_evidence": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\r21-protection.json",
+    "root_evidence_sha256": "7c5c30ba1dc5e7b04727f4cbcdd37dba2d55b64a85ef5605bb6d26c682facd02"
+  }
+}

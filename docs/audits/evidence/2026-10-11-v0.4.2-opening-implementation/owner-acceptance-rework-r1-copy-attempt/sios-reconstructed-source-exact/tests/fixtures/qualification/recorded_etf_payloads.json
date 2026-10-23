@@ -1,0 +1,435 @@
+{
+  "schema_version": "m0-recorded-etf-evidence-1",
+  "provider_version": "0.3.0",
+  "recorded_at": "2026-09-15T16:30:00+08:00",
+  "source_note": "Hand-built fixtures shaped exactly like the pinned chstockdata package's reported payloads (SOURCES.yaml documents the raw shapes). Values are synthetic test data, not market data, and no live content is embedded.",
+  "window": {
+    "start": "2026-09-08",
+    "end": "2026-09-11"
+  },
+  "daily_bars": {
+    "XSHG:510300": {
+      "capability": "daily_bars",
+      "upstream_source": "recorded: chstockdata.load_vipdoc_daily (sh510300)",
+      "payload": {
+        "columns": [
+          "Date",
+          "Open",
+          "High",
+          "Low",
+          "Close",
+          "pre_close",
+          "Volume",
+          "Amount"
+        ],
+        "rows": [
+          {
+            "Date": "2026-09-08",
+            "Open": 4.0,
+            "High": 4.05,
+            "Low": 3.98,
+            "Close": 4.02,
+            "Volume": 90000,
+            "Amount": 3618000.0,
+            "pre_close": 4.0
+          },
+          {
+            "Date": "2026-09-09",
+            "Open": 4.02,
+            "High": 4.06,
+            "Low": 4.0,
+            "Close": 4.04,
+            "Volume": 95000,
+            "Amount": 3836000.0,
+            "pre_close": 4.02
+          },
+          {
+            "Date": "2026-09-10",
+            "Open": 4.04,
+            "High": 4.08,
+            "Low": 4.02,
+            "Close": 4.06,
+            "Volume": 100000,
+            "Amount": 4050000.0,
+            "pre_close": 4.04
+          },
+          {
+            "Date": "2026-09-11",
+            "Open": 4.06,
+            "High": 4.1,
+            "Low": 4.04,
+            "Close": 4.08,
+            "Volume": 110000,
+            "Amount": 4488000.0,
+            "pre_close": 4.06
+          }
+        ],
+        "volume_unit": "SHARE",
+        "amount_unit": "CNY",
+        "covered_start": "2026-09-08",
+        "covered_end": "2026-09-11"
+      }
+    },
+    "XSHE:159915": {
+      "capability": "daily_bars",
+      "upstream_source": "recorded: chstockdata.load_vipdoc_daily (sz159915)",
+      "payload": {
+        "columns": [
+          "Date",
+          "Open",
+          "High",
+          "Low",
+          "Close",
+          "pre_close",
+          "Volume",
+          "Amount"
+        ],
+        "rows": [
+          {
+            "Date": "2026-09-08",
+            "Open": 1.2,
+            "High": 1.215,
+            "Low": 1.19,
+            "Close": 1.204,
+            "Volume": 300000,
+            "Amount": 360600.0,
+            "pre_close": 1.2
+          },
+          {
+            "Date": "2026-09-09",
+            "Open": 1.204,
+            "High": 1.22,
+            "Low": 1.2,
+            "Close": 1.212,
+            "Volume": 310000,
+            "Amount": 374960.0,
+            "pre_close": 1.204
+          },
+          {
+            "Date": "2026-09-10",
+            "Open": 1.212,
+            "High": 1.228,
+            "Low": 1.208,
+            "Close": 1.22,
+            "Volume": 320000,
+            "Amount": 389440.0,
+            "pre_close": 1.212
+          },
+          {
+            "Date": "2026-09-11",
+            "Open": 1.22,
+            "High": 1.236,
+            "Low": 1.216,
+            "Close": 1.228,
+            "Volume": 330000,
+            "Amount": 404160.0,
+            "pre_close": 1.22
+          }
+        ],
+        "volume_unit": "SHARE",
+        "amount_unit": "CNY",
+        "covered_start": "2026-09-08",
+        "covered_end": "2026-09-11"
+      }
+    },
+    "XSHG:518880": {
+      "capability": "daily_bars",
+      "upstream_source": "recorded: chstockdata.load_vipdoc_daily (sh518880)",
+      "payload": {
+        "columns": [
+          "Date",
+          "Open",
+          "High",
+          "Low",
+          "Close",
+          "pre_close",
+          "Volume",
+          "Amount"
+        ],
+        "rows": [
+          {
+            "Date": "2026-09-08",
+            "Open": 6.5,
+            "High": 6.56,
+            "Low": 6.47,
+            "Close": 6.52,
+            "Volume": 200000,
+            "Amount": 1304000.0,
+            "pre_close": 6.5
+          },
+          {
+            "Date": "2026-09-09",
+            "Open": 6.52,
+            "High": 6.58,
+            "Low": 6.49,
+            "Close": 6.55,
+            "Volume": 210000,
+            "Amount": 1373400.0,
+            "pre_close": 6.52
+          },
+          {
+            "Date": "2026-09-10",
+            "Open": 6.55,
+            "High": 6.6,
+            "Low": 6.52,
+            "Close": 6.58,
+            "Volume": 220000,
+            "Amount": 1443200.0,
+            "pre_close": 6.55
+          },
+          {
+            "Date": "2026-09-11",
+            "Open": 6.58,
+            "High": 6.64,
+            "Low": 6.55,
+            "Close": 6.62,
+            "Volume": 230000,
+            "Amount": 1517200.0,
+            "pre_close": 6.58
+          }
+        ],
+        "volume_unit": "SHARE",
+        "amount_unit": "CNY",
+        "covered_start": "2026-09-08",
+        "covered_end": "2026-09-11"
+      }
+    },
+    "XSHG:511010": {
+      "capability": "daily_bars",
+      "upstream_source": "recorded: chstockdata.load_vipdoc_daily (sh511010)",
+      "payload": {
+        "columns": [
+          "Date",
+          "Open",
+          "High",
+          "Low",
+          "Close",
+          "pre_close",
+          "Volume",
+          "Amount"
+        ],
+        "rows": [
+          {
+            "Date": "2026-09-08",
+            "Open": 100.0,
+            "High": 100.15,
+            "Low": 99.9,
+            "Close": 100.05,
+            "Volume": 50000,
+            "Amount": 5002500.0,
+            "pre_close": 100.0
+          },
+          {
+            "Date": "2026-09-09",
+            "Open": 100.05,
+            "High": 100.2,
+            "Low": 99.95,
+            "Close": 100.1,
+            "Volume": 52000,
+            "Amount": 5205200.0,
+            "pre_close": 100.05
+          },
+          {
+            "Date": "2026-09-10",
+            "Open": 100.1,
+            "High": 100.25,
+            "Low": 100.0,
+            "Close": 100.15,
+            "Volume": 54000,
+            "Amount": 5408100.0,
+            "pre_close": 100.1
+          },
+          {
+            "Date": "2026-09-11",
+            "Open": 100.15,
+            "High": 100.3,
+            "Low": 100.05,
+            "Close": 100.2,
+            "Volume": 56000,
+            "Amount": 5611200.0,
+            "pre_close": 100.15
+          }
+        ],
+        "volume_unit": "SHARE",
+        "amount_unit": "CNY",
+        "covered_start": "2026-09-08",
+        "covered_end": "2026-09-11"
+      }
+    }
+  },
+  "trading_calendar": {
+    "XSHG": {
+      "capability": "trading_calendar",
+      "upstream_source": "recorded: chstockdata.load_trading_calendar (XSHG)",
+      "payload": {
+        "open_days": [
+          "2026-09-04",
+          "2026-09-07",
+          "2026-09-08",
+          "2026-09-09",
+          "2026-09-10",
+          "2026-09-11",
+          "2026-09-14"
+        ],
+        "covered_start": "2026-09-01",
+        "covered_end": "2026-09-30",
+        "source": "recorded: exchange calendar",
+        "stale": false,
+        "limitations": []
+      }
+    },
+    "XSHE": {
+      "capability": "trading_calendar",
+      "upstream_source": "recorded: chstockdata.load_trading_calendar (XSHE)",
+      "payload": {
+        "open_days": [
+          "2026-09-04",
+          "2026-09-07",
+          "2026-09-08",
+          "2026-09-09",
+          "2026-09-10",
+          "2026-09-11",
+          "2026-09-14"
+        ],
+        "covered_start": "2026-09-01",
+        "covered_end": "2026-09-30",
+        "source": "recorded: exchange calendar",
+        "stale": false,
+        "limitations": []
+      }
+    }
+  },
+  "tradability": {
+    "XSHG:510300": {
+      "capability": "tradability",
+      "upstream_source": "recorded: exchange suspension disclosure (510300)",
+      "payload": {
+        "suspended": false,
+        "snapshot_date": "2026-09-11",
+        "as_of_date": "2026-09-11",
+        "observed_at": "2026-09-11T18:05:00+08:00",
+        "suspend_start_date": null,
+        "suspend_expire": null,
+        "suspend_reason": null,
+        "source": "recorded: exchange suspension disclosure (510300)"
+      }
+    },
+    "XSHE:159915": {
+      "capability": "tradability",
+      "upstream_source": "recorded: exchange suspension disclosure (159915)",
+      "payload": {
+        "suspended": false,
+        "snapshot_date": "2026-09-11",
+        "as_of_date": "2026-09-11",
+        "observed_at": "2026-09-11T18:05:00+08:00",
+        "suspend_start_date": null,
+        "suspend_expire": null,
+        "suspend_reason": null,
+        "source": "recorded: exchange suspension disclosure (159915)"
+      }
+    },
+    "XSHG:518880": {
+      "capability": "tradability",
+      "upstream_source": "recorded: exchange suspension disclosure (518880)",
+      "payload": {
+        "suspended": false,
+        "snapshot_date": "2026-09-11",
+        "as_of_date": "2026-09-11",
+        "observed_at": "2026-09-11T18:05:00+08:00",
+        "suspend_start_date": null,
+        "suspend_expire": null,
+        "suspend_reason": null,
+        "source": "recorded: exchange suspension disclosure (518880)"
+      }
+    },
+    "XSHG:511010": {
+      "capability": "tradability",
+      "upstream_source": "recorded: exchange suspension disclosure (511010)",
+      "payload": {
+        "suspended": false,
+        "snapshot_date": "2026-09-11",
+        "as_of_date": "2026-09-11",
+        "observed_at": "2026-09-11T18:05:00+08:00",
+        "suspend_start_date": null,
+        "suspend_expire": null,
+        "suspend_reason": null,
+        "source": "recorded: exchange suspension disclosure (511010)"
+      }
+    },
+    "XSHE:159915@2026-09-09": {
+      "capability": "tradability",
+      "upstream_source": "recorded: exchange suspension disclosure (159915, 2026-09-09)",
+      "payload": {
+        "suspended": true,
+        "snapshot_date": "2026-09-09",
+        "as_of_date": "2026-09-09",
+        "observed_at": "2026-09-09T08:45:00+08:00",
+        "suspend_start_date": "2026-09-09",
+        "suspend_expire": null,
+        "suspend_reason": "recorded temporary suspension",
+        "source": "recorded: exchange suspension disclosure (159915, 2026-09-09)"
+      }
+    }
+  },
+  "corporate_actions": {
+    "XSHG:510300": {
+      "capability": "corporate_actions",
+      "upstream_source": "recorded: exchange disclosure (510300)",
+      "payload": {
+        "status": "normal",
+        "coverage": "complete",
+        "source": "recorded: exchange disclosure (510300)",
+        "items": [
+          {
+            "source_identifier": "recorded:510300-dist-2026-09",
+            "source_identifier_kind": "recorded-disclosure-id",
+            "announcement_date": "2026-09-03",
+            "ex_dividend_date": "2026-09-10",
+            "equity_record_date": "2026-09-09",
+            "payment_date": "2026-09-11",
+            "cash_dividend": {
+              "value": 0.3,
+              "unit": "per_10_shares",
+              "source_field": "CASH_DIVIDEND",
+              "tax_basis": "recorded"
+            },
+            "stock_dividend": null,
+            "capital_reserve_transfer": null,
+            "rights_issue": null,
+            "source": "recorded: exchange disclosure (510300)"
+          }
+        ]
+      }
+    },
+    "XSHE:159915": {
+      "capability": "corporate_actions",
+      "upstream_source": "recorded: exchange disclosure (159915)",
+      "payload": {
+        "status": "normal_empty",
+        "coverage": "complete",
+        "source": "recorded: exchange disclosure (159915)",
+        "items": []
+      }
+    },
+    "XSHG:518880": {
+      "capability": "corporate_actions",
+      "upstream_source": "recorded: exchange disclosure (518880)",
+      "payload": {
+        "status": "normal_empty",
+        "coverage": "complete",
+        "source": "recorded: exchange disclosure (518880)",
+        "items": []
+      }
+    },
+    "XSHG:511010": {
+      "capability": "corporate_actions",
+      "upstream_source": "recorded: exchange disclosure (511010)",
+      "payload": {
+        "status": "normal_empty",
+        "coverage": "complete",
+        "source": "recorded: exchange disclosure (511010)",
+        "items": []
+      }
+    }
+  }
+}

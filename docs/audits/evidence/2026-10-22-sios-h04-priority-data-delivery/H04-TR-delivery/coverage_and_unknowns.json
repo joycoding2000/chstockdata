@@ -1,0 +1,39 @@
+{
+  "per_fund": {
+    "513530": {
+      "full_raw_file_first": "2022-04-25",
+      "full_raw_file_last": "2026-09-22",
+      "full_raw_rows": 1073,
+      "warmup_rows": 200,
+      "investigation_rows": 485,
+      "qualified_economic_input_rows": 685,
+      "investigation_first": "2024-01-02",
+      "investigation_last": "2025-12-31",
+      "missing_sessions": [],
+      "zero_turnover_rows": [],
+      "cash_events_in_investigation": 7,
+      "gate": "PASS_FOR_CONSUMER_REVIEW"
+    },
+    "513990": {
+      "full_raw_file_first": "2020-08-18",
+      "full_raw_file_last": "2026-09-22",
+      "full_raw_rows": 1480,
+      "warmup_rows": 200,
+      "investigation_rows": 485,
+      "qualified_economic_input_rows": 685,
+      "investigation_first": "2024-01-02",
+      "investigation_last": "2025-12-31",
+      "missing_sessions": [],
+      "zero_turnover_rows": [],
+      "cash_events_in_investigation": 0,
+      "gate": "PASS_FOR_CONSUMER_REVIEW"
+    }
+  },
+  "not_a_new_frozen_strategy_window": true,
+  "bounded_qualification": "PIT economic entitlement/return and cash date schedules under exchange-rule raw availability. Not attested historical downloaded vintages, broker credit, fees, execution or reinvestment strategy.",
+  "remaining_tr_use_conditions": [
+    "SIOS must independently accept schema and distinction between ex-distribution economic index and spendable cash",
+    "Any executable reinvestment timing/cost/tax must be frozen by consumer before an authorized experiment",
+    "Unknown exact broker credit/intraday publication timestamps remain null; conservative date-end schedules are explicit"
+  ]
+}

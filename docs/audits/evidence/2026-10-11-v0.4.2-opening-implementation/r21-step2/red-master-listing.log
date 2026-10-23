@@ -1,0 +1,92 @@
+FF                                                                       [100%]
+================================== FAILURES ===================================
+_______ test_master_listing_dates_veto_positive_opening_gap[not_listed] _______
+
+listing = 'not_listed'
+make_engine = <function make_engine.<locals>.build at 0x0000014BB4234040>
+bar_factory = <function bar_factory.<locals>.build at 0x0000014BB4234CC0>
+target_contribution = <function target_contribution.<locals>.build at 0x0000014BB4234E00>
+predetermined_targets = <class 'conftest.PredeterminedTargetSource'>
+
+    @pytest.mark.parametrize("listing", ["not_listed", "delisted"])
+    def test_master_listing_dates_veto_positive_opening_gap(
+        listing, make_engine, bar_factory, target_contribution, predetermined_targets
+    ):
+        from systematic_investing.instrument_master.repository import (
+            InstrumentMaster,
+            default_m0_master,
+        )
+    
+        seed = default_m0_master()
+        master = InstrumentMaster()
+        reference = seed.resolve_instrument(I, S1)
+        reference = (
+            replace(reference, list_date=date(2026, 9, 12))
+            if listing == "not_listed"
+            else replace(reference, delist_date=S0)
+        )
+        master.register_instrument(reference)
+        rules = seed.resolve_rules(I, S1)
+        for profile in (rules.lot, rules.settlement, rules.price_limit, rules.market_fee_tax):
+            master.add_rule_profile(profile)
+        result, _ = run(
+            (mapped(payload()),),
+            (gap(),),
+            make_engine,
+            bar_factory,
+            target_contribution,
+            predetermined_targets,
+            master=master,
+        )
+>       assert not result.fills
+E       AssertionError: assert not (Fill(fill_id='fill:order:2026-09-11:XSHG:510300', order_id='order:2026-09-11:XSHG:510300', instrument_id=InstrumentId...nt=Decimal('0.00'), currency='CNY'), transfer_fee=Money(amount=Decimal('0.00'), currency='CNY')), source='SIMULATED'),)
+E        +  where (Fill(fill_id='fill:order:2026-09-11:XSHG:510300', order_id='order:2026-09-11:XSHG:510300', instrument_id=InstrumentId...nt=Decimal('0.00'), currency='CNY'), transfer_fee=Money(amount=Decimal('0.00'), currency='CNY')), source='SIMULATED'),) = BacktestResult(sessions=(SessionResult(session_date=datetime.date(2026, 9, 10), corporate_action_effects=(), invalidat...session=datetime.date(2026, 9, 11), sellable_from=datetime.date(2026, 9, 14), acquisition_price=Decimal('4.004')),)),)).fills
+
+tests\component\test_historical_opening_execution.py:561: AssertionError
+________ test_master_listing_dates_veto_positive_opening_gap[delisted] ________
+
+listing = 'delisted'
+make_engine = <function make_engine.<locals>.build at 0x0000014BD57EA5C0>
+bar_factory = <function bar_factory.<locals>.build at 0x0000014BD57EA700>
+target_contribution = <function target_contribution.<locals>.build at 0x0000014BD57EA840>
+predetermined_targets = <class 'conftest.PredeterminedTargetSource'>
+
+    @pytest.mark.parametrize("listing", ["not_listed", "delisted"])
+    def test_master_listing_dates_veto_positive_opening_gap(
+        listing, make_engine, bar_factory, target_contribution, predetermined_targets
+    ):
+        from systematic_investing.instrument_master.repository import (
+            InstrumentMaster,
+            default_m0_master,
+        )
+    
+        seed = default_m0_master()
+        master = InstrumentMaster()
+        reference = seed.resolve_instrument(I, S1)
+        reference = (
+            replace(reference, list_date=date(2026, 9, 12))
+            if listing == "not_listed"
+            else replace(reference, delist_date=S0)
+        )
+        master.register_instrument(reference)
+        rules = seed.resolve_rules(I, S1)
+        for profile in (rules.lot, rules.settlement, rules.price_limit, rules.market_fee_tax):
+            master.add_rule_profile(profile)
+        result, _ = run(
+            (mapped(payload()),),
+            (gap(),),
+            make_engine,
+            bar_factory,
+            target_contribution,
+            predetermined_targets,
+            master=master,
+        )
+>       assert not result.fills
+E       AssertionError: assert not (Fill(fill_id='fill:order:2026-09-11:XSHG:510300', order_id='order:2026-09-11:XSHG:510300', instrument_id=InstrumentId...nt=Decimal('0.00'), currency='CNY'), transfer_fee=Money(amount=Decimal('0.00'), currency='CNY')), source='SIMULATED'),)
+E        +  where (Fill(fill_id='fill:order:2026-09-11:XSHG:510300', order_id='order:2026-09-11:XSHG:510300', instrument_id=InstrumentId...nt=Decimal('0.00'), currency='CNY'), transfer_fee=Money(amount=Decimal('0.00'), currency='CNY')), source='SIMULATED'),) = BacktestResult(sessions=(SessionResult(session_date=datetime.date(2026, 9, 10), corporate_action_effects=(), invalidat...session=datetime.date(2026, 9, 11), sellable_from=datetime.date(2026, 9, 14), acquisition_price=Decimal('4.004')),)),)).fills
+
+tests\component\test_historical_opening_execution.py:561: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/component/test_historical_opening_execution.py::test_master_listing_dates_veto_positive_opening_gap[not_listed]
+FAILED tests/component/test_historical_opening_execution.py::test_master_listing_dates_veto_positive_opening_gap[delisted]
+2 failed, 24 deselected in 1.23s

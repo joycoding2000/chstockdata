@@ -1,0 +1,32 @@
+{
+  "test": "contract",
+  "outcomes": [
+    {
+      "instrument_id": "XSHG:510300",
+      "capability": "LEGACY_PIT",
+      "started_at": "2026-10-12T17:01:52.336783+08:00",
+      "finished_at": "2026-10-12T17:01:52.336783+08:00",
+      "status": "FAIL",
+      "error": {
+        "type": "AssertionError",
+        "message": "historical API cannot establish PIT"
+      }
+    },
+    {
+      "instrument_id": "XSHG:510300",
+      "capability": "ACTIONS",
+      "started_at": "2026-10-12T17:01:52.336783+08:00",
+      "finished_at": "2026-10-12T17:01:52.336783+08:00",
+      "status": "PASS",
+      "result": null
+    },
+    {
+      "instrument_id": "XSHE:159915",
+      "capability": "OPENING",
+      "started_at": "2026-10-12T17:01:52.336783+08:00",
+      "finished_at": "2026-10-12T17:01:52.336783+08:00",
+      "status": "PASS",
+      "result": null
+    }
+  ]
+}

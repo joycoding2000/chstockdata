@@ -1,0 +1,89 @@
+{
+    "id":  "1217949874",
+    "text":  "113,247.95 1 9, 753,340.41 7.145,028250.39 14.806,062.692.03 42,794,334,521.22",
+    "pit_qualified":  false,
+    "engine":  "Windows.Media.Ocr existing en-US",
+    "maximum_image_dimension":  10000,
+    "machine_seconds":  0.074659599999999993,
+    "pixel_height":  2902,
+    "image_sha256":  "9601657f7eedabe40d8be79f4f90920d25326e17c6c15ae3e8acd735afd1064b",
+    "pixel_width":  452,
+    "source_sha256":  "5cefd1e1ef733ef5887b619e09ce792d52bd33e2710580616be5736da03cd33c",
+    "physical_page":  10,
+    "lines":  [
+                  {
+                      "text":  "113,247.95",
+                      "words":  [
+                                    {
+                                        "y":  95,
+                                        "height":  36,
+                                        "width":  162,
+                                        "text":  "113,247.95",
+                                        "x":  237
+                                    }
+                                ]
+                  },
+                  {
+                      "text":  "1 9, 753,340.41",
+                      "words":  [
+                                    {
+                                        "y":  351,
+                                        "height":  32,
+                                        "width":  10,
+                                        "text":  "1",
+                                        "x":  191
+                                    },
+                                    {
+                                        "y":  351,
+                                        "height":  38,
+                                        "width":  23,
+                                        "text":  "9,",
+                                        "x":  208
+                                    },
+                                    {
+                                        "y":  351,
+                                        "height":  38,
+                                        "width":  161,
+                                        "text":  "753,340.41",
+                                        "x":  234
+                                    }
+                                ]
+                  },
+                  {
+                      "text":  "7.145,028250.39",
+                      "words":  [
+                                    {
+                                        "y":  548,
+                                        "height":  37,
+                                        "width":  257,
+                                        "text":  "7.145,028250.39",
+                                        "x":  142
+                                    }
+                                ]
+                  },
+                  {
+                      "text":  "14.806,062.692.03",
+                      "words":  [
+                                    {
+                                        "y":  886,
+                                        "height":  36,
+                                        "width":  274,
+                                        "text":  "14.806,062.692.03",
+                                        "x":  125
+                                    }
+                                ]
+                  },
+                  {
+                      "text":  "42,794,334,521.22",
+                      "words":  [
+                                    {
+                                        "y":  2454,
+                                        "height":  37,
+                                        "width":  280,
+                                        "text":  "42,794,334,521.22",
+                                        "x":  121
+                                    }
+                                ]
+                  }
+              ]
+}

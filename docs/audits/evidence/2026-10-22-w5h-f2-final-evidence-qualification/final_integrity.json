@@ -1,0 +1,23 @@
+{
+  "utc": "2026-10-22T08:30:42.052992+00:00",
+  "head": "5584f5fcacccef9a9531a7a32b8463ea6771d312",
+  "checks": {
+    "head_unchanged": true,
+    "original_files_preserved": true,
+    "new_outputs_only_in_authorized_paths": true,
+    "tracked_diff_empty": true,
+    "fresh_package_complete": true,
+    "regression_complete": true,
+    "new_quality_pass": true
+  },
+  "pass": true,
+  "preserved_file_denominator": 15620,
+  "changed_existing_files": [],
+  "missing_existing_files": [],
+  "unexpected_new_outputs": [],
+  "tracked_diff": [],
+  "commit": false,
+  "push": false,
+  "temporary_environment_created": false,
+  "archive_or_source_cleanup_performed": false
+}

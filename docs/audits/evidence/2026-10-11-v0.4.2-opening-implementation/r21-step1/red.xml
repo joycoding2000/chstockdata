@@ -1,0 +1,690 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="30" skipped="0" tests="30" time="1.630" timestamp="2026-10-11T15:24:13.557375+08:00" hostname="CHINAMI-4QO1VLN"><testcase classname="tests.test_historical_opening_evidence" name="test_four_real_etf_opening_composition[510300-4.576-352580]" time="0.002"><failure message="AssertionError: public R2.1 capability missing&#10;assert False&#10; +  where False = hasattr(chstockdata, 'fetch_historical_opening_evidence')">code = '510300', price = '4.576', volume = 352580
+
+    @pytest.mark.parametrize('code,price,volume', [('510300', '4.576',352580), ('159915','3.339',557149),
+                                                 ('518880','8.91',106411), ('511010','141.177',289)])
+    def test_four_real_etf_opening_composition(code, price, volume):
+&gt;       result = fetch(code)
+                 ^^^^^^^^^^^
+
+tests\test_historical_opening_evidence.py:106: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_historical_opening_evidence.py:97: in fetch
+    tdx, official = readers(code, day, kwargs.pop('official', None), kwargs.pop('mutate', None),
+tests\test_historical_opening_evidence.py:83: in readers
+    m = api()
+        ^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+    def api():
+&gt;       assert hasattr(chstockdata, 'fetch_historical_opening_evidence'), 'public R2.1 capability missing'
+E       AssertionError: public R2.1 capability missing
+E       assert False
+E        +  where False = hasattr(chstockdata, 'fetch_historical_opening_evidence')
+
+tests\test_historical_opening_evidence.py:23: AssertionError</failure></testcase><testcase classname="tests.test_historical_opening_evidence" name="test_four_real_etf_opening_composition[159915-3.339-557149]" time="0.001"><failure message="AssertionError: public R2.1 capability missing&#10;assert False&#10; +  where False = hasattr(chstockdata, 'fetch_historical_opening_evidence')">code = '159915', price = '3.339', volume = 557149
+
+    @pytest.mark.parametrize('code,price,volume', [('510300', '4.576',352580), ('159915','3.339',557149),
+                                                 ('518880','8.91',106411), ('511010','141.177',289)])
+    def test_four_real_etf_opening_composition(code, price, volume):
+&gt;       result = fetch(code)
+                 ^^^^^^^^^^^
+
+tests\test_historical_opening_evidence.py:106: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_historical_opening_evidence.py:97: in fetch
+    tdx, official = readers(code, day, kwargs.pop('official', None), kwargs.pop('mutate', None),
+tests\test_historical_opening_evidence.py:83: in readers
+    m = api()
+        ^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+    def api():
+&gt;       assert hasattr(chstockdata, 'fetch_historical_opening_evidence'), 'public R2.1 capability missing'
+E       AssertionError: public R2.1 capability missing
+E       assert False
+E        +  where False = hasattr(chstockdata, 'fetch_historical_opening_evidence')
+
+tests\test_historical_opening_evidence.py:23: AssertionError</failure></testcase><testcase classname="tests.test_historical_opening_evidence" name="test_four_real_etf_opening_composition[518880-8.91-106411]" time="0.001"><failure message="AssertionError: public R2.1 capability missing&#10;assert False&#10; +  where False = hasattr(chstockdata, 'fetch_historical_opening_evidence')">code = '518880', price = '8.91', volume = 106411
+
+    @pytest.mark.parametrize('code,price,volume', [('510300', '4.576',352580), ('159915','3.339',557149),
+                                                 ('518880','8.91',106411), ('511010','141.177',289)])
+    def test_four_real_etf_opening_composition(code, price, volume):
+&gt;       result = fetch(code)
+                 ^^^^^^^^^^^
+
+tests\test_historical_opening_evidence.py:106: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_historical_opening_evidence.py:97: in fetch
+    tdx, official = readers(code, day, kwargs.pop('official', None), kwargs.pop('mutate', None),
+tests\test_historical_opening_evidence.py:83: in readers
+    m = api()
+        ^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+    def api():
+&gt;       assert hasattr(chstockdata, 'fetch_historical_opening_evidence'), 'public R2.1 capability missing'
+E       AssertionError: public R2.1 capability missing
+E       assert False
+E        +  where False = hasattr(chstockdata, 'fetch_historical_opening_evidence')
+
+tests\test_historical_opening_evidence.py:23: AssertionError</failure></testcase><testcase classname="tests.test_historical_opening_evidence" name="test_four_real_etf_opening_composition[511010-141.177-289]" time="0.001"><failure message="AssertionError: public R2.1 capability missing&#10;assert False&#10; +  where False = hasattr(chstockdata, 'fetch_historical_opening_evidence')">code = '511010', price = '141.177', volume = 289
+
+    @pytest.mark.parametrize('code,price,volume', [('510300', '4.576',352580), ('159915','3.339',557149),
+                                                 ('518880','8.91',106411), ('511010','141.177',289)])
+    def test_four_real_etf_opening_composition(code, price, volume):
+&gt;       result = fetch(code)
+                 ^^^^^^^^^^^
+
+tests\test_historical_opening_evidence.py:106: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_historical_opening_evidence.py:97: in fetch
+    tdx, official = readers(code, day, kwargs.pop('official', None), kwargs.pop('mutate', None),
+tests\test_historical_opening_evidence.py:83: in readers
+    m = api()
+        ^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+    def api():
+&gt;       assert hasattr(chstockdata, 'fetch_historical_opening_evidence'), 'public R2.1 capability missing'
+E       AssertionError: public R2.1 capability missing
+E       assert False
+E        +  where False = hasattr(chstockdata, 'fetch_historical_opening_evidence')
+
+tests\test_historical_opening_evidence.py:23: AssertionError</failure></testcase><testcase classname="tests.test_historical_opening_evidence" name="test_stock_prices_preserved_and_later_halt_does_not_veto_open[688432-2026-09-14-40.9]" time="0.001"><failure message="AssertionError: public R2.1 capability missing&#10;assert False&#10; +  where False = hasattr(chstockdata, 'fetch_historical_opening_evidence')">code = '688432', day = '2026-09-14', price = '40.9'
+
+    @pytest.mark.parametrize('code,day,price', [('688432','2026-09-14','40.9'), ('000002','2015-12-18','22.4')])
+    def test_stock_prices_preserved_and_later_halt_does_not_veto_open(code, day, price):
+&gt;       result = fetch(code,day)
+                 ^^^^^^^^^^^^^^^
+
+tests\test_historical_opening_evidence.py:124: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_historical_opening_evidence.py:97: in fetch
+    tdx, official = readers(code, day, kwargs.pop('official', None), kwargs.pop('mutate', None),
+tests\test_historical_opening_evidence.py:83: in readers
+    m = api()
+        ^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+    def api():
+&gt;       assert hasattr(chstockdata, 'fetch_historical_opening_evidence'), 'public R2.1 capability missing'
+E       AssertionError: public R2.1 capability missing
+E       assert False
+E        +  where False = hasattr(chstockdata, 'fetch_historical_opening_evidence')
+
+tests\test_historical_opening_evidence.py:23: AssertionError</failure></testcase><testcase classname="tests.test_historical_opening_evidence" name="test_stock_prices_preserved_and_later_halt_does_not_veto_open[000002-2015-12-18-22.4]" time="0.001"><failure message="AssertionError: public R2.1 capability missing&#10;assert False&#10; +  where False = hasattr(chstockdata, 'fetch_historical_opening_evidence')">code = '000002', day = '2015-12-18', price = '22.4'
+
+    @pytest.mark.parametrize('code,day,price', [('688432','2026-09-14','40.9'), ('000002','2015-12-18','22.4')])
+    def test_stock_prices_preserved_and_later_halt_does_not_veto_open(code, day, price):
+&gt;       result = fetch(code,day)
+                 ^^^^^^^^^^^^^^^
+
+tests\test_historical_opening_evidence.py:124: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_historical_opening_evidence.py:97: in fetch
+    tdx, official = readers(code, day, kwargs.pop('official', None), kwargs.pop('mutate', None),
+tests\test_historical_opening_evidence.py:83: in readers
+    m = api()
+        ^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+    def api():
+&gt;       assert hasattr(chstockdata, 'fetch_historical_opening_evidence'), 'public R2.1 capability missing'
+E       AssertionError: public R2.1 capability missing
+E       assert False
+E        +  where False = hasattr(chstockdata, 'fetch_historical_opening_evidence')
+
+tests\test_historical_opening_evidence.py:23: AssertionError</failure></testcase><testcase classname="tests.test_historical_opening_evidence" name="test_bounded_real_history[2016-12-30]" time="0.001"><failure message="AssertionError: public R2.1 capability missing&#10;assert False&#10; +  where False = hasattr(chstockdata, 'fetch_historical_opening_evidence')">day = '2016-12-30'
+
+    @pytest.mark.parametrize('day', ['2016-12-30','2022-12-30'])
+    def test_bounded_real_history(day):
+&gt;       assert fetch(day=day).data['opening_status'] == 'OPEN_ACTIVITY_CONFIRMED'
+               ^^^^^^^^^^^^^^
+
+tests\test_historical_opening_evidence.py:133: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_historical_opening_evidence.py:97: in fetch
+    tdx, official = readers(code, day, kwargs.pop('official', None), kwargs.pop('mutate', None),
+tests\test_historical_opening_evidence.py:83: in readers
+    m = api()
+        ^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+    def api():
+&gt;       assert hasattr(chstockdata, 'fetch_historical_opening_evidence'), 'public R2.1 capability missing'
+E       AssertionError: public R2.1 capability missing
+E       assert False
+E        +  where False = hasattr(chstockdata, 'fetch_historical_opening_evidence')
+
+tests\test_historical_opening_evidence.py:23: AssertionError</failure></testcase><testcase classname="tests.test_historical_opening_evidence" name="test_bounded_real_history[2022-12-30]" time="0.001"><failure message="AssertionError: public R2.1 capability missing&#10;assert False&#10; +  where False = hasattr(chstockdata, 'fetch_historical_opening_evidence')">day = '2022-12-30'
+
+    @pytest.mark.parametrize('day', ['2016-12-30','2022-12-30'])
+    def test_bounded_real_history(day):
+&gt;       assert fetch(day=day).data['opening_status'] == 'OPEN_ACTIVITY_CONFIRMED'
+               ^^^^^^^^^^^^^^
+
+tests\test_historical_opening_evidence.py:133: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_historical_opening_evidence.py:97: in fetch
+    tdx, official = readers(code, day, kwargs.pop('official', None), kwargs.pop('mutate', None),
+tests\test_historical_opening_evidence.py:83: in readers
+    m = api()
+        ^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+    def api():
+&gt;       assert hasattr(chstockdata, 'fetch_historical_opening_evidence'), 'public R2.1 capability missing'
+E       AssertionError: public R2.1 capability missing
+E       assert False
+E        +  where False = hasattr(chstockdata, 'fetch_historical_opening_evidence')
+
+tests\test_historical_opening_evidence.py:23: AssertionError</failure></testcase><testcase classname="tests.test_historical_opening_evidence" name="test_known_full_window_block_plus_positive_activity_is_conflict" time="0.001"><failure message="AssertionError: public R2.1 capability missing&#10;assert False&#10; +  where False = hasattr(chstockdata, 'fetch_historical_opening_evidence')">def test_known_full_window_block_plus_positive_activity_is_conflict():
+&gt;       data = fetch(known_events=[event()]).data
+                                   ^^^^^^^
+
+tests\test_historical_opening_evidence.py:144: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_historical_opening_evidence.py:137: in event
+    return api().OfficialOpeningEvent(instrument='510300', market='SSE', effective_start=start,
+           ^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+    def api():
+&gt;       assert hasattr(chstockdata, 'fetch_historical_opening_evidence'), 'public R2.1 capability missing'
+E       AssertionError: public R2.1 capability missing
+E       assert False
+E        +  where False = hasattr(chstockdata, 'fetch_historical_opening_evidence')
+
+tests\test_historical_opening_evidence.py:23: AssertionError</failure></testcase><testcase classname="tests.test_historical_opening_evidence" name="test_resume_inside_minute_blocks_target_without_retry" time="0.001"><failure message="AssertionError: public R2.1 capability missing&#10;assert False&#10; +  where False = hasattr(chstockdata, 'fetch_historical_opening_evidence')">def test_resume_inside_minute_blocks_target_without_retry():
+&gt;       data = fetch(known_events=[event(end='2026-09-11T09:30:30+08:00')]).data
+                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_historical_opening_evidence.py:150: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_historical_opening_evidence.py:137: in event
+    return api().OfficialOpeningEvent(instrument='510300', market='SSE', effective_start=start,
+           ^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+    def api():
+&gt;       assert hasattr(chstockdata, 'fetch_historical_opening_evidence'), 'public R2.1 capability missing'
+E       AssertionError: public R2.1 capability missing
+E       assert False
+E        +  where False = hasattr(chstockdata, 'fetch_historical_opening_evidence')
+
+tests\test_historical_opening_evidence.py:23: AssertionError</failure></testcase><testcase classname="tests.test_historical_opening_evidence" name="test_halt_start_inside_minute_cannot_order_activity" time="0.001"><failure message="AssertionError: public R2.1 capability missing&#10;assert False&#10; +  where False = hasattr(chstockdata, 'fetch_historical_opening_evidence')">def test_halt_start_inside_minute_cannot_order_activity():
+&gt;       data = fetch(known_events=[event(start='2026-09-11T09:30:30+08:00')]).data
+                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_historical_opening_evidence.py:156: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_historical_opening_evidence.py:137: in event
+    return api().OfficialOpeningEvent(instrument='510300', market='SSE', effective_start=start,
+           ^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+    def api():
+&gt;       assert hasattr(chstockdata, 'fetch_historical_opening_evidence'), 'public R2.1 capability missing'
+E       AssertionError: public R2.1 capability missing
+E       assert False
+E        +  where False = hasattr(chstockdata, 'fetch_historical_opening_evidence')
+
+tests\test_historical_opening_evidence.py:23: AssertionError</failure></testcase><testcase classname="tests.test_historical_opening_evidence" name="test_ongoing_unconfirmed_end_vetoes_empty_official" time="0.001"><failure message="AssertionError: public R2.1 capability missing&#10;assert False&#10; +  where False = hasattr(chstockdata, 'fetch_historical_opening_evidence')">def test_ongoing_unconfirmed_end_vetoes_empty_official():
+&gt;       data = fetch(known_events=[event(end=None)]).data
+                                   ^^^^^^^^^^^^^^^
+
+tests\test_historical_opening_evidence.py:162: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_historical_opening_evidence.py:137: in event
+    return api().OfficialOpeningEvent(instrument='510300', market='SSE', effective_start=start,
+           ^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+    def api():
+&gt;       assert hasattr(chstockdata, 'fetch_historical_opening_evidence'), 'public R2.1 capability missing'
+E       AssertionError: public R2.1 capability missing
+E       assert False
+E        +  where False = hasattr(chstockdata, 'fetch_historical_opening_evidence')
+
+tests\test_historical_opening_evidence.py:23: AssertionError</failure></testcase><testcase classname="tests.test_historical_opening_evidence" name="test_current_official_failure_and_partial_do_not_allow_open[bad0]" time="0.001"><failure message="AssertionError: public R2.1 capability missing&#10;assert False&#10; +  where False = hasattr(chstockdata, 'fetch_historical_opening_evidence')">bad = ConnectionError()
+
+    @pytest.mark.parametrize('bad', [ConnectionError(), b'&lt;html&gt;not json&lt;/html&gt;',
+        {'result':[], 'pageHelp':{'pageNo':1,'pageCount':2,'pageSize':25,'total':1,'data':[]}}])
+    def test_current_official_failure_and_partial_do_not_allow_open(bad):
+&gt;       result = fetch(official=[bad])
+                 ^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_historical_opening_evidence.py:170: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_historical_opening_evidence.py:97: in fetch
+    tdx, official = readers(code, day, kwargs.pop('official', None), kwargs.pop('mutate', None),
+tests\test_historical_opening_evidence.py:83: in readers
+    m = api()
+        ^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+    def api():
+&gt;       assert hasattr(chstockdata, 'fetch_historical_opening_evidence'), 'public R2.1 capability missing'
+E       AssertionError: public R2.1 capability missing
+E       assert False
+E        +  where False = hasattr(chstockdata, 'fetch_historical_opening_evidence')
+
+tests\test_historical_opening_evidence.py:23: AssertionError</failure></testcase><testcase classname="tests.test_historical_opening_evidence" name="test_current_official_failure_and_partial_do_not_allow_open[&lt;html&gt;not json&lt;/html&gt;]" time="0.001"><failure message="AssertionError: public R2.1 capability missing&#10;assert False&#10; +  where False = hasattr(chstockdata, 'fetch_historical_opening_evidence')">bad = b'&lt;html&gt;not json&lt;/html&gt;'
+
+    @pytest.mark.parametrize('bad', [ConnectionError(), b'&lt;html&gt;not json&lt;/html&gt;',
+        {'result':[], 'pageHelp':{'pageNo':1,'pageCount':2,'pageSize':25,'total':1,'data':[]}}])
+    def test_current_official_failure_and_partial_do_not_allow_open(bad):
+&gt;       result = fetch(official=[bad])
+                 ^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_historical_opening_evidence.py:170: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_historical_opening_evidence.py:97: in fetch
+    tdx, official = readers(code, day, kwargs.pop('official', None), kwargs.pop('mutate', None),
+tests\test_historical_opening_evidence.py:83: in readers
+    m = api()
+        ^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+    def api():
+&gt;       assert hasattr(chstockdata, 'fetch_historical_opening_evidence'), 'public R2.1 capability missing'
+E       AssertionError: public R2.1 capability missing
+E       assert False
+E        +  where False = hasattr(chstockdata, 'fetch_historical_opening_evidence')
+
+tests\test_historical_opening_evidence.py:23: AssertionError</failure></testcase><testcase classname="tests.test_historical_opening_evidence" name="test_current_official_failure_and_partial_do_not_allow_open[bad2]" time="0.001"><failure message="AssertionError: public R2.1 capability missing&#10;assert False&#10; +  where False = hasattr(chstockdata, 'fetch_historical_opening_evidence')">bad = {'result': [], 'pageHelp': {'pageNo': 1, 'pageCount': 2, 'pageSize': 25, 'total': 1, ...}}
+
+    @pytest.mark.parametrize('bad', [ConnectionError(), b'&lt;html&gt;not json&lt;/html&gt;',
+        {'result':[], 'pageHelp':{'pageNo':1,'pageCount':2,'pageSize':25,'total':1,'data':[]}}])
+    def test_current_official_failure_and_partial_do_not_allow_open(bad):
+&gt;       result = fetch(official=[bad])
+                 ^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_historical_opening_evidence.py:170: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_historical_opening_evidence.py:97: in fetch
+    tdx, official = readers(code, day, kwargs.pop('official', None), kwargs.pop('mutate', None),
+tests\test_historical_opening_evidence.py:83: in readers
+    m = api()
+        ^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+    def api():
+&gt;       assert hasattr(chstockdata, 'fetch_historical_opening_evidence'), 'public R2.1 capability missing'
+E       AssertionError: public R2.1 capability missing
+E       assert False
+E        +  where False = hasattr(chstockdata, 'fetch_historical_opening_evidence')
+
+tests\test_historical_opening_evidence.py:23: AssertionError</failure></testcase><testcase classname="tests.test_historical_opening_evidence" name="test_no_qualified_activity_unknown[auction_only]" time="0.001"><failure message="AssertionError: public R2.1 capability missing&#10;assert False&#10; +  where False = hasattr(chstockdata, 'fetch_historical_opening_evidence')">mode = 'auction_only'
+
+    @pytest.mark.parametrize('mode', ['auction_only','zero','minute_only','bad_price','bad_time','double_normalized'])
+    def test_no_qualified_activity_unknown(mode):
+        def mutate(rs):
+            for r in rs:
+                if r['command'].endswith('fb5'):
+                    if mode=='auction_only': r['rows']=[x for x in r['rows'] if x['time']=='09:25']
+                    if mode=='minute_only': r['rows']=[]
+                    if mode=='zero':
+                        for x in r['rows']: x['vol']=0
+                    if mode=='bad_price':
+                        for x in r['rows']: x['price']=-1
+                    if mode=='bad_time':
+                        for x in r['rows']: x['time']='09:30:01'
+                    if mode=='double_normalized':
+                        for x in r['rows']: x['price']=x['price']/10
+&gt;       assert fetch(mutate=mutate).data['opening_status'] == 'UNKNOWN'
+               ^^^^^^^^^^^^^^^^^^^^
+
+tests\test_historical_opening_evidence.py:191: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_historical_opening_evidence.py:97: in fetch
+    tdx, official = readers(code, day, kwargs.pop('official', None), kwargs.pop('mutate', None),
+tests\test_historical_opening_evidence.py:83: in readers
+    m = api()
+        ^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+    def api():
+&gt;       assert hasattr(chstockdata, 'fetch_historical_opening_evidence'), 'public R2.1 capability missing'
+E       AssertionError: public R2.1 capability missing
+E       assert False
+E        +  where False = hasattr(chstockdata, 'fetch_historical_opening_evidence')
+
+tests\test_historical_opening_evidence.py:23: AssertionError</failure></testcase><testcase classname="tests.test_historical_opening_evidence" name="test_no_qualified_activity_unknown[zero]" time="0.001"><failure message="AssertionError: public R2.1 capability missing&#10;assert False&#10; +  where False = hasattr(chstockdata, 'fetch_historical_opening_evidence')">mode = 'zero'
+
+    @pytest.mark.parametrize('mode', ['auction_only','zero','minute_only','bad_price','bad_time','double_normalized'])
+    def test_no_qualified_activity_unknown(mode):
+        def mutate(rs):
+            for r in rs:
+                if r['command'].endswith('fb5'):
+                    if mode=='auction_only': r['rows']=[x for x in r['rows'] if x['time']=='09:25']
+                    if mode=='minute_only': r['rows']=[]
+                    if mode=='zero':
+                        for x in r['rows']: x['vol']=0
+                    if mode=='bad_price':
+                        for x in r['rows']: x['price']=-1
+                    if mode=='bad_time':
+                        for x in r['rows']: x['time']='09:30:01'
+                    if mode=='double_normalized':
+                        for x in r['rows']: x['price']=x['price']/10
+&gt;       assert fetch(mutate=mutate).data['opening_status'] == 'UNKNOWN'
+               ^^^^^^^^^^^^^^^^^^^^
+
+tests\test_historical_opening_evidence.py:191: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_historical_opening_evidence.py:97: in fetch
+    tdx, official = readers(code, day, kwargs.pop('official', None), kwargs.pop('mutate', None),
+tests\test_historical_opening_evidence.py:83: in readers
+    m = api()
+        ^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+    def api():
+&gt;       assert hasattr(chstockdata, 'fetch_historical_opening_evidence'), 'public R2.1 capability missing'
+E       AssertionError: public R2.1 capability missing
+E       assert False
+E        +  where False = hasattr(chstockdata, 'fetch_historical_opening_evidence')
+
+tests\test_historical_opening_evidence.py:23: AssertionError</failure></testcase><testcase classname="tests.test_historical_opening_evidence" name="test_no_qualified_activity_unknown[minute_only]" time="0.001"><failure message="AssertionError: public R2.1 capability missing&#10;assert False&#10; +  where False = hasattr(chstockdata, 'fetch_historical_opening_evidence')">mode = 'minute_only'
+
+    @pytest.mark.parametrize('mode', ['auction_only','zero','minute_only','bad_price','bad_time','double_normalized'])
+    def test_no_qualified_activity_unknown(mode):
+        def mutate(rs):
+            for r in rs:
+                if r['command'].endswith('fb5'):
+                    if mode=='auction_only': r['rows']=[x for x in r['rows'] if x['time']=='09:25']
+                    if mode=='minute_only': r['rows']=[]
+                    if mode=='zero':
+                        for x in r['rows']: x['vol']=0
+                    if mode=='bad_price':
+                        for x in r['rows']: x['price']=-1
+                    if mode=='bad_time':
+                        for x in r['rows']: x['time']='09:30:01'
+                    if mode=='double_normalized':
+                        for x in r['rows']: x['price']=x['price']/10
+&gt;       assert fetch(mutate=mutate).data['opening_status'] == 'UNKNOWN'
+               ^^^^^^^^^^^^^^^^^^^^
+
+tests\test_historical_opening_evidence.py:191: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_historical_opening_evidence.py:97: in fetch
+    tdx, official = readers(code, day, kwargs.pop('official', None), kwargs.pop('mutate', None),
+tests\test_historical_opening_evidence.py:83: in readers
+    m = api()
+        ^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+    def api():
+&gt;       assert hasattr(chstockdata, 'fetch_historical_opening_evidence'), 'public R2.1 capability missing'
+E       AssertionError: public R2.1 capability missing
+E       assert False
+E        +  where False = hasattr(chstockdata, 'fetch_historical_opening_evidence')
+
+tests\test_historical_opening_evidence.py:23: AssertionError</failure></testcase><testcase classname="tests.test_historical_opening_evidence" name="test_no_qualified_activity_unknown[bad_price]" time="0.001"><failure message="AssertionError: public R2.1 capability missing&#10;assert False&#10; +  where False = hasattr(chstockdata, 'fetch_historical_opening_evidence')">mode = 'bad_price'
+
+    @pytest.mark.parametrize('mode', ['auction_only','zero','minute_only','bad_price','bad_time','double_normalized'])
+    def test_no_qualified_activity_unknown(mode):
+        def mutate(rs):
+            for r in rs:
+                if r['command'].endswith('fb5'):
+                    if mode=='auction_only': r['rows']=[x for x in r['rows'] if x['time']=='09:25']
+                    if mode=='minute_only': r['rows']=[]
+                    if mode=='zero':
+                        for x in r['rows']: x['vol']=0
+                    if mode=='bad_price':
+                        for x in r['rows']: x['price']=-1
+                    if mode=='bad_time':
+                        for x in r['rows']: x['time']='09:30:01'
+                    if mode=='double_normalized':
+                        for x in r['rows']: x['price']=x['price']/10
+&gt;       assert fetch(mutate=mutate).data['opening_status'] == 'UNKNOWN'
+               ^^^^^^^^^^^^^^^^^^^^
+
+tests\test_historical_opening_evidence.py:191: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_historical_opening_evidence.py:97: in fetch
+    tdx, official = readers(code, day, kwargs.pop('official', None), kwargs.pop('mutate', None),
+tests\test_historical_opening_evidence.py:83: in readers
+    m = api()
+        ^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+    def api():
+&gt;       assert hasattr(chstockdata, 'fetch_historical_opening_evidence'), 'public R2.1 capability missing'
+E       AssertionError: public R2.1 capability missing
+E       assert False
+E        +  where False = hasattr(chstockdata, 'fetch_historical_opening_evidence')
+
+tests\test_historical_opening_evidence.py:23: AssertionError</failure></testcase><testcase classname="tests.test_historical_opening_evidence" name="test_no_qualified_activity_unknown[bad_time]" time="0.001"><failure message="AssertionError: public R2.1 capability missing&#10;assert False&#10; +  where False = hasattr(chstockdata, 'fetch_historical_opening_evidence')">mode = 'bad_time'
+
+    @pytest.mark.parametrize('mode', ['auction_only','zero','minute_only','bad_price','bad_time','double_normalized'])
+    def test_no_qualified_activity_unknown(mode):
+        def mutate(rs):
+            for r in rs:
+                if r['command'].endswith('fb5'):
+                    if mode=='auction_only': r['rows']=[x for x in r['rows'] if x['time']=='09:25']
+                    if mode=='minute_only': r['rows']=[]
+                    if mode=='zero':
+                        for x in r['rows']: x['vol']=0
+                    if mode=='bad_price':
+                        for x in r['rows']: x['price']=-1
+                    if mode=='bad_time':
+                        for x in r['rows']: x['time']='09:30:01'
+                    if mode=='double_normalized':
+                        for x in r['rows']: x['price']=x['price']/10
+&gt;       assert fetch(mutate=mutate).data['opening_status'] == 'UNKNOWN'
+               ^^^^^^^^^^^^^^^^^^^^
+
+tests\test_historical_opening_evidence.py:191: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_historical_opening_evidence.py:97: in fetch
+    tdx, official = readers(code, day, kwargs.pop('official', None), kwargs.pop('mutate', None),
+tests\test_historical_opening_evidence.py:83: in readers
+    m = api()
+        ^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+    def api():
+&gt;       assert hasattr(chstockdata, 'fetch_historical_opening_evidence'), 'public R2.1 capability missing'
+E       AssertionError: public R2.1 capability missing
+E       assert False
+E        +  where False = hasattr(chstockdata, 'fetch_historical_opening_evidence')
+
+tests\test_historical_opening_evidence.py:23: AssertionError</failure></testcase><testcase classname="tests.test_historical_opening_evidence" name="test_no_qualified_activity_unknown[double_normalized]" time="0.001"><failure message="AssertionError: public R2.1 capability missing&#10;assert False&#10; +  where False = hasattr(chstockdata, 'fetch_historical_opening_evidence')">mode = 'double_normalized'
+
+    @pytest.mark.parametrize('mode', ['auction_only','zero','minute_only','bad_price','bad_time','double_normalized'])
+    def test_no_qualified_activity_unknown(mode):
+        def mutate(rs):
+            for r in rs:
+                if r['command'].endswith('fb5'):
+                    if mode=='auction_only': r['rows']=[x for x in r['rows'] if x['time']=='09:25']
+                    if mode=='minute_only': r['rows']=[]
+                    if mode=='zero':
+                        for x in r['rows']: x['vol']=0
+                    if mode=='bad_price':
+                        for x in r['rows']: x['price']=-1
+                    if mode=='bad_time':
+                        for x in r['rows']: x['time']='09:30:01'
+                    if mode=='double_normalized':
+                        for x in r['rows']: x['price']=x['price']/10
+&gt;       assert fetch(mutate=mutate).data['opening_status'] == 'UNKNOWN'
+               ^^^^^^^^^^^^^^^^^^^^
+
+tests\test_historical_opening_evidence.py:191: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_historical_opening_evidence.py:97: in fetch
+    tdx, official = readers(code, day, kwargs.pop('official', None), kwargs.pop('mutate', None),
+tests\test_historical_opening_evidence.py:83: in readers
+    m = api()
+        ^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+    def api():
+&gt;       assert hasattr(chstockdata, 'fetch_historical_opening_evidence'), 'public R2.1 capability missing'
+E       AssertionError: public R2.1 capability missing
+E       assert False
+E        +  where False = hasattr(chstockdata, 'fetch_historical_opening_evidence')
+
+tests\test_historical_opening_evidence.py:23: AssertionError</failure></testcase><testcase classname="tests.test_historical_opening_evidence" name="test_unknown_version_rejected" time="0.001"><failure message="AssertionError: public R2.1 capability missing&#10;assert False&#10; +  where False = hasattr(chstockdata, 'fetch_historical_opening_evidence')">def test_unknown_version_rejected():
+&gt;       assert fetch(versions=('0.12.0','0.2.7')).data['opening_status']=='UNKNOWN'
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_historical_opening_evidence.py:195: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_historical_opening_evidence.py:97: in fetch
+    tdx, official = readers(code, day, kwargs.pop('official', None), kwargs.pop('mutate', None),
+tests\test_historical_opening_evidence.py:83: in readers
+    m = api()
+        ^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+    def api():
+&gt;       assert hasattr(chstockdata, 'fetch_historical_opening_evidence'), 'public R2.1 capability missing'
+E       AssertionError: public R2.1 capability missing
+E       assert False
+E        +  where False = hasattr(chstockdata, 'fetch_historical_opening_evidence')
+
+tests\test_historical_opening_evidence.py:23: AssertionError</failure></testcase><testcase classname="tests.test_historical_opening_evidence" name="test_unverified_category_and_unsupported_date_boundary_rejected" time="0.001"><failure message="AssertionError: public R2.1 capability missing&#10;assert False&#10; +  where False = hasattr(chstockdata, 'fetch_historical_opening_evidence')">def test_unverified_category_and_unsupported_date_boundary_rejected():
+&gt;       m=api()
+          ^^^^^
+
+tests\test_historical_opening_evidence.py:199: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+    def api():
+&gt;       assert hasattr(chstockdata, 'fetch_historical_opening_evidence'), 'public R2.1 capability missing'
+E       AssertionError: public R2.1 capability missing
+E       assert False
+E        +  where False = hasattr(chstockdata, 'fetch_historical_opening_evidence')
+
+tests\test_historical_opening_evidence.py:23: AssertionError</failure></testcase><testcase classname="tests.test_historical_opening_evidence" name="test_real_sse_interval_and_resume_evidence_participate" time="0.001"><failure message="AssertionError: public R2.1 capability missing&#10;assert False&#10; +  where False = hasattr(chstockdata, 'fetch_historical_opening_evidence')">def test_real_sse_interval_and_resume_evidence_participate():
+        payload=(OFFICIAL/'sse_688432_interval.bin').read_bytes()
+        assert hashlib.sha256(payload).hexdigest()=='33147724bcee2f692e3de7a637c2490017a86c1399183c7f8ccf1f7fe017d924'
+&gt;       r=fetch('688432','2026-08-31',official=[payload])
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_historical_opening_evidence.py:211: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_historical_opening_evidence.py:97: in fetch
+    tdx, official = readers(code, day, kwargs.pop('official', None), kwargs.pop('mutate', None),
+tests\test_historical_opening_evidence.py:83: in readers
+    m = api()
+        ^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+    def api():
+&gt;       assert hasattr(chstockdata, 'fetch_historical_opening_evidence'), 'public R2.1 capability missing'
+E       AssertionError: public R2.1 capability missing
+E       assert False
+E        +  where False = hasattr(chstockdata, 'fetch_historical_opening_evidence')
+
+tests\test_historical_opening_evidence.py:23: AssertionError</failure></testcase><testcase classname="tests.test_historical_opening_evidence" name="test_known_000002_continuous_halt_empty_tdx_not_normal" time="0.001"><failure message="AssertionError: public R2.1 capability missing&#10;assert False&#10; +  where False = hasattr(chstockdata, 'fetch_historical_opening_evidence')">def test_known_000002_continuous_halt_empty_tdx_not_normal():
+&gt;       r=fetch('000002','2016-01-04')
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_historical_opening_evidence.py:218: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_historical_opening_evidence.py:97: in fetch
+    tdx, official = readers(code, day, kwargs.pop('official', None), kwargs.pop('mutate', None),
+tests\test_historical_opening_evidence.py:83: in readers
+    m = api()
+        ^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+    def api():
+&gt;       assert hasattr(chstockdata, 'fetch_historical_opening_evidence'), 'public R2.1 capability missing'
+E       AssertionError: public R2.1 capability missing
+E       assert False
+E        +  where False = hasattr(chstockdata, 'fetch_historical_opening_evidence')
+
+tests\test_historical_opening_evidence.py:23: AssertionError</failure></testcase><testcase classname="tests.test_historical_opening_evidence" name="test_sse_fund_halt_control_actual_field_contract" time="0.001"><failure message="AssertionError: public R2.1 capability missing&#10;assert False&#10; +  where False = hasattr(chstockdata, 'fetch_historical_opening_evidence')">def test_sse_fund_halt_control_actual_field_contract():
+        row={'endStopType':'LSTP','startStopReason':'根据基金管理人申请','endStopDate':'20260911',
+             'endType':'','secCode':'513100','startType':'null','startStopDate':'20260911',
+             'startStopType':'LSTP','dateSource':'2','stopTime':'915'}
+        payload={'result':[row],'pageHelp':{'pageNo':1,'pageCount':1,'pageSize':25,'total':1,'data':[row]}}
+&gt;       r=fetch('513100', official=[payload])
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_historical_opening_evidence.py:227: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_historical_opening_evidence.py:97: in fetch
+    tdx, official = readers(code, day, kwargs.pop('official', None), kwargs.pop('mutate', None),
+tests\test_historical_opening_evidence.py:83: in readers
+    m = api()
+        ^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+    def api():
+&gt;       assert hasattr(chstockdata, 'fetch_historical_opening_evidence'), 'public R2.1 capability missing'
+E       AssertionError: public R2.1 capability missing
+E       assert False
+E        +  where False = hasattr(chstockdata, 'fetch_historical_opening_evidence')
+
+tests\test_historical_opening_evidence.py:23: AssertionError</failure></testcase><testcase classname="tests.test_historical_opening_evidence" name="test_szse_fund_halt_real_attachment_and_all_rows_considered" time="0.001"><failure message="AssertionError: certified PDF raw fixture missing&#10;assert False&#10; +  where False = exists()&#10; +    where exists = WindowsPath('C:/Users/Administrator/.codex/visualizations/2026/10/10/01a125dd-33f2-78d3-abe7-45e0928975d0/v042-opening-implementation/chstockdata/tests/fixtures/opening/159509-20260911.pdf').exists">def test_szse_fund_halt_real_attachment_and_all_rows_considered():
+        # Actual list bytes + actual official attachment replay, not a provider verdict mock.
+        payload=json.loads((OFFICIAL/'szse_159509_announcements_control.bin').read_bytes())
+        payload['data']=payload['data'][:1];payload['announceCount']=1
+        pdf=ROOT/'tests/fixtures/opening/159509-20260911.pdf'
+&gt;       assert pdf.exists(), 'certified PDF raw fixture missing'
+E       AssertionError: certified PDF raw fixture missing
+E       assert False
+E        +  where False = exists()
+E        +    where exists = WindowsPath('C:/Users/Administrator/.codex/visualizations/2026/10/10/01a125dd-33f2-78d3-abe7-45e0928975d0/v042-opening-implementation/chstockdata/tests/fixtures/opening/159509-20260911.pdf').exists
+
+tests\test_historical_opening_evidence.py:236: AssertionError</failure></testcase><testcase classname="tests.test_historical_opening_evidence" name="test_szse_unknown_event_meaning_and_bad_attachment_are_unknown" time="0.001"><failure message="AssertionError: public R2.1 capability missing&#10;assert False&#10; +  where False = hasattr(chstockdata, 'fetch_historical_opening_evidence')">def test_szse_unknown_event_meaning_and_bad_attachment_are_unknown():
+        payload=json.loads((OFFICIAL/'szse_159509_announcements_control.bin').read_bytes())
+        payload['data']=payload['data'][:1];payload['announceCount']=1
+&gt;       assert fetch('159509',official=[payload,b'&lt;html&gt;blocked&lt;/html&gt;']).data['opening_status']=='UNKNOWN'
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_historical_opening_evidence.py:245: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_historical_opening_evidence.py:97: in fetch
+    tdx, official = readers(code, day, kwargs.pop('official', None), kwargs.pop('mutate', None),
+tests\test_historical_opening_evidence.py:83: in readers
+    m = api()
+        ^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+    def api():
+&gt;       assert hasattr(chstockdata, 'fetch_historical_opening_evidence'), 'public R2.1 capability missing'
+E       AssertionError: public R2.1 capability missing
+E       assert False
+E        +  where False = hasattr(chstockdata, 'fetch_historical_opening_evidence')
+
+tests\test_historical_opening_evidence.py:23: AssertionError</failure></testcase><testcase classname="tests.test_historical_opening_evidence" name="test_sse_wrong_code_and_unknown_secondary_time_unknown" time="0.001"><failure message="AssertionError: public R2.1 capability missing&#10;assert False&#10; +  where False = hasattr(chstockdata, 'fetch_historical_opening_evidence')">def test_sse_wrong_code_and_unknown_secondary_time_unknown():
+        row={'secCode':'999999','startStopDate':'20260911','endStopDate':'20260911',
+             'dateSource':'2','startStopType':'LSTP','stopTime':'999'}
+        payload={'result':[row],'pageHelp':{'pageNo':1,'pageCount':1,'pageSize':25,'total':1,'data':[row]}}
+&gt;       assert fetch(official=[payload]).data['opening_status']=='UNKNOWN'
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_historical_opening_evidence.py:252: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_historical_opening_evidence.py:97: in fetch
+    tdx, official = readers(code, day, kwargs.pop('official', None), kwargs.pop('mutate', None),
+tests\test_historical_opening_evidence.py:83: in readers
+    m = api()
+        ^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+    def api():
+&gt;       assert hasattr(chstockdata, 'fetch_historical_opening_evidence'), 'public R2.1 capability missing'
+E       AssertionError: public R2.1 capability missing
+E       assert False
+E        +  where False = hasattr(chstockdata, 'fetch_historical_opening_evidence')
+
+tests\test_historical_opening_evidence.py:23: AssertionError</failure></testcase><testcase classname="tests.test_historical_opening_evidence" name="test_complete_current_pagination_and_partial_cap" time="0.001"><failure message="AssertionError: public R2.1 capability missing&#10;assert False&#10; +  where False = hasattr(chstockdata, 'fetch_historical_opening_evidence')">def test_complete_current_pagination_and_partial_cap():
+&gt;       m=api()
+          ^^^^^
+
+tests\test_historical_opening_evidence.py:258: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+    def api():
+&gt;       assert hasattr(chstockdata, 'fetch_historical_opening_evidence'), 'public R2.1 capability missing'
+E       AssertionError: public R2.1 capability missing
+E       assert False
+E        +  where False = hasattr(chstockdata, 'fetch_historical_opening_evidence')
+
+tests\test_historical_opening_evidence.py:23: AssertionError</failure></testcase></testsuite></testsuites>

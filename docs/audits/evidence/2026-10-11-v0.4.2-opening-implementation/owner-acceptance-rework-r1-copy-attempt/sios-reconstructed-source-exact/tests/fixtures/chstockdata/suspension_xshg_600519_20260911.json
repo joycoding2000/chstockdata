@@ -1,0 +1,16 @@
+{
+  "capability": "tradability",
+  "upstream_source": "Eastmoney datacenter RPT_CUSTOM_SUSPEND_DATA_INTERFACE",
+  "observed_at": null,
+  "warnings": [],
+  "payload": {
+    "suspended": true,
+    "snapshot_date": "2026-09-11",
+    "as_of_date": "2026-09-11",
+    "observed_at": "2026-09-11T18:05:00+08:00",
+    "suspend_start_date": "2026-09-11",
+    "suspend_expire": null,
+    "suspend_reason": "重大事项",
+    "source": "Eastmoney datacenter RPT_CUSTOM_SUSPEND_DATA_INTERFACE"
+  }
+}

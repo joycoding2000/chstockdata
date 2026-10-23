@@ -1,0 +1,72 @@
+{
+  "schema_version": "golden-expected-v1",
+  "runs": {
+    "default": {
+      "sessions": [
+        {
+          "session_date": "2026-09-11",
+          "cash": "100000",
+          "market_value": "0",
+          "total_equity": "100000",
+          "nav": "1",
+          "valuation_status": "COMPLETE",
+          "decision_blocked_reason": null,
+          "orders": [],
+          "fills": [],
+          "rejections": [],
+          "plans": [
+            {"instrument_id": "XSHG:510300", "sleeve": "CORE", "side": "BUY", "order_quantity": 500, "target_weight": "0.02", "sizing_reference_price": "4.00"}
+          ],
+          "target": {
+            "target_id": "target:2026-09-11",
+            "revision": 1,
+            "decision_for_trade_date": "2026-09-14",
+            "valuation_equity": "100000",
+            "cash_weight": "0.98",
+            "sleeve_weights": {"CORE": "0.02"}
+          }
+        },
+        {
+          "session_date": "2026-09-14",
+          "cash": "97792.50",
+          "market_value": "2250.00",
+          "total_equity": "100042.50",
+          "nav": "1.000425",
+          "valuation_status": "COMPLETE",
+          "decision_blocked_reason": null,
+          "orders": [
+            {"instrument_id": "XSHG:510300", "side": "BUY", "planned_quantity": 500, "submitted_quantity": 500, "status": "FILLED", "reason_codes": ["FILLED_AS_PLANNED"]}
+          ],
+          "fills": [
+            {"instrument_id": "XSHG:510300", "side": "BUY", "quantity": 500, "fill_price": "4.405", "reference_open": "4.40", "commission": "0.66", "minimum_commission_adjustment": "4.34", "stamp_tax": "0", "transfer_fee": "0", "total_fees": "5.00"}
+          ],
+          "rejections": [],
+          "plans": [],
+          "target": null
+        },
+        {
+          "session_date": "2026-09-15",
+          "cash": "97792.50",
+          "market_value": "2250.00",
+          "total_equity": "100042.50",
+          "nav": "1.000425",
+          "valuation_status": "COMPLETE",
+          "decision_blocked_reason": null,
+          "orders": [],
+          "fills": [],
+          "rejections": [],
+          "plans": [],
+          "target": null
+        }
+      ],
+      "final": {
+        "cash": "97792.50",
+        "equity": "100042.50",
+        "nav": "1.000425",
+        "positions": [
+          {"instrument_id": "XSHG:510300", "total_quantity": 500, "sellable_quantity": 500, "average_cost": "4.405"}
+        ]
+      }
+    }
+  }
+}

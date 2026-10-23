@@ -1,0 +1,68 @@
+{
+  "intent_schema_version": "research-candidate-intent-1",
+  "intent_id": "m1-etf-absolute-trend-v1",
+  "lineage_id": "m1-etf-absolute-trend",
+  "asset_class": "ETF",
+  "sleeve": "CORE",
+  "strategy_id": "etf-absolute-trend",
+  "decision_frequency": "MONTHLY_LAST_SESSION",
+  "economic_rationale": "Broad equity index ETFs exhibit persistent medium-horizon trends driven by slow capital reallocation and flows; holding the risk asset only while its price is above a long moving average should avoid the deepest drawdowns of sustained bear phases, at the cost of whipsaw exits near turning points. The counterparty view is that month-end lag and whipsaws give back most of the trend benefit; the fixed OOS interval will decide.",
+  "rule_pseudocode": "On the last open session of month M: closes = known closes of XSHG:510300 through T; if len(closes) < N: NO_DECISION(INSUFFICIENT_HISTORY); sma = mean(last N closes); if close_T > sma: TARGETS XSHG:510300 weight 1.0; else TARGETS XSHG:510300 weight 0.0 (explicit cash exit).",
+  "parameter_variants": [
+    {"variant_id": "sma-150", "parameters": {"sma_sessions": "150"}},
+    {"variant_id": "sma-200", "parameters": {"sma_sessions": "200"}},
+    {"variant_id": "sma-250", "parameters": {"sma_sessions": "250"}}
+  ],
+  "parameter_priority": ["sma-150", "sma-200", "sma-250"],
+  "parameter_selection_rule": "PRIORITY_FIRST_BASIC_PASS",
+  "parameter_rationale": "Predeclared priority, not return-optimized: the shortest admitted window (150) reacts earliest to regime change and is tried first; each longer window is a slower, more conservative fallback. No grid search beyond the three M1-D02 windows.",
+  "universe_policy": {
+    "policy_name": "ETF_FIXED_QUALIFIED_V1",
+    "instrument_ids": ["XSHG:510300"],
+    "formation_rule": "Fixed frozen view of M0-qualified broad-based equity ETF XSHG:510300 for the whole run; no reconstitution, no future membership backfill."
+  },
+  "warm_up_start": "2015-01-05",
+  "basic_start": "2016-01-04",
+  "basic_end": "2022-12-30",
+  "oos_start": "2023-01-03",
+  "oos_end": "2025-12-31",
+  "benchmark": {
+    "kind": "SINGLE_ETF_BUY_AND_HOLD",
+    "instrument_ids": ["XSHG:510300"],
+    "rebalance": "INCEPTION",
+    "rationale": "Same-ETF buy-and-hold through the same M0 kernel isolates the timing decision from asset exposure; benchmark is pre-registered before any result."
+  },
+  "risk_off_choice": "CASH_0",
+  "risk_off_rationale": "M1-D04: CASH is the zero-yield account cash and is deliberately chosen over a defensive ETF; bond/gold exposure is never substituted for cash by this candidate.",
+  "initial_capital": "100000",
+  "cost_convention": {
+    "commission_rate": "0.00025",
+    "minimum_commission": "5",
+    "slippage_rate": "0.0005"
+  },
+  "metric_convention": {
+    "return_basis": "DAILY_CLOSE_TO_CLOSE",
+    "annualization_sessions": "252"
+  },
+  "basic_promotion_rule": {
+    "min_nav_observations": "1500",
+    "min_excess_total_return_vs_benchmark": "-0.05",
+    "max_drawdown_floor": "-0.40",
+    "max_turnover": "12"
+  },
+  "basic_promotion_rationale": "Fail-closed pre-registered gate: full-window NAV coverage, total return within 5pp of the same-ETF buy-and-hold, maximum drawdown no deeper than -40%, and cumulative half-gross turnover at most 12x average equity. No threshold is tuned after results are seen; a variant that fails writes REJECTED_BASIC and stops.",
+  "oos_survivor_rule": {
+    "min_excess_total_return_vs_benchmark": "-0.05",
+    "max_drawdown_floor": "-0.40"
+  },
+  "oos_survivor_rationale": "Survivor means 'worth M2 robustness validation', not tradability: same benchmark-relative return floor and drawdown ceiling as Basic, applied to the fixed OOS interval only.",
+  "known_limitations": [
+    "Monthly cadence misses intra-month reversals; whipsaw exits near V-shaped turns are expected.",
+    "SMA trend rules are sensitive to the warm-up window; only the frozen 2015-01-05 warm-up is used.",
+    "CASH_0 ignores any money-market yield; the comparison is conservative for carry.",
+    "Basic snapshot physically ends at 2022-12-30; the fixed OOS request 2023-01-03..2025-12-31 stays unrevealed until after freeze."
+  ],
+  "source": "M1 protocol section 7.2 owner-approved seed candidate; no external code or text copied.",
+  "created_at": "2026-09-16",
+  "parent_experiment": null
+}

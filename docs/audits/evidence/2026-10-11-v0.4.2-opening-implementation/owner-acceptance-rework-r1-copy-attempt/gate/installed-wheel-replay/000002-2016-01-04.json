@@ -1,0 +1,240 @@
+{
+  "data": {
+    "instrument": "000002",
+    "market": "SZSE",
+    "session_date": "2016-01-04",
+    "purpose": "historical_opening_execution_constraint",
+    "schema_version": "historical-opening-evidence/1",
+    "policy_version": "R2.1",
+    "opening_status": "BLOCKED_CONFIRMED",
+    "reason": "certified_official_block_at_target",
+    "source_conflict": false,
+    "official_block_at_target": true,
+    "information_available_at": null,
+    "information_basis": "UNKNOWN",
+    "time_granularity": "minute",
+    "official_events": [
+      {
+        "instrument": "000002",
+        "market": "SZSE",
+        "effective_start": "2015-12-18T13:00:00+08:00",
+        "effective_end": null,
+        "source_url": "https://static.cninfo.com.cn/finalpage/2016-07-02/1202445845.PDF",
+        "raw_sha256": "d1e3f6de50f64b5fda46a93b39a28b0573b3541e85e98e2107fdb8f361c818f3",
+        "certification_basis": "issuer disclosure pages 13/113 explicitly 2015-12-18 13:00 continuous halt; official fund report page 25 records 2016-07-04 resume DATE only, no authenticated resume clock; do not infer an effective interval end; this halt is inapplicable after the authenticated resume date, while opening on the resume date remains unknown",
+        "retrieved_at": "2026-10-09T13:03:37.528586+00:00",
+        "source_kind": "issuer_official_disclosure",
+        "secondary_market": true,
+        "offline_cache": true,
+        "raw_fields": {
+          "issuer": "万科企业股份有限公司",
+          "page": 13,
+          "halt_excerpt": "公司A股股票从2015年12月18日13:00起开始停牌",
+          "resume_source_url": "https://static.cninfo.com.cn/finalpage/2016-08-29/1202629464.PDF",
+          "resume_raw_sha256": "3bd3084bae486a56ba03cc55e45df43573fa6da6063017341fe0bd4ca06e94ce",
+          "resume_page": 25,
+          "resume_date": "2016-07-04",
+          "cache_origin": "docs/audits/evidence/2026-10-09-v0.4.2-history-recovery/vanke-issuer-history.pdf",
+          "cache_imported_at": "2026-10-11T07:35:19.626967+00:00"
+        },
+        "information_available_at": null,
+        "information_basis": "UNKNOWN"
+      }
+    ],
+    "limitations": [
+      "[09:30,09:31) activity does not prove strict 09:30 order fill, full-day normality, or preopen PIT.",
+      "TDX prices are evidence crosschecks only; volumes are not fill quotas.",
+      "Current bounded official query does not claim all historical events or revisions are complete."
+    ],
+    "target_execution_at": "2016-01-04T09:30:00+08:00",
+    "execution_effect_window": {
+      "start": "2016-01-04T09:30:00+08:00",
+      "end": "2016-01-04T09:31:00+08:00"
+    },
+    "tdx_activity": {
+      "instrument": "000002",
+      "session_date": "2016-01-04",
+      "source": "mootdx/tdxpy",
+      "server": {
+        "host": "110.41.147.114",
+        "port": 7709
+      },
+      "timeout_seconds": 4,
+      "auto_retry": false,
+      "heartbeat": false,
+      "server_discovery": false,
+      "command": "0x0fb5",
+      "crosscheck_command": "0x0fb4",
+      "time_granularity": "minute",
+      "price_unit": "CNY/security",
+      "volume_unit": "TDX lots (not an executable quota)",
+      "observations": [
+        {
+          "request": {
+            "operation": "connect",
+            "server": [
+              "110.41.147.114",
+              7709
+            ]
+          },
+          "status": "success",
+          "retrieved_at": "2026-10-13T13:49:17.196850+00:00",
+          "parsed_response_sha256": "483b7e2c82324e79dc30a1412c8c96a80172f32df2963889a1a08b80b9e85e76",
+          "error_type": null
+        },
+        {
+          "request": {
+            "command": "0x0fb4",
+            "market": 0,
+            "code": "000002",
+            "date": 20160104
+          },
+          "status": "normal_empty",
+          "retrieved_at": "2026-10-13T13:49:17.197867+00:00",
+          "parsed_response_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "error_type": null
+        },
+        {
+          "request": {
+            "command": "0x0fb5",
+            "market": 0,
+            "code": "000002",
+            "date": 20160104,
+            "start": 0,
+            "count": 800
+          },
+          "status": "normal_empty",
+          "retrieved_at": "2026-10-13T13:49:17.198852+00:00",
+          "parsed_response_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "error_type": null
+        }
+      ],
+      "qualified": false,
+      "opening_volume_lots": 0,
+      "normalization_count": 1,
+      "versions": {
+        "mootdx": "0.11.7",
+        "tdxpy": "0.2.7"
+      },
+      "market_id": 0,
+      "category": "STOCK",
+      "tick_size": "0.01",
+      "category_certification": "frozen 2026-10-10 44-request protocol and price sample",
+      "normalization_rule": "tdxpy_0.2.7_0x0fb5_certified_stock_identity",
+      "normalized_opening_rows": [],
+      "auction_rows": [],
+      "bounded_page_count": 1,
+      "opening_crosscheck_complete": true,
+      "minute_first": null,
+      "reason": "no_qualified_0930_transaction_activity"
+    },
+    "official_query": {
+      "instrument": "000002",
+      "market": "SZSE",
+      "query_range": [
+        "2016-01-04",
+        "2016-01-04"
+      ],
+      "range_kind": "announcement publication date",
+      "historical_global_completeness_claim": false,
+      "status": "normal_empty",
+      "pagination_complete": true,
+      "observations": [
+        {
+          "request": {
+            "method": "POST",
+            "url": "https://www.szse.cn/api/search/content",
+            "data": {
+              "keyword": "000002",
+              "range": "title",
+              "channelCode[]": "tempsuspension_news",
+              "time": 1451836800000,
+              "endTime": 1451836800000,
+              "scope": 1,
+              "currentPage": 1,
+              "pageSize": 25
+            }
+          },
+          "status": "success",
+          "retrieved_at": "2026-10-13T13:49:17.200866+00:00",
+          "parsed_response_sha256": "c8521a2848fa715d8d069cdc2cf83ad0c89b9550d1b6168877eabd64f60f2f69",
+          "error_type": null,
+          "raw_sha256": "c8521a2848fa715d8d069cdc2cf83ad0c89b9550d1b6168877eabd64f60f2f69",
+          "raw_bytes": 55
+        }
+      ],
+      "all_returned_rows_considered": true,
+      "raw_rows": [],
+      "total": 0,
+      "page_count": 1,
+      "reason": "current_bounded_query_complete"
+    },
+    "retrieved_at": "2026-10-13T13:49:17.201851+00:00",
+    "evidence_hash": "f5cfe5183ff886a367db49ab9cb49339c81e7297fd78dd5edf2ec2d863bfecb7"
+  },
+  "metadata": {
+    "capability": "historical_opening_evidence",
+    "final_provider": null,
+    "providers_used": [
+      "mootdx",
+      "szse"
+    ],
+    "final_status": "success",
+    "outcome_status": null,
+    "request_status": "success",
+    "retrieved_at": "2026-10-13T13:49:17.201851+00:00",
+    "observed_at": null,
+    "data_as_of": "2016-01-04",
+    "stale": false,
+    "partial": false,
+    "limitations": [
+      "[09:30,09:31) activity does not prove strict 09:30 order fill, full-day normality, or preopen PIT.",
+      "TDX prices are evidence crosschecks only; volumes are not fill quotas.",
+      "Current bounded official query does not claim all historical events or revisions are complete."
+    ],
+    "degraded": false,
+    "failed_providers": [],
+    "attempts": [
+      {
+        "provider": "mootdx",
+        "capability": "mootdx:historical_opening_activity",
+        "status": "success",
+        "started_at": "2026-10-13T13:49:17.196850+00:00",
+        "elapsed_ms": 0,
+        "record_count": null,
+        "error_type": null,
+        "message": null
+      },
+      {
+        "provider": "mootdx",
+        "capability": "mootdx:historical_opening_activity",
+        "status": "normal_empty",
+        "started_at": "2026-10-13T13:49:17.197867+00:00",
+        "elapsed_ms": 0,
+        "record_count": 0,
+        "error_type": null,
+        "message": null
+      },
+      {
+        "provider": "mootdx",
+        "capability": "mootdx:historical_opening_activity",
+        "status": "normal_empty",
+        "started_at": "2026-10-13T13:49:17.197867+00:00",
+        "elapsed_ms": 0,
+        "record_count": 0,
+        "error_type": null,
+        "message": null
+      },
+      {
+        "provider": "szse",
+        "capability": "szse:historical_opening_events",
+        "status": "success",
+        "started_at": "2026-10-13T13:49:17.198852+00:00",
+        "elapsed_ms": 0,
+        "record_count": null,
+        "error_type": null,
+        "message": null
+      }
+    ]
+  }
+}

@@ -1,0 +1,259 @@
+{
+  "schema_version": "m1-research-smoke-fixture-1",
+  "purpose": "Hand-audited expected amounts for the annual-cohort Stock relative-strength smoke flight through the frozen M0 kernel. SATELLITE contributions must reach M0 lot sizing, the global affordability pass, T+1 settlement, sell-side stamp tax, and suspension rejections. All expected values were computed independently of engine output from the documented M0 semantics: T-close sizing with whole lots and reserved fees, T+1 open fill with side-aware slippage and tick rounding, itemized fees, close valuation, and NAV relative to CNY 300000. R2 bars during its 2022-05-16/2022-05-17 suspension carry its canonical reference close of 9.40; activation is gated by the SUSPENDED tradability facts, not by the bars.",
+  "strategy": {
+    "strategy_id": "smoke-stock-relative-strength",
+    "strategy_version": "v1",
+    "return_sessions": 4,
+    "top_n": 2,
+    "equal_weight": "0.5",
+    "sleeve": "SATELLITE",
+    "decision_frequency": "EVERY_SESSION"
+  },
+  "account": {
+    "initial_cash": "300000",
+    "commission_rate": "0.0003",
+    "minimum_commission": "5"
+  },
+  "execution": {
+    "slippage_rate": "0.0005"
+  },
+  "calendar_id": "XSHG",
+  "sessions": [
+    "2022-05-05",
+    "2022-05-06",
+    "2022-05-09",
+    "2022-05-10",
+    "2022-05-11",
+    "2022-05-12",
+    "2022-05-13",
+    "2022-05-16",
+    "2022-05-17"
+  ],
+  "roles": {
+    "XSHG:600001": {
+      "closes": [
+        "10.00", "10.20", "10.40", "10.60", "10.80",
+        "11.00", "11.20", "11.40", "11.60"
+      ]
+    },
+    "XSHG:600002": {
+      "closes": [
+        "60.00", "61.80", "63.60", "65.40", "67.20",
+        "67.20", "67.20", "67.20", "67.20"
+      ]
+    },
+    "XSHG:600003": {
+      "closes": [
+        "30.00", "30.30", "30.60", "30.90", "31.20",
+        "31.50", "31.80", "32.10", "32.40"
+      ]
+    },
+    "XSHG:600004": {
+      "closes": [
+        "15.00", "15.30", "15.60", "15.75", "15.90",
+        "15.90", "15.90", "15.90", "15.90"
+      ]
+    },
+    "XSHG:600005": {
+      "closes": [
+        "12.00", "12.10", "12.20", "12.30", "12.40",
+        "13.64", "13.84", "14.04", "14.24"
+      ]
+    },
+    "XSHG:600006": {
+      "closes": [
+        "8.00", "8.05", "8.10", "8.15", "8.20",
+        "8.30", "9.40", "9.40", "9.40"
+      ]
+    }
+  },
+  "fillers": [
+    "XSHG:600011", "XSHG:600012", "XSHG:600013", "XSHG:600014",
+    "XSHG:600015", "XSHG:600016", "XSHG:600017", "XSHG:600018",
+    "XSHG:600019", "XSHG:600020", "XSHG:600021", "XSHG:600022",
+    "XSHG:600023", "XSHG:600024", "XSHG:600025", "XSHG:600026"
+  ],
+  "filler_close": "10.00",
+  "universe": {
+    "policy": {
+      "minimum_listing_sessions": 250,
+      "trailing_amount_sessions": 60,
+      "minimum_cohort_size": 20,
+      "maximum_cohort_size": 50
+    },
+    "formation_session": "2021-12-31",
+    "trailing_sessions_start": "2021-10-11",
+    "trailing_sessions_count": 60,
+    "listed_sessions": 300,
+    "role_median_amounts": {
+      "XSHG:600001": "5000000",
+      "XSHG:600002": "4800000",
+      "XSHG:600003": "4600000",
+      "XSHG:600004": "4400000",
+      "XSHG:600005": "4200000",
+      "XSHG:600006": "4100000"
+    },
+    "filler_median_amount": "4000000"
+  },
+  "suspensions": [
+    {
+      "instrument": "XSHG:600006",
+      "sessions": ["2022-05-16", "2022-05-17"]
+    }
+  ],
+  "hand_audit": {
+    "returns": "Decision-session 4-session return = (close[T] - close[T-4]) / close[T-4]. s4 (05-11): W2 12%, W1 8%, W4 6%, W3 4%, R1 3.333%, R2 2.5%, fillers 0 -> top-2 = W2, W1. s5 (05-12): R1 (13.64-12.10)/12.10 = 12.727%, W2 (67.20-61.80)/61.80 = 8.738%, W1 (11.00-10.20)/10.20 = 7.843%, W3 3.960%, W4 3.922%, R2 3.106% -> top-2 = R1, W2; held W1 dropped -> explicit 0. s6 (05-13): R2 (9.40-8.10)/8.10 = 16.049%, R1 (13.84-12.20)/12.20 = 13.443%, W1 7.692%, W2 5.660% -> top-2 = R2, R1; held W2 dropped -> explicit 0. s7 (05-16): R2 (9.40-8.20)/8.20 = 14.634%, R1 (14.04-12.30)/12.30 = 14.146%, W1 7.547%, W2 5.660% -> top-2 = R2, R1.",
+    "sizing_2022-05-11": "Equity 300000; each target 0.5 -> 150000. W1: 150000/10.80 = 13888.9 -> 13800; W2: 150000/67.20 = 2232.1 -> 2200. Buy order by id: W1 estimated 148960 + fees 46.18 = 149006.18; W2 147840 + 45.83 = 147885.83; both affordable -> BUY_FULL_TARGET.",
+    "fills_2022-05-12": "W1 exec 10.80*1.0005 = 10.80540 -> 10.81 (tick 0.01 ceiling); 13800*10.81 = 149178.00; com 44.7534 -> 44.75; transfer 1.49178 -> 1.49; cash 300000 - 149224.24 = 150775.76. W2 exec 67.2336 -> 67.24; 2200*67.24 = 147928.00; com 44.3784 -> 44.38; transfer 1.47928 -> 1.48; cash 2801.90. T+1: sellable 2022-05-13.",
+    "s5_decision": "Equity = 2801.90 + 151800 + 147840 + 75600 = 302441.90. Targets 0.5 -> 151220.95. W1 held, dropped -> EXIT_FULL_POSITION 13800 (est fees at 11.00: com 45.54, stamp 151.80, transfer 1.52 -> proceeds 151601.14; available 154403.04). R1: 151220.95/13.64 = 11086 -> 11000, est 150086.51 affordable. W2: floor(151220.95/67.20) = 2200 = current -> HOLD_BELOW_ONE_LOT.",
+    "fills_2022-05-13": "W1 sell exec 11.00*0.9995 = 10.99450 -> 10.99; 13800*10.99 = 151662.00; com 45.4986 -> 45.50; stamp 151.662 -> 151.66; transfer 1.51662 -> 1.52; proceeds 151463.32; cash 154265.22. R1 buy exec 13.64*1.0005 = 13.64682 -> 13.65; 11000*13.65 = 150150.00; com 45.045 -> 45.05; transfer 1.5015 -> 1.50; cash 4068.67. T+1: R1 sellable 2022-05-16.",
+    "s6_decision": "Equity = 4068.67 + 147840 + 152240 = 304148.67. Targets 0.5 -> 152074.335. W2 held, dropped -> EXIT 2200 (est fees 193.67 -> proceeds 147646.33). R1: floor(152074.335/13.84) = 10900 < 11000 -> REDUCE_TO_TARGET 100 (est fees 6.39). R2: floor(152074.335/9.40) = 16100, est 151386.91 <= available 153092.61 -> BUY_FULL_TARGET.",
+    "fills_2022-05-16": "W2 sell exec 67.20*0.9995 = 67.16640 -> 67.16; 2200*67.16 = 147752.00; com 44.3256 -> 44.33; stamp 147.752 -> 147.75; transfer 1.47752 -> 1.48; proceeds 147558.44; cash 151627.11. R1 sell 100 exec 13.84*0.9995 = 13.83308 -> 13.83; 1383.00; com 0.4149 -> 0.41; minimum adjustment 4.59; stamp 1.383 -> 1.38; transfer 0.01; proceeds 1376.61; cash 153003.72. R2 buy 16100 rejected SUSPENDED (tradability fact at 09:00, known at the 09:15 activation cutoff).",
+    "s7_decision": "Equity = 153003.72 + 10900*14.04 = 306039.72. Targets 0.5 -> 153019.86. R1: floor(153019.86/14.04) = 10800 < 10900 -> REDUCE 100 (est fees 6.41). R2: floor(153019.86/9.40) = 16200, est 152327.20 affordable -> BUY_FULL_TARGET.",
+    "fills_2022-05-17": "R1 sell 100 exec 14.04*0.9995 = 14.03298 -> 14.03; 1403.00; com 0.4209 -> 0.42; minimum adjustment 4.58; stamp 1.403 -> 1.40; transfer 0.01; proceeds 1396.59; cash 154400.31. R2 buy 16200 rejected SUSPENDED again. Final positions: R1 10800.",
+    "equity": "s4 close: 300000 (no positions). s5: 2801.90 + 6900*... positions 151800 + 147840 + 75600 = 302441.90. s6: 4068.67 + 147840 + 152240 = 304148.67. s7: 153003.72 + 153036 = 306039.72. s8: 154400.31 + 153792 = 308192.31.",
+    "metrics": "total return = 308192.31/300000 - 1 = 0.0273077; monotone NAV series -> max drawdown 0; total modeled costs = 92.10 + 245.23 + 199.95 + 6.41 = 543.69; gross = (308192.31 + 543.69)/300000 - 1 = 0.02912; cost drag = 0.02912 - 0.0273077 = 0.0018123; 7 fills."
+  },
+  "expected": {
+    "evaluations": [
+      {"session": "2022-05-05", "status": "NO_DECISION", "reason_codes": ["INSUFFICIENT_HISTORY"]},
+      {"session": "2022-05-06", "status": "NO_DECISION", "reason_codes": ["INSUFFICIENT_HISTORY"]},
+      {"session": "2022-05-09", "status": "NO_DECISION", "reason_codes": ["INSUFFICIENT_HISTORY"]},
+      {"session": "2022-05-10", "status": "NO_DECISION", "reason_codes": ["INSUFFICIENT_HISTORY"]},
+      {
+        "session": "2022-05-11",
+        "status": "TARGETS",
+        "contributions": [
+          {"instrument": "XSHG:600002", "sleeve": "SATELLITE", "target_weight": "0.5"},
+          {"instrument": "XSHG:600001", "sleeve": "SATELLITE", "target_weight": "0.5"}
+        ]
+      },
+      {
+        "session": "2022-05-12",
+        "status": "TARGETS",
+        "contributions": [
+          {"instrument": "XSHG:600005", "sleeve": "SATELLITE", "target_weight": "0.5"},
+          {"instrument": "XSHG:600002", "sleeve": "SATELLITE", "target_weight": "0.5"},
+          {"instrument": "XSHG:600001", "sleeve": "SATELLITE", "target_weight": "0"}
+        ]
+      },
+      {
+        "session": "2022-05-13",
+        "status": "TARGETS",
+        "contributions": [
+          {"instrument": "XSHG:600006", "sleeve": "SATELLITE", "target_weight": "0.5"},
+          {"instrument": "XSHG:600005", "sleeve": "SATELLITE", "target_weight": "0.5"},
+          {"instrument": "XSHG:600002", "sleeve": "SATELLITE", "target_weight": "0"}
+        ]
+      },
+      {
+        "session": "2022-05-16",
+        "status": "TARGETS",
+        "contributions": [
+          {"instrument": "XSHG:600006", "sleeve": "SATELLITE", "target_weight": "0.5"},
+          {"instrument": "XSHG:600005", "sleeve": "SATELLITE", "target_weight": "0.5"}
+        ]
+      }
+    ],
+    "plans": [
+      {
+        "session": "2022-05-11",
+        "plans": [
+          {"instrument": "XSHG:600001", "side": "BUY", "quantity": 13800, "sizing_reference_price": "10.80"},
+          {"instrument": "XSHG:600002", "side": "BUY", "quantity": 2200, "sizing_reference_price": "67.20"}
+        ]
+      },
+      {
+        "session": "2022-05-12",
+        "plans": [
+          {"instrument": "XSHG:600001", "side": "SELL", "quantity": 13800, "sizing_reference_price": "11.00"},
+          {"instrument": "XSHG:600005", "side": "BUY", "quantity": 11000, "sizing_reference_price": "13.64"}
+        ]
+      },
+      {
+        "session": "2022-05-13",
+        "plans": [
+          {"instrument": "XSHG:600002", "side": "SELL", "quantity": 2200, "sizing_reference_price": "67.20"},
+          {"instrument": "XSHG:600005", "side": "SELL", "quantity": 100, "sizing_reference_price": "13.84"},
+          {"instrument": "XSHG:600006", "side": "BUY", "quantity": 16100, "sizing_reference_price": "9.40"}
+        ]
+      },
+      {
+        "session": "2022-05-16",
+        "plans": [
+          {"instrument": "XSHG:600005", "side": "SELL", "quantity": 100, "sizing_reference_price": "14.04"},
+          {"instrument": "XSHG:600006", "side": "BUY", "quantity": 16200, "sizing_reference_price": "9.40"}
+        ]
+      }
+    ],
+    "fills": [
+      {
+        "session": "2022-05-12",
+        "fills": [
+          {"instrument": "XSHG:600001", "side": "BUY", "quantity": 13800, "fill_price": "10.81", "reference_open": "10.80", "commission": "44.75", "minimum_commission_adjustment": "0.00", "stamp_tax": "0.00", "transfer_fee": "1.49"},
+          {"instrument": "XSHG:600002", "side": "BUY", "quantity": 2200, "fill_price": "67.24", "reference_open": "67.20", "commission": "44.38", "minimum_commission_adjustment": "0.00", "stamp_tax": "0.00", "transfer_fee": "1.48"}
+        ]
+      },
+      {
+        "session": "2022-05-13",
+        "fills": [
+          {"instrument": "XSHG:600001", "side": "SELL", "quantity": 13800, "fill_price": "10.99", "reference_open": "11.00", "commission": "45.50", "minimum_commission_adjustment": "0.00", "stamp_tax": "151.66", "transfer_fee": "1.52"},
+          {"instrument": "XSHG:600005", "side": "BUY", "quantity": 11000, "fill_price": "13.65", "reference_open": "13.64", "commission": "45.05", "minimum_commission_adjustment": "0.00", "stamp_tax": "0.00", "transfer_fee": "1.50"}
+        ]
+      },
+      {
+        "session": "2022-05-16",
+        "fills": [
+          {"instrument": "XSHG:600002", "side": "SELL", "quantity": 2200, "fill_price": "67.16", "reference_open": "67.20", "commission": "44.33", "minimum_commission_adjustment": "0.00", "stamp_tax": "147.75", "transfer_fee": "1.48"},
+          {"instrument": "XSHG:600005", "side": "SELL", "quantity": 100, "fill_price": "13.83", "reference_open": "13.84", "commission": "0.41", "minimum_commission_adjustment": "4.59", "stamp_tax": "1.38", "transfer_fee": "0.01"}
+        ]
+      },
+      {
+        "session": "2022-05-17",
+        "fills": [
+          {"instrument": "XSHG:600005", "side": "SELL", "quantity": 100, "fill_price": "14.03", "reference_open": "14.04", "commission": "0.42", "minimum_commission_adjustment": "4.58", "stamp_tax": "1.40", "transfer_fee": "0.01"}
+        ]
+      }
+    ],
+    "rejections": [
+      {"session": "2022-05-16", "instrument": "XSHG:600006", "side": "BUY", "code": "SUSPENDED", "planned_quantity": 16100},
+      {"session": "2022-05-17", "instrument": "XSHG:600006", "side": "BUY", "code": "SUSPENDED", "planned_quantity": 16200}
+    ],
+    "t1_settlement": [
+      {"fill_session": "2022-05-12", "instrument": "XSHG:600001", "quantity": 13800, "sellable_from": "2022-05-13"},
+      {"fill_session": "2022-05-12", "instrument": "XSHG:600002", "quantity": 2200, "sellable_from": "2022-05-13"},
+      {"fill_session": "2022-05-13", "instrument": "XSHG:600005", "quantity": 11000, "sellable_from": "2022-05-16"}
+    ],
+    "cash_after": [
+      {"session": "2022-05-12", "cash": "2801.90"},
+      {"session": "2022-05-13", "cash": "4068.67"},
+      {"session": "2022-05-16", "cash": "153003.72"},
+      {"session": "2022-05-17", "cash": "154400.31"}
+    ],
+    "equity_at_close": [
+      {"session": "2022-05-05", "equity": "300000.00"},
+      {"session": "2022-05-06", "equity": "300000.00"},
+      {"session": "2022-05-09", "equity": "300000.00"},
+      {"session": "2022-05-10", "equity": "300000.00"},
+      {"session": "2022-05-11", "equity": "300000.00"},
+      {"session": "2022-05-12", "equity": "302441.90"},
+      {"session": "2022-05-13", "equity": "304148.67"},
+      {"session": "2022-05-16", "equity": "306039.72"},
+      {"session": "2022-05-17", "equity": "308192.31"}
+    ],
+    "final": {
+      "cash": "154400.31",
+      "positions": [
+        {"instrument": "XSHG:600005", "quantity": 10800}
+      ]
+    },
+    "metrics": {
+      "observation_count": 9,
+      "total_return": "0.0273077",
+      "max_drawdown": "0",
+      "cost_drag": "0.0018123",
+      "trade_count": 7
+    }
+  }
+}

@@ -1,0 +1,62 @@
+{
+    "id":  "1216741269",
+    "text":  "凵 ， 425 ， 94 L0592",
+    "pit_qualified":  false,
+    "engine":  "Windows.Media.Ocr existing zh-Hans-CN",
+    "maximum_image_dimension":  10000,
+    "machine_seconds":  0.022757199999999998,
+    "pixel_height":  124,
+    "image_sha256":  "42a8888ebe40a3cf44a75f0e4ba46a18de7d4612776cad4db324f46287e8ae87",
+    "pixel_width":  464,
+    "source_sha256":  "28f31493c52375f096a45ad326ad8421357f9e73252858ae236d6fa715aad2d2",
+    "physical_page":  208,
+    "lines":  [
+                  {
+                      "text":  "凵 ， 425 ， 94 L0592",
+                      "words":  [
+                                    {
+                                        "y":  46,
+                                        "height":  30,
+                                        "width":  35,
+                                        "text":  "凵",
+                                        "x":  126
+                                    },
+                                    {
+                                        "y":  70,
+                                        "height":  12,
+                                        "width":  9,
+                                        "text":  "，",
+                                        "x":  162
+                                    },
+                                    {
+                                        "y":  46,
+                                        "height":  31,
+                                        "width":  59,
+                                        "text":  "425",
+                                        "x":  172
+                                    },
+                                    {
+                                        "y":  71,
+                                        "height":  11,
+                                        "width":  7,
+                                        "text":  "，",
+                                        "x":  234
+                                    },
+                                    {
+                                        "y":  47,
+                                        "height":  30,
+                                        "width":  42,
+                                        "text":  "94",
+                                        "x":  242
+                                    },
+                                    {
+                                        "y":  46,
+                                        "height":  35,
+                                        "width":  118,
+                                        "text":  "L0592",
+                                        "x":  290
+                                    }
+                                ]
+                  }
+              ]
+}

@@ -1,0 +1,113 @@
+[
+  {
+    "instrument": "513500",
+    "calls": [
+      "https://fundf10.eastmoney.com/fhsp_513500.html"
+    ],
+    "captured_source_sha256": "6d6fe65f5fe4c3bc478011a6720ef052fd609f0a7786d2dbef81a24c9f29f0e8",
+    "result": {
+      "status": "normal_empty",
+      "coverage": "complete",
+      "items": [],
+      "source": "eastmoney_fund_f10:FHSP+FHGG",
+      "fetched_at": "2026-10-22T14:09:01.375890+00:00",
+      "failure_kind": null,
+      "error_summary": null,
+      "metadata": {
+        "query": {
+          "start": "2023-03-09",
+          "end": "2025-09-30",
+          "as_of_date": null
+        },
+        "pagination": {
+          "page": 1,
+          "page_size": 50,
+          "total": 0,
+          "truncated": false
+        },
+        "duplicate_count": 0,
+        "skipped_row_count": 0,
+        "excluded_after_cutoff_count": 0,
+        "missing_fields": [],
+        "limitations": [
+          "无记录表示该基金 F10 分红表及指定窗口内无匹配记录。"
+        ]
+      }
+    },
+    "qualification": "CURRENT_F10_NORMAL_EMPTY_ONLY_NOT_HISTORICAL_PIT_COVERAGE"
+  },
+  {
+    "instrument": "513030",
+    "calls": [
+      "https://fundf10.eastmoney.com/fhsp_513030.html"
+    ],
+    "captured_source_sha256": "53d1e797d6df08ba4d1253f36fe49e9cd7f67e42084dff0a661e8dbbac4fb962",
+    "result": {
+      "status": "normal_empty",
+      "coverage": "complete",
+      "items": [],
+      "source": "eastmoney_fund_f10:FHSP+FHGG",
+      "fetched_at": "2026-10-22T14:09:01.382232+00:00",
+      "failure_kind": null,
+      "error_summary": null,
+      "metadata": {
+        "query": {
+          "start": "2023-03-09",
+          "end": "2025-09-30",
+          "as_of_date": null
+        },
+        "pagination": {
+          "page": 1,
+          "page_size": 50,
+          "total": 0,
+          "truncated": false
+        },
+        "duplicate_count": 0,
+        "skipped_row_count": 0,
+        "excluded_after_cutoff_count": 0,
+        "missing_fields": [],
+        "limitations": [
+          "无记录表示该基金 F10 分红表及指定窗口内无匹配记录。"
+        ]
+      }
+    },
+    "qualification": "CURRENT_F10_NORMAL_EMPTY_ONLY_NOT_HISTORICAL_PIT_COVERAGE"
+  },
+  {
+    "instrument": "513520",
+    "calls": [
+      "https://fundf10.eastmoney.com/fhsp_513520.html"
+    ],
+    "captured_source_sha256": "110cd22d7fb33767a597368e291c8e0888473688b851cf0b7ac9c03df49110ea",
+    "result": {
+      "status": "normal_empty",
+      "coverage": "complete",
+      "items": [],
+      "source": "eastmoney_fund_f10:FHSP+FHGG",
+      "fetched_at": "2026-10-22T14:09:01.389461+00:00",
+      "failure_kind": null,
+      "error_summary": null,
+      "metadata": {
+        "query": {
+          "start": "2023-03-09",
+          "end": "2025-09-30",
+          "as_of_date": null
+        },
+        "pagination": {
+          "page": 1,
+          "page_size": 50,
+          "total": 0,
+          "truncated": false
+        },
+        "duplicate_count": 0,
+        "skipped_row_count": 0,
+        "excluded_after_cutoff_count": 0,
+        "missing_fields": [],
+        "limitations": [
+          "无记录表示该基金 F10 分红表及指定窗口内无匹配记录。"
+        ]
+      }
+    },
+    "qualification": "CURRENT_F10_NORMAL_EMPTY_ONLY_NOT_HISTORICAL_PIT_COVERAGE"
+  }
+]

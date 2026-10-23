@@ -1,0 +1,55 @@
+{
+    "id":  "1216741269",
+    "text":  "《 L74 6 t2385 巧",
+    "pit_qualified":  false,
+    "engine":  "Windows.Media.Ocr existing zh-Hans-CN",
+    "maximum_image_dimension":  10000,
+    "machine_seconds":  0.021461599999999997,
+    "pixel_height":  124,
+    "image_sha256":  "5d0ad31852ff3d0ae0d3fbb9f2ae4d68a1b53f8d50f63c57b9e341c9089206b5",
+    "pixel_width":  456,
+    "source_sha256":  "28f31493c52375f096a45ad326ad8421357f9e73252858ae236d6fa715aad2d2",
+    "physical_page":  208,
+    "lines":  [
+                  {
+                      "text":  "《 L74 6 t2385 巧",
+                      "words":  [
+                                    {
+                                        "y":  54,
+                                        "height":  32,
+                                        "width":  9,
+                                        "text":  "《",
+                                        "x":  109
+                                    },
+                                    {
+                                        "y":  52,
+                                        "height":  36,
+                                        "width":  70,
+                                        "text":  "L74",
+                                        "x":  128
+                                    },
+                                    {
+                                        "y":  51,
+                                        "height":  32,
+                                        "width":  20,
+                                        "text":  "6",
+                                        "x":  230
+                                    },
+                                    {
+                                        "y":  48,
+                                        "height":  35,
+                                        "width":  105,
+                                        "text":  "t2385",
+                                        "x":  256
+                                    },
+                                    {
+                                        "y":  48,
+                                        "height":  32,
+                                        "width":  29,
+                                        "text":  "巧",
+                                        "x":  364
+                                    }
+                                ]
+                  }
+              ]
+}

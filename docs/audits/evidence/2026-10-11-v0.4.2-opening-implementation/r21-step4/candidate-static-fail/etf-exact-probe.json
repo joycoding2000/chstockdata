@@ -1,0 +1,234 @@
+{
+  "identity": {
+    "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+    "executable": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\profiles\\r21-final\\sios-candidate\\Scripts\\python.exe",
+    "library_import": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\profiles\\r21-final\\sios-candidate\\Lib\\site-packages\\chstockdata\\__init__.py",
+    "version": "0.4.2",
+    "wheel_sha256": "d955ea4ef7c2bffaf5d30751fde88580911303b863a3120ac3d87337270267f8",
+    "all_installed_package_members_match": 41,
+    "venv": "home = C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\ninclude-system-site-packages = false\nversion = 3.12.14\nexecutable = C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe\ncommand = C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe -m venv C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\profiles\\r21-final\\sios-candidate\n"
+  },
+  "adapter_import": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\src\\systematic_investing\\adapters\\chstockdata\\provider.py",
+  "adapter_sha256": "916523ef30046c51003f29b883e87a1b3109270cf93c963145a08d482d55cf2b",
+  "default_pin_reject": "PASS",
+  "explicit_candidate": true,
+  "facts": [
+    {
+      "code": "510300",
+      "session": "2022-12-30",
+      "raw": [
+        20221230,
+        3937,
+        3951,
+        3934,
+        3938,
+        2485143808.0,
+        630228576,
+        65536
+      ],
+      "previous_raw": [
+        20221229,
+        3919,
+        3933,
+        3896,
+        3922,
+        2825957376.0,
+        721271003,
+        65536
+      ],
+      "actual_decimal": [
+        "3.937",
+        "3.951",
+        "3.934",
+        "3.938",
+        "3.922"
+      ],
+      "expected_decimal": [
+        "3.937",
+        "3.951",
+        "3.934",
+        "3.938",
+        "3.922"
+      ],
+      "raw_expected_decimal": [
+        "3.937",
+        "3.951",
+        "3.934",
+        "3.938",
+        "3.922"
+      ],
+      "source_file_sha256": "56db5fb84ac0965428748b6fa6228622d7e86021e37e2ecc4b0f79d1e88743ab",
+      "zero_tolerance": true,
+      "checks": {
+        "exact_ohlc_and_pre_close": true,
+        "units": true,
+        "adjustment": true,
+        "provenance": true
+      },
+      "status": "PASS"
+    },
+    {
+      "code": "159915",
+      "session": "2022-12-30",
+      "raw": [
+        20221230,
+        2287,
+        2298,
+        2278,
+        2279,
+        869409600.0,
+        380227663,
+        65536
+      ],
+      "previous_raw": [
+        20221229,
+        2255,
+        2295,
+        2252,
+        2277,
+        1001296960.0,
+        439087769,
+        65536
+      ],
+      "actual_decimal": [
+        "2.287",
+        "2.298",
+        "2.278",
+        "2.279",
+        "2.277"
+      ],
+      "expected_decimal": [
+        "2.287",
+        "2.298",
+        "2.278",
+        "2.279",
+        "2.277"
+      ],
+      "raw_expected_decimal": [
+        "2.287",
+        "2.298",
+        "2.278",
+        "2.279",
+        "2.277"
+      ],
+      "source_file_sha256": "caf336760dfe6317f5117f88eee05e366e1bb970459eeb7f1fd53999c38ae9a3",
+      "zero_tolerance": true,
+      "checks": {
+        "exact_ohlc_and_pre_close": true,
+        "units": true,
+        "adjustment": true,
+        "provenance": true
+      },
+      "status": "PASS"
+    },
+    {
+      "code": "518880",
+      "session": "2022-12-30",
+      "raw": [
+        20221230,
+        3970,
+        3987,
+        3970,
+        3986,
+        539947520.0,
+        135712938,
+        65536
+      ],
+      "previous_raw": [
+        20221229,
+        3970,
+        3974,
+        3960,
+        3960,
+        490936960.0,
+        123708477,
+        65536
+      ],
+      "actual_decimal": [
+        "3.97",
+        "3.987",
+        "3.97",
+        "3.986",
+        "3.96"
+      ],
+      "expected_decimal": [
+        "3.97",
+        "3.987",
+        "3.97",
+        "3.986",
+        "3.96"
+      ],
+      "raw_expected_decimal": [
+        "3.97",
+        "3.987",
+        "3.97",
+        "3.986",
+        "3.96"
+      ],
+      "source_file_sha256": "f73b02ec305007cef07cc77ae08b49c7b583cdad3c3a71c4f3e6f127f2201eef",
+      "zero_tolerance": true,
+      "checks": {
+        "exact_ohlc_and_pre_close": true,
+        "units": true,
+        "adjustment": true,
+        "provenance": true
+      },
+      "status": "PASS"
+    },
+    {
+      "code": "511010",
+      "session": "2022-12-30",
+      "raw": [
+        20221230,
+        128947,
+        129292,
+        128900,
+        129104,
+        28133132.0,
+        217900,
+        65536
+      ],
+      "previous_raw": [
+        20221229,
+        128826,
+        128954,
+        128800,
+        128897,
+        528951264.0,
+        4104900,
+        65536
+      ],
+      "actual_decimal": [
+        "128.947",
+        "129.292",
+        "128.9",
+        "129.104",
+        "128.897"
+      ],
+      "expected_decimal": [
+        "128.947",
+        "129.292",
+        "128.9",
+        "129.104",
+        "128.897"
+      ],
+      "raw_expected_decimal": [
+        "128.947",
+        "129.292",
+        "128.9",
+        "129.104",
+        "128.897"
+      ],
+      "source_file_sha256": "3f4225663778f898ef36a8562f4d8774b1a20eae08ea9d1caf7d8d3a5548a78d",
+      "zero_tolerance": true,
+      "checks": {
+        "exact_ohlc_and_pre_close": true,
+        "units": true,
+        "adjustment": true,
+        "provenance": true
+      },
+      "status": "PASS"
+    }
+  ],
+  "price_parity": 4
+}

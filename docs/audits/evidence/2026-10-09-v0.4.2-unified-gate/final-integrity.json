@@ -1,0 +1,17 @@
+{
+  "candidate_base_commit": "42bd44ef4d695aa3e88cfab4ebc3417660d0437a",
+  "candidate_working_tree_content_tree_sha1": "911d231646edc7d419d2e26ac91c95af5404c5c6",
+  "tree_definition": "Git-compatible tree of captured tracked and non-ignored untracked source files; excludes this accumulating audit directory; no commit/object written",
+  "candidate_files_unchanged_since_build": true,
+  "wheel_sha256": "b76b065a06cd1d91868880a7b57584f598b6fd4cb42931e9a33700bc99a88c7a",
+  "sdist_sha256": "4ca579a8f9be880fd0b4da86a714230a8674363ff50b0c3b58c787b0abf0e80a",
+  "source_semantics_included": true,
+  "frozen_var_unchanged": true,
+  "consumer_source_unchanged_except_admission": [
+    "src/systematic_investing/adapters/chstockdata/provider.py",
+    "tests/qualification/test_chstockdata_etf_gate.py"
+  ],
+  "sios_pristine_adapter_sha256": "57a858be4c5e70b964d7d5f2290cf94b7d4243fe497828e5a7592eb24c259e3f",
+  "sios_candidate_adapter_sha256": "24d8954568f612cf5c5907847b8cc25bb2542c92d640345bc06ecfa41ce49fa2",
+  "exception_patch_sha256": "fb307e531d73cb23f056c1e0c2903f3e8c57bc9a72ad0ea1ffa5768851fc7827"
+}

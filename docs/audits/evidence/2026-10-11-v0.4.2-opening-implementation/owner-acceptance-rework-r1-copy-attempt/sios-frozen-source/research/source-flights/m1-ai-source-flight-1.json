@@ -1,0 +1,21 @@
+{
+  "source_flight_schema_version": "m1-ai-source-flight-1",
+  "source_id": "m1-ai-source-flight-1",
+  "url": "https://www.aqr.com/Insights/Research/Journal-Article/Time-Series-Momentum",
+  "title": "Time Series Momentum",
+  "author_or_publisher": "Tobias J. Moskowitz, Yao Hua Ooi, and Lasse H. Pedersen; AQR Capital Management",
+  "accessed_date": "2026-09-21",
+  "license_or_rights_posture": "Publicly accessible research metadata and project-authored summary only; no paper text, implementation, or licensed data is copied into this repository.",
+  "summary": "The source reports that an instrument's own past excess returns can predict future returns across a broad set of futures and forward contracts, with the effect observed over an approximately year-long horizon. This is a project-authored summary for research triage, not a reproduction of the paper.",
+  "hypothesis": "For the frozen M1 ETF universe, a pre-registered monthly absolute-trend rule using a long moving-average gate may improve risk-adjusted returns after declared costs versus CASH_0 and the candidate-local buy-and-hold benchmark; the claim is falsifiable on the M1 Basic and controlled OOS splits.",
+  "asset": "ETF",
+  "horizon": "Monthly decisions with a 6-to-12 month trend lookback and multi-month holding horizon",
+  "data_requirements": [
+    "point-in-time daily ETF closes and trading calendar",
+    "frozen M1 ETF universe and instrument-master identity facts",
+    "M0 execution, settlement, fee, and corporate-action facts",
+    "pre-registered Basic/OOS date splits and candidate-local benchmarks"
+  ],
+  "cheap_screen_verdict": "SCREEN_PASS",
+  "cheap_screen_reason_codes": []
+}

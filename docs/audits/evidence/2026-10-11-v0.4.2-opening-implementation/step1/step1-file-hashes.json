@@ -1,0 +1,135 @@
+{
+  "purpose": "immutable evidence inventory; not Gate acceptance",
+  "files": [
+    {
+      "file": "check_evidence.py",
+      "bytes": 1781,
+      "sha256": "243571b0d9bfbc8d6b2721640442486fa215cf3bb55c026faedbcb639748605c"
+    },
+    {
+      "file": "evidence-integrity.exit",
+      "bytes": 3,
+      "sha256": "f1b2f662800122bed0ff255693df89c4487fbdcf453d3524a42d4ec20c3d9c04"
+    },
+    {
+      "file": "evidence-integrity.json",
+      "bytes": 324,
+      "sha256": "792553dec4c4f2afb5b406791acc9b77ace40ac0f3ecc3528c02fca57929bc22"
+    },
+    {
+      "file": "evidence-integrity.log",
+      "bytes": 296,
+      "sha256": "9783a1ae53ddbe5588c408626887ffb582e19cd0d20d76e7bc119fa79ce8a8a5"
+    },
+    {
+      "file": "legacy-safety-command.json",
+      "bytes": 1346,
+      "sha256": "4122f695b64a00aae7defc7f06af6defd2b909a11d766f9960f5c7f07c44d6aa"
+    },
+    {
+      "file": "legacy-safety.exit",
+      "bytes": 3,
+      "sha256": "13bf7b3039c63bf5a50491fa3cfd8eb4e699d1ba1436315aef9cbe5711530354"
+    },
+    {
+      "file": "legacy-safety.log",
+      "bytes": 2390,
+      "sha256": "642182beb5814a97c28bd1f68bcb852e41ff31ba6df920570500fdb61f58cabe"
+    },
+    {
+      "file": "legacy-safety.xml",
+      "bytes": 2999,
+      "sha256": "5a8a7575d4cef7748975ed45b8da972f200519e6dbebda2581b522490631d1e3"
+    },
+    {
+      "file": "live/manifest.json",
+      "bytes": 1987,
+      "sha256": "97317a597b6a237daec7ac5397bc6b396c2ad30d3f13efd4fbe9cb71a70dd621"
+    },
+    {
+      "file": "live/requests.json",
+      "bytes": 14024,
+      "sha256": "793e856a4abc968e324415b4900ef8a40236f516a68de6f019537103c9f0c63b"
+    },
+    {
+      "file": "live/sse_688432_interval.bin",
+      "bytes": 954,
+      "sha256": "33147724bcee2f692e3de7a637c2490017a86c1399183c7f8ccf1f7fe017d924"
+    },
+    {
+      "file": "live/sse_688432_interval.parsed.json",
+      "bytes": 1358,
+      "sha256": "79abc6648b793fcee8b69028ab70d316b582b2e4a34d265c6c57d9be9465c219"
+    },
+    {
+      "file": "live/sse_688432_resume_pdf.bin",
+      "bytes": 7373,
+      "sha256": "186f5ee5d558e601677cde30d55998b9e53098da13900986d7b55988f31dcc88"
+    },
+    {
+      "file": "live/sse_688432_resume_session.bin",
+      "bytes": 478,
+      "sha256": "ab1fa084a62ae34d98a76d46c9029d3bea698e84d59ca4b7200fa0ac7f347e4b"
+    },
+    {
+      "file": "live/sse_688432_resume_session.parsed.json",
+      "bytes": 664,
+      "sha256": "9653eb0a424ab5f3c9d740b4b15a37e3e2373ba8b3fc41e4fec2a1277f50088a"
+    },
+    {
+      "file": "live/szse_159509_announcements_control.bin",
+      "bytes": 1280,
+      "sha256": "1c799d8c18359ac482465556350b9b889e1c36689eda35f3d033edb5ec3a9813"
+    },
+    {
+      "file": "live/szse_159509_announcements_control.parsed.json",
+      "bytes": 1682,
+      "sha256": "dfb5a813e09c320d145b7a1a9767058240456e3e2bd048a6a05b515fa6050fcd"
+    },
+    {
+      "file": "live/szse_159915_announcements.bin",
+      "bytes": 2295,
+      "sha256": "13c652bf1ce25aeaec1c58d705053fb10bf37d09128a3dd2b11c4585f24a9797"
+    },
+    {
+      "file": "live/szse_159915_announcements.parsed.json",
+      "bytes": 3081,
+      "sha256": "716d71296a7132e7185fb69946b7355515ceaf0107ea7ef576541dd402537761"
+    },
+    {
+      "file": "probe_source_prerequisites.py",
+      "bytes": 6728,
+      "sha256": "879d943be9c8572195bedd00509641a14118f1cec0384d000c83621b56a3f2ba"
+    },
+    {
+      "file": "sandbox/requests.json",
+      "bytes": 1171,
+      "sha256": "731380b848a01fa25521d3da16f63385af909fd571bfa30ee0fb09276947b2cd"
+    },
+    {
+      "file": "source-prerequisite-live.exit",
+      "bytes": 3,
+      "sha256": "13bf7b3039c63bf5a50491fa3cfd8eb4e699d1ba1436315aef9cbe5711530354"
+    },
+    {
+      "file": "source-prerequisite-live.log",
+      "bytes": 261,
+      "sha256": "3cd257354059ed1ab0375c50d06e6b8bea28053ad5f23670415b37f6880a1c99"
+    },
+    {
+      "file": "source-prerequisite-sandbox.exit",
+      "bytes": 3,
+      "sha256": "df4e26a04a444901b95afef44e4a96cfae34690fff2ad2c66389c70079cdff2b"
+    },
+    {
+      "file": "source-prerequisite-sandbox.log",
+      "bytes": 55,
+      "sha256": "20c7302f33a02ee1034de0ce7ffa7a403533066dd5aa8fb124c7024d448e1cf7"
+    },
+    {
+      "file": "SOURCE_PREREQUISITE_HANDOFF.md",
+      "bytes": 10217,
+      "sha256": "1ec0f16419171c09d31b6154f44c45043a9de5f0e8b42b75990d129e389a7244"
+    }
+  ]
+}

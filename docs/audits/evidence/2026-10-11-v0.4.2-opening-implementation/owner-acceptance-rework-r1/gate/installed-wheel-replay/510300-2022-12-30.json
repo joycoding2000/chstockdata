@@ -1,0 +1,472 @@
+{
+  "data": {
+    "instrument": "510300",
+    "market": "SSE",
+    "session_date": "2022-12-30",
+    "purpose": "historical_opening_execution_constraint",
+    "schema_version": "historical-opening-evidence/1",
+    "policy_version": "R2.1",
+    "opening_status": "OPEN_ACTIVITY_CONFIRMED",
+    "reason": "certified_0930_activity_current_query_no_known_block",
+    "source_conflict": false,
+    "official_block_at_target": false,
+    "information_available_at": null,
+    "information_basis": "UNKNOWN",
+    "time_granularity": "minute",
+    "official_events": [],
+    "limitations": [
+      "[09:30,09:31) activity does not prove strict 09:30 order fill, full-day normality, or preopen PIT.",
+      "TDX prices are evidence crosschecks only; volumes are not fill quotas.",
+      "Current bounded official query does not claim all historical events or revisions are complete."
+    ],
+    "target_execution_at": "2022-12-30T09:30:00+08:00",
+    "execution_effect_window": {
+      "start": "2022-12-30T09:30:00+08:00",
+      "end": "2022-12-30T09:31:00+08:00"
+    },
+    "tdx_activity": {
+      "instrument": "510300",
+      "session_date": "2022-12-30",
+      "source": "mootdx/tdxpy",
+      "server": {
+        "host": "110.41.147.114",
+        "port": 7709
+      },
+      "timeout_seconds": 4,
+      "auto_retry": false,
+      "heartbeat": false,
+      "server_discovery": false,
+      "command": "0x0fb5",
+      "crosscheck_command": "0x0fb4",
+      "time_granularity": "minute",
+      "price_unit": "CNY/security",
+      "volume_unit": "TDX lots (not an executable quota)",
+      "observations": [
+        {
+          "request": {
+            "operation": "connect",
+            "server": [
+              "110.41.147.114",
+              7709
+            ]
+          },
+          "status": "success",
+          "retrieved_at": "2026-10-13T13:49:17.259290+00:00",
+          "parsed_response_sha256": "483b7e2c82324e79dc30a1412c8c96a80172f32df2963889a1a08b80b9e85e76",
+          "error_type": null
+        },
+        {
+          "request": {
+            "command": "0x0fb4",
+            "market": 1,
+            "code": "510300",
+            "date": 20221230
+          },
+          "status": "success",
+          "retrieved_at": "2026-10-13T13:49:17.267286+00:00",
+          "parsed_response_sha256": "ad532db3c0738827645e069033f617f0b0dd123bda10ff92bb9f66f122f226cc",
+          "error_type": null
+        },
+        {
+          "request": {
+            "command": "0x0fb5",
+            "market": 1,
+            "code": "510300",
+            "date": 20221230,
+            "start": 0,
+            "count": 800
+          },
+          "status": "success",
+          "retrieved_at": "2026-10-13T13:49:17.276234+00:00",
+          "parsed_response_sha256": "800284b22880fc1b88a9aab44c9ce0016195554a7d15d60862a75e970724d62d",
+          "error_type": null
+        },
+        {
+          "request": {
+            "command": "0x0fb5",
+            "market": 1,
+            "code": "510300",
+            "date": 20221230,
+            "start": 800,
+            "count": 800
+          },
+          "status": "success",
+          "retrieved_at": "2026-10-13T13:49:17.291235+00:00",
+          "parsed_response_sha256": "594dab6c7952fa9dcea6332cca3294a34bdfc15ec8c55437ee4d430852e2ab05",
+          "error_type": null
+        },
+        {
+          "request": {
+            "command": "0x0fb5",
+            "market": 1,
+            "code": "510300",
+            "date": 20221230,
+            "start": 1600,
+            "count": 800
+          },
+          "status": "success",
+          "retrieved_at": "2026-10-13T13:49:17.307313+00:00",
+          "parsed_response_sha256": "74a7da41822e3426043b6f43e0e9e9917c86fcd675e24ab3ce4796f069f9b202",
+          "error_type": null
+        },
+        {
+          "request": {
+            "command": "0x0fb5",
+            "market": 1,
+            "code": "510300",
+            "date": 20221230,
+            "start": 2400,
+            "count": 800
+          },
+          "status": "success",
+          "retrieved_at": "2026-10-13T13:49:17.322434+00:00",
+          "parsed_response_sha256": "290fabf54e1331bcc4ee4e0d8ff31028ce1d6e8d8e8f44d215cc88eb846898e8",
+          "error_type": null
+        },
+        {
+          "request": {
+            "command": "0x0fb5",
+            "market": 1,
+            "code": "510300",
+            "date": 20221230,
+            "start": 3200,
+            "count": 800
+          },
+          "status": "success",
+          "retrieved_at": "2026-10-13T13:49:17.336956+00:00",
+          "parsed_response_sha256": "5379eeee53b5ca1544b4cd362cef9203395089433b9a9f3d4a727f011feb6e3a",
+          "error_type": null
+        },
+        {
+          "request": {
+            "command": "0x0fb5",
+            "market": 1,
+            "code": "510300",
+            "date": 20221230,
+            "start": 4000,
+            "count": 800
+          },
+          "status": "success",
+          "retrieved_at": "2026-10-13T13:49:17.351243+00:00",
+          "parsed_response_sha256": "7adb1e691ad0f8e5f25252cd0cf750cf3295f84d7014828bcafb8650e9568931",
+          "error_type": null
+        }
+      ],
+      "qualified": true,
+      "opening_volume_lots": 124260,
+      "normalization_count": 1,
+      "versions": {
+        "mootdx": "0.11.7",
+        "tdxpy": "0.2.7"
+      },
+      "market_id": 1,
+      "category": "ETF",
+      "tick_size": "0.001",
+      "category_certification": "frozen 2026-10-10 44-request protocol and price sample",
+      "normalization_rule": "tdxpy_0.2.7_0x0fb5_certified_etf_divide_10",
+      "normalized_opening_rows": [
+        {
+          "time": "09:30",
+          "raw_price": "39.38",
+          "normalized_price": "3.938",
+          "volume_lots": 7659
+        },
+        {
+          "time": "09:30",
+          "raw_price": "39.38",
+          "normalized_price": "3.938",
+          "volume_lots": 12386
+        },
+        {
+          "time": "09:30",
+          "raw_price": "39.39",
+          "normalized_price": "3.939",
+          "volume_lots": 7066
+        },
+        {
+          "time": "09:30",
+          "raw_price": "39.4",
+          "normalized_price": "3.94",
+          "volume_lots": 21367
+        },
+        {
+          "time": "09:30",
+          "raw_price": "39.4",
+          "normalized_price": "3.94",
+          "volume_lots": 3659
+        },
+        {
+          "time": "09:30",
+          "raw_price": "39.41",
+          "normalized_price": "3.941",
+          "volume_lots": 3051
+        },
+        {
+          "time": "09:30",
+          "raw_price": "39.41",
+          "normalized_price": "3.941",
+          "volume_lots": 4074
+        },
+        {
+          "time": "09:30",
+          "raw_price": "39.42",
+          "normalized_price": "3.942",
+          "volume_lots": 5294
+        },
+        {
+          "time": "09:30",
+          "raw_price": "39.42",
+          "normalized_price": "3.942",
+          "volume_lots": 3535
+        },
+        {
+          "time": "09:30",
+          "raw_price": "39.43",
+          "normalized_price": "3.943",
+          "volume_lots": 564
+        },
+        {
+          "time": "09:30",
+          "raw_price": "39.43",
+          "normalized_price": "3.943",
+          "volume_lots": 9218
+        },
+        {
+          "time": "09:30",
+          "raw_price": "39.42",
+          "normalized_price": "3.942",
+          "volume_lots": 5063
+        },
+        {
+          "time": "09:30",
+          "raw_price": "39.44",
+          "normalized_price": "3.944",
+          "volume_lots": 12137
+        },
+        {
+          "time": "09:30",
+          "raw_price": "39.43",
+          "normalized_price": "3.943",
+          "volume_lots": 5146
+        },
+        {
+          "time": "09:30",
+          "raw_price": "39.42",
+          "normalized_price": "3.942",
+          "volume_lots": 6267
+        },
+        {
+          "time": "09:30",
+          "raw_price": "39.42",
+          "normalized_price": "3.942",
+          "volume_lots": 3497
+        },
+        {
+          "time": "09:30",
+          "raw_price": "39.42",
+          "normalized_price": "3.942",
+          "volume_lots": 10302
+        },
+        {
+          "time": "09:30",
+          "raw_price": "39.41",
+          "normalized_price": "3.941",
+          "volume_lots": 1832
+        },
+        {
+          "time": "09:30",
+          "raw_price": "39.41",
+          "normalized_price": "3.941",
+          "volume_lots": 762
+        },
+        {
+          "time": "09:30",
+          "raw_price": "39.41",
+          "normalized_price": "3.941",
+          "volume_lots": 1381
+        }
+      ],
+      "auction_rows": [
+        {
+          "time": "09:25",
+          "raw_price": "39.37",
+          "normalized_price": "3.937",
+          "volume_lots": 20974
+        }
+      ],
+      "bounded_page_count": 6,
+      "opening_crosscheck_complete": true,
+      "minute_first": {
+        "price": 3.9410000000000003,
+        "vol": 145234
+      },
+      "reason": "certified_positive_0930_activity",
+      "last_opening_price": "3.941"
+    },
+    "official_query": {
+      "instrument": "510300",
+      "market": "SSE",
+      "query_range": [
+        "2022-12-30",
+        "2022-12-30"
+      ],
+      "range_kind": "effective interval",
+      "historical_global_completeness_claim": false,
+      "status": "normal_empty",
+      "pagination_complete": true,
+      "observations": [
+        {
+          "request": {
+            "method": "GET",
+            "url": "https://query.sse.com.cn/sseQuery/commonSoaQuery.do",
+            "params": {
+              "isPagination": "true",
+              "pageHelp.pageSize": 25,
+              "pageHelp.pageNo": 1,
+              "pageHelp.beginPage": 1,
+              "pageHelp.cacheSize": 1,
+              "pageHelp.endPage": 1,
+              "sqlId": "SSE_PL_JYTS_TFPXX_JJ",
+              "secCode": "510300",
+              "stopReason": "",
+              "order": "startStopDate|desc,secCode|asc",
+              "startDate": "20221230",
+              "endDate": "20221230"
+            },
+            "headers": {
+              "Referer": "https://www.sse.com.cn/disclosure/dealinstruc/suspension/fund/"
+            }
+          },
+          "status": "success",
+          "retrieved_at": "2026-10-13T13:49:17.358765+00:00",
+          "parsed_response_sha256": "087735ac94e1b965c175ba5fb3af737546beb399219342c3a78cd40fd9d884a3",
+          "error_type": null,
+          "raw_sha256": "087735ac94e1b965c175ba5fb3af737546beb399219342c3a78cd40fd9d884a3",
+          "raw_bytes": 482
+        }
+      ],
+      "all_returned_rows_considered": true,
+      "raw_rows": [],
+      "total": 0,
+      "page_count": 1,
+      "reason": "current_bounded_query_complete"
+    },
+    "retrieved_at": "2026-10-13T13:49:17.358765+00:00",
+    "evidence_hash": "b3be42c0115a20553217f74254211db60009c2d423c36cfa58b081aa3a77fb26"
+  },
+  "metadata": {
+    "capability": "historical_opening_evidence",
+    "final_provider": null,
+    "providers_used": [
+      "mootdx",
+      "sse"
+    ],
+    "final_status": "success",
+    "outcome_status": null,
+    "request_status": "success",
+    "retrieved_at": "2026-10-13T13:49:17.358765+00:00",
+    "observed_at": null,
+    "data_as_of": "2022-12-30",
+    "stale": false,
+    "partial": false,
+    "limitations": [
+      "[09:30,09:31) activity does not prove strict 09:30 order fill, full-day normality, or preopen PIT.",
+      "TDX prices are evidence crosschecks only; volumes are not fill quotas.",
+      "Current bounded official query does not claim all historical events or revisions are complete."
+    ],
+    "degraded": false,
+    "failed_providers": [],
+    "attempts": [
+      {
+        "provider": "mootdx",
+        "capability": "mootdx:historical_opening_activity",
+        "status": "success",
+        "started_at": "2026-10-13T13:49:17.259290+00:00",
+        "elapsed_ms": 0,
+        "record_count": null,
+        "error_type": null,
+        "message": null
+      },
+      {
+        "provider": "mootdx",
+        "capability": "mootdx:historical_opening_activity",
+        "status": "success",
+        "started_at": "2026-10-13T13:49:17.259290+00:00",
+        "elapsed_ms": 0,
+        "record_count": 240,
+        "error_type": null,
+        "message": null
+      },
+      {
+        "provider": "mootdx",
+        "capability": "mootdx:historical_opening_activity",
+        "status": "success",
+        "started_at": "2026-10-13T13:49:17.267286+00:00",
+        "elapsed_ms": 16,
+        "record_count": 800,
+        "error_type": null,
+        "message": null
+      },
+      {
+        "provider": "mootdx",
+        "capability": "mootdx:historical_opening_activity",
+        "status": "success",
+        "started_at": "2026-10-13T13:49:17.282243+00:00",
+        "elapsed_ms": 14,
+        "record_count": 800,
+        "error_type": null,
+        "message": null
+      },
+      {
+        "provider": "mootdx",
+        "capability": "mootdx:historical_opening_activity",
+        "status": "success",
+        "started_at": "2026-10-13T13:49:17.297239+00:00",
+        "elapsed_ms": 16,
+        "record_count": 800,
+        "error_type": null,
+        "message": null
+      },
+      {
+        "provider": "mootdx",
+        "capability": "mootdx:historical_opening_activity",
+        "status": "success",
+        "started_at": "2026-10-13T13:49:17.313298+00:00",
+        "elapsed_ms": 16,
+        "record_count": 800,
+        "error_type": null,
+        "message": null
+      },
+      {
+        "provider": "mootdx",
+        "capability": "mootdx:historical_opening_activity",
+        "status": "success",
+        "started_at": "2026-10-13T13:49:17.328299+00:00",
+        "elapsed_ms": 15,
+        "record_count": 800,
+        "error_type": null,
+        "message": null
+      },
+      {
+        "provider": "mootdx",
+        "capability": "mootdx:historical_opening_activity",
+        "status": "success",
+        "started_at": "2026-10-13T13:49:17.343253+00:00",
+        "elapsed_ms": 15,
+        "record_count": 541,
+        "error_type": null,
+        "message": null
+      },
+      {
+        "provider": "sse",
+        "capability": "sse:historical_opening_events",
+        "status": "success",
+        "started_at": "2026-10-13T13:49:17.356782+00:00",
+        "elapsed_ms": 0,
+        "record_count": null,
+        "error_type": null,
+        "message": null
+      }
+    ]
+  }
+}

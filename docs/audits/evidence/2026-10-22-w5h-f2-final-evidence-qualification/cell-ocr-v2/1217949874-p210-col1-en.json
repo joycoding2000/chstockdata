@@ -1,0 +1,48 @@
+{
+    "id":  "1217949874",
+    "text":  "4 808 971 027.00",
+    "pit_qualified":  false,
+    "engine":  "Windows.Media.Ocr existing en-US",
+    "maximum_image_dimension":  10000,
+    "machine_seconds":  0.0114463,
+    "pixel_height":  124,
+    "image_sha256":  "4df088fd3c89a92578964f08bb2302c67698881caab38e9b7b37f687dc0d2f1b",
+    "pixel_width":  688,
+    "source_sha256":  "5cefd1e1ef733ef5887b619e09ce792d52bd33e2710580616be5736da03cd33c",
+    "physical_page":  210,
+    "lines":  [
+                  {
+                      "text":  "4 808 971 027.00",
+                      "words":  [
+                                    {
+                                        "y":  43,
+                                        "height":  34,
+                                        "width":  22,
+                                        "text":  "4",
+                                        "x":  288
+                                    },
+                                    {
+                                        "y":  43,
+                                        "height":  36,
+                                        "width":  72,
+                                        "text":  "808",
+                                        "x":  327
+                                    },
+                                    {
+                                        "y":  43,
+                                        "height":  36,
+                                        "width":  67,
+                                        "text":  "971",
+                                        "x":  416
+                                    },
+                                    {
+                                        "y":  43,
+                                        "height":  37,
+                                        "width":  136,
+                                        "text":  "027.00",
+                                        "x":  503
+                                    }
+                                ]
+                  }
+              ]
+}

@@ -1,0 +1,1383 @@
+[
+  {
+    "kind": "tdx",
+    "request": {
+      "command": "0x0fb4",
+      "market": 1,
+      "code": "510300",
+      "date": 20260911
+    },
+    "retrieved_at": "2026-10-11T07:32:41.426605+00:00",
+    "raw_file": "001-tdx.json",
+    "sha256": "f81c31a9e42dd9ab67f9cd5f6c6417c5c7e36e82544c7f5ce517d33829dd2baa",
+    "bytes": 7059,
+    "error_type": null
+  },
+  {
+    "kind": "tdx",
+    "request": {
+      "command": "0x0fb5",
+      "market": 1,
+      "code": "510300",
+      "date": 20260911,
+      "start": 0,
+      "count": 800
+    },
+    "retrieved_at": "2026-10-11T07:32:41.474442+00:00",
+    "raw_file": "002-tdx.json",
+    "sha256": "b9a9f197203c8b9276bfe908654debeb30963ef7f031d56640c149e319f2ee14",
+    "bytes": 44075,
+    "error_type": null
+  },
+  {
+    "kind": "tdx",
+    "request": {
+      "command": "0x0fb5",
+      "market": 1,
+      "code": "510300",
+      "date": 20260911,
+      "start": 800,
+      "count": 800
+    },
+    "retrieved_at": "2026-10-11T07:32:41.530188+00:00",
+    "raw_file": "003-tdx.json",
+    "sha256": "f3338cf7b63e989fb32b03062270e4a66756964b78383cd8b96a3eb1fca0f6bb",
+    "bytes": 44132,
+    "error_type": null
+  },
+  {
+    "kind": "tdx",
+    "request": {
+      "command": "0x0fb5",
+      "market": 1,
+      "code": "510300",
+      "date": 20260911,
+      "start": 1600,
+      "count": 800
+    },
+    "retrieved_at": "2026-10-11T07:32:41.583547+00:00",
+    "raw_file": "004-tdx.json",
+    "sha256": "21243d6992de38242c8fb9cdbf1154c64ed6d7d7e6498c93adba6f935301f152",
+    "bytes": 43997,
+    "error_type": null
+  },
+  {
+    "kind": "tdx",
+    "request": {
+      "command": "0x0fb5",
+      "market": 1,
+      "code": "510300",
+      "date": 20260911,
+      "start": 2400,
+      "count": 800
+    },
+    "retrieved_at": "2026-10-11T07:32:41.636864+00:00",
+    "raw_file": "005-tdx.json",
+    "sha256": "c12b100a4515096f868b03dd754132a0c81e71f81c92af8bbec7ed5cf6f5ecea",
+    "bytes": 43915,
+    "error_type": null
+  },
+  {
+    "kind": "tdx",
+    "request": {
+      "command": "0x0fb5",
+      "market": 1,
+      "code": "510300",
+      "date": 20260911,
+      "start": 3200,
+      "count": 800
+    },
+    "retrieved_at": "2026-10-11T07:32:41.691741+00:00",
+    "raw_file": "006-tdx.json",
+    "sha256": "f7d3710a7714777fdb7d1886052be14c0c96069509a5070e3bc69709fd1d0d88",
+    "bytes": 44302,
+    "error_type": null
+  },
+  {
+    "kind": "tdx",
+    "request": {
+      "command": "0x0fb5",
+      "market": 1,
+      "code": "510300",
+      "date": 20260911,
+      "start": 4000,
+      "count": 800
+    },
+    "retrieved_at": "2026-10-11T07:32:41.751319+00:00",
+    "raw_file": "007-tdx.json",
+    "sha256": "2564640257701bdc00c93f55bf9d40c95a3ca4cb997e6f13cc275e0d7dadc405",
+    "bytes": 43000,
+    "error_type": null
+  },
+  {
+    "kind": "official",
+    "request": {
+      "method": "GET",
+      "url": "https://query.sse.com.cn/sseQuery/commonSoaQuery.do",
+      "timeout": [
+        4,
+        8
+      ],
+      "allow_redirects": false,
+      "params": {
+        "isPagination": "true",
+        "pageHelp.pageSize": 25,
+        "pageHelp.pageNo": 1,
+        "pageHelp.beginPage": 1,
+        "pageHelp.cacheSize": 1,
+        "pageHelp.endPage": 1,
+        "sqlId": "SSE_PL_JYTS_TFPXX_JJ",
+        "secCode": "510300",
+        "stopReason": "",
+        "order": "startStopDate|desc,secCode|asc",
+        "startDate": "20260911",
+        "endDate": "20260911"
+      },
+      "headers": {
+        "Referer": "https://www.sse.com.cn/disclosure/dealinstruc/suspension/fund/"
+      },
+      "http_status": 200,
+      "content_type": "application/json;charset=UTF-8"
+    },
+    "retrieved_at": "2026-10-11T07:32:42.010699+00:00",
+    "raw_file": "008-official.bin",
+    "sha256": "087735ac94e1b965c175ba5fb3af737546beb399219342c3a78cd40fd9d884a3",
+    "bytes": 482,
+    "error_type": null
+  },
+  {
+    "kind": "tdx",
+    "request": {
+      "command": "0x0fb4",
+      "market": 0,
+      "code": "159915",
+      "date": 20260911
+    },
+    "retrieved_at": "2026-10-11T07:32:42.252041+00:00",
+    "raw_file": "009-tdx.json",
+    "sha256": "2ee4625111eaf95801b0b435cf63421dd6a61405d8093dca33d85a98028edd81",
+    "bytes": 7127,
+    "error_type": null
+  },
+  {
+    "kind": "tdx",
+    "request": {
+      "command": "0x0fb5",
+      "market": 0,
+      "code": "159915",
+      "date": 20260911,
+      "start": 0,
+      "count": 800
+    },
+    "retrieved_at": "2026-10-11T07:32:42.303330+00:00",
+    "raw_file": "010-tdx.json",
+    "sha256": "a7ed765bebe014c26f209313ab8117c843193f0ab31b1be10574932bf5ce58ce",
+    "bytes": 44137,
+    "error_type": null
+  },
+  {
+    "kind": "tdx",
+    "request": {
+      "command": "0x0fb5",
+      "market": 0,
+      "code": "159915",
+      "date": 20260911,
+      "start": 800,
+      "count": 800
+    },
+    "retrieved_at": "2026-10-11T07:32:42.361138+00:00",
+    "raw_file": "011-tdx.json",
+    "sha256": "e2439bb1d9adcb70dd5f177704c6d37ca1bf687793c659d43ad882e9c7a30482",
+    "bytes": 44448,
+    "error_type": null
+  },
+  {
+    "kind": "tdx",
+    "request": {
+      "command": "0x0fb5",
+      "market": 0,
+      "code": "159915",
+      "date": 20260911,
+      "start": 1600,
+      "count": 800
+    },
+    "retrieved_at": "2026-10-11T07:32:42.417881+00:00",
+    "raw_file": "012-tdx.json",
+    "sha256": "0a84afd25267374b8c706eada0908420a2d1c57304620a2d8068617359a03d28",
+    "bytes": 44303,
+    "error_type": null
+  },
+  {
+    "kind": "tdx",
+    "request": {
+      "command": "0x0fb5",
+      "market": 0,
+      "code": "159915",
+      "date": 20260911,
+      "start": 2400,
+      "count": 800
+    },
+    "retrieved_at": "2026-10-11T07:32:42.475103+00:00",
+    "raw_file": "013-tdx.json",
+    "sha256": "717e0c7a2e0b67647b00ecea20a9dbb665ea4ee126ad02a57b509d02c3bf7df5",
+    "bytes": 44378,
+    "error_type": null
+  },
+  {
+    "kind": "tdx",
+    "request": {
+      "command": "0x0fb5",
+      "market": 0,
+      "code": "159915",
+      "date": 20260911,
+      "start": 3200,
+      "count": 800
+    },
+    "retrieved_at": "2026-10-11T07:32:42.532114+00:00",
+    "raw_file": "014-tdx.json",
+    "sha256": "f429db188d5300f81c680a02b2368e84ae4247c427743ab6c8e1248fdb35de04",
+    "bytes": 44682,
+    "error_type": null
+  },
+  {
+    "kind": "tdx",
+    "request": {
+      "command": "0x0fb5",
+      "market": 0,
+      "code": "159915",
+      "date": 20260911,
+      "start": 4000,
+      "count": 800
+    },
+    "retrieved_at": "2026-10-11T07:32:42.591306+00:00",
+    "raw_file": "015-tdx.json",
+    "sha256": "520214ccb347458de92708b8f9eca2430d31bdd8c73123ffdb80347c735607fe",
+    "bytes": 43491,
+    "error_type": null
+  },
+  {
+    "kind": "official",
+    "request": {
+      "method": "POST",
+      "url": "https://www.szse.cn/api/disc/announcement/annList",
+      "timeout": [
+        4,
+        8
+      ],
+      "allow_redirects": false,
+      "json": {
+        "stock": [
+          "159915"
+        ],
+        "channelCode": [
+          "fundinfoNotice_disc"
+        ],
+        "seDate": [
+          "2026-09-11",
+          "2026-09-11"
+        ],
+        "pageSize": 25,
+        "pageNum": 1
+      },
+      "http_status": 200,
+      "content_type": "application/json;charset=UTF-8"
+    },
+    "retrieved_at": "2026-10-11T07:32:43.846591+00:00",
+    "raw_file": "016-official.bin",
+    "sha256": "623a2b4aa0de75d0685242ca41fe14e9eadb493315e17194845035fa58c6ef83",
+    "bytes": 29,
+    "error_type": null
+  },
+  {
+    "kind": "tdx",
+    "request": {
+      "command": "0x0fb4",
+      "market": 1,
+      "code": "518880",
+      "date": 20260911
+    },
+    "retrieved_at": "2026-10-11T07:32:44.097004+00:00",
+    "raw_file": "017-tdx.json",
+    "sha256": "fcd38de792c80607e8beade82b5bf74fa92a70cc5132641d6df4e3b43db415e2",
+    "bytes": 6929,
+    "error_type": null
+  },
+  {
+    "kind": "tdx",
+    "request": {
+      "command": "0x0fb5",
+      "market": 1,
+      "code": "518880",
+      "date": 20260911,
+      "start": 0,
+      "count": 800
+    },
+    "retrieved_at": "2026-10-11T07:32:44.149549+00:00",
+    "raw_file": "018-tdx.json",
+    "sha256": "c0b767631ec86e2b0b9011b9c4ae39a2575f4ece3302fc4ca059dc8092bd992b",
+    "bytes": 44035,
+    "error_type": null
+  },
+  {
+    "kind": "tdx",
+    "request": {
+      "command": "0x0fb5",
+      "market": 1,
+      "code": "518880",
+      "date": 20260911,
+      "start": 800,
+      "count": 800
+    },
+    "retrieved_at": "2026-10-11T07:32:44.208289+00:00",
+    "raw_file": "019-tdx.json",
+    "sha256": "51e72e16fb8ed27620439cb2c56a85a09cf915941a86a18d847e645239b3b803",
+    "bytes": 44181,
+    "error_type": null
+  },
+  {
+    "kind": "tdx",
+    "request": {
+      "command": "0x0fb5",
+      "market": 1,
+      "code": "518880",
+      "date": 20260911,
+      "start": 1600,
+      "count": 800
+    },
+    "retrieved_at": "2026-10-11T07:32:44.267342+00:00",
+    "raw_file": "020-tdx.json",
+    "sha256": "7fcbe7403e9fa6b1d19fe56e46a4c03b79919d22c4e4e4319d69519ee26a9eef",
+    "bytes": 44069,
+    "error_type": null
+  },
+  {
+    "kind": "tdx",
+    "request": {
+      "command": "0x0fb5",
+      "market": 1,
+      "code": "518880",
+      "date": 20260911,
+      "start": 2400,
+      "count": 800
+    },
+    "retrieved_at": "2026-10-11T07:32:44.327037+00:00",
+    "raw_file": "021-tdx.json",
+    "sha256": "a45d486ccc0c76dac4764f802ad5784851b83e868bbb58469f564f67d09c25cf",
+    "bytes": 44036,
+    "error_type": null
+  },
+  {
+    "kind": "tdx",
+    "request": {
+      "command": "0x0fb5",
+      "market": 1,
+      "code": "518880",
+      "date": 20260911,
+      "start": 3200,
+      "count": 800
+    },
+    "retrieved_at": "2026-10-11T07:32:44.386073+00:00",
+    "raw_file": "022-tdx.json",
+    "sha256": "c5f649d08ba99588514744b5bb6e1285a41b017a99e352f905da22d00e0c0433",
+    "bytes": 44143,
+    "error_type": null
+  },
+  {
+    "kind": "tdx",
+    "request": {
+      "command": "0x0fb5",
+      "market": 1,
+      "code": "518880",
+      "date": 20260911,
+      "start": 4000,
+      "count": 800
+    },
+    "retrieved_at": "2026-10-11T07:32:44.443684+00:00",
+    "raw_file": "023-tdx.json",
+    "sha256": "9ac62cf3bfe4c3f3b29dec6ae1712a5c0b95ca3dd2e68d2ca6b61914090f24ff",
+    "bytes": 44352,
+    "error_type": null
+  },
+  {
+    "kind": "tdx",
+    "request": {
+      "command": "0x0fb5",
+      "market": 1,
+      "code": "518880",
+      "date": 20260911,
+      "start": 4800,
+      "count": 800
+    },
+    "retrieved_at": "2026-10-11T07:32:44.497564+00:00",
+    "raw_file": "024-tdx.json",
+    "sha256": "0d627b2216e4c89d95a38f291158bb65f54385ea569a11de5b6f8c6788fe72aa",
+    "bytes": 2681,
+    "error_type": null
+  },
+  {
+    "kind": "official",
+    "request": {
+      "method": "GET",
+      "url": "https://query.sse.com.cn/sseQuery/commonSoaQuery.do",
+      "timeout": [
+        4,
+        8
+      ],
+      "allow_redirects": false,
+      "params": {
+        "isPagination": "true",
+        "pageHelp.pageSize": 25,
+        "pageHelp.pageNo": 1,
+        "pageHelp.beginPage": 1,
+        "pageHelp.cacheSize": 1,
+        "pageHelp.endPage": 1,
+        "sqlId": "SSE_PL_JYTS_TFPXX_JJ",
+        "secCode": "518880",
+        "stopReason": "",
+        "order": "startStopDate|desc,secCode|asc",
+        "startDate": "20260911",
+        "endDate": "20260911"
+      },
+      "headers": {
+        "Referer": "https://www.sse.com.cn/disclosure/dealinstruc/suspension/fund/"
+      },
+      "http_status": 200,
+      "content_type": "application/json;charset=UTF-8"
+    },
+    "retrieved_at": "2026-10-11T07:32:44.739695+00:00",
+    "raw_file": "025-official.bin",
+    "sha256": "087735ac94e1b965c175ba5fb3af737546beb399219342c3a78cd40fd9d884a3",
+    "bytes": 482,
+    "error_type": null
+  },
+  {
+    "kind": "tdx",
+    "request": {
+      "command": "0x0fb4",
+      "market": 1,
+      "code": "511010",
+      "date": 20260911
+    },
+    "retrieved_at": "2026-10-11T07:32:44.964137+00:00",
+    "raw_file": "026-tdx.json",
+    "sha256": "7d5e7f5034c9a44e35955dd08a366ad05e954b71e5ca83ad726ac3fab92d1b84",
+    "bytes": 6900,
+    "error_type": null
+  },
+  {
+    "kind": "tdx",
+    "request": {
+      "command": "0x0fb5",
+      "market": 1,
+      "code": "511010",
+      "date": 20260911,
+      "start": 0,
+      "count": 800
+    },
+    "retrieved_at": "2026-10-11T07:32:45.016014+00:00",
+    "raw_file": "027-tdx.json",
+    "sha256": "b4e24b95c2b7fd579566b9f89ecc040bab6bc0d65ea4bfbead3beef83485ba24",
+    "bytes": 44146,
+    "error_type": null
+  },
+  {
+    "kind": "tdx",
+    "request": {
+      "command": "0x0fb5",
+      "market": 1,
+      "code": "511010",
+      "date": 20260911,
+      "start": 800,
+      "count": 800
+    },
+    "retrieved_at": "2026-10-11T07:32:45.069380+00:00",
+    "raw_file": "028-tdx.json",
+    "sha256": "6746cf4fb635bc66388205ad4f05a9f595c7c88b2d515aa80e1399fda928584a",
+    "bytes": 21386,
+    "error_type": null
+  },
+  {
+    "kind": "official",
+    "request": {
+      "method": "GET",
+      "url": "https://query.sse.com.cn/sseQuery/commonSoaQuery.do",
+      "timeout": [
+        4,
+        8
+      ],
+      "allow_redirects": false,
+      "params": {
+        "isPagination": "true",
+        "pageHelp.pageSize": 25,
+        "pageHelp.pageNo": 1,
+        "pageHelp.beginPage": 1,
+        "pageHelp.cacheSize": 1,
+        "pageHelp.endPage": 1,
+        "sqlId": "SSE_PL_JYTS_TFPXX_JJ",
+        "secCode": "511010",
+        "stopReason": "",
+        "order": "startStopDate|desc,secCode|asc",
+        "startDate": "20260911",
+        "endDate": "20260911"
+      },
+      "headers": {
+        "Referer": "https://www.sse.com.cn/disclosure/dealinstruc/suspension/fund/"
+      },
+      "http_status": 200,
+      "content_type": "application/json;charset=UTF-8"
+    },
+    "retrieved_at": "2026-10-11T07:32:45.336722+00:00",
+    "raw_file": "029-official.bin",
+    "sha256": "087735ac94e1b965c175ba5fb3af737546beb399219342c3a78cd40fd9d884a3",
+    "bytes": 482,
+    "error_type": null
+  },
+  {
+    "kind": "tdx",
+    "request": {
+      "command": "0x0fb4",
+      "market": 1,
+      "code": "513100",
+      "date": 20260911
+    },
+    "retrieved_at": "2026-10-11T07:32:45.592300+00:00",
+    "raw_file": "030-tdx.json",
+    "sha256": "c4d23ad340106442e6726122813e3da14fc3ff84906e2e8d58aab33045df5c0e",
+    "bytes": 6306,
+    "error_type": null
+  },
+  {
+    "kind": "tdx",
+    "request": {
+      "command": "0x0fb5",
+      "market": 1,
+      "code": "513100",
+      "date": 20260911,
+      "start": 0,
+      "count": 800
+    },
+    "retrieved_at": "2026-10-11T07:32:45.647588+00:00",
+    "raw_file": "031-tdx.json",
+    "sha256": "256d0bd505ee5605e94c2051db7e8a9bf69b5f232be4addf533a69f3a2e0c033",
+    "bytes": 43384,
+    "error_type": null
+  },
+  {
+    "kind": "tdx",
+    "request": {
+      "command": "0x0fb5",
+      "market": 1,
+      "code": "513100",
+      "date": 20260911,
+      "start": 800,
+      "count": 800
+    },
+    "retrieved_at": "2026-10-11T07:32:45.708543+00:00",
+    "raw_file": "032-tdx.json",
+    "sha256": "c10c87349f5c9ad4aa602e877198654f157cbdb0227ce133745a0db1ef09363b",
+    "bytes": 43447,
+    "error_type": null
+  },
+  {
+    "kind": "tdx",
+    "request": {
+      "command": "0x0fb5",
+      "market": 1,
+      "code": "513100",
+      "date": 20260911,
+      "start": 1600,
+      "count": 800
+    },
+    "retrieved_at": "2026-10-11T07:32:45.770068+00:00",
+    "raw_file": "033-tdx.json",
+    "sha256": "74bcfc9ae4dcd16cf7cc8954661049bcaaa0f188d0b364e6888b7abde5099398",
+    "bytes": 43253,
+    "error_type": null
+  },
+  {
+    "kind": "tdx",
+    "request": {
+      "command": "0x0fb5",
+      "market": 1,
+      "code": "513100",
+      "date": 20260911,
+      "start": 2400,
+      "count": 800
+    },
+    "retrieved_at": "2026-10-11T07:32:45.830087+00:00",
+    "raw_file": "034-tdx.json",
+    "sha256": "b12e80fc0173058c6acfab6563d7709fab0286b6ebb29a6c9c2fa048a1043e79",
+    "bytes": 26371,
+    "error_type": null
+  },
+  {
+    "kind": "official",
+    "request": {
+      "method": "GET",
+      "url": "https://query.sse.com.cn/sseQuery/commonSoaQuery.do",
+      "timeout": [
+        4,
+        8
+      ],
+      "allow_redirects": false,
+      "params": {
+        "isPagination": "true",
+        "pageHelp.pageSize": 25,
+        "pageHelp.pageNo": 1,
+        "pageHelp.beginPage": 1,
+        "pageHelp.cacheSize": 1,
+        "pageHelp.endPage": 1,
+        "sqlId": "SSE_PL_JYTS_TFPXX_JJ",
+        "secCode": "513100",
+        "stopReason": "",
+        "order": "startStopDate|desc,secCode|asc",
+        "startDate": "20260911",
+        "endDate": "20260911"
+      },
+      "headers": {
+        "Referer": "https://www.sse.com.cn/disclosure/dealinstruc/suspension/fund/"
+      },
+      "http_status": 200,
+      "content_type": "application/json;charset=UTF-8"
+    },
+    "retrieved_at": "2026-10-11T07:32:46.083821+00:00",
+    "raw_file": "035-official.bin",
+    "sha256": "b0c084336ced5abfd30e2d1ac3b0e2d46c0b35758934e75651f9ae6ad216fd02",
+    "bytes": 1140,
+    "error_type": null
+  },
+  {
+    "kind": "tdx",
+    "request": {
+      "command": "0x0fb4",
+      "market": 0,
+      "code": "159509",
+      "date": 20260911
+    },
+    "retrieved_at": "2026-10-11T07:32:46.327324+00:00",
+    "raw_file": "036-tdx.json",
+    "sha256": "1454cb743154b2a1f4a09e3bc8578d6bb839b6c5af7a0fd0554eb8a01f4eeb7b",
+    "bytes": 6548,
+    "error_type": null
+  },
+  {
+    "kind": "tdx",
+    "request": {
+      "command": "0x0fb5",
+      "market": 0,
+      "code": "159509",
+      "date": 20260911,
+      "start": 0,
+      "count": 800
+    },
+    "retrieved_at": "2026-10-11T07:32:46.381399+00:00",
+    "raw_file": "037-tdx.json",
+    "sha256": "18c167a017f01dec97d74eacbd55fcb7225daa34b2b57397ff4e9020afc0e03c",
+    "bytes": 43400,
+    "error_type": null
+  },
+  {
+    "kind": "tdx",
+    "request": {
+      "command": "0x0fb5",
+      "market": 0,
+      "code": "159509",
+      "date": 20260911,
+      "start": 800,
+      "count": 800
+    },
+    "retrieved_at": "2026-10-11T07:32:46.444015+00:00",
+    "raw_file": "038-tdx.json",
+    "sha256": "e2fb92349dbc650096809e97e22de536c466a3cb152458977b8989eb92504350",
+    "bytes": 43524,
+    "error_type": null
+  },
+  {
+    "kind": "tdx",
+    "request": {
+      "command": "0x0fb5",
+      "market": 0,
+      "code": "159509",
+      "date": 20260911,
+      "start": 1600,
+      "count": 800
+    },
+    "retrieved_at": "2026-10-11T07:32:46.503051+00:00",
+    "raw_file": "039-tdx.json",
+    "sha256": "c288401e5f6466c04095c39e152831e576c69cb01bb6c88db797bd6878c07fdf",
+    "bytes": 43644,
+    "error_type": null
+  },
+  {
+    "kind": "tdx",
+    "request": {
+      "command": "0x0fb5",
+      "market": 0,
+      "code": "159509",
+      "date": 20260911,
+      "start": 2400,
+      "count": 800
+    },
+    "retrieved_at": "2026-10-11T07:32:46.565422+00:00",
+    "raw_file": "040-tdx.json",
+    "sha256": "80dd4462e6cf146eed538f21b819d7aca5f87e9a7a6e7ad054d50bcad2ccccce",
+    "bytes": 33501,
+    "error_type": null
+  },
+  {
+    "kind": "official",
+    "request": {
+      "method": "POST",
+      "url": "https://www.szse.cn/api/disc/announcement/annList",
+      "timeout": [
+        4,
+        8
+      ],
+      "allow_redirects": false,
+      "json": {
+        "stock": [
+          "159509"
+        ],
+        "channelCode": [
+          "fundinfoNotice_disc"
+        ],
+        "seDate": [
+          "2026-09-11",
+          "2026-09-11"
+        ],
+        "pageSize": 25,
+        "pageNum": 1
+      },
+      "http_status": 200,
+      "content_type": "application/json;charset=UTF-8"
+    },
+    "retrieved_at": "2026-10-11T07:32:47.827005+00:00",
+    "raw_file": "041-official.bin",
+    "sha256": "3ca988327b95469f36ae8c22b943d0d79bb863d0bbef970082496f06dc26b098",
+    "bytes": 654,
+    "error_type": null
+  },
+  {
+    "kind": "official",
+    "request": {
+      "method": "GET",
+      "url": "https://disc.static.szse.cn/disc/disk03/finalpage/2026-09-11/441bfc71-d5d9-4f67-aed6-05eeeec9aaf3.PDF",
+      "timeout": [
+        4,
+        8
+      ],
+      "allow_redirects": false,
+      "http_status": 200,
+      "content_type": "application/pdf"
+    },
+    "retrieved_at": "2026-10-11T07:32:47.892700+00:00",
+    "raw_file": "042-official.bin",
+    "sha256": "18cf4d821cd8f4de15d515ce0ceef828be5aff3beea30128d4b2049d39647fcd",
+    "bytes": 96655,
+    "error_type": null
+  },
+  {
+    "kind": "tdx",
+    "request": {
+      "command": "0x0fb4",
+      "market": 1,
+      "code": "688432",
+      "date": 20260831
+    },
+    "retrieved_at": "2026-10-11T07:32:48.173880+00:00",
+    "raw_file": "043-tdx.json",
+    "sha256": "c6d44a664dda250f7e8de93180d9f396ff11175df7d98280c1d4a10db53d85cb",
+    "bytes": 5761,
+    "error_type": null
+  },
+  {
+    "kind": "tdx",
+    "request": {
+      "command": "0x0fb5",
+      "market": 1,
+      "code": "688432",
+      "date": 20260831,
+      "start": 0,
+      "count": 800
+    },
+    "retrieved_at": "2026-10-11T07:32:48.217586+00:00",
+    "raw_file": "044-tdx.json",
+    "sha256": "7277d06556bd69a0ac3845a0c45ae2727b82d0df103fd54e021b29154ac65e1c",
+    "bytes": 54,
+    "error_type": null
+  },
+  {
+    "kind": "official",
+    "request": {
+      "method": "GET",
+      "url": "https://query.sse.com.cn/commonSoaQuery.do",
+      "timeout": [
+        4,
+        8
+      ],
+      "allow_redirects": false,
+      "params": {
+        "isPagination": "true",
+        "pageHelp.pageSize": 25,
+        "pageHelp.pageNo": 1,
+        "pageHelp.beginPage": 1,
+        "pageHelp.cacheSize": 1,
+        "pageHelp.endPage": 1,
+        "sqlId": "GW_PL_JYTS_TFPXX",
+        "productCode": "688432",
+        "keyWords": "",
+        "startStopDate": "20260831",
+        "endStopDate": "20260831"
+      },
+      "headers": {
+        "Referer": "https://www.sse.com.cn/disclosure/dealinstruc/suspension/stock/"
+      },
+      "http_status": 200,
+      "content_type": "application/json;charset=UTF-8"
+    },
+    "retrieved_at": "2026-10-11T07:32:48.458593+00:00",
+    "raw_file": "045-official.bin",
+    "sha256": "33147724bcee2f692e3de7a637c2490017a86c1399183c7f8ccf1f7fe017d924",
+    "bytes": 954,
+    "error_type": null
+  },
+  {
+    "kind": "tdx",
+    "request": {
+      "command": "0x0fb4",
+      "market": 1,
+      "code": "688432",
+      "date": 20260914
+    },
+    "retrieved_at": "2026-10-11T07:32:48.734656+00:00",
+    "raw_file": "046-tdx.json",
+    "sha256": "73fd5284804f02dbfa3b0209870cb77574ad427f926af313d7f160a98abf387c",
+    "bytes": 6934,
+    "error_type": null
+  },
+  {
+    "kind": "tdx",
+    "request": {
+      "command": "0x0fb5",
+      "market": 1,
+      "code": "688432",
+      "date": 20260914,
+      "start": 0,
+      "count": 800
+    },
+    "retrieved_at": "2026-10-11T07:32:48.794478+00:00",
+    "raw_file": "047-tdx.json",
+    "sha256": "b1e3e999f178405abe771d8fa796ede8ecbce6e9b1549e7b64c67d434ac5ae81",
+    "bytes": 43313,
+    "error_type": null
+  },
+  {
+    "kind": "tdx",
+    "request": {
+      "command": "0x0fb5",
+      "market": 1,
+      "code": "688432",
+      "date": 20260914,
+      "start": 800,
+      "count": 800
+    },
+    "retrieved_at": "2026-10-11T07:32:48.859599+00:00",
+    "raw_file": "048-tdx.json",
+    "sha256": "f8a060507b3e29ddfc20aa4a42e5e3bb3fe19baf07201ff3659b42475cf899ba",
+    "bytes": 42955,
+    "error_type": null
+  },
+  {
+    "kind": "tdx",
+    "request": {
+      "command": "0x0fb5",
+      "market": 1,
+      "code": "688432",
+      "date": 20260914,
+      "start": 1600,
+      "count": 800
+    },
+    "retrieved_at": "2026-10-11T07:32:48.923897+00:00",
+    "raw_file": "049-tdx.json",
+    "sha256": "bb54584a029d2e44a54f2f69a77848626c5136641b3948b6a2e8d59e278f3dad",
+    "bytes": 43139,
+    "error_type": null
+  },
+  {
+    "kind": "tdx",
+    "request": {
+      "command": "0x0fb5",
+      "market": 1,
+      "code": "688432",
+      "date": 20260914,
+      "start": 2400,
+      "count": 800
+    },
+    "retrieved_at": "2026-10-11T07:32:48.985999+00:00",
+    "raw_file": "050-tdx.json",
+    "sha256": "250d0605f10258f3958efaa80cf26279b7444c42375f241a1421473404ea7ae2",
+    "bytes": 43192,
+    "error_type": null
+  },
+  {
+    "kind": "tdx",
+    "request": {
+      "command": "0x0fb5",
+      "market": 1,
+      "code": "688432",
+      "date": 20260914,
+      "start": 3200,
+      "count": 800
+    },
+    "retrieved_at": "2026-10-11T07:32:49.051889+00:00",
+    "raw_file": "051-tdx.json",
+    "sha256": "3561a19d2c6486f3329173c5af1ea00df881ce434c7b9f94a1fb7e23adbdf1d4",
+    "bytes": 43207,
+    "error_type": null
+  },
+  {
+    "kind": "tdx",
+    "request": {
+      "command": "0x0fb5",
+      "market": 1,
+      "code": "688432",
+      "date": 20260914,
+      "start": 4000,
+      "count": 800
+    },
+    "retrieved_at": "2026-10-11T07:32:49.114851+00:00",
+    "raw_file": "052-tdx.json",
+    "sha256": "5c1db50240360c38ed382a6f301ba7e5990764ed5a1a33d437cc4d793d412403",
+    "bytes": 39111,
+    "error_type": null
+  },
+  {
+    "kind": "official",
+    "request": {
+      "method": "GET",
+      "url": "https://query.sse.com.cn/commonSoaQuery.do",
+      "timeout": [
+        4,
+        8
+      ],
+      "allow_redirects": false,
+      "params": {
+        "isPagination": "true",
+        "pageHelp.pageSize": 25,
+        "pageHelp.pageNo": 1,
+        "pageHelp.beginPage": 1,
+        "pageHelp.cacheSize": 1,
+        "pageHelp.endPage": 1,
+        "sqlId": "GW_PL_JYTS_TFPXX",
+        "productCode": "688432",
+        "keyWords": "",
+        "startStopDate": "20260914",
+        "endStopDate": "20260914"
+      },
+      "headers": {
+        "Referer": "https://www.sse.com.cn/disclosure/dealinstruc/suspension/stock/"
+      },
+      "http_status": 200,
+      "content_type": "application/json;charset=UTF-8"
+    },
+    "retrieved_at": "2026-10-11T07:32:49.344020+00:00",
+    "raw_file": "053-official.bin",
+    "sha256": "ab1fa084a62ae34d98a76d46c9029d3bea698e84d59ca4b7200fa0ac7f347e4b",
+    "bytes": 478,
+    "error_type": null
+  },
+  {
+    "kind": "tdx",
+    "request": {
+      "command": "0x0fb4",
+      "market": 0,
+      "code": "000002",
+      "date": 20151218
+    },
+    "retrieved_at": "2026-10-11T07:32:49.602846+00:00",
+    "raw_file": "054-tdx.json",
+    "sha256": "bcab3ae5eba83cbe544a1bdf8c4a00882266a8fc415a0f6450c9b360accb4f51",
+    "bytes": 6201,
+    "error_type": null
+  },
+  {
+    "kind": "tdx",
+    "request": {
+      "command": "0x0fb5",
+      "market": 0,
+      "code": "000002",
+      "date": 20151218,
+      "start": 0,
+      "count": 800
+    },
+    "retrieved_at": "2026-10-11T07:32:49.658842+00:00",
+    "raw_file": "055-tdx.json",
+    "sha256": "e0db902a560751b41ce0d778ed8d1b521c270d7da74b2056aa756e8ab40a96ec",
+    "bytes": 43264,
+    "error_type": null
+  },
+  {
+    "kind": "tdx",
+    "request": {
+      "command": "0x0fb5",
+      "market": 0,
+      "code": "000002",
+      "date": 20151218,
+      "start": 800,
+      "count": 800
+    },
+    "retrieved_at": "2026-10-11T07:32:49.719189+00:00",
+    "raw_file": "056-tdx.json",
+    "sha256": "b28631e69cfb67256cb46ad8fae0e700950b1856e7d216eb3bb08c60f7827670",
+    "bytes": 43997,
+    "error_type": null
+  },
+  {
+    "kind": "tdx",
+    "request": {
+      "command": "0x0fb5",
+      "market": 0,
+      "code": "000002",
+      "date": 20151218,
+      "start": 1600,
+      "count": 800
+    },
+    "retrieved_at": "2026-10-11T07:32:49.777784+00:00",
+    "raw_file": "057-tdx.json",
+    "sha256": "ae2110897141231aea51bcba423ebf8521f79e781d65b694982faeb6d683e654",
+    "bytes": 23029,
+    "error_type": null
+  },
+  {
+    "kind": "official",
+    "request": {
+      "method": "POST",
+      "url": "https://www.szse.cn/api/search/content",
+      "timeout": [
+        4,
+        8
+      ],
+      "allow_redirects": false,
+      "data": {
+        "keyword": "000002",
+        "range": "title",
+        "channelCode[]": "tempsuspension_news",
+        "time": 1450368000000,
+        "endTime": 1450368000000,
+        "scope": 1,
+        "currentPage": 1,
+        "pageSize": 25
+      },
+      "http_status": 200,
+      "content_type": "application/json;charset=UTF-8"
+    },
+    "retrieved_at": "2026-10-11T07:32:50.095504+00:00",
+    "raw_file": "058-official.bin",
+    "sha256": "c8521a2848fa715d8d069cdc2cf83ad0c89b9550d1b6168877eabd64f60f2f69",
+    "bytes": 55,
+    "error_type": null
+  },
+  {
+    "kind": "tdx",
+    "request": {
+      "command": "0x0fb4",
+      "market": 0,
+      "code": "000002",
+      "date": 20160104
+    },
+    "retrieved_at": "2026-10-11T07:32:50.297248+00:00",
+    "raw_file": "059-tdx.json",
+    "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+    "bytes": 2,
+    "error_type": null
+  },
+  {
+    "kind": "tdx",
+    "request": {
+      "command": "0x0fb5",
+      "market": 0,
+      "code": "000002",
+      "date": 20160104,
+      "start": 0,
+      "count": 800
+    },
+    "retrieved_at": "2026-10-11T07:32:50.337268+00:00",
+    "raw_file": "060-tdx.json",
+    "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+    "bytes": 2,
+    "error_type": null
+  },
+  {
+    "kind": "official",
+    "request": {
+      "method": "POST",
+      "url": "https://www.szse.cn/api/search/content",
+      "timeout": [
+        4,
+        8
+      ],
+      "allow_redirects": false,
+      "data": {
+        "keyword": "000002",
+        "range": "title",
+        "channelCode[]": "tempsuspension_news",
+        "time": 1451836800000,
+        "endTime": 1451836800000,
+        "scope": 1,
+        "currentPage": 1,
+        "pageSize": 25
+      },
+      "http_status": 200,
+      "content_type": "application/json;charset=UTF-8"
+    },
+    "retrieved_at": "2026-10-11T07:32:50.611727+00:00",
+    "raw_file": "061-official.bin",
+    "sha256": "c8521a2848fa715d8d069cdc2cf83ad0c89b9550d1b6168877eabd64f60f2f69",
+    "bytes": 55,
+    "error_type": null
+  },
+  {
+    "kind": "tdx",
+    "request": {
+      "command": "0x0fb4",
+      "market": 1,
+      "code": "510300",
+      "date": 20161230
+    },
+    "retrieved_at": "2026-10-11T07:32:50.872780+00:00",
+    "raw_file": "062-tdx.json",
+    "sha256": "888a3e2bed1ff475fa597ca7f651f647df4db50162d4f36eddc9213dd257134e",
+    "bytes": 6393,
+    "error_type": null
+  },
+  {
+    "kind": "tdx",
+    "request": {
+      "command": "0x0fb5",
+      "market": 1,
+      "code": "510300",
+      "date": 20161230,
+      "start": 0,
+      "count": 800
+    },
+    "retrieved_at": "2026-10-11T07:32:50.929168+00:00",
+    "raw_file": "063-tdx.json",
+    "sha256": "54d847357a0a3edab717bbb8b45d87ff104b781792166be19af430cd0737d908",
+    "bytes": 43484,
+    "error_type": null
+  },
+  {
+    "kind": "tdx",
+    "request": {
+      "command": "0x0fb5",
+      "market": 1,
+      "code": "510300",
+      "date": 20161230,
+      "start": 800,
+      "count": 800
+    },
+    "retrieved_at": "2026-10-11T07:32:50.990500+00:00",
+    "raw_file": "064-tdx.json",
+    "sha256": "6b2107b1ac6b9e3b5890fd1d0cbd7ab1d87c035103eb50dfb23e6f4f767ca2ee",
+    "bytes": 43577,
+    "error_type": null
+  },
+  {
+    "kind": "tdx",
+    "request": {
+      "command": "0x0fb5",
+      "market": 1,
+      "code": "510300",
+      "date": 20161230,
+      "start": 1600,
+      "count": 800
+    },
+    "retrieved_at": "2026-10-11T07:32:51.046495+00:00",
+    "raw_file": "065-tdx.json",
+    "sha256": "578f7f0c28513d53bc3862c0adbe4d7c0b29c2df53d12caeee41d0ed461e9749",
+    "bytes": 6390,
+    "error_type": null
+  },
+  {
+    "kind": "official",
+    "request": {
+      "method": "GET",
+      "url": "https://query.sse.com.cn/sseQuery/commonSoaQuery.do",
+      "timeout": [
+        4,
+        8
+      ],
+      "allow_redirects": false,
+      "params": {
+        "isPagination": "true",
+        "pageHelp.pageSize": 25,
+        "pageHelp.pageNo": 1,
+        "pageHelp.beginPage": 1,
+        "pageHelp.cacheSize": 1,
+        "pageHelp.endPage": 1,
+        "sqlId": "SSE_PL_JYTS_TFPXX_JJ",
+        "secCode": "510300",
+        "stopReason": "",
+        "order": "startStopDate|desc,secCode|asc",
+        "startDate": "20161230",
+        "endDate": "20161230"
+      },
+      "headers": {
+        "Referer": "https://www.sse.com.cn/disclosure/dealinstruc/suspension/fund/"
+      },
+      "http_status": 200,
+      "content_type": "application/json;charset=UTF-8"
+    },
+    "retrieved_at": "2026-10-11T07:32:51.266575+00:00",
+    "raw_file": "066-official.bin",
+    "sha256": "087735ac94e1b965c175ba5fb3af737546beb399219342c3a78cd40fd9d884a3",
+    "bytes": 482,
+    "error_type": null
+  },
+  {
+    "kind": "tdx",
+    "request": {
+      "command": "0x0fb4",
+      "market": 1,
+      "code": "510300",
+      "date": 20221230
+    },
+    "retrieved_at": "2026-10-11T07:32:51.502606+00:00",
+    "raw_file": "067-tdx.json",
+    "sha256": "ad532db3c0738827645e069033f617f0b0dd123bda10ff92bb9f66f122f226cc",
+    "bytes": 7510,
+    "error_type": null
+  },
+  {
+    "kind": "tdx",
+    "request": {
+      "command": "0x0fb5",
+      "market": 1,
+      "code": "510300",
+      "date": 20221230,
+      "start": 0,
+      "count": 800
+    },
+    "retrieved_at": "2026-10-11T07:32:51.557274+00:00",
+    "raw_file": "068-tdx.json",
+    "sha256": "7726e050a49af76422393f73de3d3cf84d406f31ba421f3da6ad83b9ec45720b",
+    "bytes": 43775,
+    "error_type": null
+  },
+  {
+    "kind": "tdx",
+    "request": {
+      "command": "0x0fb5",
+      "market": 1,
+      "code": "510300",
+      "date": 20221230,
+      "start": 800,
+      "count": 800
+    },
+    "retrieved_at": "2026-10-11T07:32:51.616939+00:00",
+    "raw_file": "069-tdx.json",
+    "sha256": "1517ed83b99c579dba7ce8ed6f5c353c46c37fad068e9561f04866839a9849d9",
+    "bytes": 43432,
+    "error_type": null
+  },
+  {
+    "kind": "tdx",
+    "request": {
+      "command": "0x0fb5",
+      "market": 1,
+      "code": "510300",
+      "date": 20221230,
+      "start": 1600,
+      "count": 800
+    },
+    "retrieved_at": "2026-10-11T07:32:51.678104+00:00",
+    "raw_file": "070-tdx.json",
+    "sha256": "d5f2401f7b7d16197f441907ebc05fd21485da762d1b0313fceabefb2de63361",
+    "bytes": 43486,
+    "error_type": null
+  },
+  {
+    "kind": "tdx",
+    "request": {
+      "command": "0x0fb5",
+      "market": 1,
+      "code": "510300",
+      "date": 20221230,
+      "start": 2400,
+      "count": 800
+    },
+    "retrieved_at": "2026-10-11T07:32:51.738445+00:00",
+    "raw_file": "071-tdx.json",
+    "sha256": "ca325413cd7196727d9f75af090689566a556d2c420f21fc0068021bbc814415",
+    "bytes": 44136,
+    "error_type": null
+  },
+  {
+    "kind": "tdx",
+    "request": {
+      "command": "0x0fb5",
+      "market": 1,
+      "code": "510300",
+      "date": 20221230,
+      "start": 3200,
+      "count": 800
+    },
+    "retrieved_at": "2026-10-11T07:32:51.798519+00:00",
+    "raw_file": "072-tdx.json",
+    "sha256": "e1b684b8d2a2954d5ec643c720bf5aa95ec5ad2990a1f72cadff4e977f858de4",
+    "bytes": 44041,
+    "error_type": null
+  },
+  {
+    "kind": "tdx",
+    "request": {
+      "command": "0x0fb5",
+      "market": 1,
+      "code": "510300",
+      "date": 20221230,
+      "start": 4000,
+      "count": 800
+    },
+    "retrieved_at": "2026-10-11T07:32:51.856445+00:00",
+    "raw_file": "073-tdx.json",
+    "sha256": "c48bddd769405c08ece3596a62075b5ef93e32057ae2eba52e56ad62f3a2f105",
+    "bytes": 29834,
+    "error_type": null
+  },
+  {
+    "kind": "official",
+    "request": {
+      "method": "GET",
+      "url": "https://query.sse.com.cn/sseQuery/commonSoaQuery.do",
+      "timeout": [
+        4,
+        8
+      ],
+      "allow_redirects": false,
+      "params": {
+        "isPagination": "true",
+        "pageHelp.pageSize": 25,
+        "pageHelp.pageNo": 1,
+        "pageHelp.beginPage": 1,
+        "pageHelp.cacheSize": 1,
+        "pageHelp.endPage": 1,
+        "sqlId": "SSE_PL_JYTS_TFPXX_JJ",
+        "secCode": "510300",
+        "stopReason": "",
+        "order": "startStopDate|desc,secCode|asc",
+        "startDate": "20221230",
+        "endDate": "20221230"
+      },
+      "headers": {
+        "Referer": "https://www.sse.com.cn/disclosure/dealinstruc/suspension/fund/"
+      },
+      "http_status": 200,
+      "content_type": "application/json;charset=UTF-8"
+    },
+    "retrieved_at": "2026-10-11T07:32:52.102884+00:00",
+    "raw_file": "074-official.bin",
+    "sha256": "087735ac94e1b965c175ba5fb3af737546beb399219342c3a78cd40fd9d884a3",
+    "bytes": 482,
+    "error_type": null
+  }
+]

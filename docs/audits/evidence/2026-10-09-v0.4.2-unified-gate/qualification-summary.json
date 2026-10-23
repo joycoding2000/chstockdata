@@ -1,0 +1,97 @@
+{
+  "candidate_base_commit": "42bd44ef4d695aa3e88cfab4ebc3417660d0437a",
+  "candidate_dirty": true,
+  "candidate_content_tree_sha1": "911d231646edc7d419d2e26ac91c95af5404c5c6",
+  "candidate_manifest_sha256": "d9e4056ecb580c2e27c40e354d32c608ec8889c60d0956993ac8f35d654c18e4",
+  "wheel_sha256": "b76b065a06cd1d91868880a7b57584f598b6fd4cb42931e9a33700bc99a88c7a",
+  "sdist_sha256": "4ca579a8f9be880fd0b4da86a714230a8674363ff50b0c3b58c787b0abf0e80a",
+  "tests": {
+    "package-tests": {
+      "passed": 724,
+      "failed": [],
+      "skipped": 1,
+      "xml_sha256": "f35ef6ad9c36222034dadbc165bdc4b0e6fcd7deb6931aea96ec02bfb2c95c89",
+      "exit": 0
+    },
+    "sios-provider-contract": {
+      "passed": 67,
+      "failed": [],
+      "skipped": 0,
+      "xml_sha256": "e9a970369aba52f8cd08e7acc04d5dba19cea83694d1ab9b9a88b7a8c69dc127",
+      "exit": 0
+    },
+    "sios-etf-golden-smoke": {
+      "passed": 160,
+      "failed": [],
+      "skipped": 5,
+      "xml_sha256": "be5ef1d67668b0d6b74f7d6e7d8042282e5a360de407e830da92145827f4fd9b",
+      "exit": 0
+    },
+    "sios-offline": {
+      "passed": 929,
+      "failed": [],
+      "skipped": 5,
+      "xml_sha256": "0e0f3059d6bda14de117e87431a8c8b2ab948c0141e9da22632a6efea1704872",
+      "exit": 0
+    },
+    "sios-required-live": {
+      "passed": 4,
+      "failed": [
+        "tests.qualification.test_chstockdata_etf_gate.TestLiveEtfQualification::test_live_tradability_adjustment_and_freshness"
+      ],
+      "skipped": 0,
+      "xml_sha256": "ac27787c631ce9d5f2d6312342634059ed99c4f3d089c5b2ca438fe606d6995e",
+      "exit": 1
+    },
+    "ta-candidate": {
+      "passed": 123,
+      "failed": [
+        "tests.test_free_adjusted_bars::test_get_adjusted_bars_uses_existing_loader_and_rejects_stale",
+        "tests.test_phase2_step3_validation::test_basis_counts_distinct_result_store_roots_and_requires_two_effective_domains",
+        "tests.test_phase2_step3_validation::test_basis_excludes_boilerplate_domains_and_retains_event_risk_inputs_for_partial_work",
+        "tests.test_phase2_step3_validation::test_date_exemption_requires_exact_admitted_or_cited_metadata",
+        "tests.test_phase2_step3_validation::test_derived_metric_numeric_render_uses_its_closed_source_evidence",
+        "tests.test_phase2_step3_validation::test_full_output_numeric_scan_covers_conflict_risk_and_final_fields",
+        "tests.test_phase2_step3_validation::test_scoped_absence_requires_a_matching_normal_empty_datahealth_source"
+      ],
+      "skipped": 0,
+      "xml_sha256": "2fd8a6a127d8498c46b420b488cabfbb01e83405aae2913e20ee015766cc2f70",
+      "exit": 1
+    }
+  },
+  "etf_exact": 4,
+  "baseline_reuse": {
+    "sios": {
+      "passed": 929,
+      "failed": [],
+      "skipped": 5,
+      "xml_sha256": "4e773f6abc291be8ec0b15a01998239d39c718fe3fae1160a92b598595c8559d",
+      "exit": 0
+    },
+    "ta": {
+      "passed": 123,
+      "failed": [
+        "tests.test_free_adjusted_bars::test_get_adjusted_bars_uses_existing_loader_and_rejects_stale",
+        "tests.test_phase2_step3_validation::test_basis_counts_distinct_result_store_roots_and_requires_two_effective_domains",
+        "tests.test_phase2_step3_validation::test_basis_excludes_boilerplate_domains_and_retains_event_risk_inputs_for_partial_work",
+        "tests.test_phase2_step3_validation::test_date_exemption_requires_exact_admitted_or_cited_metadata",
+        "tests.test_phase2_step3_validation::test_derived_metric_numeric_render_uses_its_closed_source_evidence",
+        "tests.test_phase2_step3_validation::test_full_output_numeric_scan_covers_conflict_risk_and_final_fields",
+        "tests.test_phase2_step3_validation::test_scoped_absence_requires_a_matching_normal_empty_datahealth_source"
+      ],
+      "skipped": 0,
+      "xml_sha256": "ae809fbc6e31f287902375da34c32b4f2118f42206f2318a715ddc8a2b71c3fd",
+      "exit": 1
+    },
+    "baseline_wheel_sha256": "be759128fcbe818d7ff782e09ea0b69a5ded06fa7a3a6b9a3ebd3038d5a2e627",
+    "basis": "same frozen commits and SHA-qualified TA overlays; SIOS var verified byte-for-byte; baseline wheel unchanged; candidate suites rerun in this task; original baseline logs/JUnit and command records retained",
+    "limitations": "TA reuses existing consumer third-party dependency directory via .pth, as in the original baseline; PASS is relative compatibility, not a whole-project all-green claim"
+  },
+  "ta_relative_compatibility": true,
+  "source_semantics_included": true,
+  "mandatory_package_checks": "PASS",
+  "historical_tradability": "FAIL",
+  "release_gate": "FAIL",
+  "decision": "FIX_ONLY",
+  "ready_for_owner_release_review": false
+}

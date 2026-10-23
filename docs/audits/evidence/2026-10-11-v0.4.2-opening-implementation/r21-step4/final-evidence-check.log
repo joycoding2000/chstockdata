@@ -1,0 +1,39 @@
+{
+  "status": "PASS_CANDIDATE",
+  "source_sha256": "5a5c9097abe4703d9bd709b55d824b7d41a954b89a1f053e6fd6385e7a18516c",
+  "wheel_sha256": "3fd4f0b7334e310851495b8b13d4c7c55d21cde719acf9e00ff880ccb822f42e",
+  "tests": {
+    "package-tests": {
+      "passed": 774,
+      "failures": 0,
+      "skipped": 1
+    },
+    "sios-provider-contract": {
+      "passed": 67,
+      "failures": 0,
+      "skipped": 0
+    },
+    "sios-etf-golden-smoke": {
+      "passed": 165,
+      "failures": 0,
+      "skipped": 5
+    },
+    "sios-offline": {
+      "passed": 973,
+      "failures": 0,
+      "skipped": 5
+    },
+    "ta-candidate": {
+      "passed": 123,
+      "failures": 7,
+      "skipped": 0
+    },
+    "live": {
+      "passed": 5,
+      "failures": 0,
+      "skipped": 0
+    }
+  },
+  "live_capabilities": 54,
+  "live_raw_calls": 111
+}

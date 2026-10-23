@@ -1,0 +1,24 @@
+{
+  "id": "pe-baidu-canonical-000002",
+  "url": "https://finance.baidu.com/opendata",
+  "params": {
+    "openapi": "1",
+    "dspName": "iphone",
+    "tn": "tangram",
+    "client": "app",
+    "query": "市盈率(TTM)",
+    "code": "000002",
+    "word": "",
+    "resource_id": "51171",
+    "market": "ab",
+    "tag": "市盈率(TTM)",
+    "chart_select": "近一年",
+    "industry_select": "",
+    "skip_industry": "1",
+    "finClientType": "pc"
+  },
+  "max_bytes": 5000000,
+  "registered_at": "2026-10-22T21:01:58.490089+08:00",
+  "method": "GET",
+  "retry_of": null
+}

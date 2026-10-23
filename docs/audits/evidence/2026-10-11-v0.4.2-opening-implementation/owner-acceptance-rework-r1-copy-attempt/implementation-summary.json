@@ -1,0 +1,105 @@
+{
+  "phase_step": "R2.1 Owner Acceptance interval-defect rework r1; implementation + limited offline verification",
+  "classification": "CONFIRMED_DEFECT",
+  "root_cause": "effective_end=None was treated as an infinite halt despite authenticated date-only resume evidence",
+  "changes": [
+    "src/chstockdata/opening_evidence.py",
+    "src/chstockdata/opening_known_events.json",
+    "tests/test_historical_opening_evidence.py"
+  ],
+  "trust_boundary": "Only exact object identities loaded from the controlled packaged asset carry resume-date applicability; caller/current self-asserted dates, SHA strings and verification markers cannot acquire it",
+  "behavior": "Resume date remains UNKNOWN with no fabricated clock; later dates no longer inherit this old halt veto, and still require all unchanged R2.1 TDX/current-official qualifications",
+  "provenance": "All original effective_start/effective_end=None, source URLs/SHA and raw fields retained; resolved/expired events remain in official_events",
+  "qualification": "Deterministic injected transport and frozen-fixture regression only; no new live qualification",
+  "limited_verdict": "PASS",
+  "full_gate_verdict": "INSUFFICIENT_EVIDENCE",
+  "tests": [
+    {
+      "name": "old-wheel-owner-repro",
+      "cwd": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\chstockdata-owner-rework",
+      "exit": 0,
+      "log": "old-wheel-owner-repro.log",
+      "log_sha256": "30fc7c3669fc178b49d9054dfd4f469b6005275ffa6a923fe7864a031ed7c370",
+      "offline_injected": true
+    },
+    {
+      "name": "owner-red",
+      "cwd": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\chstockdata-owner-rework",
+      "exit": 1,
+      "log": "owner-red.log",
+      "log_sha256": "4acfba40fded487270b8b66f28c413a4085e17d19094740f2c6339ce407ec1c6",
+      "offline_injected": true,
+      "junit": "owner-red.xml",
+      "junit_sha256": "12ac397951dad0d574aa490452c2713bc4b06cc19017c510280714be320beda1",
+      "test_counts": {
+        "tests": 22,
+        "failures": 13,
+        "errors": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "name": "owner-green",
+      "cwd": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\chstockdata-owner-rework",
+      "exit": 0,
+      "log": "owner-green.log",
+      "log_sha256": "8053ba548050b63575090aab2a5e3f3448a6c73c36ab192460920c8d807d9b83",
+      "offline_injected": true,
+      "junit": "owner-green.xml",
+      "junit_sha256": "fd1919f51a51c5d8f9e8c01f12217d745743b678f2f2d8bbbbcf0a9479ff4070",
+      "test_counts": {
+        "tests": 22,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "name": "focused-green",
+      "cwd": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\chstockdata-owner-rework",
+      "exit": 0,
+      "log": "focused-green.log",
+      "log_sha256": "5d6228f3bfb9c2ebb811fede36d37b58e8a03f78ea5fe4355937ae64d4ff1ffb",
+      "offline_injected": true,
+      "junit": "focused-green.xml",
+      "junit_sha256": "befd525feb7bc49076fd983353871ee0b655698ca330a0f55d282ff0ff50d8c9",
+      "test_counts": {
+        "tests": 150,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "name": "rh1-static",
+      "cwd": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\chstockdata-owner-rework",
+      "exit": 0,
+      "log": "rh1-static.log",
+      "log_sha256": "f8fd7a12a790c7ecde3e4da37c347274b925f168afb77cecf693aa455f61884f",
+      "offline_injected": true
+    }
+  ],
+  "original_tests_retained": 128,
+  "new_regressions": 22,
+  "static": {
+    "ruff_version": "0.16.10",
+    "structured_paths_pass": 24,
+    "visible_legacy_findings": 287,
+    "added_lines_pass": true,
+    "real_baseline_commit": "143eb5a61e11003a4b29461eeb78deec0ab8d8e5",
+    "production_static_script_changed": false
+  },
+  "original_repository_head": "42bd44ef4d695aa3e88cfab4ebc3417660d0437a",
+  "rework_snapshot_git": false,
+  "rework_committed": false,
+  "working_tree": "Isolated source differs in exactly 3 files; no .git; original source manifest 765 files unchanged",
+  "source_manifest_sha256": "07c0abadfd48ad5d6ef0f9410136486c3c5d71e09b0d0b00a2b78e911640e1f7",
+  "patch_sha256": "6f68572293163249977f207edef8c602887df06ee782925f4549310404c1afaf",
+  "old_wheel_sha256": "3fd4f0b7334e310851495b8b13d4c7c55d21cde719acf9e00ff880ccb822f42e",
+  "old_source_765_files_unchanged": true,
+  "blockers": [],
+  "scope_changes": [],
+  "build_performed": false,
+  "publication_performed": false,
+  "next_action": "Root independently verifies this frozen rework and obtains fresh spec then quality review; no next-phase authorization claimed"
+}

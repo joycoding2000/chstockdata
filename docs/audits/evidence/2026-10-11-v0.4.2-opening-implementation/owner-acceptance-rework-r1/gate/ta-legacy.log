@@ -1,0 +1,81 @@
+{
+  "version": "0.4.2",
+  "probe_cases_passed": 5,
+  "facts": [
+    {
+      "code": "510300",
+      "file": "D:\\Dev\\Projects\\chstockdata\\.rh3a2-vipdoc\\sh\\lday\\sh510300.day",
+      "file_sha256": "56db5fb84ac0965428748b6fa6228622d7e86021e37e2ecc4b0f79d1e88743ab",
+      "date": "2022-12-30",
+      "close": 3.938,
+      "pre_close": 3.922,
+      "volume": 630228576,
+      "amount": 2485143808.0,
+      "legacy_csv_close": "3.94",
+      "legacy_csv_two_decimal_precision": true,
+      "raw_adjusted_close": 3.938,
+      "independent_expected_close": 3.938,
+      "stock_control": false
+    },
+    {
+      "code": "159915",
+      "file": "D:\\Dev\\Projects\\chstockdata\\.rh3a2-vipdoc\\sz\\lday\\sz159915.day",
+      "file_sha256": "caf336760dfe6317f5117f88eee05e366e1bb970459eeb7f1fd53999c38ae9a3",
+      "date": "2022-12-30",
+      "close": 2.279,
+      "pre_close": 2.277,
+      "volume": 380227663,
+      "amount": 869409600.0,
+      "legacy_csv_close": "2.28",
+      "legacy_csv_two_decimal_precision": true,
+      "raw_adjusted_close": 2.279,
+      "independent_expected_close": 2.279,
+      "stock_control": false
+    },
+    {
+      "code": "518880",
+      "file": "D:\\Dev\\Projects\\chstockdata\\.rh3a2-vipdoc\\sh\\lday\\sh518880.day",
+      "file_sha256": "f73b02ec305007cef07cc77ae08b49c7b583cdad3c3a71c4f3e6f127f2201eef",
+      "date": "2022-12-30",
+      "close": 3.986,
+      "pre_close": 3.96,
+      "volume": 135712938,
+      "amount": 539947520.0,
+      "legacy_csv_close": "3.99",
+      "legacy_csv_two_decimal_precision": true,
+      "raw_adjusted_close": 3.986,
+      "independent_expected_close": 3.986,
+      "stock_control": false
+    },
+    {
+      "code": "511010",
+      "file": "D:\\Dev\\Projects\\chstockdata\\.rh3a2-vipdoc\\sh\\lday\\sh511010.day",
+      "file_sha256": "3f4225663778f898ef36a8562f4d8774b1a20eae08ea9d1caf7d8d3a5548a78d",
+      "date": "2022-12-30",
+      "close": 129.104,
+      "pre_close": 128.897,
+      "volume": 217900,
+      "amount": 28133132.0,
+      "legacy_csv_close": "129.1",
+      "legacy_csv_two_decimal_precision": true,
+      "raw_adjusted_close": 129.104,
+      "independent_expected_close": 129.104,
+      "stock_control": false
+    },
+    {
+      "code": "600519",
+      "file": "D:\\Dev\\Projects\\chstockdata\\.rh3a2-vipdoc\\sh\\lday\\sh600519.day",
+      "file_sha256": "8b27f2d55a0f014eb9e1d8f45329bcc2b2e49a47339d137cae3199d7381adf08",
+      "date": "2022-12-30",
+      "close": 1727.0,
+      "pre_close": 1719.0,
+      "volume": 2533312,
+      "amount": 4409544192.0,
+      "legacy_csv_close": "1727.0",
+      "legacy_csv_two_decimal_precision": true,
+      "raw_adjusted_close": 1727.0,
+      "independent_expected_close": 1727.0,
+      "stock_control": true
+    }
+  ]
+}

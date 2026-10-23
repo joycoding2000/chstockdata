@@ -1,0 +1,55 @@
+{
+    "id":  "1216741269",
+    "text":  "6 ， 25301 03 」",
+    "pit_qualified":  false,
+    "engine":  "Windows.Media.Ocr existing zh-Hans-CN",
+    "maximum_image_dimension":  10000,
+    "machine_seconds":  0.0212347,
+    "pixel_height":  124,
+    "image_sha256":  "c9390a0e3f8b392ad1bbc019dade890e1dbadaa0fd88a27e207cde65a7ff86e7",
+    "pixel_width":  448,
+    "source_sha256":  "28f31493c52375f096a45ad326ad8421357f9e73252858ae236d6fa715aad2d2",
+    "physical_page":  210,
+    "lines":  [
+                  {
+                      "text":  "6 ， 25301 03 」",
+                      "words":  [
+                                    {
+                                        "y":  49,
+                                        "height":  28,
+                                        "width":  21,
+                                        "text":  "6",
+                                        "x":  119
+                                    },
+                                    {
+                                        "y":  71,
+                                        "height":  11,
+                                        "width":  8,
+                                        "text":  "，",
+                                        "x":  141
+                                    },
+                                    {
+                                        "y":  48,
+                                        "height":  36,
+                                        "width":  106,
+                                        "text":  "25301",
+                                        "x":  150
+                                    },
+                                    {
+                                        "y":  47,
+                                        "height":  34,
+                                        "width":  41,
+                                        "text":  "03",
+                                        "x":  313
+                                    },
+                                    {
+                                        "y":  50,
+                                        "height":  30,
+                                        "width":  25,
+                                        "text":  "」",
+                                        "x":  356
+                                    }
+                                ]
+                  }
+              ]
+}

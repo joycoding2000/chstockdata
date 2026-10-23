@@ -1,0 +1,103 @@
+FFF                                                                      [100%]
+================================== FAILURES ===================================
+_________ test_basic_explicit_clock_engine_path_and_manifest_identity _________
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x00000292AB57C380>
+
+    def test_basic_explicit_clock_engine_path_and_manifest_identity(monkeypatch):
+        dataset=replace(_dataset(_basic_sessions()),historical_opening_evidence=(fact(),))
+>       receipt=replace(_receipt(dataset),dataset_digest=dataset.content_digest(),execution_policy=OPENING_POLICY,execution_clock=OPENING_CLOCK_ID,execution_evidence_digest=opening_evidence_digest(dataset.historical_opening_evidence))
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\research\test_historical_opening_wiring.py:25: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+obj = BasicSnapshotReceipt(snapshot_id='0000000000000000000000000000000000000000000000000000000000000000', dataset_digest='s...nt_ids=(InstrumentId(exchange=<Exchange.XSHG: 'XSHG'>, symbol='510300'),), quality_status='PASS', annual_schedule=None)
+changes = {'dataset_digest': '311914337e1f5f51c7d1b5c16bb8e7778350aa73b338d41763d9b997004dbbfb', 'execution_policy': 'R2.1', 'ex...:30:00|15:30:00', 'execution_evidence_digest': '5ed7841b2aecacce8cae8bc010ef6f60ef2159f691dbf52644e54da9d4f464d3', ...}
+
+    def replace(obj, /, **changes):
+        """Return a new object replacing specified fields with new values.
+    
+        This is especially useful for frozen classes.  Example usage::
+    
+          @dataclass(frozen=True)
+          class C:
+              x: int
+              y: int
+    
+          c = C(1, 2)
+          c1 = replace(c, x=3)
+          assert c1.x == 3 and c1.y == 2
+        """
+    
+        # We're going to mutate 'changes', but that's okay because it's a
+        # new dict, even if called with 'replace(obj, **my_changes)'.
+    
+        if not _is_dataclass_instance(obj):
+            raise TypeError("replace() should be called on dataclass instances")
+    
+        # It's an error to have init=False fields in 'changes'.
+        # If a field is not in 'changes', read its value from the provided obj.
+    
+        for f in getattr(obj, _FIELDS).values():
+            # Only consider normal fields or InitVars.
+            if f._field_type is _FIELD_CLASSVAR:
+                continue
+    
+            if not f.init:
+                # Error if this field is specified in changes.
+                if f.name in changes:
+                    raise ValueError(f'field {f.name} is declared with '
+                                     'init=False, it cannot be specified with '
+                                     'replace()')
+                continue
+    
+            if f.name not in changes:
+                if f._field_type is _FIELD_INITVAR and f.default is MISSING:
+                    raise ValueError(f"InitVar {f.name!r} "
+                                     'must be specified with replace()')
+                changes[f.name] = getattr(obj, f.name)
+    
+        # Create the new object, which calls __init__() and
+        # __post_init__() (if defined), using all of the init fields we've
+        # added and/or left in 'changes'.  If there are values supplied in
+        # changes that aren't fields, this will correctly raise a
+        # TypeError.
+>       return obj.__class__(**changes)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+E       TypeError: BasicSnapshotReceipt.__init__() got an unexpected keyword argument 'execution_policy'
+
+C:\Users\Administrator\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\dataclasses.py:1588: TypeError
+_________________ test_basic_new_mode_refuses_legacy_receipt __________________
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x00000292AB60A600>
+
+    def test_basic_new_mode_refuses_legacy_receipt(monkeypatch):
+        dataset=replace(_dataset(_basic_sessions()),historical_opening_evidence=(fact(),))
+        with pytest.raises(runner.RunWiringError):
+>           runner.build_basic_wiring(dataset,_basic_intent(),_receipt(dataset),master=default_m0_master(),execution_eligibility_mode=MODE)
+E           TypeError: build_basic_wiring() got an unexpected keyword argument 'execution_eligibility_mode'
+
+tests\research\test_historical_opening_wiring.py:46: TypeError
+___________ test_oos_explicit_clock_actual_engine_path_and_identity ___________
+
+tmp_path = WindowsPath('C:/Users/Administrator/.codex/visualizations/2026/10/10/01a125dd-33f2-78d3-abe7-45e0928975d0/v042-opening-implementation/evidence/r21-step2/tmp/test_oos_explicit_clock_actual0')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x00000292AB6B7C20>
+
+    def test_oos_explicit_clock_actual_engine_path_and_identity(tmp_path,monkeypatch):
+        intent=oos_intent(); dataset=replace(_oos_dataset(),historical_opening_evidence=(fact(),))
+        now=datetime(2026,10,12,tzinfo=UTC)
+        directory=tmp_path/"oos"
+        manifest=SnapshotWriter("recorded","0.4.2","r21").persist(dataset,snapshot_dir=directory,created_at=now,knowledge_cutoff=now,retrieved_at=now,execution_eligibility_mode=MODE)
+        receipt=oos.validate_oos_snapshot(manifest,dataset,intent)
+        monkeypatch.setattr(oos,"resolve_code_commit",lambda:"84fd54fae0740bc06b1d250afa4578be29556956")
+>       wiring=oos.build_oos_wiring(dataset,intent,receipt,master=default_m0_master(),execution_eligibility_mode=MODE)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       TypeError: build_oos_wiring() got an unexpected keyword argument 'execution_eligibility_mode'
+
+tests\research\test_historical_opening_wiring.py:56: TypeError
+=========================== short test summary info ===========================
+FAILED tests/research/test_historical_opening_wiring.py::test_basic_explicit_clock_engine_path_and_manifest_identity
+FAILED tests/research/test_historical_opening_wiring.py::test_basic_new_mode_refuses_legacy_receipt
+FAILED tests/research/test_historical_opening_wiring.py::test_oos_explicit_clock_actual_engine_path_and_identity
+3 failed in 0.59s

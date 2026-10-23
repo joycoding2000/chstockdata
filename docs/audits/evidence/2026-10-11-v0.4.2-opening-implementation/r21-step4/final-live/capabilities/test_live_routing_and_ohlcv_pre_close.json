@@ -1,0 +1,521 @@
+{
+  "test": "test_live_routing_and_ohlcv_pre_close",
+  "outcomes": [
+    {
+      "instrument_id": "XSHG:510300",
+      "capability": "ROUTING_OHLCV_PRE_CLOSE",
+      "started_at": "2026-10-12T21:45:26.406226+08:00",
+      "finished_at": "2026-10-12T21:45:26.447313+08:00",
+      "status": "PASS",
+      "result": {
+        "records": [
+          {
+            "schema_version": "v1",
+            "instrument_id": {
+              "exchange": "XSHG",
+              "symbol": "510300"
+            },
+            "session_date": "2026-09-08",
+            "open": "4.638",
+            "high": "4.657",
+            "low": "4.61",
+            "close": "4.624",
+            "pre_close": "4.634",
+            "volume": "612512220",
+            "amount": "2838526720.0",
+            "currency": "CNY",
+            "volume_unit": "SHARE",
+            "amount_unit": "CNY",
+            "adjustment_mode": "RAW",
+            "adjustment_factor": null,
+            "availability": {
+              "information_available_at": "2026-09-08 15:00:00+08:00",
+              "retrieved_at": "2026-10-12 21:45:26.406226+08:00",
+              "availability_basis": "EXCHANGE_RULE"
+            },
+            "provider_evidence_id": "chstockdata:daily_bars:f936cc6abcd54af4:42df920779c5b6a8"
+          },
+          {
+            "schema_version": "v1",
+            "instrument_id": {
+              "exchange": "XSHG",
+              "symbol": "510300"
+            },
+            "session_date": "2026-09-09",
+            "open": "4.638",
+            "high": "4.648",
+            "low": "4.613",
+            "close": "4.637",
+            "pre_close": "4.624",
+            "volume": "573288654",
+            "amount": "2656716800.0",
+            "currency": "CNY",
+            "volume_unit": "SHARE",
+            "amount_unit": "CNY",
+            "adjustment_mode": "RAW",
+            "adjustment_factor": null,
+            "availability": {
+              "information_available_at": "2026-09-09 15:00:00+08:00",
+              "retrieved_at": "2026-10-12 21:45:26.406226+08:00",
+              "availability_basis": "EXCHANGE_RULE"
+            },
+            "provider_evidence_id": "chstockdata:daily_bars:f936cc6abcd54af4:42df920779c5b6a8"
+          },
+          {
+            "schema_version": "v1",
+            "instrument_id": {
+              "exchange": "XSHG",
+              "symbol": "510300"
+            },
+            "session_date": "2026-09-10",
+            "open": "4.617",
+            "high": "4.64",
+            "low": "4.599",
+            "close": "4.617",
+            "pre_close": "4.637",
+            "volume": "438854072",
+            "amount": "2026289536.0",
+            "currency": "CNY",
+            "volume_unit": "SHARE",
+            "amount_unit": "CNY",
+            "adjustment_mode": "RAW",
+            "adjustment_factor": null,
+            "availability": {
+              "information_available_at": "2026-09-10 15:00:00+08:00",
+              "retrieved_at": "2026-10-12 21:45:26.406226+08:00",
+              "availability_basis": "EXCHANGE_RULE"
+            },
+            "provider_evidence_id": "chstockdata:daily_bars:f936cc6abcd54af4:42df920779c5b6a8"
+          },
+          {
+            "schema_version": "v1",
+            "instrument_id": {
+              "exchange": "XSHG",
+              "symbol": "510300"
+            },
+            "session_date": "2026-09-11",
+            "open": "4.592",
+            "high": "4.592",
+            "low": "4.532",
+            "close": "4.579",
+            "pre_close": "4.617",
+            "volume": "966665182",
+            "amount": "4409406976.0",
+            "currency": "CNY",
+            "volume_unit": "SHARE",
+            "amount_unit": "CNY",
+            "adjustment_mode": "RAW",
+            "adjustment_factor": null,
+            "availability": {
+              "information_available_at": "2026-09-11 15:00:00+08:00",
+              "retrieved_at": "2026-10-12 21:45:26.406226+08:00",
+              "availability_basis": "EXCHANGE_RULE"
+            },
+            "provider_evidence_id": "chstockdata:daily_bars:f936cc6abcd54af4:42df920779c5b6a8"
+          }
+        ],
+        "evidence": {
+          "evidence_id": "chstockdata:daily_bars:f936cc6abcd54af4:42df920779c5b6a8",
+          "provider_name": "chstockdata",
+          "provider_version": "0.4.2",
+          "adapter_name": "chstockdata-provider",
+          "adapter_version": "0.1.0",
+          "capability": "daily_bars",
+          "request_digest": "sha256:f936cc6abcd54af4e6e1d64a2ae8adaa7efb04cfb20fb64bbcd7746a7efa4813",
+          "retrieved_at": "2026-10-12 21:45:26.406226+08:00",
+          "upstream_source": "chstockdata.load_vipdoc_daily (local TDX .day package)",
+          "record_count": 4,
+          "payload_checksum": "sha256:42df920779c5b6a80d70f5ecd605deba629f106e73fc062427f382d2b9144138",
+          "warnings": []
+        }
+      }
+    },
+    {
+      "instrument_id": "XSHE:159915",
+      "capability": "ROUTING_OHLCV_PRE_CLOSE",
+      "started_at": "2026-10-12T21:45:26.447313+08:00",
+      "finished_at": "2026-10-12T21:45:26.483875+08:00",
+      "status": "PASS",
+      "result": {
+        "records": [
+          {
+            "schema_version": "v1",
+            "instrument_id": {
+              "exchange": "XSHE",
+              "symbol": "159915"
+            },
+            "session_date": "2026-09-08",
+            "open": "3.413",
+            "high": "3.436",
+            "low": "3.365",
+            "close": "3.376",
+            "pre_close": "3.414",
+            "volume": "1604818947",
+            "amount": "5455069696.0",
+            "currency": "CNY",
+            "volume_unit": "SHARE",
+            "amount_unit": "CNY",
+            "adjustment_mode": "RAW",
+            "adjustment_factor": null,
+            "availability": {
+              "information_available_at": "2026-09-08 15:00:00+08:00",
+              "retrieved_at": "2026-10-12 21:45:26.447313+08:00",
+              "availability_basis": "EXCHANGE_RULE"
+            },
+            "provider_evidence_id": "chstockdata:daily_bars:da738faa64de2a51:77b26077ef1e6c42"
+          },
+          {
+            "schema_version": "v1",
+            "instrument_id": {
+              "exchange": "XSHE",
+              "symbol": "159915"
+            },
+            "session_date": "2026-09-09",
+            "open": "3.41",
+            "high": "3.415",
+            "low": "3.346",
+            "close": "3.373",
+            "pre_close": "3.376",
+            "volume": "1098044295",
+            "amount": "3711044352.0",
+            "currency": "CNY",
+            "volume_unit": "SHARE",
+            "amount_unit": "CNY",
+            "adjustment_mode": "RAW",
+            "adjustment_factor": null,
+            "availability": {
+              "information_available_at": "2026-09-09 15:00:00+08:00",
+              "retrieved_at": "2026-10-12 21:45:26.447313+08:00",
+              "availability_basis": "EXCHANGE_RULE"
+            },
+            "provider_evidence_id": "chstockdata:daily_bars:da738faa64de2a51:77b26077ef1e6c42"
+          },
+          {
+            "schema_version": "v1",
+            "instrument_id": {
+              "exchange": "XSHE",
+              "symbol": "159915"
+            },
+            "session_date": "2026-09-10",
+            "open": "3.345",
+            "high": "3.387",
+            "low": "3.325",
+            "close": "3.358",
+            "pre_close": "3.373",
+            "volume": "1110436051",
+            "amount": "3730622976.0",
+            "currency": "CNY",
+            "volume_unit": "SHARE",
+            "amount_unit": "CNY",
+            "adjustment_mode": "RAW",
+            "adjustment_factor": null,
+            "availability": {
+              "information_available_at": "2026-09-10 15:00:00+08:00",
+              "retrieved_at": "2026-10-12 21:45:26.447313+08:00",
+              "availability_basis": "EXCHANGE_RULE"
+            },
+            "provider_evidence_id": "chstockdata:daily_bars:da738faa64de2a51:77b26077ef1e6c42"
+          },
+          {
+            "schema_version": "v1",
+            "instrument_id": {
+              "exchange": "XSHE",
+              "symbol": "159915"
+            },
+            "session_date": "2026-09-11",
+            "open": "3.323",
+            "high": "3.354",
+            "low": "3.28",
+            "close": "3.341",
+            "pre_close": "3.358",
+            "volume": "1905297197",
+            "amount": "6320258048.0",
+            "currency": "CNY",
+            "volume_unit": "SHARE",
+            "amount_unit": "CNY",
+            "adjustment_mode": "RAW",
+            "adjustment_factor": null,
+            "availability": {
+              "information_available_at": "2026-09-11 15:00:00+08:00",
+              "retrieved_at": "2026-10-12 21:45:26.447313+08:00",
+              "availability_basis": "EXCHANGE_RULE"
+            },
+            "provider_evidence_id": "chstockdata:daily_bars:da738faa64de2a51:77b26077ef1e6c42"
+          }
+        ],
+        "evidence": {
+          "evidence_id": "chstockdata:daily_bars:da738faa64de2a51:77b26077ef1e6c42",
+          "provider_name": "chstockdata",
+          "provider_version": "0.4.2",
+          "adapter_name": "chstockdata-provider",
+          "adapter_version": "0.1.0",
+          "capability": "daily_bars",
+          "request_digest": "sha256:da738faa64de2a517b11ae37c92a53028405c21dae5bff8e5429505fc3d5dbbf",
+          "retrieved_at": "2026-10-12 21:45:26.447313+08:00",
+          "upstream_source": "chstockdata.load_vipdoc_daily (local TDX .day package)",
+          "record_count": 4,
+          "payload_checksum": "sha256:77b26077ef1e6c425a5e167ebdf46deabf3d2f7ab990940883a97bdbf986c892",
+          "warnings": []
+        }
+      }
+    },
+    {
+      "instrument_id": "XSHG:518880",
+      "capability": "ROUTING_OHLCV_PRE_CLOSE",
+      "started_at": "2026-10-12T21:45:26.483875+08:00",
+      "finished_at": "2026-10-12T21:45:26.517038+08:00",
+      "status": "PASS",
+      "result": {
+        "records": [
+          {
+            "schema_version": "v1",
+            "instrument_id": {
+              "exchange": "XSHG",
+              "symbol": "518880"
+            },
+            "session_date": "2026-09-08",
+            "open": "9.102",
+            "high": "9.123",
+            "low": "9.039",
+            "close": "9.047",
+            "pre_close": "9.024",
+            "volume": "414397829",
+            "amount": "3766204928.0",
+            "currency": "CNY",
+            "volume_unit": "SHARE",
+            "amount_unit": "CNY",
+            "adjustment_mode": "RAW",
+            "adjustment_factor": null,
+            "availability": {
+              "information_available_at": "2026-09-08 15:00:00+08:00",
+              "retrieved_at": "2026-10-12 21:45:26.483875+08:00",
+              "availability_basis": "EXCHANGE_RULE"
+            },
+            "provider_evidence_id": "chstockdata:daily_bars:d262b114a465962e:21facc97f868f25b"
+          },
+          {
+            "schema_version": "v1",
+            "instrument_id": {
+              "exchange": "XSHG",
+              "symbol": "518880"
+            },
+            "session_date": "2026-09-09",
+            "open": "8.97",
+            "high": "9.052",
+            "low": "8.97",
+            "close": "9.041",
+            "pre_close": "9.047",
+            "volume": "448699652",
+            "amount": "4042974976.0",
+            "currency": "CNY",
+            "volume_unit": "SHARE",
+            "amount_unit": "CNY",
+            "adjustment_mode": "RAW",
+            "adjustment_factor": null,
+            "availability": {
+              "information_available_at": "2026-09-09 15:00:00+08:00",
+              "retrieved_at": "2026-10-12 21:45:26.483875+08:00",
+              "availability_basis": "EXCHANGE_RULE"
+            },
+            "provider_evidence_id": "chstockdata:daily_bars:d262b114a465962e:21facc97f868f25b"
+          },
+          {
+            "schema_version": "v1",
+            "instrument_id": {
+              "exchange": "XSHG",
+              "symbol": "518880"
+            },
+            "session_date": "2026-09-10",
+            "open": "9.06",
+            "high": "9.105",
+            "low": "9.051",
+            "close": "9.083",
+            "pre_close": "9.041",
+            "volume": "441013607",
+            "amount": "4001856256.0",
+            "currency": "CNY",
+            "volume_unit": "SHARE",
+            "amount_unit": "CNY",
+            "adjustment_mode": "RAW",
+            "adjustment_factor": null,
+            "availability": {
+              "information_available_at": "2026-09-10 15:00:00+08:00",
+              "retrieved_at": "2026-10-12 21:45:26.483875+08:00",
+              "availability_basis": "EXCHANGE_RULE"
+            },
+            "provider_evidence_id": "chstockdata:daily_bars:d262b114a465962e:21facc97f868f25b"
+          },
+          {
+            "schema_version": "v1",
+            "instrument_id": {
+              "exchange": "XSHG",
+              "symbol": "518880"
+            },
+            "session_date": "2026-09-11",
+            "open": "8.895",
+            "high": "8.963",
+            "low": "8.852",
+            "close": "8.943",
+            "pre_close": "9.083",
+            "volume": "617832329",
+            "amount": "5504843776.0",
+            "currency": "CNY",
+            "volume_unit": "SHARE",
+            "amount_unit": "CNY",
+            "adjustment_mode": "RAW",
+            "adjustment_factor": null,
+            "availability": {
+              "information_available_at": "2026-09-11 15:00:00+08:00",
+              "retrieved_at": "2026-10-12 21:45:26.483875+08:00",
+              "availability_basis": "EXCHANGE_RULE"
+            },
+            "provider_evidence_id": "chstockdata:daily_bars:d262b114a465962e:21facc97f868f25b"
+          }
+        ],
+        "evidence": {
+          "evidence_id": "chstockdata:daily_bars:d262b114a465962e:21facc97f868f25b",
+          "provider_name": "chstockdata",
+          "provider_version": "0.4.2",
+          "adapter_name": "chstockdata-provider",
+          "adapter_version": "0.1.0",
+          "capability": "daily_bars",
+          "request_digest": "sha256:d262b114a465962ef92635f369c2e728f3514fb0c74b3ec75ee028d358ea4497",
+          "retrieved_at": "2026-10-12 21:45:26.483875+08:00",
+          "upstream_source": "chstockdata.load_vipdoc_daily (local TDX .day package)",
+          "record_count": 4,
+          "payload_checksum": "sha256:21facc97f868f25b3b9fb4b6558210e7521fe108b2c92bc6dbc0f9221d622f22",
+          "warnings": []
+        }
+      }
+    },
+    {
+      "instrument_id": "XSHG:511010",
+      "capability": "ROUTING_OHLCV_PRE_CLOSE",
+      "started_at": "2026-10-12T21:45:26.517038+08:00",
+      "finished_at": "2026-10-12T21:45:26.551614+08:00",
+      "status": "PASS",
+      "result": {
+        "records": [
+          {
+            "schema_version": "v1",
+            "instrument_id": {
+              "exchange": "XSHG",
+              "symbol": "511010"
+            },
+            "session_date": "2026-09-08",
+            "open": "141.223",
+            "high": "141.23",
+            "low": "141.182",
+            "close": "141.21",
+            "pre_close": "141.222",
+            "volume": "18685500",
+            "amount": "2638866432.0",
+            "currency": "CNY",
+            "volume_unit": "SHARE",
+            "amount_unit": "CNY",
+            "adjustment_mode": "RAW",
+            "adjustment_factor": null,
+            "availability": {
+              "information_available_at": "2026-09-08 15:00:00+08:00",
+              "retrieved_at": "2026-10-12 21:45:26.517038+08:00",
+              "availability_basis": "EXCHANGE_RULE"
+            },
+            "provider_evidence_id": "chstockdata:daily_bars:4221b6f5fb2265a9:0fe27001813e7bcf"
+          },
+          {
+            "schema_version": "v1",
+            "instrument_id": {
+              "exchange": "XSHG",
+              "symbol": "511010"
+            },
+            "session_date": "2026-09-09",
+            "open": "141.216",
+            "high": "141.224",
+            "low": "141.184",
+            "close": "141.211",
+            "pre_close": "141.21",
+            "volume": "28686698",
+            "amount": "4050815744.0",
+            "currency": "CNY",
+            "volume_unit": "SHARE",
+            "amount_unit": "CNY",
+            "adjustment_mode": "RAW",
+            "adjustment_factor": null,
+            "availability": {
+              "information_available_at": "2026-09-09 15:00:00+08:00",
+              "retrieved_at": "2026-10-12 21:45:26.517038+08:00",
+              "availability_basis": "EXCHANGE_RULE"
+            },
+            "provider_evidence_id": "chstockdata:daily_bars:4221b6f5fb2265a9:0fe27001813e7bcf"
+          },
+          {
+            "schema_version": "v1",
+            "instrument_id": {
+              "exchange": "XSHG",
+              "symbol": "511010"
+            },
+            "session_date": "2026-09-10",
+            "open": "141.21",
+            "high": "141.211",
+            "low": "141.169",
+            "close": "141.185",
+            "pre_close": "141.211",
+            "volume": "15530900",
+            "amount": "2192636672.0",
+            "currency": "CNY",
+            "volume_unit": "SHARE",
+            "amount_unit": "CNY",
+            "adjustment_mode": "RAW",
+            "adjustment_factor": null,
+            "availability": {
+              "information_available_at": "2026-09-10 15:00:00+08:00",
+              "retrieved_at": "2026-10-12 21:45:26.517038+08:00",
+              "availability_basis": "EXCHANGE_RULE"
+            },
+            "provider_evidence_id": "chstockdata:daily_bars:4221b6f5fb2265a9:0fe27001813e7bcf"
+          },
+          {
+            "schema_version": "v1",
+            "instrument_id": {
+              "exchange": "XSHG",
+              "symbol": "511010"
+            },
+            "session_date": "2026-09-11",
+            "open": "141.18",
+            "high": "141.185",
+            "low": "141.133",
+            "close": "141.146",
+            "pre_close": "141.185",
+            "volume": "19331300",
+            "amount": "2728766464.0",
+            "currency": "CNY",
+            "volume_unit": "SHARE",
+            "amount_unit": "CNY",
+            "adjustment_mode": "RAW",
+            "adjustment_factor": null,
+            "availability": {
+              "information_available_at": "2026-09-11 15:00:00+08:00",
+              "retrieved_at": "2026-10-12 21:45:26.517038+08:00",
+              "availability_basis": "EXCHANGE_RULE"
+            },
+            "provider_evidence_id": "chstockdata:daily_bars:4221b6f5fb2265a9:0fe27001813e7bcf"
+          }
+        ],
+        "evidence": {
+          "evidence_id": "chstockdata:daily_bars:4221b6f5fb2265a9:0fe27001813e7bcf",
+          "provider_name": "chstockdata",
+          "provider_version": "0.4.2",
+          "adapter_name": "chstockdata-provider",
+          "adapter_version": "0.1.0",
+          "capability": "daily_bars",
+          "request_digest": "sha256:4221b6f5fb2265a92eb93563ab8d2049879418538e61d3071d021de22a9a26c8",
+          "retrieved_at": "2026-10-12 21:45:26.517038+08:00",
+          "upstream_source": "chstockdata.load_vipdoc_daily (local TDX .day package)",
+          "record_count": 4,
+          "payload_checksum": "sha256:0fe27001813e7bcf1616387d1f6da5689126e3151c3d95526743e9a5ba659cf1",
+          "warnings": []
+        }
+      }
+    }
+  ]
+}

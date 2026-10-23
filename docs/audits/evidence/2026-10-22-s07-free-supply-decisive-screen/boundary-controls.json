@@ -1,0 +1,40 @@
+{
+  "selection_rule": {
+    "listing": "earliest verified listing in actual s..e; tie by exchange:ticker",
+    "exit": "earliest verified delisting in actual s..e; tie by exchange:ticker",
+    "industry": "earliest verifiable effective migration in actual s..e; tie by exchange:ticker; UNKNOWN if no complete event source"
+  },
+  "listing": {
+    "security": "SH:601026",
+    "name": "道生天合",
+    "source": "sse-current-1",
+    "listing": "2025-10-17",
+    "delisting": null,
+    "board_current": "1",
+    "stock_type_current": "1",
+    "industry_current": "C",
+    "industry_label_current": "制造业",
+    "historical_known_at": null,
+    "historical_type_and_board": "UNVERIFIED",
+    "ambiguous_duplicate": false
+  },
+  "exit": {
+    "security": "SZ:300280",
+    "name": "紫天退",
+    "source": "szse-delisted",
+    "listing": "2011-12-29",
+    "delisting": "2025-10-14",
+    "board_current": null,
+    "stock_type_current": "A_CODE_FAMILY_ONLY",
+    "industry_current": null,
+    "historical_known_at": null,
+    "historical_type_and_board": "UNVERIFIED",
+    "ambiguous_duplicate": false
+  },
+  "industry_migration": {
+    "status": "UNKNOWN_NO_QUALIFIED_HISTORICAL_EVENT_COLLECTION",
+    "not_applicable_claimed": false
+  },
+  "listing_event_rows": 91,
+  "exit_event_rows": 25
+}

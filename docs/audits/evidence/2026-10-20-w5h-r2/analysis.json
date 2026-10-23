@@ -1,0 +1,373 @@
+{
+  "requests_recorded": 22,
+  "http_status_counts": {
+    "200": 19,
+    "301": 2,
+    "405": 1
+  },
+  "minimum_same_source_after_finish_seconds": 3.000091,
+  "source_body_bytes": 1820914,
+  "prior_artifacts_reverified": 30,
+  "prior_valuation_rows_reused_without_network": 729,
+  "baostock_new_logins": 0,
+  "financial": {
+    "benefit": {
+      "rows": 50,
+      "provider_total": 105,
+      "first_report_date": "2014-03-31",
+      "last_report_date": "2026-06-30",
+      "target_period_count": 1,
+      "report_metadata_keys": [
+        "date",
+        "quarter_name",
+        "report",
+        "report_name"
+      ],
+      "target_metrics": {
+        "operating_income": {
+          "value": "17578618640.0600",
+          "single": "-1935907616.0900",
+          "yoy": "-0.18776659",
+          "mom": "-1.30963813",
+          "single_yoy": "-1.37327596"
+        },
+        "parent_holder_net_profit": {
+          "value": "2149836281.4100",
+          "single": "-1001140145.0100",
+          "yoy": "-0.35641422",
+          "mom": "-2.00170964",
+          "single_yoy": "-2.33723314"
+        }
+      },
+      "prior_equity_period_2016_present": null
+    },
+    "cash": {
+      "rows": 50,
+      "provider_total": 100,
+      "first_report_date": "2014-03-31",
+      "last_report_date": "2026-06-30",
+      "target_period_count": 1,
+      "report_metadata_keys": [
+        "date",
+        "quarter_name",
+        "report",
+        "report_name"
+      ],
+      "target_metrics": {
+        "act_cash_flow_net": {
+          "value": "-4840052606.4600",
+          "single": "-6365805193.9100",
+          "yoy": "-4.01901494",
+          "mom": "-14.81303460",
+          "single_yoy": "-7.76000590"
+        }
+      },
+      "prior_equity_period_2016_present": null
+    },
+    "debt": {
+      "rows": 50,
+      "provider_total": 104,
+      "first_report_date": "2014-03-31",
+      "last_report_date": "2026-06-30",
+      "target_period_count": 1,
+      "report_metadata_keys": [
+        "date",
+        "quarter_name",
+        "report",
+        "report_name"
+      ],
+      "target_metrics": {
+        "parent_holder_equity_total": {
+          "value": "28413344515.0000",
+          "single": "",
+          "yoy": "-0.02411857",
+          "mom": "",
+          "single_yoy": ""
+        },
+        "equity": {
+          "value": "4974253675.0000",
+          "single": "",
+          "yoy": "0.00546367",
+          "mom": "",
+          "single_yoy": ""
+        }
+      },
+      "prior_equity_period_2016_present": true
+    }
+  },
+  "reference_versions": {
+    "revenue": {
+      "original": "26476970977.57",
+      "revised": "17578618640.06"
+    },
+    "parent_profit": {
+      "original": "4100926148.57",
+      "revised": "2149836281.41"
+    },
+    "ocf": {
+      "original": "1842794237.84",
+      "revised": "-4840052606.46"
+    },
+    "parent_equity": {
+      "original": "32032959807.76",
+      "revised": "28413344515.00"
+    }
+  },
+  "baidu_series": {
+    "baidu_canonical_600518_ttm": {
+      "points": 624,
+      "first": [
+        "2001-03-19",
+        "127.79"
+      ],
+      "last": [
+        "2026-10-19",
+        "610.21"
+      ],
+      "calendar_gap_days": {
+        "15": 623
+      },
+      "weekend_points": 178,
+      "negative_values": 104,
+      "missing_values": 0,
+      "metadata": {
+        "curTagValue": "610.21",
+        "dimensions": [
+          "date",
+          "curTagValue"
+        ],
+        "header": [
+          "市盈率(TTM)"
+        ],
+        "releaseDate": "2001-03-19 00:00:00",
+        "seventyTantile": "40.34",
+        "thirtyTantile": "17.83",
+        "type": "全部",
+        "unit": ""
+      },
+      "source_marker": "AE",
+      "source_marker_meaning": "UNKNOWN; not proof of ultimate vendor independence"
+    },
+    "baidu_600518_ttm_1y": {
+      "points": 366,
+      "first": [
+        "2025-10-19",
+        "2875.47"
+      ],
+      "last": [
+        "2026-10-19",
+        "610.21"
+      ],
+      "calendar_gap_days": {
+        "1": 365
+      },
+      "weekend_points": 105,
+      "negative_values": 118,
+      "missing_values": 0,
+      "metadata": {
+        "curTagValue": "610.21",
+        "dimensions": [
+          "date",
+          "curTagValue"
+        ],
+        "header": [
+          "市盈率(TTM)"
+        ],
+        "releaseDate": "2001-03-19 00:00:00",
+        "seventyTantile": "1595.60",
+        "thirtyTantile": "-1191.36",
+        "type": "近一年",
+        "unit": ""
+      },
+      "source_marker": "AE",
+      "source_marker_meaning": "UNKNOWN; not proof of ultimate vendor independence"
+    },
+    "baidu_600519_ttm_1y": {
+      "points": 366,
+      "first": [
+        "2025-10-19",
+        "20.26"
+      ],
+      "last": [
+        "2026-10-19",
+        "20.34"
+      ],
+      "calendar_gap_days": {
+        "1": 365
+      },
+      "weekend_points": 105,
+      "negative_values": 0,
+      "missing_values": 0,
+      "metadata": {
+        "curTagValue": "20.34",
+        "dimensions": [
+          "date",
+          "curTagValue"
+        ],
+        "header": [
+          "市盈率(TTM)"
+        ],
+        "releaseDate": "2001-08-27 00:00:00",
+        "seventyTantile": "20.20",
+        "thirtyTantile": "19.50",
+        "type": "近一年",
+        "unit": ""
+      },
+      "source_marker": "AE",
+      "source_marker_meaning": "UNKNOWN; not proof of ultimate vendor independence"
+    },
+    "baidu_600518_static_all": {
+      "points": 624,
+      "first": [
+        "2001-03-19",
+        "127.79"
+      ],
+      "last": [
+        "2026-10-19",
+        "1740.66"
+      ],
+      "calendar_gap_days": {
+        "15": 623
+      },
+      "weekend_points": 178,
+      "negative_values": 72,
+      "missing_values": 0,
+      "metadata": {
+        "curTagValue": "1740.66",
+        "dimensions": [
+          "date",
+          "curTagValue"
+        ],
+        "header": [
+          "市盈率(静)"
+        ],
+        "releaseDate": "2001-03-19 00:00:00",
+        "seventyTantile": "48.26",
+        "thirtyTantile": "21.01",
+        "type": "全部",
+        "unit": ""
+      },
+      "source_marker": "AE",
+      "source_marker_meaning": "UNKNOWN; not proof of ultimate vendor independence"
+    },
+    "baidu_600518_marketcap_all": {
+      "points": 624,
+      "first": [
+        "2001-03-19",
+        "25.79"
+      ],
+      "last": [
+        "2026-10-19",
+        "179.78"
+      ],
+      "calendar_gap_days": {
+        "15": 623
+      },
+      "weekend_points": 178,
+      "negative_values": 0,
+      "missing_values": 0,
+      "metadata": {
+        "curTagValue": "179.78",
+        "dimensions": [
+          "date",
+          "curTagValue"
+        ],
+        "header": [
+          "总市值"
+        ],
+        "releaseDate": "2001-03-19 00:00:00",
+        "seventyTantile": "326.73",
+        "thirtyTantile": "76.67",
+        "type": "全部",
+        "unit": "亿元"
+      },
+      "source_marker": "AE",
+      "source_marker_meaning": "UNKNOWN; not proof of ultimate vendor independence"
+    }
+  },
+  "crosscheck_2025": {
+    "600518": {
+      "intersecting_trading_days": 53,
+      "equal_after_source_precision_rounding": 53,
+      "first_intersection": "2025-10-20",
+      "last_intersection": "2025-12-31",
+      "end_2025_baidu": "1587.29",
+      "lineage_conclusion": "Value agreement alone does not prove independent upstream or historical vintage."
+    },
+    "600519": {
+      "intersecting_trading_days": 53,
+      "equal_after_source_precision_rounding": 53,
+      "first_intersection": "2025-10-20",
+      "last_intersection": "2025-12-31",
+      "end_2025_baidu": "19.16",
+      "lineage_conclusion": "Value agreement alone does not prove independent upstream or historical vintage."
+    }
+  },
+  "pe_denominator_check": {
+    "fixed_trade_date": "2020-01-09",
+    "why_extra_original": "2019 Q3 original and its 2018 comparison are required TTM base periods for the already fixed 2020 case, not a replacement stock/year.",
+    "2018_annual_original_parent_profit_yuan": "1135188498.44",
+    "2019_q3_parent_ytd_as_published_20191030_yuan": "33173948.69",
+    "2018_q3_comparative_as_published_20191030_yuan": "689158719.06",
+    "announcement_date_of_q3_original": "2019-10-30",
+    "known_ttm_profit_yuan": "479203728.07",
+    "baidu_market_cap_yuan": "18801000000.00",
+    "old_eastmoney_market_cap_yuan": "18801197131.5",
+    "baidu_static_pe": "16.56",
+    "static_pe_from_original_annual": "16.56200712554499196904319192",
+    "baidu_ttm_pe": "-7.02",
+    "ttm_pe_from_then_disclosed_values": "39.23383500316514972892372724",
+    "old_eastmoney_ttm_pe": "-66.79112414",
+    "old_eastmoney_static_pe": "-4.0340073",
+    "verdict": "Static sample is consistent with the then-disclosed annual profit; TTM sample contradicts the then-disclosed positive TTM numerator. Complete intervening disclosure chain and first-known history remain unqualified."
+  },
+  "external_library_code": {
+    "C:\\Users\\Administrator\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\site-packages\\akshare\\stock_fundamental\\stock_finance_ths.py": {
+      "sha256": "cee9f881cf0207f47b50e88ea15790c2b69edd8b2bd94107f529496cf8a07da2",
+      "functions": [
+        {
+          "name": "stock_financial_debt_new_ths",
+          "line": 291,
+          "end_line": 377,
+          "signature": "symbol: str='000063', indicator: str='按报告期'"
+        },
+        {
+          "name": "stock_financial_benefit_new_ths",
+          "line": 380,
+          "end_line": 474,
+          "signature": "symbol: str='000063', indicator: str='按报告期'"
+        },
+        {
+          "name": "stock_financial_cash_new_ths",
+          "line": 477,
+          "end_line": 571,
+          "signature": "symbol: str='000063', indicator: str='按报告期'"
+        }
+      ]
+    },
+    "C:\\Users\\Administrator\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\site-packages\\akshare\\stock_feature\\stock_zh_valuation_baidu.py": {
+      "sha256": "a316081cfebca45bc0632aa30af669ddaf6da5ccd31625a14b1674c387b2a3b2",
+      "functions": [
+        {
+          "name": "stock_zh_valuation_baidu",
+          "line": 13,
+          "end_line": 55,
+          "signature": "symbol: str='002044', indicator: str='总市值', period: str='近一年'"
+        }
+      ]
+    },
+    "C:\\Users\\Administrator\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\site-packages\\mootdx\\financial\\financial.py": {
+      "sha256": "b1c82ae471abe5629ed59dc1a477335b8080f3bb0a8f2d691433c0d249bc6e2b",
+      "functions": []
+    },
+    "D:\\Dev\\Projects\\chstockdata\\.venv\\Lib\\site-packages\\baostock\\common\\contants.py": {
+      "sha256": "fe7574dbdd2ca6087e58ce374948f6e7d9b7398dc64b3f4404ab88a2d7ee3792",
+      "functions": []
+    }
+  },
+  "authority_current_consumer_copy_equal": {
+    "MISHI_RADAR_V0_1_SPEC_R3_2_SCOPE_APPROVED_DATA_PENDING_2026-10-16.md": true,
+    "MISHI_RADAR_TO_CHSTOCKDATA_DR01_DR06_CONSUMER_REQUEST_2026-10-16.md": true
+  },
+  "production_runtime_changes": 0
+}

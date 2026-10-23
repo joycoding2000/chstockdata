@@ -1,0 +1,51 @@
+[
+  {
+    "name": "tdx-official-vipdata",
+    "url": "https://www.tdx.com.cn/article/vipdata.html",
+    "params": null,
+    "retrieved_at": "2026-10-09T13:03:07.613837+00:00",
+    "error_type": "ConnectionError"
+  },
+  {
+    "name": "tdx-official-realtime",
+    "url": "https://help.tdx.com.cn/quant/docs/markdown/mindoc-1hjbidnohpjn4/mindoc-1hlir5r0t9hgc.html",
+    "params": null,
+    "retrieved_at": "2026-10-09T13:03:07.622955+00:00",
+    "error_type": "ConnectionError"
+  },
+  {
+    "name": "sse-suspend",
+    "url": "https://static.sse.com.cn/disclosure/listedinfo/announcement/c/new/2026-08-29/688432_20260829_8CDF.pdf",
+    "params": null,
+    "retrieved_at": "2026-10-09T13:03:07.625943+00:00",
+    "error_type": "ConnectionError"
+  },
+  {
+    "name": "vanke-issuer-history",
+    "url": "https://static.cninfo.com.cn/finalpage/2016-07-02/1202445845.PDF",
+    "params": null,
+    "retrieved_at": "2026-10-09T13:03:07.629737+00:00",
+    "error_type": "ConnectionError"
+  },
+  {
+    "name": "vanke-fund-disclosure",
+    "url": "https://static.cninfo.com.cn/finalpage/2016-08-29/1202629464.PDF",
+    "params": null,
+    "retrieved_at": "2026-10-09T13:03:07.633739+00:00",
+    "error_type": "ConnectionError"
+  },
+  {
+    "name": "sse-resume-query",
+    "url": "https://query.sse.com.cn/security/stock/queryCompanyBulletin.do",
+    "params": {
+      "isPagination": "true",
+      "productId": "688432",
+      "beginDate": "2026-09-11",
+      "endDate": "2026-09-14",
+      "pageHelp.pageSize": "100",
+      "pageHelp.pageNo": "1"
+    },
+    "retrieved_at": "2026-10-09T13:03:07.637745+00:00",
+    "error_type": "ConnectionError"
+  }
+]

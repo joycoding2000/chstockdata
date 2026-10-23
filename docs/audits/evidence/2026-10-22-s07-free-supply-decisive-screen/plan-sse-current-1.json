@@ -1,0 +1,23 @@
+{
+  "id": "sse-current-1",
+  "url": "https://query.sse.com.cn/sseQuery/commonQuery.do",
+  "params": {
+    "STOCK_TYPE": "1",
+    "REG_PROVINCE": "",
+    "CSRC_CODE": "",
+    "STOCK_CODE": "",
+    "sqlId": "COMMON_SSE_CP_GPJCTPZ_GPLB_GP_L",
+    "COMPANY_STATUS": "2,4,5,7,8",
+    "type": "inParams",
+    "isPagination": "true",
+    "pageHelp.cacheSize": 1,
+    "pageHelp.beginPage": 1,
+    "pageHelp.pageSize": 10000,
+    "pageHelp.pageNo": 1,
+    "pageHelp.endPage": 1
+  },
+  "max_bytes": 10000000,
+  "registered_at": "2026-10-22T20:57:13.888621+08:00",
+  "method": "GET",
+  "retry_of": null
+}

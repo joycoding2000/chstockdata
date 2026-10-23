@@ -1,0 +1,41 @@
+[
+  {
+    "id": "sse_688432_interval",
+    "method": "GET",
+    "url": "https://query.sse.com.cn/commonSoaQuery.do",
+    "params": {
+      "isPagination": "true",
+      "pageHelp.pageSize": 25,
+      "pageHelp.pageNo": 1,
+      "pageHelp.beginPage": 1,
+      "pageHelp.cacheSize": 1,
+      "pageHelp.endPage": 1,
+      "sqlId": "GW_PL_JYTS_TFPXX",
+      "productCode": "688432",
+      "keyWords": "",
+      "startStopDate": "20260911",
+      "endStopDate": "20260911"
+    },
+    "headers": {
+      "Referer": "https://www.sse.com.cn/disclosure/dealinstruc/suspension/stock/"
+    },
+    "actual_query_range": [
+      "2026-09-11",
+      "2026-09-11"
+    ],
+    "necessary_semantics": "must include intervals starting before queried session",
+    "requested_at": "2026-10-11T06:44:28.300536+00:00",
+    "timeout_seconds": [
+      4,
+      8
+    ],
+    "automatic_retry": false,
+    "tls_verify": true,
+    "redirects": false,
+    "coverage_qualification": "NOT_CERTIFIED",
+    "status": "request_error",
+    "error_type": "ConnectionError",
+    "retrieved_at": "2026-10-11T06:44:28.315259+00:00",
+    "elapsed_seconds": 0.015
+  }
+]

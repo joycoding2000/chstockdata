@@ -1,0 +1,344 @@
+# chstockdata — SIOS H01 优先数据交付工作包
+
+## Owner 优先级决策
+
+```ini
+CURRENT_DECISION = CONTINUE
+TASK = SIOS_H01_PRIORITY_DATA_DELIVERY
+
+DELIVERY_PRIORITY = P0
+ACTIVE_CONSUMER = SIOS_H01_ONLY
+
+SIOS_H04 = DEFER_UNTIL_H01_DELIVERED
+SIOS_P2 = DEFER_UNTIL_H01_DELIVERED
+
+FREE_DATA_ONLY = YES
+PAID_DATA = PROHIBITED
+
+PRODUCTION_PROVIDER_CHANGE = NO
+PUBLIC_API_CHANGE = NO
+SIOS_STRATEGY_CHANGE = NO
+STRATEGY_BACKTEST = NO
+GIT_COMMIT = NO
+GIT_PUSH = NO
+```
+
+Owner 要求 chstockdata 立即优先解决 SIOS H01 的数据阻断。
+
+**本任务以实际交付 H01 可接收的数据包为目标，而不是再次形成来源可行性研究报告。**
+
+允许 Codex 在同一工作包内连续进行有界免费来源获取、修复既有离线解析程序、补齐数据、交叉核验、运行测试和打包。
+
+普通程序缺陷无需逐项返回 Owner 审批。
+
+但不得擅自扩大产品范围、新增生产 Provider、修改 SIOS 策略或使用付费数据源。
+
+## 一、恢复真实消费者合同
+
+读取以下权威输入：
+
+chstockdata：
+
+- `AGENTS.md`
+- 当前已发布版本的能力及 `get_fund_corporate_actions`
+- VIPDOC 原始行情与基金价格单位合同
+- 现有基金分红、份额变化及复权处理代码
+- 2026-10-19 双消费者供给计划及交接资料
+
+systematic-investing-os：
+
+- `AGENTS.md`
+- `docs/m1-r2/R2-H01-H04-parallel-exploratory-admission-2026-10-19.md`
+- 特别是 H01 需求与 §6 生产方交接
+- 当前研究设计中的 126 日信号与 SMA200 定义
+- 现有 `LibraryChStockDataClient`
+- 既有 ETF 数据使用与来源合同
+
+以实际代码、冻结合同和已批准记录确定交付格式。
+
+两个仓库的 HEAD 和未提交文件必须保护。
+
+SIOS 仓库只能只读检查，不修改、不运行策略收益实验。
+
+## 二、H01 固定数据需求
+
+### 固定证券
+
+| 证券 | 标的暴露 |
+|---|---|
+| 513500 | 标普500 |
+| 513030 | 德国 DAX |
+| 513520 | 日经225 |
+
+### 固定窗口
+
+```text
+观察区间：
+2024-01-02 至 2025-09-30
+
+预热：
+按冻结研究规则向前取得126日排名及SMA200所需的完整总回报观察。
+不得以观察区间内的前200日替代预热。
+
+证券数量：
+3，只允许指定三只。
+```
+
+### 必需字段
+
+A. 原始行情：
+
+- 日期、证券身份
+- 原始 Open/High/Low/Close
+- Volume、Amount 及正确单位
+- 交易日历、缺口与停牌分类
+- 来源身份、文件 SHA 与数据有效范围
+
+B. 基金权益事件：
+
+- 历史现金分红
+- 权益登记日、除息日、发放日
+- 公告及当时可知时间
+- 份额折算、拆分或其他实际影响份额的事件
+- 已实施、取消、仅预案和未知状态
+- 完整来源及事件身份
+
+C. 总回报信号：
+
+- 按 SIOS 已批准口径计算或提供的总回报观察序列
+- 126 日信号与 SMA200 的完整输入
+- 与原始成交价格严格分离
+- 分红和份额事件有可追溯处理过程
+- 不用今天的全样本前复权价格替代历史 PIT 信号
+- 不使用未来公告信息
+
+总回报信号所需的经济权益时点、实际现金支付时点与回测现金可用时点必须分别记录，不能混为一个日期。
+
+## 三、先使用已经存在的数据
+
+优先检查：
+
+```text
+.rh3a2-vipdoc/sh/lday/sh513500.day
+.rh3a2-vipdoc/sh/lday/sh513030.day
+.rh3a2-vipdoc/sh/lday/sh513520.day
+```
+
+SIOS 旧报告已经验证这三份文件实际存在。
+
+首先完成：
+
+1. 文件身份及 SHA 复核；
+2. 完整观察区间及预热覆盖；
+3. 逐日日期连续性及合理缺口解释；
+4. 原始价格单位复核；
+5. 量、额及交易日归属核对。
+
+不得因行情已经存在就立即宣布 H01 数据交付完成。
+
+当前最重要的未解决问题是历史公司行动及可信总回报。
+
+## 四、优先解决历史基金权益事件
+
+首先审查现有：
+
+`get_fund_corporate_actions`
+
+既有来源包括东财基金 F10 分红表与公告记录。
+
+要求：
+
+1. 实际检查三只 ETF 在固定窗口及必要预热中的事件；
+2. 将源请求失败、真正无事件、部分覆盖与无法认证分开；
+3. 取得已经实施的现金分红和份额变化；
+4. 保留公告日期、登记日、除息日、支付日与事件版本；
+5. 根据官方基金管理人或交易所的免费公告进行必要交叉核验；
+6. 发现接口解析错误时直接修复本任务范围内的离线适配程序；
+7. 把确定性失败加入回归；
+8. 重新生成数据包并运行测试。
+
+允许复用现有缓存及免费官方来源，不引入付费 SDK 或数据订阅。
+
+**不能因为某个接口返回空数组就宣布基金从未分红。**
+
+同样，来源暂时不可访问不能直接等同于基金存在未处理的权益事件；应通过可核的免费公告证据判断。
+
+不得采用无限重试、绕过访问限制或未经授权的大规模抓取。
+
+## 五、建立可复现的总回报序列
+
+依据 SIOS 已批准的数学和时间语义，完成：
+
+```text
+原始基金行情
+      +
+已实施分红及份额变化
+      +
+历史可用时间
+      ↓
+合格的总回报观察
+      ↓
+126日信号输入
+      +
+SMA200输入
+```
+
+要求：
+
+- 不直接把原始 Close 当成总回报；
+- 不直接使用最新 QFQ 因子冒充当时可知因子；
+- 避免分红现金和复权调整重复计算；
+- 正确处理分红除息价格变化；
+- 正确处理份额变化导致的单位变化；
+- 明确缺交易、正常无交易和缺数据的差别；
+- 对未知必要事件 fail-closed；
+- 对首次形成信号的历史时点有完整预热。
+
+用实际分红或份额事件日期前后的小样本，验证权益变化与总回报处理结果。
+
+若固定窗口某基金没有相应事件，需要来源覆盖证据支持 `normal_empty`；不得制造虚构事件来通过测试。
+
+**交付重点是满足 SIOS 已定义的输入，而不是重写 SIOS 排名、过滤或交易模型。**
+
+## 六、连续修复与完成标准
+
+Codex 必须在同一授权工作包内循环：
+
+```text
+读取既有行情
+→ 获取并核验基金权益事件
+→ 构建总回报观察
+→ 检查窗口与预热
+→ 运行金额、身份、事件和时间回归
+→ 修复确定性错误
+→ 重新打包
+→ 执行独立接收检查
+```
+
+不得在普通解析 Bug、字段缺失或首次测试失败时提前终止。
+
+但如来源确实不能满足必要历史版本条件，不能无限换来源或放松 PIT 要求。
+
+### H01 数据交付 PASS 条件
+
+必须同时满足：
+
+1. 三只固定 ETF 全部覆盖指定观察窗口及必要预热；
+2. 原始价、量、额身份和单位正确；
+3. 必要基金分红及份额事件有可核实的历史来源；
+4. 总回报输入与已批准的 126 日、SMA200 规则兼容；
+5. 有限事件对账与未来信息拒绝测试通过；
+6. 没有未处置且会影响实际信号的必要 UNKNOWN；
+7. 真实数据包、schema、manifest、SHA 和复现命令齐全；
+8. 按消费者冻结需求进行独立离线接收验证。
+
+若现有 SIOS adapter 不具备直接消费本次研究数据的能力，可以交付明确 schema 的研究用导出及只读接收验证，**但必须如实区分“可接收研究包”和“生产 adapter 已集成”**。
+
+不能以三只证券原始行情文件存在、测试脚本通过或报告声称完成来替代实际数据交付。
+
+### 阻断处理
+
+如果发现关键权益事件无法从免费来源认证，必须：
+
+- 列出证券、事件日期、必要字段；
+- 保存实际失败证据；
+- 尝试授权范围内的最小修复；
+- 证明剩余缺口具体影响哪个 H01 信号；
+- 不替换 ETF 或缩短窗口；
+- 不输出虚假 PASS。
+
+此时输出 `BLOCKED_WITH_NAMED_GAPS`，而不是创建新工程或假装已交付。
+
+## 七、资源与网络边界
+
+优先复用现有原始日线和缓存。
+
+如需新增免费网络请求，先由 Owner 对本工作包的请求预算进行明确授权。建议上限：
+
+```ini
+MAX_HTTP_REQUESTS = 80
+MAX_DOWNLOADED_BYTES = 60000000
+MAX_RETRIES_PER_REQUEST = 1
+
+NEW_SECURITIES = 0
+FULL_MARKET_CRAWL = NO
+NEW_PRODUCTION_DEPENDENCY = NO
+```
+
+本次下达任务不自动继承 Mishi 的网络预算。
+
+必须记录实际请求次数、成功/失败、下载体积及来源限制。
+
+无法在授权额度内完成，返回准确阻断，不为了追求 PASS 无限增加预算。
+
+## 八、交付物
+
+交付至 chstockdata 研究审计与受控输出目录，实际名称可依既有交接约定调整：
+
+```text
+H01-delivery/
+    manifest.json
+    raw_market_data.*
+    fund_actions.*
+    total_return_observations.*
+    coverage_and_unknowns.json
+    validation_report.json
+    provenance.json
+    README.md
+```
+
+包含真实数据文件，不得只提供空 schema 或说明文档。
+
+新增一份精简交付报告：
+
+`docs/audits/2026-10-22-sios-h01-priority-delivery.md`
+
+必须支持独立复算及消费者接收。
+
+不要复制已有大量旧研究文件。
+
+## 九、最终交接
+
+```ini
+CURRENT_DECISION =
+H01_DELIVERY_VERDICT =
+
+SECURITIES = 513500,513030,513520
+OBSERVATION_WINDOW = 2024-01-02_TO_2025-09-30
+
+RAW_MARKET_COVERAGE =
+FUND_ACTIONS_COVERAGE =
+TOTAL_RETURN_SIGNAL_COVERAGE =
+REQUIRED_WARMUP =
+PIT_AVAILABILITY_QUALIFICATION =
+
+DELIVERABLE_PATH =
+MANIFEST_SHA256 =
+CONSUMER_RECEIPT_CHECK =
+UNRESOLVED_REQUIRED_GAPS =
+NETWORK_BUDGET_USED =
+
+SIOS_H01_DATA_GATE =
+SIOS_H01_STRATEGY_EXPERIMENT_AUTHORIZED = NO
+
+SIOS_H04 = DEFERRED
+SIOS_P2 = DEFERRED
+
+PRODUCTION_IMPLEMENTATION_AUTHORIZED = NO
+PRODUCT_SCOPE_CHANGED = NO
+GIT_COMMIT = NO
+GIT_PUSH = NO
+OWNER_REVIEW_REQUIRED = YES
+```
+
+最终必须明确选择：
+
+- `H01_DATA_PACKAGE_READY_FOR_CONSUMER_ACCEPTANCE`
+- `H01_PARTIAL_DELIVERY_WITH_NAMED_GAPS`
+- `H01_BLOCKED_WITH_EVIDENCE`
+
+本次只有 H01 一项交付任务。
+
+**不得在 H01 未交付时自动启动 H04、P2，也不得把研究数据包 PASS 自动等同于 SIOS 策略实验授权。**
+
+任务结束后提交 Owner Review，由 Owner 决定接收、必要的最小修复或维持阻断。

@@ -1,0 +1,136 @@
+{
+  "schema_version": "m0-qualification-matrix-1",
+  "matrix_version": "m0-etf-matrix-1",
+  "evaluation_time": "2026-09-15T16:30:00+08:00",
+  "evaluation_session": "2026-09-11",
+  "window": {
+    "start": "2026-09-08",
+    "end": "2026-09-11"
+  },
+  "calendar_window": {
+    "start": "2026-09-04",
+    "end": "2026-09-11"
+  },
+  "provider": {
+    "name": "chstockdata",
+    "version": "0.3.0",
+    "adapter_name": "chstockdata-provider",
+    "adapter_version": "0.1.0"
+  },
+  "requirements": {
+    "pre_close": "required",
+    "volume_unit": "SHARE",
+    "amount_unit": "CNY",
+    "adjustment_mode": "RAW",
+    "max_information_age_sessions": 0
+  },
+  "subtypes": [
+    {
+      "subtype": "BROAD_BASED_EQUITY",
+      "instruments": [
+        {
+          "instrument_id": "XSHG:510300",
+          "vendor_symbol": "sh510300",
+          "display_name": "Huatai-PineBridge CSI 300 ETF"
+        },
+        {
+          "instrument_id": "XSHE:159915",
+          "vendor_symbol": "sz159915",
+          "display_name": "E Fund ChiNext ETF"
+        }
+      ]
+    },
+    {
+      "subtype": "GOLD",
+      "instruments": [
+        {
+          "instrument_id": "XSHG:518880",
+          "vendor_symbol": "sh518880",
+          "display_name": "Huaan Gold ETF"
+        }
+      ]
+    },
+    {
+      "subtype": "BOND",
+      "instruments": [
+        {
+          "instrument_id": "XSHG:511010",
+          "vendor_symbol": "sh511010",
+          "display_name": "Guotai SSE 5-Year Treasury Bond ETF"
+        }
+      ]
+    }
+  ],
+  "edge_events": [
+    {
+      "case_id": "EDGE-ETF-SUSPENSION-20260909",
+      "instrument_id": "XSHE:159915",
+      "session_date": "2026-09-09",
+      "expected_status": "SUSPENDED",
+      "expected_permitted_sides": [],
+      "source": "recorded exchange suspension disclosure"
+    }
+  ],
+  "rejected_scope": [
+    {
+      "scope": "CROSS_BORDER_QDII",
+      "representative": "XSHG:513100",
+      "reason": "cross-border/QDII is not an approved FundSubtype and has no approved Instrument Master profile"
+    },
+    {
+      "scope": "MONEY_MARKET",
+      "representative": "XSHG:511990",
+      "reason": "money-market is not an approved FundSubtype and has no approved Instrument Master profile"
+    },
+    {
+      "scope": "OTHER_UNVERIFIED",
+      "representative": "XSHE:159920",
+      "reason": "every other unverified ETF subtype remains unsupported and fails closed"
+    }
+  ],
+  "tolerances": {
+    "price_decimal_tolerance": "0",
+    "unit_conversion": "exact",
+    "calendar_alignment": "exact",
+    "fee_tax_rates": "exact"
+  },
+  "independent_evidence": [
+    {
+      "evidence_id": "PARITY-PUBLIC-RULES-2023",
+      "case_ids": [
+        "PARITY-A-SHARE-SELL-FEES-20230828",
+        "PARITY-A-SHARE-BUY-FEES-20230828",
+        "PARITY-ETF-ZERO-STAMP-TRANSFER",
+        "PARITY-PRICE-LIMIT-10PCT-A-SHARE",
+        "PARITY-PRICE-LIMIT-ETF-TICK",
+        "PARITY-PRICE-LIMIT-CHINEXT-20PCT",
+        "PARITY-SETTLEMENT-T-PLUS-ONE",
+        "PARITY-SETTLEMENT-GOLD-ETF-INTRADAY",
+        "PARITY-SETTLEMENT-BOND-ETF-INTRADAY",
+        "PARITY-PIT-UNKNOWN-BASIS",
+        "PARITY-EXECUTION-TICK-ROUNDING"
+      ],
+      "source": {
+        "authority": "MOF/STA + CSDC + SSE/SZSE trading rules",
+        "reference": "public regulation and exchange trading rules frozen by hand; validation-only comparison, no licensed data embedded",
+        "accessed_on": "2026-09-17",
+        "rights": "public regulations; no redistribution of licensed or vendored data"
+      },
+      "fixture": "tests/fixtures/parity/reference_cases.json",
+      "semantics": "hand-frozen public rule values compared against kernel computations with a declared zero tolerance",
+      "note": "Licensed independent engines (for example JoinQuant validation-only research access) are not embedded here and remain a release-environment parity step under their own data terms."
+    }
+  ],
+  "excluded_scope": [
+    "cross-border/QDII, money-market, and every other unverified ETF subtype",
+    "licensed independent-engine parity samples are not embedded in this repository and remain a release-environment validation step"
+  ],
+  "credentials_prerequisites": [
+    "offline gate: none; recorded fixtures only and no network access",
+    "live qualification: SIOS_CHSTOCKDATA_LIVE_QUALIFICATION=1 and the pinned chstockdata release installed with a local vipdoc tree; no secret values are recorded"
+  ],
+  "commands": [
+    "python -m pytest tests/qualification tests/parity -q",
+    "SIOS_CHSTOCKDATA_LIVE_QUALIFICATION=1 python -m pytest tests/qualification -q"
+  ]
+}

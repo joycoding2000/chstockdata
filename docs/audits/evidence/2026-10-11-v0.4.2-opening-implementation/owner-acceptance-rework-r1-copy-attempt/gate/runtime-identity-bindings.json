@@ -1,0 +1,11 @@
+{
+  "candidate_source_sha256": "d81fb0a62a9fa4cc9823ca9ad1920f380a110d50351dd0b7b465f735d3021572",
+  "wheel_sha256": "1dd58350678fbb07d3b545165708d814f93fb94f965dc2da33bad2fab7ff779c",
+  "sios_full_source_sha256": "573c8540e094e2c2c1d82788541a65d42424c707fa307a06c73d330483c75eb5",
+  "sios_runtime_source_sha256": "73376752616edc41b1560e0cea40a7cdb6190d2795c83dab34d19fdcffd4186f",
+  "sios_patch_sha256": "cbf403397631eed42fe542364587c3f75eb6150b88017c7390da2828644d4873",
+  "combined_installed_ch_plus_sios_source_sha256": "c97a327f145261be5e7f0a93f75e00b2d1d16d13563b6d50eb69fec48ed0910a",
+  "live_run_code_commit_semantics": "public test supplied actual source_tree_sha256, not frozen Git commit",
+  "execution_facts": "live-full-facts.json",
+  "source_stable": true
+}

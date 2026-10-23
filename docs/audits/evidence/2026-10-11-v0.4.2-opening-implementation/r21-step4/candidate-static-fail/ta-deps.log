@@ -1,0 +1,716 @@
+{
+  "python": "3.14.5 (tags/v3.14.5:5607950, May 10 2026, 10:43:50) [MSC v.1944 64 bit (AMD64)]",
+  "executable": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\profiles\\r21-final\\ta-candidate\\Scripts\\python.exe",
+  "dependencies": [
+    {
+      "name": "aiohappyeyeballs",
+      "version": "2.7.1",
+      "installation_path": "D:\\Dev\\Projects\\TradingAgents-AStock-Private\\.venv\\Lib\\site-packages"
+    },
+    {
+      "name": "aiohttp",
+      "version": "3.14.3",
+      "installation_path": "D:\\Dev\\Projects\\TradingAgents-AStock-Private\\.venv\\Lib\\site-packages"
+    },
+    {
+      "name": "aiosignal",
+      "version": "1.4.0",
+      "installation_path": "D:\\Dev\\Projects\\TradingAgents-AStock-Private\\.venv\\Lib\\site-packages"
+    },
+    {
+      "name": "aiosqlite",
+      "version": "0.22.1",
+      "installation_path": "D:\\Dev\\Projects\\TradingAgents-AStock-Private\\.venv\\Lib\\site-packages"
+    },
+    {
+      "name": "altair",
+      "version": "6.2.2",
+      "installation_path": "D:\\Dev\\Projects\\TradingAgents-AStock-Private\\.venv\\Lib\\site-packages"
+    },
+    {
+      "name": "annotated-doc",
+      "version": "0.0.5",
+      "installation_path": "D:\\Dev\\Projects\\TradingAgents-AStock-Private\\.venv\\Lib\\site-packages"
+    },
+    {
+      "name": "annotated-types",
+      "version": "0.8.0",
+      "installation_path": "D:\\Dev\\Projects\\TradingAgents-AStock-Private\\.venv\\Lib\\site-packages"
+    },
+    {
+      "name": "anthropic",
+      "version": "1.5.0",
+      "installation_path": "D:\\Dev\\Projects\\TradingAgents-AStock-Private\\.venv\\Lib\\site-packages"
+    },
+    {
+      "name": "anyio",
+      "version": "4.15.1",
+      "installation_path": "D:\\Dev\\Projects\\TradingAgents-AStock-Private\\.venv\\Lib\\site-packages"
+    },
+    {
+      "name": "attrs",
+      "version": "26.1.0",
+      "installation_path": "D:\\Dev\\Projects\\TradingAgents-AStock-Private\\.venv\\Lib\\site-packages"
+    },
+    {
+      "name": "backtrader",
+      "version": "1.9.78.123",
+      "installation_path": "D:\\Dev\\Projects\\TradingAgents-AStock-Private\\.venv\\Lib\\site-packages"
+    },
+    {
+      "name": "baostock",
+      "version": "0.9.3",
+      "installation_path": "D:\\Dev\\Projects\\TradingAgents-AStock-Private\\.venv\\Lib\\site-packages"
+    },
+    {
+      "name": "beautifulsoup4",
+      "version": "4.15.0",
+      "installation_path": "D:\\Dev\\Projects\\TradingAgents-AStock-Private\\.venv\\Lib\\site-packages"
+    },
+    {
+      "name": "certifi",
+      "version": "2026.7.22",
+      "installation_path": "D:\\Dev\\Projects\\TradingAgents-AStock-Private\\.venv\\Lib\\site-packages"
+    },
+    {
+      "name": "cffi",
+      "version": "2.1.1",
+      "installation_path": "D:\\Dev\\Projects\\TradingAgents-AStock-Private\\.venv\\Lib\\site-packages"
+    },
+    {
+      "name": "charset-normalizer",
+      "version": "3.5.1",
+      "installation_path": "D:\\Dev\\Projects\\TradingAgents-AStock-Private\\.venv\\Lib\\site-packages"
+    },
+    {
+      "name": "chstockdata",
+      "version": "0.4.2",
+      "installation_path": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\profiles\\r21-final\\ta-candidate\\Lib\\site-packages"
+    },
+    {
+      "name": "chstockdata",
+      "version": "0.2.0",
+      "installation_path": "D:\\Dev\\Projects\\TradingAgents-AStock-Private\\.venv\\Lib\\site-packages"
+    },
+    {
+      "name": "click",
+      "version": "8.5.0",
+      "installation_path": "D:\\Dev\\Projects\\TradingAgents-AStock-Private\\.venv\\Lib\\site-packages"
+    },
+    {
+      "name": "colorama",
+      "version": "0.4.6",
+      "installation_path": "D:\\Dev\\Projects\\TradingAgents-AStock-Private\\.venv\\Lib\\site-packages"
+    },
+    {
+      "name": "cssselect",
+      "version": "1.5.0",
+      "installation_path": "D:\\Dev\\Projects\\TradingAgents-AStock-Private\\.venv\\Lib\\site-packages"
+    },
+    {
+      "name": "curl_cffi",
+      "version": "0.16.3",
+      "installation_path": "D:\\Dev\\Projects\\TradingAgents-AStock-Private\\.venv\\Lib\\site-packages"
+    },
+    {
+      "name": "defusedxml",
+      "version": "0.7.1",
+      "installation_path": "D:\\Dev\\Projects\\TradingAgents-AStock-Private\\.venv\\Lib\\site-packages"
+    },
+    {
+      "name": "distro",
+      "version": "1.9.0",
+      "installation_path": "D:\\Dev\\Projects\\TradingAgents-AStock-Private\\.venv\\Lib\\site-packages"
+    },
+    {
+      "name": "docstring_parser",
+      "version": "0.18.0",
+      "installation_path": "D:\\Dev\\Projects\\TradingAgents-AStock-Private\\.venv\\Lib\\site-packages"
+    },
+    {
+      "name": "filelock",
+      "version": "3.32.6",
+      "installation_path": "D:\\Dev\\Projects\\TradingAgents-AStock-Private\\.venv\\Lib\\site-packages"
+    },
+    {
+      "name": "fonttools",
+      "version": "4.65.0",
+      "installation_path": "D:\\Dev\\Projects\\TradingAgents-AStock-Private\\.venv\\Lib\\site-packages"
+    },
+    {
+      "name": "fpdf2",
+      "version": "2.8.8",
+      "installation_path": "D:\\Dev\\Projects\\TradingAgents-AStock-Private\\.venv\\Lib\\site-packages"
+    },
+    {
+      "name": "frozenlist",
+      "version": "1.8.0",
+      "installation_path": "D:\\Dev\\Projects\\TradingAgents-AStock-Private\\.venv\\Lib\\site-packages"
+    },
+    {
+      "name": "greenlet",
+      "version": "3.5.5",
+      "installation_path": "D:\\Dev\\Projects\\TradingAgents-AStock-Private\\.venv\\Lib\\site-packages"
+    },
+    {
+      "name": "h11",
+      "version": "0.16.0",
+      "installation_path": "D:\\Dev\\Projects\\TradingAgents-AStock-Private\\.venv\\Lib\\site-packages"
+    },
+    {
+      "name": "httpcore",
+      "version": "1.0.9",
+      "installation_path": "D:\\Dev\\Projects\\TradingAgents-AStock-Private\\.venv\\Lib\\site-packages"
+    },
+    {
+      "name": "httpcore2",
+      "version": "2.12.0",
+      "installation_path": "D:\\Dev\\Projects\\TradingAgents-AStock-Private\\.venv\\Lib\\site-packages"
+    },
+    {
+      "name": "httptools",
+      "version": "0.8.0",
+      "installation_path": "D:\\Dev\\Projects\\TradingAgents-AStock-Private\\.venv\\Lib\\site-packages"
+    },
+    {
+      "name": "httpx",
+      "version": "0.25.2",
+      "installation_path": "D:\\Dev\\Projects\\TradingAgents-AStock-Private\\.venv\\Lib\\site-packages"
+    },
+    {
+      "name": "httpx-sse",
+      "version": "0.4.3",
+      "installation_path": "D:\\Dev\\Projects\\TradingAgents-AStock-Private\\.venv\\Lib\\site-packages"
+    },
+    {
+      "name": "httpx2",
+      "version": "2.12.0",
+      "installation_path": "D:\\Dev\\Projects\\TradingAgents-AStock-Private\\.venv\\Lib\\site-packages"
+    },
+    {
+      "name": "idna",
+      "version": "3.19",
+      "installation_path": "D:\\Dev\\Projects\\TradingAgents-AStock-Private\\.venv\\Lib\\site-packages"
+    },
+    {
+      "name": "iniconfig",
+      "version": "2.3.0",
+      "installation_path": "D:\\Dev\\Projects\\TradingAgents-AStock-Private\\.venv\\Lib\\site-packages"
+    },
+    {
+      "name": "itsdangerous",
+      "version": "2.2.0",
+      "installation_path": "D:\\Dev\\Projects\\TradingAgents-AStock-Private\\.venv\\Lib\\site-packages"
+    },
+    {
+      "name": "Jinja2",
+      "version": "3.1.6",
+      "installation_path": "D:\\Dev\\Projects\\TradingAgents-AStock-Private\\.venv\\Lib\\site-packages"
+    },
+    {
+      "name": "jiter",
+      "version": "0.16.0",
+      "installation_path": "D:\\Dev\\Projects\\TradingAgents-AStock-Private\\.venv\\Lib\\site-packages"
+    },
+    {
+      "name": "jmespath",
+      "version": "1.1.0",
+      "installation_path": "D:\\Dev\\Projects\\TradingAgents-AStock-Private\\.venv\\Lib\\site-packages"
+    },
+    {
+      "name": "jsonpatch",
+      "version": "1.33",
+      "installation_path": "D:\\Dev\\Projects\\TradingAgents-AStock-Private\\.venv\\Lib\\site-packages"
+    },
+    {
+      "name": "jsonpointer",
+      "version": "3.1.1",
+      "installation_path": "D:\\Dev\\Projects\\TradingAgents-AStock-Private\\.venv\\Lib\\site-packages"
+    },
+    {
+      "name": "jsonschema",
+      "version": "4.26.0",
+      "installation_path": "D:\\Dev\\Projects\\TradingAgents-AStock-Private\\.venv\\Lib\\site-packages"
+    },
+    {
+      "name": "jsonschema-specifications",
+      "version": "2025.9.1",
+      "installation_path": "D:\\Dev\\Projects\\TradingAgents-AStock-Private\\.venv\\Lib\\site-packages"
+    },
+    {
+      "name": "langchain-anthropic",
+      "version": "1.7.2",
+      "installation_path": "D:\\Dev\\Projects\\TradingAgents-AStock-Private\\.venv\\Lib\\site-packages"
+    },
+    {
+      "name": "langchain-classic",
+      "version": "1.0.8",
+      "installation_path": "D:\\Dev\\Projects\\TradingAgents-AStock-Private\\.venv\\Lib\\site-packages"
+    },
+    {
+      "name": "langchain-community",
+      "version": "0.4.2",
+      "installation_path": "D:\\Dev\\Projects\\TradingAgents-AStock-Private\\.venv\\Lib\\site-packages"
+    },
+    {
+      "name": "langchain-core",
+      "version": "1.6.2",
+      "installation_path": "D:\\Dev\\Projects\\TradingAgents-AStock-Private\\.venv\\Lib\\site-packages"
+    },
+    {
+      "name": "langchain-experimental",
+      "version": "0.4.2",
+      "installation_path": "D:\\Dev\\Projects\\TradingAgents-AStock-Private\\.venv\\Lib\\site-packages"
+    },
+    {
+      "name": "langchain-openai",
+      "version": "1.6.2",
+      "installation_path": "D:\\Dev\\Projects\\TradingAgents-AStock-Private\\.venv\\Lib\\site-packages"
+    },
+    {
+      "name": "langchain-protocol",
+      "version": "0.0.19",
+      "installation_path": "D:\\Dev\\Projects\\TradingAgents-AStock-Private\\.venv\\Lib\\site-packages"
+    },
+    {
+      "name": "langchain-text-splitters",
+      "version": "1.1.2",
+      "installation_path": "D:\\Dev\\Projects\\TradingAgents-AStock-Private\\.venv\\Lib\\site-packages"
+    },
+    {
+      "name": "langgraph",
+      "version": "0.6.11",
+      "installation_path": "D:\\Dev\\Projects\\TradingAgents-AStock-Private\\.venv\\Lib\\site-packages"
+    },
+    {
+      "name": "langgraph-checkpoint",
+      "version": "2.1.2",
+      "installation_path": "D:\\Dev\\Projects\\TradingAgents-AStock-Private\\.venv\\Lib\\site-packages"
+    },
+    {
+      "name": "langgraph-checkpoint-sqlite",
+      "version": "2.0.11",
+      "installation_path": "D:\\Dev\\Projects\\TradingAgents-AStock-Private\\.venv\\Lib\\site-packages"
+    },
+    {
+      "name": "langgraph-prebuilt",
+      "version": "0.6.5",
+      "installation_path": "D:\\Dev\\Projects\\TradingAgents-AStock-Private\\.venv\\Lib\\site-packages"
+    },
+    {
+      "name": "langgraph-sdk",
+      "version": "0.2.15",
+      "installation_path": "D:\\Dev\\Projects\\TradingAgents-AStock-Private\\.venv\\Lib\\site-packages"
+    },
+    {
+      "name": "langsmith",
+      "version": "0.12.4",
+      "installation_path": "D:\\Dev\\Projects\\TradingAgents-AStock-Private\\.venv\\Lib\\site-packages"
+    },
+    {
+      "name": "lxml",
+      "version": "6.1.3",
+      "installation_path": "D:\\Dev\\Projects\\TradingAgents-AStock-Private\\.venv\\Lib\\site-packages"
+    },
+    {
+      "name": "markdown-it-py",
+      "version": "4.2.0",
+      "installation_path": "D:\\Dev\\Projects\\TradingAgents-AStock-Private\\.venv\\Lib\\site-packages"
+    },
+    {
+      "name": "MarkupSafe",
+      "version": "3.0.3",
+      "installation_path": "D:\\Dev\\Projects\\TradingAgents-AStock-Private\\.venv\\Lib\\site-packages"
+    },
+    {
+      "name": "mdurl",
+      "version": "0.1.2",
+      "installation_path": "D:\\Dev\\Projects\\TradingAgents-AStock-Private\\.venv\\Lib\\site-packages"
+    },
+    {
+      "name": "mootdx",
+      "version": "0.11.7",
+      "installation_path": "D:\\Dev\\Projects\\TradingAgents-AStock-Private\\.venv\\Lib\\site-packages"
+    },
+    {
+      "name": "multidict",
+      "version": "6.8.0",
+      "installation_path": "D:\\Dev\\Projects\\TradingAgents-AStock-Private\\.venv\\Lib\\site-packages"
+    },
+    {
+      "name": "multitasking",
+      "version": "0.0.13",
+      "installation_path": "D:\\Dev\\Projects\\TradingAgents-AStock-Private\\.venv\\Lib\\site-packages"
+    },
+    {
+      "name": "narwhals",
+      "version": "2.26.0",
+      "installation_path": "D:\\Dev\\Projects\\TradingAgents-AStock-Private\\.venv\\Lib\\site-packages"
+    },
+    {
+      "name": "numpy",
+      "version": "2.5.3",
+      "installation_path": "D:\\Dev\\Projects\\TradingAgents-AStock-Private\\.venv\\Lib\\site-packages"
+    },
+    {
+      "name": "openai",
+      "version": "3.13.0",
+      "installation_path": "D:\\Dev\\Projects\\TradingAgents-AStock-Private\\.venv\\Lib\\site-packages"
+    },
+    {
+      "name": "orjson",
+      "version": "3.12.0",
+      "installation_path": "D:\\Dev\\Projects\\TradingAgents-AStock-Private\\.venv\\Lib\\site-packages"
+    },
+    {
+      "name": "ormsgpack",
+      "version": "1.12.2",
+      "installation_path": "D:\\Dev\\Projects\\TradingAgents-AStock-Private\\.venv\\Lib\\site-packages"
+    },
+    {
+      "name": "packaging",
+      "version": "26.3",
+      "installation_path": "D:\\Dev\\Projects\\TradingAgents-AStock-Private\\.venv\\Lib\\site-packages"
+    },
+    {
+      "name": "pandas",
+      "version": "3.0.5",
+      "installation_path": "D:\\Dev\\Projects\\TradingAgents-AStock-Private\\.venv\\Lib\\site-packages"
+    },
+    {
+      "name": "parsel",
+      "version": "1.11.0",
+      "installation_path": "D:\\Dev\\Projects\\TradingAgents-AStock-Private\\.venv\\Lib\\site-packages"
+    },
+    {
+      "name": "peewee",
+      "version": "4.5.1",
+      "installation_path": "D:\\Dev\\Projects\\TradingAgents-AStock-Private\\.venv\\Lib\\site-packages"
+    },
+    {
+      "name": "pillow",
+      "version": "12.3.0",
+      "installation_path": "D:\\Dev\\Projects\\TradingAgents-AStock-Private\\.venv\\Lib\\site-packages"
+    },
+    {
+      "name": "pip",
+      "version": "26.1.1",
+      "installation_path": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\profiles\\r21-final\\ta-candidate\\Lib\\site-packages"
+    },
+    {
+      "name": "pip",
+      "version": "26.2.1",
+      "installation_path": "D:\\Dev\\Projects\\TradingAgents-AStock-Private\\.venv\\Lib\\site-packages"
+    },
+    {
+      "name": "platformdirs",
+      "version": "4.11.8",
+      "installation_path": "D:\\Dev\\Projects\\TradingAgents-AStock-Private\\.venv\\Lib\\site-packages"
+    },
+    {
+      "name": "pluggy",
+      "version": "1.6.0",
+      "installation_path": "D:\\Dev\\Projects\\TradingAgents-AStock-Private\\.venv\\Lib\\site-packages"
+    },
+    {
+      "name": "prettytable",
+      "version": "3.18.0",
+      "installation_path": "D:\\Dev\\Projects\\TradingAgents-AStock-Private\\.venv\\Lib\\site-packages"
+    },
+    {
+      "name": "prompt_toolkit",
+      "version": "3.0.53",
+      "installation_path": "D:\\Dev\\Projects\\TradingAgents-AStock-Private\\.venv\\Lib\\site-packages"
+    },
+    {
+      "name": "propcache",
+      "version": "0.5.2",
+      "installation_path": "D:\\Dev\\Projects\\TradingAgents-AStock-Private\\.venv\\Lib\\site-packages"
+    },
+    {
+      "name": "protobuf",
+      "version": "7.36.1",
+      "installation_path": "D:\\Dev\\Projects\\TradingAgents-AStock-Private\\.venv\\Lib\\site-packages"
+    },
+    {
+      "name": "py-mini-racer",
+      "version": "0.6.0",
+      "installation_path": "D:\\Dev\\Projects\\TradingAgents-AStock-Private\\.venv\\Lib\\site-packages"
+    },
+    {
+      "name": "py-spy",
+      "version": "0.4.2",
+      "installation_path": "D:\\Dev\\Projects\\TradingAgents-AStock-Private\\.venv\\Lib\\site-packages"
+    },
+    {
+      "name": "pyarrow",
+      "version": "25.0.1",
+      "installation_path": "D:\\Dev\\Projects\\TradingAgents-AStock-Private\\.venv\\Lib\\site-packages"
+    },
+    {
+      "name": "pycparser",
+      "version": "3.0",
+      "installation_path": "D:\\Dev\\Projects\\TradingAgents-AStock-Private\\.venv\\Lib\\site-packages"
+    },
+    {
+      "name": "pydantic",
+      "version": "2.13.5",
+      "installation_path": "D:\\Dev\\Projects\\TradingAgents-AStock-Private\\.venv\\Lib\\site-packages"
+    },
+    {
+      "name": "pydantic-settings",
+      "version": "2.15.0",
+      "installation_path": "D:\\Dev\\Projects\\TradingAgents-AStock-Private\\.venv\\Lib\\site-packages"
+    },
+    {
+      "name": "pydantic_core",
+      "version": "2.46.5",
+      "installation_path": "D:\\Dev\\Projects\\TradingAgents-AStock-Private\\.venv\\Lib\\site-packages"
+    },
+    {
+      "name": "pydeck",
+      "version": "0.9.3",
+      "installation_path": "D:\\Dev\\Projects\\TradingAgents-AStock-Private\\.venv\\Lib\\site-packages"
+    },
+    {
+      "name": "Pygments",
+      "version": "2.21.0",
+      "installation_path": "D:\\Dev\\Projects\\TradingAgents-AStock-Private\\.venv\\Lib\\site-packages"
+    },
+    {
+      "name": "pytest",
+      "version": "9.1.1",
+      "installation_path": "D:\\Dev\\Projects\\TradingAgents-AStock-Private\\.venv\\Lib\\site-packages"
+    },
+    {
+      "name": "python-dateutil",
+      "version": "2.9.0.post0",
+      "installation_path": "D:\\Dev\\Projects\\TradingAgents-AStock-Private\\.venv\\Lib\\site-packages"
+    },
+    {
+      "name": "python-dotenv",
+      "version": "1.2.3",
+      "installation_path": "D:\\Dev\\Projects\\TradingAgents-AStock-Private\\.venv\\Lib\\site-packages"
+    },
+    {
+      "name": "python-multipart",
+      "version": "0.0.32",
+      "installation_path": "D:\\Dev\\Projects\\TradingAgents-AStock-Private\\.venv\\Lib\\site-packages"
+    },
+    {
+      "name": "pytz",
+      "version": "2026.3.post1",
+      "installation_path": "D:\\Dev\\Projects\\TradingAgents-AStock-Private\\.venv\\Lib\\site-packages"
+    },
+    {
+      "name": "PyYAML",
+      "version": "6.0.3",
+      "installation_path": "D:\\Dev\\Projects\\TradingAgents-AStock-Private\\.venv\\Lib\\site-packages"
+    },
+    {
+      "name": "questionary",
+      "version": "2.1.1",
+      "installation_path": "D:\\Dev\\Projects\\TradingAgents-AStock-Private\\.venv\\Lib\\site-packages"
+    },
+    {
+      "name": "redis",
+      "version": "8.1.0",
+      "installation_path": "D:\\Dev\\Projects\\TradingAgents-AStock-Private\\.venv\\Lib\\site-packages"
+    },
+    {
+      "name": "referencing",
+      "version": "0.37.0",
+      "installation_path": "D:\\Dev\\Projects\\TradingAgents-AStock-Private\\.venv\\Lib\\site-packages"
+    },
+    {
+      "name": "regex",
+      "version": "2026.9.10",
+      "installation_path": "D:\\Dev\\Projects\\TradingAgents-AStock-Private\\.venv\\Lib\\site-packages"
+    },
+    {
+      "name": "requests",
+      "version": "2.34.2",
+      "installation_path": "D:\\Dev\\Projects\\TradingAgents-AStock-Private\\.venv\\Lib\\site-packages"
+    },
+    {
+      "name": "requests-toolbelt",
+      "version": "1.0.0",
+      "installation_path": "D:\\Dev\\Projects\\TradingAgents-AStock-Private\\.venv\\Lib\\site-packages"
+    },
+    {
+      "name": "rich",
+      "version": "15.0.0",
+      "installation_path": "D:\\Dev\\Projects\\TradingAgents-AStock-Private\\.venv\\Lib\\site-packages"
+    },
+    {
+      "name": "rpds-py",
+      "version": "2026.6.3",
+      "installation_path": "D:\\Dev\\Projects\\TradingAgents-AStock-Private\\.venv\\Lib\\site-packages"
+    },
+    {
+      "name": "ruff",
+      "version": "0.16.7",
+      "installation_path": "D:\\Dev\\Projects\\TradingAgents-AStock-Private\\.venv\\Lib\\site-packages"
+    },
+    {
+      "name": "setuptools",
+      "version": "84.0.0",
+      "installation_path": "D:\\Dev\\Projects\\TradingAgents-AStock-Private\\.venv\\Lib\\site-packages"
+    },
+    {
+      "name": "shellingham",
+      "version": "1.5.4",
+      "installation_path": "D:\\Dev\\Projects\\TradingAgents-AStock-Private\\.venv\\Lib\\site-packages"
+    },
+    {
+      "name": "six",
+      "version": "1.17.0",
+      "installation_path": "D:\\Dev\\Projects\\TradingAgents-AStock-Private\\.venv\\Lib\\site-packages"
+    },
+    {
+      "name": "sniffio",
+      "version": "1.3.1",
+      "installation_path": "D:\\Dev\\Projects\\TradingAgents-AStock-Private\\.venv\\Lib\\site-packages"
+    },
+    {
+      "name": "soupsieve",
+      "version": "2.9.2",
+      "installation_path": "D:\\Dev\\Projects\\TradingAgents-AStock-Private\\.venv\\Lib\\site-packages"
+    },
+    {
+      "name": "SQLAlchemy",
+      "version": "2.0.52",
+      "installation_path": "D:\\Dev\\Projects\\TradingAgents-AStock-Private\\.venv\\Lib\\site-packages"
+    },
+    {
+      "name": "sqlite-vec",
+      "version": "0.1.9",
+      "installation_path": "D:\\Dev\\Projects\\TradingAgents-AStock-Private\\.venv\\Lib\\site-packages"
+    },
+    {
+      "name": "starlette",
+      "version": "1.6.0",
+      "installation_path": "D:\\Dev\\Projects\\TradingAgents-AStock-Private\\.venv\\Lib\\site-packages"
+    },
+    {
+      "name": "stockstats",
+      "version": "0.6.8",
+      "installation_path": "D:\\Dev\\Projects\\TradingAgents-AStock-Private\\.venv\\Lib\\site-packages"
+    },
+    {
+      "name": "streamlit",
+      "version": "1.63.0",
+      "installation_path": "D:\\Dev\\Projects\\TradingAgents-AStock-Private\\.venv\\Lib\\site-packages"
+    },
+    {
+      "name": "tdxpy",
+      "version": "0.2.7",
+      "installation_path": "D:\\Dev\\Projects\\TradingAgents-AStock-Private\\.venv\\Lib\\site-packages"
+    },
+    {
+      "name": "tenacity",
+      "version": "8.5.0",
+      "installation_path": "D:\\Dev\\Projects\\TradingAgents-AStock-Private\\.venv\\Lib\\site-packages"
+    },
+    {
+      "name": "tiktoken",
+      "version": "0.14.0",
+      "installation_path": "D:\\Dev\\Projects\\TradingAgents-AStock-Private\\.venv\\Lib\\site-packages"
+    },
+    {
+      "name": "toml",
+      "version": "0.10.2",
+      "installation_path": "D:\\Dev\\Projects\\TradingAgents-AStock-Private\\.venv\\Lib\\site-packages"
+    },
+    {
+      "name": "tqdm",
+      "version": "4.70.1",
+      "installation_path": "D:\\Dev\\Projects\\TradingAgents-AStock-Private\\.venv\\Lib\\site-packages"
+    },
+    {
+      "name": "tradingagents-astock",
+      "version": "0.6.0",
+      "installation_path": "D:\\Dev\\Projects\\TradingAgents-AStock-Private\\.venv\\Lib\\site-packages"
+    },
+    {
+      "name": "truststore",
+      "version": "0.10.4",
+      "installation_path": "D:\\Dev\\Projects\\TradingAgents-AStock-Private\\.venv\\Lib\\site-packages"
+    },
+    {
+      "name": "typer",
+      "version": "0.27.2",
+      "installation_path": "D:\\Dev\\Projects\\TradingAgents-AStock-Private\\.venv\\Lib\\site-packages"
+    },
+    {
+      "name": "typing-inspection",
+      "version": "0.4.4",
+      "installation_path": "D:\\Dev\\Projects\\TradingAgents-AStock-Private\\.venv\\Lib\\site-packages"
+    },
+    {
+      "name": "typing_extensions",
+      "version": "4.16.0",
+      "installation_path": "D:\\Dev\\Projects\\TradingAgents-AStock-Private\\.venv\\Lib\\site-packages"
+    },
+    {
+      "name": "tzdata",
+      "version": "2026.3",
+      "installation_path": "D:\\Dev\\Projects\\TradingAgents-AStock-Private\\.venv\\Lib\\site-packages"
+    },
+    {
+      "name": "urllib3",
+      "version": "2.7.0",
+      "installation_path": "D:\\Dev\\Projects\\TradingAgents-AStock-Private\\.venv\\Lib\\site-packages"
+    },
+    {
+      "name": "uuid_utils",
+      "version": "0.17.1",
+      "installation_path": "D:\\Dev\\Projects\\TradingAgents-AStock-Private\\.venv\\Lib\\site-packages"
+    },
+    {
+      "name": "uvicorn",
+      "version": "0.52.4",
+      "installation_path": "D:\\Dev\\Projects\\TradingAgents-AStock-Private\\.venv\\Lib\\site-packages"
+    },
+    {
+      "name": "w3lib",
+      "version": "2.4.1",
+      "installation_path": "D:\\Dev\\Projects\\TradingAgents-AStock-Private\\.venv\\Lib\\site-packages"
+    },
+    {
+      "name": "watchdog",
+      "version": "6.0.0",
+      "installation_path": "D:\\Dev\\Projects\\TradingAgents-AStock-Private\\.venv\\Lib\\site-packages"
+    },
+    {
+      "name": "wcwidth",
+      "version": "0.8.3",
+      "installation_path": "D:\\Dev\\Projects\\TradingAgents-AStock-Private\\.venv\\Lib\\site-packages"
+    },
+    {
+      "name": "websockets",
+      "version": "16.1.1",
+      "installation_path": "D:\\Dev\\Projects\\TradingAgents-AStock-Private\\.venv\\Lib\\site-packages"
+    },
+    {
+      "name": "xxhash",
+      "version": "4.0.1",
+      "installation_path": "D:\\Dev\\Projects\\TradingAgents-AStock-Private\\.venv\\Lib\\site-packages"
+    },
+    {
+      "name": "yarl",
+      "version": "1.24.5",
+      "installation_path": "D:\\Dev\\Projects\\TradingAgents-AStock-Private\\.venv\\Lib\\site-packages"
+    },
+    {
+      "name": "yfinance",
+      "version": "1.7.0",
+      "installation_path": "D:\\Dev\\Projects\\TradingAgents-AStock-Private\\.venv\\Lib\\site-packages"
+    },
+    {
+      "name": "zstandard",
+      "version": "0.25.0",
+      "installation_path": "D:\\Dev\\Projects\\TradingAgents-AStock-Private\\.venv\\Lib\\site-packages"
+    }
+  ]
+}

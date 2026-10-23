@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="6" skipped="0" tests="30" time="2.313" timestamp="2026-10-12T10:00:04.290180+08:00" hostname="CHINAMI-4QO1VLN"><testcase classname="tests.component.test_historical_opening_execution" name="test_full_payload_adapter_hash_and_unknown_pit" time="1.070" /><testcase classname="tests.component.test_historical_opening_execution" name="test_execution_fact_only_changes_t_plus_one" time="0.007" /><testcase classname="tests.component.test_historical_opening_execution" name="test_positive_does_not_override_other_unknown_or_blocks[UNKNOWN-generic_missing]" time="0.004" /><testcase classname="tests.component.test_historical_opening_execution" name="test_positive_does_not_override_other_unknown_or_blocks[NOT_LISTED-not_listed]" time="0.003" /><testcase classname="tests.component.test_historical_opening_execution" name="test_positive_does_not_override_other_unknown_or_blocks[DELISTED-delisted]" time="0.004" /><testcase classname="tests.component.test_historical_opening_execution" name="test_positive_does_not_override_other_unknown_or_blocks[BUY_BLOCKED_UPPER_LIMIT-side_block]" time="0.004" /><testcase classname="tests.component.test_historical_opening_execution" name="test_positive_does_not_override_other_unknown_or_blocks[SUSPENDED-suspended]" time="0.004" /><testcase classname="tests.component.test_historical_opening_execution" name="test_positive_does_not_override_absence" time="0.003" /><testcase classname="tests.component.test_historical_opening_execution" name="test_new_clock_rejects_utc_default" time="0.003" /><testcase classname="tests.component.test_historical_opening_execution" name="test_bad_target_rejected[2026-09-11T09:30:00]" time="0.002" /><testcase classname="tests.component.test_historical_opening_execution" name="test_bad_target_rejected[2026-09-11T09:30:00+00:00]" time="0.002" /><testcase classname="tests.component.test_historical_opening_execution" name="test_utc_equivalent_target_accepted" time="0.002" /><testcase classname="tests.component.test_historical_opening_execution" name="test_snapshot_full_partition_roundtrip_and_v2_compat" time="0.369" /><testcase classname="tests.component.test_historical_opening_execution" name="test_old_availability_does_not_invent_exchange_rule" time="0.001" /><testcase classname="tests.component.test_historical_opening_execution" name="test_late_execution_information_never_changes_t_decision[information_available_at-2026-09-11T10:30:00+08:00]" time="0.009" /><testcase classname="tests.component.test_historical_opening_execution" name="test_late_execution_information_never_changes_t_decision[retrieved_at-2026-10-12T08:00:00+00:00]" time="0.007" /><testcase classname="tests.component.test_historical_opening_execution" name="test_qualified_new_ledger_matches_legacy_and_volume_is_not_quota" time="0.008"><failure message="AttributeError: 'Fill' object has no attribute 'price'">make_engine = &lt;function make_engine.&lt;locals&gt;.build at 0x000001D65796F1A0&gt;
+bar_factory = &lt;function bar_factory.&lt;locals&gt;.build at 0x000001D65796F240&gt;
+target_contribution = &lt;function target_contribution.&lt;locals&gt;.build at 0x000001D65796F9C0&gt;
+predetermined_targets = &lt;class 'conftest.PredeterminedTargetSource'&gt;
+
+    def test_qualified_new_ledger_matches_legacy_and_volume_is_not_quota(make_engine,bar_factory,target_contribution,predetermined_targets):
+        args=(make_engine,bar_factory,target_contribution,predetermined_targets)
+        tz=api().SHANGHAI
+        known=TradabilityStatus(I,S1,TradabilityStatusKind.TRADABLE,None,Availability(datetime(2026,9,11,9,0,tzinfo=tz),datetime(2026,9,11,9,0,tzinfo=tz),AvailabilityBasis.OBSERVED),"qualified-baseline")
+        baseline,_=run((),(known,),*args,execution_eligibility_mode=api().ExecutionEligibilityMode.LEGACY)
+        new,_=run((mapped(payload()),),(gap(),),*args)
+        data=payload();data["tdx_activity"]["opening_volume_lots"]=1
+        altered,_=run((mapped(seal(data)),),(gap(),),*args)
+        assert baseline.fills==new.fills==altered.fills
+        assert baseline.cash_entries==new.cash_entries==altered.cash_entries
+        assert baseline.holdings_entries==new.holdings_entries
+        assert new.fills[0].quantity==new.session(S0).plans[0].order_quantity
+&gt;       assert new.fills[0].price!=api().HistoricalOpeningEvidence.from_payload(payload()).payload["tdx_activity"]["last_opening_price"]
+               ^^^^^^^^^^^^^^^^^^
+E       AttributeError: 'Fill' object has no attribute 'price'
+
+tests\component\test_historical_opening_execution.py:160: AttributeError</failure></testcase><testcase classname="tests.component.test_historical_opening_execution" name="test_missing_rules_still_rejects" time="0.003" /><testcase classname="tests.component.test_historical_opening_execution" name="test_real_halt_controls_never_fill_or_retry_after_resume[513100]" time="0.001"><failure message="AttributeError: 'InstrumentMaster' object has no attribute 'instrument'. Did you mean: '_instruments'?">symbol = '513100'
+make_engine = &lt;function make_engine.&lt;locals&gt;.build at 0x000001D65788D1C0&gt;
+bar_factory = &lt;function bar_factory.&lt;locals&gt;.build at 0x000001D65788CFE0&gt;
+target_contribution = &lt;function target_contribution.&lt;locals&gt;.build at 0x000001D65788D580&gt;
+predetermined_targets = &lt;class 'conftest.PredeterminedTargetSource'&gt;
+
+    @pytest.mark.parametrize("symbol",["513100","159509"])
+    def test_real_halt_controls_never_fill_or_retry_after_resume(symbol,make_engine,bar_factory,target_contribution,predetermined_targets):
+        from systematic_investing.backtest.engine import EngineClock
+        from systematic_investing.domain.market import MarketCalendar,TradingSession
+        instrument=InstrumentId.parse(("XSHG:" if symbol.startswith("5") else "XSHE:")+symbol)
+        # Registration reuses approved ETF rules; event eligibility is the subject.
+        from systematic_investing.instrument_master.repository import default_m0_master
+        master=default_m0_master()
+&gt;       reference=master.instrument(I,S1)
+                  ^^^^^^^^^^^^^^^^^
+E       AttributeError: 'InstrumentMaster' object has no attribute 'instrument'. Did you mean: '_instruments'?
+
+tests\component\test_historical_opening_execution.py:177: AttributeError</failure></testcase><testcase classname="tests.component.test_historical_opening_execution" name="test_real_halt_controls_never_fill_or_retry_after_resume[159509]" time="0.002"><failure message="AttributeError: 'InstrumentMaster' object has no attribute 'instrument'. Did you mean: '_instruments'?">symbol = '159509'
+make_engine = &lt;function make_engine.&lt;locals&gt;.build at 0x000001D65788E160&gt;
+bar_factory = &lt;function bar_factory.&lt;locals&gt;.build at 0x000001D65788E2A0&gt;
+target_contribution = &lt;function target_contribution.&lt;locals&gt;.build at 0x000001D65788E3E0&gt;
+predetermined_targets = &lt;class 'conftest.PredeterminedTargetSource'&gt;
+
+    @pytest.mark.parametrize("symbol",["513100","159509"])
+    def test_real_halt_controls_never_fill_or_retry_after_resume(symbol,make_engine,bar_factory,target_contribution,predetermined_targets):
+        from systematic_investing.backtest.engine import EngineClock
+        from systematic_investing.domain.market import MarketCalendar,TradingSession
+        instrument=InstrumentId.parse(("XSHG:" if symbol.startswith("5") else "XSHE:")+symbol)
+        # Registration reuses approved ETF rules; event eligibility is the subject.
+        from systematic_investing.instrument_master.repository import default_m0_master
+        master=default_m0_master()
+&gt;       reference=master.instrument(I,S1)
+                  ^^^^^^^^^^^^^^^^^
+E       AttributeError: 'InstrumentMaster' object has no attribute 'instrument'. Did you mean: '_instruments'?
+
+tests\component\test_historical_opening_execution.py:177: AttributeError</failure></testcase><testcase classname="tests.component.test_historical_opening_execution" name="test_late_and_unknown_strategy_pit_still_blocks" time="0.003"><failure message="AttributeError: type object 'GateAction' has no attribute 'INCREASE_EXPOSURE'">bar_factory = &lt;function bar_factory.&lt;locals&gt;.build at 0x000001D65788D3A0&gt;
+m0_master = &lt;systematic_investing.instrument_master.repository.InstrumentMaster object at 0x000001D6566B43B0&gt;
+
+    def test_late_and_unknown_strategy_pit_still_blocks(bar_factory,m0_master):
+        from systematic_investing.data.quality import DataQualityGate,DatasetPolicy,UnknownHandling,GateAction
+        # Execution facts do not participate in required strategy PIT checks.
+        base=CanonicalDataset((bar_factory(I,S1,open="4",close="4"),),(),(gap(),),(),(),(mapped(payload()),))
+        gate=DataQualityGate(m0_master,DatasetPolicy())
+&gt;       result=gate.evaluate(base,information_cutoff=datetime(2026,9,11,8,tzinfo=UTC),retrieved_at=datetime(2026,10,12,tzinfo=UTC),action=GateAction.INCREASE_EXPOSURE)
+                                                                                                                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       AttributeError: type object 'GateAction' has no attribute 'INCREASE_EXPOSURE'
+
+tests\component\test_historical_opening_execution.py:195: AttributeError</failure></testcase><testcase classname="tests.unit.test_historical_opening_provider" name="test_real_new_library_pin_is_opt_in" time="0.001" /><testcase classname="tests.unit.test_historical_opening_provider" name="test_actual_legacy_failure_constructs_only_unknown_constraint" time="0.001"><failure message="AssertionError: assert False&#10; +  where False = isinstance(ChStockDataMalformedError('tradability payload must declare a boolean suspended flag'), HistoricalSuspensionUnavailableError)&#10; +    where ChStockDataMalformedError('tradability payload must declare a boolean suspended flag') = ProviderFailure(error_code=&lt;ProviderErrorCode.MALFORMED_DATA: 'MALFORMED_DATA'&gt;, message='tradability payload must dec...5a55eff74', warnings=()), cause=ChStockDataMalformedError('tradability payload must declare a boolean suspended flag')).cause">monkeypatch = &lt;_pytest.monkeypatch.MonkeyPatch object at 0x000001D6566B9160&gt;
+
+    def test_actual_legacy_failure_constructs_only_unknown_constraint(monkeypatch):
+        import chstockdata
+        from chstockdata import a_stock,suspension
+        from chstockdata.fetch_result import FetchAttempt
+        snapshot={"rows":[],"reported_count":0,"snapshot_pages":1,"retrieved_at":NOW.isoformat(),"status":"normal_empty","reason":None,"attempts":[FetchAttempt("eastmoney","eastmoney:suspension","normal_empty",NOW.isoformat(),0,record_count=0)]}
+        monkeypatch.setattr(suspension,"_load_suspension_snapshot",lambda _:snapshot)
+        monkeypatch.setattr(a_stock,"_load_suspension_snapshot",lambda _:snapshot)
+        monkeypatch.setattr(a_stock,"_today",lambda:date(2026,10,12))
+        provider=ChStockDataProvider(client=LibraryChStockDataClient(library=chstockdata,historical_opening_candidate=True),clock=lambda:NOW)
+        request=TradabilityRequest((I,),DAY)
+        failure=provider.fetch_tradability(request)
+        assert isinstance(failure,ProviderFailure)
+&gt;       assert isinstance(failure.cause,HistoricalSuspensionUnavailableError)
+E       AssertionError: assert False
+E        +  where False = isinstance(ChStockDataMalformedError('tradability payload must declare a boolean suspended flag'), HistoricalSuspensionUnavailableError)
+E        +    where ChStockDataMalformedError('tradability payload must declare a boolean suspended flag') = ProviderFailure(error_code=&lt;ProviderErrorCode.MALFORMED_DATA: 'MALFORMED_DATA'&gt;, message='tradability payload must dec...5a55eff74', warnings=()), cause=ChStockDataMalformedError('tradability payload must declare a boolean suspended flag')).cause
+
+tests\unit\test_historical_opening_provider.py:36: AssertionError</failure></testcase><testcase classname="tests.unit.test_historical_opening_provider" name="test_generic_failure_cannot_become_gap[snapshot_truncated]" time="0.001" /><testcase classname="tests.unit.test_historical_opening_provider" name="test_generic_failure_cannot_become_gap[TimeoutError]" time="0.001" /><testcase classname="tests.unit.test_historical_opening_provider" name="test_generic_failure_cannot_become_gap[future_suspension_unavailable]" time="0.001" /><testcase classname="tests.unit.test_historical_opening_provider" name="test_old_client_missing_optional_method_is_typed_unsupported" time="0.001"><failure message="AssertionError: assert 'INTERNAL_ADAPTER_ERROR' == 'UNSUPPORTED_CAPABILITY'&#10;  &#10;  - UNSUPPORTED_CAPABILITY&#10;  + INTERNAL_ADAPTER_ERROR">def test_old_client_missing_optional_method_is_typed_unsupported():
+        provider=ChStockDataProvider(client=SimpleNamespace(provider_version=lambda:"0.3.0"),clock=lambda:NOW)
+        result=provider.fetch_historical_opening_evidence(HistoricalOpeningRequest((I,),DAY))
+        assert isinstance(result,ProviderFailure)
+&gt;       assert result.error_code.value=="UNSUPPORTED_CAPABILITY"
+E       AssertionError: assert 'INTERNAL_ADAPTER_ERROR' == 'UNSUPPORTED_CAPABILITY'
+E         
+E         - UNSUPPORTED_CAPABILITY
+E         + INTERNAL_ADAPTER_ERROR
+
+tests\unit\test_historical_opening_provider.py:58: AssertionError</failure></testcase><testcase classname="tests.research.test_historical_opening_wiring" name="test_basic_explicit_clock_engine_path_and_manifest_identity" time="0.048" /><testcase classname="tests.research.test_historical_opening_wiring" name="test_basic_new_mode_refuses_legacy_receipt" time="0.004" /><testcase classname="tests.research.test_historical_opening_wiring" name="test_oos_explicit_clock_actual_engine_path_and_identity" time="0.030" /></testsuite></testsuites>

@@ -1,0 +1,76 @@
+{
+    "id":  "1216741269",
+    "text":  "10 0 ， 951 ， 955 ， 71",
+    "pit_qualified":  false,
+    "engine":  "Windows.Media.Ocr existing zh-Hans-CN",
+    "maximum_image_dimension":  10000,
+    "machine_seconds":  0.0187869,
+    "pixel_height":  96,
+    "image_sha256":  "7459a3fe7fe8ce90e261ae9c6eb196948e0b606655c37075c504adf6c41bf69d",
+    "pixel_width":  489,
+    "source_sha256":  "28f31493c52375f096a45ad326ad8421357f9e73252858ae236d6fa715aad2d2",
+    "physical_page":  12,
+    "lines":  [
+                  {
+                      "text":  "10 0 ， 951 ， 955 ， 71",
+                      "words":  [
+                                    {
+                                        "y":  26,
+                                        "height":  43,
+                                        "width":  49,
+                                        "text":  "10",
+                                        "x":  102
+                                    },
+                                    {
+                                        "y":  26,
+                                        "height":  43,
+                                        "width":  23,
+                                        "text":  "0",
+                                        "x":  215
+                                    },
+                                    {
+                                        "y":  57,
+                                        "height":  21,
+                                        "width":  10,
+                                        "text":  "，",
+                                        "x":  241
+                                    },
+                                    {
+                                        "y":  26,
+                                        "height":  44,
+                                        "width":  73,
+                                        "text":  "951",
+                                        "x":  253
+                                    },
+                                    {
+                                        "y":  56,
+                                        "height":  22,
+                                        "width":  10,
+                                        "text":  "，",
+                                        "x":  331
+                                    },
+                                    {
+                                        "y":  26,
+                                        "height":  44,
+                                        "width":  74,
+                                        "text":  "955",
+                                        "x":  342
+                                    },
+                                    {
+                                        "y":  56,
+                                        "height":  11,
+                                        "width":  11,
+                                        "text":  "，",
+                                        "x":  416
+                                    },
+                                    {
+                                        "y":  26,
+                                        "height":  43,
+                                        "width":  47,
+                                        "text":  "71",
+                                        "x":  428
+                                    }
+                                ]
+                  }
+              ]
+}

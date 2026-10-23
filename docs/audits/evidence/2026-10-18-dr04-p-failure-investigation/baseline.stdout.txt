@@ -1,0 +1,546 @@
+============================= test session starts =============================
+platform win32 -- Python 3.14.5, pytest-9.1.1, pluggy-1.6.0 -- D:\Dev\Projects\chstockdata\.venv\Scripts\python.exe
+rootdir: D:\Dev\Projects\chstockdata\.pytest_cache\dr04-p-investigation-d6edb4b21fba\baseline-v0.4.2
+configfile: pyproject.toml
+plugins: anyio-4.14.2, langsmith-0.10.9
+collecting ... collected 2 items
+
+tests/test_rh1_git_line_endings.py::test_crlf_preserves_added_line_discrimination[False] FAILED [ 50%]
+tests/test_rh1_git_line_endings.py::test_crlf_preserves_added_line_discrimination[True] FAILED [100%]
+
+================================== FAILURES ===================================
+____________ test_crlf_preserves_added_line_discrimination[False] _____________
+tests\test_rh1_git_line_endings.py:43: in test_crlf_preserves_added_line_discrimination
+    ranges = gate._added_line_ranges()
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+scripts\check_rh1_static.py:116: in _added_line_ranges
+    raise RuntimeError(f"git diff failed: {result.stderr.strip()}")
+E   RuntimeError: git diff failed: warning: Limiting comparison with pathspecs is only supported if both paths are directories.
+E   usage: git diff --no-index [<options>] <path> <path> [<pathspec>...]
+E   
+E   Diff output format options
+E       -p, --patch           generate patch
+E       -s, --no-patch        suppress diff output
+E       -u                    generate patch
+E       -U, --unified[=<n>]   generate diffs with <n> lines context
+E       -W, --[no-]function-context
+E                             generate diffs with <n> lines context
+E       --raw                 generate the diff in raw format
+E       --patch-with-raw      synonym for '-p --raw'
+E       --patch-with-stat     synonym for '-p --stat'
+E       --numstat             machine friendly --stat
+E       --shortstat           output only the last line of --stat
+E       -X, --dirstat[=<param1>,<param2>...]
+E                             output the distribution of relative amount of changes for each sub-directory
+E       --cumulative          synonym for --dirstat=cumulative
+E       --dirstat-by-file[=<param1>,<param2>...]
+E                             synonym for --dirstat=files,<param1>,<param2>...
+E       --check               warn if changes introduce conflict markers or whitespace errors
+E       --summary             condensed summary such as creations, renames and mode changes
+E       --name-only           show only names of changed files
+E       --name-status         show only names and status of changed files
+E       --stat[=<width>[,<name-width>[,<count>]]]
+E                             generate diffstat
+E       --stat-width <width>  generate diffstat with a given width
+E       --stat-name-width <width>
+E                             generate diffstat with a given name width
+E       --stat-graph-width <width>
+E                             generate diffstat with a given graph width
+E       --stat-count <count>  generate diffstat with limited lines
+E       --[no-]compact-summary
+E                             generate compact summary in diffstat
+E       --binary              output a binary diff that can be applied
+E       --[no-]full-index     show full pre- and post-image object names on the "index" lines
+E       --[no-]color[=<when>] show colored diff
+E       --ws-error-highlight <kind>
+E                             highlight whitespace errors in the 'context', 'old' or 'new' lines in the diff
+E       -z                    do not munge pathnames and use NULs as output field terminators in --raw or --numstat
+E       --[no-]abbrev[=<n>]   use <n> digits to display object names
+E       --src-prefix <prefix> show the given source prefix instead of "a/"
+E       --dst-prefix <prefix> show the given destination prefix instead of "b/"
+E       --line-prefix <prefix>
+E                             prepend an additional prefix to every line of output
+E       --no-prefix           do not show any source or destination prefix
+E       --default-prefix      use default prefixes a/ and b/
+E       --inter-hunk-context <n>
+E                             show context between diff hunks up to the specified number of lines
+E       --output-indicator-new <char>
+E                             specify the character to indicate a new line instead of '+'
+E       --output-indicator-old <char>
+E                             specify the character to indicate an old line instead of '-'
+E       --output-indicator-context <char>
+E                             specify the character to indicate a context instead of ' '
+E   
+E   Diff rename options
+E       -B, --break-rewrites[=<n>[/<m>]]
+E                             break complete rewrite changes into pairs of delete and create
+E       -M, --find-renames[=<n>]
+E                             detect renames
+E       -D, --irreversible-delete
+E                             omit the preimage for deletes
+E       -C, --find-copies[=<n>]
+E                             detect copies
+E       --[no-]find-copies-harder
+E                             use unmodified files as source to find copies
+E       --no-renames          disable rename detection
+E       --[no-]rename-empty   use empty blobs as rename source
+E       --[no-]follow         continue listing the history of a file beyond renames
+E       -l <n>                prevent rename/copy detection if the number of rename/copy targets exceeds given limit
+E   
+E   Diff algorithm options
+E       --minimal             produce the smallest possible diff
+E       -w, --ignore-all-space
+E                             ignore whitespace when comparing lines
+E       -b, --ignore-space-change
+E                             ignore changes in amount of whitespace
+E       --ignore-space-at-eol ignore changes in whitespace at EOL
+E       --ignore-cr-at-eol    ignore carrier-return at the end of line
+E       --ignore-blank-lines  ignore changes whose lines are all blank
+E       -I, --[no-]ignore-matching-lines <regex>
+E                             ignore changes whose all lines match <regex>
+E       --[no-]indent-heuristic
+E                             heuristic to shift diff hunk boundaries for easy reading
+E       --patience            generate diff using the "patience diff" algorithm
+E       --histogram           generate diff using the "histogram diff" algorithm
+E       --diff-algorithm <algorithm>
+E                             choose a diff algorithm
+E       --anchored <text>     generate diff using the "anchored diff" algorithm
+E       --word-diff[=<mode>]  show word diff, using <mode> to delimit changed words
+E       --word-diff-regex <regex>
+E                             use <regex> to decide what a word is
+E       --color-words[=<regex>]
+E                             equivalent to --word-diff=color --word-diff-regex=<regex>
+E       --[no-]color-moved[=<mode>]
+E                             moved lines of code are colored differently
+E       --[no-]color-moved-ws <mode>
+E                             how white spaces are ignored in --color-moved
+E   
+E   Other diff options
+E       --[no-]relative[=<prefix>]
+E                             when run from subdir, exclude changes outside and show relative paths
+E       -a, --[no-]text       treat all files as text
+E       -R                    swap two inputs, reverse the diff
+E       --[no-]exit-code      exit with 1 if there were differences, 0 otherwise
+E       --[no-]quiet          disable all output of the program
+E       --[no-]ext-diff       allow an external diff helper to be executed
+E       --[no-]textconv       run external text conversion filters when comparing binary files
+E       --ignore-submodules[=<when>]
+E                             ignore changes to submodules in the diff generation
+E       --submodule[=<format>]
+E                             specify how differences in submodules are shown
+E       --ita-invisible-in-index
+E                             hide 'git add -N' entries from the index
+E       --ita-visible-in-index
+E                             treat 'git add -N' entries as real in the index
+E       -S <string>           look for differences that change the number of occurrences of the specified string
+E       -G <regex>            look for differences that change the number of occurrences of the specified regex
+E       --pickaxe-all         show all changes in the changeset with -S or -G
+E       --pickaxe-regex       treat <string> in -S as extended POSIX regular expression
+E       -O <file>             control the order in which files appear in the output
+E       --rotate-to <path>    show the change in the specified path first
+E       --skip-to <path>      skip the output to the specified path
+E       --find-object <object-id>
+E                             look for differences that change the number of occurrences of the specified object
+E       --diff-filter [(A|C|D|M|R|T|U|X|B)...[*]]
+E                             select files by diff type
+E       --max-depth <depth>   maximum tree depth to recurse
+E       --output <file>       output to a specific file
+_____________ test_crlf_preserves_added_line_discrimination[True] _____________
+tests\test_rh1_git_line_endings.py:43: in test_crlf_preserves_added_line_discrimination
+    ranges = gate._added_line_ranges()
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+scripts\check_rh1_static.py:116: in _added_line_ranges
+    raise RuntimeError(f"git diff failed: {result.stderr.strip()}")
+E   RuntimeError: git diff failed: warning: Limiting comparison with pathspecs is only supported if both paths are directories.
+E   usage: git diff --no-index [<options>] <path> <path> [<pathspec>...]
+E   
+E   Diff output format options
+E       -p, --patch           generate patch
+E       -s, --no-patch        suppress diff output
+E       -u                    generate patch
+E       -U, --unified[=<n>]   generate diffs with <n> lines context
+E       -W, --[no-]function-context
+E                             generate diffs with <n> lines context
+E       --raw                 generate the diff in raw format
+E       --patch-with-raw      synonym for '-p --raw'
+E       --patch-with-stat     synonym for '-p --stat'
+E       --numstat             machine friendly --stat
+E       --shortstat           output only the last line of --stat
+E       -X, --dirstat[=<param1>,<param2>...]
+E                             output the distribution of relative amount of changes for each sub-directory
+E       --cumulative          synonym for --dirstat=cumulative
+E       --dirstat-by-file[=<param1>,<param2>...]
+E                             synonym for --dirstat=files,<param1>,<param2>...
+E       --check               warn if changes introduce conflict markers or whitespace errors
+E       --summary             condensed summary such as creations, renames and mode changes
+E       --name-only           show only names of changed files
+E       --name-status         show only names and status of changed files
+E       --stat[=<width>[,<name-width>[,<count>]]]
+E                             generate diffstat
+E       --stat-width <width>  generate diffstat with a given width
+E       --stat-name-width <width>
+E                             generate diffstat with a given name width
+E       --stat-graph-width <width>
+E                             generate diffstat with a given graph width
+E       --stat-count <count>  generate diffstat with limited lines
+E       --[no-]compact-summary
+E                             generate compact summary in diffstat
+E       --binary              output a binary diff that can be applied
+E       --[no-]full-index     show full pre- and post-image object names on the "index" lines
+E       --[no-]color[=<when>] show colored diff
+E       --ws-error-highlight <kind>
+E                             highlight whitespace errors in the 'context', 'old' or 'new' lines in the diff
+E       -z                    do not munge pathnames and use NULs as output field terminators in --raw or --numstat
+E       --[no-]abbrev[=<n>]   use <n> digits to display object names
+E       --src-prefix <prefix> show the given source prefix instead of "a/"
+E       --dst-prefix <prefix> show the given destination prefix instead of "b/"
+E       --line-prefix <prefix>
+E                             prepend an additional prefix to every line of output
+E       --no-prefix           do not show any source or destination prefix
+E       --default-prefix      use default prefixes a/ and b/
+E       --inter-hunk-context <n>
+E                             show context between diff hunks up to the specified number of lines
+E       --output-indicator-new <char>
+E                             specify the character to indicate a new line instead of '+'
+E       --output-indicator-old <char>
+E                             specify the character to indicate an old line instead of '-'
+E       --output-indicator-context <char>
+E                             specify the character to indicate a context instead of ' '
+E   
+E   Diff rename options
+E       -B, --break-rewrites[=<n>[/<m>]]
+E                             break complete rewrite changes into pairs of delete and create
+E       -M, --find-renames[=<n>]
+E                             detect renames
+E       -D, --irreversible-delete
+E                             omit the preimage for deletes
+E       -C, --find-copies[=<n>]
+E                             detect copies
+E       --[no-]find-copies-harder
+E                             use unmodified files as source to find copies
+E       --no-renames          disable rename detection
+E       --[no-]rename-empty   use empty blobs as rename source
+E       --[no-]follow         continue listing the history of a file beyond renames
+E       -l <n>                prevent rename/copy detection if the number of rename/copy targets exceeds given limit
+E   
+E   Diff algorithm options
+E       --minimal             produce the smallest possible diff
+E       -w, --ignore-all-space
+E                             ignore whitespace when comparing lines
+E       -b, --ignore-space-change
+E                             ignore changes in amount of whitespace
+E       --ignore-space-at-eol ignore changes in whitespace at EOL
+E       --ignore-cr-at-eol    ignore carrier-return at the end of line
+E       --ignore-blank-lines  ignore changes whose lines are all blank
+E       -I, --[no-]ignore-matching-lines <regex>
+E                             ignore changes whose all lines match <regex>
+E       --[no-]indent-heuristic
+E                             heuristic to shift diff hunk boundaries for easy reading
+E       --patience            generate diff using the "patience diff" algorithm
+E       --histogram           generate diff using the "histogram diff" algorithm
+E       --diff-algorithm <algorithm>
+E                             choose a diff algorithm
+E       --anchored <text>     generate diff using the "anchored diff" algorithm
+E       --word-diff[=<mode>]  show word diff, using <mode> to delimit changed words
+E       --word-diff-regex <regex>
+E                             use <regex> to decide what a word is
+E       --color-words[=<regex>]
+E                             equivalent to --word-diff=color --word-diff-regex=<regex>
+E       --[no-]color-moved[=<mode>]
+E                             moved lines of code are colored differently
+E       --[no-]color-moved-ws <mode>
+E                             how white spaces are ignored in --color-moved
+E   
+E   Other diff options
+E       --[no-]relative[=<prefix>]
+E                             when run from subdir, exclude changes outside and show relative paths
+E       -a, --[no-]text       treat all files as text
+E       -R                    swap two inputs, reverse the diff
+E       --[no-]exit-code      exit with 1 if there were differences, 0 otherwise
+E       --[no-]quiet          disable all output of the program
+E       --[no-]ext-diff       allow an external diff helper to be executed
+E       --[no-]textconv       run external text conversion filters when comparing binary files
+E       --ignore-submodules[=<when>]
+E                             ignore changes to submodules in the diff generation
+E       --submodule[=<format>]
+E                             specify how differences in submodules are shown
+E       --ita-invisible-in-index
+E                             hide 'git add -N' entries from the index
+E       --ita-visible-in-index
+E                             treat 'git add -N' entries as real in the index
+E       -S <string>           look for differences that change the number of occurrences of the specified string
+E       -G <regex>            look for differences that change the number of occurrences of the specified regex
+E       --pickaxe-all         show all changes in the changeset with -S or -G
+E       --pickaxe-regex       treat <string> in -S as extended POSIX regular expression
+E       -O <file>             control the order in which files appear in the output
+E       --rotate-to <path>    show the change in the specified path first
+E       --skip-to <path>      skip the output to the specified path
+E       --find-object <object-id>
+E                             look for differences that change the number of occurrences of the specified object
+E       --diff-filter [(A|C|D|M|R|T|U|X|B)...[*]]
+E                             select files by diff type
+E       --max-depth <depth>   maximum tree depth to recurse
+E       --output <file>       output to a specific file
+- generated xml file: D:\Dev\Projects\chstockdata\docs\audits\evidence\2026-10-18-dr04-p-failure-investigation\baseline.xml -
+=========================== short test summary info ===========================
+FAILED tests/test_rh1_git_line_endings.py::test_crlf_preserves_added_line_discrimination[False] - RuntimeError: git diff failed: warning: Limiting comparison with pathspecs is only supported if both paths are directories.
+usage: git diff --no-index [<options>] <path> <path> [<pathspec>...]
+
+Diff output format options
+    -p, --patch           generate patch
+    -s, --no-patch        suppress diff output
+    -u                    generate patch
+    -U, --unified[=<n>]   generate diffs with <n> lines context
+    -W, --[no-]function-context
+                          generate diffs with <n> lines context
+    --raw                 generate the diff in raw format
+    --patch-with-raw      synonym for '-p --raw'
+    --patch-with-stat     synonym for '-p --stat'
+    --numstat             machine friendly --stat
+    --shortstat           output only the last line of --stat
+    -X, --dirstat[=<param1>,<param2>...]
+                          output the distribution of relative amount of changes for each sub-directory
+    --cumulative          synonym for --dirstat=cumulative
+    --dirstat-by-file[=<param1>,<param2>...]
+                          synonym for --dirstat=files,<param1>,<param2>...
+    --check               warn if changes introduce conflict markers or whitespace errors
+    --summary             condensed summary such as creations, renames and mode changes
+    --name-only           show only names of changed files
+    --name-status         show only names and status of changed files
+    --stat[=<width>[,<name-width>[,<count>]]]
+                          generate diffstat
+    --stat-width <width>  generate diffstat with a given width
+    --stat-name-width <width>
+                          generate diffstat with a given name width
+    --stat-graph-width <width>
+                          generate diffstat with a given graph width
+    --stat-count <count>  generate diffstat with limited lines
+    --[no-]compact-summary
+                          generate compact summary in diffstat
+    --binary              output a binary diff that can be applied
+    --[no-]full-index     show full pre- and post-image object names on the "index" lines
+    --[no-]color[=<when>] show colored diff
+    --ws-error-highlight <kind>
+                          highlight whitespace errors in the 'context', 'old' or 'new' lines in the diff
+    -z                    do not munge pathnames and use NULs as output field terminators in --raw or --numstat
+    --[no-]abbrev[=<n>]   use <n> digits to display object names
+    --src-prefix <prefix> show the given source prefix instead of "a/"
+    --dst-prefix <prefix> show the given destination prefix instead of "b/"
+    --line-prefix <prefix>
+                          prepend an additional prefix to every line of output
+    --no-prefix           do not show any source or destination prefix
+    --default-prefix      use default prefixes a/ and b/
+    --inter-hunk-context <n>
+                          show context between diff hunks up to the specified number of lines
+    --output-indicator-new <char>
+                          specify the character to indicate a new line instead of '+'
+    --output-indicator-old <char>
+                          specify the character to indicate an old line instead of '-'
+    --output-indicator-context <char>
+                          specify the character to indicate a context instead of ' '
+
+Diff rename options
+    -B, --break-rewrites[=<n>[/<m>]]
+                          break complete rewrite changes into pairs of delete and create
+    -M, --find-renames[=<n>]
+                          detect renames
+    -D, --irreversible-delete
+                          omit the preimage for deletes
+    -C, --find-copies[=<n>]
+                          detect copies
+    --[no-]find-copies-harder
+                          use unmodified files as source to find copies
+    --no-renames          disable rename detection
+    --[no-]rename-empty   use empty blobs as rename source
+    --[no-]follow         continue listing the history of a file beyond renames
+    -l <n>                prevent rename/copy detection if the number of rename/copy targets exceeds given limit
+
+Diff algorithm options
+    --minimal             produce the smallest possible diff
+    -w, --ignore-all-space
+                          ignore whitespace when comparing lines
+    -b, --ignore-space-change
+                          ignore changes in amount of whitespace
+    --ignore-space-at-eol ignore changes in whitespace at EOL
+    --ignore-cr-at-eol    ignore carrier-return at the end of line
+    --ignore-blank-lines  ignore changes whose lines are all blank
+    -I, --[no-]ignore-matching-lines <regex>
+                          ignore changes whose all lines match <regex>
+    --[no-]indent-heuristic
+                          heuristic to shift diff hunk boundaries for easy reading
+    --patience            generate diff using the "patience diff" algorithm
+    --histogram           generate diff using the "histogram diff" algorithm
+    --diff-algorithm <algorithm>
+                          choose a diff algorithm
+    --anchored <text>     generate diff using the "anchored diff" algorithm
+    --word-diff[=<mode>]  show word diff, using <mode> to delimit changed words
+    --word-diff-regex <regex>
+                          use <regex> to decide what a word is
+    --color-words[=<regex>]
+                          equivalent to --word-diff=color --word-diff-regex=<regex>
+    --[no-]color-moved[=<mode>]
+                          moved lines of code are colored differently
+    --[no-]color-moved-ws <mode>
+                          how white spaces are ignored in --color-moved
+
+Other diff options
+    --[no-]relative[=<prefix>]
+                          when run from subdir, exclude changes outside and show relative paths
+    -a, --[no-]text       treat all files as text
+    -R                    swap two inputs, reverse the diff
+    --[no-]exit-code      exit with 1 if there were differences, 0 otherwise
+    --[no-]quiet          disable all output of the program
+    --[no-]ext-diff       allow an external diff helper to be executed
+    --[no-]textconv       run external text conversion filters when comparing binary files
+    --ignore-submodules[=<when>]
+                          ignore changes to submodules in the diff generation
+    --submodule[=<format>]
+                          specify how differences in submodules are shown
+    --ita-invisible-in-index
+                          hide 'git add -N' entries from the index
+    --ita-visible-in-index
+                          treat 'git add -N' entries as real in the index
+    -S <string>           look for differences that change the number of occurrences of the specified string
+    -G <regex>            look for differences that change the number of occurrences of the specified regex
+    --pickaxe-all         show all changes in the changeset with -S or -G
+    --pickaxe-regex       treat <string> in -S as extended POSIX regular expression
+    -O <file>             control the order in which files appear in the output
+    --rotate-to <path>    show the change in the specified path first
+    --skip-to <path>      skip the output to the specified path
+    --find-object <object-id>
+                          look for differences that change the number of occurrences of the specified object
+    --diff-filter [(A|C|D|M|R|T|U|X|B)...[*]]
+                          select files by diff type
+    --max-depth <depth>   maximum tree depth to recurse
+    --output <file>       output to a specific file
+FAILED tests/test_rh1_git_line_endings.py::test_crlf_preserves_added_line_discrimination[True] - RuntimeError: git diff failed: warning: Limiting comparison with pathspecs is only supported if both paths are directories.
+usage: git diff --no-index [<options>] <path> <path> [<pathspec>...]
+
+Diff output format options
+    -p, --patch           generate patch
+    -s, --no-patch        suppress diff output
+    -u                    generate patch
+    -U, --unified[=<n>]   generate diffs with <n> lines context
+    -W, --[no-]function-context
+                          generate diffs with <n> lines context
+    --raw                 generate the diff in raw format
+    --patch-with-raw      synonym for '-p --raw'
+    --patch-with-stat     synonym for '-p --stat'
+    --numstat             machine friendly --stat
+    --shortstat           output only the last line of --stat
+    -X, --dirstat[=<param1>,<param2>...]
+                          output the distribution of relative amount of changes for each sub-directory
+    --cumulative          synonym for --dirstat=cumulative
+    --dirstat-by-file[=<param1>,<param2>...]
+                          synonym for --dirstat=files,<param1>,<param2>...
+    --check               warn if changes introduce conflict markers or whitespace errors
+    --summary             condensed summary such as creations, renames and mode changes
+    --name-only           show only names of changed files
+    --name-status         show only names and status of changed files
+    --stat[=<width>[,<name-width>[,<count>]]]
+                          generate diffstat
+    --stat-width <width>  generate diffstat with a given width
+    --stat-name-width <width>
+                          generate diffstat with a given name width
+    --stat-graph-width <width>
+                          generate diffstat with a given graph width
+    --stat-count <count>  generate diffstat with limited lines
+    --[no-]compact-summary
+                          generate compact summary in diffstat
+    --binary              output a binary diff that can be applied
+    --[no-]full-index     show full pre- and post-image object names on the "index" lines
+    --[no-]color[=<when>] show colored diff
+    --ws-error-highlight <kind>
+                          highlight whitespace errors in the 'context', 'old' or 'new' lines in the diff
+    -z                    do not munge pathnames and use NULs as output field terminators in --raw or --numstat
+    --[no-]abbrev[=<n>]   use <n> digits to display object names
+    --src-prefix <prefix> show the given source prefix instead of "a/"
+    --dst-prefix <prefix> show the given destination prefix instead of "b/"
+    --line-prefix <prefix>
+                          prepend an additional prefix to every line of output
+    --no-prefix           do not show any source or destination prefix
+    --default-prefix      use default prefixes a/ and b/
+    --inter-hunk-context <n>
+                          show context between diff hunks up to the specified number of lines
+    --output-indicator-new <char>
+                          specify the character to indicate a new line instead of '+'
+    --output-indicator-old <char>
+                          specify the character to indicate an old line instead of '-'
+    --output-indicator-context <char>
+                          specify the character to indicate a context instead of ' '
+
+Diff rename options
+    -B, --break-rewrites[=<n>[/<m>]]
+                          break complete rewrite changes into pairs of delete and create
+    -M, --find-renames[=<n>]
+                          detect renames
+    -D, --irreversible-delete
+                          omit the preimage for deletes
+    -C, --find-copies[=<n>]
+                          detect copies
+    --[no-]find-copies-harder
+                          use unmodified files as source to find copies
+    --no-renames          disable rename detection
+    --[no-]rename-empty   use empty blobs as rename source
+    --[no-]follow         continue listing the history of a file beyond renames
+    -l <n>                prevent rename/copy detection if the number of rename/copy targets exceeds given limit
+
+Diff algorithm options
+    --minimal             produce the smallest possible diff
+    -w, --ignore-all-space
+                          ignore whitespace when comparing lines
+    -b, --ignore-space-change
+                          ignore changes in amount of whitespace
+    --ignore-space-at-eol ignore changes in whitespace at EOL
+    --ignore-cr-at-eol    ignore carrier-return at the end of line
+    --ignore-blank-lines  ignore changes whose lines are all blank
+    -I, --[no-]ignore-matching-lines <regex>
+                          ignore changes whose all lines match <regex>
+    --[no-]indent-heuristic
+                          heuristic to shift diff hunk boundaries for easy reading
+    --patience            generate diff using the "patience diff" algorithm
+    --histogram           generate diff using the "histogram diff" algorithm
+    --diff-algorithm <algorithm>
+                          choose a diff algorithm
+    --anchored <text>     generate diff using the "anchored diff" algorithm
+    --word-diff[=<mode>]  show word diff, using <mode> to delimit changed words
+    --word-diff-regex <regex>
+                          use <regex> to decide what a word is
+    --color-words[=<regex>]
+                          equivalent to --word-diff=color --word-diff-regex=<regex>
+    --[no-]color-moved[=<mode>]
+                          moved lines of code are colored differently
+    --[no-]color-moved-ws <mode>
+                          how white spaces are ignored in --color-moved
+
+Other diff options
+    --[no-]relative[=<prefix>]
+                          when run from subdir, exclude changes outside and show relative paths
+    -a, --[no-]text       treat all files as text
+    -R                    swap two inputs, reverse the diff
+    --[no-]exit-code      exit with 1 if there were differences, 0 otherwise
+    --[no-]quiet          disable all output of the program
+    --[no-]ext-diff       allow an external diff helper to be executed
+    --[no-]textconv       run external text conversion filters when comparing binary files
+    --ignore-submodules[=<when>]
+                          ignore changes to submodules in the diff generation
+    --submodule[=<format>]
+                          specify how differences in submodules are shown
+    --ita-invisible-in-index
+                          hide 'git add -N' entries from the index
+    --ita-visible-in-index
+                          treat 'git add -N' entries as real in the index
+    -S <string>           look for differences that change the number of occurrences of the specified string
+    -G <regex>            look for differences that change the number of occurrences of the specified regex
+    --pickaxe-all         show all changes in the changeset with -S or -G
+    --pickaxe-regex       treat <string> in -S as extended POSIX regular expression
+    -O <file>             control the order in which files appear in the output
+    --rotate-to <path>    show the change in the specified path first
+    --skip-to <path>      skip the output to the specified path
+    --find-object <object-id>
+                          look for differences that change the number of occurrences of the specified object
+    --diff-filter [(A|C|D|M|R|T|U|X|B)...[*]]
+                          select files by diff type
+    --max-depth <depth>   maximum tree depth to recurse
+    --output <file>       output to a specific file
+============================== 2 failed in 4.44s ==============================

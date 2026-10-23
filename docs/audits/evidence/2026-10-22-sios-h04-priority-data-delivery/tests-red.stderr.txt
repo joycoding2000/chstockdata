@@ -1,0 +1,45 @@
+EEEEE
+======================================================================
+ERROR: test_ex_date_claim_is_not_spendable_cash (__main__.EconomicEventTests.test_ex_date_claim_is_not_spendable_cash)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\Dev\Projects\chstockdata\docs\audits\evidence\2026-10-22-sios-h04-priority-data-delivery\test_h04_offline.py", line 17, in test_ex_date_claim_is_not_spendable_cash
+    from build_delivery import unit_book
+ModuleNotFoundError: No module named 'build_delivery'
+
+======================================================================
+ERROR: test_future_dividend_does_not_change_earlier_return (__main__.EconomicEventTests.test_future_dividend_does_not_change_earlier_return)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\Dev\Projects\chstockdata\docs\audits\evidence\2026-10-22-sios-h04-priority-data-delivery\test_h04_offline.py", line 25, in test_future_dividend_does_not_change_earlier_return
+    from build_delivery import economic_factor
+ModuleNotFoundError: No module named 'build_delivery'
+
+======================================================================
+ERROR: test_hk_and_hg_routes_aggregate_same_security (__main__.EconomicEventTests.test_hk_and_hg_routes_aggregate_same_security)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\Dev\Projects\chstockdata\docs\audits\evidence\2026-10-22-sios-h04-priority-data-delivery\test_h04_offline.py", line 37, in test_hk_and_hg_routes_aggregate_same_security
+    from build_delivery import aggregate_holdings
+ModuleNotFoundError: No module named 'build_delivery'
+
+======================================================================
+ERROR: test_late_or_unknown_announcement_fails_closed (__main__.EconomicEventTests.test_late_or_unknown_announcement_fails_closed)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\Dev\Projects\chstockdata\docs\audits\evidence\2026-10-22-sios-h04-priority-data-delivery\test_h04_offline.py", line 31, in test_late_or_unknown_announcement_fails_closed
+    from build_delivery import economic_factor
+ModuleNotFoundError: No module named 'build_delivery'
+
+======================================================================
+ERROR: test_real_per_ten_amount_and_date_precision (__main__.EconomicEventTests.test_real_per_ten_amount_and_date_precision)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\Dev\Projects\chstockdata\docs\audits\evidence\2026-10-22-sios-h04-priority-data-delivery\test_h04_offline.py", line 8, in test_real_per_ten_amount_and_date_precision
+    from build_delivery import parse_dividend, ROOT
+ModuleNotFoundError: No module named 'build_delivery'
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.012s
+
+FAILED (errors=5)

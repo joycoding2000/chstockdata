@@ -1,0 +1,205 @@
+{"wheel_sha256": "1dd58350678fbb07d3b545165708d814f93fb94f965dc2da33bad2fab7ff779c", "chstockdata_file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\13\\01a135d1-a42d-73a3-b19f-dc0968e4ca6c\\owner-rework-r2\\wheel\\chstockdata", "sios_runtime_sha256": "73376752616edc41b1560e0cea40a7cdb6190d2795c83dab34d19fdcffd4186f", "test_only_identity_injection": ["research.runner", "research.oos"]}
+...FF..........F...FF...FF                                               [100%]
+================================== FAILURES ===================================
+__ test_cross_repository_interval[2016-07-05-OPEN_ACTIVITY_CONFIRMED-False] ___
+
+day = '2016-07-05', status = 'OPEN_ACTIVITY_CONFIRMED', blocked = False
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x000002994FE9C0B0>
+
+    @pytest.mark.parametrize('day,status,blocked', [
+        ('2015-12-18', 'OPEN_ACTIVITY_CONFIRMED', False),
+        ('2016-01-04', 'UNKNOWN', True),
+        ('2016-07-04', 'UNKNOWN', False),
+        ('2016-07-05', 'OPEN_ACTIVITY_CONFIRMED', False),
+        ('2022-12-30', 'OPEN_ACTIVITY_CONFIRMED', False),
+    ])
+    def test_cross_repository_interval(day, status, blocked, monkeypatch):
+        result = fetch(day)
+        assert result.data['opening_status'] == status
+        assert result.data['official_block_at_target'] is blocked
+        response = consume(result, monkeypatch)
+>       assert isinstance(response, ProviderSuccess), response
+E       AssertionError: ProviderFailure(error_code=<ProviderErrorCode.MALFORMED_DATA: 'MALFORMED_DATA'>, message='official interval vetoes ope...472560d471a567ec264e5742df7f425f32908e2', warnings=()), cause=ValueError('official interval vetoes opening execution'))
+E       assert False
+E        +  where False = isinstance(ProviderFailure(error_code=<ProviderErrorCode.MALFORMED_DATA: 'MALFORMED_DATA'>, message='official interval vetoes ope...472560d471a567ec264e5742df7f425f32908e2', warnings=()), cause=ValueError('official interval vetoes opening execution')), ProviderSuccess)
+
+tests\component\test_owner_r2_interval_contract.py:82: AssertionError
+__ test_cross_repository_interval[2022-12-30-OPEN_ACTIVITY_CONFIRMED-False] ___
+
+day = '2022-12-30', status = 'OPEN_ACTIVITY_CONFIRMED', blocked = False
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x000002994FE9F5F0>
+
+    @pytest.mark.parametrize('day,status,blocked', [
+        ('2015-12-18', 'OPEN_ACTIVITY_CONFIRMED', False),
+        ('2016-01-04', 'UNKNOWN', True),
+        ('2016-07-04', 'UNKNOWN', False),
+        ('2016-07-05', 'OPEN_ACTIVITY_CONFIRMED', False),
+        ('2022-12-30', 'OPEN_ACTIVITY_CONFIRMED', False),
+    ])
+    def test_cross_repository_interval(day, status, blocked, monkeypatch):
+        result = fetch(day)
+        assert result.data['opening_status'] == status
+        assert result.data['official_block_at_target'] is blocked
+        response = consume(result, monkeypatch)
+>       assert isinstance(response, ProviderSuccess), response
+E       AssertionError: ProviderFailure(error_code=<ProviderErrorCode.MALFORMED_DATA: 'MALFORMED_DATA'>, message='official interval vetoes ope...3289674abb4d188fb76876c8845df5b41ab6ce1', warnings=()), cause=ValueError('official interval vetoes opening execution'))
+E       assert False
+E        +  where False = isinstance(ProviderFailure(error_code=<ProviderErrorCode.MALFORMED_DATA: 'MALFORMED_DATA'>, message='official interval vetoes ope...3289674abb4d188fb76876c8845df5b41ab6ce1', warnings=()), cause=ValueError('official interval vetoes opening execution')), ProviderSuccess)
+
+tests\component\test_owner_r2_interval_contract.py:82: AssertionError
+____________________ test_payload_hash_snapshot_and_replay ____________________
+
+tmp_path = WindowsPath('C:/Users/Administrator/.codex/visualizations/2026/10/13/01a135d1-a42d-73a3-b19f-dc0968e4ca6c/owner-rework-r2/temp/red-final/test_payload_hash_snapshot_and0')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x000002994FF8C4D0>
+bar_factory = <function bar_factory.<locals>.build at 0x0000029950433920>
+
+    def test_payload_hash_snapshot_and_replay(tmp_path, monkeypatch, bar_factory):
+        result = fetch('2022-12-30')
+        response = consume(result, monkeypatch)
+>       assert isinstance(response, ProviderSuccess), response
+E       AssertionError: ProviderFailure(error_code=<ProviderErrorCode.MALFORMED_DATA: 'MALFORMED_DATA'>, message='official interval vetoes ope...94502bc6d8582283c06791313afbb6bf2ba98eb', warnings=()), cause=ValueError('official interval vetoes opening execution'))
+E       assert False
+E        +  where False = isinstance(ProviderFailure(error_code=<ProviderErrorCode.MALFORMED_DATA: 'MALFORMED_DATA'>, message='official interval vetoes ope...94502bc6d8582283c06791313afbb6bf2ba98eb', warnings=()), cause=ValueError('official interval vetoes opening execution')), ProviderSuccess)
+
+tests\component\test_owner_r2_interval_contract.py:136: AssertionError
+_ test_actual_execution_and_legacy[HISTORICAL_OPENING_R21-2016-07-05-2016-07-04-True] _
+
+day = '2016-07-05', previous = '2016-07-04', eligible = True
+mode = <ExecutionEligibilityMode.HISTORICAL_OPENING_R21: 'HISTORICAL_OPENING_R21'>
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x000002994FEA0170>
+make_engine = <function make_engine.<locals>.build at 0x00000299502C5F80>
+bar_factory = <function bar_factory.<locals>.build at 0x00000299502C7C40>
+target_contribution = <function target_contribution.<locals>.build at 0x000002995043D120>
+predetermined_targets = <class 'conftest.PredeterminedTargetSource'>
+account_fees = AccountFeeConfig(config_id='RUN-M0-TEST', config_version='1', broker_profiles=(BrokerFeeProfile(profile_id='ACCT:MAIN'...imal('5'), agreement_reference='broker-agreement-2026', effective_from=datetime.date(2022, 1, 4), effective_to=None),))
+
+    @pytest.mark.parametrize('day,previous,eligible', [
+        ('2015-12-18', '2015-12-17', True),
+        ('2016-01-04', '2015-12-31', False),
+        ('2016-07-04', '2016-07-01', False),
+        ('2016-07-05', '2016-07-04', True),
+        ('2022-12-30', '2022-12-29', True),
+    ])
+    @pytest.mark.parametrize('mode', [ExecutionEligibilityMode.HISTORICAL_OPENING_R21, ExecutionEligibilityMode.LEGACY])
+    def test_actual_execution_and_legacy(day, previous, eligible, mode, monkeypatch,
+        make_engine, bar_factory, target_contribution, predetermined_targets, account_fees):
+        from systematic_investing.backtest.engine import EngineClock
+        from systematic_investing.domain.historical_opening import HISTORICAL_SUSPENSION_GAP, SHANGHAI
+        from systematic_investing.domain.market import Availability, AvailabilityBasis, MarketCalendar, TradingSession, TradabilityStatus, TradabilityStatusKind
+        from systematic_investing.instrument_master.repository import InstrumentMaster, default_m0_master
+    
+        result = consume(fetch(day), monkeypatch)
+>       assert isinstance(result, ProviderSuccess), result
+E       AssertionError: ProviderFailure(error_code=<ProviderErrorCode.MALFORMED_DATA: 'MALFORMED_DATA'>, message='official interval vetoes ope...07bedcfb9e3b4bc20904590c92f1197a6ef5cc8', warnings=()), cause=ValueError('official interval vetoes opening execution'))
+E       assert False
+E        +  where False = isinstance(ProviderFailure(error_code=<ProviderErrorCode.MALFORMED_DATA: 'MALFORMED_DATA'>, message='official interval vetoes ope...07bedcfb9e3b4bc20904590c92f1197a6ef5cc8', warnings=()), cause=ValueError('official interval vetoes opening execution')), ProviderSuccess)
+
+tests\component\test_owner_r2_interval_contract.py:168: AssertionError
+_ test_actual_execution_and_legacy[HISTORICAL_OPENING_R21-2022-12-30-2022-12-29-True] _
+
+day = '2022-12-30', previous = '2022-12-29', eligible = True
+mode = <ExecutionEligibilityMode.HISTORICAL_OPENING_R21: 'HISTORICAL_OPENING_R21'>
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x000002994FEA10D0>
+make_engine = <function make_engine.<locals>.build at 0x000002995043E700>
+bar_factory = <function bar_factory.<locals>.build at 0x000002995043E0C0>
+target_contribution = <function target_contribution.<locals>.build at 0x000002995043C040>
+predetermined_targets = <class 'conftest.PredeterminedTargetSource'>
+account_fees = AccountFeeConfig(config_id='RUN-M0-TEST', config_version='1', broker_profiles=(BrokerFeeProfile(profile_id='ACCT:MAIN'...imal('5'), agreement_reference='broker-agreement-2026', effective_from=datetime.date(2022, 1, 4), effective_to=None),))
+
+    @pytest.mark.parametrize('day,previous,eligible', [
+        ('2015-12-18', '2015-12-17', True),
+        ('2016-01-04', '2015-12-31', False),
+        ('2016-07-04', '2016-07-01', False),
+        ('2016-07-05', '2016-07-04', True),
+        ('2022-12-30', '2022-12-29', True),
+    ])
+    @pytest.mark.parametrize('mode', [ExecutionEligibilityMode.HISTORICAL_OPENING_R21, ExecutionEligibilityMode.LEGACY])
+    def test_actual_execution_and_legacy(day, previous, eligible, mode, monkeypatch,
+        make_engine, bar_factory, target_contribution, predetermined_targets, account_fees):
+        from systematic_investing.backtest.engine import EngineClock
+        from systematic_investing.domain.historical_opening import HISTORICAL_SUSPENSION_GAP, SHANGHAI
+        from systematic_investing.domain.market import Availability, AvailabilityBasis, MarketCalendar, TradingSession, TradabilityStatus, TradabilityStatusKind
+        from systematic_investing.instrument_master.repository import InstrumentMaster, default_m0_master
+    
+        result = consume(fetch(day), monkeypatch)
+>       assert isinstance(result, ProviderSuccess), result
+E       AssertionError: ProviderFailure(error_code=<ProviderErrorCode.MALFORMED_DATA: 'MALFORMED_DATA'>, message='official interval vetoes ope...78a8efb80e418edd316eeae8c2a3e9041bf2d05', warnings=()), cause=ValueError('official interval vetoes opening execution'))
+E       assert False
+E        +  where False = isinstance(ProviderFailure(error_code=<ProviderErrorCode.MALFORMED_DATA: 'MALFORMED_DATA'>, message='official interval vetoes ope...78a8efb80e418edd316eeae8c2a3e9041bf2d05', warnings=()), cause=ValueError('official interval vetoes opening execution')), ProviderSuccess)
+
+tests\component\test_owner_r2_interval_contract.py:168: AssertionError
+_____ test_actual_execution_and_legacy[LEGACY-2016-07-05-2016-07-04-True] _____
+
+day = '2016-07-05', previous = '2016-07-04', eligible = True
+mode = <ExecutionEligibilityMode.LEGACY: 'LEGACY'>
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x0000029950009D00>
+make_engine = <function make_engine.<locals>.build at 0x000002995043CC20>
+bar_factory = <function bar_factory.<locals>.build at 0x000002995043D1C0>
+target_contribution = <function target_contribution.<locals>.build at 0x000002995043C220>
+predetermined_targets = <class 'conftest.PredeterminedTargetSource'>
+account_fees = AccountFeeConfig(config_id='RUN-M0-TEST', config_version='1', broker_profiles=(BrokerFeeProfile(profile_id='ACCT:MAIN'...imal('5'), agreement_reference='broker-agreement-2026', effective_from=datetime.date(2022, 1, 4), effective_to=None),))
+
+    @pytest.mark.parametrize('day,previous,eligible', [
+        ('2015-12-18', '2015-12-17', True),
+        ('2016-01-04', '2015-12-31', False),
+        ('2016-07-04', '2016-07-01', False),
+        ('2016-07-05', '2016-07-04', True),
+        ('2022-12-30', '2022-12-29', True),
+    ])
+    @pytest.mark.parametrize('mode', [ExecutionEligibilityMode.HISTORICAL_OPENING_R21, ExecutionEligibilityMode.LEGACY])
+    def test_actual_execution_and_legacy(day, previous, eligible, mode, monkeypatch,
+        make_engine, bar_factory, target_contribution, predetermined_targets, account_fees):
+        from systematic_investing.backtest.engine import EngineClock
+        from systematic_investing.domain.historical_opening import HISTORICAL_SUSPENSION_GAP, SHANGHAI
+        from systematic_investing.domain.market import Availability, AvailabilityBasis, MarketCalendar, TradingSession, TradabilityStatus, TradabilityStatusKind
+        from systematic_investing.instrument_master.repository import InstrumentMaster, default_m0_master
+    
+        result = consume(fetch(day), monkeypatch)
+>       assert isinstance(result, ProviderSuccess), result
+E       AssertionError: ProviderFailure(error_code=<ProviderErrorCode.MALFORMED_DATA: 'MALFORMED_DATA'>, message='official interval vetoes ope...b5a92ba3dbd80a66db13c335907f2823addad13', warnings=()), cause=ValueError('official interval vetoes opening execution'))
+E       assert False
+E        +  where False = isinstance(ProviderFailure(error_code=<ProviderErrorCode.MALFORMED_DATA: 'MALFORMED_DATA'>, message='official interval vetoes ope...b5a92ba3dbd80a66db13c335907f2823addad13', warnings=()), cause=ValueError('official interval vetoes opening execution')), ProviderSuccess)
+
+tests\component\test_owner_r2_interval_contract.py:168: AssertionError
+_____ test_actual_execution_and_legacy[LEGACY-2022-12-30-2022-12-29-True] _____
+
+day = '2022-12-30', previous = '2022-12-29', eligible = True
+mode = <ExecutionEligibilityMode.LEGACY: 'LEGACY'>
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x000002995000B380>
+make_engine = <function make_engine.<locals>.build at 0x000002995043F1A0>
+bar_factory = <function bar_factory.<locals>.build at 0x000002995043C0E0>
+target_contribution = <function target_contribution.<locals>.build at 0x000002995043EA20>
+predetermined_targets = <class 'conftest.PredeterminedTargetSource'>
+account_fees = AccountFeeConfig(config_id='RUN-M0-TEST', config_version='1', broker_profiles=(BrokerFeeProfile(profile_id='ACCT:MAIN'...imal('5'), agreement_reference='broker-agreement-2026', effective_from=datetime.date(2022, 1, 4), effective_to=None),))
+
+    @pytest.mark.parametrize('day,previous,eligible', [
+        ('2015-12-18', '2015-12-17', True),
+        ('2016-01-04', '2015-12-31', False),
+        ('2016-07-04', '2016-07-01', False),
+        ('2016-07-05', '2016-07-04', True),
+        ('2022-12-30', '2022-12-29', True),
+    ])
+    @pytest.mark.parametrize('mode', [ExecutionEligibilityMode.HISTORICAL_OPENING_R21, ExecutionEligibilityMode.LEGACY])
+    def test_actual_execution_and_legacy(day, previous, eligible, mode, monkeypatch,
+        make_engine, bar_factory, target_contribution, predetermined_targets, account_fees):
+        from systematic_investing.backtest.engine import EngineClock
+        from systematic_investing.domain.historical_opening import HISTORICAL_SUSPENSION_GAP, SHANGHAI
+        from systematic_investing.domain.market import Availability, AvailabilityBasis, MarketCalendar, TradingSession, TradabilityStatus, TradabilityStatusKind
+        from systematic_investing.instrument_master.repository import InstrumentMaster, default_m0_master
+    
+        result = consume(fetch(day), monkeypatch)
+>       assert isinstance(result, ProviderSuccess), result
+E       AssertionError: ProviderFailure(error_code=<ProviderErrorCode.MALFORMED_DATA: 'MALFORMED_DATA'>, message='official interval vetoes ope...f597878ed62872013c975677507fe7f50a2dc76', warnings=()), cause=ValueError('official interval vetoes opening execution'))
+E       assert False
+E        +  where False = isinstance(ProviderFailure(error_code=<ProviderErrorCode.MALFORMED_DATA: 'MALFORMED_DATA'>, message='official interval vetoes ope...f597878ed62872013c975677507fe7f50a2dc76', warnings=()), cause=ValueError('official interval vetoes opening execution')), ProviderSuccess)
+
+tests\component\test_owner_r2_interval_contract.py:168: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/component/test_owner_r2_interval_contract.py::test_cross_repository_interval[2016-07-05-OPEN_ACTIVITY_CONFIRMED-False]
+FAILED tests/component/test_owner_r2_interval_contract.py::test_cross_repository_interval[2022-12-30-OPEN_ACTIVITY_CONFIRMED-False]
+FAILED tests/component/test_owner_r2_interval_contract.py::test_payload_hash_snapshot_and_replay
+FAILED tests/component/test_owner_r2_interval_contract.py::test_actual_execution_and_legacy[HISTORICAL_OPENING_R21-2016-07-05-2016-07-04-True]
+FAILED tests/component/test_owner_r2_interval_contract.py::test_actual_execution_and_legacy[HISTORICAL_OPENING_R21-2022-12-30-2022-12-29-True]
+FAILED tests/component/test_owner_r2_interval_contract.py::test_actual_execution_and_legacy[LEGACY-2016-07-05-2016-07-04-True]
+FAILED tests/component/test_owner_r2_interval_contract.py::test_actual_execution_and_legacy[LEGACY-2022-12-30-2022-12-29-True]
+7 failed, 19 passed in 0.43s

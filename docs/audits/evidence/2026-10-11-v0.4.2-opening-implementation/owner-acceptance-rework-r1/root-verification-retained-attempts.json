@@ -1,0 +1,21 @@
+{
+  "production_test_results_modified": false,
+  "attempts": [
+    {
+      "checker": "verify_new_gate_independent.py",
+      "exit": 1,
+      "finding": "Initial checker assumed all commands bind wheel; environment inventory precedes wheel generation. Checker corrected to permit only environment empty wheel identity."
+    },
+    {
+      "checker": "verify_new_gate_independent.py",
+      "exit": 1,
+      "finding": "Initial checker expected ZIP members without systematic-investing-os/ prefix. Checker adapted to actual exporter prefix; all 256 bytes match."
+    },
+    {
+      "checker": "verify_original_protection.py",
+      "exit": 1,
+      "finding": "Early original SIOS baseline differs by one modified decision document and one new research document. Current state retained and explicitly recorded; no original SIOS write issued by this rework."
+    }
+  ],
+  "final_checkers_exit": 0
+}

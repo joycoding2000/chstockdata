@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="13" skipped="0" tests="22" time="1.706" timestamp="2026-10-12T22:41:39.559333+08:00" hostname="CHINAMI-4QO1VLN"><testcase classname="tests.test_historical_opening_evidence" name="test_owner_authenticated_resume_date_bounds_only_corresponding_halt[2015-12-18-OPEN_ACTIVITY_CONFIRMED-False]" time="0.004" /><testcase classname="tests.test_historical_opening_evidence" name="test_owner_authenticated_resume_date_bounds_only_corresponding_halt[2016-01-04-UNKNOWN-True]" time="0.003" /><testcase classname="tests.test_historical_opening_evidence" name="test_owner_authenticated_resume_date_bounds_only_corresponding_halt[2016-07-04-UNKNOWN-False]" time="0.002"><failure message="assert True is False">day = '2016-07-04', status = 'UNKNOWN', block = False
+
+    @pytest.mark.parametrize('day,status,block', [
+        ('2015-12-18', 'OPEN_ACTIVITY_CONFIRMED', False),
+        ('2016-01-04', 'UNKNOWN', True),
+        ('2016-07-04', 'UNKNOWN', False),
+        ('2016-07-05', 'OPEN_ACTIVITY_CONFIRMED', False),
+        ('2022-12-30', 'OPEN_ACTIVITY_CONFIRMED', False),
+    ])
+    def test_owner_authenticated_resume_date_bounds_only_corresponding_halt(day, status, block):
+        data = owner_interval_fetch(day).data
+        assert data['opening_status'] == status
+&gt;       assert data['official_block_at_target'] is block
+E       assert True is False
+
+tests\test_historical_opening_evidence.py:433: AssertionError</failure></testcase><testcase classname="tests.test_historical_opening_evidence" name="test_owner_authenticated_resume_date_bounds_only_corresponding_halt[2016-07-05-OPEN_ACTIVITY_CONFIRMED-False]" time="0.002"><failure message="AssertionError: assert 'UNKNOWN' == 'OPEN_ACTIVITY_CONFIRMED'&#10;  &#10;  - OPEN_ACTIVITY_CONFIRMED&#10;  + UNKNOWN">day = '2016-07-05', status = 'OPEN_ACTIVITY_CONFIRMED', block = False
+
+    @pytest.mark.parametrize('day,status,block', [
+        ('2015-12-18', 'OPEN_ACTIVITY_CONFIRMED', False),
+        ('2016-01-04', 'UNKNOWN', True),
+        ('2016-07-04', 'UNKNOWN', False),
+        ('2016-07-05', 'OPEN_ACTIVITY_CONFIRMED', False),
+        ('2022-12-30', 'OPEN_ACTIVITY_CONFIRMED', False),
+    ])
+    def test_owner_authenticated_resume_date_bounds_only_corresponding_halt(day, status, block):
+        data = owner_interval_fetch(day).data
+&gt;       assert data['opening_status'] == status
+E       AssertionError: assert 'UNKNOWN' == 'OPEN_ACTIVITY_CONFIRMED'
+E         
+E         - OPEN_ACTIVITY_CONFIRMED
+E         + UNKNOWN
+
+tests\test_historical_opening_evidence.py:432: AssertionError</failure></testcase><testcase classname="tests.test_historical_opening_evidence" name="test_owner_authenticated_resume_date_bounds_only_corresponding_halt[2022-12-30-OPEN_ACTIVITY_CONFIRMED-False]" time="0.002"><failure message="AssertionError: assert 'UNKNOWN' == 'OPEN_ACTIVITY_CONFIRMED'&#10;  &#10;  - OPEN_ACTIVITY_CONFIRMED&#10;  + UNKNOWN">day = '2022-12-30', status = 'OPEN_ACTIVITY_CONFIRMED', block = False
+
+    @pytest.mark.parametrize('day,status,block', [
+        ('2015-12-18', 'OPEN_ACTIVITY_CONFIRMED', False),
+        ('2016-01-04', 'UNKNOWN', True),
+        ('2016-07-04', 'UNKNOWN', False),
+        ('2016-07-05', 'OPEN_ACTIVITY_CONFIRMED', False),
+        ('2022-12-30', 'OPEN_ACTIVITY_CONFIRMED', False),
+    ])
+    def test_owner_authenticated_resume_date_bounds_only_corresponding_halt(day, status, block):
+        data = owner_interval_fetch(day).data
+&gt;       assert data['opening_status'] == status
+E       AssertionError: assert 'UNKNOWN' == 'OPEN_ACTIVITY_CONFIRMED'
+E         
+E         - OPEN_ACTIVITY_CONFIRMED
+E         + UNKNOWN
+
+tests\test_historical_opening_evidence.py:432: AssertionError</failure></testcase><testcase classname="tests.test_historical_opening_evidence" name="test_owner_resume_day_unknown_without_positive_activity[empty]" time="0.002"><failure message="AssertionError: assert 'BLOCKED_CONFIRMED' == 'UNKNOWN'&#10;  &#10;  - UNKNOWN&#10;  + BLOCKED_CONFIRMED">activity = 'empty'
+
+    @pytest.mark.parametrize('activity', ['empty', 'zero'])
+    def test_owner_resume_day_unknown_without_positive_activity(activity):
+        data = owner_interval_fetch('2016-07-04', activity=activity).data
+&gt;       assert data['opening_status'] == 'UNKNOWN'
+E       AssertionError: assert 'BLOCKED_CONFIRMED' == 'UNKNOWN'
+E         
+E         - UNKNOWN
+E         + BLOCKED_CONFIRMED
+
+tests\test_historical_opening_evidence.py:446: AssertionError</failure></testcase><testcase classname="tests.test_historical_opening_evidence" name="test_owner_resume_day_unknown_without_positive_activity[zero]" time="0.002"><failure message="AssertionError: assert 'BLOCKED_CONFIRMED' == 'UNKNOWN'&#10;  &#10;  - UNKNOWN&#10;  + BLOCKED_CONFIRMED">activity = 'zero'
+
+    @pytest.mark.parametrize('activity', ['empty', 'zero'])
+    def test_owner_resume_day_unknown_without_positive_activity(activity):
+        data = owner_interval_fetch('2016-07-04', activity=activity).data
+&gt;       assert data['opening_status'] == 'UNKNOWN'
+E       AssertionError: assert 'BLOCKED_CONFIRMED' == 'UNKNOWN'
+E         
+E         - UNKNOWN
+E         + BLOCKED_CONFIRMED
+
+tests\test_historical_opening_evidence.py:446: AssertionError</failure></testcase><testcase classname="tests.test_historical_opening_evidence" name="test_owner_after_resume_still_requires_positive_tdx[empty-2016-07-05]" time="0.002"><failure message="AssertionError: assert 'BLOCKED_CONFIRMED' == 'UNKNOWN'&#10;  &#10;  - UNKNOWN&#10;  + BLOCKED_CONFIRMED">day = '2016-07-05', activity = 'empty'
+
+    @pytest.mark.parametrize('day', ['2016-07-05', '2022-12-30'])
+    @pytest.mark.parametrize('activity', ['empty', 'zero'])
+    def test_owner_after_resume_still_requires_positive_tdx(day, activity):
+        data = owner_interval_fetch(day, activity=activity).data
+&gt;       assert data['opening_status'] == 'UNKNOWN'
+E       AssertionError: assert 'BLOCKED_CONFIRMED' == 'UNKNOWN'
+E         
+E         - UNKNOWN
+E         + BLOCKED_CONFIRMED
+
+tests\test_historical_opening_evidence.py:455: AssertionError</failure></testcase><testcase classname="tests.test_historical_opening_evidence" name="test_owner_after_resume_still_requires_positive_tdx[empty-2022-12-30]" time="0.002"><failure message="AssertionError: assert 'BLOCKED_CONFIRMED' == 'UNKNOWN'&#10;  &#10;  - UNKNOWN&#10;  + BLOCKED_CONFIRMED">day = '2022-12-30', activity = 'empty'
+
+    @pytest.mark.parametrize('day', ['2016-07-05', '2022-12-30'])
+    @pytest.mark.parametrize('activity', ['empty', 'zero'])
+    def test_owner_after_resume_still_requires_positive_tdx(day, activity):
+        data = owner_interval_fetch(day, activity=activity).data
+&gt;       assert data['opening_status'] == 'UNKNOWN'
+E       AssertionError: assert 'BLOCKED_CONFIRMED' == 'UNKNOWN'
+E         
+E         - UNKNOWN
+E         + BLOCKED_CONFIRMED
+
+tests\test_historical_opening_evidence.py:455: AssertionError</failure></testcase><testcase classname="tests.test_historical_opening_evidence" name="test_owner_after_resume_still_requires_positive_tdx[zero-2016-07-05]" time="0.002"><failure message="AssertionError: assert 'BLOCKED_CONFIRMED' == 'UNKNOWN'&#10;  &#10;  - UNKNOWN&#10;  + BLOCKED_CONFIRMED">day = '2016-07-05', activity = 'zero'
+
+    @pytest.mark.parametrize('day', ['2016-07-05', '2022-12-30'])
+    @pytest.mark.parametrize('activity', ['empty', 'zero'])
+    def test_owner_after_resume_still_requires_positive_tdx(day, activity):
+        data = owner_interval_fetch(day, activity=activity).data
+&gt;       assert data['opening_status'] == 'UNKNOWN'
+E       AssertionError: assert 'BLOCKED_CONFIRMED' == 'UNKNOWN'
+E         
+E         - UNKNOWN
+E         + BLOCKED_CONFIRMED
+
+tests\test_historical_opening_evidence.py:455: AssertionError</failure></testcase><testcase classname="tests.test_historical_opening_evidence" name="test_owner_after_resume_still_requires_positive_tdx[zero-2022-12-30]" time="0.002"><failure message="AssertionError: assert 'BLOCKED_CONFIRMED' == 'UNKNOWN'&#10;  &#10;  - UNKNOWN&#10;  + BLOCKED_CONFIRMED">day = '2022-12-30', activity = 'zero'
+
+    @pytest.mark.parametrize('day', ['2016-07-05', '2022-12-30'])
+    @pytest.mark.parametrize('activity', ['empty', 'zero'])
+    def test_owner_after_resume_still_requires_positive_tdx(day, activity):
+        data = owner_interval_fetch(day, activity=activity).data
+&gt;       assert data['opening_status'] == 'UNKNOWN'
+E       AssertionError: assert 'BLOCKED_CONFIRMED' == 'UNKNOWN'
+E         
+E         - UNKNOWN
+E         + BLOCKED_CONFIRMED
+
+tests\test_historical_opening_evidence.py:455: AssertionError</failure></testcase><testcase classname="tests.test_historical_opening_evidence" name="test_owner_after_resume_still_requires_successful_complete_official[bad0]" time="0.002"><failure message="assert (not True)">bad = ConnectionError('injected fault')
+
+    @pytest.mark.parametrize('bad', [ConnectionError('injected fault'), b'&lt;html&gt;fault&lt;/html&gt;',
+                                   {'announceCount': 26, 'data': []},
+                                   {'announceCount': 1, 'data': [{'title': 'uncertified stock halt'}]}])
+    def test_owner_after_resume_still_requires_successful_complete_official(bad):
+        result = owner_interval_fetch('2022-12-30', official=bad)
+        assert result.data['opening_status'] == 'UNKNOWN'
+        assert result.metadata.partial
+&gt;       assert not result.data['official_block_at_target'] and not result.data['source_conflict']
+E       assert (not True)
+
+tests\test_historical_opening_evidence.py:466: AssertionError</failure></testcase><testcase classname="tests.test_historical_opening_evidence" name="test_owner_after_resume_still_requires_successful_complete_official[&lt;html&gt;fault&lt;/html&gt;]" time="0.002"><failure message="assert (not True)">bad = b'&lt;html&gt;fault&lt;/html&gt;'
+
+    @pytest.mark.parametrize('bad', [ConnectionError('injected fault'), b'&lt;html&gt;fault&lt;/html&gt;',
+                                   {'announceCount': 26, 'data': []},
+                                   {'announceCount': 1, 'data': [{'title': 'uncertified stock halt'}]}])
+    def test_owner_after_resume_still_requires_successful_complete_official(bad):
+        result = owner_interval_fetch('2022-12-30', official=bad)
+        assert result.data['opening_status'] == 'UNKNOWN'
+        assert result.metadata.partial
+&gt;       assert not result.data['official_block_at_target'] and not result.data['source_conflict']
+E       assert (not True)
+
+tests\test_historical_opening_evidence.py:466: AssertionError</failure></testcase><testcase classname="tests.test_historical_opening_evidence" name="test_owner_after_resume_still_requires_successful_complete_official[bad2]" time="0.002"><failure message="assert (not True)">bad = {'announceCount': 26, 'data': []}
+
+    @pytest.mark.parametrize('bad', [ConnectionError('injected fault'), b'&lt;html&gt;fault&lt;/html&gt;',
+                                   {'announceCount': 26, 'data': []},
+                                   {'announceCount': 1, 'data': [{'title': 'uncertified stock halt'}]}])
+    def test_owner_after_resume_still_requires_successful_complete_official(bad):
+        result = owner_interval_fetch('2022-12-30', official=bad)
+        assert result.data['opening_status'] == 'UNKNOWN'
+        assert result.metadata.partial
+&gt;       assert not result.data['official_block_at_target'] and not result.data['source_conflict']
+E       assert (not True)
+
+tests\test_historical_opening_evidence.py:466: AssertionError</failure></testcase><testcase classname="tests.test_historical_opening_evidence" name="test_owner_after_resume_still_requires_successful_complete_official[bad3]" time="0.002"><failure message="assert (not True)">bad = {'announceCount': 1, 'data': [{'title': 'uncertified stock halt'}]}
+
+    @pytest.mark.parametrize('bad', [ConnectionError('injected fault'), b'&lt;html&gt;fault&lt;/html&gt;',
+                                   {'announceCount': 26, 'data': []},
+                                   {'announceCount': 1, 'data': [{'title': 'uncertified stock halt'}]}])
+    def test_owner_after_resume_still_requires_successful_complete_official(bad):
+        result = owner_interval_fetch('2022-12-30', official=bad)
+        assert result.data['opening_status'] == 'UNKNOWN'
+        assert result.metadata.partial
+&gt;       assert not result.data['official_block_at_target'] and not result.data['source_conflict']
+E       assert (not True)
+
+tests\test_historical_opening_evidence.py:466: AssertionError</failure></testcase><testcase classname="tests.test_historical_opening_evidence" name="test_owner_new_ongoing_halt_cannot_be_erased_by_old_resume_date[caller]" time="0.002" /><testcase classname="tests.test_historical_opening_evidence" name="test_owner_new_ongoing_halt_cannot_be_erased_by_old_resume_date[current]" time="0.002" /><testcase classname="tests.test_historical_opening_evidence" name="test_owner_caller_resume_provenance_cannot_self_authenticate[earlier_date]" time="0.002" /><testcase classname="tests.test_historical_opening_evidence" name="test_owner_caller_resume_provenance_cannot_self_authenticate[source_sha]" time="0.002" /><testcase classname="tests.test_historical_opening_evidence" name="test_owner_caller_resume_provenance_cannot_self_authenticate[source_url]" time="0.002" /><testcase classname="tests.test_historical_opening_evidence" name="test_owner_caller_resume_provenance_cannot_self_authenticate[marker]" time="0.002" /><testcase classname="tests.test_historical_opening_evidence" name="test_owner_caller_resume_provenance_cannot_self_authenticate[date_only]" time="0.002" /></testsuite></testsuites>

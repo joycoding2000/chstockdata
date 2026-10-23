@@ -1,0 +1,25 @@
+..................................FF..                                   [100%]
+================================== FAILURES ===================================
+________ test_known_stock_resume_date_does_not_infer_unverified_clock _________
+
+    def test_known_stock_resume_date_does_not_infer_unverified_clock():
+        data=fetch('000002','2016-01-04').data
+>       assert data['official_events'][0]['effective_end'] is None
+E       AssertionError: assert '2016-07-04T09:30:00+08:00' is None
+
+tests\test_historical_opening_evidence.py:317: AssertionError
+_______ test_known_sse_etf_halt_survives_legitimate_empty_current_query _______
+
+    def test_known_sse_etf_halt_survives_legitimate_empty_current_query():
+        data=fetch('513100').data
+>       assert data['opening_status']=='BLOCKED_CONFIRMED'
+E       AssertionError: assert 'UNKNOWN' == 'BLOCKED_CONFIRMED'
+E         
+E         - BLOCKED_CONFIRMED
+E         + UNKNOWN
+
+tests\test_historical_opening_evidence.py:323: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/test_historical_opening_evidence.py::test_known_stock_resume_date_does_not_infer_unverified_clock
+FAILED tests/test_historical_opening_evidence.py::test_known_sse_etf_halt_survives_legitimate_empty_current_query
+2 failed, 36 passed in 2.42s

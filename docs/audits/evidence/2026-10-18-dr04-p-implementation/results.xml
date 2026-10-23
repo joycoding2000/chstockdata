@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="2" skipped="0" tests="134" time="10.138" timestamp="2026-10-18T11:26:55.972366+08:00" hostname="CHINAMI-4QO1VLN"><testcase classname="tests.test_daily_fund_flow" name="test_P01_precision_and_source" time="0.006" /><testcase classname="tests.test_daily_fund_flow" name="test_P02_raw_zero_unknown_semantics" time="0.003" /><testcase classname="tests.test_daily_fund_flow" name="test_P03_middle_missing_no_borrow" time="0.003" /><testcase classname="tests.test_daily_fund_flow" name="test_P04_stale_security[sz000004-2026-07-20]" time="0.003" /><testcase classname="tests.test_daily_fund_flow" name="test_P04_stale_security[sz000005-2025-02-05]" time="0.003" /><testcase classname="tests.test_daily_fund_flow" name="test_P05_bad_values[None-MISSING_VALUE-NULL]" time="0.002" /><testcase classname="tests.test_daily_fund_flow" name="test_P05_bad_values[-MISSING_VALUE-EMPTY_STRING]" time="0.002" /><testcase classname="tests.test_daily_fund_flow" name="test_P05_bad_values[abc-INVALID_VALUE-NOT_DECIMAL]" time="0.002" /><testcase classname="tests.test_daily_fund_flow" name="test_P05_bad_values[NaN-INVALID_VALUE-NOT_FINITE]" time="0.002" /><testcase classname="tests.test_daily_fund_flow" name="test_P05_bad_values[Infinity-INVALID_VALUE-NOT_FINITE]" time="0.002" /><testcase classname="tests.test_daily_fund_flow" name="test_P05_bad_values[-Infinity-INVALID_VALUE-NOT_FINITE]" time="0.002" /><testcase classname="tests.test_daily_fund_flow" name="test_P05_bad_values[True-INVALID_VALUE-INVALID_TYPE]" time="0.002" /><testcase classname="tests.test_daily_fund_flow" name="test_P05_bad_values[value7-INVALID_VALUE-INVALID_TYPE]" time="0.002" /><testcase classname="tests.test_daily_fund_flow" name="test_P05_missing_field_and_invalid_date" time="0.002" /><testcase classname="tests.test_daily_fund_flow" name="test_P06_real_annual_pages_and_closed_boundaries[sz300750-SZ]" time="0.018" /><testcase classname="tests.test_daily_fund_flow" name="test_P06_real_annual_pages_and_closed_boundaries[sh688981-SH]" time="0.018" /><testcase classname="tests.test_daily_fund_flow" name="test_P07_identical_duplicate_retains_provenance" time="0.005" /><testcase classname="tests.test_daily_fund_flow" name="test_P08_pagination_anomalies[conflict-DUPLICATE_CONFLICT]" time="0.005" /><testcase classname="tests.test_daily_fund_flow" name="test_P08_pagination_anomalies[repeated-REPEATED_PAGE]" time="0.006" /><testcase classname="tests.test_daily_fund_flow" name="test_P08_pagination_anomalies[drift-ANCHOR_DRIFT]" time="0.005" /><testcase classname="tests.test_daily_fund_flow" name="test_P08_first_page_anchor_recheck" time="0.006" /><testcase classname="tests.test_daily_fund_flow" name="test_P08_changed_anchor_target_is_conflicting_not_consumable" time="0.006" /><testcase classname="tests.test_daily_fund_flow" name="test_P09_requests_parse_and_empty[event0-NETWORK_ERROR]" time="0.002" /><testcase classname="tests.test_daily_fund_flow" name="test_P09_requests_parse_and_empty[event1-HTTP_ERROR]" time="0.002" /><testcase classname="tests.test_daily_fund_flow" name="test_P09_requests_parse_and_empty[event2-FORBIDDEN]" time="0.002" /><testcase classname="tests.test_daily_fund_flow" name="test_P09_requests_parse_and_empty[event3-RATE_LIMITED]" time="0.002" /><testcase classname="tests.test_daily_fund_flow" name="test_P09_requests_parse_and_empty[event4-PARSE_ERROR]" time="0.002" /><testcase classname="tests.test_daily_fund_flow" name="test_P09_requests_parse_and_empty[event5-PARSE_ERROR]" time="0.002" /><testcase classname="tests.test_daily_fund_flow" name="test_P09_requests_parse_and_empty[event6-EMPTY_PAGE]" time="0.002" /><testcase classname="tests.test_daily_fund_flow" name="test_P09_no_request_permission" time="0.001" /><testcase classname="tests.test_daily_fund_flow" name="test_P10_budgets_partial_original_window[budget0-PAGE_BUDGET]" time="0.005" /><testcase classname="tests.test_daily_fund_flow" name="test_P10_budgets_partial_original_window[budget1-REQUEST_BUDGET]" time="0.005" /><testcase classname="tests.test_daily_fund_flow" name="test_P10_budgets_partial_original_window[budget2-REQUEST_BUDGET]" time="0.004" /><testcase classname="tests.test_daily_fund_flow" name="test_P10_budgets_partial_original_window[budget3-WALL_CLOCK_BUDGET]" time="0.004" /><testcase classname="tests.test_daily_fund_flow" name="test_P10_retry_and_interrupted_history" time="0.005" /><testcase classname="tests.test_daily_fund_flow" name="test_P10_wall_clock_expires_during_request" time="0.002" /><testcase classname="tests.test_daily_fund_flow" name="test_P10_wall_clock_includes_parsing" time="0.003" /><testcase classname="tests.test_daily_fund_flow" name="test_P09_denial_never_retries[403]" time="0.001" /><testcase classname="tests.test_daily_fund_flow" name="test_P09_denial_never_retries[429]" time="0.001" /><testcase classname="tests.test_daily_fund_flow" name="test_P11_time_version_hash_and_old_failure" time="0.007" /><testcase classname="tests.test_daily_fund_flow" name="test_P12_same_source_and_reconciliation" time="0.002" /><testcase classname="tests.test_daily_fund_flow" name="test_invalid_identity_fails_before_network[XX-600000]" time="0.001" /><testcase classname="tests.test_daily_fund_flow" name="test_invalid_identity_fails_before_network[SH-\uff16\uff10\uff10\uff10\uff10\uff10]" time="0.001" /><testcase classname="tests.test_daily_fund_flow" name="test_invalid_identity_fails_before_network[SH-60000]" time="0.001" /><testcase classname="tests.test_daily_fund_flow" name="test_fixture_integrity" time="0.006" /><testcase classname="tests.test_astock_tdx_fallback" name="test_bridge_runner_uses_configured_isolated_python_without_shell" time="0.003" /><testcase classname="tests.test_astock_tdx_fallback" name="test_tdx_bridge_routes_920_codes_to_beijing_market" time="0.001" /><testcase classname="tests.test_astock_tdx_fallback" name="test_fund_flow_prefers_tdx_without_calling_eastmoney" time="0.001" /><testcase classname="tests.test_astock_tdx_fallback" name="test_fund_flow_uses_sina_daily_fallback_after_tdx_failure" time="0.001" /><testcase classname="tests.test_astock_tdx_fallback" name="test_fund_flow_sina_fallback_truncates_future_dates" time="0.001" /><testcase classname="tests.test_astock_tdx_fallback" name="test_fund_flow_tdx_history_truncates_future_dates" time="0.001" /><testcase classname="tests.test_astock_tdx_fallback" name="test_fund_flow_tdx_history_synthesizes_main_net_from_four_tiers" time="0.001" /><testcase classname="tests.test_astock_tdx_fallback" name="test_fund_flow_current_displays_five_day_tier_nets" time="0.001" /><testcase classname="tests.test_astock_tdx_fallback" name="test_fund_flow_current_includes_fork_mapped_super_and_small_5d" time="0.001" /><testcase classname="tests.test_astock_tdx_fallback" name="test_fund_flow_current_omits_five_day_section_when_absent" time="0.001" /><testcase classname="tests.test_astock_tdx_fallback" name="test_industry_prefers_tdx_taxonomy_without_calling_eastmoney" time="0.001" /><testcase classname="tests.test_astock_tdx_fallback" name="test_industry_uses_sina_after_tdx_failure" time="0.001" /><testcase classname="tests.test_astock_interface_fix" name="test_get_concept_blocks_uses_eastmoney_f10" time="0.001" /><testcase classname="tests.test_astock_interface_fix" name="test_policy_target_context_reuses_core_conception_structure" time="0.001" /><testcase classname="tests.test_astock_interface_fix" name="test_policy_target_context_failure_preserves_exchange" time="0.001" /><testcase classname="tests.test_astock_interface_fix" name="test_get_insider_transactions_uses_eastmoney_holders" time="4.035" /><testcase classname="tests.test_astock_silent_failure_sentinel" name="test_get_fundamentals_marks_tencent_failure_without_leaking_request_details" time="0.001" /><testcase classname="tests.test_astock_silent_failure_sentinel" name="test_get_fundamentals_marks_tencent_failure_during_forward_pe_calculation" time="0.310" /><testcase classname="tests.test_astock_silent_failure_sentinel" name="test_dragon_tiger_board_marks_seat_provider_failure" time="0.001" /><testcase classname="tests.test_astock_silent_failure_sentinel" name="test_dragon_tiger_board_does_not_report_institution_failure_when_no_board_data" time="0.001" /><testcase classname="tests.test_astock_silent_failure_sentinel" name="test_get_news_marks_all_provider_failures_without_leaking_details" time="0.001" /><testcase classname="tests.test_fetch_result_core.TestProviderVsRoutingHealth" name="test_provider_a_failed_provider_b_success_routing_success" time="0.001" /><testcase classname="tests.test_fetch_result_core.TestProviderVsRoutingHealth" name="test_exception_classification_uses_vendor_taxonomy" time="0.001" /><testcase classname="tests.test_fetch_result_core.TestProviderVsRoutingHealth" name="test_rate_limit_failure_does_not_block_next_provider" time="0.002" /><testcase classname="tests.test_fetch_result_core.TestProviderVsRoutingHealth" name="test_all_providers_fail_raises_routing_error_with_attempts" time="0.001" /><testcase classname="tests.test_fetch_result_core.TestProviderVsRoutingHealth" name="test_mootdx_not_configured_is_recorded_and_chain_continues" time="0.001" /><testcase classname="tests.test_fetch_result_core.TestNormalEmptyVsFailure" name="test_malformed_top_level_quote_payload_fails_structure_and_falls_back" time="0.001" /><testcase classname="tests.test_fetch_result_core.TestNormalEmptyVsFailure" name="test_quote_probe_marks_malformed_top_level_payload_as_failed_structure" time="0.001" /><testcase classname="tests.test_fetch_result_core.TestNormalEmptyVsFailure" name="test_mootdx_quote_probe_requests_primitive_health_suppression" time="0.001" /><testcase classname="tests.test_fetch_result_core.TestNormalEmptyVsFailure" name="test_normal_empty_is_distinct_from_network_failure" time="0.001" /><testcase classname="tests.test_fetch_result_core.TestNormalEmptyVsFailure" name="test_chain_with_only_empty_results_is_normal_empty_routing" time="0.001" /><testcase classname="tests.test_fetch_result_core.TestNormalEmptyVsFailure" name="test_invalid_price_is_not_success" time="0.001" /><testcase classname="tests.test_fetch_result_core.TestMetadataTiming" name="test_retrieved_at_and_observed_at_are_separate_fields" time="0.001" /><testcase classname="tests.test_fetch_result_core.TestMetadataTiming" name="test_fetch_result_is_generic_and_typed_container" time="0.001" /><testcase classname="tests.test_fetch_result_core.TestMetadataTiming" name="test_serialization_roundtrip_keeps_attempts_as_truth" time="0.001" /><testcase classname="tests.test_fetch_result_core.TestLegacyQuoteCompatibility" name="test_wrapper_stops_at_tencent" time="0.001" /><testcase classname="tests.test_fetch_result_core.TestLegacyQuoteCompatibility" name="test_wrapper_falls_back_and_preserves_fallback_attempts" time="0.001" /><testcase classname="tests.test_fetch_result_core.TestLegacyQuoteCompatibility" name="test_wrapper_stale_last_resort_unchanged" time="0.001" /><testcase classname="tests.test_fetch_result_core.TestLegacyQuoteCompatibility" name="test_wrapper_sanitized_error_unchanged" time="0.001" /><testcase classname="tests.test_fetch_result_core.TestLegacyQuoteCompatibility" name="test_snapshot_facade_output_unchanged" time="0.001" /><testcase classname="tests.test_trading_calendar_structured" name="test_provider_identities_are_operation_level" time="0.001" /><testcase classname="tests.test_trading_calendar_structured" name="test_canonicalize_trading_days_is_sorted_unique_iso" time="0.001" /><testcase classname="tests.test_trading_calendar_structured" name="test_canonicalize_trading_days_keeps_valid_rows_when_some_dates_are_bad" time="0.001" /><testcase classname="tests.test_trading_calendar_structured" name="test_canonicalize_trading_days_rejects_empty_invalid_or_wrong_shape[payload0]" time="0.001" /><testcase classname="tests.test_trading_calendar_structured" name="test_canonicalize_trading_days_rejects_empty_invalid_or_wrong_shape[payload1]" time="0.001" /><testcase classname="tests.test_trading_calendar_structured" name="test_canonicalize_trading_days_rejects_empty_invalid_or_wrong_shape[payload2]" time="0.001" /><testcase classname="tests.test_trading_calendar_structured" name="test_local_adapter_uses_explicit_shanghai_market" time="0.005" /><testcase classname="tests.test_trading_calendar_structured" name="test_mootdx_adapter_preserves_index_request_shape" time="0.007" /><testcase classname="tests.test_trading_calendar_structured" name="test_structured_mootdx_calendar_adapter_suppresses_primitive_health" time="0.006" /><testcase classname="tests.test_trading_calendar_structured" name="test_sina_adapter_preserves_endpoint_and_parameters" time="0.001" /><testcase classname="tests.test_trading_calendar_structured" name="test_fresh_local_success_stops_before_online" time="0.001" /><testcase classname="tests.test_trading_calendar_structured" name="test_mixed_invalid_dates_keep_data_and_expose_partial_metadata" time="0.001" /><testcase classname="tests.test_trading_calendar_structured" name="test_partial_stale_local_does_not_pollute_clean_newer_online_payload" time="0.001" /><testcase classname="tests.test_trading_calendar_structured" name="test_partial_older_online_does_not_pollute_retained_clean_local_payload" time="0.001" /><testcase classname="tests.test_trading_calendar_structured" name="test_partial_newer_online_owns_final_payload_quality" time="0.001" /><testcase classname="tests.test_trading_calendar_structured" name="test_partial_stale_local_remains_partial_when_online_fails" time="0.001" /><testcase classname="tests.test_trading_calendar_structured" name="test_stale_local_and_newer_mootdx_uses_online_payload" time="0.001" /><testcase classname="tests.test_trading_calendar_structured" name="test_stale_local_and_older_online_preserves_local_stale_payload" time="0.001" /><testcase classname="tests.test_trading_calendar_structured" name="test_stale_local_mootdx_failure_sina_newer_wins_and_is_degraded" time="0.001" /><testcase classname="tests.test_trading_calendar_structured" name="test_stale_local_and_all_online_fail_returns_stale_local_degraded" time="0.001" /><testcase classname="tests.test_trading_calendar_structured" name="test_unavailable_local_and_mootdx_success_does_not_degrade" time="0.001" /><testcase classname="tests.test_trading_calendar_structured" name="test_unavailable_local_mootdx_failure_sina_success_is_degraded" time="0.001" /><testcase classname="tests.test_trading_calendar_structured" name="test_all_providers_unusable_returns_none_and_legacy_none" time="0.001" /><testcase classname="tests.test_trading_calendar_structured" name="test_all_normal_empty_returns_structured_normal_empty" time="0.001" /><testcase classname="tests.test_trading_calendar_structured" name="test_invalid_provider_payload_is_failed_structure_not_empty" time="0.003" /><testcase classname="tests.test_trading_calendar_structured" name="test_empty_frame_without_date_field_is_failed_structure" time="0.002" /><testcase classname="tests.test_trading_calendar_structured" name="test_today_only_controls_staleness_not_coverage" time="0.001" /><testcase classname="tests.test_trading_calendar_structured" name="test_load_cache_remains_legacy_payload_memo_and_structured_fetch_is_fresh" time="0.001" /><testcase classname="tests.test_trading_calendar_structured" name="test_local_helpers_do_not_touch_online_sources" time="0.001" /><testcase classname="tests.test_trading_calendar_structured" name="test_probe_runs_one_provider_and_only_records_its_capability" time="0.001" /><testcase classname="tests.test_trading_calendar_structured" name="test_local_probe_applies_stale_policy_while_remaining_successful" time="0.001" /><testcase classname="tests.test_trading_calendar_structured" name="test_fresh_local_probe_remains_fresh_and_successful" time="0.001" /><testcase classname="tests.test_trading_calendar_structured" name="test_mootdx_index_failure_does_not_touch_other_mootdx_capabilities" time="0.001" /><testcase classname="tests.test_trading_calendar_structured" name="test_sina_index_failure_does_not_touch_bars_or_quote" time="0.001" /><testcase classname="tests.test_config_and_warmup_regression.TestConfigureValueValidation" name="test_truthy_string_for_boolean_flag_is_rejected" time="0.001" /><testcase classname="tests.test_config_and_warmup_regression.TestConfigureValueValidation" name="test_valid_boolean_still_accepted" time="0.001" /><testcase classname="tests.test_config_and_warmup_regression.TestConfigureValueValidation" name="test_staleness_string_rejected" time="0.001" /><testcase classname="tests.test_config_and_warmup_regression.TestConfigureValueValidation" name="test_negative_staleness_rejected" time="0.001" /><testcase classname="tests.test_config_and_warmup_regression.TestConfigureValueValidation" name="test_non_string_dir_rejected" time="0.001" /><testcase classname="tests.test_config_and_warmup_regression.TestConfigureValueValidation" name="test_unknown_key_still_rejected" time="0.001" /><testcase classname="tests.test_config_and_warmup_regression.TestConfigureValueValidation" name="test_atomic_commit_invalid_call_pollutes_nothing" time="0.001" /><testcase classname="tests.test_config_and_warmup_regression.TestConfigureValueValidation" name="test_valid_batch_commits_all" time="0.001" /><testcase classname="tests.test_config_and_warmup_regression.TestWarmupRetry" name="test_failed_warmup_allows_retry" time="0.024" /><testcase classname="tests.test_config_and_warmup_regression.TestWarmupRetry" name="test_successful_warmup_stays_idempotent" time="0.023" /><testcase classname="tests.test_release_version" name="test_matching_tag_and_project_version_pass" time="0.381" /><testcase classname="tests.test_release_version" name="test_mismatched_tag_and_project_version_fail" time="0.376" /><testcase classname="tests.test_release_version" name="test_malformed_tag_fails" time="0.377" /><testcase classname="tests.test_rh1_git_line_endings" name="test_crlf_preserves_added_line_discrimination[False]" time="0.825"><failure message="RuntimeError: git diff failed: warning: Limiting comparison with pathspecs is only supported if both paths are directories.&#10;usage: git diff --no-index [&lt;options&gt;] &lt;path&gt; &lt;path&gt; [&lt;pathspec&gt;...]&#10;&#10;Diff output format options&#10;    -p, --patch           generate patch&#10;    -s, --no-patch        suppress diff output&#10;    -u                    generate patch&#10;    -U, --unified[=&lt;n&gt;]   generate diffs with &lt;n&gt; lines context&#10;    -W, --[no-]function-context&#10;                          generate diffs with &lt;n&gt; lines context&#10;    --raw                 generate the diff in raw format&#10;    --patch-with-raw      synonym for '-p --raw'&#10;    --patch-with-stat     synonym for '-p --stat'&#10;    --numstat             machine friendly --stat&#10;    --shortstat           output only the last line of --stat&#10;    -X, --dirstat[=&lt;param1&gt;,&lt;param2&gt;...]&#10;                          output the distribution of relative amount of changes for each sub-directory&#10;    --cumulative          synonym for --dirstat=cumulative&#10;    --dirstat-by-file[=&lt;param1&gt;,&lt;param2&gt;...]&#10;                          synonym for --dirstat=files,&lt;param1&gt;,&lt;param2&gt;...&#10;    --check               warn if changes introduce conflict markers or whitespace errors&#10;    --summary             condensed summary such as creations, renames and mode changes&#10;    --name-only           show only names of changed files&#10;    --name-status         show only names and status of changed files&#10;    --stat[=&lt;width&gt;[,&lt;name-width&gt;[,&lt;count&gt;]]]&#10;                          generate diffstat&#10;    --stat-width &lt;width&gt;  generate diffstat with a given width&#10;    --stat-name-width &lt;width&gt;&#10;                          generate diffstat with a given name width&#10;    --stat-graph-width &lt;width&gt;&#10;                          generate diffstat with a given graph width&#10;    --stat-count &lt;count&gt;  generate diffstat with limited lines&#10;    --[no-]compact-summary&#10;                          generate compact summary in diffstat&#10;    --binary              output a binary diff that can be applied&#10;    --[no-]full-index     show full pre- and post-image object names on the &quot;index&quot; lines&#10;    --[no-]color[=&lt;when&gt;] show colored diff&#10;    --ws-error-highlight &lt;kind&gt;&#10;                          highlight whitespace errors in the 'context', 'old' or 'new' lines in the diff&#10;    -z                    do not munge pathnames and use NULs as output field terminators in --raw or --numstat&#10;    --[no-]abbrev[=&lt;n&gt;]   use &lt;n&gt; digits to display object names&#10;    --src-prefix &lt;prefix&gt; show the given source prefix instead of &quot;a/&quot;&#10;    --dst-prefix &lt;prefix&gt; show the given destination prefix instead of &quot;b/&quot;&#10;    --line-prefix &lt;prefix&gt;&#10;                          prepend an additional prefix to every line of output&#10;    --no-prefix           do not show any source or destination prefix&#10;    --default-prefix      use default prefixes a/ and b/&#10;    --inter-hunk-context &lt;n&gt;&#10;                          show context between diff hunks up to the specified number of lines&#10;    --output-indicator-new &lt;char&gt;&#10;                          specify the character to indicate a new line instead of '+'&#10;    --output-indicator-old &lt;char&gt;&#10;                          specify the character to indicate an old line instead of '-'&#10;    --output-indicator-context &lt;char&gt;&#10;                          specify the character to indicate a context instead of ' '&#10;&#10;Diff rename options&#10;    -B, --break-rewrites[=&lt;n&gt;[/&lt;m&gt;]]&#10;                          break complete rewrite changes into pairs of delete and create&#10;    -M, --find-renames[=&lt;n&gt;]&#10;                          detect renames&#10;    -D, --irreversible-delete&#10;                          omit the preimage for deletes&#10;    -C, --find-copies[=&lt;n&gt;]&#10;                          detect copies&#10;    --[no-]find-copies-harder&#10;                          use unmodified files as source to find copies&#10;    --no-renames          disable rename detection&#10;    --[no-]rename-empty   use empty blobs as rename source&#10;    --[no-]follow         continue listing the history of a file beyond renames&#10;    -l &lt;n&gt;                prevent rename/copy detection if the number of rename/copy targets exceeds given limit&#10;&#10;Diff algorithm options&#10;    --minimal             produce the smallest possible diff&#10;    -w, --ignore-all-space&#10;                          ignore whitespace when comparing lines&#10;    -b, --ignore-space-change&#10;                          ignore changes in amount of whitespace&#10;    --ignore-space-at-eol ignore changes in whitespace at EOL&#10;    --ignore-cr-at-eol    ignore carrier-return at the end of line&#10;    --ignore-blank-lines  ignore changes whose lines are all blank&#10;    -I, --[no-]ignore-matching-lines &lt;regex&gt;&#10;                          ignore changes whose all lines match &lt;regex&gt;&#10;    --[no-]indent-heuristic&#10;                          heuristic to shift diff hunk boundaries for easy reading&#10;    --patience            generate diff using the &quot;patience diff&quot; algorithm&#10;    --histogram           generate diff using the &quot;histogram diff&quot; algorithm&#10;    --diff-algorithm &lt;algorithm&gt;&#10;                          choose a diff algorithm&#10;    --anchored &lt;text&gt;     generate diff using the &quot;anchored diff&quot; algorithm&#10;    --word-diff[=&lt;mode&gt;]  show word diff, using &lt;mode&gt; to delimit changed words&#10;    --word-diff-regex &lt;regex&gt;&#10;                          use &lt;regex&gt; to decide what a word is&#10;    --color-words[=&lt;regex&gt;]&#10;                          equivalent to --word-diff=color --word-diff-regex=&lt;regex&gt;&#10;    --[no-]color-moved[=&lt;mode&gt;]&#10;                          moved lines of code are colored differently&#10;    --[no-]color-moved-ws &lt;mode&gt;&#10;                          how white spaces are ignored in --color-moved&#10;&#10;Other diff options&#10;    --[no-]relative[=&lt;prefix&gt;]&#10;                          when run from subdir, exclude changes outside and show relative paths&#10;    -a, --[no-]text       treat all files as text&#10;    -R                    swap two inputs, reverse the diff&#10;    --[no-]exit-code      exit with 1 if there were differences, 0 otherwise&#10;    --[no-]quiet          disable all output of the program&#10;    --[no-]ext-diff       allow an external diff helper to be executed&#10;    --[no-]textconv       run external text conversion filters when comparing binary files&#10;    --ignore-submodules[=&lt;when&gt;]&#10;                          ignore changes to submodules in the diff generation&#10;    --submodule[=&lt;format&gt;]&#10;                          specify how differences in submodules are shown&#10;    --ita-invisible-in-index&#10;                          hide 'git add -N' entries from the index&#10;    --ita-visible-in-index&#10;                          treat 'git add -N' entries as real in the index&#10;    -S &lt;string&gt;           look for differences that change the number of occurrences of the specified string&#10;    -G &lt;regex&gt;            look for differences that change the number of occurrences of the specified regex&#10;    --pickaxe-all         show all changes in the changeset with -S or -G&#10;    --pickaxe-regex       treat &lt;string&gt; in -S as extended POSIX regular expression&#10;    -O &lt;file&gt;             control the order in which files appear in the output&#10;    --rotate-to &lt;path&gt;    show the change in the specified path first&#10;    --skip-to &lt;path&gt;      skip the output to the specified path&#10;    --find-object &lt;object-id&gt;&#10;                          look for differences that change the number of occurrences of the specified object&#10;    --diff-filter [(A|C|D|M|R|T|U|X|B)...[*]]&#10;                          select files by diff type&#10;    --max-depth &lt;depth&gt;   maximum tree depth to recurse&#10;    --output &lt;file&gt;       output to a specific file">tests\test_rh1_git_line_endings.py:43: in test_crlf_preserves_added_line_discrimination
+    ranges = gate._added_line_ranges()
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+scripts\check_rh1_static.py:116: in _added_line_ranges
+    raise RuntimeError(f"git diff failed: {result.stderr.strip()}")
+E   RuntimeError: git diff failed: warning: Limiting comparison with pathspecs is only supported if both paths are directories.
+E   usage: git diff --no-index [&lt;options&gt;] &lt;path&gt; &lt;path&gt; [&lt;pathspec&gt;...]
+E   
+E   Diff output format options
+E       -p, --patch           generate patch
+E       -s, --no-patch        suppress diff output
+E       -u                    generate patch
+E       -U, --unified[=&lt;n&gt;]   generate diffs with &lt;n&gt; lines context
+E       -W, --[no-]function-context
+E                             generate diffs with &lt;n&gt; lines context
+E       --raw                 generate the diff in raw format
+E       --patch-with-raw      synonym for '-p --raw'
+E       --patch-with-stat     synonym for '-p --stat'
+E       --numstat             machine friendly --stat
+E       --shortstat           output only the last line of --stat
+E       -X, --dirstat[=&lt;param1&gt;,&lt;param2&gt;...]
+E                             output the distribution of relative amount of changes for each sub-directory
+E       --cumulative          synonym for --dirstat=cumulative
+E       --dirstat-by-file[=&lt;param1&gt;,&lt;param2&gt;...]
+E                             synonym for --dirstat=files,&lt;param1&gt;,&lt;param2&gt;...
+E       --check               warn if changes introduce conflict markers or whitespace errors
+E       --summary             condensed summary such as creations, renames and mode changes
+E       --name-only           show only names of changed files
+E       --name-status         show only names and status of changed files
+E       --stat[=&lt;width&gt;[,&lt;name-width&gt;[,&lt;count&gt;]]]
+E                             generate diffstat
+E       --stat-width &lt;width&gt;  generate diffstat with a given width
+E       --stat-name-width &lt;width&gt;
+E                             generate diffstat with a given name width
+E       --stat-graph-width &lt;width&gt;
+E                             generate diffstat with a given graph width
+E       --stat-count &lt;count&gt;  generate diffstat with limited lines
+E       --[no-]compact-summary
+E                             generate compact summary in diffstat
+E       --binary              output a binary diff that can be applied
+E       --[no-]full-index     show full pre- and post-image object names on the "index" lines
+E       --[no-]color[=&lt;when&gt;] show colored diff
+E       --ws-error-highlight &lt;kind&gt;
+E                             highlight whitespace errors in the 'context', 'old' or 'new' lines in the diff
+E       -z                    do not munge pathnames and use NULs as output field terminators in --raw or --numstat
+E       --[no-]abbrev[=&lt;n&gt;]   use &lt;n&gt; digits to display object names
+E       --src-prefix &lt;prefix&gt; show the given source prefix instead of "a/"
+E       --dst-prefix &lt;prefix&gt; show the given destination prefix instead of "b/"
+E       --line-prefix &lt;prefix&gt;
+E                             prepend an additional prefix to every line of output
+E       --no-prefix           do not show any source or destination prefix
+E       --default-prefix      use default prefixes a/ and b/
+E       --inter-hunk-context &lt;n&gt;
+E                             show context between diff hunks up to the specified number of lines
+E       --output-indicator-new &lt;char&gt;
+E                             specify the character to indicate a new line instead of '+'
+E       --output-indicator-old &lt;char&gt;
+E                             specify the character to indicate an old line instead of '-'
+E       --output-indicator-context &lt;char&gt;
+E                             specify the character to indicate a context instead of ' '
+E   
+E   Diff rename options
+E       -B, --break-rewrites[=&lt;n&gt;[/&lt;m&gt;]]
+E                             break complete rewrite changes into pairs of delete and create
+E       -M, --find-renames[=&lt;n&gt;]
+E                             detect renames
+E       -D, --irreversible-delete
+E                             omit the preimage for deletes
+E       -C, --find-copies[=&lt;n&gt;]
+E                             detect copies
+E       --[no-]find-copies-harder
+E                             use unmodified files as source to find copies
+E       --no-renames          disable rename detection
+E       --[no-]rename-empty   use empty blobs as rename source
+E       --[no-]follow         continue listing the history of a file beyond renames
+E       -l &lt;n&gt;                prevent rename/copy detection if the number of rename/copy targets exceeds given limit
+E   
+E   Diff algorithm options
+E       --minimal             produce the smallest possible diff
+E       -w, --ignore-all-space
+E                             ignore whitespace when comparing lines
+E       -b, --ignore-space-change
+E                             ignore changes in amount of whitespace
+E       --ignore-space-at-eol ignore changes in whitespace at EOL
+E       --ignore-cr-at-eol    ignore carrier-return at the end of line
+E       --ignore-blank-lines  ignore changes whose lines are all blank
+E       -I, --[no-]ignore-matching-lines &lt;regex&gt;
+E                             ignore changes whose all lines match &lt;regex&gt;
+E       --[no-]indent-heuristic
+E                             heuristic to shift diff hunk boundaries for easy reading
+E       --patience            generate diff using the "patience diff" algorithm
+E       --histogram           generate diff using the "histogram diff" algorithm
+E       --diff-algorithm &lt;algorithm&gt;
+E                             choose a diff algorithm
+E       --anchored &lt;text&gt;     generate diff using the "anchored diff" algorithm
+E       --word-diff[=&lt;mode&gt;]  show word diff, using &lt;mode&gt; to delimit changed words
+E       --word-diff-regex &lt;regex&gt;
+E                             use &lt;regex&gt; to decide what a word is
+E       --color-words[=&lt;regex&gt;]
+E                             equivalent to --word-diff=color --word-diff-regex=&lt;regex&gt;
+E       --[no-]color-moved[=&lt;mode&gt;]
+E                             moved lines of code are colored differently
+E       --[no-]color-moved-ws &lt;mode&gt;
+E                             how white spaces are ignored in --color-moved
+E   
+E   Other diff options
+E       --[no-]relative[=&lt;prefix&gt;]
+E                             when run from subdir, exclude changes outside and show relative paths
+E       -a, --[no-]text       treat all files as text
+E       -R                    swap two inputs, reverse the diff
+E       --[no-]exit-code      exit with 1 if there were differences, 0 otherwise
+E       --[no-]quiet          disable all output of the program
+E       --[no-]ext-diff       allow an external diff helper to be executed
+E       --[no-]textconv       run external text conversion filters when comparing binary files
+E       --ignore-submodules[=&lt;when&gt;]
+E                             ignore changes to submodules in the diff generation
+E       --submodule[=&lt;format&gt;]
+E                             specify how differences in submodules are shown
+E       --ita-invisible-in-index
+E                             hide 'git add -N' entries from the index
+E       --ita-visible-in-index
+E                             treat 'git add -N' entries as real in the index
+E       -S &lt;string&gt;           look for differences that change the number of occurrences of the specified string
+E       -G &lt;regex&gt;            look for differences that change the number of occurrences of the specified regex
+E       --pickaxe-all         show all changes in the changeset with -S or -G
+E       --pickaxe-regex       treat &lt;string&gt; in -S as extended POSIX regular expression
+E       -O &lt;file&gt;             control the order in which files appear in the output
+E       --rotate-to &lt;path&gt;    show the change in the specified path first
+E       --skip-to &lt;path&gt;      skip the output to the specified path
+E       --find-object &lt;object-id&gt;
+E                             look for differences that change the number of occurrences of the specified object
+E       --diff-filter [(A|C|D|M|R|T|U|X|B)...[*]]
+E                             select files by diff type
+E       --max-depth &lt;depth&gt;   maximum tree depth to recurse
+E       --output &lt;file&gt;       output to a specific file</failure></testcase><testcase classname="tests.test_rh1_git_line_endings" name="test_crlf_preserves_added_line_discrimination[True]" time="0.753"><failure message="RuntimeError: git diff failed: warning: Limiting comparison with pathspecs is only supported if both paths are directories.&#10;usage: git diff --no-index [&lt;options&gt;] &lt;path&gt; &lt;path&gt; [&lt;pathspec&gt;...]&#10;&#10;Diff output format options&#10;    -p, --patch           generate patch&#10;    -s, --no-patch        suppress diff output&#10;    -u                    generate patch&#10;    -U, --unified[=&lt;n&gt;]   generate diffs with &lt;n&gt; lines context&#10;    -W, --[no-]function-context&#10;                          generate diffs with &lt;n&gt; lines context&#10;    --raw                 generate the diff in raw format&#10;    --patch-with-raw      synonym for '-p --raw'&#10;    --patch-with-stat     synonym for '-p --stat'&#10;    --numstat             machine friendly --stat&#10;    --shortstat           output only the last line of --stat&#10;    -X, --dirstat[=&lt;param1&gt;,&lt;param2&gt;...]&#10;                          output the distribution of relative amount of changes for each sub-directory&#10;    --cumulative          synonym for --dirstat=cumulative&#10;    --dirstat-by-file[=&lt;param1&gt;,&lt;param2&gt;...]&#10;                          synonym for --dirstat=files,&lt;param1&gt;,&lt;param2&gt;...&#10;    --check               warn if changes introduce conflict markers or whitespace errors&#10;    --summary             condensed summary such as creations, renames and mode changes&#10;    --name-only           show only names of changed files&#10;    --name-status         show only names and status of changed files&#10;    --stat[=&lt;width&gt;[,&lt;name-width&gt;[,&lt;count&gt;]]]&#10;                          generate diffstat&#10;    --stat-width &lt;width&gt;  generate diffstat with a given width&#10;    --stat-name-width &lt;width&gt;&#10;                          generate diffstat with a given name width&#10;    --stat-graph-width &lt;width&gt;&#10;                          generate diffstat with a given graph width&#10;    --stat-count &lt;count&gt;  generate diffstat with limited lines&#10;    --[no-]compact-summary&#10;                          generate compact summary in diffstat&#10;    --binary              output a binary diff that can be applied&#10;    --[no-]full-index     show full pre- and post-image object names on the &quot;index&quot; lines&#10;    --[no-]color[=&lt;when&gt;] show colored diff&#10;    --ws-error-highlight &lt;kind&gt;&#10;                          highlight whitespace errors in the 'context', 'old' or 'new' lines in the diff&#10;    -z                    do not munge pathnames and use NULs as output field terminators in --raw or --numstat&#10;    --[no-]abbrev[=&lt;n&gt;]   use &lt;n&gt; digits to display object names&#10;    --src-prefix &lt;prefix&gt; show the given source prefix instead of &quot;a/&quot;&#10;    --dst-prefix &lt;prefix&gt; show the given destination prefix instead of &quot;b/&quot;&#10;    --line-prefix &lt;prefix&gt;&#10;                          prepend an additional prefix to every line of output&#10;    --no-prefix           do not show any source or destination prefix&#10;    --default-prefix      use default prefixes a/ and b/&#10;    --inter-hunk-context &lt;n&gt;&#10;                          show context between diff hunks up to the specified number of lines&#10;    --output-indicator-new &lt;char&gt;&#10;                          specify the character to indicate a new line instead of '+'&#10;    --output-indicator-old &lt;char&gt;&#10;                          specify the character to indicate an old line instead of '-'&#10;    --output-indicator-context &lt;char&gt;&#10;                          specify the character to indicate a context instead of ' '&#10;&#10;Diff rename options&#10;    -B, --break-rewrites[=&lt;n&gt;[/&lt;m&gt;]]&#10;                          break complete rewrite changes into pairs of delete and create&#10;    -M, --find-renames[=&lt;n&gt;]&#10;                          detect renames&#10;    -D, --irreversible-delete&#10;                          omit the preimage for deletes&#10;    -C, --find-copies[=&lt;n&gt;]&#10;                          detect copies&#10;    --[no-]find-copies-harder&#10;                          use unmodified files as source to find copies&#10;    --no-renames          disable rename detection&#10;    --[no-]rename-empty   use empty blobs as rename source&#10;    --[no-]follow         continue listing the history of a file beyond renames&#10;    -l &lt;n&gt;                prevent rename/copy detection if the number of rename/copy targets exceeds given limit&#10;&#10;Diff algorithm options&#10;    --minimal             produce the smallest possible diff&#10;    -w, --ignore-all-space&#10;                          ignore whitespace when comparing lines&#10;    -b, --ignore-space-change&#10;                          ignore changes in amount of whitespace&#10;    --ignore-space-at-eol ignore changes in whitespace at EOL&#10;    --ignore-cr-at-eol    ignore carrier-return at the end of line&#10;    --ignore-blank-lines  ignore changes whose lines are all blank&#10;    -I, --[no-]ignore-matching-lines &lt;regex&gt;&#10;                          ignore changes whose all lines match &lt;regex&gt;&#10;    --[no-]indent-heuristic&#10;                          heuristic to shift diff hunk boundaries for easy reading&#10;    --patience            generate diff using the &quot;patience diff&quot; algorithm&#10;    --histogram           generate diff using the &quot;histogram diff&quot; algorithm&#10;    --diff-algorithm &lt;algorithm&gt;&#10;                          choose a diff algorithm&#10;    --anchored &lt;text&gt;     generate diff using the &quot;anchored diff&quot; algorithm&#10;    --word-diff[=&lt;mode&gt;]  show word diff, using &lt;mode&gt; to delimit changed words&#10;    --word-diff-regex &lt;regex&gt;&#10;                          use &lt;regex&gt; to decide what a word is&#10;    --color-words[=&lt;regex&gt;]&#10;                          equivalent to --word-diff=color --word-diff-regex=&lt;regex&gt;&#10;    --[no-]color-moved[=&lt;mode&gt;]&#10;                          moved lines of code are colored differently&#10;    --[no-]color-moved-ws &lt;mode&gt;&#10;                          how white spaces are ignored in --color-moved&#10;&#10;Other diff options&#10;    --[no-]relative[=&lt;prefix&gt;]&#10;                          when run from subdir, exclude changes outside and show relative paths&#10;    -a, --[no-]text       treat all files as text&#10;    -R                    swap two inputs, reverse the diff&#10;    --[no-]exit-code      exit with 1 if there were differences, 0 otherwise&#10;    --[no-]quiet          disable all output of the program&#10;    --[no-]ext-diff       allow an external diff helper to be executed&#10;    --[no-]textconv       run external text conversion filters when comparing binary files&#10;    --ignore-submodules[=&lt;when&gt;]&#10;                          ignore changes to submodules in the diff generation&#10;    --submodule[=&lt;format&gt;]&#10;                          specify how differences in submodules are shown&#10;    --ita-invisible-in-index&#10;                          hide 'git add -N' entries from the index&#10;    --ita-visible-in-index&#10;                          treat 'git add -N' entries as real in the index&#10;    -S &lt;string&gt;           look for differences that change the number of occurrences of the specified string&#10;    -G &lt;regex&gt;            look for differences that change the number of occurrences of the specified regex&#10;    --pickaxe-all         show all changes in the changeset with -S or -G&#10;    --pickaxe-regex       treat &lt;string&gt; in -S as extended POSIX regular expression&#10;    -O &lt;file&gt;             control the order in which files appear in the output&#10;    --rotate-to &lt;path&gt;    show the change in the specified path first&#10;    --skip-to &lt;path&gt;      skip the output to the specified path&#10;    --find-object &lt;object-id&gt;&#10;                          look for differences that change the number of occurrences of the specified object&#10;    --diff-filter [(A|C|D|M|R|T|U|X|B)...[*]]&#10;                          select files by diff type&#10;    --max-depth &lt;depth&gt;   maximum tree depth to recurse&#10;    --output &lt;file&gt;       output to a specific file">tests\test_rh1_git_line_endings.py:43: in test_crlf_preserves_added_line_discrimination
+    ranges = gate._added_line_ranges()
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+scripts\check_rh1_static.py:116: in _added_line_ranges
+    raise RuntimeError(f"git diff failed: {result.stderr.strip()}")
+E   RuntimeError: git diff failed: warning: Limiting comparison with pathspecs is only supported if both paths are directories.
+E   usage: git diff --no-index [&lt;options&gt;] &lt;path&gt; &lt;path&gt; [&lt;pathspec&gt;...]
+E   
+E   Diff output format options
+E       -p, --patch           generate patch
+E       -s, --no-patch        suppress diff output
+E       -u                    generate patch
+E       -U, --unified[=&lt;n&gt;]   generate diffs with &lt;n&gt; lines context
+E       -W, --[no-]function-context
+E                             generate diffs with &lt;n&gt; lines context
+E       --raw                 generate the diff in raw format
+E       --patch-with-raw      synonym for '-p --raw'
+E       --patch-with-stat     synonym for '-p --stat'
+E       --numstat             machine friendly --stat
+E       --shortstat           output only the last line of --stat
+E       -X, --dirstat[=&lt;param1&gt;,&lt;param2&gt;...]
+E                             output the distribution of relative amount of changes for each sub-directory
+E       --cumulative          synonym for --dirstat=cumulative
+E       --dirstat-by-file[=&lt;param1&gt;,&lt;param2&gt;...]
+E                             synonym for --dirstat=files,&lt;param1&gt;,&lt;param2&gt;...
+E       --check               warn if changes introduce conflict markers or whitespace errors
+E       --summary             condensed summary such as creations, renames and mode changes
+E       --name-only           show only names of changed files
+E       --name-status         show only names and status of changed files
+E       --stat[=&lt;width&gt;[,&lt;name-width&gt;[,&lt;count&gt;]]]
+E                             generate diffstat
+E       --stat-width &lt;width&gt;  generate diffstat with a given width
+E       --stat-name-width &lt;width&gt;
+E                             generate diffstat with a given name width
+E       --stat-graph-width &lt;width&gt;
+E                             generate diffstat with a given graph width
+E       --stat-count &lt;count&gt;  generate diffstat with limited lines
+E       --[no-]compact-summary
+E                             generate compact summary in diffstat
+E       --binary              output a binary diff that can be applied
+E       --[no-]full-index     show full pre- and post-image object names on the "index" lines
+E       --[no-]color[=&lt;when&gt;] show colored diff
+E       --ws-error-highlight &lt;kind&gt;
+E                             highlight whitespace errors in the 'context', 'old' or 'new' lines in the diff
+E       -z                    do not munge pathnames and use NULs as output field terminators in --raw or --numstat
+E       --[no-]abbrev[=&lt;n&gt;]   use &lt;n&gt; digits to display object names
+E       --src-prefix &lt;prefix&gt; show the given source prefix instead of "a/"
+E       --dst-prefix &lt;prefix&gt; show the given destination prefix instead of "b/"
+E       --line-prefix &lt;prefix&gt;
+E                             prepend an additional prefix to every line of output
+E       --no-prefix           do not show any source or destination prefix
+E       --default-prefix      use default prefixes a/ and b/
+E       --inter-hunk-context &lt;n&gt;
+E                             show context between diff hunks up to the specified number of lines
+E       --output-indicator-new &lt;char&gt;
+E                             specify the character to indicate a new line instead of '+'
+E       --output-indicator-old &lt;char&gt;
+E                             specify the character to indicate an old line instead of '-'
+E       --output-indicator-context &lt;char&gt;
+E                             specify the character to indicate a context instead of ' '
+E   
+E   Diff rename options
+E       -B, --break-rewrites[=&lt;n&gt;[/&lt;m&gt;]]
+E                             break complete rewrite changes into pairs of delete and create
+E       -M, --find-renames[=&lt;n&gt;]
+E                             detect renames
+E       -D, --irreversible-delete
+E                             omit the preimage for deletes
+E       -C, --find-copies[=&lt;n&gt;]
+E                             detect copies
+E       --[no-]find-copies-harder
+E                             use unmodified files as source to find copies
+E       --no-renames          disable rename detection
+E       --[no-]rename-empty   use empty blobs as rename source
+E       --[no-]follow         continue listing the history of a file beyond renames
+E       -l &lt;n&gt;                prevent rename/copy detection if the number of rename/copy targets exceeds given limit
+E   
+E   Diff algorithm options
+E       --minimal             produce the smallest possible diff
+E       -w, --ignore-all-space
+E                             ignore whitespace when comparing lines
+E       -b, --ignore-space-change
+E                             ignore changes in amount of whitespace
+E       --ignore-space-at-eol ignore changes in whitespace at EOL
+E       --ignore-cr-at-eol    ignore carrier-return at the end of line
+E       --ignore-blank-lines  ignore changes whose lines are all blank
+E       -I, --[no-]ignore-matching-lines &lt;regex&gt;
+E                             ignore changes whose all lines match &lt;regex&gt;
+E       --[no-]indent-heuristic
+E                             heuristic to shift diff hunk boundaries for easy reading
+E       --patience            generate diff using the "patience diff" algorithm
+E       --histogram           generate diff using the "histogram diff" algorithm
+E       --diff-algorithm &lt;algorithm&gt;
+E                             choose a diff algorithm
+E       --anchored &lt;text&gt;     generate diff using the "anchored diff" algorithm
+E       --word-diff[=&lt;mode&gt;]  show word diff, using &lt;mode&gt; to delimit changed words
+E       --word-diff-regex &lt;regex&gt;
+E                             use &lt;regex&gt; to decide what a word is
+E       --color-words[=&lt;regex&gt;]
+E                             equivalent to --word-diff=color --word-diff-regex=&lt;regex&gt;
+E       --[no-]color-moved[=&lt;mode&gt;]
+E                             moved lines of code are colored differently
+E       --[no-]color-moved-ws &lt;mode&gt;
+E                             how white spaces are ignored in --color-moved
+E   
+E   Other diff options
+E       --[no-]relative[=&lt;prefix&gt;]
+E                             when run from subdir, exclude changes outside and show relative paths
+E       -a, --[no-]text       treat all files as text
+E       -R                    swap two inputs, reverse the diff
+E       --[no-]exit-code      exit with 1 if there were differences, 0 otherwise
+E       --[no-]quiet          disable all output of the program
+E       --[no-]ext-diff       allow an external diff helper to be executed
+E       --[no-]textconv       run external text conversion filters when comparing binary files
+E       --ignore-submodules[=&lt;when&gt;]
+E                             ignore changes to submodules in the diff generation
+E       --submodule[=&lt;format&gt;]
+E                             specify how differences in submodules are shown
+E       --ita-invisible-in-index
+E                             hide 'git add -N' entries from the index
+E       --ita-visible-in-index
+E                             treat 'git add -N' entries as real in the index
+E       -S &lt;string&gt;           look for differences that change the number of occurrences of the specified string
+E       -G &lt;regex&gt;            look for differences that change the number of occurrences of the specified regex
+E       --pickaxe-all         show all changes in the changeset with -S or -G
+E       --pickaxe-regex       treat &lt;string&gt; in -S as extended POSIX regular expression
+E       -O &lt;file&gt;             control the order in which files appear in the output
+E       --rotate-to &lt;path&gt;    show the change in the specified path first
+E       --skip-to &lt;path&gt;      skip the output to the specified path
+E       --find-object &lt;object-id&gt;
+E                             look for differences that change the number of occurrences of the specified object
+E       --diff-filter [(A|C|D|M|R|T|U|X|B)...[*]]
+E                             select files by diff type
+E       --max-depth &lt;depth&gt;   maximum tree depth to recurse
+E       --output &lt;file&gt;       output to a specific file</failure></testcase></testsuite></testsuites>

@@ -1,0 +1,2120 @@
+
+ 
+
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+	
+
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>华安德国(DAX)ETF | 基金超市 | 华安基金</title>
+    
+ 
+
+	
+	
+	
+
+
+
+<meta name="keywords" content=""/>
+<meta name="description" content=""/>
+
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1"> -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=1300,target-densitydpi=device-dpi,user-scalable=no" />
+    <meta content="telephone=no" name="format-detection" />
+    <meta name="Keywords" content="基金公司,公募基金,投资理财,华安基金,费率优惠,基金净值,基金定投,黄金基金,黄金投资,黄金理财,网上交易,偏股基金,媒体互联网,黄金ETF,001071,冠军基金,收益翻倍" />
+    <meta name="Description" content="华安基金是证监会批准成立的首批基金管理公司之一，23年铸就金牛基金管理公司，广受持有人信赖。截至2021年6月30日，管理非货公募资产规模超2900亿，服务逾6000万个人客户、30000家机构客户，累计为投资者实现分红超847亿元。"/>
+    <link rel="stylesheet" type="text/css" href="/css/StyleHa.css">
+    <link rel="stylesheet" type="text/css" href="/js/swiper/swiper.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/reset.css">
+    <link rel="stylesheet" type="text/css" href="/css/selectStyle.css">
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <link rel="stylesheet" type="text/css" href="/css/style_20151223.css">
+
+    <link rel="stylesheet" type="text/css" href="/css/font/iconfont.css">
+    <link rel="stylesheet" type="text/css" href="/css/jquery-ui-1.9.2.custom.min.css"/>
+    <script type="text/javascript" src="/js/jquery.js?v=1.0"></script>
+    <script type="text/javascript" src="/js/jquery-migrate-3.1.0.js?v=1.0"></script>
+    <script type="text/javascript" src="/js/jquery.cookie.js?v=1.0"></script>
+    <script type="text/javascript" src="/js/jcarousellite.js?v=1.0"></script>
+    <script type="text/javascript" src="/js/jquery.select-1.3.6.js?v=1.0"></script>
+    <script type="text/javascript" src="/js/jquery.SuperSlide.2.1.1.js?v=1.0"></script>
+    <script type="text/javascript" src="/js/jscroll.js?v=1.0"></script>
+    <script type="text/javascript" src="/js/global.js"></script>
+    <script type="text/javascript" src="/js/jquery-ui-1.12.1.custom.min.js?v=1.0"></script>
+    <script type="text/javascript" src="/js/fund.js"></script>
+    <script type="text/javascript" src="/js/marquee.js"></script>
+    <script type="text/javascript" src="/highchart/highcharts.js"></script>
+    <script type="text/javascript" src="/highchart/modules/exporting.js"></script>
+    <script type="text/javascript" src="/highchart/highcharts-more.js"></script>
+    <script type="text/javascript" src="/highchart/highchartsCommon.js"></script>
+    <script type="text/javascript" src="/js/huaan.js"></script>
+    <script type="text/javascript" src="/js/praise.js"></script>
+    <script type="text/javascript" src="/js/fund/ha-slide.js"></script>
+    <script type="text/javascript" src="/js/fund/funddetail.js"></script>
+    <script type="text/javascript">
+        var isshow = ""
+        var fundCode = "";
+        var fundDate = null;
+        var fundStyle = "";
+        var isMoney = "";
+        $(document).ready(function() {
+            isshow = "1";
+            fundCode = "513030";
+            isMoney = "0";
+            fundStyle = "201006";
+            initUIData();
+        });
+    </script>
+</head>
+
+<body>
+
+<link rel="stylesheet" href="/js/swiper/swiper.min.css">
+<link rel="stylesheet" type="text/css" href="/css/StyleHa.css">
+<link rel="stylesheet" type="text/css" href="/css/font/iconfont.css">
+<link rel="stylesheet" type="text/css" href="/css/selectStyle.css">
+<link rel="stylesheet" type="text/css" href="/css/jquery-ui.custom.min.css">
+<link rel="stylesheet" type="text/css" href="/css/select2/select2.min.css">
+<script type="text/javascript" src="/js/jquery.js?v=20211231"></script>
+<script type="text/javascript" src="/js/jquery-migrate-3.1.0.js?v=20211231"></script>
+<script type="text/javascript" src="/js/jquery.cookie.js?v=20211231"></script>
+<script type="text/javascript" src="/js/jcarousellite.js?v=20211231"></script>
+<script type="text/javascript" src="/js/jquery.select-1.3.6.js?v=20211231"></script>
+<script type="text/javascript" src="/js/jquery.SuperSlide.2.1.1.js?v=20211231"></script>
+<script type="text/javascript" src="/js/jscroll.js?v=20211231"></script>
+<script type="text/javascript" src="/js/global.js?v=20211231"></script>
+<script type="text/javascript" src="/js/jquery-ui.custom.min.js?v=20240414"></script>
+<script type="text/javascript" src="/js/fund.js?v=20211231"></script>
+<script type="text/javascript" src="/js/marquee.js?v=20211231"></script>
+<script type="text/javascript" src="/js/huaan.js?v=20211231"></script>
+<script type="text/javascript" src="/js/praise.js?v=20211231"></script>
+<script type="text/javascript" src="/js/fund/ha-slide.js?v=20211231"></script>
+<script type="text/javascript" src="/js/fund/funddetail.js?v=20220104"></script>
+<script type="text/javascript" src="/js/index.js?v=20211231"></script>
+<script type="text/javascript" src="/js/busdate.js"></script>
+<script type="text/javascript" src="/js/select2/select2.min.js"></script>
+<header class="clearbot">
+    <div class="hdTop" id="inde-hdTop">
+        <div class="wrapM">
+            <ul class="fr">
+
+                <li><a href="https://icc.huaan.com.cn/huaan/chatClient/chatbox.jsp?companyID=9224&configID=10&chatfrom=pc&enterurl=web" target="_blank"><i class="iconfont">&#xe608;</i>在线客服</a></li>
+                <li><a target="_blank"><i class="iconfont">&#xe603;</i>华安基金APP<span class="code_app"><img src="/img/footer_code_app.png"><p>扫一扫立即下载<br>华安基金APP</p></span></a></li>
+                <li><a href="/serve.html" target="_blank"><i class="iconfont">&#xe60f;</i>客户服务</a></li>
+                <li><a href="https://www.huaanfuture.com.cn" target="_blank">华安未来</a></li>
+                <li><a href="/English/index.html" target="_blank">En</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="hdMenu">
+        <div class="wrapM">
+            <a  class="HdLogo"><img src="/img/home_nav_logo.png"></a>
+            <div class="hdSerch hdbut fr">
+                <input type="text" class="Inserch dh" id="keyword" placeholder="搜基金代码，名称，基金经理">
+                <a href="javascript:void(0);" class="butIcon iconfont" data-value="show" id="showorsearchclick" onclick="showorsearch(this)" >&#xe604;</a>
+            </div>
+            <ul class="fr">
+                <li name="menu"><a href="/index.shtml"   >首页</a></li>
+                <li name="menu"><a href="/supermarket/index.shtml"  >基金超市</a></li>
+                <!--<li name="menu"><a href="/service/2016/cjb/index.html" target="_blank">黄金投资&lt;!&ndash;#include virtual="/commons/gold_price.html"&ndash;&gt;</a></li>-->
+                <!--<li><a href="/indexinvest/index.shtml" target="_blank">指数投资</a></li>-->
+                <li name="menu"><a href="/jglc.html" >机构理财</a></li>
+				<li name="menu"><a href="/toujiao/index.html"  target="_blank">投教园地</a></li>
+                <!--  <li><a href="#" target="_blank">养老专区</a></li>-->
+                <!--  <li><a href="/overview.shtml" target="_blank">关于华安</a></li>-->
+                <li name="menu"><a href="/aboutSurvey.html" >关于华安</a></li>
+            </ul>
+        </div>
+    </div>
+</header>
+<script>
+    $(function(){
+        $('#inde-hdTop').on('mouseenter', '.show-pic-however', function(){
+            var $a = $(this),
+                $div = $a.next();
+            $div.css('display', 'block');
+        }).on('mouseleave', '.show-pic-however', function(){
+            var $a = $(this),
+                $div = $a.next();
+            $div.css('display', 'none');
+        });
+    });
+</script>
+<style>
+    .show-pic-however-img{ position: absolute;margin-left: 0;width: 120px;height: 120px;display: block;z-index: 999;}
+	ul#ui-id-1 {
+		max-width:300px;
+	}
+    .show-pic-however-img em{position: absolute;left: 50%;display: block;width: 23px;height: 16px;margin-left: -12px;background: url(/images/marketingorganization/fund_icon_09.png) no-repeat center;transform: scaleY(-1); margin-top: -10px;}
+</style>
+<script type="text/javascript" src="/js/grayscale.js" ></script>
+
+
+
+
+ 
+
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+
+<div class="wrapM font16 Hdcrumbs"><a href="/index.shtml" target="_blank">首页</a> > <a href="/supermarket/index.shtml" target="_blank">基金超市</a> > 基金详情</div>
+<div class="focusDetN font16 wrapM">
+    <div class="fundName fl">
+        <div class="fl">
+            <h1>华安德国(DAX)ETF<strong>513030</strong>
+                <b class="rlabel_2">R4风险</b>
+                <b class="typeico1">ETF</b>
+            </h1>
+            <p>
+                
+                
+                
+            </p>
+        </div>
+        <div class="fr moreFund">查看<br>更多<i class="iconfont">&#xe60c;</i>
+            <div class="moreFundli"><ul>
+                <li>
+                    
+                    
+                        <span>23.01%</span>
+                        近2年涨幅</li>
+                <li>
+                    
+                    
+                        <span>48.32%</span>
+                        近5年涨幅</li>
+                <li>
+                    
+                    
+                        
+                        
+                            
+                                <span class="f_green_data">-5.60%</span>
+                            
+                            
+                        今年以来</li>
+                <li>
+                    
+                    
+                        <span>75.76%</span>
+                        成立以来</li>
+            </ul></div>
+        </div>
+        <div class="fr">
+            <ul>
+                <li><p>近3月</p>
+                    
+                    
+                        
+                        
+                            
+                                <b class="f_green_data">-0.62%</b>
+                            
+                            
+                        
+                    
+                </li>
+                <li><p>近6月</p>
+                    
+                    
+                        
+                        
+                            
+                                <b class="f_green_data">-2.23%</b>
+                            
+                            
+                        
+                    
+                </li>
+                <li><p>近1年</p>
+                    
+                    
+                        
+                        
+                            
+                                <b class="f_green_data">-5.62%</b>
+                            
+                            
+                        
+                    
+                </li>
+                <li><p>近3年</p>
+                    
+                    
+                        <b>58.77%</b>
+                        
+                    
+                </li>
+                <!-- <li class="wid2"><p>今年以来</p><b>175.28%</b></li>
+                <li><p>成立以来</p><b>219.11%</b></li> -->
+            </ul>
+        </div>
+    </div>
+    <div class="fundChart fl">
+        <div class="fundtrendHd">收益率走势图<ul><li  onclick="writeNewChartByMonth(3)"><a href="javascript:;">3个月</a></li><li onclick="writeNewChartByMonth(6)"><a href="javascript:;">6个月</a></li><li class="curr" onclick="writeNewChartByMonth(12)"><a href="javascript:;">1年</a></li><li onclick="writeNewChartByMonth(36)"><a href="javascript:;">3年</a></li><li class="moreli"><a href="javascript:;"><span>更多</span><i class="iconfont">&#xe60c;</i></a>
+            <div class="moreFundli"><ul>
+                <li onclick="writeNewChartByMonth(1)">近1月</li>
+                <li onclick="writeNewChartByMonth(24)">近2年</li>
+                <li onclick="writeNewChartByMonth(60)">近5年</li>
+                <li onclick="writeNewChartByMonth(13)">今年以来</li>
+                <li onclick="writeNewChartByMonth(0)">成立以来</li>
+            </ul></div></li></ul></div>
+        <div class="fuTrend">
+            <div id="chart_513030"></div>
+    </div>
+
+</div>
+<div class="bg">
+
+</div>
+<div class="networth fr">
+    
+    
+    
+    
+    
+        <div class="newNet">
+            
+            
+                <span>最新净值（10-21）<b>1.7576</b></span>
+            
+            
+            
+                <span>日涨跌幅
+                    
+                        
+                        
+                        <b>+1.40<i>%</i></b>
+                    
+                    
+                </span>
+            
+        </div>
+    
+
+    
+
+ 
+
+	
+	
+	
+
+
+
+<input type="hidden" id="fundSwiperSize" value="1">
+<div class="swiper-container fundSwiper">
+    <div class="swiper-wrapper">
+        
+            
+            <div class="swiper-slide">
+                <div class="netpe clearbot">
+                    <dl class="inManager">
+                        <dt class="inPhoto"><img src="/upload2010/2021/12/23/073627375_0_537292b2-917e-3c6c-a4ac-b1ff3a557947.png"></dt>
+                        <dd>
+                            <b>倪斌</b>
+                            <p> 
+                                全球指数投资 </p>
+                        </dd>
+                    </dl>
+                    <!-- <a href="#" class="more cl75">更多基金经理信息 <i class="iconfont">&#xe60c;</i></a> -->
+                </div>
+                <ul class="netinfo clearbot">
+                    
+                    <li><div>本基金任期</div>2018-09~至今</li>
+                    <li><div>从业年限</div>15年</li>
+                    <li><div>任期回报</div><b class="clRed">65.81%</b></li>
+                    <!-- <li><span>管理基金</span>10只</li> -->
+                </ul>
+            </div>
+        
+    </div>
+    <!-- Add Pagination -->
+    <!-- <div class="swiper-pagination swiper-pagination1"></div>             -->
+    <div class="swiper-button-next"><i class="iconfont">&#xe60c;</i></div>
+    <div class="swiper-button-prev"><i class="iconfont">&#xe60c;</i></div>
+</div>
+
+
+    
+    
+    
+        <div class="HnRate"><span class="hn-b-num"></span><span class="hn-num"></span></div>
+    
+    
+    
+        
+        
+            
+            
+            
+			
+			
+			
+            
+            
+            
+            
+            
+			
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+
+            
+            
+                <div class="netbuttom">
+                    <a href="/etf/513030/sgshqd2.jsp" class="redbut" target="_blank">申赎清单</a>
+                </div>
+            
+            
+			
+	        
+            
+
+            
+            
+            
+            
+            
+            
+            
+			
+			
+            
+			
+			
+            
+			
+	        
+            
+            
+            
+            
+            
+            
+	        
+			
+            
+			
+			
+			
+			
+			
+			
+            
+            
+            
+
+        
+        
+        
+    
+</div>
+</div>
+<script type="text/javascript">
+    var fundCode = "";
+    var fundDate = null;
+    var fundStyle = "";
+    $(document).ready(function() {
+        var regDate = /^[1-9]\d{3}(\/)(0[1-9]|1[0-2]|[1-9])(\/)([1-9]|0[1-9]|[1-2][0-9]|3[0-1])-[1-9]\d{3}(\/)([1-9]|0[1-9]|1[0-2])(\/)([1-9]|0[1-9]|[1-2][0-9]|3[0-1])$/;
+        var pub1 = "";
+        var status = "203007";
+        if(!regDate.test(pub1)&&status=="203007"){
+            $("#pub_01").html("下一开放期未定，敬请关注华安网站公告");
+            //$("#pub_1").html("<a href='#' onclick='tixing()'>下一开放期未定，基金开放申赎请提醒我》</a>");
+        }else if(regDate.test(pub1)&&status=="203007"){
+            pub1Str1 = pub1.split("-")[0];
+            pub1Str2 = pub1.split("-")[1];
+            var str1 = pub1Str1.split("/");
+            var str2 = pub1Str2.split("/");
+            $("#pub_1").html("下一申购开放期：<br/>&nbsp;&nbsp;"+str1[0]+"年"+str1[1]+"月" + str1[2]+"日-" + str2[0]+"年"+str2[1]+"月" + str2[2]+"日" );
+        }else if(regDate.test(pub1)&&status=="203001"){
+            pub1Str1 = pub1.split("-")[0];
+            pub1Str2 = pub1.split("-")[1];
+            var str1 = pub1Str1.split("/");
+            var str2 = pub1Str2.split("/");
+            $("#pub_1").html("本期开放：<br/>&nbsp;&nbsp;"+str1[0]+"年"+str1[1]+"月" + str1[2]+"日-" + str2[0]+"年"+str2[1]+"月" + str2[2]+"日" );
+        }
+        fundCode = "513030";
+        fundDate = "2026-10-21";
+        fundStyle = "201006";
+        //writeChart(fundCode,fundDate,1);
+        "";
+        if(fundStyle!=201009 && fundStyle!=201005 && fundStyle!=201012){
+            $(".fund_view_l .div").css("padding-top","4px");
+        }
+        writeNewChartByMonth(12)
+    });
+</script>
+
+
+<!-- <div class="focusAd wrapM"><img src="img/f_ad.jpg"></div> -->
+
+<div class="profileCon wrapM font16">
+    <div class="profileNav clearbot"><ul>
+        <li id="fund_1" class="cur"><a href="javascript:;">基金概况</a></li>
+        <li id="fund_2"><a href="javascript:;">业绩表现</a></li>
+        <li id="fund_3"><a href="javascript:;">交易费率
+		
+	</a></li>
+        <li id="fund_4"><a href="javascript:;">基金经理</a></li>
+        <li id="fund_5"><a href="javascript:;">投资组合</a></li>
+        <li id="fund_6"><a href="javascript:;">信息披露</a></li>
+        <li id="fund_7"><a href="javascript:;">销售机构</a></li>
+        <li id="fund_8"><a href="javascript:;">历史分红</a></li>
+    </ul></div>
+    <div class="profileWrap">
+        <div class="profileItem" style="display: block;">
+            
+
+ 
+
+	
+	
+	
+
+
+
+
+
+    <div class="termbox clearbot fundtable">
+        <table width="100%" border="0" cellspacing="1" cellpadding="0">
+            <tbody>
+            <tr>
+                <td class="hd">法定名称</td>
+                <td>华安国际龙头(DAX)交易型开放式指数证券投资基金</td>
+                <td class="hd">基金代码</td>
+                <td>513030</td>
+            </tr>
+            <tr>
+                <td class="hd">基金简称</td>
+                <td>华安德国（DAX）ETF</td>
+                <td class="hd">成立日期</td>
+                <td>2014-08-08</td>
+            </tr>
+            <tr>
+                <td class="hd">基金类型</td>
+                <td>ETF</td>
+                <td class="hd">交易状态</td>
+                <td>
+                    详情请见申赎清单
+                    
+                </td>
+            </tr>
+            <tr>
+                <td class="hd">基金经理</td>
+                <td>
+                    
+                    倪斌
+                
+                </td>
+                <td class="hd">币种</td>
+                <td>CNY</td>
+            </tr>
+            
+            <tr>
+                <td class="hd">产品风险等级</td>
+                <td >R4</td>
+                <td class="hd">基金托管人</td>
+                <td>招商银行</td>
+            </tr>
+            <tr>
+                <td class="hd">最新规模</td>
+                <td colspan="3">1,800,247,509.37元(2026-06-30)
+                    
+                </td>
+            </tr>
+            <tr>
+                
+                
+                    <td class="hd">业绩比较基准</td>
+                    <td  colspan="3" id="yjbx"></td>
+                
+            </tr>
+
+            
+
+
+            </tbody>
+        </table>
+    </div>
+    
+        <div class="termbox clearbot portfolioW">
+            <h5 class="proinT">投资组合</h5>
+            
+            <div class="fl">
+                <div class="titlz"><b>资产分布</b>（2026-06-30）</div>
+                <div class="tbitem">
+                    <div id="pieChart_Z513030"></div>
+            </div>
+        </div>
+        <div class="fr">
+            <div class="titlz"><b>行业分布</b>（2026-06-30）</div>
+            <div class="tbitem">
+                <div id="pieChart_H513030"></div>
+        </div>
+        </div>
+        </div>
+    
+    <div class="highfoot clearbot"></div>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            var fundCode = "513030";
+            var fundDate = "2026-06-30";
+            var isHyFlag = "1642112672.57";
+            writeNewPieChartZH(fundCode,fundDate,isHyFlag);
+            $(".manager2").attr("title",$(".manager1").html());
+            var regDate = /^[1-9]\d{3}(\/)(0[1-9]|1[0-2]|[1-9])(\/)([1-9]|0[1-9]|[1-2][0-9]|3[0-1])-[1-9]\d{3}(\/)([1-9]|0[1-9]|1[0-2])(\/)([1-9]|0[1-9]|[1-2][0-9]|3[0-1])$/;
+        
+            var pub1 = "";
+            var pub8 = "德国DAX指数（DAX Index）收益率（经汇率调整后的总收益指数收益率）";
+            var yjbj = pub8.replace('\n', '<br/>');
+            $("#yjbx").html(yjbj);
+            //if(pub1=='' || pub1==null || pub1=='--'){
+            if(!regDate.test(pub1)){
+                $("#pub1").html("--");
+            }else{
+                var pub1Str1 = pub1.split("-")[0];
+                var pub1Str2 = pub1.split("-")[1];
+                var str1 = pub1Str1.split("/");
+                var str2 = pub1Str2.split("/");
+                $("#pub1").html(str1[0]+"年"+str1[1]+"月" + str1[2]+"日-" + str2[0]+"年"+str2[1]+"月" + str2[2]+"日" );
+            }
+            var pub2 = "";
+            //if(pub2=='' || pub2==null || pub2=='aa'){
+            if(!regDate.test(pub2)){
+                $("#pub2").html("--");
+            }else{
+                var pub1Str1 = pub2.split("-")[0];
+                var pub1Str2 = pub2.split("-")[1];
+                var str1 = pub1Str1.split("/");
+                var str2 = pub1Str2.split("/");
+                $("#pub2").html(str1[0]+"年"+str1[1]+"月" + str1[2]+"日-" + str2[0]+"年"+str2[1]+"月" + str2[2]+"日" );
+            }
+        });
+    </script>
+
+
+        </div>
+        <div class="profileItem">
+            
+ 
+
+	
+	
+	
+
+
+<div class="fund_infos_bx_t">
+
+	
+	<ul>
+		<li class="li1"><span class="f_333">日期</span><br><span>2026-10-21</span></li>
+		<li class="li2"><span class="f_333">单位净值</span><br><span>1.7576</span></li>
+		<li class="li3"><span class="f_333">累计净值</span><br><span>1.7576</span></li>
+		<li class="li4"><span class="f_333">涨跌</span><br><span class="f_red">1.40%</span><img src="/images/global/icon_sheng1.gif" class="img_m"/></li>
+		<li class="li5">
+		
+		<span class="f_333">三个月</span>
+		<br>
+						
+											
+											
+											<span class="f_green">
+											-0.62%
+											</span><img src="/images/global/icon_jiang1.gif"  class="img_m"/>
+								
+						
+						
+											
+											
+																		
+						
+		</li>
+		
+		
+		<li class="li6"><span class="f_333">一年</span>
+		<br>
+		
+		
+		
+		<span class="f_green">
+		-5.62%
+		</span><img src="/images/global/icon_jiang1.gif"  class="img_m"/>
+		
+		
+		
+		
+		
+		
+
+		
+		
+		</li>
+		<li class="li7"><span class="f_333">成立以来</span><br><span class="f_red">75.76%</span><img src="/images/global/icon_sheng1.gif" class="img_m"/></li>
+	</ul>
+	
+	
+	
+	
+
+</div>
+    
+    
+    
+     <div id="fundperformanceDiv"></div>
+    
+ 
+
+        </div>
+        <div class="profileItem">
+            <div id="fundfee"></div>
+        </div>
+        <div class="profileItem" >
+            
+ 
+
+	
+	
+	
+
+
+
+    <div class="termbox clearbot prManagerW">
+        <h5 class="proinT">基金经理</h5>
+        <div class="prManager">
+            <dl class="PrIntroduce">
+                <dt><img src="/upload2010/2021/12/23/073627375_0_537292b2-917e-3c6c-a4ac-b1ff3a557947.png"></dt>
+                <dd>
+                    <h3>倪斌</h3>
+                    <ul class="netinfo clearbot">
+                        <li><span>任职日期：</span>2018-09-10~至今</li>
+                        <li><span>任期回报：</span>
+                            
+                            
+                                
+                                
+                                    <b class="clRed">65.81%</b>
+                                
+                            
+
+                        </li>
+                    </ul>
+                    <h4>指数投资部副总监。</h4>
+                    <p>硕士研究生，15年基金行业从业经历。曾任毕马威华振会计师事务所审计员。2010年7月加入华安基金，历任基金运营部基金会计、指数与量化投资部分析师、基金经理助理。2018年9月起，同时担任华安标普全球石油指数证券投资基金（LOF）、华安国际龙头（DAX）交易型开放式指数证券投资基金及其联接基金的基金经理。2018年9月至2025年3月，同时担任华安CES港股通精选100交易型开放式指数证券投资基金及其联接基金的基金经理。2018年9月至2022年12月，同时担任华安纳斯达克100指数证券投资基金的基金经理。2022年12月起，同时担任华安纳斯达克100交易型开放式指数证券投资基金联接基金（QDII）（由华安纳斯达克100指数证券投资基金转型而来）的基金经理。2019年6月起，同时担任华安三菱日联日经225交易型开放式指数证券投资基金（QDII）的基金经理。2020年5月起，同时担任华安法国CAC40交易型开放式指数证券投资基金（QDII）的基金经理。2021年1月至2022年7月，同时担任华安中证全指证券公司指数型证券投资基金的基金经理。2021年2月至2025年3月，同时担任华安中证新能源汽车交易型开放式指数证券投资基金的基金经理。2021年3月至2022年7月，同时担任华安中证全指证券公司交易型开放式指数证券投资基金的基金经理。2021年4月至2023年11月，同时担任华安中证申万食品饮料交易型开放式指数证券投资基金的基金经理。2021年5月起，同时担任华安恒生科技交易型开放式指数证券投资基金（QDII）的基金经理。2021年6月至2025年3月，同时担任华安中证沪港深科技100交易型开放式指数证券投资基金的基金经理。2021年10月至2025年3月，同时担任华安中证新能源汽车交易型开放式指数证券投资基金发起式联接基金的基金经理。2022年4月起，同时担任华安恒生科技交易型开放式指数证券投资基金发起式联接基金（QDII）的基金经理。2022年7月起，同时担任华安纳斯达克100交易型开放式指数证券投资基金（QDII）的基金经理。2023年1月起，同时担任华安恒生互联网科技业交易型开放式指数证券投资基金（QDII）的基金经理。2023年12月起，同时担任华安恒生港股通中国央企红利交易型开放式指数证券投资基金的基金经理。2024年2月起，同时担任华安恒生互联网科技业交易型开放式指数证券投资基金发起式联接基金（QDII）、华安三菱日联日经225交易型开放式指数证券投资基金发起式联接基金（QDII）的基金经理。2024年4月起，同时担任华安恒生港股通中国央企红利交易型开放式指数证券投资基金发起式联接基金的基金经理。2024年5月至2026年3月，同时担任华安中证沪深港黄金产业股票交易型开放式指数证券投资基金的基金经理。2024年6月起，同时担任华安法国CAC40交易型开放式指数证券投资基金发起式联接基金的基金经理。2024年11月至2024年12月，同时担任华安恒生香港上市生物科技指数型发起式证券投资基金（QDII）的基金经理。2024年12月起，同时担任华安恒生生物科技指数型发起式证券投资基金（QDII）（由华安恒生香港上市生物科技指数型发起式证券投资基金（QDII）转型而来）的基金经理。2025年5月起，同时担任华安恒指港股通交易型开放式指数证券投资基金的基金经理。2025年9月起，同时担任华安恒生生物科技交易型开放式指数证券投资基金的基金经理。2026年5月至2026年6月，同时担任华安恒生生物科技指数型发起式证券投资基金的基金经理。2026年6月起，同时担任华安恒生生物科技交易型开放式指数证券投资基金发起式联接基金（由华安恒生生物科技指数型发起式证券投资基金转型而来）的基金经理。</p>
+                </dd>
+            </dl>
+        </div>
+    </div>
+
+    
+        <div>
+            <div class="showDiv">
+                
+                    <div class="termbox clearbot">
+                        <h5 class="proinT">代表作</h5>
+                        <div class="prAdmin">
+                            
+                                
+
+                                
+
+                                
+                                    <div class="prAdList hdboxshw">
+                                        <h2><b><a href="javascript:void(0)" onclick="viewFund('015016')">德国(DAX)联接C</a></b><article>
+                                            <label>
+                                                
+                                                
+                                                
+                                                
+                                                
+                                                
+                                                
+                                                QDII
+                                                
+                                                
+                                                
+                                                
+                                                
+                                                
+                                                
+                                            </label>｜<label>R4风险</label></article></h2>
+                                        
+                                            
+                                                <div class="recJ">
+                                                
+                                                    
+                                                    
+                                                    
+                                                    
+                                                        
+                                                            
+                                                            <span class="numberL">-5.96<i>%</i></span>
+                                                        
+                                                    
+                                                    
+                                                    
+                                                    
+                                                    
+                                                    
+                                                    近1年涨幅
+                                                    
+                                                    
+                                                    
+                                                    
+                                                    
+                                                
+                                                    
+                                                </div>
+                                            
+
+                                            
+                                                <div class="recJ">
+                                                
+                                                    
+                                                    
+                                                    
+                                                    
+                                                    <span class="numberH">52.64<i>%</i></span>
+                                                    
+                                                    
+                                                    
+                                                    
+                                                    
+                                                    
+                                                    
+                                                    
+                                                    
+                                                    成立以来涨幅
+                                                
+                                                    
+                                                </div>
+                                            
+                                        
+                                    </div>
+                                
+
+                                
+
+                                
+
+                            
+                                
+
+                                
+                                    <div class="prAdList hdboxshw">
+                                        <h2><b><a href="javascript:void(0)" onclick="viewFund('014978')">华安纳斯达克100联接C</a></b><article>
+                                            <label>
+                                                
+                                                
+                                                
+                                                
+                                                
+                                                
+                                                
+                                                QDII
+                                                
+                                                
+                                                
+                                                
+                                                
+                                                
+                                                
+                                            </label>｜<label>R4风险</label></article></h2>
+                                        
+                                            
+                                                <div class="recJ">
+                                                    
+                                                    
+                                                    
+                                                    
+                                                    
+                                                    
+                                                        <span class="numberH">10.83<i>%</i></span>
+                                                    
+                                                    
+                                                    
+                                                    
+                                                    
+                                                    近1年涨幅
+                                                    
+                                                    
+                                                    
+                                                    
+                                                    
+                                            
+                                            
+                                                </div>
+                                            
+
+                                            
+                                                <div class="recJ">
+                                                    
+                                                    
+                                                    
+                                                    
+                                                    
+                                                    <span class="numberH">78.78<i>%</i></span>
+                                                    
+                                                    
+                                                    
+                                                    
+                                                    
+                                                    
+                                                    近3年涨幅
+                                                    
+                                                    
+                                                    
+                                            
+                                    
+                                                </div>
+                                            
+                                        
+                                    </div>
+                                
+
+                                
+
+                                
+
+                                
+
+                            
+                                
+                                    <div class="prAdList hdboxshw">
+                                        <h2><b><a href="javascript:void(0)" onclick="viewFund('015283')">恒生科技ETF联接C</a></b><article>
+                                            <label>
+                                                
+                                                
+                                                
+                                                
+                                                
+                                                
+                                                
+                                                QDII
+                                                
+                                                
+                                                
+                                                
+                                                
+                                                
+                                                
+                                            </label>｜<label>R4风险</label></article></h2>
+                                        
+                                            
+                                                <div class="recJ">
+                                                    
+                                                    
+                                                    
+                                                    
+                                                    
+                                                        
+                                                            
+                                                            <span class="numberL">-1.09<i>%</i></span>
+                                                        
+                                                    
+                                                    
+                                                    
+                                                    
+                                                    
+                                                    
+                                                    
+                                                    
+                                                    近3年涨幅
+                                                    
+                                                    
+                                                    
+                                                    
+                                                    
+                                                </div>
+                                            
+
+                                            
+                                                <div class="recJ">
+                                                
+                                                    
+                                                    
+                                                    
+                                                    
+                                                        
+                                                            
+                                                            <span class="numberL">-4.81<i>%</i></span>
+                                                        
+                                                    
+                                                    
+                                                    
+                                                    
+                                                    
+                                                    
+                                                    
+                                                    
+                                                    
+                                                    
+                                                    
+                                                    成立以来涨幅
+                                                    
+                                                    
+                                                </div>
+                                            
+                                        
+                                    </div>
+                                
+
+                                
+
+                                
+
+                                
+
+                                
+
+                            
+                        </div>
+                    </div>
+                
+                <!---过往观点2-->
+                
+                    <div class="termbox clearbot">
+                        <h5 class="proinT">过往观点<a href="/list/626/1.shtml" target="_blank" class="cl75 moreT">查看更多<i class="iconfont">&#xe60c;</i></a></h5>
+                        <div class="swiper-container PastViews2 swbutstyle">
+                            <ul class="swiper-wrapper">
+                                
+                                    
+                                    
+                                    <li class="swiper-slide pastnew">
+                                        <a class="hdboxshw"  href="/news/2024-10-09/222748_1.shtml" target="_blank" >
+                                            <h3>倪斌：多重积极因素加持 港股投资价值显现</h3>
+                                            <article><!--<span>华安观点</span>--><span>2024-10-08</span></article>
+                                            <p>
+                                                
+                                                海内外利好政策频出，市场情绪逐渐回暖
+                                            </p>
+                                        </a>
+                                    </li>
+
+                                
+                                    
+                                    
+                                    <li class="swiper-slide pastnew">
+                                        <a class="hdboxshw"  href="/news/2022-09-23/208315_1.shtml" target="_blank" >
+                                            <h3>华安基金：美联储议息会议如期加息75bps，美股短期或波动加大</h3>
+                                            <article><!--<span>华安观点</span>--><span>2022-09-22</span></article>
+                                            <p>
+                                                华安基金指数与量化投资部认为，随着市场充分纳入22与23年利率路径的预期，美股有望相对企稳并跟随重要经济数据...
+                                                
+                                            </p>
+                                        </a>
+                                    </li>
+
+                                
+                            </ul>
+                            <!-- <p class="limore"><a href="#" class="cl75">加载更多<i class="iconfont">&#xe60c;</i></a></p> -->
+                        </div>
+                    </div>
+                
+                
+            </div>
+            <div class="limore"><a onclick="changeShow(this,'up')" class="cl75 upShowPage">加载更多<i class="iconfont"></i></a>
+                <a onclick="changeShow(this,'close')" class="cl75 closeShowPage">点击收起<i class="iconfont iconfont_close "></i></a></div>
+        </div>
+    
+
+<div class="termbox clearbot">
+    <h5 class="proinT">历任基金经理</h5>
+    <div class="prSucc">
+        <ul class="prsuccul">
+            
+                <li>徐宜宜&nbsp;&nbsp;任职时间：2014-08~2018-09</li>
+            
+        </ul>
+    </div>
+</div>
+<script type="text/javascript">
+    function getweixinvideo(obj) {
+        var uyrl = 'http://vv.video.qq.com/getinfo?vids=' + obj.attr("video-value") + '&platform=101001&charge=0&otype=json'
+        $.ajax({
+            url: uyrl,
+            dataType: 'jsonp',
+            async: false,
+            success: function (data) {
+                console.log(data);
+                var key = data.vl.vi[0].fvkey;
+                var fn = data.vl.vi[0].fn;
+                var url = data.vl.vi[0].ul.ui[0].url
+                var src = url + fn + "?vkey=" + key
+                obj.attr("src", src)
+            },
+            error: function (error) {
+                console.log("失败");
+                console.log(error);
+            }
+        })
+    }
+    var doc=$(".showVideoTX");
+    $.each(doc,function () {getweixinvideo($(this))})
+    function jumptoVideo(id){console.log(id);window.open(getRootPath()+"/video/videoList.shtml?"+id);}
+</script>
+
+        </div>
+        <div class="profileItem">
+            
+ 
+
+	
+	
+	
+
+
+
+
+    
+
+
+<div class="fund_infos_tzzh">
+    <div class="fund_infos_tzzh_tag">
+        <ul>
+            <li id="ZCZH" class="li1 active">资产组合</li>
+            <li id="GPPZ">股票配置</li>
+            <li id="ZCGP">重仓持股</li>
+            <li id="ZQPZ">债券配置</li>
+            <li id="ZCZQ">重仓债券</li>
+        </ul>
+    </div>
+    <div class="fund_infos_tzzh_c">
+        <div class="fund_infos_tzzh_l" style="display: none">
+            <h4><span class="fr">以下数据截止2026-06-30</span><span class="f_333">报告期末基金资产组合情况：</span></h4>
+            <table class="table_tzzh">
+                <tr><!-- 资产组合 -->
+                    <th class="th1">序号</th>
+                    <th class="th2">项目</th>
+                    <th class="th3">金额（元）</th>
+                    <th class="th4">占基金总资产的比例（%）</th>
+                </tr>
+                
+                    <tr>
+                        
+                            <td class="td1"  rowspan="2" >
+                            	1
+                            </td>
+                        
+                        <td class="td2"><strong>权益投资</strong></td>
+                        <td class="td3">1,642,112,672.57</td>
+                        <td class="td4">90.55</td>
+                    </tr>
+                
+                    <tr>
+                        
+                        <td class="td2"><strong>其中：股票</strong></td>
+                        <td class="td3">00.00</td>
+                        <td class="td4">0.00</td>
+                    </tr>
+                
+                    <tr>
+                        
+                            <td class="td1"  rowspan="3">
+                            	2
+                            </td>
+                        
+                        <td class="td2"><strong>固定收益投资</strong></td>
+                        <td class="td3">00.00</td>
+                        <td class="td4">0.00</td>
+                    </tr>
+                
+                    <tr>
+                        
+                        <td class="td2"><strong>其中：债券</strong></td>
+                        <td class="td3">00.00</td>
+                        <td class="td4">0.00</td>
+                    </tr>
+                
+                    <tr>
+                        
+                        <td class="td2"><strong>资产支持证券</strong></td>
+                        <td class="td3">00.00</td>
+                        <td class="td4">0.00</td>
+                    </tr>
+                
+                    <tr>
+                        
+                            <td class="td1"  >
+                            	3
+                            </td>
+                        
+                        <td class="td2"><strong>贵金属投资</strong></td>
+                        <td class="td3">00.00</td>
+                        <td class="td4">0.00</td>
+                    </tr>
+                
+                    <tr>
+                        
+                            <td class="td1"  >
+                            	4
+                            </td>
+                        
+                        <td class="td2"><strong>金融衍生品投资</strong></td>
+                        <td class="td3">00.00</td>
+                        <td class="td4">0.00</td>
+                    </tr>
+                
+                    <tr>
+                        
+                            <td class="td1"  rowspan="2" >
+                            	5
+                            </td>
+                        
+                        <td class="td2"><strong>买入返售金融资产</strong></td>
+                        <td class="td3">00.00</td>
+                        <td class="td4">0.00</td>
+                    </tr>
+                
+                    <tr>
+                        
+                        <td class="td2"><strong>其中：买断式回购的买入返售金融资产</strong></td>
+                        <td class="td3">00.00</td>
+                        <td class="td4">0.00</td>
+                    </tr>
+                
+                    <tr>
+                        
+                            <td class="td1"  >
+                            	6
+                            </td>
+                        
+                        <td class="td2"><strong>银行存款和结算备付金合计</strong></td>
+                        <td class="td3">144,520,529.54</td>
+                        <td class="td4">7.97</td>
+                    </tr>
+                
+                    <tr>
+                        
+                            <td class="td1"  >
+                            	7
+                            </td>
+                        
+                        <td class="td2"><strong>其他各项资产</strong></td>
+                        <td class="td3">26,855,964.38</td>
+                        <td class="td4">1.48</td>
+                    </tr>
+                
+                    <tr>
+                        
+                            <td class="td1"  >
+                            	8
+                            </td>
+                        
+                        <td class="td2"><strong>合计</strong></td>
+                        <td class="td3">1,813,489,166.49</td>
+                        <td class="td4">100.00</td>
+                    </tr>
+                
+            </table>
+        </div>
+        <div class="fund_infos_tzzh_r">
+            <div id="pieChart_ZCZH" class="img"></div>
+        </div>
+        <div class="fund_infos_tzzh_nodata" style="display: none">
+            <img src="/img/nochart.png">
+        </div>
+    </div>
+    <div class="fund_infos_tzzh_c none">
+        <div class="fund_infos_tzzh_l" style="display: none">
+            <h4><span class="fr">以下数据截止2026-06-30</span><span class="f_333">报告期末按行业分类的股票投资组合：</span></h4>
+            <table class="table_tzzh">
+                <tr><!-- 股票配置 -->
+                    <th class="th5">行业类别</th>
+                    <th class="th3">公允价值(元)</th>
+                    <th class="th4">占基金资产净值的比例(%)</th>
+                </tr>
+                
+                    <tr>
+                        <td class="td2"><strong>农、林、牧、渔业</strong></td>
+                        <td class="td3">00.00</td>
+                        <td class="td4">0.00</td>
+                    </tr>
+                
+                    <tr>
+                        <td class="td2"><strong>采矿业</strong></td>
+                        <td class="td3">00.00</td>
+                        <td class="td4">0.00</td>
+                    </tr>
+                
+                    <tr>
+                        <td class="td2"><strong>制造业</strong></td>
+                        <td class="td3">00.00</td>
+                        <td class="td4">0.00</td>
+                    </tr>
+                
+                    <tr>
+                        <td class="td2"><strong>电力、热力、燃气及水生产和供应业</strong></td>
+                        <td class="td3">00.00</td>
+                        <td class="td4">0.00</td>
+                    </tr>
+                
+                    <tr>
+                        <td class="td2"><strong>建筑业</strong></td>
+                        <td class="td3">00.00</td>
+                        <td class="td4">0.00</td>
+                    </tr>
+                
+                    <tr>
+                        <td class="td2"><strong>批发和零售业</strong></td>
+                        <td class="td3">00.00</td>
+                        <td class="td4">0.00</td>
+                    </tr>
+                
+                    <tr>
+                        <td class="td2"><strong>交通运输、仓储和邮政业</strong></td>
+                        <td class="td3">00.00</td>
+                        <td class="td4">0.00</td>
+                    </tr>
+                
+                    <tr>
+                        <td class="td2"><strong>住宿和餐饮业</strong></td>
+                        <td class="td3">00.00</td>
+                        <td class="td4">0.00</td>
+                    </tr>
+                
+                    <tr>
+                        <td class="td2"><strong>信息传输、软件和信息技术服务业</strong></td>
+                        <td class="td3">00.00</td>
+                        <td class="td4">0.00</td>
+                    </tr>
+                
+                    <tr>
+                        <td class="td2"><strong>金融业</strong></td>
+                        <td class="td3">00.00</td>
+                        <td class="td4">0.00</td>
+                    </tr>
+                
+                    <tr>
+                        <td class="td2"><strong>房地产业</strong></td>
+                        <td class="td3">00.00</td>
+                        <td class="td4">0.00</td>
+                    </tr>
+                
+                    <tr>
+                        <td class="td2"><strong>租赁和商务服务业</strong></td>
+                        <td class="td3">00.00</td>
+                        <td class="td4">0.00</td>
+                    </tr>
+                
+                    <tr>
+                        <td class="td2"><strong>科学研究和技术服务业</strong></td>
+                        <td class="td3">00.00</td>
+                        <td class="td4">0.00</td>
+                    </tr>
+                
+                    <tr>
+                        <td class="td2"><strong>水利、环境和公共设施管理业</strong></td>
+                        <td class="td3">00.00</td>
+                        <td class="td4">0.00</td>
+                    </tr>
+                
+                    <tr>
+                        <td class="td2"><strong>居民服务、修理和其他服务业</strong></td>
+                        <td class="td3">00.00</td>
+                        <td class="td4">0.00</td>
+                    </tr>
+                
+                    <tr>
+                        <td class="td2"><strong>教育</strong></td>
+                        <td class="td3">00.00</td>
+                        <td class="td4">0.00</td>
+                    </tr>
+                
+                    <tr>
+                        <td class="td2"><strong>卫生和社会工作</strong></td>
+                        <td class="td3">00.00</td>
+                        <td class="td4">0.00</td>
+                    </tr>
+                
+                    <tr>
+                        <td class="td2"><strong>文化、体育和娱乐业</strong></td>
+                        <td class="td3">00.00</td>
+                        <td class="td4">0.00</td>
+                    </tr>
+                
+                    <tr>
+                        <td class="td2"><strong>综合</strong></td>
+                        <td class="td3">00.00</td>
+                        <td class="td4">0.00</td>
+                    </tr>
+                
+                    <tr>
+                        <td class="td2"><strong>合计</strong></td>
+                        <td class="td3">00.00</td>
+                        <td class="td4">0.00</td>
+                    </tr>
+                
+            </table>
+        </div>
+        <div class="fund_infos_tzzh_r">
+            <div id="pieChart_GPPZ" class="img"></div>
+        </div>
+        <div class="fund_infos_tzzh_nodata" style="display: none">
+            <p style="top: 160px;font-size: 16px;position: absolute;left: 20px;color: #333;">本基金本报告期末未持有股票及存托凭证</p>
+        </div>
+    </div>
+    <div class="fund_infos_tzzh_c none">
+        <div class="fund_infos_tzzh_l" style="display: none">
+            <h4><span class="fr">以下数据截止2026-06-30</span><span class="f_333">报告期末按公允价值占基金资产净值比例大小排序的前十名股票投资明细：</span></h4>
+            <table class="table_tzzh">
+                <tr><!-- 重仓持股 -->
+                    <th class="th6">股票代码</th>
+                    <th class="th7">股票名称</th>
+                    <th class="th8">数量(股)</th>
+                    <th class="th3">公允价值(元)</th>
+                    <th class="th4">占基金资产净值的比例(%)</th>
+                </tr>
+                
+            </table>
+        </div>
+        <div class="fund_infos_tzzh_r">
+            <div id="pieChart_ZCGP" class="img"></div>
+        </div>
+        <div class="fund_infos_tzzh_nodata" style="display: none">
+            <p style="top: 160px;font-size: 16px;position: absolute;left: 20px;color: #333;">本基金本报告期末未持有股票及存托凭证</p>
+        </div>
+    </div>
+    <div class="fund_infos_tzzh_c none">
+        <div class="fund_infos_tzzh_l" style="display: none">
+            <h4><span class="fr">以下数据截止2026-06-30</span><span class="f_333">报告期末按债券品种分类的债券投资组合：</span></h4>
+            <table class="table_tzzh">
+                <tr><!-- 债券配置 -->
+                    <th class="th1">序号</th>
+                    <th class="th2">项目</th>
+                    <th class="th3">金额（元）</th>
+                    <th class="th4">占基金资产净值的比例（%）</th>
+                </tr>
+                
+                    <tr>
+                        
+                            <td class="td1" >1</td>
+                        
+                        <td class="td2"><strong>国家债券</strong></td>
+                        <td class="td3">00.00</td>
+                        <td class="td4">0.00</td>
+                    </tr>
+                
+                    <tr>
+                        
+                            <td class="td1" >2</td>
+                        
+                        <td class="td2"><strong>央行票据</strong></td>
+                        <td class="td3">00.00</td>
+                        <td class="td4">0.00</td>
+                    </tr>
+                
+                    <tr>
+                        
+                            <td class="td1" rowspan="2">3</td>
+                        
+                        <td class="td2"><strong>金融债券</strong></td>
+                        <td class="td3">00.00</td>
+                        <td class="td4">0.00</td>
+                    </tr>
+                
+                    <tr>
+                        
+                        <td class="td2">其中：政策性金融债</td>
+                        <td class="td3">00.00</td>
+                        <td class="td4">0.00</td>
+                    </tr>
+                
+                    <tr>
+                        
+                            <td class="td1" >4</td>
+                        
+                        <td class="td2"><strong>企业债券</strong></td>
+                        <td class="td3">00.00</td>
+                        <td class="td4">0.00</td>
+                    </tr>
+                
+                    <tr>
+                        
+                            <td class="td1" >5</td>
+                        
+                        <td class="td2"><strong>企业短期融资券</strong></td>
+                        <td class="td3">00.00</td>
+                        <td class="td4">0.00</td>
+                    </tr>
+                
+                    <tr>
+                        
+                            <td class="td1" >6</td>
+                        
+                        <td class="td2"><strong>中期票据</strong></td>
+                        <td class="td3">00.00</td>
+                        <td class="td4">0.00</td>
+                    </tr>
+                
+                    <tr>
+                        
+                            <td class="td1" >7</td>
+                        
+                        <td class="td2"><strong>可转债</strong></td>
+                        <td class="td3">00.00</td>
+                        <td class="td4">0.00</td>
+                    </tr>
+                
+                    <tr>
+                        
+                            <td class="td1" >8</td>
+                        
+                        <td class="td2"><strong>同业存单</strong></td>
+                        <td class="td3">00.00</td>
+                        <td class="td4">0.00</td>
+                    </tr>
+                
+                    <tr>
+                        
+                            <td class="td1" >9</td>
+                        
+                        <td class="td2"><strong>其他</strong></td>
+                        <td class="td3">00.00</td>
+                        <td class="td4">0.00</td>
+                    </tr>
+                
+                    <tr>
+                        
+                            <td class="td1" >10</td>
+                        
+                        <td class="td2"><strong>合计</strong></td>
+                        <td class="td3">00.00</td>
+                        <td class="td4">0.00</td>
+                    </tr>
+                
+            </table>
+        </div>
+        <div class="fund_infos_tzzh_r">
+            <div id="pieChart_ZQPZ" class="img"></div>
+        </div>
+        <div class="fund_infos_tzzh_nodata" style="display: none">
+            <p style="top: 160px;font-size: 16px;position: absolute;left: 20px;color: #333;">本基金本报告期末未持有债券</p>
+        </div>
+    </div>
+    <div class="fund_infos_tzzh_c none">
+        <div class="fund_infos_tzzh_l" style="display: none">
+            <h4><span class="fr">以下数据截止2026-06-30</span><span class="f_333">报告期末按公允价值占基金资产净值比例大小排序的前0名债券投资明细：</span></h4>
+            <table class="table_tzzh">
+                <tr><!-- 重仓债券 -->
+                    <th class="th6">债券代码</th>
+                    <th class="th7">债券名称</th>
+                    <th class="th8">数量(张)</th>
+                    <th class="th3">公允价值(元)</th>
+                    <th class="th4">占基金资产净值的比例(%)</th>
+                </tr>
+                
+            </table>
+        </div>
+        <div class="fund_infos_tzzh_r">
+            <div id="pieChart_ZCZQ" class="img"></div>
+        </div>
+        <div class="fund_infos_tzzh_nodata" style="display: none">
+           <p style="top: 160px;font-size: 16px;position: absolute;left: 20px;color: #333;">本基金本报告期末未持有债券</p>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    var endDate = null;
+    $(document).ready(function() {
+        endDate = "2026-06-30";
+    });
+</script>
+
+
+        </div>
+        <div class="profileItem">
+            <div class="fund_infos_xx">
+                <div class="fund_infos_xx_tag">
+                    <ul>
+                        <li class="li1 active">全部</li>
+                        <li>基金文件</li>
+                        <li>定期报告</li>
+                        <li>分红公告</li>
+                        <li>重大事件</li>
+                        <li>业务规则</li>
+                        <li>其它公告</li>
+                    </ul>
+                </div>
+                <div class="fund_infos_xx_cont">
+                    <!-- 信息披露详细页 -->
+                </div>
+            </div>
+        </div>
+        <div class="profileItem">
+            
+ 
+
+	
+	
+	
+
+
+
+<style>
+    #page-fmo {
+        font-size: 16px;
+        line-height: 1.5;
+    }
+    .list1 {
+        vertical-align: inherit;
+    }
+    #page-fmo h3 {
+        color: #333;
+
+        margin-bottom: 20px;
+        font-size: 20px;
+        font-weight: bold;
+        margin-top: 20px;
+        padding-left: 50px;
+    }
+    .num{
+        border-top: 1px solid #cacaca;
+        margin-bottom: 10px;
+    }
+    .bank1{
+        padding-left: 100px;
+
+    }
+    .bank2{
+        padding-left: 100px; padding-right: 50px;
+
+    }
+    .show {
+        margin-top: 41px;
+        margin-bottom: 30px;
+    }
+    .show-list-190823 {
+
+    }
+    .show-list-190823>li{
+        display:inline-block;
+        width: 18%;
+        margin: 2px 1% 2px 0;
+    }
+    .table-190823 {
+        width: 100%;
+        table-layout:auto;
+    }
+    .table-190823 td {
+        padding: 10px;
+        text-align:center;
+        border: 1px solid #e1e1e1;
+    }
+    .table-190823 thead td {
+        background: #f5f9fe;
+    }
+    .ul_190823>li{
+        position:relative;
+        display:inline-block;
+        width: 140px; height: 100px;
+        margin: 5px 0 5px 0;
+        padding-top: 27px; padding-left: 120px;
+    }
+    .ul_190823>.li_190823_01 {
+        width: 180px;
+        background:url(/images/marketingorganization/pc.png) 0 0 no-repeat;
+    }
+    .ul_190823>.li_190823_02 {
+        background:url(/images/marketingorganization/yd.png) 0 0 no-repeat;
+    }
+    .ul_190823>.li_190823_03 {
+        width: 180px;
+        background:url(/images/marketingorganization/wx.png) 0 0 no-repeat;
+    }
+    .show-however-pic{
+        display: none;
+        position: absolute;
+        left: 120px;
+        top: -110px;
+        margin-left: 0;
+        width: 120px;
+        height: 120px;
+        box-shadow:0 0 6px 4px rgba(154,154,154,0.35);
+        -mkoz-box-shadow:0 0 6px 4px rgba(154,154,154,0.35);
+        -webkit-box-shadow:0 0 6px 4px rgba(154,154,154,0.35);
+    }
+    .show-however-pic em{
+        position: absolute;
+        left: 50%;
+        bottom:-16px;
+        display: block;
+        width: 23px;
+        height: 16px;
+        margin-left: -12px;
+        background: url("/images/marketingorganization/fund_icon_09.png") no-repeat center;
+    }
+    .show-however-pic>img {
+        width: 120px; height: 120px;
+    }
+
+</style>
+
+
+    
+    
+    
+    
+    
+        <div class="show" id="page-fmo">
+            <div class="num">
+                <h3>一级交易商：<span style="font-weight:normal; font-size: 16px;">（仅供参考，具体业务办理请以销售机构的规定为准，您可通过以下清单查看代销机构相关信息：<span onclick="downloadPDF()" style="color:blue;" >代销机构清单</span>）</span></h3>
+                <div class="bank1" style="overflow:hidden; overflow-y:auto; height:170px;">
+                    <ul class="show-list-190823">
+                        
+                            <li class="list1">爱建证券</li>
+                        
+                            <li class="list1">渤海证券</li>
+                        
+                            <li class="list1">财达证券</li>
+                        
+                            <li class="list1">财通证券</li>
+                        
+                            <li class="list1">长城证券</li>
+                        
+                            <li class="list1">长江证券</li>
+                        
+                            <li class="list1">大同证券</li>
+                        
+                            <li class="list1">德邦证券</li>
+                        
+                            <li class="list1">东北证券</li>
+                        
+                            <li class="list1">东方财富</li>
+                        
+                            <li class="list1">东方证券</li>
+                        
+                            <li class="list1">东海证券</li>
+                        
+                            <li class="list1">东吴证券</li>
+                        
+                            <li class="list1">东兴证券</li>
+                        
+                            <li class="list1">东莞证券</li>
+                        
+                            <li class="list1">方正证券</li>
+                        
+                            <li class="list1">光大证券</li>
+                        
+                            <li class="list1">广发证券</li>
+                        
+                            <li class="list1">国都证券</li>
+                        
+                            <li class="list1">国海证券</li>
+                        
+                            <li class="list1">国金证券</li>
+                        
+                            <li class="list1">国盛证券</li>
+                        
+                            <li class="list1">国泰海通证券</li>
+                        
+                            <li class="list1">国投证券</li>
+                        
+                            <li class="list1">国新证券</li>
+                        
+                            <li class="list1">国信证券</li>
+                        
+                            <li class="list1">华安证券</li>
+                        
+                            <li class="list1">华宝证券</li>
+                        
+                            <li class="list1">华福证券</li>
+                        
+                            <li class="list1">华金证券</li>
+                        
+                            <li class="list1">华泰证券</li>
+                        
+                            <li class="list1">华源证券</li>
+                        
+                            <li class="list1">华鑫证券</li>
+                        
+                            <li class="list1">江海证券</li>
+                        
+                            <li class="list1">金融街证券</li>
+                        
+                            <li class="list1">联储证券</li>
+                        
+                            <li class="list1">瑞银证券</li>
+                        
+                            <li class="list1">山西证券</li>
+                        
+                            <li class="list1">上海证券</li>
+                        
+                            <li class="list1">申万宏源</li>
+                        
+                            <li class="list1">申万西部</li>
+                        
+                            <li class="list1">世纪证券</li>
+                        
+                            <li class="list1">万联证券</li>
+                        
+                            <li class="list1">西部证券</li>
+                        
+                            <li class="list1">西南证券</li>
+                        
+                            <li class="list1">湘财证券</li>
+                        
+                            <li class="list1">信达证券</li>
+                        
+                            <li class="list1">兴业证券</li>
+                        
+                            <li class="list1">银河证券</li>
+                        
+                            <li class="list1">招商证券</li>
+                        
+                            <li class="list1">浙商证券</li>
+                        
+                            <li class="list1">中航证券</li>
+                        
+                            <li class="list1">中金财富</li>
+                        
+                            <li class="list1">中金公司</li>
+                        
+                            <li class="list1">中泰证券</li>
+                        
+                            <li class="list1">中信华南</li>
+                        
+                            <li class="list1">中信建投</li>
+                        
+                            <li class="list1">中信山东</li>
+                        
+                            <li class="list1">中信证券</li>
+                        
+                            <li class="list1">中证金融</li>
+                        
+                            <li class="list1">甬兴证券</li>
+                        
+                    </ul>
+                </div>
+            </div>
+            <div class="num">
+                <h3>二级交易商：</h3>
+                <span class="bank1">包括具有经纪业务资格及证券交易所会员资格的所有证券公司。 </span><br>
+            </div>
+        </div>
+    
+    
+    
+
+
+
+<script>
+    $(function(){
+        $('#page-fmo').on('mouseenter', '.show-however', function(){
+            var $a = $(this),
+                $div = $a.next();
+            $div.css('display', 'block');
+        }).on('mouseleave', '.show-however', function(){
+            var $a = $(this),
+                $div = $a.next();
+            $div.css('display', 'none');
+        });
+    });
+
+    function isIE()//判断浏览器类型
+    {
+        if(!!window.ActiveXObject || "ActiveXObject" in window)
+            return true;
+        else
+            return false;
+    };
+    function downloadPDF(){
+        if(isIE()){
+            var link = document.createElement('a');
+            link.setAttribute("download", "代销机构清单.pdf");
+            link.setAttribute("target", "_blank");
+            link.href = "/upload2010/2025/02/17/053258499_0_05d24797-ba4f-3cf0-a953-69849765e963.pdf";
+            link.click();
+        }else{
+            var link = document.createElement('a');
+            link.setAttribute("download", "代销机构清单.pdf");
+            link.href = "/upload2010/2026/06/15/090409031_0_f19c930d-8b67-3a03-a67e-9e61a71bedae.pdf";
+            link.click();
+        }
+
+    }
+</script>
+
+
+        </div>
+        <div class="profileItem">
+            <div class="fund_infos_fh">
+                <!-- 分红公告 -->
+                
+ 
+
+	
+	
+	
+
+
+<table class="table_fh">
+	<tr>
+		<th class="th1">年份</th>
+		<th class="th2">分配方案</th>
+		<th class="th2">登记日</th>
+		<th class="th2">除息日</th>
+		<th class="th2">分配方式</th>
+		<th class="th2">红利转再投资日</th>
+		<th class="th3 th_last">再投资赎回起始日</th>
+	</tr>
+	
+</table>
+
+                
+ 
+
+	
+	
+	
+
+
+<div class="list">
+	<h3><a href="/list/624/1.shtml" target="_blank" class="fr a_more">更多</a>分红公告</h3>
+	<ul>
+		
+	</ul>
+</div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<div class="highfoot clearbot"></div>
+
+<link rel="stylesheet" type="text/css" href="/css/StyleHa.css">
+<footer>
+    <div class="wrapM" >
+        <div class="aisle fl">
+            <h4>快速服务通道</h4>
+            <div class="ftul">
+                <div>
+                    <a href="https://ec.huaan.com.cn/signup/Signup" target="_blank">我要开户</a>
+                    <a href="https://www.huaan.com.cn/upload2010/2026/04/23/004840334_0_645f1bf8-515e-3e65-aca3-d4b972aa9be4.pdf" target="_blank">优惠费率</a>
+                    <a href="/serve_download.html" target="_blank">表单下载</a>
+                </div>
+
+                <div>
+                    <a href="/news/2021-08-30/202457_1.shtml" target="_blank">基金申赎状态</a>
+                    <a href="/news/2019/04/23/192106/1.shtml" target="_blank">产品风险等级</a>
+                    <a href="/upload2010/2026/01/15/091252386_0_f40aa45f-de2f-3747-979d-15e4dcdefce3.pdf" target="_blank">指数标的查询</a>
+
+                </div>
+
+                <div><a href="/supermarket/beforeselectFund.html" target="_blank">基金对比</a>
+                    <a href="https://www.huaan.com.cn/info_disclosure.html" target="_blank">信息公示</a>
+                    <a href="https://www.huaan.com.cn/serve_tousu.html" target="_blank">投诉建议</a>
+                </div>
+            </div>
+        </div>
+        <div class="codeApp fr">
+			<span>
+				<img src="/img/footer_code_app.png"><b>华安APP</b>
+			</span>
+            <span>
+				<img src="/img/footer_code_wechat.png"><b>官方微信</b>
+			</span>
+        </div>
+        <div class="Telservice fr">
+            <h4>客服热线</h4>
+            <h1>40088-50099</h1>
+            <p>工作日人工客服时间：9:00-19:00</p>
+            <!--<p>语音服务时间：7x24小时</p>-->
+            <p>服务邮箱: fuwu@huaan.com.cn</p>
+            <!--<p style="margin-left: 72px">fuwu@huaan.com.cn</p>-->
+        </div>
+    </div>
+    <div class="inFooter">
+        <div class="footer">
+            <div class="footer_c">
+                <div class="footer_1">
+                    <a href="https://ss.knet.cn/verifyseal.dll?sn=2011012700100006234&ct=df&a=1&pa=0.2473270778652114"><img src="/images/global/icon_xinren.gif" alt=""></a><br>
+                </div>
+                <div class="footer_2"><a href="/list/6050/1.shtml" target="_blank">反洗钱</a>　｜　<a href="https://www.huaan.com.cn/news/2011-03-10/64604_1.shtml" target="_blank">投资人权益须知</a>　｜　<a href="https://www.huaan.com.cn/news/2011-03-10/64606_1.shtml" target="_blank">治理商业贿赂</a>　｜　<a href="https://www.huaan.com.cn/news/2011-03-10/64605_1.shtml" target="_blank">风险提示</a>　｜　<a href="https://www.huaan.com.cn/upload2010/2026/03/03/090403612_0_f0cbf285-1637-359b-9484-4293854ee0f5.pdf" target="_blank">基金业务规则</a>　｜　<a href="https://www.huaan.com.cn/news/2017/04/07/186259/1.shtml" target="_blank">电子交易业务规则</a>｜　<a href="https://www.huaan.com.cn//news/2018/10/23/190642/1.shtml" target="_blank">隐私政策</a>  ｜　<a href="https://www.huaan.com.cn/info_disclosure.html" target="_blank">人员公示</a>  ｜　<a href="https://www.huaan.com.cn/news/2021/05/14/201056/1.shtml" target="_blank">应急处理提示</a> </div>
+                <div class="footer_3">
+                    <span><a style="color: #8C8C8C">华安基金管理有限公司 版权所有</a>　｜　<a href="https://beian.miit.gov.cn/" target="_blank" style="color:#004b99;">沪ICP备06045370号-1</a>　｜　<a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=31011502016138" target="_blank" style="color: #8C8C8C"><img src="/images/global/police.png" alt="">沪公网安备31011502016138号</a>　｜　<a><img src="/upload2010/2021/08/06/080946350_0_4ba4f437-39e3-322a-bed4-bdaf22f41f8d.jpg" alt=""></a></span>
+                    <br>
+                    <span class="linenum2" style="display:block;margin-top:5px">  本网站所有资讯与说明文字仅供参考，如有与本公司相关公告及基金法律文件不符，以相关公告及基金法律文件为准。</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+<div class="navrt" style="display: none">
+    <a href="javascript:;" class="returnTop dh" id="returnTop"><span class="iconfont">&#xe60b;</span><b>回到<br>顶部</b></a>
+    <a href="https://icc.huaan.com.cn/smartcc/indexH5.html?tenantId=_0meYEQi&windowId=WIN00000001&channel=pc#/?_k=ugk4dq" target="_blank" class="consRt dh"><span class="iconfont">&#xe607;</span><b>在线<br>客服</b></a>
+    <a href="https://icc.huaan.com.cn/smartcc/indexH5.html?tenantId=_0meYEQi&windowId=WIN00000001&channel=pc#/?_k=ugk4dq" target="_blank" class="serviceTr dh"><p>余额宝<br>咨询</p></a>
+</div>
+
+
+
+<script type="text/javascript" src="/js/index.js"></script>
+<!-- Swiper JS -->
+<script src="/js/swiper/swiper.min.js"></script>
+<!-- Initialize Swiper -->
+<script>
+    function mySwiper(){
+        var fundSwipersize=$("#fundSwiperSize").val();
+        if(fundSwipersize>1){
+            var swiper = new Swiper('.fundSwiper', {
+                // pagination : '.swiper-pagination1',
+                nextButton: '.swiper-button-next',
+                prevButton: '.swiper-button-prev',
+                paginationClickable: true,
+                autoplayDisableOnInteraction : false,
+                autoplay : 3000,
+                // loop : true,
+                clickable: true,
+            });
+        }
+
+        //---video->
+        // var swiper = new Swiper('.PrVlist', {
+        //     scrollbar: '.swiper-scrollbar',
+        //     direction: 'vertical',
+        //     slidesPerView: 'auto',
+        //     mousewheelControl: true,
+        //     freeMode: true,
+        //     roundLengths : true,
+        //     scrollbarHide:false,
+        // });
+
+        //---过往观点1-->
+        var mySwiper = new Swiper('.PastViews',{
+            nextButton: '.swiper-button-next',
+            prevButton: '.swiper-button-prev',
+            pagination: '.swiper-pagination',
+            paginationType: 'fraction'
+        })
+
+        //---过往观点2-->
+// var swiper = new Swiper('.PastViews2', {
+//         nextButton: '.swiper-button-next',
+//         prevButton: '.swiper-button-prev',
+//         slidesPerView: 2,
+//         paginationClickable: true,
+//         spaceBetween: 40,
+// 		autoplay : 3000,
+//         clickable: true,
+//         autoplayDisableOnInteraction : false,
+//     });
+    }
+    mySwiper()
+</script>
+</body>
+</html>
+

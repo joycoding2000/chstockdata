@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="5" time="53.317" timestamp="2026-10-12T21:31:36.345817+08:00" hostname="CHINAMI-4QO1VLN"><testcase classname="tests.qualification.test_chstockdata_etf_gate.TestLiveEtfQualification" name="test_live_routing_and_ohlcv_pre_close" time="0.179" /><testcase classname="tests.qualification.test_chstockdata_etf_gate.TestLiveEtfQualification" name="test_live_units_calendar_and_history_coverage" time="40.291" /><testcase classname="tests.qualification.test_chstockdata_etf_gate.TestLiveEtfQualification" name="test_live_tradability_adjustment_and_freshness" time="12.547"><failure message="AssertionError: XSHG:510300:LEGACY_PIT_FAIL_CLOSED:{'type': 'AssertionError', 'message': ''}&#10;XSHG:510300:HISTORICAL_OPENING_R21:{'type': 'AssertionError', 'message': ''}&#10;XSHG:510300:ADJUSTMENT_ACTIONS:{'type': 'AssertionError', 'message': &quot;ProviderFailure(error_code=&lt;ProviderErrorCode.UNAVAILABLE_OR_RATE_LIMITED: 'UNAVAILABLE_OR_RATE_LIMITED'&gt;, message='vendor corporate actions unavailable: status=failed, coverage=unavailable: 基金分红来源请求失败：_EastmoneyDataUnavailable', evidence=None, cause=ChStockDataUnavailableError('vendor corporate actions unavailable: status=failed, coverage=unavailable: 基金分红来源请求失败：_EastmoneyDataUnavailable'))&quot;}&#10;XSHG:510300:SNAPSHOT_ENGINE_RAW_FILL_IDENTITY:{'type': 'AssertionError', 'message': 'None'}&#10;XSHE:159915:LEGACY_PIT_FAIL_CLOSED:{'type': 'AssertionError', 'message': ''}&#10;XSHE:159915:HISTORICAL_OPENING_R21:{'type': 'AssertionError', 'message': ''}&#10;XSHE:159915:ADJUSTMENT_ACTIONS:{'type': 'AssertionError', 'message': &quot;ProviderFailure(error_code=&lt;ProviderErrorCode.UNAVAILABLE_OR_RATE_LIMITED: 'UNAVAILABLE_OR_RATE_LIMITED'&gt;, message='vendor corporate actions unavailable: status=failed, coverage=unavailable: 基金分红来源请求失败：_EastmoneyDataUnavailable', evidence=None, cause=ChStockDataUnavailableError('vendor corporate actions unavailable: status=failed, coverage=unavailable: 基金分红来源请求失败：_EastmoneyDataUnavailable'))&quot;}&#10;XSHE:159915:SNAPSHOT_ENGINE_RAW_FILL_IDENTITY:{'type': 'AssertionError', 'message': 'None'}&#10;XSHG:518880:LEGACY_PIT_FAIL_CLOSED:{'type': 'AssertionError', 'message': ''}&#10;XSHG:518880:HISTORICAL_OPENING_R21:{'type': 'AssertionError', 'message': ''}&#10;XSHG:518880:ADJUSTMENT_ACTIONS:{'type': 'AssertionError', 'message': &quot;ProviderFailure(error_code=&lt;ProviderErrorCode.UNAVAILABLE_OR_RATE_LIMITED: 'UNAVAILABLE_OR_RATE_LIMITED'&gt;, message='vendor corporate actions unavailable: status=failed, coverage=unavailable: 基金分红来源请求失败：_EastmoneyDataUnavailable', evidence=None, cause=ChStockDataUnavailableError('vendor corporate actions unavailable: status=failed, coverage=unavailable: 基金分红来源请求失败：_EastmoneyDataUnavailable'))&quot;}&#10;XSHG:518880:SNAPSHOT_ENGINE_RAW_FILL_IDENTITY:{'type': 'AssertionError', 'message': 'None'}&#10;XSHG:511010:LEGACY_PIT_FAIL_CLOSED:{'type': 'AssertionError', 'message': ''}&#10;XSHG:511010:HISTORICAL_OPENING_R21:{'type': 'AssertionError', 'message': ''}&#10;XSHG:511010:ADJUSTMENT_ACTIONS:{'type': 'AssertionError', 'message': &quot;ProviderFailure(error_code=&lt;ProviderErrorCode.UNAVAILABLE_OR_RATE_LIMITED: 'UNAVAILABLE_OR_RATE_LIMITED'&gt;, message='vendor corporate actions unavailable: status=failed, coverage=unavailable: 基金分红来源请求失败：_EastmoneyDataUnavailable', evidence=None, cause=ChStockDataUnavailableError('vendor corporate actions unavailable: status=failed, coverage=unavailable: 基金分红来源请求失败：_EastmoneyDataUnavailable'))&quot;}&#10;XSHG:511010:SNAPSHOT_ENGINE_RAW_FILL_IDENTITY:{'type': 'AssertionError', 'message': 'None'}&#10;XSHG:513100:CONTROL_LEGACY_PIT:{'type': 'AssertionError', 'message': ''}&#10;XSHG:513100:OFFICIAL_HALT_CONTROL:{'type': 'AssertionError', 'message': ''}&#10;XSHG:513100:CONTROL_ENGINE_NO_FILL_NO_RETRY:{'type': 'AssertionError', 'message': 'None'}&#10;XSHE:159509:CONTROL_LEGACY_PIT:{'type': 'AssertionError', 'message': ''}&#10;XSHE:159509:OFFICIAL_HALT_CONTROL:{'type': 'AssertionError', 'message': ''}&#10;XSHE:159509:CONTROL_ENGINE_NO_FILL_NO_RETRY:{'type': 'AssertionError', 'message': 'None'}">self = &lt;test_chstockdata_etf_gate.TestLiveEtfQualification object at 0x0000019B7D0184A0&gt;
+
+    @live_qualification
+    def test_live_tradability_adjustment_and_freshness(self) -&gt; None:
+        from dataclasses import replace
+        from datetime import timedelta
+        from live_qualification import (CapabilityOutcomes, live_provider, matrix_requests,
+            require_success, historical_gap, opening_fact, freshness_proof, execution_proof)
+    
+        provider = live_provider()
+        outcomes = CapabilityOutcomes("test_live_tradability_adjustment_and_freshness")
+        def raw_bars(request):
+            bars = require_success(provider.fetch_daily_bars(request.bar_request))
+            for bar in bars.records:
+                assert bar.adjustment_mode.value == "RAW"
+                assert bar.availability.retrieved_at is not None
+                assert bar.availability.retrieved_at.utcoffset() is not None
+                if bar.availability.information_available_at is not None:
+                    assert bar.availability.information_available_at &lt;= bar.availability.retrieved_at
+            return bars
+        for request in matrix_requests(MATRIX):
+            instrument, session = request.instrument_id, request.tradability_request.session_date
+            gap = outcomes.check(instrument, "LEGACY_PIT_FAIL_CLOSED", lambda:
+                historical_gap(provider, request.tradability_request))
+            opening = outcomes.check(instrument, "HISTORICAL_OPENING_R21", lambda:
+                opening_fact(provider, instrument, session))
+            actions = outcomes.check(instrument, "ADJUSTMENT_ACTIONS", lambda:
+                require_success(provider.fetch_corporate_actions(request.corporate_action_request), nonempty=False))
+            bars = outcomes.check(instrument, "RAW_AVAILABILITY", lambda: raw_bars(request))
+            calendar = outcomes.check(instrument, "EXECUTION_CALENDAR", lambda:
+                require_success(provider.fetch_calendar(replace(request.calendar_request,
+                    end_date=session + timedelta(days=3)))))
+            outcomes.check(instrument, "FRESHNESS_STALE_MISSING", lambda:
+                freshness_proof(bars, calendar, instrument, session))
+            outcomes.check(instrument, "SNAPSHOT_ENGINE_RAW_FILL_IDENTITY", lambda:
+                execution_proof(instrument, session, bars, calendar, actions, gap, opening,
+                    directory=outcomes.directory / "snapshots"))
+        # These are source controls, not additions to the qualified M0 universe.
+        from systematic_investing.data.ports import CalendarRequest, DailyBarRequest, TradabilityRequest
+        from datetime import date
+        session = date.fromisoformat(EVALUATION_SESSION)
+        for canonical in ("XSHG:513100", "XSHE:159509"):
+            instrument = InstrumentId.parse(canonical)
+            gap = outcomes.check(instrument, "CONTROL_LEGACY_PIT", lambda:
+                historical_gap(provider, TradabilityRequest((instrument,), session)))
+            opening = outcomes.check(instrument, "OFFICIAL_HALT_CONTROL", lambda:
+                opening_fact(provider, instrument, session, blocked=True))
+            bars = outcomes.check(instrument, "CONTROL_RAW_BARS", lambda:
+                require_success(provider.fetch_daily_bars(DailyBarRequest((instrument,),
+                    date.fromisoformat(MATRIX["window"]["start"]), session))))
+            calendar = outcomes.check(instrument, "CONTROL_CALENDAR", lambda:
+                require_success(provider.fetch_calendar(CalendarRequest(instrument.exchange.value,
+                    date.fromisoformat(MATRIX["window"]["start"]), session + timedelta(days=3)))))
+            outcomes.check(instrument, "CONTROL_ENGINE_NO_FILL_NO_RETRY", lambda:
+                execution_proof(instrument, session, bars, calendar, None, gap, opening,
+                    directory=outcomes.directory / "snapshots", blocked=True))
+&gt;       outcomes.finish()
+
+tests\qualification\test_chstockdata_etf_gate.py:310: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = &lt;live_qualification.CapabilityOutcomes object at 0x0000019B7C8F89E0&gt;
+
+    def finish(self):
+        self.directory.mkdir(parents=True, exist_ok=True)
+        report = {"test": self.name, "outcomes": self.results}
+        (self.directory / f"{self.name}.json").write_text(
+            json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
+        )
+        failures = [f"{item['instrument_id']}:{item['capability']}:{item['error']}"
+                    for item in self.results if item["status"] == "FAIL"]
+&gt;       assert not failures, "\n".join(failures)
+               ^^^^^^^^^^^^
+E       AssertionError: XSHG:510300:LEGACY_PIT_FAIL_CLOSED:{'type': 'AssertionError', 'message': ''}
+E       XSHG:510300:HISTORICAL_OPENING_R21:{'type': 'AssertionError', 'message': ''}
+E       XSHG:510300:ADJUSTMENT_ACTIONS:{'type': 'AssertionError', 'message': "ProviderFailure(error_code=&lt;ProviderErrorCode.UNAVAILABLE_OR_RATE_LIMITED: 'UNAVAILABLE_OR_RATE_LIMITED'&gt;, message='vendor corporate actions unavailable: status=failed, coverage=unavailable: 基金分红来源请求失败：_EastmoneyDataUnavailable', evidence=None, cause=ChStockDataUnavailableError('vendor corporate actions unavailable: status=failed, coverage=unavailable: 基金分红来源请求失败：_EastmoneyDataUnavailable'))"}
+E       XSHG:510300:SNAPSHOT_ENGINE_RAW_FILL_IDENTITY:{'type': 'AssertionError', 'message': 'None'}
+E       XSHE:159915:LEGACY_PIT_FAIL_CLOSED:{'type': 'AssertionError', 'message': ''}
+E       XSHE:159915:HISTORICAL_OPENING_R21:{'type': 'AssertionError', 'message': ''}
+E       XSHE:159915:ADJUSTMENT_ACTIONS:{'type': 'AssertionError', 'message': "ProviderFailure(error_code=&lt;ProviderErrorCode.UNAVAILABLE_OR_RATE_LIMITED: 'UNAVAILABLE_OR_RATE_LIMITED'&gt;, message='vendor corporate actions unavailable: status=failed, coverage=unavailable: 基金分红来源请求失败：_EastmoneyDataUnavailable', evidence=None, cause=ChStockDataUnavailableError('vendor corporate actions unavailable: status=failed, coverage=unavailable: 基金分红来源请求失败：_EastmoneyDataUnavailable'))"}
+E       XSHE:159915:SNAPSHOT_ENGINE_RAW_FILL_IDENTITY:{'type': 'AssertionError', 'message': 'None'}
+E       XSHG:518880:LEGACY_PIT_FAIL_CLOSED:{'type': 'AssertionError', 'message': ''}
+E       XSHG:518880:HISTORICAL_OPENING_R21:{'type': 'AssertionError', 'message': ''}
+E       XSHG:518880:ADJUSTMENT_ACTIONS:{'type': 'AssertionError', 'message': "ProviderFailure(error_code=&lt;ProviderErrorCode.UNAVAILABLE_OR_RATE_LIMITED: 'UNAVAILABLE_OR_RATE_LIMITED'&gt;, message='vendor corporate actions unavailable: status=failed, coverage=unavailable: 基金分红来源请求失败：_EastmoneyDataUnavailable', evidence=None, cause=ChStockDataUnavailableError('vendor corporate actions unavailable: status=failed, coverage=unavailable: 基金分红来源请求失败：_EastmoneyDataUnavailable'))"}
+E       XSHG:518880:SNAPSHOT_ENGINE_RAW_FILL_IDENTITY:{'type': 'AssertionError', 'message': 'None'}
+E       XSHG:511010:LEGACY_PIT_FAIL_CLOSED:{'type': 'AssertionError', 'message': ''}
+E       XSHG:511010:HISTORICAL_OPENING_R21:{'type': 'AssertionError', 'message': ''}
+E       XSHG:511010:ADJUSTMENT_ACTIONS:{'type': 'AssertionError', 'message': "ProviderFailure(error_code=&lt;ProviderErrorCode.UNAVAILABLE_OR_RATE_LIMITED: 'UNAVAILABLE_OR_RATE_LIMITED'&gt;, message='vendor corporate actions unavailable: status=failed, coverage=unavailable: 基金分红来源请求失败：_EastmoneyDataUnavailable', evidence=None, cause=ChStockDataUnavailableError('vendor corporate actions unavailable: status=failed, coverage=unavailable: 基金分红来源请求失败：_EastmoneyDataUnavailable'))"}
+E       XSHG:511010:SNAPSHOT_ENGINE_RAW_FILL_IDENTITY:{'type': 'AssertionError', 'message': 'None'}
+E       XSHG:513100:CONTROL_LEGACY_PIT:{'type': 'AssertionError', 'message': ''}
+E       XSHG:513100:OFFICIAL_HALT_CONTROL:{'type': 'AssertionError', 'message': ''}
+E       XSHG:513100:CONTROL_ENGINE_NO_FILL_NO_RETRY:{'type': 'AssertionError', 'message': 'None'}
+E       XSHE:159509:CONTROL_LEGACY_PIT:{'type': 'AssertionError', 'message': ''}
+E       XSHE:159509:OFFICIAL_HALT_CONTROL:{'type': 'AssertionError', 'message': ''}
+E       XSHE:159509:CONTROL_ENGINE_NO_FILL_NO_RETRY:{'type': 'AssertionError', 'message': 'None'}
+
+tests\qualification\live_qualification.py:90: AssertionError</failure></testcase><testcase classname="tests.qualification.test_chstockdata_etf_gate.TestLiveEtfQualification" name="test_live_provider_version_evidence" time="0.001" /><testcase classname="tests.qualification.test_chstockdata_etf_gate.TestLiveEtfQualification" name="test_live_client_requires_the_pinned_release" time="0.000" /></testsuite></testsuites>

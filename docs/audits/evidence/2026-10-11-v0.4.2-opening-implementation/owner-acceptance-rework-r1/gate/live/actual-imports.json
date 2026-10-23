@@ -1,0 +1,33 @@
+{
+  "chstockdata_version": "0.4.2",
+  "chstockdata_file": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\profiles\\owner-rework-r1\\sios-candidate\\Lib\\site-packages\\chstockdata\\__init__.py",
+  "python": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\profiles\\owner-rework-r1\\sios-candidate\\Scripts\\python.exe",
+  "sys_path": [
+    "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\tests\\qualification",
+    "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\evidence\\owner-acceptance-rework-r1\\gate",
+    "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\systematic-investing-os\\src",
+    "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python312.zip",
+    "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\DLLs",
+    "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\Lib",
+    "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python",
+    "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\profiles\\owner-rework-r1\\sios-candidate",
+    "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\profiles\\owner-rework-r1\\sios-candidate\\Lib\\site-packages"
+  ],
+  "versions": {
+    "pytest": "9.1.1",
+    "requests": "2.34.2",
+    "pandas": "3.0.6",
+    "mootdx": "0.11.7",
+    "tdxpy": "0.2.7",
+    "pypdf": "6.10.0"
+  },
+  "sios_full_source_sha256": "573c8540e094e2c2c1d82788541a65d42424c707fa307a06c73d330483c75eb5",
+  "sios_runtime_source_sha256": "73376752616edc41b1560e0cea40a7cdb6190d2795c83dab34d19fdcffd4186f",
+  "sios_patch_sha256": "cbf403397631eed42fe542364587c3f75eb6150b88017c7390da2828644d4873",
+  "frozen_sios_commit": "84fd54fae0740bc06b1d250afa4578be29556956",
+  "candidate_artifact": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\dist\\owner-rework-r1\\chstockdata-0.4.2-py3-none-any.whl",
+  "wheel_sha256": "1dd58350678fbb07d3b545165708d814f93fb94f965dc2da33bad2fab7ff779c",
+  "known_events_sha256": "2b5b4e27a078ead39e4262238d8ab1e81e5e2e3a85a79c5467d03c0f559cec90",
+  "wrappers_sha256": "cfdfaf0de339ca30346ffd04f668240cca4b2007ad596cd223386993bda23894",
+  "opening_reader_sha256": "2c98aec52248148db3c09c436abba8b35303bf935e610bfa7d2087e4e4e59ac5"
+}

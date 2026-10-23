@@ -1,0 +1,29 @@
+{
+  "argv": [
+    "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\09\\01a11feb-cbea-7790-a83e-57b1dd555e13\\v042-unified\\sios-candidate\\Scripts\\python.exe",
+    "-B",
+    "-c",
+    "import sys;sys.path.append('C:\\\\Users\\\\Administrator\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\python\\\\Lib\\\\site-packages');import pytest;raise SystemExit(pytest.main(['-q', '-p', 'no:cacheprovider', '--junitxml=C:\\\\Users\\\\Administrator\\\\.codex\\\\visualizations\\\\2026\\\\10\\\\10\\\\01a125dd-33f2-78d3-abe7-45e0928975d0\\\\v042-opening-implementation\\\\evidence\\\\r21-step1\\\\red-stock-interval-dates.xml', 'tests/test_historical_opening_evidence.py']))"
+  ],
+  "cwd": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\chstockdata",
+  "env": {
+    "PYTHONPATH": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\chstockdata\\src",
+    "PYTHONDONTWRITEBYTECODE": "1"
+  },
+  "dependency_versions": {
+    "pytest": "9.1.1",
+    "requests": "2.34.2",
+    "pandas": "3.0.6",
+    "mootdx": "0.11.7",
+    "tdxpy": "0.2.7"
+  },
+  "pypdf_version": "6.10.0",
+  "pypdf_path": "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\Lib\\site-packages\\pypdf\\__init__.py",
+  "source_sha256": {
+    "src/chstockdata/opening_evidence.py": "db4e3078801ae215ed2849bf45195843ad7208aaca25d3d00a581b782f0d11fe",
+    "src/chstockdata/opening_known_events.json": "a464e9fd2695f6cdb3a76c4ca87ce070702bec71fec504f496dfc2228044b95b",
+    "src/chstockdata/__init__.py": "1df1d07ce517fa0d466e525d648d92c4397c0f6def9f0e7f8e1ae130ed82540c",
+    "tests/test_historical_opening_evidence.py": "7865b3c6721ebd01b4e9dcedcdc326312b977d41d50b979bdfbc9c7b78aeb804"
+  },
+  "exit_code": 1
+}

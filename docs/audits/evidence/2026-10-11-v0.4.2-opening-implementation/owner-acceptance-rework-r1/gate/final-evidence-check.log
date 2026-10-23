@@ -1,0 +1,60 @@
+core-dependency-paths exit 0
+sdist-dependency-paths exit 0
+mcp-dependency-paths exit 0
+baostock-dependency-paths exit 0
+sios-candidate-dependency-paths exit 0
+ta-candidate-dependency-paths exit 0
+{
+  "status": "PASS_CANDIDATE",
+  "flags": {
+    "CURRENT_DECISION": "FIX_ONLY",
+    "OWNER_REVIEW_FINDING": "CONFIRMED_INTERVAL_DEFECT",
+    "INTERVAL_REWORK": "PASS",
+    "SIOS_SOURCE_DIFF_COMPLETE": "YES",
+    "SCOPE_EXPANSION": "NO",
+    "PACKAGE": "PASS_796_PLUS_1_ORIGINAL_OPTIONAL_SKIP_15_ORIGINAL_NETWORK_DESELECT",
+    "SIOS_OFFLINE": "PASS_973_PLUS_5_DEFAULT_LIVE_OPTIN_SKIP",
+    "LIVE": "PASS_ACTUAL_5_ZERO_SKIP_54_CAPABILITIES",
+    "TA": "PASS_RELATIVE_123_PLUS_7_IDENTICAL_BASELINE_FAILURES",
+    "NEW_WHEEL_SHA256": "1dd58350678fbb07d3b545165708d814f93fb94f965dc2da33bad2fab7ff779c",
+    "NEW_SOURCE_SHA256": "d81fb0a62a9fa4cc9823ca9ad1920f380a110d50351dd0b7b465f735d3021572",
+    "READY_FOR_OWNER_REVIEW": "YES",
+    "OWNER_ACCEPTANCE": "PENDING",
+    "RELEASE": "NO",
+    "PUBLISH": "NO",
+    "NEXT_PHASE": "NO"
+  },
+  "results": {
+    "package-tests": {
+      "passed": 796,
+      "failures": 0,
+      "skipped": 1
+    },
+    "sios-provider-contract": {
+      "passed": 67,
+      "failures": 0,
+      "skipped": 0
+    },
+    "sios-etf-golden-smoke": {
+      "passed": 165,
+      "failures": 0,
+      "skipped": 5
+    },
+    "sios-offline": {
+      "passed": 973,
+      "failures": 0,
+      "skipped": 5
+    },
+    "ta-candidate": {
+      "passed": 123,
+      "failures": 7,
+      "skipped": 0
+    },
+    "live": {
+      "passed": 5,
+      "failures": 0,
+      "skipped": 0
+    }
+  },
+  "raw_calls": 129
+}

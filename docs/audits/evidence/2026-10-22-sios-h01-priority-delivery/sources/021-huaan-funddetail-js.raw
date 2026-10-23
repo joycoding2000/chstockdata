@@ -1,0 +1,191 @@
+/*基金详情*/
+var columnId;	//文章类别流水号
+var tzzhflag = true;//true投资组合菜单显示，false不显示
+$(document).ready(function() {
+	//perfor();
+	
+	initUIData();
+});
+
+
+/**
+ * 初始化基金明细页面信息
+ */
+function initUIData(){
+	 try{
+		 /**
+		  * 基金明细菜单
+		  */
+		$(".fund_infos_tag li").on("click",function(){
+			
+			if(this.id=="fund_2"){
+				perfor(fundStyle,fundCode);	//初始化业绩表现列表
+			}else if(this.id=="fund_3"){
+				fundfee(fundCode);			//初始化费率信息
+			}else if(this.id=="fund_5"){
+				writePieChartTZZH($("#ZCZH").get(0));//默认初始化资产组合图表
+			}else if(this.id=="fund_6"){
+				columnId = 624;
+				pageGoByPos(1);
+			}
+		});
+		 
+		 /**
+		  * 投资组合菜单
+		  */
+		$(".fund_infos_tzzh_tag li").on("click",function(){
+			writePieChartTZZH(this);
+		});
+		
+		/**
+		 * 信息披露菜单
+		 */
+		var columnIdArray = [624,629,630,631,632,633,634];//信息披露文章栏目ID
+		$(".fund_infos_xx_tag li").on("click",function(){
+			var index = $(this).index();
+			columnId = columnIdArray[index];
+			pageGoByPos(1);
+		});
+		
+		 /**
+		  * 初始化基金明细菜单显示
+		  	<li id="fund_1" class="li1 active">基金概况</li>
+			<li id="fund_2">业绩表现</li>
+			<li id="fund_3">交易费率</li>
+			<li id="fund_4">基金经理</li>
+			<li id="fund_5">投资组合</li>
+			<li id="fund_6">信息披露</li>
+			<li id="fund_7">历史分红</li>
+		  */
+		if(fundCode=='500003' || fundCode=='500009' ){
+			$("#fund_3").hide();//隐藏交易费率菜单
+		}
+		if(fundCode=='013680' || fundCode=='013681'){
+			$("#fund_3 .point").hide();//隐藏交易费率下’0.1折起'
+		}
+		/**if(isMoney=='1' || fundCode=='040180' || fundCode=='040190' || fundCode=='040006' || fundCode=='040018' || fundCode=='040021' || fundCode=='160416' || fundCode=='040046' || fundCode=='040047' || fundCode=='040048' || fundCode=='000216' || fundCode=='000217'|| fundCode=='000376'|| fundCode=='000373' || fundCode=='000614' || fundCode=='513030' || fundCode=='513880' || fundCode=='002391' || fundCode=='002392' || fundCode=='002393' || fundCode=='002426' || fundCode=='002427' || fundCode=='002429' 
+		   || fundCode=='150104' || fundCode=='150105' || fundCode=='016063' || fundCode=='150299' || fundCode=='150300' || fundCode=='150301'  || fundCode=='150302'  || fundCode=='150303'  || fundCode=='150304' || fundCode=='005813' || fundCode=='005814' || fundCode=='005747' || fundCode=='005748' || fundCode=='006129' || fundCode=='006130' || fundCode=='160422' || fundCode=='160424' || fundCode=='160422' || fundCode=='006575' || fundCode=='513080' || fundCode=='008777' || fundCode=='008776' || fundCode=='014978' || fundCode=='014979' || fundCode=='014980' || fundCode=='014982' || fundCode=='015016' ){
+			$("#fund_5").hide();//隐藏投资组合菜单
+			tzzhflag = false;
+	    }*/
+		console.log(isshow);
+		if(isMoney=='1' || isshow !='1'){
+			$("#fund_5").hide();//隐藏投资组合菜单
+			tzzhflag = false;
+	    }
+		if(!(isMoney=='1' || isshow !='1' )){
+			$("#fund_5").show();//显示投资组合菜单
+			tzzhflag = true;
+	    }
+	 }
+	 catch (err){
+	 }
+}
+
+//业绩表现
+function perfor(fundStyle,fundCode){
+	/**
+	 * 业绩表现
+	 */
+	if(fundStyle!='201009'){
+		$("#fundperformanceDiv").load("/funddetail/selectFundayByCode.do?fd.fundcode="+fundCode);
+	}else{
+		$("#yeji_left").load("/funddetail/selectFundayByCode.do?fd.fundcode="+fundCode+"&tag=form2_1");
+		$("#yeji_right").load("/fund/FundIncomeRule/selectFundIncomeRule.do?fd.fundCode="+fundCode);
+	}	
+}
+
+/**
+ * 费率构成
+ */
+function fundfee(fundCode){
+	$('#fundfee').load("/fund/FundFee/selectFundfee.do?fundcode="+ fundCode);
+}
+
+/**
+ * 资产/行业分布图【基金概况-饼图】
+ * @param fundCode
+ * @param endDate
+ * @param selecttype
+ */
+function writePieChartZH(fundCode,endDate){
+	if(!tzzhflag){
+		//投资组合菜单不显示，则基金概况中图表不显示
+		return;
+	}
+	
+	var chartZId = "pieChart_Z"+fundCode;
+	var chartHId = "pieChart_H"+fundCode;
+	
+	var width = 451, height = 210;//181;
+	
+	fbPieReport(width, height, fundCode, endDate, chartZId, "ZCFB");
+	fbPieReport(width, height, fundCode, endDate, chartHId, "HYFB");
+}
+function writeNewPieChartZH(fundCode,endDate,hyflag){
+    if(!tzzhflag){
+    	$(".profileWrap .portfolioW").css("display","none");
+        //投资组合菜单不显示，则基金概况中图表不显示
+        return;
+    }
+
+
+    var chartZId = "pieChart_Z"+fundCode;
+    var chartHId = "pieChart_H"+fundCode;
+
+    var width = 600, height = 220;//181;
+
+    fbNewPieReport(width, height, fundCode, endDate, chartZId, "ZCFB");
+    if(hyflag=="0"){
+        $(".termbox.clearbot.portfolioW .fr").css("display","none");
+    }else{
+        fbNewPieReport(width, height, fundCode, endDate, chartHId, "HYFB");
+	}
+
+}
+
+/**
+ * 投资组合-饼图
+ * @param endDate
+ */
+function writePieChartTZZH(obj){
+	var width = 230, height = 380;
+	var selecttype = obj.id;
+	var chartId = "pieChart_"+selecttype;
+	//pieReport(width, height, fundCode, endDate, chartId, selecttype);
+    pieReport2(width, height, fundCode, endDate, chartId, selecttype);
+}
+
+//页面跳转 go
+function pageAjaxGO(pagePosInputId,maxPage){
+	  try
+	  {
+		var pagePos=$.trim($("#"+pagePosInputId).val());
+		var maxPageValue= maxPage*1;
+		if(pagePos != "" &&!isNaN(pagePos) && pagePos.indexOf(".") < 0){
+			if(pagePos <=0 ||pagePos > maxPageValue){
+				alert("该页不存在"); 
+			}else{
+				pageGoByPos(pagePos);
+			}
+	    }else{
+		  alert("请输入整数"); 
+	    }
+	  }catch (err){
+		   alert("输入异常");  
+	  }
+}
+
+/**
+ * 跳转到指定页
+ * @param pagePos
+ */
+function pageGoByPos(pagePos){
+	$(".fund_infos_xx_cont").load("/list/"+columnId+"/"+fundCode+"/"+pagePos+".shtml",function(response,status,xhr){
+		if(status=='error'){
+			$(".fund_infos_xx_cont").load("/1.shtml");
+			}
+		
+		});
+}
+

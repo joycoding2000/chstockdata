@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="1" time="0.144" timestamp="2026-10-12T17:27:54.294291+08:00" hostname="CHINAMI-4QO1VLN"><testcase classname="tests.qualification.test_live_r21_contract" name="test_actual_candidate_client_is_explicit_and_pin_remains_legacy" time="0.001"><failure message="ModuleNotFoundError: import of chstockdata halted; None in sys.modules">def test_actual_candidate_client_is_explicit_and_pin_remains_legacy():
+&gt;       import chstockdata
+E       ModuleNotFoundError: import of chstockdata halted; None in sys.modules
+
+tests\qualification\test_live_r21_contract.py:27: ModuleNotFoundError</failure></testcase></testsuite></testsuites>

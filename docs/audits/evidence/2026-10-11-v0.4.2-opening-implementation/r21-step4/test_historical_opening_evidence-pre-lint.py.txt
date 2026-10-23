@@ -1,0 +1,393 @@
+"""R2.1 contract: replay frozen parser output through the public composition."""
+import copy
+import hashlib
+import json
+from datetime import datetime
+from pathlib import Path
+
+import pytest
+import chstockdata
+
+ROOT = Path(__file__).resolve().parents[1]
+TDX = ROOT / 'docs/audits/evidence/2026-10-10-v0.4.2-tdx-historical-execution'
+OFFICIAL = ROOT / 'tests/fixtures/opening'
+SHAS = {
+    'tdx_history_responses.jsonl': '2644ce583796b412d18c5b4730356e2df95691085dbf0080dfa728ecac08a228',
+    'tdx_opening_page_responses.jsonl': '03c727b674a5233d873e90da234879c60dc0b222f548c2ec3e5f97298d347dbd',
+    'tdx_opening_page_followup_responses.jsonl': '9989c8a427a4a82fb921fef127b50d7f52a111c9feb033d833ed7842f5aa0ccf',
+    'tdx_opening_page_final_responses.jsonl': '5875d32c619d59f18f3bf5f448f1bc8d5f027fc6ce012409e6ab7fb5659a3a34',
+}
+
+
+def api():
+    assert hasattr(chstockdata, 'fetch_historical_opening_evidence'), 'public R2.1 capability missing'
+    from chstockdata import opening_evidence
+    return opening_evidence
+
+
+def records(code, day):
+    found = []
+    for name, sha in SHAS.items():
+        raw = (TDX / name).read_bytes()
+        assert hashlib.sha256(raw).hexdigest() == sha
+        found.extend(r for r in map(json.loads, raw.decode('utf-8').splitlines())
+                     if r['security'] == code and r['date'] == day.replace('-', ''))
+    return found
+
+
+class ReplayClient:
+    def __init__(self, rows):
+        self.rows = rows
+        self.client = self
+    def get_history_minute_time_data(self, market, code, date):
+        return copy.deepcopy(next(r['rows'] for r in self.rows if r['command'].endswith('fb4')))
+    def get_history_transaction_data(self, market, code, start, count, date):
+        row = next(r for r in self.rows if r['command'].endswith('fb5') and r['parameters']['start'] == start)
+        assert (market, code, date, count) == (row['market_id'], row['security'], int(row['date']), 800)
+        return copy.deepcopy(row['rows'])
+    def close(self):
+        pass
+
+
+class Response:
+    def __init__(self, payload, status=200):
+        self.content = payload if isinstance(payload, bytes) else json.dumps(payload).encode()
+        self.status_code = status
+        self.headers = {'Content-Type': 'application/json'}
+    def raise_for_status(self):
+        if self.status_code != 200:
+            raise ConnectionError('fault transport')
+    def json(self):
+        return json.loads(self.content)
+
+
+class ReplayHttp:
+    def __init__(self, payloads):
+        self.payloads = list(payloads)
+        self.requests = []
+    def get(self, url, **kwargs):
+        self.requests.append((url, kwargs))
+        payload = self.payloads.pop(0)
+        if isinstance(payload, Exception):
+            raise payload
+        return Response(payload)
+    post = get
+
+
+def empty(code):
+    return {'announceCount': 0, 'data': []} if code.startswith(('0', '1')) else {
+        'result': [], 'pageHelp': {'pageNo': 1, 'pageCount': 0, 'pageSize': 25, 'total': 0, 'data': []}}
+
+
+def readers(code, day, official=None, mutate=None, versions=('0.11.7', '0.2.7')):
+    m = api()
+    rs = records(code, day)
+    if mutate:
+        mutate(rs)
+    pages = [r for r in rs if r['command'].endswith('fb5')]
+    # Replay a certified bounded page containing all opening rows, or an empty/late control.
+    chosen = next((r for r in pages if any(x.get('time') == '09:30' for x in (r['rows'] or []))), pages[-1])
+    client = ReplayClient(rs)
+    return (m.TdxOpeningReader(client_factory=lambda **kw: client, versions=versions,
+                               page_offsets=(chosen['parameters']['start'],)),
+            m.OfficialOpeningReader(session=ReplayHttp(official or [empty(code)])))
+
+
+def fetch(code='510300', day='2026-09-11', **kwargs):
+    tdx, official = readers(code, day, kwargs.pop('official', None), kwargs.pop('mutate', None),
+                            kwargs.pop('versions', ('0.11.7', '0.2.7')))
+    return chstockdata.fetch_historical_opening_evidence(code, day, tdx_reader=tdx,
+                                                        official_reader=official, **kwargs)
+
+
+@pytest.mark.parametrize('code,price,volume', [('510300', '4.576',352580), ('159915','3.339',557149),
+                                             ('518880','8.91',106411), ('511010','141.177',289)])
+def test_four_real_etf_opening_composition(code, price, volume):
+    result = fetch(code)
+    data = result.data
+    assert data['opening_status'] == 'OPEN_ACTIVITY_CONFIRMED'
+    assert data['tdx_activity']['last_opening_price'] == price
+    assert data['tdx_activity']['opening_volume_lots'] == volume
+    assert data['tdx_activity']['normalization_rule'] == 'tdxpy_0.2.7_0x0fb5_certified_etf_divide_10'
+    assert data['information_available_at'] is None and data['information_basis'] == 'UNKNOWN'
+    assert data['target_execution_at'] == '2026-09-11T09:30:00+08:00'
+    assert data['execution_effect_window']['end'] == '2026-09-11T09:31:00+08:00'
+    assert data['policy_version'] == 'R2.1'
+    assert len(data['evidence_hash']) == 64
+    assert datetime.fromisoformat(result.metadata.retrieved_at).utcoffset().total_seconds() == 0
+    assert result.metadata.capability == 'historical_opening_evidence'
+    assert {a.capability for a in result.metadata.attempts} >= {'mootdx:historical_opening_activity'}
+
+
+@pytest.mark.parametrize('code,day,price', [('688432','2026-09-14','40.9'), ('000002','2015-12-18','22.4')])
+def test_stock_prices_preserved_and_later_halt_does_not_veto_open(code, day, price):
+    result = fetch(code,day)
+    assert result.data['opening_status'] == 'OPEN_ACTIVITY_CONFIRMED'
+    assert result.data['tdx_activity']['last_opening_price'] == price
+    assert result.data['tdx_activity']['normalization_rule'].endswith('stock_identity')
+    assert not result.data['official_block_at_target']
+
+
+@pytest.mark.parametrize('day', ['2016-12-30','2022-12-30'])
+def test_bounded_real_history(day):
+    assert fetch(day=day).data['opening_status'] == 'OPEN_ACTIVITY_CONFIRMED'
+
+
+def event(start='2026-09-11T09:15:00+08:00', end='2026-09-11T10:30:00+08:00', **kwargs):
+    return api().OfficialOpeningEvent(instrument='510300', market='SSE', effective_start=start,
+        effective_end=end, source_url='https://www.sse.com.cn/disclosure/example',
+        raw_sha256='a'*64, certification_basis='explicit secondary-market effective interval',
+        retrieved_at='2026-10-09T13:00:00+00:00', **kwargs)
+
+
+def test_known_full_window_block_plus_positive_activity_is_conflict():
+    data = fetch(known_events=[event()]).data
+    assert data['opening_status'] == 'UNKNOWN'
+    assert data['source_conflict'] and data['official_block_at_target']
+
+
+def test_resume_inside_minute_blocks_target_without_retry():
+    data = fetch(known_events=[event(end='2026-09-11T09:30:30+08:00')]).data
+    assert data['opening_status'] == 'BLOCKED_CONFIRMED'
+    assert not data['source_conflict'] and data['official_block_at_target']
+
+
+def test_halt_start_inside_minute_cannot_order_activity():
+    data = fetch(known_events=[event(start='2026-09-11T09:30:30+08:00')]).data
+    assert data['opening_status'] == 'UNKNOWN'
+    assert data['reason'] == 'boundary_inside_activity_window'
+
+
+def test_ongoing_unconfirmed_end_vetoes_empty_official():
+    data = fetch(known_events=[event(end=None)]).data
+    assert data['opening_status'] == 'UNKNOWN'
+    assert data['official_block_at_target'] and data['source_conflict']
+
+
+@pytest.mark.parametrize('bad', [ConnectionError(), b'<html>not json</html>',
+    {'result':[], 'pageHelp':{'pageNo':1,'pageCount':2,'pageSize':25,'total':1,'data':[]}}])
+def test_current_official_failure_and_partial_do_not_allow_open(bad):
+    result = fetch(official=[bad])
+    assert result.data['opening_status'] == 'UNKNOWN'
+    assert result.metadata.partial
+    assert any(a.is_failure() for a in result.metadata.attempts)
+
+
+@pytest.mark.parametrize('mode', ['auction_only','zero','minute_only','bad_price','bad_time','double_normalized'])
+def test_no_qualified_activity_unknown(mode):
+    def mutate(rs):
+        for r in rs:
+            if r['command'].endswith('fb5'):
+                if mode=='auction_only': r['rows']=[x for x in r['rows'] if x['time']=='09:25']
+                if mode=='minute_only': r['rows']=[]
+                if mode=='zero':
+                    for x in r['rows']: x['vol']=0
+                if mode=='bad_price':
+                    for x in r['rows']: x['price']=-1
+                if mode=='bad_time':
+                    for x in r['rows']: x['time']='09:30:01'
+                if mode=='double_normalized':
+                    for x in r['rows']: x['price']=x['price']/10
+    assert fetch(mutate=mutate).data['opening_status'] == 'UNKNOWN'
+
+
+def test_unknown_version_rejected():
+    assert fetch(versions=('0.12.0','0.2.7')).data['opening_status']=='UNKNOWN'
+
+
+def test_unverified_category_and_unsupported_date_boundary_rejected():
+    m=api()
+    r=chstockdata.fetch_historical_opening_evidence('510301','2026-09-11',
+        tdx_reader=m.TdxOpeningReader(client_factory=lambda **kw: pytest.fail('must reject before network')),
+        official_reader=m.OfficialOpeningReader(session=ReplayHttp([empty('510301')])))
+    assert r.data['opening_status']=='UNKNOWN'
+    r=chstockdata.fetch_historical_opening_evidence('510300','2000-01-01')
+    assert r.data['opening_status']=='UNKNOWN'
+
+
+def test_real_sse_interval_and_resume_evidence_participate():
+    payload=(OFFICIAL/'sse_688432_interval.bin').read_bytes()
+    assert hashlib.sha256(payload).hexdigest()=='33147724bcee2f692e3de7a637c2490017a86c1399183c7f8ccf1f7fe017d924'
+    r=fetch('688432','2026-08-31',official=[payload])
+    assert r.data['opening_status']=='BLOCKED_CONFIRMED'
+    assert r.data['official_block_at_target']
+    assert fetch('688432','2026-09-14').data['opening_status']=='OPEN_ACTIVITY_CONFIRMED'
+
+
+def test_known_000002_continuous_halt_empty_tdx_not_normal():
+    r=fetch('000002','2016-01-04')
+    assert r.data['opening_status']=='BLOCKED_CONFIRMED'
+
+
+def test_sse_fund_halt_control_actual_field_contract():
+    row={'endStopType':'LSTP','startStopReason':'根据基金管理人申请','endStopDate':'20260911',
+         'endType':'','secCode':'513100','startType':'null','startStopDate':'20260911',
+         'startStopType':'LSTP','dateSource':'2','stopTime':'915'}
+    payload={'result':[row],'pageHelp':{'pageNo':1,'pageCount':1,'pageSize':25,'total':1,'data':[row]}}
+    r=fetch('513100', official=[payload])
+    assert r.data['opening_status']=='BLOCKED_CONFIRMED'
+
+
+def test_szse_fund_halt_real_attachment_and_all_rows_considered():
+    # Actual list bytes + actual official attachment replay, not a provider verdict mock.
+    payload=json.loads((OFFICIAL/'szse_159509_announcements_control.bin').read_bytes())
+    payload['data']=payload['data'][:1];payload['announceCount']=1
+    pdf=ROOT/'tests/fixtures/opening/159509-20260911.pdf'
+    assert pdf.exists(), 'certified PDF raw fixture missing'
+    assert hashlib.sha256(pdf.read_bytes()).hexdigest()=='18cf4d821cd8f4de15d515ce0ceef828be5aff3beea30128d4b2049d39647fcd'
+    r=fetch('159509',official=[payload,pdf.read_bytes()])
+    assert r.data['opening_status']=='BLOCKED_CONFIRMED'
+
+
+def test_szse_unknown_event_meaning_and_bad_attachment_are_unknown():
+    payload=json.loads((OFFICIAL/'szse_159509_announcements_control.bin').read_bytes())
+    payload['data']=payload['data'][:1];payload['announceCount']=1
+    assert fetch('159509',official=[payload,b'<html>blocked</html>']).data['opening_status']=='UNKNOWN'
+
+
+def test_sse_wrong_code_and_unknown_secondary_time_unknown():
+    row={'secCode':'999999','startStopDate':'20260911','endStopDate':'20260911',
+         'dateSource':'2','startStopType':'LSTP','stopTime':'999'}
+    payload={'result':[row],'pageHelp':{'pageNo':1,'pageCount':1,'pageSize':25,'total':1,'data':[row]}}
+    assert fetch(official=[payload]).data['opening_status']=='UNKNOWN'
+    row['secCode']='510300'
+    assert fetch(official=[payload]).data['opening_status']=='UNKNOWN'
+
+
+def test_complete_current_pagination_and_partial_cap():
+    m=api()
+    row={'secCode':'510300','startStopDate':'20260911','endStopDate':'20260911',
+         'dateSource':'3','startStopType':'SG','stopTime':''}
+    pages=[{'result':[row], 'pageHelp':{'pageNo':i,'pageCount':2,'pageSize':1,'total':2,'data':[row]}} for i in (1,2)]
+    http=ReplayHttp(pages)
+    tdx,_=readers('510300','2026-09-11')
+    r=chstockdata.fetch_historical_opening_evidence('510300','2026-09-11',tdx_reader=tdx,
+        official_reader=m.OfficialOpeningReader(session=http,page_size=1))
+    assert r.data['opening_status']=='OPEN_ACTIVITY_CONFIRMED'
+    assert len(http.requests)==2 and r.data['official_query']['pagination_complete']
+    http=ReplayHttp(pages)
+    r=chstockdata.fetch_historical_opening_evidence('510300','2026-09-11',tdx_reader=tdx,
+        official_reader=m.OfficialOpeningReader(session=http,page_size=1,max_pages=1))
+    assert r.data['opening_status']=='UNKNOWN'
+
+
+def test_current_last_stop_day_cannot_be_erased_by_cached_resume():
+    payload=json.loads((OFFICIAL/'sse_688432_interval.bin').read_bytes())
+    payload['result'][0]['endStopDate']='20260914'
+    payload['pageHelp']['data'][0]['endStopDate']='20260914'
+    r=fetch('688432','2026-09-14',official=[payload])
+    assert r.data['opening_status']=='UNKNOWN'
+    assert r.data['source_conflict'] and r.data['official_block_at_target']
+
+
+def test_mismatched_known_security_is_typed_unknown_not_silently_ignored():
+    known=api().OfficialOpeningEvent(instrument='159915',market='SZSE',
+        effective_start='2026-09-11T09:30:00+08:00',effective_end=None,
+        source_url='https://www.szse.cn/disclosure/example',raw_sha256='b'*64,
+        certification_basis='explicit interval',retrieved_at='2026-10-09T13:00:00+00:00')
+    r=fetch(known_events=[known])
+    assert r.data['opening_status']=='UNKNOWN'
+    assert r.data['reason']=='known_evidence_identity_mismatch'
+    assert any(a.status=='failed_structure' for a in r.metadata.attempts)
+
+
+def test_pdf_magic_with_corrupt_pdf_is_typed_unknown():
+    payload=json.loads((OFFICIAL/'szse_159509_announcements_control.bin').read_bytes())
+    payload['data']=payload['data'][:1];payload['announceCount']=1
+    r=fetch('159509',official=[payload,b'%PDF-1.7\ncorrupt'])
+    assert r.data['opening_status']=='UNKNOWN'
+    assert any(a.status=='failed_structure' for a in r.metadata.attempts)
+
+
+def test_last_stop_day_is_blocked_through_open_not_midnight_resume():
+    payload=(OFFICIAL/'sse_688432_interval.bin').read_bytes()
+    # No TDX 9/11 fixture exists; use a real zero-volume continuous-halt sample
+    # for the transport only, with the request identity rebound explicitly.
+    m=api();rs=records('688432','2026-08-31')
+    for row in rs: row['date']='20260911'
+    tdx=m.TdxOpeningReader(client_factory=lambda **kw:ReplayClient(rs),page_offsets=(0,))
+    r=chstockdata.fetch_historical_opening_evidence('688432','2026-09-11',tdx_reader=tdx,
+        official_reader=m.OfficialOpeningReader(session=ReplayHttp([payload])))
+    assert r.data['opening_status']=='BLOCKED_CONFIRMED'
+    assert r.data['official_block_at_target']
+
+
+def test_known_stock_resume_date_does_not_infer_unverified_clock():
+    data=fetch('000002','2016-01-04').data
+    assert data['official_events'][0]['effective_end'] is None
+    assert data['official_events'][0]['raw_fields']['resume_date']=='2016-07-04'
+
+
+def test_known_sse_etf_halt_survives_legitimate_empty_current_query():
+    data=fetch('513100').data
+    assert data['opening_status']=='BLOCKED_CONFIRMED'
+    assert data['official_block_at_target']
+    assert any(e['offline_cache'] for e in data['official_events'])
+
+
+def test_optional_pdf_parser_absent_is_typed_unknown(monkeypatch):
+    import builtins
+    original=builtins.__import__
+    def without_pdf(name,*args,**kwargs):
+        if name=='pypdf': raise ImportError('optional parser absent')
+        return original(name,*args,**kwargs)
+    monkeypatch.setattr(builtins,'__import__',without_pdf)
+    payload=json.loads((OFFICIAL/'szse_159509_announcements_control.bin').read_bytes())
+    payload['data']=payload['data'][:1];payload['announceCount']=1
+    data=fetch('159509',official=[payload,(OFFICIAL/'159509-20260911.pdf').read_bytes()])
+    assert data.data['opening_status']=='UNKNOWN'
+    assert any(a.status=='not_configured' for a in data.metadata.attempts)
+
+
+def test_real_periodic_report_is_known_nonsecondary_not_future_normal_fact():
+    m=api()
+    payload=json.loads((OFFICIAL/'szse_159915_announcements.bin').read_bytes())
+    payload['data']=payload['data'][:1];payload['announceCount']=1
+    result=m.OfficialOpeningReader(session=ReplayHttp([payload])).read('159915','2026-08-31','SZSE','ETF',[])
+    assert result['status']=='success'
+    assert result['all_returned_rows_considered'] and result['events']==[]
+
+
+@pytest.mark.parametrize('end_date',['20260910','20260911'])
+def test_sse_single_session_etf_rule_rejects_stale_or_cross_day_interval(end_date):
+    # Synthetic identity/date fault using the actual SSE LSTP/915 field contract.
+    row={'secCode':'510300','startStopDate':'20260910','endStopDate':end_date,
+         'dateSource':'2','startStopType':'LSTP','stopTime':'915'}
+    payload={'result':[row],'pageHelp':{'pageNo':1,'pageCount':1,'pageSize':25,'total':1,'data':[row]}}
+    r=fetch(official=[payload])
+    assert r.data['opening_status']=='UNKNOWN'
+    assert r.data['official_query']['status']=='failed_structure'
+
+
+@pytest.mark.parametrize('bad_date',['20260910','20260911junk','2026-09-11'])
+def test_sse_nonsecondary_row_still_requires_valid_current_session_identity(bad_date):
+    row={'secCode':'510300','startStopDate':bad_date,'endStopDate':bad_date,
+         'dateSource':'3','startStopType':'SG','stopTime':''}
+    payload={'result':[row],'pageHelp':{'pageNo':1,'pageCount':1,'pageSize':25,'total':1,'data':[row]}}
+    r=fetch(official=[payload])
+    assert r.data['opening_status']=='UNKNOWN'
+    assert r.data['official_query']['status']=='failed_structure'
+
+
+@pytest.mark.parametrize('field,bad_date',[
+    ('startStopDate','20260831junk'), ('endStopDate','20260911junk'),
+    ('startStopDate','20260912'), ('endStopDate','20260830'),
+    ('startStopDate','20260230'), ('endStopDate','20260931'),
+])
+def test_sse_stock_interval_dates_require_strict_format_validity_and_order(field,bad_date):
+    payload=json.loads((OFFICIAL/'sse_688432_interval.bin').read_bytes())
+    payload['result'][0][field]=bad_date
+    payload['pageHelp']['data'][0][field]=bad_date
+    r=fetch('688432','2026-09-14',official=[payload])
+    assert r.data['opening_status']=='UNKNOWN'
+    assert r.data['official_query']['status']=='failed_structure'
+
+
+def test_valid_stock_continuous_interval_allows_start_before_query_and_blocks_last_day():
+    payload=json.loads((OFFICIAL/'sse_688432_interval.bin').read_bytes())
+    payload['result'][0]['endStopDate']='20260914'
+    payload['pageHelp']['data'][0]['endStopDate']='20260914'
+    r=fetch('688432','2026-09-14',official=[payload])
+    assert r.data['official_query']['status']=='success'
+    assert r.data['opening_status']=='UNKNOWN'
+    assert r.data['source_conflict'] and r.data['official_block_at_target']

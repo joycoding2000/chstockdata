@@ -1,0 +1,10 @@
+{
+  "executor": "root independent verification",
+  "cwd": "C:/Users/Administrator/.codex/visualizations/2026/10/10/01a125dd-33f2-78d3-abe7-45e0928975d0/v042-opening-implementation/systematic-investing-os",
+  "python": "C:/Users/Administrator/.codex/visualizations/2026/10/09/01a11feb-cbea-7790-a83e-57b1dd555e13/v042-unified/sios-candidate/Scripts/python.exe",
+  "pytest_argv": ["tests/qualification/test_live_r21_contract.py", "tests/qualification/test_chstockdata_etf_gate.py", "-q", "-p", "no:cacheprovider", "--basetemp", "../evidence/r21-step3/independent-offline-temp", "--junitxml", "../evidence/r21-step3/independent-offline.xml"],
+  "environment": {"PYTHONPATH": ["../systematic-investing-os/src", "../chstockdata/src"], "PYTHONUTF8": "1", "PYTHONDONTWRITEBYTECODE": "1", "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1", "SIOS_CHSTOCKDATA_LIVE_QUALIFICATION": null},
+  "exit_code": 0,
+  "result": "16 passed, 5 original opt-in live tests skipped in offline invocation",
+  "claim": "offline orchestration regression only; not mandatory live PASS"
+}

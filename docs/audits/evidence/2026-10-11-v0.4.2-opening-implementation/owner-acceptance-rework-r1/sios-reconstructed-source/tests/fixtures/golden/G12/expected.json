@@ -1,0 +1,16 @@
+{
+  "schema_version": "golden-expected-v1",
+  "runs": {
+    "default": {
+      "observation_count": 7,
+      "total_return": "-0.05",
+      "drawdowns": ["0", "0", "-0.20", "0", "-0.24", "-0.24", "-0.24"],
+      "max_drawdown": "-0.24",
+      "underwater_sessions": 2,
+      "underwater_calendar_days": 3,
+      "turnover": "0",
+      "cost_drag": "0",
+      "stale_observation_count": 0
+    }
+  }
+}

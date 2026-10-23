@@ -1,0 +1,2313 @@
+{
+  "test": "test_live_tradability_adjustment_and_freshness",
+  "outcomes": [
+    {
+      "instrument_id": "XSHG:510300",
+      "capability": "LEGACY_PIT_FAIL_CLOSED",
+      "started_at": "2026-10-12T17:07:47.688198+08:00",
+      "finished_at": "2026-10-12T17:07:50.156461+08:00",
+      "status": "PASS",
+      "result": [
+        {
+          "error_code": "SCHEMA_DRIFT",
+          "message": "vendor:historical_suspension_unavailable",
+          "evidence": {
+            "evidence_id": "chstockdata:tradability:f5fae58cfef13f1c:46cef866242806dd",
+            "provider_name": "chstockdata",
+            "provider_version": "0.4.2",
+            "adapter_name": "chstockdata-provider",
+            "adapter_version": "0.1.0",
+            "capability": "tradability",
+            "request_digest": "sha256:f5fae58cfef13f1c818a8f3210391fefc9e711740901f7a9ef189b90f6e1f843",
+            "retrieved_at": "2026-10-12 17:07:47.688198+08:00",
+            "upstream_source": "chstockdata.get_suspension_info",
+            "record_count": 0,
+            "payload_checksum": "sha256:46cef866242806ddf1ec86fde5c5ecf23d8be843d1eb00093daa3ded80a92e75",
+            "warnings": []
+          },
+          "cause": {
+            "type": "HistoricalSuspensionUnavailableError",
+            "message": "vendor:historical_suspension_unavailable"
+          }
+        },
+        [
+          {
+            "instrument_id": {
+              "exchange": "XSHG",
+              "symbol": "510300"
+            },
+            "session_date": "2026-09-11",
+            "status": "UNKNOWN",
+            "reason": "HISTORICAL_SUSPENSION_COVERAGE_UNAVAILABLE",
+            "availability": {
+              "information_available_at": null,
+              "retrieved_at": "2026-10-12 17:07:47.688198+08:00",
+              "availability_basis": "UNKNOWN"
+            },
+            "provenance": "chstockdata:tradability:f5fae58cfef13f1c:46cef866242806dd:vendor:historical_suspension_unavailable"
+          }
+        ]
+      ]
+    },
+    {
+      "instrument_id": "XSHG:510300",
+      "capability": "HISTORICAL_OPENING_R21",
+      "started_at": "2026-10-12T17:07:50.156461+08:00",
+      "finished_at": "2026-10-12T17:07:53.122340+08:00",
+      "status": "PASS",
+      "result": {
+        "records": [
+          {
+            "payload_json": "{\"evidence_hash\":\"05bca6edc399c482d2a6235410062a892c52bd567107468e51ccc18eb1e72aee\",\"execution_effect_window\":{\"end\":\"2026-09-11T09:31:00+08:00\",\"start\":\"2026-09-11T09:30:00+08:00\"},\"information_available_at\":null,\"information_basis\":\"UNKNOWN\",\"instrument\":\"510300\",\"limitations\":[\"[09:30,09:31) activity does not prove strict 09:30 order fill, full-day normality, or preopen PIT.\",\"TDX prices are evidence crosschecks only; volumes are not fill quotas.\",\"Current bounded official query does not claim all historical events or revisions are complete.\"],\"market\":\"SSE\",\"official_block_at_target\":false,\"official_events\":[],\"official_query\":{\"all_returned_rows_considered\":true,\"historical_global_completeness_claim\":false,\"instrument\":\"510300\",\"market\":\"SSE\",\"observations\":[{\"error_type\":null,\"parsed_response_sha256\":\"087735ac94e1b965c175ba5fb3af737546beb399219342c3a78cd40fd9d884a3\",\"raw_bytes\":482,\"raw_sha256\":\"087735ac94e1b965c175ba5fb3af737546beb399219342c3a78cd40fd9d884a3\",\"request\":{\"headers\":{\"Referer\":\"https://www.sse.com.cn/disclosure/dealinstruc/suspension/fund/\"},\"method\":\"GET\",\"params\":{\"endDate\":\"20260911\",\"isPagination\":\"true\",\"order\":\"startStopDate|desc,secCode|asc\",\"pageHelp.beginPage\":1,\"pageHelp.cacheSize\":1,\"pageHelp.endPage\":1,\"pageHelp.pageNo\":1,\"pageHelp.pageSize\":25,\"secCode\":\"510300\",\"sqlId\":\"SSE_PL_JYTS_TFPXX_JJ\",\"startDate\":\"20260911\",\"stopReason\":\"\"},\"url\":\"https://query.sse.com.cn/sseQuery/commonSoaQuery.do\"},\"retrieved_at\":\"2026-10-12T09:07:53.112965+00:00\",\"status\":\"success\"}],\"page_count\":1,\"pagination_complete\":true,\"query_range\":[\"2026-09-11\",\"2026-09-11\"],\"range_kind\":\"effective interval\",\"raw_rows\":[],\"reason\":\"current_bounded_query_complete\",\"status\":\"normal_empty\",\"total\":0},\"opening_status\":\"OPEN_ACTIVITY_CONFIRMED\",\"policy_version\":\"R2.1\",\"purpose\":\"historical_opening_execution_constraint\",\"reason\":\"certified_0930_activity_current_query_no_known_block\",\"retrieved_at\":\"2026-10-12T09:07:53.117325+00:00\",\"schema_version\":\"historical-opening-evidence/1\",\"session_date\":\"2026-09-11\",\"source_conflict\":false,\"target_execution_at\":\"2026-09-11T09:30:00+08:00\",\"tdx_activity\":{\"auction_rows\":[{\"normalized_price\":\"4.592\",\"raw_price\":\"45.92\",\"time\":\"09:25\",\"volume_lots\":77516}],\"auto_retry\":false,\"bounded_page_count\":6,\"category\":\"ETF\",\"category_certification\":\"frozen 2026-10-10 44-request protocol and price sample\",\"command\":\"0x0fb5\",\"crosscheck_command\":\"0x0fb4\",\"heartbeat\":false,\"instrument\":\"510300\",\"last_opening_price\":\"4.576\",\"market_id\":1,\"minute_first\":{\"price\":4.5760000000000005,\"vol\":430096},\"normalization_count\":1,\"normalization_rule\":\"tdxpy_0.2.7_0x0fb5_certified_etf_divide_10\",\"normalized_opening_rows\":[{\"normalized_price\":\"4.592\",\"raw_price\":\"45.92\",\"time\":\"09:30\",\"volume_lots\":12945},{\"normalized_price\":\"4.591\",\"raw_price\":\"45.91\",\"time\":\"09:30\",\"volume_lots\":7218},{\"normalized_price\":\"4.589\",\"raw_price\":\"45.89\",\"time\":\"09:30\",\"volume_lots\":17934},{\"normalized_price\":\"4.589\",\"raw_price\":\"45.89\",\"time\":\"09:30\",\"volume_lots\":29793},{\"normalized_price\":\"4.586\",\"raw_price\":\"45.86\",\"time\":\"09:30\",\"volume_lots\":9434},{\"normalized_price\":\"4.588\",\"raw_price\":\"45.88\",\"time\":\"09:30\",\"volume_lots\":20851},{\"normalized_price\":\"4.588\",\"raw_price\":\"45.88\",\"time\":\"09:30\",\"volume_lots\":16625},{\"normalized_price\":\"4.585\",\"raw_price\":\"45.85\",\"time\":\"09:30\",\"volume_lots\":14846},{\"normalized_price\":\"4.585\",\"raw_price\":\"45.85\",\"time\":\"09:30\",\"volume_lots\":23464},{\"normalized_price\":\"4.585\",\"raw_price\":\"45.85\",\"time\":\"09:30\",\"volume_lots\":9072},{\"normalized_price\":\"4.583\",\"raw_price\":\"45.83\",\"time\":\"09:30\",\"volume_lots\":15984},{\"normalized_price\":\"4.584\",\"raw_price\":\"45.84\",\"time\":\"09:30\",\"volume_lots\":21655},{\"normalized_price\":\"4.58\",\"raw_price\":\"45.8\",\"time\":\"09:30\",\"volume_lots\":25254},{\"normalized_price\":\"4.581\",\"raw_price\":\"45.81\",\"time\":\"09:30\",\"volume_lots\":22045},{\"normalized_price\":\"4.579\",\"raw_price\":\"45.79\",\"time\":\"09:30\",\"volume_lots\":25932},{\"normalized_price\":\"4.58\",\"raw_price\":\"45.8\",\"time\":\"09:30\",\"volume_lots\":18863},{\"normalized_price\":\"4.579\",\"raw_price\":\"45.79\",\"time\":\"09:30\",\"volume_lots\":17379},{\"normalized_price\":\"4.579\",\"raw_price\":\"45.79\",\"time\":\"09:30\",\"volume_lots\":9622},{\"normalized_price\":\"4.577\",\"raw_price\":\"45.77\",\"time\":\"09:30\",\"volume_lots\":14277},{\"normalized_price\":\"4.576\",\"raw_price\":\"45.76\",\"time\":\"09:30\",\"volume_lots\":19387}],\"observations\":[{\"error_type\":null,\"parsed_response_sha256\":\"bc61e2fccabbb103ec1dc2333923f9f207f7f19271b9b79859fac0484fe72354\",\"request\":{\"operation\":\"connect\",\"server\":[\"110.41.147.114\",7709]},\"retrieved_at\":\"2026-10-12T09:07:50.339610+00:00\",\"status\":\"success\"},{\"error_type\":null,\"parsed_response_sha256\":\"f81c31a9e42dd9ab67f9cd5f6c6417c5c7e36e82544c7f5ce517d33829dd2baa\",\"request\":{\"code\":\"510300\",\"command\":\"0x0fb4\",\"date\":20260911,\"market\":1},\"retrieved_at\":\"2026-10-12T09:07:50.397806+00:00\",\"status\":\"success\"},{\"error_type\":null,\"parsed_response_sha256\":\"47d4299b8e208dfc20ded955285b9983c91faeb132b91b314bb7c61efebad692\",\"request\":{\"code\":\"510300\",\"command\":\"0x0fb5\",\"count\":800,\"date\":20260911,\"market\":1,\"start\":0},\"retrieved_at\":\"2026-10-12T09:07:50.456506+00:00\",\"status\":\"success\"},{\"error_type\":null,\"parsed_response_sha256\":\"33aa71bc0df17f17237a9e7438e5e541562ebb9c8b66b103ad837eba9cf42b15\",\"request\":{\"code\":\"510300\",\"command\":\"0x0fb5\",\"count\":800,\"date\":20260911,\"market\":1,\"start\":800},\"retrieved_at\":\"2026-10-12T09:07:50.526306+00:00\",\"status\":\"success\"},{\"error_type\":null,\"parsed_response_sha256\":\"0ef865f49c75d86732c4073b1747748b5e8336f9f62d8437bb2f4299322299c4\",\"request\":{\"code\":\"510300\",\"command\":\"0x0fb5\",\"count\":800,\"date\":20260911,\"market\":1,\"start\":1600},\"retrieved_at\":\"2026-10-12T09:07:50.590789+00:00\",\"status\":\"success\"},{\"error_type\":null,\"parsed_response_sha256\":\"f1f139008f5fe267baf2eda5f4adeb6e0b9df3ab85a4925d0cf04f6d232aa424\",\"request\":{\"code\":\"510300\",\"command\":\"0x0fb5\",\"count\":800,\"date\":20260911,\"market\":1,\"start\":2400},\"retrieved_at\":\"2026-10-12T09:07:50.654265+00:00\",\"status\":\"success\"},{\"error_type\":null,\"parsed_response_sha256\":\"05845a073ecb2ec7d61024f5a4173054c1f2eafc1544f229e61d142067da733f\",\"request\":{\"code\":\"510300\",\"command\":\"0x0fb5\",\"count\":800,\"date\":20260911,\"market\":1,\"start\":3200},\"retrieved_at\":\"2026-10-12T09:07:50.716783+00:00\",\"status\":\"success\"},{\"error_type\":null,\"parsed_response_sha256\":\"0b6094fa53756898fb12c17c32760e88905b7644956ed49771055fc86356254e\",\"request\":{\"code\":\"510300\",\"command\":\"0x0fb5\",\"count\":800,\"date\":20260911,\"market\":1,\"start\":4000},\"retrieved_at\":\"2026-10-12T09:07:50.780681+00:00\",\"status\":\"success\"}],\"opening_crosscheck_complete\":true,\"opening_volume_lots\":352580,\"price_unit\":\"CNY/security\",\"qualified\":true,\"reason\":\"certified_positive_0930_activity\",\"server\":{\"host\":\"110.41.147.114\",\"port\":7709},\"server_discovery\":false,\"session_date\":\"2026-09-11\",\"source\":\"mootdx/tdxpy\",\"tick_size\":\"0.001\",\"time_granularity\":\"minute\",\"timeout_seconds\":4,\"versions\":{\"mootdx\":\"0.11.7\",\"tdxpy\":\"0.2.7\"},\"volume_unit\":\"TDX lots (not an executable quota)\"},\"time_granularity\":\"minute\"}"
+          }
+        ],
+        "evidence": {
+          "evidence_id": "chstockdata:historical_opening_evidence:8ce1ad6c30cec454:34fb633e73903926",
+          "provider_name": "chstockdata",
+          "provider_version": "0.4.2",
+          "adapter_name": "chstockdata-provider",
+          "adapter_version": "0.1.0",
+          "capability": "historical_opening_evidence",
+          "request_digest": "sha256:8ce1ad6c30cec454917b01c25bae2763f726cde9f816f7bdceaf969ff9e1bf77",
+          "retrieved_at": "2026-10-12 17:07:50.156461+08:00",
+          "upstream_source": "chstockdata.fetch_historical_opening_evidence",
+          "record_count": 1,
+          "payload_checksum": "sha256:34fb633e73903926dda69902d55d453dbb06be82731c9514a080a08772f4aef1",
+          "warnings": []
+        }
+      }
+    },
+    {
+      "instrument_id": "XSHG:510300",
+      "capability": "ADJUSTMENT_ACTIONS",
+      "started_at": "2026-10-12T17:07:53.122340+08:00",
+      "finished_at": "2026-10-12T17:07:57.582504+08:00",
+      "status": "PASS",
+      "result": {
+        "records": [],
+        "evidence": {
+          "evidence_id": "chstockdata:corporate_actions:62db5dbf8ef31d92:90b1fdb8cb7305a0",
+          "provider_name": "chstockdata",
+          "provider_version": "0.4.2",
+          "adapter_name": "chstockdata-provider",
+          "adapter_version": "0.1.0",
+          "capability": "corporate_actions",
+          "request_digest": "sha256:62db5dbf8ef31d92754bbe4a37df4f88e31759832a90ba467837957cdf7f1708",
+          "retrieved_at": "2026-10-12 17:07:53.122340+08:00",
+          "upstream_source": "eastmoney_fund_f10:FHSP+FHGG",
+          "record_count": 0,
+          "payload_checksum": "sha256:90b1fdb8cb7305a0f4f01bec7e9c0ee38d3ca543067483bbedfc51748a89d935",
+          "warnings": []
+        }
+      }
+    },
+    {
+      "instrument_id": "XSHG:510300",
+      "capability": "RAW_AVAILABILITY",
+      "started_at": "2026-10-12T17:07:57.582504+08:00",
+      "finished_at": "2026-10-12T17:07:57.620276+08:00",
+      "status": "PASS",
+      "result": {
+        "records": [
+          {
+            "schema_version": "v1",
+            "instrument_id": {
+              "exchange": "XSHG",
+              "symbol": "510300"
+            },
+            "session_date": "2026-09-08",
+            "open": "4.638",
+            "high": "4.657",
+            "low": "4.61",
+            "close": "4.624",
+            "pre_close": "4.634",
+            "volume": "612512220",
+            "amount": "2838526720.0",
+            "currency": "CNY",
+            "volume_unit": "SHARE",
+            "amount_unit": "CNY",
+            "adjustment_mode": "RAW",
+            "adjustment_factor": null,
+            "availability": {
+              "information_available_at": "2026-09-08 15:00:00+08:00",
+              "retrieved_at": "2026-10-12 17:07:57.582504+08:00",
+              "availability_basis": "EXCHANGE_RULE"
+            },
+            "provider_evidence_id": "chstockdata:daily_bars:f936cc6abcd54af4:42df920779c5b6a8"
+          },
+          {
+            "schema_version": "v1",
+            "instrument_id": {
+              "exchange": "XSHG",
+              "symbol": "510300"
+            },
+            "session_date": "2026-09-09",
+            "open": "4.638",
+            "high": "4.648",
+            "low": "4.613",
+            "close": "4.637",
+            "pre_close": "4.624",
+            "volume": "573288654",
+            "amount": "2656716800.0",
+            "currency": "CNY",
+            "volume_unit": "SHARE",
+            "amount_unit": "CNY",
+            "adjustment_mode": "RAW",
+            "adjustment_factor": null,
+            "availability": {
+              "information_available_at": "2026-09-09 15:00:00+08:00",
+              "retrieved_at": "2026-10-12 17:07:57.582504+08:00",
+              "availability_basis": "EXCHANGE_RULE"
+            },
+            "provider_evidence_id": "chstockdata:daily_bars:f936cc6abcd54af4:42df920779c5b6a8"
+          },
+          {
+            "schema_version": "v1",
+            "instrument_id": {
+              "exchange": "XSHG",
+              "symbol": "510300"
+            },
+            "session_date": "2026-09-10",
+            "open": "4.617",
+            "high": "4.64",
+            "low": "4.599",
+            "close": "4.617",
+            "pre_close": "4.637",
+            "volume": "438854072",
+            "amount": "2026289536.0",
+            "currency": "CNY",
+            "volume_unit": "SHARE",
+            "amount_unit": "CNY",
+            "adjustment_mode": "RAW",
+            "adjustment_factor": null,
+            "availability": {
+              "information_available_at": "2026-09-10 15:00:00+08:00",
+              "retrieved_at": "2026-10-12 17:07:57.582504+08:00",
+              "availability_basis": "EXCHANGE_RULE"
+            },
+            "provider_evidence_id": "chstockdata:daily_bars:f936cc6abcd54af4:42df920779c5b6a8"
+          },
+          {
+            "schema_version": "v1",
+            "instrument_id": {
+              "exchange": "XSHG",
+              "symbol": "510300"
+            },
+            "session_date": "2026-09-11",
+            "open": "4.592",
+            "high": "4.592",
+            "low": "4.532",
+            "close": "4.579",
+            "pre_close": "4.617",
+            "volume": "966665182",
+            "amount": "4409406976.0",
+            "currency": "CNY",
+            "volume_unit": "SHARE",
+            "amount_unit": "CNY",
+            "adjustment_mode": "RAW",
+            "adjustment_factor": null,
+            "availability": {
+              "information_available_at": "2026-09-11 15:00:00+08:00",
+              "retrieved_at": "2026-10-12 17:07:57.582504+08:00",
+              "availability_basis": "EXCHANGE_RULE"
+            },
+            "provider_evidence_id": "chstockdata:daily_bars:f936cc6abcd54af4:42df920779c5b6a8"
+          }
+        ],
+        "evidence": {
+          "evidence_id": "chstockdata:daily_bars:f936cc6abcd54af4:42df920779c5b6a8",
+          "provider_name": "chstockdata",
+          "provider_version": "0.4.2",
+          "adapter_name": "chstockdata-provider",
+          "adapter_version": "0.1.0",
+          "capability": "daily_bars",
+          "request_digest": "sha256:f936cc6abcd54af4e6e1d64a2ae8adaa7efb04cfb20fb64bbcd7746a7efa4813",
+          "retrieved_at": "2026-10-12 17:07:57.582504+08:00",
+          "upstream_source": "chstockdata.load_vipdoc_daily (local TDX .day package)",
+          "record_count": 4,
+          "payload_checksum": "sha256:42df920779c5b6a80d70f5ecd605deba629f106e73fc062427f382d2b9144138",
+          "warnings": []
+        }
+      }
+    },
+    {
+      "instrument_id": "XSHG:510300",
+      "capability": "EXECUTION_CALENDAR",
+      "started_at": "2026-10-12T17:07:57.620276+08:00",
+      "finished_at": "2026-10-12T17:07:57.626313+08:00",
+      "status": "PASS",
+      "result": {
+        "records": [
+          {
+            "calendar_id": "XSHG",
+            "session_date": "2026-09-08",
+            "is_open": true,
+            "note": null,
+            "snapshot_version": "cal-4b13403f541da265"
+          },
+          {
+            "calendar_id": "XSHG",
+            "session_date": "2026-09-09",
+            "is_open": true,
+            "note": null,
+            "snapshot_version": "cal-4b13403f541da265"
+          },
+          {
+            "calendar_id": "XSHG",
+            "session_date": "2026-09-10",
+            "is_open": true,
+            "note": null,
+            "snapshot_version": "cal-4b13403f541da265"
+          },
+          {
+            "calendar_id": "XSHG",
+            "session_date": "2026-09-11",
+            "is_open": true,
+            "note": null,
+            "snapshot_version": "cal-4b13403f541da265"
+          },
+          {
+            "calendar_id": "XSHG",
+            "session_date": "2026-09-12",
+            "is_open": false,
+            "note": "inferred closed: absent from the vendor open-session list",
+            "snapshot_version": "cal-4b13403f541da265"
+          },
+          {
+            "calendar_id": "XSHG",
+            "session_date": "2026-09-13",
+            "is_open": false,
+            "note": "inferred closed: absent from the vendor open-session list",
+            "snapshot_version": "cal-4b13403f541da265"
+          },
+          {
+            "calendar_id": "XSHG",
+            "session_date": "2026-09-14",
+            "is_open": true,
+            "note": null,
+            "snapshot_version": "cal-4b13403f541da265"
+          }
+        ],
+        "evidence": {
+          "evidence_id": "chstockdata:trading_calendar:912fce8a39b0a9ce:4b13403f541da265",
+          "provider_name": "chstockdata",
+          "provider_version": "0.4.2",
+          "adapter_name": "chstockdata-provider",
+          "adapter_version": "0.1.0",
+          "capability": "trading_calendar",
+          "request_digest": "sha256:912fce8a39b0a9ce5e93da2a4acb28645cfface40724617246469927711a7084",
+          "retrieved_at": "2026-10-12 17:07:57.620276+08:00",
+          "upstream_source": "chstockdata.load_trading_calendar (sina_sh000001)",
+          "record_count": 7,
+          "payload_checksum": "sha256:4b13403f541da2650f1a51d636980371c108da1978b54aa5ce124d8214d3d1c8",
+          "warnings": []
+        }
+      }
+    },
+    {
+      "instrument_id": "XSHG:510300",
+      "capability": "FRESHNESS_STALE_MISSING",
+      "started_at": "2026-10-12T17:07:57.626313+08:00",
+      "finished_at": "2026-10-12T17:07:57.640836+08:00",
+      "status": "PASS",
+      "result": {
+        "fresh": {
+          "gate_name": "DATA_QUALITY_GATE",
+          "gate_version": "m0-quality-gate-1",
+          "purpose": "DECISION",
+          "status": "PASS",
+          "action": "PROCEED",
+          "evaluated_at": "2026-10-12 17:07:57.639836+08:00",
+          "checks": [],
+          "reason_codes": [],
+          "input_digests": {
+            "object_type": "mappingproxy"
+          }
+        },
+        "stale_control": {
+          "gate_name": "DATA_QUALITY_GATE",
+          "gate_version": "m0-quality-gate-1",
+          "purpose": "DECISION",
+          "status": "FAIL",
+          "action": "BLOCK_NEW_TARGET",
+          "evaluated_at": "2026-10-12 17:07:57.639836+08:00",
+          "checks": [
+            {
+              "check_id": "FRESHNESS",
+              "status": "FAIL",
+              "severity": "BLOCKING",
+              "reason_code": "STALE_INFORMATION",
+              "affected_scope": [
+                "XSHG:510300"
+              ],
+              "observed": "latest knowable session 2026-09-10; information age 1 open session(s)",
+              "expected": "information age at most 0 open session(s)",
+              "evidence_ids": []
+            }
+          ],
+          "reason_codes": [
+            "STALE_INFORMATION"
+          ],
+          "input_digests": {
+            "object_type": "mappingproxy"
+          }
+        },
+        "missing_control": {
+          "gate_name": "DATA_QUALITY_GATE",
+          "gate_version": "m0-quality-gate-1",
+          "purpose": "DECISION",
+          "status": "FAIL",
+          "action": "BLOCK_NEW_TARGET",
+          "evaluated_at": "2026-10-12 17:07:57.640836+08:00",
+          "checks": [
+            {
+              "check_id": "REQUIRED_FIELDS",
+              "status": "FAIL",
+              "severity": "BLOCKING",
+              "reason_code": "MISSING_REQUIRED_FIELD",
+              "affected_scope": [
+                "XSHG:510300",
+                "2026-09-08"
+              ],
+              "observed": "pre_close=None",
+              "expected": "pre_close present; missing values are never converted to zero",
+              "evidence_ids": []
+            },
+            {
+              "check_id": "REQUIRED_FIELDS",
+              "status": "FAIL",
+              "severity": "BLOCKING",
+              "reason_code": "MISSING_REQUIRED_FIELD",
+              "affected_scope": [
+                "XSHG:510300",
+                "2026-09-09"
+              ],
+              "observed": "pre_close=None",
+              "expected": "pre_close present; missing values are never converted to zero",
+              "evidence_ids": []
+            },
+            {
+              "check_id": "REQUIRED_FIELDS",
+              "status": "FAIL",
+              "severity": "BLOCKING",
+              "reason_code": "MISSING_REQUIRED_FIELD",
+              "affected_scope": [
+                "XSHG:510300",
+                "2026-09-10"
+              ],
+              "observed": "pre_close=None",
+              "expected": "pre_close present; missing values are never converted to zero",
+              "evidence_ids": []
+            },
+            {
+              "check_id": "REQUIRED_FIELDS",
+              "status": "FAIL",
+              "severity": "BLOCKING",
+              "reason_code": "MISSING_REQUIRED_FIELD",
+              "affected_scope": [
+                "XSHG:510300",
+                "2026-09-11"
+              ],
+              "observed": "pre_close=None",
+              "expected": "pre_close present; missing values are never converted to zero",
+              "evidence_ids": []
+            }
+          ],
+          "reason_codes": [
+            "MISSING_REQUIRED_FIELD"
+          ],
+          "input_digests": {
+            "object_type": "mappingproxy"
+          }
+        }
+      }
+    },
+    {
+      "instrument_id": "XSHG:510300",
+      "capability": "SNAPSHOT_ENGINE_RAW_FILL_IDENTITY",
+      "started_at": "2026-10-12T17:07:57.640836+08:00",
+      "finished_at": "2026-10-12T17:07:57.760472+08:00",
+      "status": "FAIL",
+      "error": {
+        "type": "AssertionError",
+        "message": ""
+      }
+    },
+    {
+      "instrument_id": "XSHE:159915",
+      "capability": "LEGACY_PIT_FAIL_CLOSED",
+      "started_at": "2026-10-12T17:07:57.760472+08:00",
+      "finished_at": "2026-10-12T17:07:57.764797+08:00",
+      "status": "PASS",
+      "result": [
+        {
+          "error_code": "SCHEMA_DRIFT",
+          "message": "vendor:historical_suspension_unavailable",
+          "evidence": {
+            "evidence_id": "chstockdata:tradability:c4de1676e659e3d9:46cef866242806dd",
+            "provider_name": "chstockdata",
+            "provider_version": "0.4.2",
+            "adapter_name": "chstockdata-provider",
+            "adapter_version": "0.1.0",
+            "capability": "tradability",
+            "request_digest": "sha256:c4de1676e659e3d9ddbb6ec3199a882771081967ae0b034ef84bcfb106f29f1d",
+            "retrieved_at": "2026-10-12 17:07:57.760472+08:00",
+            "upstream_source": "chstockdata.get_suspension_info",
+            "record_count": 0,
+            "payload_checksum": "sha256:46cef866242806ddf1ec86fde5c5ecf23d8be843d1eb00093daa3ded80a92e75",
+            "warnings": []
+          },
+          "cause": {
+            "type": "HistoricalSuspensionUnavailableError",
+            "message": "vendor:historical_suspension_unavailable"
+          }
+        },
+        [
+          {
+            "instrument_id": {
+              "exchange": "XSHE",
+              "symbol": "159915"
+            },
+            "session_date": "2026-09-11",
+            "status": "UNKNOWN",
+            "reason": "HISTORICAL_SUSPENSION_COVERAGE_UNAVAILABLE",
+            "availability": {
+              "information_available_at": null,
+              "retrieved_at": "2026-10-12 17:07:57.760472+08:00",
+              "availability_basis": "UNKNOWN"
+            },
+            "provenance": "chstockdata:tradability:c4de1676e659e3d9:46cef866242806dd:vendor:historical_suspension_unavailable"
+          }
+        ]
+      ]
+    },
+    {
+      "instrument_id": "XSHE:159915",
+      "capability": "HISTORICAL_OPENING_R21",
+      "started_at": "2026-10-12T17:07:57.764797+08:00",
+      "finished_at": "2026-10-12T17:08:02.403744+08:00",
+      "status": "PASS",
+      "result": {
+        "records": [
+          {
+            "payload_json": "{\"evidence_hash\":\"58da167618847c602b6d55cdda736f078027db57b8f07e89ff2afa09dee9c7c9\",\"execution_effect_window\":{\"end\":\"2026-09-11T09:31:00+08:00\",\"start\":\"2026-09-11T09:30:00+08:00\"},\"information_available_at\":null,\"information_basis\":\"UNKNOWN\",\"instrument\":\"159915\",\"limitations\":[\"[09:30,09:31) activity does not prove strict 09:30 order fill, full-day normality, or preopen PIT.\",\"TDX prices are evidence crosschecks only; volumes are not fill quotas.\",\"Current bounded official query does not claim all historical events or revisions are complete.\"],\"market\":\"SZSE\",\"official_block_at_target\":false,\"official_events\":[],\"official_query\":{\"all_returned_rows_considered\":true,\"historical_global_completeness_claim\":false,\"instrument\":\"159915\",\"market\":\"SZSE\",\"observations\":[{\"error_type\":null,\"parsed_response_sha256\":\"623a2b4aa0de75d0685242ca41fe14e9eadb493315e17194845035fa58c6ef83\",\"raw_bytes\":29,\"raw_sha256\":\"623a2b4aa0de75d0685242ca41fe14e9eadb493315e17194845035fa58c6ef83\",\"request\":{\"json\":{\"channelCode\":[\"fundinfoNotice_disc\"],\"pageNum\":1,\"pageSize\":25,\"seDate\":[\"2026-09-11\",\"2026-09-11\"],\"stock\":[\"159915\"]},\"method\":\"POST\",\"url\":\"https://www.szse.cn/api/disc/announcement/annList\"},\"retrieved_at\":\"2026-10-12T09:08:02.397238+00:00\",\"status\":\"success\"}],\"page_count\":1,\"pagination_complete\":true,\"query_range\":[\"2026-09-11\",\"2026-09-11\"],\"range_kind\":\"announcement publication date\",\"raw_rows\":[],\"reason\":\"current_bounded_query_complete\",\"status\":\"normal_empty\",\"total\":0},\"opening_status\":\"OPEN_ACTIVITY_CONFIRMED\",\"policy_version\":\"R2.1\",\"purpose\":\"historical_opening_execution_constraint\",\"reason\":\"certified_0930_activity_current_query_no_known_block\",\"retrieved_at\":\"2026-10-12T09:08:02.399243+00:00\",\"schema_version\":\"historical-opening-evidence/1\",\"session_date\":\"2026-09-11\",\"source_conflict\":false,\"target_execution_at\":\"2026-09-11T09:30:00+08:00\",\"tdx_activity\":{\"auction_rows\":[{\"normalized_price\":\"3.323\",\"raw_price\":\"33.23\",\"time\":\"09:25\",\"volume_lots\":95647}],\"auto_retry\":false,\"bounded_page_count\":6,\"category\":\"ETF\",\"category_certification\":\"frozen 2026-10-10 44-request protocol and price sample\",\"command\":\"0x0fb5\",\"crosscheck_command\":\"0x0fb4\",\"heartbeat\":false,\"instrument\":\"159915\",\"last_opening_price\":\"3.339\",\"market_id\":0,\"minute_first\":{\"price\":3.339,\"vol\":652796},\"normalization_count\":1,\"normalization_rule\":\"tdxpy_0.2.7_0x0fb5_certified_etf_divide_10\",\"normalized_opening_rows\":[{\"normalized_price\":\"3.324\",\"raw_price\":\"33.24\",\"time\":\"09:30\",\"volume_lots\":108942},{\"normalized_price\":\"3.324\",\"raw_price\":\"33.24\",\"time\":\"09:30\",\"volume_lots\":69423},{\"normalized_price\":\"3.325\",\"raw_price\":\"33.25\",\"time\":\"09:30\",\"volume_lots\":9857},{\"normalized_price\":\"3.324\",\"raw_price\":\"33.24\",\"time\":\"09:30\",\"volume_lots\":52431},{\"normalized_price\":\"3.323\",\"raw_price\":\"33.23\",\"time\":\"09:30\",\"volume_lots\":32177},{\"normalized_price\":\"3.325\",\"raw_price\":\"33.25\",\"time\":\"09:30\",\"volume_lots\":33871},{\"normalized_price\":\"3.324\",\"raw_price\":\"33.24\",\"time\":\"09:30\",\"volume_lots\":21215},{\"normalized_price\":\"3.324\",\"raw_price\":\"33.24\",\"time\":\"09:30\",\"volume_lots\":12899},{\"normalized_price\":\"3.324\",\"raw_price\":\"33.24\",\"time\":\"09:30\",\"volume_lots\":10571},{\"normalized_price\":\"3.324\",\"raw_price\":\"33.24\",\"time\":\"09:30\",\"volume_lots\":18335},{\"normalized_price\":\"3.325\",\"raw_price\":\"33.25\",\"time\":\"09:30\",\"volume_lots\":6801},{\"normalized_price\":\"3.327\",\"raw_price\":\"33.27\",\"time\":\"09:30\",\"volume_lots\":935},{\"normalized_price\":\"3.327\",\"raw_price\":\"33.27\",\"time\":\"09:30\",\"volume_lots\":8655},{\"normalized_price\":\"3.33\",\"raw_price\":\"33.3\",\"time\":\"09:30\",\"volume_lots\":17563},{\"normalized_price\":\"3.332\",\"raw_price\":\"33.32\",\"time\":\"09:30\",\"volume_lots\":24410},{\"normalized_price\":\"3.335\",\"raw_price\":\"33.35\",\"time\":\"09:30\",\"volume_lots\":26265},{\"normalized_price\":\"3.339\",\"raw_price\":\"33.39\",\"time\":\"09:30\",\"volume_lots\":24181},{\"normalized_price\":\"3.34\",\"raw_price\":\"33.4\",\"time\":\"09:30\",\"volume_lots\":26428},{\"normalized_price\":\"3.342\",\"raw_price\":\"33.42\",\"time\":\"09:30\",\"volume_lots\":11047},{\"normalized_price\":\"3.339\",\"raw_price\":\"33.39\",\"time\":\"09:30\",\"volume_lots\":41143}],\"observations\":[{\"error_type\":null,\"parsed_response_sha256\":\"bc61e2fccabbb103ec1dc2333923f9f207f7f19271b9b79859fac0484fe72354\",\"request\":{\"operation\":\"connect\",\"server\":[\"110.41.147.114\",7709]},\"retrieved_at\":\"2026-10-12T09:07:57.956016+00:00\",\"status\":\"success\"},{\"error_type\":null,\"parsed_response_sha256\":\"2ee4625111eaf95801b0b435cf63421dd6a61405d8093dca33d85a98028edd81\",\"request\":{\"code\":\"159915\",\"command\":\"0x0fb4\",\"date\":20260911,\"market\":0},\"retrieved_at\":\"2026-10-12T09:07:58.005748+00:00\",\"status\":\"success\"},{\"error_type\":null,\"parsed_response_sha256\":\"95d3d37b314f0585330b8407b910cb87a9e2f3cbf1662aa18d1b70dd7186dfc8\",\"request\":{\"code\":\"159915\",\"command\":\"0x0fb5\",\"count\":800,\"date\":20260911,\"market\":0,\"start\":0},\"retrieved_at\":\"2026-10-12T09:07:58.068122+00:00\",\"status\":\"success\"},{\"error_type\":null,\"parsed_response_sha256\":\"76c013783cdb28e2abbd77000cf0f2e621c9f0e6140fff1f8ea1dcf69af0dcda\",\"request\":{\"code\":\"159915\",\"command\":\"0x0fb5\",\"count\":800,\"date\":20260911,\"market\":0,\"start\":800},\"retrieved_at\":\"2026-10-12T09:07:58.136039+00:00\",\"status\":\"success\"},{\"error_type\":null,\"parsed_response_sha256\":\"f78148e9a3332b1bc16802a5c64af2ca98d94f3946aa2c7fe338914fe5377509\",\"request\":{\"code\":\"159915\",\"command\":\"0x0fb5\",\"count\":800,\"date\":20260911,\"market\":0,\"start\":1600},\"retrieved_at\":\"2026-10-12T09:07:58.210415+00:00\",\"status\":\"success\"},{\"error_type\":null,\"parsed_response_sha256\":\"220881c01819516bf1c55a1f8da235e69ebf0026db06bc49633c20cc13d820d6\",\"request\":{\"code\":\"159915\",\"command\":\"0x0fb5\",\"count\":800,\"date\":20260911,\"market\":0,\"start\":2400},\"retrieved_at\":\"2026-10-12T09:07:58.280979+00:00\",\"status\":\"success\"},{\"error_type\":null,\"parsed_response_sha256\":\"029e01e56363cc7185b4142a8ece9159c983eb3bd87a7a2db01e20063f6153e6\",\"request\":{\"code\":\"159915\",\"command\":\"0x0fb5\",\"count\":800,\"date\":20260911,\"market\":0,\"start\":3200},\"retrieved_at\":\"2026-10-12T09:07:58.346053+00:00\",\"status\":\"success\"},{\"error_type\":null,\"parsed_response_sha256\":\"59e2a9fa132d4ef8b14f969bcc937234b751f4233fc652ff9e82da1d6f517858\",\"request\":{\"code\":\"159915\",\"command\":\"0x0fb5\",\"count\":800,\"date\":20260911,\"market\":0,\"start\":4000},\"retrieved_at\":\"2026-10-12T09:07:58.412474+00:00\",\"status\":\"success\"}],\"opening_crosscheck_complete\":true,\"opening_volume_lots\":557149,\"price_unit\":\"CNY/security\",\"qualified\":true,\"reason\":\"certified_positive_0930_activity\",\"server\":{\"host\":\"110.41.147.114\",\"port\":7709},\"server_discovery\":false,\"session_date\":\"2026-09-11\",\"source\":\"mootdx/tdxpy\",\"tick_size\":\"0.001\",\"time_granularity\":\"minute\",\"timeout_seconds\":4,\"versions\":{\"mootdx\":\"0.11.7\",\"tdxpy\":\"0.2.7\"},\"volume_unit\":\"TDX lots (not an executable quota)\"},\"time_granularity\":\"minute\"}"
+          }
+        ],
+        "evidence": {
+          "evidence_id": "chstockdata:historical_opening_evidence:adb78333aa1c69b7:584e21d8a8856cfb",
+          "provider_name": "chstockdata",
+          "provider_version": "0.4.2",
+          "adapter_name": "chstockdata-provider",
+          "adapter_version": "0.1.0",
+          "capability": "historical_opening_evidence",
+          "request_digest": "sha256:adb78333aa1c69b762b2a5942c07e446f97ab92a18f7d492a014acaee7260dfc",
+          "retrieved_at": "2026-10-12 17:07:57.764797+08:00",
+          "upstream_source": "chstockdata.fetch_historical_opening_evidence",
+          "record_count": 1,
+          "payload_checksum": "sha256:584e21d8a8856cfb09ef518f5979086ac5c4d41131abe07f388a93d471c6dd36",
+          "warnings": []
+        }
+      }
+    },
+    {
+      "instrument_id": "XSHE:159915",
+      "capability": "ADJUSTMENT_ACTIONS",
+      "started_at": "2026-10-12T17:08:02.403744+08:00",
+      "finished_at": "2026-10-12T17:08:02.677379+08:00",
+      "status": "PASS",
+      "result": {
+        "records": [],
+        "evidence": {
+          "evidence_id": "chstockdata:corporate_actions:981d9cb97d8a5f2e:e106eec5be645298",
+          "provider_name": "chstockdata",
+          "provider_version": "0.4.2",
+          "adapter_name": "chstockdata-provider",
+          "adapter_version": "0.1.0",
+          "capability": "corporate_actions",
+          "request_digest": "sha256:981d9cb97d8a5f2e2b4f5e15f223a030c510ec2b7a8105cf5a016f01272e9f8a",
+          "retrieved_at": "2026-10-12 17:08:02.403744+08:00",
+          "upstream_source": "eastmoney_fund_f10:FHSP+FHGG",
+          "record_count": 0,
+          "payload_checksum": "sha256:e106eec5be645298f3ffba003aef2943d83254f78935bc4b05bd9f82231815f4",
+          "warnings": []
+        }
+      }
+    },
+    {
+      "instrument_id": "XSHE:159915",
+      "capability": "RAW_AVAILABILITY",
+      "started_at": "2026-10-12T17:08:02.677379+08:00",
+      "finished_at": "2026-10-12T17:08:02.717033+08:00",
+      "status": "PASS",
+      "result": {
+        "records": [
+          {
+            "schema_version": "v1",
+            "instrument_id": {
+              "exchange": "XSHE",
+              "symbol": "159915"
+            },
+            "session_date": "2026-09-08",
+            "open": "3.413",
+            "high": "3.436",
+            "low": "3.365",
+            "close": "3.376",
+            "pre_close": "3.414",
+            "volume": "1604818947",
+            "amount": "5455069696.0",
+            "currency": "CNY",
+            "volume_unit": "SHARE",
+            "amount_unit": "CNY",
+            "adjustment_mode": "RAW",
+            "adjustment_factor": null,
+            "availability": {
+              "information_available_at": "2026-09-08 15:00:00+08:00",
+              "retrieved_at": "2026-10-12 17:08:02.677379+08:00",
+              "availability_basis": "EXCHANGE_RULE"
+            },
+            "provider_evidence_id": "chstockdata:daily_bars:da738faa64de2a51:77b26077ef1e6c42"
+          },
+          {
+            "schema_version": "v1",
+            "instrument_id": {
+              "exchange": "XSHE",
+              "symbol": "159915"
+            },
+            "session_date": "2026-09-09",
+            "open": "3.41",
+            "high": "3.415",
+            "low": "3.346",
+            "close": "3.373",
+            "pre_close": "3.376",
+            "volume": "1098044295",
+            "amount": "3711044352.0",
+            "currency": "CNY",
+            "volume_unit": "SHARE",
+            "amount_unit": "CNY",
+            "adjustment_mode": "RAW",
+            "adjustment_factor": null,
+            "availability": {
+              "information_available_at": "2026-09-09 15:00:00+08:00",
+              "retrieved_at": "2026-10-12 17:08:02.677379+08:00",
+              "availability_basis": "EXCHANGE_RULE"
+            },
+            "provider_evidence_id": "chstockdata:daily_bars:da738faa64de2a51:77b26077ef1e6c42"
+          },
+          {
+            "schema_version": "v1",
+            "instrument_id": {
+              "exchange": "XSHE",
+              "symbol": "159915"
+            },
+            "session_date": "2026-09-10",
+            "open": "3.345",
+            "high": "3.387",
+            "low": "3.325",
+            "close": "3.358",
+            "pre_close": "3.373",
+            "volume": "1110436051",
+            "amount": "3730622976.0",
+            "currency": "CNY",
+            "volume_unit": "SHARE",
+            "amount_unit": "CNY",
+            "adjustment_mode": "RAW",
+            "adjustment_factor": null,
+            "availability": {
+              "information_available_at": "2026-09-10 15:00:00+08:00",
+              "retrieved_at": "2026-10-12 17:08:02.677379+08:00",
+              "availability_basis": "EXCHANGE_RULE"
+            },
+            "provider_evidence_id": "chstockdata:daily_bars:da738faa64de2a51:77b26077ef1e6c42"
+          },
+          {
+            "schema_version": "v1",
+            "instrument_id": {
+              "exchange": "XSHE",
+              "symbol": "159915"
+            },
+            "session_date": "2026-09-11",
+            "open": "3.323",
+            "high": "3.354",
+            "low": "3.28",
+            "close": "3.341",
+            "pre_close": "3.358",
+            "volume": "1905297197",
+            "amount": "6320258048.0",
+            "currency": "CNY",
+            "volume_unit": "SHARE",
+            "amount_unit": "CNY",
+            "adjustment_mode": "RAW",
+            "adjustment_factor": null,
+            "availability": {
+              "information_available_at": "2026-09-11 15:00:00+08:00",
+              "retrieved_at": "2026-10-12 17:08:02.677379+08:00",
+              "availability_basis": "EXCHANGE_RULE"
+            },
+            "provider_evidence_id": "chstockdata:daily_bars:da738faa64de2a51:77b26077ef1e6c42"
+          }
+        ],
+        "evidence": {
+          "evidence_id": "chstockdata:daily_bars:da738faa64de2a51:77b26077ef1e6c42",
+          "provider_name": "chstockdata",
+          "provider_version": "0.4.2",
+          "adapter_name": "chstockdata-provider",
+          "adapter_version": "0.1.0",
+          "capability": "daily_bars",
+          "request_digest": "sha256:da738faa64de2a517b11ae37c92a53028405c21dae5bff8e5429505fc3d5dbbf",
+          "retrieved_at": "2026-10-12 17:08:02.677379+08:00",
+          "upstream_source": "chstockdata.load_vipdoc_daily (local TDX .day package)",
+          "record_count": 4,
+          "payload_checksum": "sha256:77b26077ef1e6c425a5e167ebdf46deabf3d2f7ab990940883a97bdbf986c892",
+          "warnings": []
+        }
+      }
+    },
+    {
+      "instrument_id": "XSHE:159915",
+      "capability": "EXECUTION_CALENDAR",
+      "started_at": "2026-10-12T17:08:02.717033+08:00",
+      "finished_at": "2026-10-12T17:08:02.723386+08:00",
+      "status": "PASS",
+      "result": {
+        "records": [
+          {
+            "calendar_id": "XSHE",
+            "session_date": "2026-09-08",
+            "is_open": true,
+            "note": null,
+            "snapshot_version": "cal-4b13403f541da265"
+          },
+          {
+            "calendar_id": "XSHE",
+            "session_date": "2026-09-09",
+            "is_open": true,
+            "note": null,
+            "snapshot_version": "cal-4b13403f541da265"
+          },
+          {
+            "calendar_id": "XSHE",
+            "session_date": "2026-09-10",
+            "is_open": true,
+            "note": null,
+            "snapshot_version": "cal-4b13403f541da265"
+          },
+          {
+            "calendar_id": "XSHE",
+            "session_date": "2026-09-11",
+            "is_open": true,
+            "note": null,
+            "snapshot_version": "cal-4b13403f541da265"
+          },
+          {
+            "calendar_id": "XSHE",
+            "session_date": "2026-09-12",
+            "is_open": false,
+            "note": "inferred closed: absent from the vendor open-session list",
+            "snapshot_version": "cal-4b13403f541da265"
+          },
+          {
+            "calendar_id": "XSHE",
+            "session_date": "2026-09-13",
+            "is_open": false,
+            "note": "inferred closed: absent from the vendor open-session list",
+            "snapshot_version": "cal-4b13403f541da265"
+          },
+          {
+            "calendar_id": "XSHE",
+            "session_date": "2026-09-14",
+            "is_open": true,
+            "note": null,
+            "snapshot_version": "cal-4b13403f541da265"
+          }
+        ],
+        "evidence": {
+          "evidence_id": "chstockdata:trading_calendar:7d0cd385715fb3e1:4b13403f541da265",
+          "provider_name": "chstockdata",
+          "provider_version": "0.4.2",
+          "adapter_name": "chstockdata-provider",
+          "adapter_version": "0.1.0",
+          "capability": "trading_calendar",
+          "request_digest": "sha256:7d0cd385715fb3e1570e4bbd9559e3a7407fa4333f6a937aecb0942e6975a1c6",
+          "retrieved_at": "2026-10-12 17:08:02.717033+08:00",
+          "upstream_source": "chstockdata.load_trading_calendar (sina_sh000001)",
+          "record_count": 7,
+          "payload_checksum": "sha256:4b13403f541da2650f1a51d636980371c108da1978b54aa5ce124d8214d3d1c8",
+          "warnings": []
+        }
+      }
+    },
+    {
+      "instrument_id": "XSHE:159915",
+      "capability": "FRESHNESS_STALE_MISSING",
+      "started_at": "2026-10-12T17:08:02.723386+08:00",
+      "finished_at": "2026-10-12T17:08:02.724386+08:00",
+      "status": "PASS",
+      "result": {
+        "fresh": {
+          "gate_name": "DATA_QUALITY_GATE",
+          "gate_version": "m0-quality-gate-1",
+          "purpose": "DECISION",
+          "status": "PASS",
+          "action": "PROCEED",
+          "evaluated_at": "2026-10-12 17:08:02.723386+08:00",
+          "checks": [],
+          "reason_codes": [],
+          "input_digests": {
+            "object_type": "mappingproxy"
+          }
+        },
+        "stale_control": {
+          "gate_name": "DATA_QUALITY_GATE",
+          "gate_version": "m0-quality-gate-1",
+          "purpose": "DECISION",
+          "status": "FAIL",
+          "action": "BLOCK_NEW_TARGET",
+          "evaluated_at": "2026-10-12 17:08:02.723386+08:00",
+          "checks": [
+            {
+              "check_id": "FRESHNESS",
+              "status": "FAIL",
+              "severity": "BLOCKING",
+              "reason_code": "STALE_INFORMATION",
+              "affected_scope": [
+                "XSHE:159915"
+              ],
+              "observed": "latest knowable session 2026-09-10; information age 1 open session(s)",
+              "expected": "information age at most 0 open session(s)",
+              "evidence_ids": []
+            }
+          ],
+          "reason_codes": [
+            "STALE_INFORMATION"
+          ],
+          "input_digests": {
+            "object_type": "mappingproxy"
+          }
+        },
+        "missing_control": {
+          "gate_name": "DATA_QUALITY_GATE",
+          "gate_version": "m0-quality-gate-1",
+          "purpose": "DECISION",
+          "status": "FAIL",
+          "action": "BLOCK_NEW_TARGET",
+          "evaluated_at": "2026-10-12 17:08:02.723386+08:00",
+          "checks": [
+            {
+              "check_id": "REQUIRED_FIELDS",
+              "status": "FAIL",
+              "severity": "BLOCKING",
+              "reason_code": "MISSING_REQUIRED_FIELD",
+              "affected_scope": [
+                "XSHE:159915",
+                "2026-09-08"
+              ],
+              "observed": "pre_close=None",
+              "expected": "pre_close present; missing values are never converted to zero",
+              "evidence_ids": []
+            },
+            {
+              "check_id": "REQUIRED_FIELDS",
+              "status": "FAIL",
+              "severity": "BLOCKING",
+              "reason_code": "MISSING_REQUIRED_FIELD",
+              "affected_scope": [
+                "XSHE:159915",
+                "2026-09-09"
+              ],
+              "observed": "pre_close=None",
+              "expected": "pre_close present; missing values are never converted to zero",
+              "evidence_ids": []
+            },
+            {
+              "check_id": "REQUIRED_FIELDS",
+              "status": "FAIL",
+              "severity": "BLOCKING",
+              "reason_code": "MISSING_REQUIRED_FIELD",
+              "affected_scope": [
+                "XSHE:159915",
+                "2026-09-10"
+              ],
+              "observed": "pre_close=None",
+              "expected": "pre_close present; missing values are never converted to zero",
+              "evidence_ids": []
+            },
+            {
+              "check_id": "REQUIRED_FIELDS",
+              "status": "FAIL",
+              "severity": "BLOCKING",
+              "reason_code": "MISSING_REQUIRED_FIELD",
+              "affected_scope": [
+                "XSHE:159915",
+                "2026-09-11"
+              ],
+              "observed": "pre_close=None",
+              "expected": "pre_close present; missing values are never converted to zero",
+              "evidence_ids": []
+            }
+          ],
+          "reason_codes": [
+            "MISSING_REQUIRED_FIELD"
+          ],
+          "input_digests": {
+            "object_type": "mappingproxy"
+          }
+        }
+      }
+    },
+    {
+      "instrument_id": "XSHE:159915",
+      "capability": "SNAPSHOT_ENGINE_RAW_FILL_IDENTITY",
+      "started_at": "2026-10-12T17:08:02.724386+08:00",
+      "finished_at": "2026-10-12T17:08:02.770965+08:00",
+      "status": "FAIL",
+      "error": {
+        "type": "AssertionError",
+        "message": ""
+      }
+    },
+    {
+      "instrument_id": "XSHG:518880",
+      "capability": "LEGACY_PIT_FAIL_CLOSED",
+      "started_at": "2026-10-12T17:08:02.770965+08:00",
+      "finished_at": "2026-10-12T17:08:02.775488+08:00",
+      "status": "PASS",
+      "result": [
+        {
+          "error_code": "SCHEMA_DRIFT",
+          "message": "vendor:historical_suspension_unavailable",
+          "evidence": {
+            "evidence_id": "chstockdata:tradability:045ceaf6ddda8f3d:46cef866242806dd",
+            "provider_name": "chstockdata",
+            "provider_version": "0.4.2",
+            "adapter_name": "chstockdata-provider",
+            "adapter_version": "0.1.0",
+            "capability": "tradability",
+            "request_digest": "sha256:045ceaf6ddda8f3df5f3a66b8820d9b30f9884d604ad8ba4303d3abb97a89676",
+            "retrieved_at": "2026-10-12 17:08:02.770965+08:00",
+            "upstream_source": "chstockdata.get_suspension_info",
+            "record_count": 0,
+            "payload_checksum": "sha256:46cef866242806ddf1ec86fde5c5ecf23d8be843d1eb00093daa3ded80a92e75",
+            "warnings": []
+          },
+          "cause": {
+            "type": "HistoricalSuspensionUnavailableError",
+            "message": "vendor:historical_suspension_unavailable"
+          }
+        },
+        [
+          {
+            "instrument_id": {
+              "exchange": "XSHG",
+              "symbol": "518880"
+            },
+            "session_date": "2026-09-11",
+            "status": "UNKNOWN",
+            "reason": "HISTORICAL_SUSPENSION_COVERAGE_UNAVAILABLE",
+            "availability": {
+              "information_available_at": null,
+              "retrieved_at": "2026-10-12 17:08:02.770965+08:00",
+              "availability_basis": "UNKNOWN"
+            },
+            "provenance": "chstockdata:tradability:045ceaf6ddda8f3d:46cef866242806dd:vendor:historical_suspension_unavailable"
+          }
+        ]
+      ]
+    },
+    {
+      "instrument_id": "XSHG:518880",
+      "capability": "HISTORICAL_OPENING_R21",
+      "started_at": "2026-10-12T17:08:02.775488+08:00",
+      "finished_at": "2026-10-12T17:08:03.676226+08:00",
+      "status": "PASS",
+      "result": {
+        "records": [
+          {
+            "payload_json": "{\"evidence_hash\":\"53e9daaf9e8d79274694bfb19293a1e3209d43b3cf31ffbb0c2e14771d4a3611\",\"execution_effect_window\":{\"end\":\"2026-09-11T09:31:00+08:00\",\"start\":\"2026-09-11T09:30:00+08:00\"},\"information_available_at\":null,\"information_basis\":\"UNKNOWN\",\"instrument\":\"518880\",\"limitations\":[\"[09:30,09:31) activity does not prove strict 09:30 order fill, full-day normality, or preopen PIT.\",\"TDX prices are evidence crosschecks only; volumes are not fill quotas.\",\"Current bounded official query does not claim all historical events or revisions are complete.\"],\"market\":\"SSE\",\"official_block_at_target\":false,\"official_events\":[],\"official_query\":{\"all_returned_rows_considered\":true,\"historical_global_completeness_claim\":false,\"instrument\":\"518880\",\"market\":\"SSE\",\"observations\":[{\"error_type\":null,\"parsed_response_sha256\":\"087735ac94e1b965c175ba5fb3af737546beb399219342c3a78cd40fd9d884a3\",\"raw_bytes\":482,\"raw_sha256\":\"087735ac94e1b965c175ba5fb3af737546beb399219342c3a78cd40fd9d884a3\",\"request\":{\"headers\":{\"Referer\":\"https://www.sse.com.cn/disclosure/dealinstruc/suspension/fund/\"},\"method\":\"GET\",\"params\":{\"endDate\":\"20260911\",\"isPagination\":\"true\",\"order\":\"startStopDate|desc,secCode|asc\",\"pageHelp.beginPage\":1,\"pageHelp.cacheSize\":1,\"pageHelp.endPage\":1,\"pageHelp.pageNo\":1,\"pageHelp.pageSize\":25,\"secCode\":\"518880\",\"sqlId\":\"SSE_PL_JYTS_TFPXX_JJ\",\"startDate\":\"20260911\",\"stopReason\":\"\"},\"url\":\"https://query.sse.com.cn/sseQuery/commonSoaQuery.do\"},\"retrieved_at\":\"2026-10-12T09:08:03.668539+00:00\",\"status\":\"success\"}],\"page_count\":1,\"pagination_complete\":true,\"query_range\":[\"2026-09-11\",\"2026-09-11\"],\"range_kind\":\"effective interval\",\"raw_rows\":[],\"reason\":\"current_bounded_query_complete\",\"status\":\"normal_empty\",\"total\":0},\"opening_status\":\"OPEN_ACTIVITY_CONFIRMED\",\"policy_version\":\"R2.1\",\"purpose\":\"historical_opening_execution_constraint\",\"reason\":\"certified_0930_activity_current_query_no_known_block\",\"retrieved_at\":\"2026-10-12T09:08:03.670546+00:00\",\"schema_version\":\"historical-opening-evidence/1\",\"session_date\":\"2026-09-11\",\"source_conflict\":false,\"target_execution_at\":\"2026-09-11T09:30:00+08:00\",\"tdx_activity\":{\"auction_rows\":[{\"normalized_price\":\"8.895\",\"raw_price\":\"88.95\",\"time\":\"09:25\",\"volume_lots\":52465}],\"auto_retry\":false,\"bounded_page_count\":7,\"category\":\"ETF\",\"category_certification\":\"frozen 2026-10-10 44-request protocol and price sample\",\"command\":\"0x0fb5\",\"crosscheck_command\":\"0x0fb4\",\"heartbeat\":false,\"instrument\":\"518880\",\"last_opening_price\":\"8.91\",\"market_id\":1,\"minute_first\":{\"price\":8.91,\"vol\":158876},\"normalization_count\":1,\"normalization_rule\":\"tdxpy_0.2.7_0x0fb5_certified_etf_divide_10\",\"normalized_opening_rows\":[{\"normalized_price\":\"8.898\",\"raw_price\":\"88.98\",\"time\":\"09:30\",\"volume_lots\":8856},{\"normalized_price\":\"8.898\",\"raw_price\":\"88.98\",\"time\":\"09:30\",\"volume_lots\":6511},{\"normalized_price\":\"8.896\",\"raw_price\":\"88.96\",\"time\":\"09:30\",\"volume_lots\":4441},{\"normalized_price\":\"8.9\",\"raw_price\":\"89.0\",\"time\":\"09:30\",\"volume_lots\":2836},{\"normalized_price\":\"8.898\",\"raw_price\":\"88.98\",\"time\":\"09:30\",\"volume_lots\":5280},{\"normalized_price\":\"8.896\",\"raw_price\":\"88.96\",\"time\":\"09:30\",\"volume_lots\":6616},{\"normalized_price\":\"8.9\",\"raw_price\":\"89.0\",\"time\":\"09:30\",\"volume_lots\":6816},{\"normalized_price\":\"8.906\",\"raw_price\":\"89.06\",\"time\":\"09:30\",\"volume_lots\":3489},{\"normalized_price\":\"8.898\",\"raw_price\":\"88.98\",\"time\":\"09:30\",\"volume_lots\":6272},{\"normalized_price\":\"8.899\",\"raw_price\":\"88.99\",\"time\":\"09:30\",\"volume_lots\":4012},{\"normalized_price\":\"8.9\",\"raw_price\":\"89.0\",\"time\":\"09:30\",\"volume_lots\":1495},{\"normalized_price\":\"8.906\",\"raw_price\":\"89.06\",\"time\":\"09:30\",\"volume_lots\":3028},{\"normalized_price\":\"8.901\",\"raw_price\":\"89.01\",\"time\":\"09:30\",\"volume_lots\":3300},{\"normalized_price\":\"8.902\",\"raw_price\":\"89.02\",\"time\":\"09:30\",\"volume_lots\":10592},{\"normalized_price\":\"8.91\",\"raw_price\":\"89.1\",\"time\":\"09:30\",\"volume_lots\":2660},{\"normalized_price\":\"8.911\",\"raw_price\":\"89.11\",\"time\":\"09:30\",\"volume_lots\":6135},{\"normalized_price\":\"8.91\",\"raw_price\":\"89.1\",\"time\":\"09:30\",\"volume_lots\":5066},{\"normalized_price\":\"8.91\",\"raw_price\":\"89.1\",\"time\":\"09:30\",\"volume_lots\":5332},{\"normalized_price\":\"8.91\",\"raw_price\":\"89.1\",\"time\":\"09:30\",\"volume_lots\":9803},{\"normalized_price\":\"8.91\",\"raw_price\":\"89.1\",\"time\":\"09:30\",\"volume_lots\":3871}],\"observations\":[{\"error_type\":null,\"parsed_response_sha256\":\"bc61e2fccabbb103ec1dc2333923f9f207f7f19271b9b79859fac0484fe72354\",\"request\":{\"operation\":\"connect\",\"server\":[\"110.41.147.114\",7709]},\"retrieved_at\":\"2026-10-12T09:08:02.960560+00:00\",\"status\":\"success\"},{\"error_type\":null,\"parsed_response_sha256\":\"fcd38de792c80607e8beade82b5bf74fa92a70cc5132641d6df4e3b43db415e2\",\"request\":{\"code\":\"518880\",\"command\":\"0x0fb4\",\"date\":20260911,\"market\":1},\"retrieved_at\":\"2026-10-12T09:08:03.006810+00:00\",\"status\":\"success\"},{\"error_type\":null,\"parsed_response_sha256\":\"c0c716eabe63bfee9e8f82bcd600b3da42e5db8e288bddd48fb94321f7a360ca\",\"request\":{\"code\":\"518880\",\"command\":\"0x0fb5\",\"count\":800,\"date\":20260911,\"market\":1,\"start\":0},\"retrieved_at\":\"2026-10-12T09:08:03.063739+00:00\",\"status\":\"success\"},{\"error_type\":null,\"parsed_response_sha256\":\"c6c53ce9148d1332c5f4da016a7e2250062a942a60987720f7058ac96216faef\",\"request\":{\"code\":\"518880\",\"command\":\"0x0fb5\",\"count\":800,\"date\":20260911,\"market\":1,\"start\":800},\"retrieved_at\":\"2026-10-12T09:08:03.125632+00:00\",\"status\":\"success\"},{\"error_type\":null,\"parsed_response_sha256\":\"7462a507d898b3f94840c94a70e13daad7b33e4e906316ef73ae95eafb71b260\",\"request\":{\"code\":\"518880\",\"command\":\"0x0fb5\",\"count\":800,\"date\":20260911,\"market\":1,\"start\":1600},\"retrieved_at\":\"2026-10-12T09:08:03.188136+00:00\",\"status\":\"success\"},{\"error_type\":null,\"parsed_response_sha256\":\"0aaf60b71b19a302f422550383609284bcd9e178a7f53f695cd13e986f80d555\",\"request\":{\"code\":\"518880\",\"command\":\"0x0fb5\",\"count\":800,\"date\":20260911,\"market\":1,\"start\":2400},\"retrieved_at\":\"2026-10-12T09:08:03.248923+00:00\",\"status\":\"success\"},{\"error_type\":null,\"parsed_response_sha256\":\"df1a866bc0d28f11399c279dc32310d189d15fc2a7ae990ccfa60e61dafac892\",\"request\":{\"code\":\"518880\",\"command\":\"0x0fb5\",\"count\":800,\"date\":20260911,\"market\":1,\"start\":3200},\"retrieved_at\":\"2026-10-12T09:08:03.318450+00:00\",\"status\":\"success\"},{\"error_type\":null,\"parsed_response_sha256\":\"6f1a9466668e3c4be1559d0b9238ed49209a7b588284d17b5730d8009a9d0b36\",\"request\":{\"code\":\"518880\",\"command\":\"0x0fb5\",\"count\":800,\"date\":20260911,\"market\":1,\"start\":4000},\"retrieved_at\":\"2026-10-12T09:08:03.382600+00:00\",\"status\":\"success\"},{\"error_type\":null,\"parsed_response_sha256\":\"398ff72af3e52d8395c16e1fe898693e91d7760deacc2c898cd1ae32e4694c2c\",\"request\":{\"code\":\"518880\",\"command\":\"0x0fb5\",\"count\":800,\"date\":20260911,\"market\":1,\"start\":4800},\"retrieved_at\":\"2026-10-12T09:08:03.435444+00:00\",\"status\":\"success\"}],\"opening_crosscheck_complete\":true,\"opening_volume_lots\":106411,\"price_unit\":\"CNY/security\",\"qualified\":true,\"reason\":\"certified_positive_0930_activity\",\"server\":{\"host\":\"110.41.147.114\",\"port\":7709},\"server_discovery\":false,\"session_date\":\"2026-09-11\",\"source\":\"mootdx/tdxpy\",\"tick_size\":\"0.001\",\"time_granularity\":\"minute\",\"timeout_seconds\":4,\"versions\":{\"mootdx\":\"0.11.7\",\"tdxpy\":\"0.2.7\"},\"volume_unit\":\"TDX lots (not an executable quota)\"},\"time_granularity\":\"minute\"}"
+          }
+        ],
+        "evidence": {
+          "evidence_id": "chstockdata:historical_opening_evidence:745b162dff8a744f:095178c811164ff8",
+          "provider_name": "chstockdata",
+          "provider_version": "0.4.2",
+          "adapter_name": "chstockdata-provider",
+          "adapter_version": "0.1.0",
+          "capability": "historical_opening_evidence",
+          "request_digest": "sha256:745b162dff8a744f12dfb42d1eb395d1211cfbc4d2bbd89d1e18497be6609751",
+          "retrieved_at": "2026-10-12 17:08:02.775488+08:00",
+          "upstream_source": "chstockdata.fetch_historical_opening_evidence",
+          "record_count": 1,
+          "payload_checksum": "sha256:095178c811164ff8bde30c35a0c7bcc1dbb0ef8f771ce8d16a5f754f98847f69",
+          "warnings": []
+        }
+      }
+    },
+    {
+      "instrument_id": "XSHG:518880",
+      "capability": "ADJUSTMENT_ACTIONS",
+      "started_at": "2026-10-12T17:08:03.676226+08:00",
+      "finished_at": "2026-10-12T17:08:03.958969+08:00",
+      "status": "PASS",
+      "result": {
+        "records": [],
+        "evidence": {
+          "evidence_id": "chstockdata:corporate_actions:110802e513c0aa6f:22d3a1e54928ac35",
+          "provider_name": "chstockdata",
+          "provider_version": "0.4.2",
+          "adapter_name": "chstockdata-provider",
+          "adapter_version": "0.1.0",
+          "capability": "corporate_actions",
+          "request_digest": "sha256:110802e513c0aa6f9722e228fc9348dde24971fa768ee97d9518f223411bc643",
+          "retrieved_at": "2026-10-12 17:08:03.676226+08:00",
+          "upstream_source": "eastmoney_fund_f10:FHSP+FHGG",
+          "record_count": 0,
+          "payload_checksum": "sha256:22d3a1e54928ac35af9c4ba4be561eb5c1d049d426a2fd28af33f2f6ea82e02b",
+          "warnings": []
+        }
+      }
+    },
+    {
+      "instrument_id": "XSHG:518880",
+      "capability": "RAW_AVAILABILITY",
+      "started_at": "2026-10-12T17:08:03.958969+08:00",
+      "finished_at": "2026-10-12T17:08:04.005746+08:00",
+      "status": "PASS",
+      "result": {
+        "records": [
+          {
+            "schema_version": "v1",
+            "instrument_id": {
+              "exchange": "XSHG",
+              "symbol": "518880"
+            },
+            "session_date": "2026-09-08",
+            "open": "9.102",
+            "high": "9.123",
+            "low": "9.039",
+            "close": "9.047",
+            "pre_close": "9.024",
+            "volume": "414397829",
+            "amount": "3766204928.0",
+            "currency": "CNY",
+            "volume_unit": "SHARE",
+            "amount_unit": "CNY",
+            "adjustment_mode": "RAW",
+            "adjustment_factor": null,
+            "availability": {
+              "information_available_at": "2026-09-08 15:00:00+08:00",
+              "retrieved_at": "2026-10-12 17:08:03.958969+08:00",
+              "availability_basis": "EXCHANGE_RULE"
+            },
+            "provider_evidence_id": "chstockdata:daily_bars:d262b114a465962e:21facc97f868f25b"
+          },
+          {
+            "schema_version": "v1",
+            "instrument_id": {
+              "exchange": "XSHG",
+              "symbol": "518880"
+            },
+            "session_date": "2026-09-09",
+            "open": "8.97",
+            "high": "9.052",
+            "low": "8.97",
+            "close": "9.041",
+            "pre_close": "9.047",
+            "volume": "448699652",
+            "amount": "4042974976.0",
+            "currency": "CNY",
+            "volume_unit": "SHARE",
+            "amount_unit": "CNY",
+            "adjustment_mode": "RAW",
+            "adjustment_factor": null,
+            "availability": {
+              "information_available_at": "2026-09-09 15:00:00+08:00",
+              "retrieved_at": "2026-10-12 17:08:03.958969+08:00",
+              "availability_basis": "EXCHANGE_RULE"
+            },
+            "provider_evidence_id": "chstockdata:daily_bars:d262b114a465962e:21facc97f868f25b"
+          },
+          {
+            "schema_version": "v1",
+            "instrument_id": {
+              "exchange": "XSHG",
+              "symbol": "518880"
+            },
+            "session_date": "2026-09-10",
+            "open": "9.06",
+            "high": "9.105",
+            "low": "9.051",
+            "close": "9.083",
+            "pre_close": "9.041",
+            "volume": "441013607",
+            "amount": "4001856256.0",
+            "currency": "CNY",
+            "volume_unit": "SHARE",
+            "amount_unit": "CNY",
+            "adjustment_mode": "RAW",
+            "adjustment_factor": null,
+            "availability": {
+              "information_available_at": "2026-09-10 15:00:00+08:00",
+              "retrieved_at": "2026-10-12 17:08:03.958969+08:00",
+              "availability_basis": "EXCHANGE_RULE"
+            },
+            "provider_evidence_id": "chstockdata:daily_bars:d262b114a465962e:21facc97f868f25b"
+          },
+          {
+            "schema_version": "v1",
+            "instrument_id": {
+              "exchange": "XSHG",
+              "symbol": "518880"
+            },
+            "session_date": "2026-09-11",
+            "open": "8.895",
+            "high": "8.963",
+            "low": "8.852",
+            "close": "8.943",
+            "pre_close": "9.083",
+            "volume": "617832329",
+            "amount": "5504843776.0",
+            "currency": "CNY",
+            "volume_unit": "SHARE",
+            "amount_unit": "CNY",
+            "adjustment_mode": "RAW",
+            "adjustment_factor": null,
+            "availability": {
+              "information_available_at": "2026-09-11 15:00:00+08:00",
+              "retrieved_at": "2026-10-12 17:08:03.958969+08:00",
+              "availability_basis": "EXCHANGE_RULE"
+            },
+            "provider_evidence_id": "chstockdata:daily_bars:d262b114a465962e:21facc97f868f25b"
+          }
+        ],
+        "evidence": {
+          "evidence_id": "chstockdata:daily_bars:d262b114a465962e:21facc97f868f25b",
+          "provider_name": "chstockdata",
+          "provider_version": "0.4.2",
+          "adapter_name": "chstockdata-provider",
+          "adapter_version": "0.1.0",
+          "capability": "daily_bars",
+          "request_digest": "sha256:d262b114a465962ef92635f369c2e728f3514fb0c74b3ec75ee028d358ea4497",
+          "retrieved_at": "2026-10-12 17:08:03.958969+08:00",
+          "upstream_source": "chstockdata.load_vipdoc_daily (local TDX .day package)",
+          "record_count": 4,
+          "payload_checksum": "sha256:21facc97f868f25b3b9fb4b6558210e7521fe108b2c92bc6dbc0f9221d622f22",
+          "warnings": []
+        }
+      }
+    },
+    {
+      "instrument_id": "XSHG:518880",
+      "capability": "EXECUTION_CALENDAR",
+      "started_at": "2026-10-12T17:08:04.005746+08:00",
+      "finished_at": "2026-10-12T17:08:04.013236+08:00",
+      "status": "PASS",
+      "result": {
+        "records": [
+          {
+            "calendar_id": "XSHG",
+            "session_date": "2026-09-08",
+            "is_open": true,
+            "note": null,
+            "snapshot_version": "cal-4b13403f541da265"
+          },
+          {
+            "calendar_id": "XSHG",
+            "session_date": "2026-09-09",
+            "is_open": true,
+            "note": null,
+            "snapshot_version": "cal-4b13403f541da265"
+          },
+          {
+            "calendar_id": "XSHG",
+            "session_date": "2026-09-10",
+            "is_open": true,
+            "note": null,
+            "snapshot_version": "cal-4b13403f541da265"
+          },
+          {
+            "calendar_id": "XSHG",
+            "session_date": "2026-09-11",
+            "is_open": true,
+            "note": null,
+            "snapshot_version": "cal-4b13403f541da265"
+          },
+          {
+            "calendar_id": "XSHG",
+            "session_date": "2026-09-12",
+            "is_open": false,
+            "note": "inferred closed: absent from the vendor open-session list",
+            "snapshot_version": "cal-4b13403f541da265"
+          },
+          {
+            "calendar_id": "XSHG",
+            "session_date": "2026-09-13",
+            "is_open": false,
+            "note": "inferred closed: absent from the vendor open-session list",
+            "snapshot_version": "cal-4b13403f541da265"
+          },
+          {
+            "calendar_id": "XSHG",
+            "session_date": "2026-09-14",
+            "is_open": true,
+            "note": null,
+            "snapshot_version": "cal-4b13403f541da265"
+          }
+        ],
+        "evidence": {
+          "evidence_id": "chstockdata:trading_calendar:912fce8a39b0a9ce:4b13403f541da265",
+          "provider_name": "chstockdata",
+          "provider_version": "0.4.2",
+          "adapter_name": "chstockdata-provider",
+          "adapter_version": "0.1.0",
+          "capability": "trading_calendar",
+          "request_digest": "sha256:912fce8a39b0a9ce5e93da2a4acb28645cfface40724617246469927711a7084",
+          "retrieved_at": "2026-10-12 17:08:04.006306+08:00",
+          "upstream_source": "chstockdata.load_trading_calendar (sina_sh000001)",
+          "record_count": 7,
+          "payload_checksum": "sha256:4b13403f541da2650f1a51d636980371c108da1978b54aa5ce124d8214d3d1c8",
+          "warnings": []
+        }
+      }
+    },
+    {
+      "instrument_id": "XSHG:518880",
+      "capability": "FRESHNESS_STALE_MISSING",
+      "started_at": "2026-10-12T17:08:04.013236+08:00",
+      "finished_at": "2026-10-12T17:08:04.014327+08:00",
+      "status": "PASS",
+      "result": {
+        "fresh": {
+          "gate_name": "DATA_QUALITY_GATE",
+          "gate_version": "m0-quality-gate-1",
+          "purpose": "DECISION",
+          "status": "PASS",
+          "action": "PROCEED",
+          "evaluated_at": "2026-10-12 17:08:04.013758+08:00",
+          "checks": [],
+          "reason_codes": [],
+          "input_digests": {
+            "object_type": "mappingproxy"
+          }
+        },
+        "stale_control": {
+          "gate_name": "DATA_QUALITY_GATE",
+          "gate_version": "m0-quality-gate-1",
+          "purpose": "DECISION",
+          "status": "FAIL",
+          "action": "BLOCK_NEW_TARGET",
+          "evaluated_at": "2026-10-12 17:08:04.013758+08:00",
+          "checks": [
+            {
+              "check_id": "FRESHNESS",
+              "status": "FAIL",
+              "severity": "BLOCKING",
+              "reason_code": "STALE_INFORMATION",
+              "affected_scope": [
+                "XSHG:518880"
+              ],
+              "observed": "latest knowable session 2026-09-10; information age 1 open session(s)",
+              "expected": "information age at most 0 open session(s)",
+              "evidence_ids": []
+            }
+          ],
+          "reason_codes": [
+            "STALE_INFORMATION"
+          ],
+          "input_digests": {
+            "object_type": "mappingproxy"
+          }
+        },
+        "missing_control": {
+          "gate_name": "DATA_QUALITY_GATE",
+          "gate_version": "m0-quality-gate-1",
+          "purpose": "DECISION",
+          "status": "FAIL",
+          "action": "BLOCK_NEW_TARGET",
+          "evaluated_at": "2026-10-12 17:08:04.013758+08:00",
+          "checks": [
+            {
+              "check_id": "REQUIRED_FIELDS",
+              "status": "FAIL",
+              "severity": "BLOCKING",
+              "reason_code": "MISSING_REQUIRED_FIELD",
+              "affected_scope": [
+                "XSHG:518880",
+                "2026-09-08"
+              ],
+              "observed": "pre_close=None",
+              "expected": "pre_close present; missing values are never converted to zero",
+              "evidence_ids": []
+            },
+            {
+              "check_id": "REQUIRED_FIELDS",
+              "status": "FAIL",
+              "severity": "BLOCKING",
+              "reason_code": "MISSING_REQUIRED_FIELD",
+              "affected_scope": [
+                "XSHG:518880",
+                "2026-09-09"
+              ],
+              "observed": "pre_close=None",
+              "expected": "pre_close present; missing values are never converted to zero",
+              "evidence_ids": []
+            },
+            {
+              "check_id": "REQUIRED_FIELDS",
+              "status": "FAIL",
+              "severity": "BLOCKING",
+              "reason_code": "MISSING_REQUIRED_FIELD",
+              "affected_scope": [
+                "XSHG:518880",
+                "2026-09-10"
+              ],
+              "observed": "pre_close=None",
+              "expected": "pre_close present; missing values are never converted to zero",
+              "evidence_ids": []
+            },
+            {
+              "check_id": "REQUIRED_FIELDS",
+              "status": "FAIL",
+              "severity": "BLOCKING",
+              "reason_code": "MISSING_REQUIRED_FIELD",
+              "affected_scope": [
+                "XSHG:518880",
+                "2026-09-11"
+              ],
+              "observed": "pre_close=None",
+              "expected": "pre_close present; missing values are never converted to zero",
+              "evidence_ids": []
+            }
+          ],
+          "reason_codes": [
+            "MISSING_REQUIRED_FIELD"
+          ],
+          "input_digests": {
+            "object_type": "mappingproxy"
+          }
+        }
+      }
+    },
+    {
+      "instrument_id": "XSHG:518880",
+      "capability": "SNAPSHOT_ENGINE_RAW_FILL_IDENTITY",
+      "started_at": "2026-10-12T17:08:04.014327+08:00",
+      "finished_at": "2026-10-12T17:08:04.052426+08:00",
+      "status": "FAIL",
+      "error": {
+        "type": "AssertionError",
+        "message": ""
+      }
+    },
+    {
+      "instrument_id": "XSHG:511010",
+      "capability": "LEGACY_PIT_FAIL_CLOSED",
+      "started_at": "2026-10-12T17:08:04.052426+08:00",
+      "finished_at": "2026-10-12T17:08:04.056430+08:00",
+      "status": "PASS",
+      "result": [
+        {
+          "error_code": "SCHEMA_DRIFT",
+          "message": "vendor:historical_suspension_unavailable",
+          "evidence": {
+            "evidence_id": "chstockdata:tradability:bbec1e14f4c05ecb:46cef866242806dd",
+            "provider_name": "chstockdata",
+            "provider_version": "0.4.2",
+            "adapter_name": "chstockdata-provider",
+            "adapter_version": "0.1.0",
+            "capability": "tradability",
+            "request_digest": "sha256:bbec1e14f4c05ecb3e15ff9b7f368400d4a2ebb209e45232a081f00cffc180eb",
+            "retrieved_at": "2026-10-12 17:08:04.052426+08:00",
+            "upstream_source": "chstockdata.get_suspension_info",
+            "record_count": 0,
+            "payload_checksum": "sha256:46cef866242806ddf1ec86fde5c5ecf23d8be843d1eb00093daa3ded80a92e75",
+            "warnings": []
+          },
+          "cause": {
+            "type": "HistoricalSuspensionUnavailableError",
+            "message": "vendor:historical_suspension_unavailable"
+          }
+        },
+        [
+          {
+            "instrument_id": {
+              "exchange": "XSHG",
+              "symbol": "511010"
+            },
+            "session_date": "2026-09-11",
+            "status": "UNKNOWN",
+            "reason": "HISTORICAL_SUSPENSION_COVERAGE_UNAVAILABLE",
+            "availability": {
+              "information_available_at": null,
+              "retrieved_at": "2026-10-12 17:08:04.052426+08:00",
+              "availability_basis": "UNKNOWN"
+            },
+            "provenance": "chstockdata:tradability:bbec1e14f4c05ecb:46cef866242806dd:vendor:historical_suspension_unavailable"
+          }
+        ]
+      ]
+    },
+    {
+      "instrument_id": "XSHG:511010",
+      "capability": "HISTORICAL_OPENING_R21",
+      "started_at": "2026-10-12T17:08:04.056430+08:00",
+      "finished_at": "2026-10-12T17:08:04.653961+08:00",
+      "status": "PASS",
+      "result": {
+        "records": [
+          {
+            "payload_json": "{\"evidence_hash\":\"fc890dcea54b28da25f3415061fc15e08fd8145a59c7f10580a314269603be0e\",\"execution_effect_window\":{\"end\":\"2026-09-11T09:31:00+08:00\",\"start\":\"2026-09-11T09:30:00+08:00\"},\"information_available_at\":null,\"information_basis\":\"UNKNOWN\",\"instrument\":\"511010\",\"limitations\":[\"[09:30,09:31) activity does not prove strict 09:30 order fill, full-day normality, or preopen PIT.\",\"TDX prices are evidence crosschecks only; volumes are not fill quotas.\",\"Current bounded official query does not claim all historical events or revisions are complete.\"],\"market\":\"SSE\",\"official_block_at_target\":false,\"official_events\":[],\"official_query\":{\"all_returned_rows_considered\":true,\"historical_global_completeness_claim\":false,\"instrument\":\"511010\",\"market\":\"SSE\",\"observations\":[{\"error_type\":null,\"parsed_response_sha256\":\"087735ac94e1b965c175ba5fb3af737546beb399219342c3a78cd40fd9d884a3\",\"raw_bytes\":482,\"raw_sha256\":\"087735ac94e1b965c175ba5fb3af737546beb399219342c3a78cd40fd9d884a3\",\"request\":{\"headers\":{\"Referer\":\"https://www.sse.com.cn/disclosure/dealinstruc/suspension/fund/\"},\"method\":\"GET\",\"params\":{\"endDate\":\"20260911\",\"isPagination\":\"true\",\"order\":\"startStopDate|desc,secCode|asc\",\"pageHelp.beginPage\":1,\"pageHelp.cacheSize\":1,\"pageHelp.endPage\":1,\"pageHelp.pageNo\":1,\"pageHelp.pageSize\":25,\"secCode\":\"511010\",\"sqlId\":\"SSE_PL_JYTS_TFPXX_JJ\",\"startDate\":\"20260911\",\"stopReason\":\"\"},\"url\":\"https://query.sse.com.cn/sseQuery/commonSoaQuery.do\"},\"retrieved_at\":\"2026-10-12T09:08:04.646441+00:00\",\"status\":\"success\"}],\"page_count\":1,\"pagination_complete\":true,\"query_range\":[\"2026-09-11\",\"2026-09-11\"],\"range_kind\":\"effective interval\",\"raw_rows\":[],\"reason\":\"current_bounded_query_complete\",\"status\":\"normal_empty\",\"total\":0},\"opening_status\":\"OPEN_ACTIVITY_CONFIRMED\",\"policy_version\":\"R2.1\",\"purpose\":\"historical_opening_execution_constraint\",\"reason\":\"certified_0930_activity_current_query_no_known_block\",\"retrieved_at\":\"2026-10-12T09:08:04.648438+00:00\",\"schema_version\":\"historical-opening-evidence/1\",\"session_date\":\"2026-09-11\",\"source_conflict\":false,\"target_execution_at\":\"2026-09-11T09:30:00+08:00\",\"tdx_activity\":{\"auction_rows\":[{\"normalized_price\":\"141.18\",\"raw_price\":\"1411.8\",\"time\":\"09:25\",\"volume_lots\":46}],\"auto_retry\":false,\"bounded_page_count\":2,\"category\":\"ETF\",\"category_certification\":\"frozen 2026-10-10 44-request protocol and price sample\",\"command\":\"0x0fb5\",\"crosscheck_command\":\"0x0fb4\",\"heartbeat\":false,\"instrument\":\"511010\",\"last_opening_price\":\"141.177\",\"market_id\":1,\"minute_first\":{\"price\":141.177,\"vol\":335},\"normalization_count\":1,\"normalization_rule\":\"tdxpy_0.2.7_0x0fb5_certified_etf_divide_10\",\"normalized_opening_rows\":[{\"normalized_price\":\"141.185\",\"raw_price\":\"1411.85\",\"time\":\"09:30\",\"volume_lots\":147},{\"normalized_price\":\"141.18\",\"raw_price\":\"1411.8\",\"time\":\"09:30\",\"volume_lots\":65},{\"normalized_price\":\"141.177\",\"raw_price\":\"1411.77\",\"time\":\"09:30\",\"volume_lots\":10},{\"normalized_price\":\"141.18\",\"raw_price\":\"1411.8\",\"time\":\"09:30\",\"volume_lots\":3},{\"normalized_price\":\"141.178\",\"raw_price\":\"1411.78\",\"time\":\"09:30\",\"volume_lots\":1},{\"normalized_price\":\"141.179\",\"raw_price\":\"1411.79\",\"time\":\"09:30\",\"volume_lots\":2},{\"normalized_price\":\"141.18\",\"raw_price\":\"1411.8\",\"time\":\"09:30\",\"volume_lots\":6},{\"normalized_price\":\"141.18\",\"raw_price\":\"1411.8\",\"time\":\"09:30\",\"volume_lots\":1},{\"normalized_price\":\"141.18\",\"raw_price\":\"1411.8\",\"time\":\"09:30\",\"volume_lots\":1},{\"normalized_price\":\"141.179\",\"raw_price\":\"1411.79\",\"time\":\"09:30\",\"volume_lots\":1},{\"normalized_price\":\"141.179\",\"raw_price\":\"1411.79\",\"time\":\"09:30\",\"volume_lots\":1},{\"normalized_price\":\"141.175\",\"raw_price\":\"1411.75\",\"time\":\"09:30\",\"volume_lots\":13},{\"normalized_price\":\"141.175\",\"raw_price\":\"1411.75\",\"time\":\"09:30\",\"volume_lots\":1},{\"normalized_price\":\"141.177\",\"raw_price\":\"1411.77\",\"time\":\"09:30\",\"volume_lots\":1},{\"normalized_price\":\"141.177\",\"raw_price\":\"1411.77\",\"time\":\"09:30\",\"volume_lots\":2},{\"normalized_price\":\"141.172\",\"raw_price\":\"1411.72\",\"time\":\"09:30\",\"volume_lots\":33},{\"normalized_price\":\"141.177\",\"raw_price\":\"1411.77\",\"time\":\"09:30\",\"volume_lots\":1}],\"observations\":[{\"error_type\":null,\"parsed_response_sha256\":\"bc61e2fccabbb103ec1dc2333923f9f207f7f19271b9b79859fac0484fe72354\",\"request\":{\"operation\":\"connect\",\"server\":[\"110.41.147.114\",7709]},\"retrieved_at\":\"2026-10-12T09:08:04.238686+00:00\",\"status\":\"success\"},{\"error_type\":null,\"parsed_response_sha256\":\"7d5e7f5034c9a44e35955dd08a366ad05e954b71e5ca83ad726ac3fab92d1b84\",\"request\":{\"code\":\"511010\",\"command\":\"0x0fb4\",\"date\":20260911,\"market\":1},\"retrieved_at\":\"2026-10-12T09:08:04.288610+00:00\",\"status\":\"success\"},{\"error_type\":null,\"parsed_response_sha256\":\"b7f48f040d3092a27849ae84ee0669aec0d8a264b0f240c0c660c1db90e234a8\",\"request\":{\"code\":\"511010\",\"command\":\"0x0fb5\",\"count\":800,\"date\":20260911,\"market\":1,\"start\":0},\"retrieved_at\":\"2026-10-12T09:08:04.346739+00:00\",\"status\":\"success\"},{\"error_type\":null,\"parsed_response_sha256\":\"b439d88dba7ba2bdc3b520c2895cfc30f0def24b2f939d874ece963bd60ff69b\",\"request\":{\"code\":\"511010\",\"command\":\"0x0fb5\",\"count\":800,\"date\":20260911,\"market\":1,\"start\":800},\"retrieved_at\":\"2026-10-12T09:08:04.407530+00:00\",\"status\":\"success\"}],\"opening_crosscheck_complete\":true,\"opening_volume_lots\":289,\"price_unit\":\"CNY/security\",\"qualified\":true,\"reason\":\"certified_positive_0930_activity\",\"server\":{\"host\":\"110.41.147.114\",\"port\":7709},\"server_discovery\":false,\"session_date\":\"2026-09-11\",\"source\":\"mootdx/tdxpy\",\"tick_size\":\"0.001\",\"time_granularity\":\"minute\",\"timeout_seconds\":4,\"versions\":{\"mootdx\":\"0.11.7\",\"tdxpy\":\"0.2.7\"},\"volume_unit\":\"TDX lots (not an executable quota)\"},\"time_granularity\":\"minute\"}"
+          }
+        ],
+        "evidence": {
+          "evidence_id": "chstockdata:historical_opening_evidence:fb4cd39944e816cb:7cde1925ce6f4577",
+          "provider_name": "chstockdata",
+          "provider_version": "0.4.2",
+          "adapter_name": "chstockdata-provider",
+          "adapter_version": "0.1.0",
+          "capability": "historical_opening_evidence",
+          "request_digest": "sha256:fb4cd39944e816cb2f5cafe0ad8edbdaacb70b2f007d53b75b2546a77452b75a",
+          "retrieved_at": "2026-10-12 17:08:04.056430+08:00",
+          "upstream_source": "chstockdata.fetch_historical_opening_evidence",
+          "record_count": 1,
+          "payload_checksum": "sha256:7cde1925ce6f45773edcc4bc02f2e5316e661373737834dcd656893499248d18",
+          "warnings": []
+        }
+      }
+    },
+    {
+      "instrument_id": "XSHG:511010",
+      "capability": "ADJUSTMENT_ACTIONS",
+      "started_at": "2026-10-12T17:08:04.653961+08:00",
+      "finished_at": "2026-10-12T17:08:06.971304+08:00",
+      "status": "PASS",
+      "result": {
+        "records": [],
+        "evidence": {
+          "evidence_id": "chstockdata:corporate_actions:7a8148c420592bdc:af5f4fe384a266cd",
+          "provider_name": "chstockdata",
+          "provider_version": "0.4.2",
+          "adapter_name": "chstockdata-provider",
+          "adapter_version": "0.1.0",
+          "capability": "corporate_actions",
+          "request_digest": "sha256:7a8148c420592bdc9ebbeef0bc98064660a0199929f42ae0762dc477aa463f53",
+          "retrieved_at": "2026-10-12 17:08:04.653961+08:00",
+          "upstream_source": "eastmoney_fund_f10:FHSP+FHGG",
+          "record_count": 0,
+          "payload_checksum": "sha256:af5f4fe384a266cddadebd591c67feaeb13ecfb3b601411afb97f3b67fe9175a",
+          "warnings": []
+        }
+      }
+    },
+    {
+      "instrument_id": "XSHG:511010",
+      "capability": "RAW_AVAILABILITY",
+      "started_at": "2026-10-12T17:08:06.971304+08:00",
+      "finished_at": "2026-10-12T17:08:07.009927+08:00",
+      "status": "PASS",
+      "result": {
+        "records": [
+          {
+            "schema_version": "v1",
+            "instrument_id": {
+              "exchange": "XSHG",
+              "symbol": "511010"
+            },
+            "session_date": "2026-09-08",
+            "open": "141.223",
+            "high": "141.23",
+            "low": "141.182",
+            "close": "141.21",
+            "pre_close": "141.222",
+            "volume": "18685500",
+            "amount": "2638866432.0",
+            "currency": "CNY",
+            "volume_unit": "SHARE",
+            "amount_unit": "CNY",
+            "adjustment_mode": "RAW",
+            "adjustment_factor": null,
+            "availability": {
+              "information_available_at": "2026-09-08 15:00:00+08:00",
+              "retrieved_at": "2026-10-12 17:08:06.971304+08:00",
+              "availability_basis": "EXCHANGE_RULE"
+            },
+            "provider_evidence_id": "chstockdata:daily_bars:4221b6f5fb2265a9:0fe27001813e7bcf"
+          },
+          {
+            "schema_version": "v1",
+            "instrument_id": {
+              "exchange": "XSHG",
+              "symbol": "511010"
+            },
+            "session_date": "2026-09-09",
+            "open": "141.216",
+            "high": "141.224",
+            "low": "141.184",
+            "close": "141.211",
+            "pre_close": "141.21",
+            "volume": "28686698",
+            "amount": "4050815744.0",
+            "currency": "CNY",
+            "volume_unit": "SHARE",
+            "amount_unit": "CNY",
+            "adjustment_mode": "RAW",
+            "adjustment_factor": null,
+            "availability": {
+              "information_available_at": "2026-09-09 15:00:00+08:00",
+              "retrieved_at": "2026-10-12 17:08:06.971304+08:00",
+              "availability_basis": "EXCHANGE_RULE"
+            },
+            "provider_evidence_id": "chstockdata:daily_bars:4221b6f5fb2265a9:0fe27001813e7bcf"
+          },
+          {
+            "schema_version": "v1",
+            "instrument_id": {
+              "exchange": "XSHG",
+              "symbol": "511010"
+            },
+            "session_date": "2026-09-10",
+            "open": "141.21",
+            "high": "141.211",
+            "low": "141.169",
+            "close": "141.185",
+            "pre_close": "141.211",
+            "volume": "15530900",
+            "amount": "2192636672.0",
+            "currency": "CNY",
+            "volume_unit": "SHARE",
+            "amount_unit": "CNY",
+            "adjustment_mode": "RAW",
+            "adjustment_factor": null,
+            "availability": {
+              "information_available_at": "2026-09-10 15:00:00+08:00",
+              "retrieved_at": "2026-10-12 17:08:06.971304+08:00",
+              "availability_basis": "EXCHANGE_RULE"
+            },
+            "provider_evidence_id": "chstockdata:daily_bars:4221b6f5fb2265a9:0fe27001813e7bcf"
+          },
+          {
+            "schema_version": "v1",
+            "instrument_id": {
+              "exchange": "XSHG",
+              "symbol": "511010"
+            },
+            "session_date": "2026-09-11",
+            "open": "141.18",
+            "high": "141.185",
+            "low": "141.133",
+            "close": "141.146",
+            "pre_close": "141.185",
+            "volume": "19331300",
+            "amount": "2728766464.0",
+            "currency": "CNY",
+            "volume_unit": "SHARE",
+            "amount_unit": "CNY",
+            "adjustment_mode": "RAW",
+            "adjustment_factor": null,
+            "availability": {
+              "information_available_at": "2026-09-11 15:00:00+08:00",
+              "retrieved_at": "2026-10-12 17:08:06.971304+08:00",
+              "availability_basis": "EXCHANGE_RULE"
+            },
+            "provider_evidence_id": "chstockdata:daily_bars:4221b6f5fb2265a9:0fe27001813e7bcf"
+          }
+        ],
+        "evidence": {
+          "evidence_id": "chstockdata:daily_bars:4221b6f5fb2265a9:0fe27001813e7bcf",
+          "provider_name": "chstockdata",
+          "provider_version": "0.4.2",
+          "adapter_name": "chstockdata-provider",
+          "adapter_version": "0.1.0",
+          "capability": "daily_bars",
+          "request_digest": "sha256:4221b6f5fb2265a92eb93563ab8d2049879418538e61d3071d021de22a9a26c8",
+          "retrieved_at": "2026-10-12 17:08:06.971304+08:00",
+          "upstream_source": "chstockdata.load_vipdoc_daily (local TDX .day package)",
+          "record_count": 4,
+          "payload_checksum": "sha256:0fe27001813e7bcf1616387d1f6da5689126e3151c3d95526743e9a5ba659cf1",
+          "warnings": []
+        }
+      }
+    },
+    {
+      "instrument_id": "XSHG:511010",
+      "capability": "EXECUTION_CALENDAR",
+      "started_at": "2026-10-12T17:08:07.009927+08:00",
+      "finished_at": "2026-10-12T17:08:07.018987+08:00",
+      "status": "PASS",
+      "result": {
+        "records": [
+          {
+            "calendar_id": "XSHG",
+            "session_date": "2026-09-08",
+            "is_open": true,
+            "note": null,
+            "snapshot_version": "cal-4b13403f541da265"
+          },
+          {
+            "calendar_id": "XSHG",
+            "session_date": "2026-09-09",
+            "is_open": true,
+            "note": null,
+            "snapshot_version": "cal-4b13403f541da265"
+          },
+          {
+            "calendar_id": "XSHG",
+            "session_date": "2026-09-10",
+            "is_open": true,
+            "note": null,
+            "snapshot_version": "cal-4b13403f541da265"
+          },
+          {
+            "calendar_id": "XSHG",
+            "session_date": "2026-09-11",
+            "is_open": true,
+            "note": null,
+            "snapshot_version": "cal-4b13403f541da265"
+          },
+          {
+            "calendar_id": "XSHG",
+            "session_date": "2026-09-12",
+            "is_open": false,
+            "note": "inferred closed: absent from the vendor open-session list",
+            "snapshot_version": "cal-4b13403f541da265"
+          },
+          {
+            "calendar_id": "XSHG",
+            "session_date": "2026-09-13",
+            "is_open": false,
+            "note": "inferred closed: absent from the vendor open-session list",
+            "snapshot_version": "cal-4b13403f541da265"
+          },
+          {
+            "calendar_id": "XSHG",
+            "session_date": "2026-09-14",
+            "is_open": true,
+            "note": null,
+            "snapshot_version": "cal-4b13403f541da265"
+          }
+        ],
+        "evidence": {
+          "evidence_id": "chstockdata:trading_calendar:912fce8a39b0a9ce:4b13403f541da265",
+          "provider_name": "chstockdata",
+          "provider_version": "0.4.2",
+          "adapter_name": "chstockdata-provider",
+          "adapter_version": "0.1.0",
+          "capability": "trading_calendar",
+          "request_digest": "sha256:912fce8a39b0a9ce5e93da2a4acb28645cfface40724617246469927711a7084",
+          "retrieved_at": "2026-10-12 17:08:07.009927+08:00",
+          "upstream_source": "chstockdata.load_trading_calendar (sina_sh000001)",
+          "record_count": 7,
+          "payload_checksum": "sha256:4b13403f541da2650f1a51d636980371c108da1978b54aa5ce124d8214d3d1c8",
+          "warnings": []
+        }
+      }
+    },
+    {
+      "instrument_id": "XSHG:511010",
+      "capability": "FRESHNESS_STALE_MISSING",
+      "started_at": "2026-10-12T17:08:07.018987+08:00",
+      "finished_at": "2026-10-12T17:08:07.019986+08:00",
+      "status": "PASS",
+      "result": {
+        "fresh": {
+          "gate_name": "DATA_QUALITY_GATE",
+          "gate_version": "m0-quality-gate-1",
+          "purpose": "DECISION",
+          "status": "PASS",
+          "action": "PROCEED",
+          "evaluated_at": "2026-10-12 17:08:07.019986+08:00",
+          "checks": [],
+          "reason_codes": [],
+          "input_digests": {
+            "object_type": "mappingproxy"
+          }
+        },
+        "stale_control": {
+          "gate_name": "DATA_QUALITY_GATE",
+          "gate_version": "m0-quality-gate-1",
+          "purpose": "DECISION",
+          "status": "FAIL",
+          "action": "BLOCK_NEW_TARGET",
+          "evaluated_at": "2026-10-12 17:08:07.019986+08:00",
+          "checks": [
+            {
+              "check_id": "FRESHNESS",
+              "status": "FAIL",
+              "severity": "BLOCKING",
+              "reason_code": "STALE_INFORMATION",
+              "affected_scope": [
+                "XSHG:511010"
+              ],
+              "observed": "latest knowable session 2026-09-10; information age 1 open session(s)",
+              "expected": "information age at most 0 open session(s)",
+              "evidence_ids": []
+            }
+          ],
+          "reason_codes": [
+            "STALE_INFORMATION"
+          ],
+          "input_digests": {
+            "object_type": "mappingproxy"
+          }
+        },
+        "missing_control": {
+          "gate_name": "DATA_QUALITY_GATE",
+          "gate_version": "m0-quality-gate-1",
+          "purpose": "DECISION",
+          "status": "FAIL",
+          "action": "BLOCK_NEW_TARGET",
+          "evaluated_at": "2026-10-12 17:08:07.019986+08:00",
+          "checks": [
+            {
+              "check_id": "REQUIRED_FIELDS",
+              "status": "FAIL",
+              "severity": "BLOCKING",
+              "reason_code": "MISSING_REQUIRED_FIELD",
+              "affected_scope": [
+                "XSHG:511010",
+                "2026-09-08"
+              ],
+              "observed": "pre_close=None",
+              "expected": "pre_close present; missing values are never converted to zero",
+              "evidence_ids": []
+            },
+            {
+              "check_id": "REQUIRED_FIELDS",
+              "status": "FAIL",
+              "severity": "BLOCKING",
+              "reason_code": "MISSING_REQUIRED_FIELD",
+              "affected_scope": [
+                "XSHG:511010",
+                "2026-09-09"
+              ],
+              "observed": "pre_close=None",
+              "expected": "pre_close present; missing values are never converted to zero",
+              "evidence_ids": []
+            },
+            {
+              "check_id": "REQUIRED_FIELDS",
+              "status": "FAIL",
+              "severity": "BLOCKING",
+              "reason_code": "MISSING_REQUIRED_FIELD",
+              "affected_scope": [
+                "XSHG:511010",
+                "2026-09-10"
+              ],
+              "observed": "pre_close=None",
+              "expected": "pre_close present; missing values are never converted to zero",
+              "evidence_ids": []
+            },
+            {
+              "check_id": "REQUIRED_FIELDS",
+              "status": "FAIL",
+              "severity": "BLOCKING",
+              "reason_code": "MISSING_REQUIRED_FIELD",
+              "affected_scope": [
+                "XSHG:511010",
+                "2026-09-11"
+              ],
+              "observed": "pre_close=None",
+              "expected": "pre_close present; missing values are never converted to zero",
+              "evidence_ids": []
+            }
+          ],
+          "reason_codes": [
+            "MISSING_REQUIRED_FIELD"
+          ],
+          "input_digests": {
+            "object_type": "mappingproxy"
+          }
+        }
+      }
+    },
+    {
+      "instrument_id": "XSHG:511010",
+      "capability": "SNAPSHOT_ENGINE_RAW_FILL_IDENTITY",
+      "started_at": "2026-10-12T17:08:07.019986+08:00",
+      "finished_at": "2026-10-12T17:08:07.064800+08:00",
+      "status": "FAIL",
+      "error": {
+        "type": "AssertionError",
+        "message": ""
+      }
+    },
+    {
+      "instrument_id": "XSHG:513100",
+      "capability": "CONTROL_LEGACY_PIT",
+      "started_at": "2026-10-12T17:08:07.064800+08:00",
+      "finished_at": "2026-10-12T17:08:07.069801+08:00",
+      "status": "PASS",
+      "result": [
+        {
+          "error_code": "SCHEMA_DRIFT",
+          "message": "vendor:historical_suspension_unavailable",
+          "evidence": {
+            "evidence_id": "chstockdata:tradability:1cdec0079100f284:46cef866242806dd",
+            "provider_name": "chstockdata",
+            "provider_version": "0.4.2",
+            "adapter_name": "chstockdata-provider",
+            "adapter_version": "0.1.0",
+            "capability": "tradability",
+            "request_digest": "sha256:1cdec0079100f2846184aa7d9c5de84333cf78446a54c354a9d9b4260eaf35bc",
+            "retrieved_at": "2026-10-12 17:08:07.064800+08:00",
+            "upstream_source": "chstockdata.get_suspension_info",
+            "record_count": 0,
+            "payload_checksum": "sha256:46cef866242806ddf1ec86fde5c5ecf23d8be843d1eb00093daa3ded80a92e75",
+            "warnings": []
+          },
+          "cause": {
+            "type": "HistoricalSuspensionUnavailableError",
+            "message": "vendor:historical_suspension_unavailable"
+          }
+        },
+        [
+          {
+            "instrument_id": {
+              "exchange": "XSHG",
+              "symbol": "513100"
+            },
+            "session_date": "2026-09-11",
+            "status": "UNKNOWN",
+            "reason": "HISTORICAL_SUSPENSION_COVERAGE_UNAVAILABLE",
+            "availability": {
+              "information_available_at": null,
+              "retrieved_at": "2026-10-12 17:08:07.064800+08:00",
+              "availability_basis": "UNKNOWN"
+            },
+            "provenance": "chstockdata:tradability:1cdec0079100f284:46cef866242806dd:vendor:historical_suspension_unavailable"
+          }
+        ]
+      ]
+    },
+    {
+      "instrument_id": "XSHG:513100",
+      "capability": "OFFICIAL_HALT_CONTROL",
+      "started_at": "2026-10-12T17:08:07.069801+08:00",
+      "finished_at": "2026-10-12T17:08:07.865741+08:00",
+      "status": "PASS",
+      "result": {
+        "records": [
+          {
+            "payload_json": "{\"evidence_hash\":\"db210453bc06ded273679ba0d5b815c2ebee3f70ca9fca8cdbff5146013173f5\",\"execution_effect_window\":{\"end\":\"2026-09-11T09:31:00+08:00\",\"start\":\"2026-09-11T09:30:00+08:00\"},\"information_available_at\":null,\"information_basis\":\"UNKNOWN\",\"instrument\":\"513100\",\"limitations\":[\"[09:30,09:31) activity does not prove strict 09:30 order fill, full-day normality, or preopen PIT.\",\"TDX prices are evidence crosschecks only; volumes are not fill quotas.\",\"Current bounded official query does not claim all historical events or revisions are complete.\"],\"market\":\"SSE\",\"official_block_at_target\":true,\"official_events\":[{\"certification_basis\":\"SSE actual source dateSource=2, startStopType=LSTP, stopTime=915; authenticated front-end maps to 09:15-10:30\",\"effective_end\":\"2026-09-11T10:30:00+08:00\",\"effective_start\":\"2026-09-11T09:15:00+08:00\",\"information_available_at\":null,\"information_basis\":\"UNKNOWN\",\"instrument\":\"513100\",\"market\":\"SSE\",\"offline_cache\":true,\"raw_fields\":{\"cache_imported_at\":\"2026-10-11T07:35:19.626967+00:00\",\"dateSource\":\"2\",\"endStopDate\":\"20260911\",\"endStopReason\":\"根据基金管理人申请\",\"endStopType\":\"LSTP\",\"endType\":\"\",\"expandAbbr\":\"纳指ETF国泰\",\"secAbbr\":\"纳指ETF\",\"secCode\":\"513100\",\"startStopDate\":\"20260911\",\"startStopReason\":\"根据基金管理人申请\",\"startStopType\":\"LSTP\",\"startType\":\"null\",\"stopTime\":\"915\"},\"raw_sha256\":\"b0c084336ced5abfd30e2d1ac3b0e2d46c0b35758934e75651f9ae6ad216fd02\",\"retrieved_at\":\"2026-10-11T07:32:46.083821+00:00\",\"secondary_market\":true,\"source_kind\":\"exchange_official_history\",\"source_url\":\"https://query.sse.com.cn/sseQuery/commonSoaQuery.do\"},{\"certification_basis\":\"SSE front-end dateSource=2/LSTP/915 = 09:15-10:30\",\"effective_end\":\"2026-09-11T10:30:00+08:00\",\"effective_start\":\"2026-09-11T09:15:00+08:00\",\"information_available_at\":null,\"information_basis\":\"UNKNOWN\",\"instrument\":\"513100\",\"market\":\"SSE\",\"offline_cache\":false,\"raw_fields\":{\"dateSource\":\"2\",\"endStopDate\":\"20260911\",\"endStopReason\":\"根据基金管理人申请\",\"endStopType\":\"LSTP\",\"endType\":\"\",\"expandAbbr\":\"纳指ETF国泰\",\"secAbbr\":\"纳指ETF\",\"secCode\":\"513100\",\"startStopDate\":\"20260911\",\"startStopReason\":\"根据基金管理人申请\",\"startStopType\":\"LSTP\",\"startType\":\"null\",\"stopTime\":\"915\"},\"raw_sha256\":\"b0c084336ced5abfd30e2d1ac3b0e2d46c0b35758934e75651f9ae6ad216fd02\",\"retrieved_at\":\"2026-10-12T09:08:07.858319+00:00\",\"secondary_market\":true,\"source_kind\":\"official\",\"source_url\":\"https://query.sse.com.cn/sseQuery/commonSoaQuery.do\"}],\"official_query\":{\"all_returned_rows_considered\":true,\"historical_global_completeness_claim\":false,\"instrument\":\"513100\",\"market\":\"SSE\",\"observations\":[{\"error_type\":null,\"parsed_response_sha256\":\"b0c084336ced5abfd30e2d1ac3b0e2d46c0b35758934e75651f9ae6ad216fd02\",\"raw_bytes\":1140,\"raw_sha256\":\"b0c084336ced5abfd30e2d1ac3b0e2d46c0b35758934e75651f9ae6ad216fd02\",\"request\":{\"headers\":{\"Referer\":\"https://www.sse.com.cn/disclosure/dealinstruc/suspension/fund/\"},\"method\":\"GET\",\"params\":{\"endDate\":\"20260911\",\"isPagination\":\"true\",\"order\":\"startStopDate|desc,secCode|asc\",\"pageHelp.beginPage\":1,\"pageHelp.cacheSize\":1,\"pageHelp.endPage\":1,\"pageHelp.pageNo\":1,\"pageHelp.pageSize\":25,\"secCode\":\"513100\",\"sqlId\":\"SSE_PL_JYTS_TFPXX_JJ\",\"startDate\":\"20260911\",\"stopReason\":\"\"},\"url\":\"https://query.sse.com.cn/sseQuery/commonSoaQuery.do\"},\"retrieved_at\":\"2026-10-12T09:08:07.858319+00:00\",\"status\":\"success\"}],\"page_count\":1,\"pagination_complete\":true,\"query_range\":[\"2026-09-11\",\"2026-09-11\"],\"range_kind\":\"effective interval\",\"raw_rows\":[{\"dateSource\":\"2\",\"endStopDate\":\"20260911\",\"endStopReason\":\"根据基金管理人申请\",\"endStopType\":\"LSTP\",\"endType\":\"\",\"expandAbbr\":\"纳指ETF国泰\",\"secAbbr\":\"纳指ETF\",\"secCode\":\"513100\",\"startStopDate\":\"20260911\",\"startStopReason\":\"根据基金管理人申请\",\"startStopType\":\"LSTP\",\"startType\":\"null\",\"stopTime\":\"915\"}],\"reason\":\"current_bounded_query_complete\",\"status\":\"success\",\"total\":1},\"opening_status\":\"BLOCKED_CONFIRMED\",\"policy_version\":\"R2.1\",\"purpose\":\"historical_opening_execution_constraint\",\"reason\":\"certified_official_block_at_target\",\"retrieved_at\":\"2026-10-12T09:08:07.860212+00:00\",\"schema_version\":\"historical-opening-evidence/1\",\"session_date\":\"2026-09-11\",\"source_conflict\":false,\"target_execution_at\":\"2026-09-11T09:30:00+08:00\",\"tdx_activity\":{\"auction_rows\":[],\"auto_retry\":false,\"bounded_page_count\":4,\"category\":\"ETF\",\"category_certification\":\"frozen 2026-10-10 44-request protocol and price sample\",\"command\":\"0x0fb5\",\"crosscheck_command\":\"0x0fb4\",\"heartbeat\":false,\"instrument\":\"513100\",\"market_id\":1,\"minute_first\":{\"price\":2.219,\"vol\":0},\"normalization_count\":1,\"normalization_rule\":\"tdxpy_0.2.7_0x0fb5_certified_etf_divide_10\",\"normalized_opening_rows\":[],\"observations\":[{\"error_type\":null,\"parsed_response_sha256\":\"bc61e2fccabbb103ec1dc2333923f9f207f7f19271b9b79859fac0484fe72354\",\"request\":{\"operation\":\"connect\",\"server\":[\"110.41.147.114\",7709]},\"retrieved_at\":\"2026-10-12T09:08:07.295805+00:00\",\"status\":\"success\"},{\"error_type\":null,\"parsed_response_sha256\":\"c4d23ad340106442e6726122813e3da14fc3ff84906e2e8d58aab33045df5c0e\",\"request\":{\"code\":\"513100\",\"command\":\"0x0fb4\",\"date\":20260911,\"market\":1},\"retrieved_at\":\"2026-10-12T09:08:07.350485+00:00\",\"status\":\"success\"},{\"error_type\":null,\"parsed_response_sha256\":\"9ce8b0fb146872fa40248db574e459c2913cb9ed601de4c043cf5967402642d3\",\"request\":{\"code\":\"513100\",\"command\":\"0x0fb5\",\"count\":800,\"date\":20260911,\"market\":1,\"start\":0},\"retrieved_at\":\"2026-10-12T09:08:07.411099+00:00\",\"status\":\"success\"},{\"error_type\":null,\"parsed_response_sha256\":\"5dff9fbf7755eda938f88601c0fa1024b1090a6e05684ca96bffa3fe68e220ca\",\"request\":{\"code\":\"513100\",\"command\":\"0x0fb5\",\"count\":800,\"date\":20260911,\"market\":1,\"start\":800},\"retrieved_at\":\"2026-10-12T09:08:07.478316+00:00\",\"status\":\"success\"},{\"error_type\":null,\"parsed_response_sha256\":\"ec827912d06e90a43452fae90d595d1a6456856499748da8128fb8a75f1e6fce\",\"request\":{\"code\":\"513100\",\"command\":\"0x0fb5\",\"count\":800,\"date\":20260911,\"market\":1,\"start\":1600},\"retrieved_at\":\"2026-10-12T09:08:07.544547+00:00\",\"status\":\"success\"},{\"error_type\":null,\"parsed_response_sha256\":\"b86b80272d9913a61d0795bee9ac13b540c66527ea6b2455274fe156158ad3ef\",\"request\":{\"code\":\"513100\",\"command\":\"0x0fb5\",\"count\":800,\"date\":20260911,\"market\":1,\"start\":2400},\"retrieved_at\":\"2026-10-12T09:08:07.608676+00:00\",\"status\":\"success\"}],\"opening_crosscheck_complete\":true,\"opening_volume_lots\":0,\"price_unit\":\"CNY/security\",\"qualified\":false,\"reason\":\"no_qualified_0930_transaction_activity\",\"server\":{\"host\":\"110.41.147.114\",\"port\":7709},\"server_discovery\":false,\"session_date\":\"2026-09-11\",\"source\":\"mootdx/tdxpy\",\"tick_size\":\"0.001\",\"time_granularity\":\"minute\",\"timeout_seconds\":4,\"versions\":{\"mootdx\":\"0.11.7\",\"tdxpy\":\"0.2.7\"},\"volume_unit\":\"TDX lots (not an executable quota)\"},\"time_granularity\":\"minute\"}"
+          }
+        ],
+        "evidence": {
+          "evidence_id": "chstockdata:historical_opening_evidence:e143a1dda0d937fe:7404f85f375f4160",
+          "provider_name": "chstockdata",
+          "provider_version": "0.4.2",
+          "adapter_name": "chstockdata-provider",
+          "adapter_version": "0.1.0",
+          "capability": "historical_opening_evidence",
+          "request_digest": "sha256:e143a1dda0d937fe4a2fd6ad2a09f8c7da1fdb9d8734a5fa35f4bcf28b503342",
+          "retrieved_at": "2026-10-12 17:08:07.069801+08:00",
+          "upstream_source": "chstockdata.fetch_historical_opening_evidence",
+          "record_count": 1,
+          "payload_checksum": "sha256:7404f85f375f4160ccbd53d519063a4ae4283e4350726e4c0a7404d506f6b623",
+          "warnings": []
+        }
+      }
+    },
+    {
+      "instrument_id": "XSHG:513100",
+      "capability": "CONTROL_RAW_BARS",
+      "started_at": "2026-10-12T17:08:07.865741+08:00",
+      "finished_at": "2026-10-12T17:08:07.913945+08:00",
+      "status": "PASS",
+      "result": {
+        "records": [
+          {
+            "schema_version": "v1",
+            "instrument_id": {
+              "exchange": "XSHG",
+              "symbol": "513100"
+            },
+            "session_date": "2026-09-08",
+            "open": "2.239",
+            "high": "2.244",
+            "low": "2.23",
+            "close": "2.233",
+            "pre_close": "2.236",
+            "volume": "88521396",
+            "amount": "197981408.0",
+            "currency": "CNY",
+            "volume_unit": "SHARE",
+            "amount_unit": "CNY",
+            "adjustment_mode": "RAW",
+            "adjustment_factor": null,
+            "availability": {
+              "information_available_at": "2026-09-08 15:00:00+08:00",
+              "retrieved_at": "2026-10-12 17:08:07.865741+08:00",
+              "availability_basis": "EXCHANGE_RULE"
+            },
+            "provider_evidence_id": "chstockdata:daily_bars:93cd9581bb3c4278:67125101f2c87437"
+          },
+          {
+            "schema_version": "v1",
+            "instrument_id": {
+              "exchange": "XSHG",
+              "symbol": "513100"
+            },
+            "session_date": "2026-09-09",
+            "open": "2.233",
+            "high": "2.235",
+            "low": "2.225",
+            "close": "2.234",
+            "pre_close": "2.233",
+            "volume": "87576004",
+            "amount": "195292256.0",
+            "currency": "CNY",
+            "volume_unit": "SHARE",
+            "amount_unit": "CNY",
+            "adjustment_mode": "RAW",
+            "adjustment_factor": null,
+            "availability": {
+              "information_available_at": "2026-09-09 15:00:00+08:00",
+              "retrieved_at": "2026-10-12 17:08:07.865741+08:00",
+              "availability_basis": "EXCHANGE_RULE"
+            },
+            "provider_evidence_id": "chstockdata:daily_bars:93cd9581bb3c4278:67125101f2c87437"
+          },
+          {
+            "schema_version": "v1",
+            "instrument_id": {
+              "exchange": "XSHG",
+              "symbol": "513100"
+            },
+            "session_date": "2026-09-10",
+            "open": "2.218",
+            "high": "2.224",
+            "low": "2.216",
+            "close": "2.219",
+            "pre_close": "2.234",
+            "volume": "96507458",
+            "amount": "214298784.0",
+            "currency": "CNY",
+            "volume_unit": "SHARE",
+            "amount_unit": "CNY",
+            "adjustment_mode": "RAW",
+            "adjustment_factor": null,
+            "availability": {
+              "information_available_at": "2026-09-10 15:00:00+08:00",
+              "retrieved_at": "2026-10-12 17:08:07.865741+08:00",
+              "availability_basis": "EXCHANGE_RULE"
+            },
+            "provider_evidence_id": "chstockdata:daily_bars:93cd9581bb3c4278:67125101f2c87437"
+          },
+          {
+            "schema_version": "v1",
+            "instrument_id": {
+              "exchange": "XSHG",
+              "symbol": "513100"
+            },
+            "session_date": "2026-09-11",
+            "open": "2.198",
+            "high": "2.207",
+            "low": "2.186",
+            "close": "2.201",
+            "pre_close": "2.219",
+            "volume": "151476200",
+            "amount": "332371200.0",
+            "currency": "CNY",
+            "volume_unit": "SHARE",
+            "amount_unit": "CNY",
+            "adjustment_mode": "RAW",
+            "adjustment_factor": null,
+            "availability": {
+              "information_available_at": "2026-09-11 15:00:00+08:00",
+              "retrieved_at": "2026-10-12 17:08:07.865741+08:00",
+              "availability_basis": "EXCHANGE_RULE"
+            },
+            "provider_evidence_id": "chstockdata:daily_bars:93cd9581bb3c4278:67125101f2c87437"
+          }
+        ],
+        "evidence": {
+          "evidence_id": "chstockdata:daily_bars:93cd9581bb3c4278:67125101f2c87437",
+          "provider_name": "chstockdata",
+          "provider_version": "0.4.2",
+          "adapter_name": "chstockdata-provider",
+          "adapter_version": "0.1.0",
+          "capability": "daily_bars",
+          "request_digest": "sha256:93cd9581bb3c42786cfee5ae9503ed1fb05a169f1a0e58f588bf1730749c020e",
+          "retrieved_at": "2026-10-12 17:08:07.865741+08:00",
+          "upstream_source": "chstockdata.load_vipdoc_daily (local TDX .day package)",
+          "record_count": 4,
+          "payload_checksum": "sha256:67125101f2c87437d0bf86089e919deefea9eff574076416b827046af786e3fd",
+          "warnings": []
+        }
+      }
+    },
+    {
+      "instrument_id": "XSHG:513100",
+      "capability": "CONTROL_CALENDAR",
+      "started_at": "2026-10-12T17:08:07.913945+08:00",
+      "finished_at": "2026-10-12T17:08:07.920922+08:00",
+      "status": "PASS",
+      "result": {
+        "records": [
+          {
+            "calendar_id": "XSHG",
+            "session_date": "2026-09-08",
+            "is_open": true,
+            "note": null,
+            "snapshot_version": "cal-4b13403f541da265"
+          },
+          {
+            "calendar_id": "XSHG",
+            "session_date": "2026-09-09",
+            "is_open": true,
+            "note": null,
+            "snapshot_version": "cal-4b13403f541da265"
+          },
+          {
+            "calendar_id": "XSHG",
+            "session_date": "2026-09-10",
+            "is_open": true,
+            "note": null,
+            "snapshot_version": "cal-4b13403f541da265"
+          },
+          {
+            "calendar_id": "XSHG",
+            "session_date": "2026-09-11",
+            "is_open": true,
+            "note": null,
+            "snapshot_version": "cal-4b13403f541da265"
+          },
+          {
+            "calendar_id": "XSHG",
+            "session_date": "2026-09-12",
+            "is_open": false,
+            "note": "inferred closed: absent from the vendor open-session list",
+            "snapshot_version": "cal-4b13403f541da265"
+          },
+          {
+            "calendar_id": "XSHG",
+            "session_date": "2026-09-13",
+            "is_open": false,
+            "note": "inferred closed: absent from the vendor open-session list",
+            "snapshot_version": "cal-4b13403f541da265"
+          },
+          {
+            "calendar_id": "XSHG",
+            "session_date": "2026-09-14",
+            "is_open": true,
+            "note": null,
+            "snapshot_version": "cal-4b13403f541da265"
+          }
+        ],
+        "evidence": {
+          "evidence_id": "chstockdata:trading_calendar:912fce8a39b0a9ce:4b13403f541da265",
+          "provider_name": "chstockdata",
+          "provider_version": "0.4.2",
+          "adapter_name": "chstockdata-provider",
+          "adapter_version": "0.1.0",
+          "capability": "trading_calendar",
+          "request_digest": "sha256:912fce8a39b0a9ce5e93da2a4acb28645cfface40724617246469927711a7084",
+          "retrieved_at": "2026-10-12 17:08:07.913945+08:00",
+          "upstream_source": "chstockdata.load_trading_calendar (sina_sh000001)",
+          "record_count": 7,
+          "payload_checksum": "sha256:4b13403f541da2650f1a51d636980371c108da1978b54aa5ce124d8214d3d1c8",
+          "warnings": []
+        }
+      }
+    },
+    {
+      "instrument_id": "XSHG:513100",
+      "capability": "CONTROL_ENGINE_NO_FILL_NO_RETRY",
+      "started_at": "2026-10-12T17:08:07.920922+08:00",
+      "finished_at": "2026-10-12T17:08:07.962610+08:00",
+      "status": "FAIL",
+      "error": {
+        "type": "AssertionError",
+        "message": ""
+      }
+    },
+    {
+      "instrument_id": "XSHE:159509",
+      "capability": "CONTROL_LEGACY_PIT",
+      "started_at": "2026-10-12T17:08:07.963114+08:00",
+      "finished_at": "2026-10-12T17:08:07.967116+08:00",
+      "status": "PASS",
+      "result": [
+        {
+          "error_code": "SCHEMA_DRIFT",
+          "message": "vendor:historical_suspension_unavailable",
+          "evidence": {
+            "evidence_id": "chstockdata:tradability:7c92c7b816126ba2:46cef866242806dd",
+            "provider_name": "chstockdata",
+            "provider_version": "0.4.2",
+            "adapter_name": "chstockdata-provider",
+            "adapter_version": "0.1.0",
+            "capability": "tradability",
+            "request_digest": "sha256:7c92c7b816126ba24a5538890935aea21007ae99d010e45a49f34565286d7346",
+            "retrieved_at": "2026-10-12 17:08:07.963114+08:00",
+            "upstream_source": "chstockdata.get_suspension_info",
+            "record_count": 0,
+            "payload_checksum": "sha256:46cef866242806ddf1ec86fde5c5ecf23d8be843d1eb00093daa3ded80a92e75",
+            "warnings": []
+          },
+          "cause": {
+            "type": "HistoricalSuspensionUnavailableError",
+            "message": "vendor:historical_suspension_unavailable"
+          }
+        },
+        [
+          {
+            "instrument_id": {
+              "exchange": "XSHE",
+              "symbol": "159509"
+            },
+            "session_date": "2026-09-11",
+            "status": "UNKNOWN",
+            "reason": "HISTORICAL_SUSPENSION_COVERAGE_UNAVAILABLE",
+            "availability": {
+              "information_available_at": null,
+              "retrieved_at": "2026-10-12 17:08:07.963114+08:00",
+              "availability_basis": "UNKNOWN"
+            },
+            "provenance": "chstockdata:tradability:7c92c7b816126ba2:46cef866242806dd:vendor:historical_suspension_unavailable"
+          }
+        ]
+      ]
+    },
+    {
+      "instrument_id": "XSHE:159509",
+      "capability": "OFFICIAL_HALT_CONTROL",
+      "started_at": "2026-10-12T17:08:07.967116+08:00",
+      "finished_at": "2026-10-12T17:08:12.474052+08:00",
+      "status": "PASS",
+      "result": {
+        "records": [
+          {
+            "payload_json": "{\"evidence_hash\":\"55239c68e0712be07891d94960921da9b1f3dfd5ad2974f28abc0b718e66f257\",\"execution_effect_window\":{\"end\":\"2026-09-11T09:31:00+08:00\",\"start\":\"2026-09-11T09:30:00+08:00\"},\"information_available_at\":null,\"information_basis\":\"UNKNOWN\",\"instrument\":\"159509\",\"limitations\":[\"[09:30,09:31) activity does not prove strict 09:30 order fill, full-day normality, or preopen PIT.\",\"TDX prices are evidence crosschecks only; volumes are not fill quotas.\",\"Current bounded official query does not claim all historical events or revisions are complete.\"],\"market\":\"SZSE\",\"official_block_at_target\":true,\"official_events\":[{\"certification_basis\":\"official PDF explicitly secondary-market halt from open until 10:30; redemption remains available, distinct from trading halt\",\"effective_end\":\"2026-09-11T10:30:00+08:00\",\"effective_start\":\"2026-09-11T09:30:00+08:00\",\"information_available_at\":null,\"information_basis\":\"UNKNOWN\",\"instrument\":\"159509\",\"market\":\"SZSE\",\"offline_cache\":true,\"raw_fields\":{\"annId\":1225557465,\"cache_imported_at\":\"2026-10-11T07:35:19.626967+00:00\",\"cache_origin\":\"2026-10-09 official history investigation ZF5 raw PDF hash\",\"effective_interval\":\"2026-09-11 开市起停牌，10:30 起复牌\",\"issuer\":\"景顺长城基金管理有限公司\",\"source_retrieved_at\":\"2026-10-11T07:32:47.892700+00:00\"},\"raw_sha256\":\"18cf4d821cd8f4de15d515ce0ceef828be5aff3beea30128d4b2049d39647fcd\",\"retrieved_at\":\"2026-10-11T07:32:47.892700+00:00\",\"secondary_market\":true,\"source_kind\":\"issuer_official_disclosure\",\"source_url\":\"https://disc.static.szse.cn/disc/disk03/finalpage/2026-09-11/441bfc71-d5d9-4f67-aed6-05eeeec9aaf3.PDF\"},{\"certification_basis\":\"official PDF explicit open halt and 10:30 resume\",\"effective_end\":\"2026-09-11T10:30:00+08:00\",\"effective_start\":\"2026-09-11T09:30:00+08:00\",\"information_available_at\":null,\"information_basis\":\"UNKNOWN\",\"instrument\":\"159509\",\"market\":\"SZSE\",\"offline_cache\":false,\"raw_fields\":{\"announcement\":{\"_index\":\"ows_disclosure-20180825\",\"annId\":1225557465,\"attachFormat\":\"PDF\",\"attachPath\":\"/disc/disk03/finalpage/2026-09-11/441bfc71-d5d9-4f67-aed6-05eeeec9aaf3.PDF\",\"attachSize\":95,\"bigCategoryId\":null,\"bigIndustryCode\":null,\"bondType\":null,\"channelCode\":null,\"content\":null,\"id\":\"39ad2a94-16ee-4019-a73c-a8046d9703bb\",\"publishTime\":\"2026-09-11 00:00:00\",\"secCode\":[\"159509\"],\"secName\":[\"纳指科技ETF景顺\"],\"smallCategoryId\":null,\"title\":\"纳指科技ETF景顺：景顺长城纳斯达克科技市值加权交易型开放式指数证券投资基金（QDII）二级市场交易价格溢价风险提示及停复牌公告\"},\"body_text\":\"景顺长城纳斯达克科技市值加权交易型开放式指数证券投\\n资基金（QDII）二级市场交易价格溢价风险提示及停复牌\\n公告\\n近期，景顺长城基金管理有限公司（以下简称“本基金管理人”）旗下景\\n顺长城纳斯达克科技市值加权交易型开放式指数证券投资基金（QDII）（场内\\n简称：纳指科技 ETF 景顺，交易代码：159509，以下简称“本基金”）二级市\\n场交易价格明显高于基金份额参考净值（IOPV），出现较大幅度溢价。2026 年\\n9 月 10 日，本基金二级市场的收盘价为 2.841 元，收盘时基金份额参考净值\\n（IOPV）为 2.2761 元。特此郑重提醒广大投资者，应密切关注二级市场交易\\n价格溢价风险，审慎做出投资决策，如盲目投资，可能遭受重大损失。\\n为保护投资者利益，本基金将于 2026 年 9 月 11 日开市起停牌，自 2026\\n年 9 月 11 日 10:30 起复牌，停牌期间本基金赎回业务照常办理。\\n若本基金 2026 年 9 月 11 日二级市场交易价格溢价幅度未有效回落，本基\\n金有权通过向深圳证券交易所申请盘中临时停牌、延长停牌时间及连续停牌等\\n措施，向市场警示风险，具体以届时公告为准。\\n为此，本基金管理人声明如下：\\n一、投资者可在二级市场交易本基金，也可以申购、赎回本基金，实际申\\n赎状态请以最新公告为准。本基金二级市场的交易价格，除了有基金份额净值\\n波动的风险外，还会受到市场供求关系、系统性风险、流动性风险等其他因素\\n的影响，可能使投资者面临损失。\\n二、截至目前，本基金运作正常且无其他应披露而未披露的重大信息，本\\n基金管理人将继续严格按照法律法规及基金合同的相关规定进行投资运作，及\\n时做好信息披露工作。\\n风险提示：基金管理人承诺以诚实信用、勤勉尽责的原则管理和运用基金\\n资产，但不保证基金一定盈利，也不保证最低收益。销售机构根据法规要求对\\n投资者类别、风险承受能力和基金的风险等级进行划分，并提出适当性匹配意见。投资者在投资基金前应认真阅读《基金合同》和更新的《招募说明书》等\\n基金法律文件，全面认识基金产品的风险收益特征，在了解产品情况及听取销\\n售机构适当性意见的基础上，根据自身的风险承受能力、投资期限和投资目\\n标，对基金投资作出独立决策，选择合适的基金产品。基金管理人提醒投资者\\n基金投资的“买者自负”原则，在投资者作出投资决策后，基金运营状况与基\\n金净值变化引致的投资风险，由投资者自行负责。\\n特此公告。\\n景顺长城基金管理有限公司\\n2026 年 9 月 11 日\"},\"raw_sha256\":\"18cf4d821cd8f4de15d515ce0ceef828be5aff3beea30128d4b2049d39647fcd\",\"retrieved_at\":\"2026-10-12T09:08:12.464000+00:00\",\"secondary_market\":true,\"source_kind\":\"official\",\"source_url\":\"https://disc.static.szse.cn/disc/disk03/finalpage/2026-09-11/441bfc71-d5d9-4f67-aed6-05eeeec9aaf3.PDF\"}],\"official_query\":{\"all_returned_rows_considered\":true,\"historical_global_completeness_claim\":false,\"instrument\":\"159509\",\"market\":\"SZSE\",\"observations\":[{\"error_type\":null,\"parsed_response_sha256\":\"3ca988327b95469f36ae8c22b943d0d79bb863d0bbef970082496f06dc26b098\",\"raw_bytes\":654,\"raw_sha256\":\"3ca988327b95469f36ae8c22b943d0d79bb863d0bbef970082496f06dc26b098\",\"request\":{\"json\":{\"channelCode\":[\"fundinfoNotice_disc\"],\"pageNum\":1,\"pageSize\":25,\"seDate\":[\"2026-09-11\",\"2026-09-11\"],\"stock\":[\"159509\"]},\"method\":\"POST\",\"url\":\"https://www.szse.cn/api/disc/announcement/annList\"},\"retrieved_at\":\"2026-10-12T09:08:09.721147+00:00\",\"status\":\"success\"},{\"error_type\":null,\"parsed_response_sha256\":\"18cf4d821cd8f4de15d515ce0ceef828be5aff3beea30128d4b2049d39647fcd\",\"raw_bytes\":96655,\"raw_sha256\":\"18cf4d821cd8f4de15d515ce0ceef828be5aff3beea30128d4b2049d39647fcd\",\"request\":{\"method\":\"GET\",\"url\":\"https://disc.static.szse.cn/disc/disk03/finalpage/2026-09-11/441bfc71-d5d9-4f67-aed6-05eeeec9aaf3.PDF\"},\"retrieved_at\":\"2026-10-12T09:08:12.178577+00:00\",\"status\":\"success\"}],\"page_count\":1,\"pagination_complete\":true,\"query_range\":[\"2026-09-11\",\"2026-09-11\"],\"range_kind\":\"announcement publication date\",\"raw_rows\":[{\"_index\":\"ows_disclosure-20180825\",\"annId\":1225557465,\"attachFormat\":\"PDF\",\"attachPath\":\"/disc/disk03/finalpage/2026-09-11/441bfc71-d5d9-4f67-aed6-05eeeec9aaf3.PDF\",\"attachSize\":95,\"bigCategoryId\":null,\"bigIndustryCode\":null,\"bondType\":null,\"channelCode\":null,\"content\":null,\"id\":\"39ad2a94-16ee-4019-a73c-a8046d9703bb\",\"publishTime\":\"2026-09-11 00:00:00\",\"secCode\":[\"159509\"],\"secName\":[\"纳指科技ETF景顺\"],\"smallCategoryId\":null,\"title\":\"纳指科技ETF景顺：景顺长城纳斯达克科技市值加权交易型开放式指数证券投资基金（QDII）二级市场交易价格溢价风险提示及停复牌公告\"}],\"reason\":\"current_bounded_query_complete\",\"status\":\"success\",\"total\":1},\"opening_status\":\"BLOCKED_CONFIRMED\",\"policy_version\":\"R2.1\",\"purpose\":\"historical_opening_execution_constraint\",\"reason\":\"certified_official_block_at_target\",\"retrieved_at\":\"2026-10-12T09:08:12.467002+00:00\",\"schema_version\":\"historical-opening-evidence/1\",\"session_date\":\"2026-09-11\",\"source_conflict\":false,\"target_execution_at\":\"2026-09-11T09:30:00+08:00\",\"tdx_activity\":{\"auction_rows\":[],\"auto_retry\":false,\"bounded_page_count\":4,\"category\":\"ETF\",\"category_certification\":\"frozen 2026-10-10 44-request protocol and price sample\",\"command\":\"0x0fb5\",\"crosscheck_command\":\"0x0fb4\",\"heartbeat\":false,\"instrument\":\"159509\",\"market_id\":0,\"minute_first\":{\"price\":2.841,\"vol\":0},\"normalization_count\":1,\"normalization_rule\":\"tdxpy_0.2.7_0x0fb5_certified_etf_divide_10\",\"normalized_opening_rows\":[],\"observations\":[{\"error_type\":null,\"parsed_response_sha256\":\"bc61e2fccabbb103ec1dc2333923f9f207f7f19271b9b79859fac0484fe72354\",\"request\":{\"operation\":\"connect\",\"server\":[\"110.41.147.114\",7709]},\"retrieved_at\":\"2026-10-12T09:08:08.181249+00:00\",\"status\":\"success\"},{\"error_type\":null,\"parsed_response_sha256\":\"1454cb743154b2a1f4a09e3bc8578d6bb839b6c5af7a0fd0554eb8a01f4eeb7b\",\"request\":{\"code\":\"159509\",\"command\":\"0x0fb4\",\"date\":20260911,\"market\":0},\"retrieved_at\":\"2026-10-12T09:08:08.235524+00:00\",\"status\":\"success\"},{\"error_type\":null,\"parsed_response_sha256\":\"0d5950c588954d69bd1cbb50e2f5f43cad405b28c46e88d07e4822d48852fb87\",\"request\":{\"code\":\"159509\",\"command\":\"0x0fb5\",\"count\":800,\"date\":20260911,\"market\":0,\"start\":0},\"retrieved_at\":\"2026-10-12T09:08:08.296538+00:00\",\"status\":\"success\"},{\"error_type\":null,\"parsed_response_sha256\":\"cb55666302e511be6f54d43c8a442e7ff55d168b15c5c9868e9c2d2282e34fbb\",\"request\":{\"code\":\"159509\",\"command\":\"0x0fb5\",\"count\":800,\"date\":20260911,\"market\":0,\"start\":800},\"retrieved_at\":\"2026-10-12T09:08:08.363426+00:00\",\"status\":\"success\"},{\"error_type\":null,\"parsed_response_sha256\":\"6efba20dd7cc6eba476b9da51b7326d4613d00b86806a2713226cf43f4bc909b\",\"request\":{\"code\":\"159509\",\"command\":\"0x0fb5\",\"count\":800,\"date\":20260911,\"market\":0,\"start\":1600},\"retrieved_at\":\"2026-10-12T09:08:08.431298+00:00\",\"status\":\"success\"},{\"error_type\":null,\"parsed_response_sha256\":\"43763217e48fb6ce549e4e19568c2d668c284aeb981b299491c813931b64b3bf\",\"request\":{\"code\":\"159509\",\"command\":\"0x0fb5\",\"count\":800,\"date\":20260911,\"market\":0,\"start\":2400},\"retrieved_at\":\"2026-10-12T09:08:08.497993+00:00\",\"status\":\"success\"}],\"opening_crosscheck_complete\":true,\"opening_volume_lots\":0,\"price_unit\":\"CNY/security\",\"qualified\":false,\"reason\":\"no_qualified_0930_transaction_activity\",\"server\":{\"host\":\"110.41.147.114\",\"port\":7709},\"server_discovery\":false,\"session_date\":\"2026-09-11\",\"source\":\"mootdx/tdxpy\",\"tick_size\":\"0.001\",\"time_granularity\":\"minute\",\"timeout_seconds\":4,\"versions\":{\"mootdx\":\"0.11.7\",\"tdxpy\":\"0.2.7\"},\"volume_unit\":\"TDX lots (not an executable quota)\"},\"time_granularity\":\"minute\"}"
+          }
+        ],
+        "evidence": {
+          "evidence_id": "chstockdata:historical_opening_evidence:f549d4a89c156126:4726d4b9e0eac039",
+          "provider_name": "chstockdata",
+          "provider_version": "0.4.2",
+          "adapter_name": "chstockdata-provider",
+          "adapter_version": "0.1.0",
+          "capability": "historical_opening_evidence",
+          "request_digest": "sha256:f549d4a89c15612667c8d8706e265f322feead2dd5e6a54784717f16d99be7fa",
+          "retrieved_at": "2026-10-12 17:08:07.967116+08:00",
+          "upstream_source": "chstockdata.fetch_historical_opening_evidence",
+          "record_count": 1,
+          "payload_checksum": "sha256:4726d4b9e0eac03984929e76d88451958bebd49ae09bd52526788b1f220925d3",
+          "warnings": []
+        }
+      }
+    },
+    {
+      "instrument_id": "XSHE:159509",
+      "capability": "CONTROL_RAW_BARS",
+      "started_at": "2026-10-12T17:08:12.474052+08:00",
+      "finished_at": "2026-10-12T17:08:12.498836+08:00",
+      "status": "PASS",
+      "result": {
+        "records": [
+          {
+            "schema_version": "v1",
+            "instrument_id": {
+              "exchange": "XSHE",
+              "symbol": "159509"
+            },
+            "session_date": "2026-09-08",
+            "open": "2.853",
+            "high": "2.855",
+            "low": "2.83",
+            "close": "2.844",
+            "pre_close": "2.846",
+            "volume": "186005246",
+            "amount": "529278304.0",
+            "currency": "CNY",
+            "volume_unit": "SHARE",
+            "amount_unit": "CNY",
+            "adjustment_mode": "RAW",
+            "adjustment_factor": null,
+            "availability": {
+              "information_available_at": "2026-09-08 15:00:00+08:00",
+              "retrieved_at": "2026-10-12 17:08:12.474052+08:00",
+              "availability_basis": "EXCHANGE_RULE"
+            },
+            "provider_evidence_id": "chstockdata:daily_bars:a767ffc2574c5a4c:55ef587e226e9530"
+          },
+          {
+            "schema_version": "v1",
+            "instrument_id": {
+              "exchange": "XSHE",
+              "symbol": "159509"
+            },
+            "session_date": "2026-09-09",
+            "open": "2.841",
+            "high": "2.85",
+            "low": "2.84",
+            "close": "2.848",
+            "pre_close": "2.844",
+            "volume": "117918044",
+            "amount": "335586464.0",
+            "currency": "CNY",
+            "volume_unit": "SHARE",
+            "amount_unit": "CNY",
+            "adjustment_mode": "RAW",
+            "adjustment_factor": null,
+            "availability": {
+              "information_available_at": "2026-09-09 15:00:00+08:00",
+              "retrieved_at": "2026-10-12 17:08:12.474052+08:00",
+              "availability_basis": "EXCHANGE_RULE"
+            },
+            "provider_evidence_id": "chstockdata:daily_bars:a767ffc2574c5a4c:55ef587e226e9530"
+          },
+          {
+            "schema_version": "v1",
+            "instrument_id": {
+              "exchange": "XSHE",
+              "symbol": "159509"
+            },
+            "session_date": "2026-09-10",
+            "open": "2.825",
+            "high": "2.848",
+            "low": "2.823",
+            "close": "2.841",
+            "pre_close": "2.848",
+            "volume": "116057878",
+            "amount": "329631168.0",
+            "currency": "CNY",
+            "volume_unit": "SHARE",
+            "amount_unit": "CNY",
+            "adjustment_mode": "RAW",
+            "adjustment_factor": null,
+            "availability": {
+              "information_available_at": "2026-09-10 15:00:00+08:00",
+              "retrieved_at": "2026-10-12 17:08:12.474052+08:00",
+              "availability_basis": "EXCHANGE_RULE"
+            },
+            "provider_evidence_id": "chstockdata:daily_bars:a767ffc2574c5a4c:55ef587e226e9530"
+          },
+          {
+            "schema_version": "v1",
+            "instrument_id": {
+              "exchange": "XSHE",
+              "symbol": "159509"
+            },
+            "session_date": "2026-09-11",
+            "open": "2.812",
+            "high": "2.832",
+            "low": "2.794",
+            "close": "2.832",
+            "pre_close": "2.841",
+            "volume": "183428540",
+            "amount": "516124160.0",
+            "currency": "CNY",
+            "volume_unit": "SHARE",
+            "amount_unit": "CNY",
+            "adjustment_mode": "RAW",
+            "adjustment_factor": null,
+            "availability": {
+              "information_available_at": "2026-09-11 15:00:00+08:00",
+              "retrieved_at": "2026-10-12 17:08:12.474052+08:00",
+              "availability_basis": "EXCHANGE_RULE"
+            },
+            "provider_evidence_id": "chstockdata:daily_bars:a767ffc2574c5a4c:55ef587e226e9530"
+          }
+        ],
+        "evidence": {
+          "evidence_id": "chstockdata:daily_bars:a767ffc2574c5a4c:55ef587e226e9530",
+          "provider_name": "chstockdata",
+          "provider_version": "0.4.2",
+          "adapter_name": "chstockdata-provider",
+          "adapter_version": "0.1.0",
+          "capability": "daily_bars",
+          "request_digest": "sha256:a767ffc2574c5a4c650df7e5ddc747665559c7caa1b10e1117c7c51e2bca114a",
+          "retrieved_at": "2026-10-12 17:08:12.474052+08:00",
+          "upstream_source": "chstockdata.load_vipdoc_daily (local TDX .day package)",
+          "record_count": 4,
+          "payload_checksum": "sha256:55ef587e226e9530008baa845d54ca4665129755b617a1181c7c184800e418a9",
+          "warnings": []
+        }
+      }
+    },
+    {
+      "instrument_id": "XSHE:159509",
+      "capability": "CONTROL_CALENDAR",
+      "started_at": "2026-10-12T17:08:12.498836+08:00",
+      "finished_at": "2026-10-12T17:08:12.507205+08:00",
+      "status": "PASS",
+      "result": {
+        "records": [
+          {
+            "calendar_id": "XSHE",
+            "session_date": "2026-09-08",
+            "is_open": true,
+            "note": null,
+            "snapshot_version": "cal-4b13403f541da265"
+          },
+          {
+            "calendar_id": "XSHE",
+            "session_date": "2026-09-09",
+            "is_open": true,
+            "note": null,
+            "snapshot_version": "cal-4b13403f541da265"
+          },
+          {
+            "calendar_id": "XSHE",
+            "session_date": "2026-09-10",
+            "is_open": true,
+            "note": null,
+            "snapshot_version": "cal-4b13403f541da265"
+          },
+          {
+            "calendar_id": "XSHE",
+            "session_date": "2026-09-11",
+            "is_open": true,
+            "note": null,
+            "snapshot_version": "cal-4b13403f541da265"
+          },
+          {
+            "calendar_id": "XSHE",
+            "session_date": "2026-09-12",
+            "is_open": false,
+            "note": "inferred closed: absent from the vendor open-session list",
+            "snapshot_version": "cal-4b13403f541da265"
+          },
+          {
+            "calendar_id": "XSHE",
+            "session_date": "2026-09-13",
+            "is_open": false,
+            "note": "inferred closed: absent from the vendor open-session list",
+            "snapshot_version": "cal-4b13403f541da265"
+          },
+          {
+            "calendar_id": "XSHE",
+            "session_date": "2026-09-14",
+            "is_open": true,
+            "note": null,
+            "snapshot_version": "cal-4b13403f541da265"
+          }
+        ],
+        "evidence": {
+          "evidence_id": "chstockdata:trading_calendar:7d0cd385715fb3e1:4b13403f541da265",
+          "provider_name": "chstockdata",
+          "provider_version": "0.4.2",
+          "adapter_name": "chstockdata-provider",
+          "adapter_version": "0.1.0",
+          "capability": "trading_calendar",
+          "request_digest": "sha256:7d0cd385715fb3e1570e4bbd9559e3a7407fa4333f6a937aecb0942e6975a1c6",
+          "retrieved_at": "2026-10-12 17:08:12.499818+08:00",
+          "upstream_source": "chstockdata.load_trading_calendar (sina_sh000001)",
+          "record_count": 7,
+          "payload_checksum": "sha256:4b13403f541da2650f1a51d636980371c108da1978b54aa5ce124d8214d3d1c8",
+          "warnings": []
+        }
+      }
+    },
+    {
+      "instrument_id": "XSHE:159509",
+      "capability": "CONTROL_ENGINE_NO_FILL_NO_RETRY",
+      "started_at": "2026-10-12T17:08:12.507205+08:00",
+      "finished_at": "2026-10-12T17:08:12.550638+08:00",
+      "status": "FAIL",
+      "error": {
+        "type": "AssertionError",
+        "message": ""
+      }
+    }
+  ]
+}

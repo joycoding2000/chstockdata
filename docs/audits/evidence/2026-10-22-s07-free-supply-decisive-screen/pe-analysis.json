@@ -1,0 +1,793 @@
+{
+  "controls": [
+    {
+      "security": "SH:600519",
+      "em_rows": 253,
+      "EM_date_coverage": "253/253",
+      "opaque_payload_version": "493e41b5870b31fc7ccea950b4da24cc",
+      "version_is_financial_vintage": false,
+      "row_fields": [
+        "BOARD_CODE",
+        "BOARD_NAME",
+        "CHANGE_RATE",
+        "CLOSE_PRICE",
+        "FREE_SHARES_A",
+        "NOTLIMITED_MARKETCAP_A",
+        "ORG_CODE",
+        "ORIG_BOARD_CODE",
+        "PB_MRQ",
+        "PCF_OCF_LAR",
+        "PCF_OCF_TTM",
+        "PEG_CAR",
+        "PE_LAR",
+        "PE_TTM",
+        "PS_TTM",
+        "SECUCODE",
+        "SECURITY_CODE",
+        "SECURITY_NAME_ABBR",
+        "TOTAL_MARKET_CAP",
+        "TOTAL_SHARES",
+        "TRADE_DATE",
+        "TRADE_MARKET"
+      ],
+      "negative_pe_rows": 0,
+      "missing_pe_rows": 0,
+      "market_cap_price_shares_consistent_rows": 253,
+      "baidu_points": 366,
+      "baidu_first": "2025-10-22",
+      "baidu_last": "2026-10-22",
+      "baidu_weekend_points": 104,
+      "baidu_required_missing_days": [
+        "2025-09-30",
+        "2025-10-09",
+        "2025-10-10",
+        "2025-10-13",
+        "2025-10-14",
+        "2025-10-15",
+        "2025-10-16",
+        "2025-10-17",
+        "2025-10-20",
+        "2025-10-21"
+      ],
+      "baidu_overlap": 243,
+      "baidu_equal_to_em_2dp": 243,
+      "baidu_metadata": {
+        "curTagValue": "20.24",
+        "dimensions": [
+          "date",
+          "curTagValue"
+        ],
+        "header": [
+          "市盈率(TTM)"
+        ],
+        "releaseDate": "2001-08-27 00:00:00",
+        "seventyTantile": "20.20",
+        "thirtyTantile": "19.50",
+        "type": "近一年",
+        "unit": ""
+      },
+      "fixed_cases": [
+        {
+          "security": "SH:600519",
+          "date": "2025-09-30",
+          "reason": "first signal",
+          "PE_TTM": "20.10625074",
+          "total_market_cap_yuan": "1808265667757.85",
+          "close": "1443.99",
+          "total_shares": "1252270215",
+          "implied_profit_cap_div_pe": "89935497728.59591822637341685",
+          "cap_minus_price_times_shares": "0.00",
+          "baidu_pe": null,
+          "denominator_period": "UNKNOWN",
+          "denominator_scope": "EPS_TTM_DESCRIBED_PARENT_TTM_NOT_PROVEN",
+          "historical_input_vintage": "UNKNOWN",
+          "historical_available_at": "UNKNOWN",
+          "PIT_qualified": false,
+          "current_financial_diagnostic_not_asof_proof": {
+            "q_from_date_only_schedule": "2025-06-30",
+            "base_periods": [
+              "2025-06-30",
+              "2024-12-31",
+              "2024-06-30"
+            ],
+            "base_values_current_records_yuan": [
+              "45402962298.1000",
+              "86228146421.6200",
+              "41695610983.3700"
+            ],
+            "NP_TTM_current_records_yuan": "89935497736.3500",
+            "cap_div_current_NP_TTM": "20.10625073826647412508858185",
+            "source_implied_profit_minus_current_NP_TTM": "-7.75408177362658315",
+            "current_record_comparison_is_PIT_evidence": false
+          }
+        },
+        {
+          "security": "SH:600519",
+          "date": "2025-10-09",
+          "reason": "window start",
+          "PE_TTM": "20.00585803",
+          "total_market_cap_yuan": "1799236799507.7",
+          "close": "1436.78",
+          "total_shares": "1252270215",
+          "implied_profit_cap_div_pe": "89935497733.19570037956527476",
+          "cap_minus_price_times_shares": "0.00",
+          "baidu_pe": null,
+          "denominator_period": "UNKNOWN",
+          "denominator_scope": "EPS_TTM_DESCRIBED_PARENT_TTM_NOT_PROVEN",
+          "historical_input_vintage": "UNKNOWN",
+          "historical_available_at": "UNKNOWN",
+          "PIT_qualified": false,
+          "current_financial_diagnostic_not_asof_proof": {
+            "q_from_date_only_schedule": "2025-06-30",
+            "base_periods": [
+              "2025-06-30",
+              "2024-12-31",
+              "2024-06-30"
+            ],
+            "base_values_current_records_yuan": [
+              "45402962298.1000",
+              "86228146421.6200",
+              "41695610983.3700"
+            ],
+            "NP_TTM_current_records_yuan": "89935497736.3500",
+            "cap_div_current_NP_TTM": "20.00585802929833634127990681",
+            "source_implied_profit_minus_current_NP_TTM": "-3.15429962043472524",
+            "current_record_comparison_is_PIT_evidence": false
+          }
+        },
+        {
+          "security": "SH:600519",
+          "date": "2025-10-30",
+          "reason": "2025-09-30 disclosure date-only boundary; not yet permissible close",
+          "PE_TTM": "19.84579336",
+          "total_market_cap_yuan": "1786664006549.1",
+          "close": "1426.74",
+          "total_shares": "1252270215",
+          "implied_profit_cap_div_pe": "90027341015.76375579071332223",
+          "cap_minus_price_times_shares": "0.00",
+          "baidu_pe": "19.85",
+          "denominator_period": "UNKNOWN",
+          "denominator_scope": "EPS_TTM_DESCRIBED_PARENT_TTM_NOT_PROVEN",
+          "historical_input_vintage": "UNKNOWN",
+          "historical_available_at": "UNKNOWN",
+          "PIT_qualified": false,
+          "current_financial_diagnostic_not_asof_proof": {
+            "q_from_date_only_schedule": "2025-06-30",
+            "base_periods": [
+              "2025-06-30",
+              "2024-12-31",
+              "2024-06-30"
+            ],
+            "base_values_current_records_yuan": [
+              "45402962298.1000",
+              "86228146421.6200",
+              "41695610983.3700"
+            ],
+            "NP_TTM_current_records_yuan": "89935497736.3500",
+            "cap_div_current_NP_TTM": "19.86606013775324572415936625",
+            "source_implied_profit_minus_current_NP_TTM": "91843279.41375579071332223",
+            "current_record_comparison_is_PIT_evidence": false
+          }
+        },
+        {
+          "security": "SH:600519",
+          "date": "2025-10-31",
+          "reason": "2025-09-30 first permissible close after date-only disclosure",
+          "PE_TTM": "19.89127869",
+          "total_market_cap_yuan": "1790758930152.15",
+          "close": "1430.01",
+          "total_shares": "1252270215",
+          "implied_profit_cap_div_pe": "90027341030.23871513611576672",
+          "cap_minus_price_times_shares": "0.00",
+          "baidu_pe": "19.89",
+          "denominator_period": "UNKNOWN",
+          "denominator_scope": "EPS_TTM_DESCRIBED_PARENT_TTM_NOT_PROVEN",
+          "historical_input_vintage": "UNKNOWN",
+          "historical_available_at": "UNKNOWN",
+          "PIT_qualified": false,
+          "current_financial_diagnostic_not_asof_proof": {
+            "q_from_date_only_schedule": "2025-09-30",
+            "base_periods": [
+              "2025-09-30",
+              "2024-12-31",
+              "2024-09-30"
+            ],
+            "base_values_current_records_yuan": [
+              "64626746712.1800",
+              "86228146421.6200",
+              "60827552118.5100"
+            ],
+            "NP_TTM_current_records_yuan": "90027341015.2900",
+            "cap_div_current_NP_TTM": "19.89127869330287505413937573",
+            "source_implied_profit_minus_current_NP_TTM": "14.94871513611576672",
+            "current_record_comparison_is_PIT_evidence": false
+          }
+        },
+        {
+          "security": "SH:600519",
+          "date": "2026-04-17",
+          "reason": "2025-12-31 disclosure date-only boundary; not yet permissible close",
+          "PE_TTM": "21.40723155",
+          "total_market_cap_yuan": "1762244737356.6",
+          "close": "1407.24",
+          "total_shares": "1252270215",
+          "implied_profit_cap_div_pe": "82320067087.63796222870303844",
+          "cap_minus_price_times_shares": "0.00",
+          "baidu_pe": "21.41",
+          "denominator_period": "UNKNOWN",
+          "denominator_scope": "EPS_TTM_DESCRIBED_PARENT_TTM_NOT_PROVEN",
+          "historical_input_vintage": "UNKNOWN",
+          "historical_available_at": "UNKNOWN",
+          "PIT_qualified": false,
+          "current_financial_diagnostic_not_asof_proof": {
+            "q_from_date_only_schedule": "2025-09-30",
+            "base_periods": [
+              "2025-09-30",
+              "2024-12-31",
+              "2024-09-30"
+            ],
+            "base_values_current_records_yuan": [
+              "64626746712.1800",
+              "86228146421.6200",
+              "60827552118.5100"
+            ],
+            "NP_TTM_current_records_yuan": "90027341015.2900",
+            "cap_div_current_NP_TTM": "19.57455054745319116033251173",
+            "source_implied_profit_minus_current_NP_TTM": "-7707273927.65203777129696156",
+            "current_record_comparison_is_PIT_evidence": false
+          }
+        },
+        {
+          "security": "SH:600519",
+          "date": "2026-04-20",
+          "reason": "2025-12-31 first permissible close after date-only disclosure",
+          "PE_TTM": "21.46275612",
+          "total_market_cap_yuan": "1766815523641.35",
+          "close": "1410.89",
+          "total_shares": "1252270215",
+          "implied_profit_cap_div_pe": "82320067085.65022822427709718",
+          "cap_minus_price_times_shares": "0.00",
+          "baidu_pe": "21.46",
+          "denominator_period": "UNKNOWN",
+          "denominator_scope": "EPS_TTM_DESCRIBED_PARENT_TTM_NOT_PROVEN",
+          "historical_input_vintage": "UNKNOWN",
+          "historical_available_at": "UNKNOWN",
+          "PIT_qualified": false,
+          "current_financial_diagnostic_not_asof_proof": {
+            "q_from_date_only_schedule": "2025-12-31",
+            "base_periods": [
+              "2025-12-31"
+            ],
+            "base_values_current_records_yuan": [
+              "82320067101.6800"
+            ],
+            "NP_TTM_current_records_yuan": "82320067101.6800",
+            "cap_div_current_NP_TTM": "21.46275611582066567248244240",
+            "source_implied_profit_minus_current_NP_TTM": "-16.02977177572290282",
+            "current_record_comparison_is_PIT_evidence": false
+          }
+        },
+        {
+          "security": "SH:600519",
+          "date": "2026-10-21",
+          "reason": "window end vicinity",
+          "PE_TTM": "20.10486614",
+          "total_market_cap_yuan": "1637219372013.69",
+          "close": "1309.69",
+          "total_shares": "1250081601",
+          "implied_profit_cap_div_pe": "81433985215.96374080608526747",
+          "cap_minus_price_times_shares": "0.00",
+          "baidu_pe": "20.10",
+          "denominator_period": "UNKNOWN",
+          "denominator_scope": "EPS_TTM_DESCRIBED_PARENT_TTM_NOT_PROVEN",
+          "historical_input_vintage": "UNKNOWN",
+          "historical_available_at": "UNKNOWN",
+          "PIT_qualified": false,
+          "current_financial_diagnostic_not_asof_proof": {
+            "q_from_date_only_schedule": "2026-06-30",
+            "base_periods": [
+              "2026-06-30",
+              "2025-12-31",
+              "2025-06-30"
+            ],
+            "base_values_current_records_yuan": [
+              "44516880421.8600",
+              "82320067101.6800",
+              "45402962298.1000"
+            ],
+            "NP_TTM_current_records_yuan": "81433985225.4400",
+            "cap_div_current_NP_TTM": "20.10486613766044947850492972",
+            "source_implied_profit_minus_current_NP_TTM": "-9.47625919391473253",
+            "current_record_comparison_is_PIT_evidence": false
+          }
+        },
+        {
+          "security": "SH:600519",
+          "date": "2026-10-22",
+          "reason": "window end",
+          "PE_TTM": "20.23995369",
+          "total_market_cap_yuan": "1648220090102.49",
+          "close": "1318.49",
+          "total_shares": "1250081601",
+          "implied_profit_cap_div_pe": "81433985242.60605657541897271",
+          "cap_minus_price_times_shares": "0.00",
+          "baidu_pe": "20.24",
+          "denominator_period": "UNKNOWN",
+          "denominator_scope": "EPS_TTM_DESCRIBED_PARENT_TTM_NOT_PROVEN",
+          "historical_input_vintage": "UNKNOWN",
+          "historical_available_at": "UNKNOWN",
+          "PIT_qualified": false,
+          "current_financial_diagnostic_not_asof_proof": {
+            "q_from_date_only_schedule": "2026-06-30",
+            "base_periods": [
+              "2026-06-30",
+              "2025-12-31",
+              "2025-06-30"
+            ],
+            "base_values_current_records_yuan": [
+              "44516880421.8600",
+              "82320067101.6800",
+              "45402962298.1000"
+            ],
+            "NP_TTM_current_records_yuan": "81433985225.4400",
+            "cap_div_current_NP_TTM": "20.23995369426652569151017782",
+            "source_implied_profit_minus_current_NP_TTM": "17.16605657541897271",
+            "current_record_comparison_is_PIT_evidence": false
+          }
+        }
+      ],
+      "strict_pre_announcement_diagnostics": [
+        {
+          "announcement_date": "2025-10-30",
+          "strict_prior_market_close": "2025-10-29",
+          "PE_TTM": "19.93790846",
+          "PIT_qualified": false,
+          "status": "DETERMINISTIC_DATE_MAPPING_REPAIR_AFTER_FETCH_NOT_NEW_PREREGISTERED_SUCCESS"
+        },
+        {
+          "announcement_date": "2026-04-17",
+          "strict_prior_market_close": "2026-04-16",
+          "PE_TTM": "20.34794031",
+          "PIT_qualified": false,
+          "status": "DETERMINISTIC_DATE_MAPPING_REPAIR_AFTER_FETCH_NOT_NEW_PREREGISTERED_SUCCESS"
+        }
+      ],
+      "repeat_retrieval_check": {
+        "old_file": "docs\\audits\\evidence\\2026-10-19-w5h\\eastmoney_600519_2025.json",
+        "old_sha256": "cab28b33c788920a8e410f77ef55bb38674a6037d517b05404b5203a70f0c515",
+        "overlap_days": 61,
+        "changed_PE_TTM_days": [],
+        "interpretation": "Same current response values at two retrievals do not prove historical publication vintage"
+      },
+      "historical_industry_labels_in_em_rows": [
+        "白酒Ⅱ"
+      ],
+      "historical_industry_label_is_full_membership_evidence": false
+    },
+    {
+      "security": "SZ:000002",
+      "em_rows": 253,
+      "EM_date_coverage": "253/253",
+      "opaque_payload_version": "805d21da9992e140a3b1b106ffd63f32",
+      "version_is_financial_vintage": false,
+      "row_fields": [
+        "BOARD_CODE",
+        "BOARD_NAME",
+        "CHANGE_RATE",
+        "CLOSE_PRICE",
+        "FREE_SHARES_A",
+        "NOTLIMITED_MARKETCAP_A",
+        "ORG_CODE",
+        "ORIG_BOARD_CODE",
+        "PB_MRQ",
+        "PCF_OCF_LAR",
+        "PCF_OCF_TTM",
+        "PEG_CAR",
+        "PE_LAR",
+        "PE_TTM",
+        "PS_TTM",
+        "SECUCODE",
+        "SECURITY_CODE",
+        "SECURITY_NAME_ABBR",
+        "TOTAL_MARKET_CAP",
+        "TOTAL_SHARES",
+        "TRADE_DATE",
+        "TRADE_MARKET"
+      ],
+      "negative_pe_rows": 253,
+      "missing_pe_rows": 0,
+      "market_cap_price_shares_consistent_rows": 253,
+      "baidu_points": 366,
+      "baidu_first": "2025-10-22",
+      "baidu_last": "2026-10-22",
+      "baidu_weekend_points": 104,
+      "baidu_required_missing_days": [
+        "2025-09-30",
+        "2025-10-09",
+        "2025-10-10",
+        "2025-10-13",
+        "2025-10-14",
+        "2025-10-15",
+        "2025-10-16",
+        "2025-10-17",
+        "2025-10-20",
+        "2025-10-21"
+      ],
+      "baidu_overlap": 243,
+      "baidu_equal_to_em_2dp": 243,
+      "baidu_metadata": {
+        "curTagValue": "-0.43",
+        "dimensions": [
+          "date",
+          "curTagValue"
+        ],
+        "header": [
+          "市盈率(TTM)"
+        ],
+        "releaseDate": "1991-03-06 00:00:00",
+        "seventyTantile": "-0.45",
+        "thirtyTantile": "-0.96",
+        "type": "近一年",
+        "unit": ""
+      },
+      "fixed_cases": [
+        {
+          "security": "SZ:000002",
+          "date": "2025-09-30",
+          "reason": "first signal",
+          "PE_TTM": "-1.59392279",
+          "total_market_cap_yuan": "82202588255.19",
+          "close": "6.89",
+          "total_shares": "11930709471",
+          "implied_profit_cap_div_pe": "-51572503242.26181620754666542",
+          "cap_minus_price_times_shares": "0.00",
+          "baidu_pe": null,
+          "denominator_period": "UNKNOWN",
+          "denominator_scope": "EPS_TTM_DESCRIBED_PARENT_TTM_NOT_PROVEN",
+          "historical_input_vintage": "UNKNOWN",
+          "historical_available_at": "UNKNOWN",
+          "PIT_qualified": false,
+          "current_financial_diagnostic_not_asof_proof": {
+            "q_from_date_only_schedule": "2025-06-30",
+            "base_periods": [
+              "2025-06-30",
+              "2024-12-31",
+              "2024-06-30"
+            ],
+            "base_values_current_records_yuan": [
+              "-11946573688.1200",
+              "-49478429211.9600",
+              "-9852499598.8400"
+            ],
+            "NP_TTM_current_records_yuan": "-51572503301.2400",
+            "cap_div_current_NP_TTM": "-1.593922788177193945570221710",
+            "source_implied_profit_minus_current_NP_TTM": "58.97818379245333458",
+            "current_record_comparison_is_PIT_evidence": false
+          }
+        },
+        {
+          "security": "SZ:000002",
+          "date": "2025-10-09",
+          "reason": "window start",
+          "PE_TTM": "-1.57078893",
+          "total_market_cap_yuan": "81009517308.09",
+          "close": "6.79",
+          "total_shares": "11930709471",
+          "implied_profit_cap_div_pe": "-51572503320.41110068174468227",
+          "cap_minus_price_times_shares": "0.00",
+          "baidu_pe": null,
+          "denominator_period": "UNKNOWN",
+          "denominator_scope": "EPS_TTM_DESCRIBED_PARENT_TTM_NOT_PROVEN",
+          "historical_input_vintage": "UNKNOWN",
+          "historical_available_at": "UNKNOWN",
+          "PIT_qualified": false,
+          "current_financial_diagnostic_not_asof_proof": {
+            "q_from_date_only_schedule": "2025-06-30",
+            "base_periods": [
+              "2025-06-30",
+              "2024-12-31",
+              "2024-06-30"
+            ],
+            "base_values_current_records_yuan": [
+              "-11946573688.1200",
+              "-49478429211.9600",
+              "-9852499598.8400"
+            ],
+            "NP_TTM_current_records_yuan": "-51572503301.2400",
+            "cap_div_current_NP_TTM": "-1.570788930583911014575008042",
+            "source_implied_profit_minus_current_NP_TTM": "-19.17110068174468227",
+            "current_record_comparison_is_PIT_evidence": false
+          }
+        },
+        {
+          "security": "SZ:000002",
+          "date": "2025-10-31",
+          "reason": "2025-09-30 disclosure date-only boundary; not yet permissible close",
+          "PE_TTM": "-1.25616011",
+          "total_market_cap_yuan": "74805548383.17",
+          "close": "6.27",
+          "total_shares": "11930709471",
+          "implied_profit_cap_div_pe": "-59550966304.10433905595043931",
+          "cap_minus_price_times_shares": "0.00",
+          "baidu_pe": "-1.26",
+          "denominator_period": "UNKNOWN",
+          "denominator_scope": "EPS_TTM_DESCRIBED_PARENT_TTM_NOT_PROVEN",
+          "historical_input_vintage": "UNKNOWN",
+          "historical_available_at": "UNKNOWN",
+          "PIT_qualified": false,
+          "current_financial_diagnostic_not_asof_proof": {
+            "q_from_date_only_schedule": "2025-06-30",
+            "base_periods": [
+              "2025-06-30",
+              "2024-12-31",
+              "2024-06-30"
+            ],
+            "base_values_current_records_yuan": [
+              "-11946573688.1200",
+              "-49478429211.9600",
+              "-9852499598.8400"
+            ],
+            "NP_TTM_current_records_yuan": "-51572503301.2400",
+            "cap_div_current_NP_TTM": "-1.450492871098839773399896970",
+            "source_implied_profit_minus_current_NP_TTM": "-7978463002.86433905595043931",
+            "current_record_comparison_is_PIT_evidence": false
+          }
+        },
+        {
+          "security": "SZ:000002",
+          "date": "2025-11-03",
+          "reason": "2025-09-30 first permissible close after date-only disclosure",
+          "PE_TTM": "-1.26217044",
+          "total_market_cap_yuan": "75163469667.3",
+          "close": "6.3",
+          "total_shares": "11930709471",
+          "implied_profit_cap_div_pe": "-59550966561.45742091694050449",
+          "cap_minus_price_times_shares": "0.0",
+          "baidu_pe": "-1.26",
+          "denominator_period": "UNKNOWN",
+          "denominator_scope": "EPS_TTM_DESCRIBED_PARENT_TTM_NOT_PROVEN",
+          "historical_input_vintage": "UNKNOWN",
+          "historical_available_at": "UNKNOWN",
+          "PIT_qualified": false,
+          "current_financial_diagnostic_not_asof_proof": {
+            "q_from_date_only_schedule": "2025-09-30",
+            "base_periods": [
+              "2025-09-30",
+              "2024-12-31",
+              "2024-09-30"
+            ],
+            "base_values_current_records_yuan": [
+              "-28015835676.9400",
+              "-49478429211.9600",
+              "-17943298450.0900"
+            ],
+            "NP_TTM_current_records_yuan": "-59550966438.8100",
+            "cap_div_current_NP_TTM": "-1.262170442599486767064688955",
+            "source_implied_profit_minus_current_NP_TTM": "-122.64742091694050449",
+            "current_record_comparison_is_PIT_evidence": false
+          }
+        },
+        {
+          "security": "SZ:000002",
+          "date": "2026-04-01",
+          "reason": "2025-12-31 disclosure date-only boundary; not yet permissible close",
+          "PE_TTM": "-0.54428622",
+          "total_market_cap_yuan": "48200066262.84",
+          "close": "4.04",
+          "total_shares": "11930709471",
+          "implied_profit_cap_div_pe": "-88556469908.13032157970120941",
+          "cap_minus_price_times_shares": "0.00",
+          "baidu_pe": "-0.54",
+          "denominator_period": "UNKNOWN",
+          "denominator_scope": "EPS_TTM_DESCRIBED_PARENT_TTM_NOT_PROVEN",
+          "historical_input_vintage": "UNKNOWN",
+          "historical_available_at": "UNKNOWN",
+          "PIT_qualified": false,
+          "current_financial_diagnostic_not_asof_proof": {
+            "q_from_date_only_schedule": "2025-09-30",
+            "base_periods": [
+              "2025-09-30",
+              "2024-12-31",
+              "2024-09-30"
+            ],
+            "base_values_current_records_yuan": [
+              "-28015835676.9400",
+              "-49478429211.9600",
+              "-17943298450.0900"
+            ],
+            "NP_TTM_current_records_yuan": "-59550966438.8100",
+            "cap_div_current_NP_TTM": "-0.8093918393812581807843402186",
+            "source_implied_profit_minus_current_NP_TTM": "-29005503469.32032157970120941",
+            "current_record_comparison_is_PIT_evidence": false
+          }
+        },
+        {
+          "security": "SZ:000002",
+          "date": "2026-04-02",
+          "reason": "2025-12-31 first permissible close after date-only disclosure",
+          "PE_TTM": "-0.5281193",
+          "total_market_cap_yuan": "46768381126.32",
+          "close": "3.92",
+          "total_shares": "11930709471",
+          "implied_profit_cap_div_pe": "-88556470339.78875606326070644",
+          "cap_minus_price_times_shares": "0.00",
+          "baidu_pe": "-0.53",
+          "denominator_period": "UNKNOWN",
+          "denominator_scope": "EPS_TTM_DESCRIBED_PARENT_TTM_NOT_PROVEN",
+          "historical_input_vintage": "UNKNOWN",
+          "historical_available_at": "UNKNOWN",
+          "PIT_qualified": false,
+          "current_financial_diagnostic_not_asof_proof": {
+            "q_from_date_only_schedule": "2025-12-31",
+            "base_periods": [
+              "2025-12-31"
+            ],
+            "base_values_current_records_yuan": [
+              "-88556470495.6400"
+            ],
+            "NP_TTM_current_records_yuan": "-88556470495.6400",
+            "cap_div_current_NP_TTM": "-0.5281192990705586007286461976",
+            "source_implied_profit_minus_current_NP_TTM": "155.85124393673929356",
+            "current_record_comparison_is_PIT_evidence": false
+          }
+        },
+        {
+          "security": "SZ:000002",
+          "date": "2026-10-21",
+          "reason": "window end vicinity",
+          "PE_TTM": "-0.45084894",
+          "total_market_cap_yuan": "41280254769.66",
+          "close": "3.46",
+          "total_shares": "11930709471",
+          "implied_profit_cap_div_pe": "-91561166295.87728430724490558",
+          "cap_minus_price_times_shares": "0.00",
+          "baidu_pe": "-0.45",
+          "denominator_period": "UNKNOWN",
+          "denominator_scope": "EPS_TTM_DESCRIBED_PARENT_TTM_NOT_PROVEN",
+          "historical_input_vintage": "UNKNOWN",
+          "historical_available_at": "UNKNOWN",
+          "PIT_qualified": false,
+          "current_financial_diagnostic_not_asof_proof": {
+            "q_from_date_only_schedule": "2026-06-30",
+            "base_periods": [
+              "2026-06-30",
+              "2025-12-31",
+              "2025-06-30"
+            ],
+            "base_values_current_records_yuan": [
+              "-14951268522.5000",
+              "-88556470495.6400",
+              "-11946573688.1200"
+            ],
+            "NP_TTM_current_records_yuan": "-91561165330.0200",
+            "cap_div_current_NP_TTM": "-0.4508489447558998539572746830",
+            "source_implied_profit_minus_current_NP_TTM": "-965.85728430724490558",
+            "current_record_comparison_is_PIT_evidence": false
+          }
+        },
+        {
+          "security": "SZ:000002",
+          "date": "2026-10-22",
+          "reason": "window end",
+          "PE_TTM": "-0.43130347",
+          "total_market_cap_yuan": "39490648349.01",
+          "close": "3.31",
+          "total_shares": "11930709471",
+          "implied_profit_cap_div_pe": "-91561165387.81846573133297536",
+          "cap_minus_price_times_shares": "0.00",
+          "baidu_pe": "-0.43",
+          "denominator_period": "UNKNOWN",
+          "denominator_scope": "EPS_TTM_DESCRIBED_PARENT_TTM_NOT_PROVEN",
+          "historical_input_vintage": "UNKNOWN",
+          "historical_available_at": "UNKNOWN",
+          "PIT_qualified": false,
+          "current_financial_diagnostic_not_asof_proof": {
+            "q_from_date_only_schedule": "2026-06-30",
+            "base_periods": [
+              "2026-06-30",
+              "2025-12-31",
+              "2025-06-30"
+            ],
+            "base_values_current_records_yuan": [
+              "-14951268522.5000",
+              "-88556470495.6400",
+              "-11946573688.1200"
+            ],
+            "NP_TTM_current_records_yuan": "-91561165330.0200",
+            "cap_div_current_NP_TTM": "-0.4313034702722625770516124857",
+            "source_implied_profit_minus_current_NP_TTM": "-57.79846573133297536",
+            "current_record_comparison_is_PIT_evidence": false
+          }
+        }
+      ],
+      "strict_pre_announcement_diagnostics": [
+        {
+          "announcement_date": "2025-10-31",
+          "strict_prior_market_close": "2025-10-30",
+          "PE_TTM": "-1.45049287",
+          "PIT_qualified": false,
+          "status": "DETERMINISTIC_DATE_MAPPING_REPAIR_AFTER_FETCH_NOT_NEW_PREREGISTERED_SUCCESS"
+        },
+        {
+          "announcement_date": "2026-04-01",
+          "strict_prior_market_close": "2026-03-31",
+          "PE_TTM": "-0.79937461",
+          "PIT_qualified": false,
+          "status": "DETERMINISTIC_DATE_MAPPING_REPAIR_AFTER_FETCH_NOT_NEW_PREREGISTERED_SUCCESS"
+        }
+      ],
+      "repeat_retrieval_check": null,
+      "historical_industry_labels_in_em_rows": [
+        "房地产开发"
+      ],
+      "historical_industry_label_is_full_membership_evidence": false
+    }
+  ],
+  "verdict": "INSUFFICIENT_EVIDENCE_WITH_NAMED_BLOCKER",
+  "blocker": "No historical denominator/EPS/share-capital version and as-of availability contract for the tested source values",
+  "reconstruction": "INPUTS_PARTIALLY_OBSERVED_NOT_FEASIBILITY_QUALIFIED",
+  "financial_inputs": [
+    {
+      "security": "600519",
+      "path": "docs\\audits\\evidence\\2026-10-20-w5h-r5\\600519_ths_benefit.json",
+      "sha256": "5fecd4fe1772d958d7b81f07c53b974a8e2715bb4dd5d56075d6bb64b848667d",
+      "status": "CURRENT_VERSION_ONLY_NO_ORIGINAL_NOTICE_BINDING",
+      "use": "Arithmetic diagnostic only; never treated as historical PIT financial evidence"
+    },
+    {
+      "security": "000002",
+      "path": "docs\\audits\\evidence\\2026-10-22-s07-free-supply-decisive-screen\\ths-000002-benefit.raw",
+      "sha256": "e838ef638250356762880d66213ed4c1d3eba11689b68335102ee20c4fa05922",
+      "status": "CURRENT_VERSION_ONLY_NO_ORIGINAL_NOTICE_BINDING",
+      "use": "Arithmetic diagnostic only; never treated as historical PIT financial evidence"
+    }
+  ],
+  "old_regression_control": {
+    "fixed_trade_date": "2020-01-09",
+    "why_extra_original": "2019 Q3 original and its 2018 comparison are required TTM base periods for the already fixed 2020 case, not a replacement stock/year.",
+    "2018_annual_original_parent_profit_yuan": "1135188498.44",
+    "2019_q3_parent_ytd_as_published_20191030_yuan": "33173948.69",
+    "2018_q3_comparative_as_published_20191030_yuan": "689158719.06",
+    "announcement_date_of_q3_original": "2019-10-30",
+    "known_ttm_profit_yuan": "479203728.07",
+    "baidu_market_cap_yuan": "18801000000.00",
+    "old_eastmoney_market_cap_yuan": "18801197131.5",
+    "baidu_static_pe": "16.56",
+    "static_pe_from_original_annual": "16.56200712554499196904319192",
+    "baidu_ttm_pe": "-7.02",
+    "ttm_pe_from_then_disclosed_values": "39.23383500316514972892372724",
+    "old_eastmoney_ttm_pe": "-66.79112414",
+    "old_eastmoney_static_pe": "-4.0340073",
+    "verdict": "Static sample is consistent with the then-disclosed annual profit; TTM sample contradicts the then-disclosed positive TTM numerator. Complete intervening disclosure chain and first-known history remain unqualified.",
+    "recalculated_ttm": "479203728.07",
+    "recalculated_pe": "39.23383500316514972892372724",
+    "scope": "Archived 2020 regression only; full intervening revision chain not newly certified; not a current-window case",
+    "reused_files": [
+      {
+        "path": "docs\\audits\\evidence\\2026-10-20-w5h-r2\\analysis.json",
+        "sha256": "5a10a5949ec86f9951708b3bc2a977c16f2d566d3c410ea0507f0e72f711072f"
+      },
+      {
+        "path": "docs\\audits\\evidence\\2026-10-20-w5h-r2\\sina_600518_2019q3_original.raw",
+        "sha256": "9da444cc0256ff844b19d48f7575b6af66e893ca439375475eb0ad427e108a7a"
+      },
+      {
+        "path": "docs\\audits\\evidence\\2026-10-20-w5h-r2\\sina_600518_2019q3_original.txt",
+        "sha256": "6894b62e5b7abff84de23ef23cf0dc7d33c9b48f0ca0d7c501beba042d2c2333"
+      },
+      {
+        "path": "docs\\audits\\evidence\\2026-10-20-w5h-r2\\baidu_canonical_600518_ttm.raw",
+        "sha256": "9e54f751f3783bff441388f826ae90721282127df92ba708d900b978305d9d01"
+      },
+      {
+        "path": "docs\\audits\\evidence\\2026-10-20-w5h-r2\\baidu_600518_marketcap_all.raw",
+        "sha256": "d970be59df198cee728cef63e9ed7d33a3bb97d045c8b2d13a1f95001fa19fd7"
+      }
+    ],
+    "annual_2018_evidence_limitation": {
+      "path": "docs\\audits\\evidence\\2026-10-19-w5h\\web_evidence.json",
+      "sha256": "4743e11f6028522bff7dc73e176eccb9171aac0a9b48e3618ef48f86d857e8b5",
+      "kind": "Prior structured web observation, not a stored original response; retained limitation"
+    }
+  }
+}

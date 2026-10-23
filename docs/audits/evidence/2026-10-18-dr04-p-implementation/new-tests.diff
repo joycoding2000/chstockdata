@@ -1,0 +1,387 @@
+diff --git a/tests/test_daily_fund_flow.py b/tests/test_daily_fund_flow.py
+new file mode 100644
+index 0000000..df3274b
+--- /dev/null
++++ b/tests/test_daily_fund_flow.py
+@@ -0,0 +1,381 @@
++"""DR04-P: public API acceptance; real bytes + explicitly synthetic defects."""
++
++from __future__ import annotations
++
++import base64
++import hashlib
++import json
++from dataclasses import replace
++from datetime import datetime, timezone
++from decimal import Decimal
++from pathlib import Path
++
++import pytest
++import requests
++
++import chstockdata as cs
++
++FIXTURES = Path(__file__).parent / 'fixtures' / 'daily_fund_flow'
++MANIFEST = json.loads((FIXTURES / 'manifest.json').read_text(encoding='utf-8'))
++CALENDAR = json.loads((FIXTURES / 'calendar.json').read_text(encoding='utf-8'))
++
++
++def calendar():
++    return cs.FundFlowCalendar(
++        trading_days=tuple(CALENDAR['days']), source=CALENDAR['source'],
++        version=MANIFEST['calendar_sha256'], covered_start=CALENDAR['start'],
++        covered_end=CALENDAR['end'], completed_through=CALENDAR['end'], qualified=True,
++    )
++
++
++def real_pages(symbol):
++    return {
++        r['params']['page']: (FIXTURES / Path(r['raw_file']).name).read_bytes()
++        for r in MANIFEST['requests'] if r['params']['daima'] == symbol
++    }
++
++
++class Response:
++    def __init__(self, body=b'[]', status=200):
++        self.content = body
++        self.status_code = status
++
++
++def transport(monkeypatch, pages, *, statuses=None, sequence=None):
++    from chstockdata import daily_fund_flow as ff
++    calls = []
++    events = iter(sequence) if sequence is not None else None
++
++    def get(url, **kwargs):
++        calls.append((url, kwargs))
++        assert url == ff.SINA_DAILY_FUND_FLOW_ENDPOINT
++        assert kwargs['allow_redirects'] is False
++        assert kwargs['params']['sort'] == 'opendate'
++        assert kwargs['params']['asc'] == 0
++        page = kwargs['params']['page']
++        event = next(events) if events is not None else pages.get(page, b'[]')
++        if isinstance(event, Exception):
++            raise event
++        if isinstance(event, Response):
++            return event
++        return Response(event, (statuses or {}).get(page, 200))
++
++    monkeypatch.setattr(ff.requests, 'get', get)
++    return calls
++
++
++def recent(monkeypatch, pages=None, *, ticker='600000', exchange='SH', **kwargs):
++    transport(monkeypatch, real_pages('sh600000') if pages is None else pages)
++    return cs.get_sina_daily_fund_flow(
++        exchange, ticker, target_date='2026-10-16', calendar=calendar(), **kwargs,
++    )
++
++
++def synthetic(rows):
++    return json.dumps(rows, ensure_ascii=False).encode('utf-8')
++
++
++def test_P01_precision_and_source(monkeypatch):
++    assert hasattr(cs, 'get_sina_daily_fund_flow'), 'supported public numeric API is missing'
++    r = recent(monkeypatch)
++    by_day = {x['business_date']: x for x in r.records}
++    assert by_day['2026-10-16']['amount'] == '66064341.6800'
++    assert by_day['2026-10-15']['amount'] == '-8176030.7500'
++    assert Decimal(by_day['2026-10-16']['amount']) == Decimal('66064341.6800')
++    assert r.source == 'sina' and r.field == 'r0_net'
++    assert r.currency == 'CNY' and r.unit == '元'
++    rows = json.loads(real_pages('sh600000')[1])
++    rows[0]['r0_net'] = '49.0000'
++    small = recent(monkeypatch, {1: synthetic(rows)})
++    assert small.records[-1]['amount'] == '49.0000'
++    # JSON numeric tokens must also avoid any float conversion.
++    raw = b'[{"opendate":"2026-10-16","r0_net":12345678901234567890.000000000000000049}]'
++    numeric = recent(monkeypatch, {1: raw})
++    assert numeric.records[-1]['amount'] == '12345678901234567890.000000000000000049'
++    assert numeric.records[-1]['variants'][0]['raw_type'] == 'number'
++    json.dumps(numeric.to_dict(), allow_nan=False)
++
++
++def test_P02_raw_zero_unknown_semantics(monkeypatch):
++    transport(monkeypatch, real_pages('sh688432'))
++    r = cs.get_sina_daily_fund_flow('SH', '688432', start_date='2026-09-11',
++                                  end_date='2026-09-11', calendar=calendar())
++    row = r.records[0]
++    assert row['status'] == 'RAW_ZERO' and row['amount'] == '0.0000'
++    assert row['zero_semantics'] == 'UNKNOWN'
++    assert row['variants'][0]['raw_record']['turnover'] == '0'
++    assert r.coverage['numeric_complete_count'] == 1
++    assert r.coverage['semantic_usable_count'] == 0
++
++
++def test_P03_middle_missing_no_borrow(monkeypatch):
++    rows = json.loads(real_pages('sh600000')[1])
++    rows = [row for row in rows if row['opendate'] != '2026-10-14']
++    r = recent(monkeypatch, {1: synthetic(rows)})
++    assert r.target_dates == tuple(CALENDAR['recent_five'])
++    assert r.records[2]['status'] == 'MISSING_DATE'
++    assert r.records[2]['amount'] is None
++    assert r.coverage['denominator'] == 5
++    assert r.coverage['numeric_complete_count'] == 4
++    assert r.status == 'PARTIAL'
++
++
++@pytest.mark.parametrize('symbol,latest', [('sz000004', '2026-07-20'), ('sz000005', '2025-02-05')])
++def test_P04_stale_security(monkeypatch, symbol, latest):
++    r = recent(monkeypatch, real_pages(symbol), ticker=symbol[2:], exchange='SZ')
++    assert r.attempts[0]['status'] == 'SUCCESS'
++    assert r.freshness == 'STALE' and r.source_max_date == latest
++    assert r.coverage['counts']['MISSING_DATE'] == 5
++    assert r.coverage['numeric_complete_count'] == 0
++    assert r.extra_records and all(x['status'] == 'RAW_ZERO' for x in r.extra_records)
++
++
++@pytest.mark.parametrize('value,status,reason', [
++    (None, 'MISSING_VALUE', 'NULL'), ('', 'MISSING_VALUE', 'EMPTY_STRING'),
++    ('abc', 'INVALID_VALUE', 'NOT_DECIMAL'), ('NaN', 'INVALID_VALUE', 'NOT_FINITE'),
++    ('Infinity', 'INVALID_VALUE', 'NOT_FINITE'), ('-Infinity', 'INVALID_VALUE', 'NOT_FINITE'),
++    (True, 'INVALID_VALUE', 'INVALID_TYPE'), ([], 'INVALID_VALUE', 'INVALID_TYPE'),
++])
++def test_P05_bad_values(monkeypatch, value, status, reason):
++    r = recent(monkeypatch, {1: synthetic([{'opendate': '2026-10-16', 'r0_net': value}])})
++    row = r.records[-1]
++    assert row['status'] == status and row['amount'] is None
++    assert row['variants'][0]['reason'] == reason
++
++
++def test_P05_missing_field_and_invalid_date(monkeypatch):
++    rows = [{'opendate': '2026-10-16'}, {'opendate': '2026-02-30', 'r0_net': '2'},
++            {'opendate': 'not-a-date', 'r0_net': '3'}, {'r0_net': '4'}]
++    r = recent(monkeypatch, {1: synthetic(rows)})
++    assert r.records[-1]['status'] == 'MISSING_FIELD'
++    assert len(r.anomalies) == 3
++    assert all(x['status'] == 'INVALID_DATE' for x in r.anomalies)
++    assert all(x['amount'] is None for x in r.anomalies)
++    assert r.status != 'COMPLETE'
++
++
++@pytest.mark.parametrize('symbol,exchange', [('sz300750', 'SZ'), ('sh688981', 'SH')])
++def test_P06_real_annual_pages_and_closed_boundaries(monkeypatch, symbol, exchange):
++    calls = transport(monkeypatch, real_pages(symbol))
++    r = cs.get_sina_daily_fund_flow(exchange, symbol[2:], start_date='2025-10-16',
++                                  end_date='2026-10-16', calendar=calendar())
++    assert r.status == 'COMPLETE'
++    assert len(r.records) == 243 and len(r.extra_records) == 17
++    assert r.records[0]['business_date'] == '2025-10-16'
++    assert r.records[-1]['business_date'] == '2026-10-16'
++    assert r.coverage['numeric_complete_count'] == 243
++    assert r.pagination['pages_fetched'] == 13 and len(calls) == 14
++    assert r.pagination['consistency'] == 'OBSERVED_STABLE'
++    # Target window spans the real first/second page boundary.
++    transport(monkeypatch, real_pages(symbol))
++    cross = cs.get_sina_daily_fund_flow(exchange, symbol[2:], target_date='2026-09-15', calendar=calendar())
++    assert cross.status == 'COMPLETE'
++    assert cross.target_dates == ('2026-09-09', '2026-09-10', '2026-09-11', '2026-09-14', '2026-09-15')
++    assert cross.pagination['pages_fetched'] == 2
++
++
++def overlapping_pages():
++    pages = real_pages('sz300750')
++    p1, p2 = json.loads(pages[1]), json.loads(pages[2])
++    return {1: pages[1], 2: synthetic([p1[-1]] + p2[:19])}, p1, p2
++
++
++def test_P07_identical_duplicate_retains_provenance(monkeypatch):
++    pages, _, _ = overlapping_pages()
++    transport(monkeypatch, pages)
++    r = cs.get_sina_daily_fund_flow('SZ', '300750', target_date='2026-09-15', calendar=calendar())
++    row = next(x for x in r.records if x['business_date'] == '2026-09-11')
++    assert r.status == 'COMPLETE' and r.coverage['numeric_complete_count'] == 5
++    assert row['duplicate_count'] == 1 and len(row['variants']) == 1
++    assert len(row['variants'][0]['references']) == 2
++
++
++@pytest.mark.parametrize('kind,stop', [('conflict', 'DUPLICATE_CONFLICT'),
++                                     ('repeated', 'REPEATED_PAGE'), ('drift', 'ANCHOR_DRIFT')])
++def test_P08_pagination_anomalies(monkeypatch, kind, stop):
++    pages, p1, p2 = overlapping_pages()
++    if kind == 'conflict':
++        rows = json.loads(pages[2]); rows[0]['r0_net'] = '999.0000'; pages[2] = synthetic(rows)
++    elif kind == 'repeated':
++        pages[2] = pages[1]
++    else:
++        pages[2] = synthetic([p1[0]] + p2[:19])
++    calls = transport(monkeypatch, pages)
++    r = cs.get_sina_daily_fund_flow('SZ', '300750', target_date='2026-09-15', calendar=calendar())
++    assert r.status != 'COMPLETE' and r.pagination['stop_reason'] == stop
++    assert r.pagination['consistency'] == 'UNKNOWN' and len(calls) == 2
++    if kind == 'conflict':
++        row = next(x for x in r.records if x['business_date'] == '2026-09-11')
++        assert row['status'] == 'DUPLICATE_CONFLICT' and row['amount'] is None
++        assert len(row['variants']) == 2
++
++
++def test_P08_first_page_anchor_recheck(monkeypatch):
++    pages = real_pages('sz300750')
++    changed = json.loads(pages[1]); changed[0]['r0_net'] = '1.0000'
++    calls = transport(monkeypatch, pages, sequence=[pages[1], pages[2], synthetic(changed)])
++    r = cs.get_sina_daily_fund_flow('SZ', '300750', target_date='2026-09-15', calendar=calendar())
++    assert r.pagination['stop_reason'] == 'ANCHOR_DRIFT' and r.status != 'COMPLETE'
++    assert len(calls) == 3 and len(r.responses) == 3
++
++
++def test_P08_changed_anchor_target_is_conflicting_not_consumable(monkeypatch):
++    pages = real_pages('sz300750')
++    changed = json.loads(pages[1])
++    next(row for row in changed if row['opendate'] == '2026-09-15')['r0_net'] = '1.0000'
++    transport(monkeypatch, {}, sequence=[pages[1], pages[2], synthetic(changed)])
++    r = cs.get_sina_daily_fund_flow('SZ', '300750', target_date='2026-09-15', calendar=calendar())
++    row = r.records[-1]
++    assert row['status'] == 'DUPLICATE_CONFLICT' and row['amount'] is None
++    assert len(row['variants']) == 2
++    assert {v['references'][0]['response_index'] for v in row['variants']} == {0, 2}
++    assert r.coverage['numeric_complete_count'] == 4
++
++
++@pytest.mark.parametrize('event,stop', [
++    (requests.Timeout('synthetic'), 'NETWORK_ERROR'), (Response(b'', 500), 'HTTP_ERROR'),
++    (Response(b'', 403), 'FORBIDDEN'), (Response(b'', 429), 'RATE_LIMITED'),
++    (Response(b'{}'), 'PARSE_ERROR'), (Response(b'bad json'), 'PARSE_ERROR'),
++    (Response(b'[]'), 'EMPTY_PAGE'),
++])
++def test_P09_requests_parse_and_empty(monkeypatch, event, stop):
++    calls = transport(monkeypatch, {}, sequence=[event])
++    r = cs.get_sina_daily_fund_flow('SH', '600000', target_date='2026-10-16',
++                                  calendar=calendar(), budget=cs.FundFlowBudget(retries=0))
++    assert r.pagination['stop_reason'] == stop and r.status != 'COMPLETE'
++    assert len(calls) == 1 and r.coverage['numeric_complete_count'] == 0
++    assert r.coverage['counts']['REQUEST_UNRESOLVED'] == 5
++
++
++def test_P09_no_request_permission(monkeypatch):
++    calls = transport(monkeypatch, {})
++    r = cs.get_sina_daily_fund_flow('SH', '600000', target_date='2026-10-16', calendar=calendar(), allow_requests=False)
++    assert not calls and r.pagination['stop_reason'] == 'REQUESTS_DISABLED'
++
++
++@pytest.mark.parametrize('budget,stop', [
++    ({'max_pages': 1}, 'PAGE_BUDGET'), ({'max_requests': 1}, 'REQUEST_BUDGET'),
++    ({'max_requests': 0}, 'REQUEST_BUDGET'), ({'max_seconds': 0}, 'WALL_CLOCK_BUDGET'),
++])
++def test_P10_budgets_partial_original_window(monkeypatch, budget, stop):
++    calls = transport(monkeypatch, real_pages('sz300750'))
++    r = cs.get_sina_daily_fund_flow('SZ', '300750', start_date='2025-10-16', end_date='2026-10-16',
++                                  calendar=calendar(), budget=cs.FundFlowBudget(**budget))
++    assert r.pagination['stop_reason'] == stop and r.status != 'COMPLETE'
++    assert r.coverage['denominator'] == 243 and r.start_date == '2025-10-16'
++    assert len(calls) <= budget.get('max_requests', 40)
++    assert r.coverage['counts']['REQUEST_UNRESOLVED'] > 0
++
++
++def test_P10_retry_and_interrupted_history(monkeypatch):
++    p = real_pages('sz300750')
++    calls = transport(monkeypatch, {}, sequence=[requests.Timeout(), p[1], requests.Timeout(), requests.Timeout()])
++    r = cs.get_sina_daily_fund_flow('SZ', '300750', start_date='2025-10-16', end_date='2026-10-16', calendar=calendar())
++    assert len(calls) == 4 and len(r.attempts) == 4
++    assert [a['retry'] for a in r.attempts] == [False, True, False, True]
++    assert r.coverage['numeric_complete_count'] == 20
++    assert r.coverage['counts']['REQUEST_UNRESOLVED'] == 223
++    assert r.pagination['stop_reason'] == 'NETWORK_ERROR'
++
++
++def test_P10_wall_clock_expires_during_request(monkeypatch):
++    from chstockdata import daily_fund_flow as ff
++    clock = [0.0]
++    monkeypatch.setattr(ff.time, 'monotonic', lambda: clock[0])
++    def slow(*args, **kwargs):
++        clock[0] = 6.0
++        return Response(real_pages('sh600000')[1])
++    monkeypatch.setattr(ff.requests, 'get', slow)
++    r = cs.get_sina_daily_fund_flow('SH', '600000', target_date='2026-10-16', calendar=calendar(),
++                                  budget=cs.FundFlowBudget(max_seconds=5))
++    assert r.status != 'COMPLETE' and r.pagination['stop_reason'] == 'WALL_CLOCK_BUDGET'
++    assert len(r.attempts) == 1
++
++
++def test_P10_wall_clock_includes_parsing(monkeypatch):
++    from chstockdata import daily_fund_flow as ff
++    clock = [0.0]
++    monkeypatch.setattr(ff.time, 'monotonic', lambda: clock[0])
++    parse = ff._parse
++    def slow_parse(body):
++        rows = parse(body)
++        clock[0] = 6.0
++        return rows
++    monkeypatch.setattr(ff, '_parse', slow_parse)
++    r = recent(monkeypatch, budget=cs.FundFlowBudget(max_seconds=5))
++    assert r.status != 'COMPLETE'
++    assert r.pagination['stop_reason'] == 'WALL_CLOCK_BUDGET'
++
++
++@pytest.mark.parametrize('status', [403, 429])
++def test_P09_denial_never_retries(monkeypatch, status):
++    calls = transport(monkeypatch, {}, sequence=[Response(b'blocked', status)])
++    r = cs.get_sina_daily_fund_flow('SH', '600000', target_date='2026-10-16',
++                                  calendar=calendar(), budget=cs.FundFlowBudget(retries=3))
++    assert len(calls) == len(r.attempts) == 1
++
++
++def test_P11_time_version_hash_and_old_failure(monkeypatch):
++    old = recent(monkeypatch)
++    raw = real_pages('sh600000')[1]
++    reformatted = recent(monkeypatch, {1: json.dumps(json.loads(raw), indent=2).encode()})
++    assert old.observation_id != reformatted.observation_id
++    assert old.responses[0]['sha256'] != reformatted.responses[0]['sha256']
++    assert old.value_sha256 == reformatted.value_sha256
++    rows = json.loads(raw); rows[0]['r0_net'] = '49.0000'
++    changed = recent(monkeypatch, {1: synthetic(rows)}, previous_observation=old)
++    assert changed.value_sha256 != old.value_sha256
++    assert changed.previous_observation['records'][-1]['amount'] == '66064341.6800'
++    assert old.records[-1]['amount'] == '66064341.6800'
++    transport(monkeypatch, {}, sequence=[requests.Timeout()])
++    failed = cs.get_sina_daily_fund_flow('SH', '600000', target_date='2026-10-16', calendar=calendar(),
++        previous_observation=old, budget=cs.FundFlowBudget(retries=0))
++    assert failed.attempts[0]['status'] == 'NETWORK_ERROR'
++    assert failed.previous_observation['fetched_at'] == old.fetched_at
++    assert failed.coverage['counts']['REQUEST_UNRESOLVED'] == 5
++    assert failed.source_times['first_known_at'] is None
++    assert failed.source_times['revision_status'] == 'UNKNOWN'
++    assert failed.source_times['finality'] == 'UNKNOWN'
++    for a in old.attempts:
++        assert datetime.fromisoformat(a['started_at']).tzinfo == timezone.utc
++        assert datetime.fromisoformat(a['completed_at']) >= datetime.fromisoformat(a['started_at'])
++    evidence = old.responses[0]
++    assert hashlib.sha256(base64.b64decode(evidence['body_base64'])).hexdigest() == evidence['sha256']
++    assert evidence['sha256'] == next(x['sha256'] for x in MANIFEST['requests'] if '002-' in x['raw_file'])
++    with pytest.raises(ValueError):
++        cs.get_sina_daily_fund_flow('SZ', '000004', target_date='2026-10-16', calendar=calendar(), previous_observation=old)
++
++
++def test_P12_same_source_and_reconciliation(monkeypatch):
++    from chstockdata import a_stock
++    monkeypatch.setattr(a_stock, '_get_tdx_fund_flow', lambda *a, **k: pytest.fail('TDX forbidden'))
++    rows = [{'opendate': '2026-10-16', 'r0_net': '1'}, {'opendate': '2026-10-15', 'r0_net': '0'},
++            {'opendate': '2026-10-14', 'r0_net': '2'}, {'opendate': '2026-10-14', 'r0_net': '3'}]
++    r = recent(monkeypatch, {1: synthetic(rows)})
++    counts = r.coverage['counts']
++    assert sum(counts.values()) == r.coverage['denominator'] == 5
++    assert counts['NONZERO'] == counts['RAW_ZERO'] == counts['DUPLICATE_CONFLICT'] == 1
++    assert counts['REQUEST_UNRESOLVED'] == 2
++    assert r.coverage['numeric_complete_count'] == 2 and r.coverage['semantic_usable_count'] == 1
++    transport(monkeypatch, {})
++    unknown = cs.get_sina_daily_fund_flow('SH', '600000', target_date='2026-10-16', calendar=None)
++    assert unknown.status == 'UNKNOWN' and unknown.coverage['denominator'] is None
++    assert unknown.freshness == 'UNKNOWN' and not unknown.attempts
++    bad_cal = replace(calendar(), qualified=False)
++    unqualified = cs.get_sina_daily_fund_flow('SH', '600000', target_date='2026-10-16', calendar=bad_cal)
++    assert unqualified.status == 'UNKNOWN'
++
++
++@pytest.mark.parametrize('exchange,ticker', [('XX', '600000'), ('SH', '６０００００'), ('SH', '60000')])
++def test_invalid_identity_fails_before_network(monkeypatch, exchange, ticker):
++    transport(monkeypatch, {})
++    with pytest.raises(ValueError):
++        cs.get_sina_daily_fund_flow(exchange, ticker, target_date='2026-10-16', calendar=calendar())
++
++
++def test_fixture_integrity():
++    for request in MANIFEST['requests']:
++        body = (FIXTURES / Path(request['raw_file']).name).read_bytes()
++        assert len(body) == request['bytes']
++        assert hashlib.sha256(body).hexdigest() == request['sha256']
++    assert hashlib.sha256((FIXTURES / 'calendar.json').read_bytes()).hexdigest() == MANIFEST['calendar_sha256']

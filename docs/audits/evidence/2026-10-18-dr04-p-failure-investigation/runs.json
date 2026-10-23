@@ -1,0 +1,20 @@
+{
+  "candidate": {
+    "command": [
+      "D:\\Dev\\Projects\\chstockdata\\.venv\\Scripts\\python.exe",
+      "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-18-dr04-p-failure-investigation\\observe.py",
+      "--observe",
+      "candidate"
+    ],
+    "exit_code": 1
+  },
+  "baseline": {
+    "command": [
+      "D:\\Dev\\Projects\\chstockdata\\.venv\\Scripts\\python.exe",
+      "D:\\Dev\\Projects\\chstockdata\\docs\\audits\\evidence\\2026-10-18-dr04-p-failure-investigation\\observe.py",
+      "--observe",
+      "baseline"
+    ],
+    "exit_code": 1
+  }
+}

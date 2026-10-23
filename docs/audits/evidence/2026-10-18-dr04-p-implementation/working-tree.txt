@@ -1,0 +1,29 @@
+ M README.md
+ M src/chstockdata/__init__.py
+?? docs/audits/2026-10-09-v0.4.2-history-recovery-conclusion.md
+?? docs/audits/2026-10-09-v0.4.2-official-history-and-sios-final-decision.md
+?? docs/audits/2026-10-09-v0.4.2-release-closeout.md
+?? docs/audits/2026-10-09-v0.4.2-unified-gate.md
+?? docs/audits/2026-10-10-v0.4.2-tdx-historical-execution-feasibility.md
+?? docs/audits/2026-10-11-v0.4.2-opening-implementation.md
+?? docs/audits/2026-10-14-v0.4.2-controlled-release.md
+?? docs/audits/2026-10-18-dr04-p-preflight.md
+?? docs/audits/evidence/2026-10-09-v0.4.2-history-recovery/
+?? docs/audits/evidence/2026-10-09-v0.4.2-release/
+?? docs/audits/evidence/2026-10-09-v0.4.2-unified-gate/
+?? docs/audits/evidence/2026-10-10-v0.4.2-tdx-historical-execution/probe_tdx_history.py
+?? docs/audits/evidence/2026-10-10-v0.4.2-tdx-historical-execution/probe_tdx_opening_pages.py
+?? docs/audits/evidence/2026-10-10-v0.4.2-tdx-historical-execution/probe_tdx_opening_pages_final.py
+?? docs/audits/evidence/2026-10-10-v0.4.2-tdx-historical-execution/probe_tdx_opening_pages_followup.py
+?? docs/audits/evidence/2026-10-10-v0.4.2-tdx-historical-execution/tdx_history_manifest.json
+?? docs/audits/evidence/2026-10-10-v0.4.2-tdx-historical-execution/tdx_opening_page_final_manifest.json
+?? docs/audits/evidence/2026-10-10-v0.4.2-tdx-historical-execution/tdx_opening_page_followup_manifest.json
+?? docs/audits/evidence/2026-10-10-v0.4.2-tdx-historical-execution/tdx_opening_page_manifest.json
+?? docs/audits/evidence/2026-10-11-v0.4.2-opening-implementation/
+?? docs/audits/evidence/2026-10-14-v0.4.2-controlled-release/
+?? docs/audits/evidence/2026-10-18-dr04-p-implementation/
+?? docs/audits/evidence/2026-10-18-dr04-p-preflight/
+?? docs/dr04-p-daily-fund-flow.md
+?? src/chstockdata/daily_fund_flow.py
+?? tests/fixtures/daily_fund_flow/
+?? tests/test_daily_fund_flow.py

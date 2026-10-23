@@ -1,0 +1,19 @@
+{
+  "instrument_id": "XSHG:513030",
+  "date": "2025-01-23",
+  "verified": true,
+  "status": "VERIFIED_FULL_DAY_SUSPENSION",
+  "source_file": "sources-repair/001-513030-20250123-sse-official-halt.raw",
+  "source_sha256": "be01b505d9c05cf5c7bc58a231849379321d519d154f789b2ad3c5ae5bd81c28",
+  "source_url": "https://www.sse.com.cn/disclosure/fund/announcement/c/new/2025-01-23/513030_20250123_HU9P.pdf",
+  "announcement_date": "2025-01-23",
+  "published_at": null,
+  "source_time_precision": "date",
+  "effective_period": "EXCHANGE_OPEN_THROUGH_CLOSE",
+  "conservative_rule_available_at": "2025-01-23T23:59:59+08:00",
+  "availability_basis": "INFERRED_DATE_END_EXISTING_CONSUMER_RULE_NOT_OBSERVED_PUBLICATION_TIME",
+  "ex_ante_tradability_known_at_open": "NOT_ATTESTED",
+  "historical_tradability_fact_role": "EX_POST_COMPLETENESS_AUDIT",
+  "signal_observation_policy": "INCLUDE_KNOWN_REPORTED_DAILY_BAR",
+  "source_quote": "2025年1月23日开市起停牌至收市"
+}

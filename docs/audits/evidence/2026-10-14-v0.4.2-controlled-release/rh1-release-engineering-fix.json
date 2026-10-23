@@ -1,0 +1,6 @@
+{
+  "script": "C:\\Users\\Administrator\\.codex\\worktrees\\v042-controlled-release\\chstockdata\\scripts\\check_rh1_static.py",
+  "before_sha256": "997095bd3ac678d951c1c6cda887e9f60d59d5e3888f83c1291deff830efdcf2",
+  "after_sha256": "7b6b454cd303a6b694dd4ab6985a33b756c4692b25b6b12cfe89c18a787abba9",
+  "change": "ignore only CR at EOL when mapping added lines; full Ruff and actual content additions unchanged"
+}

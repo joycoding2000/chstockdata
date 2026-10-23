@@ -1,0 +1,13 @@
+{
+  "status": "PASS",
+  "scope": "approved three files vs readonly prior candidate",
+  "core_autocrlf": false,
+  "core_whitespace": "trailing-space,space-before-tab,cr-at-eol; CRLF is legitimate newline",
+  "records": [
+    "candidate-three-files-0-diff-check",
+    "candidate-crlf-1-diff-check",
+    "candidate-crlf-2-diff-check"
+  ],
+  "no_index_exit_1_means_files_differ": "expected; zero whitespace diagnostics asserted",
+  "prior_attempts": "platform CRLF/applicability attempts retained; no source modified"
+}

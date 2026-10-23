@@ -1,0 +1,25 @@
+{
+  "head": "0dc85e3e43588c5781771486a3c6f80c4be7714f",
+  "protected_files_and_configs_unchanged": {
+    "D:\\Dev\\Projects\\chstockdata\\README.md": true,
+    "D:\\Dev\\Projects\\chstockdata\\src\\chstockdata\\__init__.py": true,
+    "D:\\Dev\\Projects\\chstockdata\\src\\chstockdata\\a_stock.py": true,
+    "D:\\Dev\\Projects\\chstockdata\\src\\chstockdata\\daily_fund_flow.py": true,
+    "D:\\Dev\\Projects\\chstockdata\\src\\chstockdata\\fetch_result.py": true,
+    "D:\\Dev\\Projects\\chstockdata\\tests\\test_daily_fund_flow.py": true,
+    "D:\\Dev\\Projects\\chstockdata\\scripts\\check_rh1_static.py": true,
+    "D:\\Dev\\Projects\\chstockdata\\pyproject.toml": true,
+    "D:\\Dev\\Projects\\chstockdata\\docs\\dr04-p-daily-fund-flow.md": true,
+    "D:\\Dev\\Projects\\chstockdata\\.git\\config": true,
+    "C:\\Users\\Administrator\\.gitconfig": true,
+    "C:\\Program Files\\Git\\etc\\gitconfig": true
+  },
+  "original_assertions_ast_unchanged": true,
+  "focused_exit_code": 1,
+  "focused_results": "2 setup errors: basetemp parent absent in evidence harness",
+  "assertions_reached": false,
+  "P01_P12": "NOT_RUN_THIS_STEP",
+  "regression": "NOT_RUN_THIS_STEP",
+  "verdict": "BLOCKED_VALIDATION_SETUP",
+  "owner_acceptance_ready": false
+}

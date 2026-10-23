@@ -1,0 +1,12 @@
+F                                                                        [100%]
+================================== FAILURES ===================================
+_______ test_actual_candidate_client_is_explicit_and_pin_remains_legacy _______
+
+    def test_actual_candidate_client_is_explicit_and_pin_remains_legacy():
+>       import chstockdata
+E       ModuleNotFoundError: import of chstockdata halted; None in sys.modules
+
+tests\qualification\test_live_r21_contract.py:27: ModuleNotFoundError
+=========================== short test summary info ===========================
+FAILED tests/qualification/test_live_r21_contract.py::test_actual_candidate_client_is_explicit_and_pin_remains_legacy
+1 failed in 0.21s

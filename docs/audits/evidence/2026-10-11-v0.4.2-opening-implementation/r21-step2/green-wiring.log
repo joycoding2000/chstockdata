@@ -1,0 +1,54 @@
+.F............F..                                                        [100%]
+================================== FAILURES ===================================
+_________________ test_execution_fact_only_changes_t_plus_one _________________
+
+make_engine = <function make_engine.<locals>.build at 0x000001AF697C0E00>
+bar_factory = <function bar_factory.<locals>.build at 0x000001AF697C0F40>
+target_contribution = <function target_contribution.<locals>.build at 0x000001AF697C1080>
+predetermined_targets = <class 'conftest.PredeterminedTargetSource'>
+
+    def test_execution_fact_only_changes_t_plus_one(make_engine,bar_factory,target_contribution,predetermined_targets):
+        inputs=(make_engine,bar_factory,target_contribution,predetermined_targets)
+        original=payload()
+        changed=copy.deepcopy(original);changed["opening_status"]="UNKNOWN";changed["reason"]="unknown_activity"
+        a,sa=run((mapped(original),),(gap(),),*inputs)
+        b,sb=run((mapped(seal(changed)),),(gap(),),*inputs)
+        assert a.session(S0).plans==b.session(S0).plans
+        assert a.session(S0).target==b.session(S0).target
+>       assert sa.contexts==sb.contexts
+E       AssertionError: assert [DecisionCont...e_actions=())] == [DecisionCont...e_actions=())]
+E         
+E         At index 1 diff: DecisionContext(session_date=datetime.date(2026, 9, 11), decision_for_trade_date=datetime.date(2026, 9, 14), information_cutoff=datetime.datetime(2026, 9, 11, 15, 30, tzinfo=datetime.timezone(datetime.timedelta(seconds=28800), 'Asia/Shanghai')), cash=Money(amount=Decimal('89985.000'), currency='CNY'), valuation_equity=Money(amount=Decimal('99985.000'), currency='CNY'), positions=(Position(instrument_id=InstrumentId(exchange=<Exchange.XSHG: 'XSHG'>, symbol='510300'), lots=(AcquisitionLot(quantity=2500, acquired_session=datetime.date(2026, 9, 11), sellabl...
+E         
+E         ...Full output truncated (2 lines hidden), use '-vv' to show
+
+tests\component\test_historical_opening_execution.py:78: AssertionError
+_________ test_basic_explicit_clock_engine_path_and_manifest_identity _________
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x000001AF684B1D30>
+
+    def test_basic_explicit_clock_engine_path_and_manifest_identity(monkeypatch):
+        dataset=replace(_dataset(_basic_sessions()),historical_opening_evidence=(fact(),))
+        receipt=replace(_receipt(dataset),dataset_digest=dataset.content_digest(),execution_policy=OPENING_POLICY,execution_clock=OPENING_CLOCK_ID,execution_evidence_digest=opening_evidence_digest(dataset.historical_opening_evidence))
+        monkeypatch.setattr(runner,"resolve_code_commit",lambda:"84fd54fae0740bc06b1d250afa4578be29556956")
+        legacy=runner.build_basic_wiring(dataset,_basic_intent(),receipt,master=default_m0_master())
+        new=runner.build_basic_wiring(dataset,_basic_intent(),receipt,master=default_m0_master(),execution_eligibility_mode=MODE)
+        assert legacy.clock.execution_at(date(2026,9,11)).hour==9
+        assert new.clock.execution_at(date(2026,9,11))==datetime(2026,9,11,1,30,tzinfo=UTC)
+        captured=[]; real=runner.DailyBarEngine
+        def observe(**kw):
+            captured.append(kw)
+            return real(**kw)
+        monkeypatch.setattr(runner,"DailyBarEngine",observe)
+        a=_run_variant(legacy,_basic_intent());b=_run_variant(new,_basic_intent())
+        assert captured[-1]["execution_eligibility_mode"] is MODE
+        assert captured[-1]["historical_opening_evidence"]==dataset.historical_opening_evidence
+>       assert a.manifest.kernel_identity_digest!=b.manifest.kernel_identity_digest
+               ^^^^^^^^^^
+E       AttributeError: 'BasicRunOutcome' object has no attribute 'manifest'
+
+tests\research\test_historical_opening_wiring.py:39: AttributeError
+=========================== short test summary info ===========================
+FAILED tests/component/test_historical_opening_execution.py::test_execution_fact_only_changes_t_plus_one
+FAILED tests/research/test_historical_opening_wiring.py::test_basic_explicit_clock_engine_path_and_manifest_identity
+2 failed, 15 passed in 1.62s

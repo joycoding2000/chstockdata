@@ -1,0 +1,402 @@
+{
+  "generated_at": "2026-10-23",
+  "task": "DR03 approved time-semantics amendment and CAPCO controlled archive",
+  "scope": "Original S0A/S1 and STOP evidence preserved; approved DR03 contract sync and controlled branch backup only",
+  "baseline": {
+    "head": "a2072d0c722d7f7935309a15cef945bc8ecbef08",
+    "origin_main": "5584f5fcacccef9a9531a7a32b8463ea6771d312",
+    "live_remote_main": "5584f5fcacccef9a9531a7a32b8463ea6771d312",
+    "remote_check_date": "2026-10-23 Asia/Shanghai",
+    "branch": "main",
+    "tracked_worktree": "CLEAN",
+    "staged_diff": "EMPTY",
+    "source_network_requests_this_round": 0,
+    "git_network_scope": "fetch both repositories; ordinary authorized pushes with independent ls-remote verification; no source requests",
+    "fetched_origin_main": "5584f5fcacccef9a9531a7a32b8463ea6771d312",
+    "archive_parent": "5584f5fcacccef9a9531a7a32b8463ea6771d312",
+    "archive_branch": "codex/dr03-capco-archive-2026-10-23"
+  },
+  "archive_files": [
+    {
+      "path": "docs/audits/2026-10-23-dr03-s0a-capco-historical-source-review.md",
+      "bytes": 14585,
+      "sha256": "1a01f961198f9130b9ec330e1a1e0a0e782444896976096143406ae4a1ba6cf4",
+      "role": "report/s0a"
+    },
+    {
+      "path": "docs/audits/2026-10-23-dr03-s1-capco-historical-membership-qualification.md",
+      "bytes": 27917,
+      "sha256": "26d0eeb267d2860c4a17c0691c829d7fe36eeed934ed1f8097a6b06ef28e5b2d",
+      "role": "report/s1"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-23-dr03-s0a-capco/capco-app-path-fallback.html",
+      "bytes": 2371,
+      "sha256": "0d21e9c9d7553350c41b06a9770bed8e475c6f72eff784791651b71fb88992e0",
+      "role": "evidence/s0a",
+      "s0a_manifest_covered": true
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-23-dr03-s0a-capco/capco-article-2025H1.js",
+      "bytes": 1857,
+      "sha256": "b408b41fd2c932c74e9704211ad82117458035483c933f722fca3ba85d0e1b8b",
+      "role": "evidence/s0a",
+      "s0a_manifest_covered": true
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-23-dr03-s0a-capco/capco-article-2025H2.js",
+      "bytes": 1301,
+      "sha256": "800821d377c1b29705aa371b20e9d8a2f84a9dda14442023d9f0d32f9a07cd65",
+      "role": "evidence/s0a",
+      "s0a_manifest_covered": true
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-23-dr03-s0a-capco/capco-article-2026H1.js",
+      "bytes": 1279,
+      "sha256": "e2e4ac866954985d1bbd2c501b16f288f0542b62b1963053cff41215443ef92a",
+      "role": "evidence/s0a",
+      "s0a_manifest_covered": true
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-23-dr03-s0a-capco/capco-article-detail-js.js",
+      "bytes": 5525,
+      "sha256": "1d56a203f9f920917688fc1b8af0b6f80e8ccfcc034dbdab9d173a0d90994e22",
+      "role": "evidence/s0a",
+      "s0a_manifest_covered": true
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-23-dr03-s0a-capco/capco-article-list-js.js",
+      "bytes": 7585,
+      "sha256": "ac86f330bb847ded5b7865f1453fd3529b78d191b983e225d7499b758894f49d",
+      "role": "evidence/s0a",
+      "s0a_manifest_covered": true
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-23-dr03-s0a-capco/capco-bse-code-map.json",
+      "bytes": 41403,
+      "sha256": "022e8026b4a7fe6478afb9a0c1aa3508d234133e74346caf5ab9956ce2526746",
+      "role": "evidence/s0a",
+      "s0a_manifest_covered": true
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-23-dr03-s0a-capco/capco-code-sets.json",
+      "bytes": 279058,
+      "sha256": "d5a5e40277ba71656a9aa51e643ee197b46db2068d0a2d50de51f825a1226a44",
+      "role": "evidence/s0a",
+      "s0a_manifest_covered": true
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-23-dr03-s0a-capco/capco-page.html",
+      "bytes": 2371,
+      "sha256": "0d21e9c9d7553350c41b06a9770bed8e475c6f72eff784791651b71fb88992e0",
+      "role": "evidence/s0a",
+      "s0a_manifest_covered": true
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-23-dr03-s0a-capco/capco-pdf-2025H2-by-code-classification.json",
+      "bytes": 648579,
+      "sha256": "782b29615d5a00d8118529f88400d1813c7d42588fafcc63ac36062d451e3df2",
+      "role": "evidence/s0a",
+      "s0a_manifest_covered": true
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-23-dr03-s0a-capco/capco-pdf-2025H2-by-code-industry.json",
+      "bytes": 395274,
+      "sha256": "d14cd023dd9c0f8234f12c9bc0c69572452e60e8175150eb3fe05d8e7435fae4",
+      "role": "evidence/s0a",
+      "s0a_manifest_covered": true
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-23-dr03-s0a-capco/capco-pdf-2025H2-by-code.pdf",
+      "bytes": 772144,
+      "sha256": "b1d0140572b20de11cd62ca478edb4da6e229928b216116df6345b3c2e461f58",
+      "role": "evidence/s0a",
+      "s0a_manifest_covered": true
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-23-dr03-s0a-capco/capco-pdf-2025H2-by-code.txt",
+      "bytes": 518791,
+      "sha256": "a9373b85b3001e4d0330cb2bfbb8c914305495bd135aeb8bd3b618ec9d1dbae2",
+      "role": "evidence/s0a",
+      "s0a_manifest_covered": true
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-23-dr03-s0a-capco/capco-pdf-2026H1-by-code-classification.json",
+      "bytes": 655089,
+      "sha256": "4cc5418f601035939d69a7324b31e63cb584e64021517846e71fed943b6e99cb",
+      "role": "evidence/s0a",
+      "s0a_manifest_covered": true
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-23-dr03-s0a-capco/capco-pdf-2026H1-by-code-industry.json",
+      "bytes": 399042,
+      "sha256": "0f21e80a487fd8c88080ff2d9f34d4e46eacbd56b07b332d9e3faa7b0d158a80",
+      "role": "evidence/s0a",
+      "s0a_manifest_covered": true
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-23-dr03-s0a-capco/capco-pdf-2026H1-by-code.pdf",
+      "bytes": 782339,
+      "sha256": "1f1862ae2199a82a3a35c62f16a7d576120bca97f3de608989c8897df9b6c8a6",
+      "role": "evidence/s0a",
+      "s0a_manifest_covered": true
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-23-dr03-s0a-capco/capco-pdf-2026H1-by-code.txt",
+      "bytes": 526407,
+      "sha256": "d6b97f80672cfcaabef71ca7612409a08827268a35b17275c30dc5574bc649df",
+      "role": "evidence/s0a",
+      "s0a_manifest_covered": true
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-23-dr03-s0a-capco/capco-pdf-bse-code-map.pdf",
+      "bytes": 190213,
+      "sha256": "f85a6691a74a8c7e4d2bb838277161b9d0496f52cc66ddde4ba0211153401c3d",
+      "role": "evidence/s0a",
+      "s0a_manifest_covered": true
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-23-dr03-s0a-capco/capco-pdf-bse-code-map.txt",
+      "bytes": 10708,
+      "sha256": "dd6b19d786111268594c1bb2395266c559ab0ea5933d169c02ab50af97daf5a4",
+      "role": "evidence/s0a",
+      "s0a_manifest_covered": true
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-23-dr03-s0a-capco/capco-pdf-by-code-classification.json",
+      "bytes": 642868,
+      "sha256": "a25583a70a6e01011cf9fab51d239c1fd76123adc27ef591e56600a0fac07660",
+      "role": "evidence/s0a",
+      "s0a_manifest_covered": true
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-23-dr03-s0a-capco/capco-pdf-by-code-industry.json",
+      "bytes": 391911,
+      "sha256": "ea5d10dfac09c61f3f53f54e8f3799f9aa7c2c3fa9968e55eedcb22fa9fa7775",
+      "role": "evidence/s0a",
+      "s0a_manifest_covered": true
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-23-dr03-s0a-capco/capco-pdf-by-code.pdf",
+      "bytes": 4626417,
+      "sha256": "b622b76b96d59611db36b01888cf6afd8cd711c5753a19ab8547e74bb0bb8228",
+      "role": "evidence/s0a",
+      "s0a_manifest_covered": true
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-23-dr03-s0a-capco/capco-pdf-by-code.txt",
+      "bytes": 516520,
+      "sha256": "4396c980188c22e72074d22e00e1ce31c7e87c5095cc9a7557785aa4043509df",
+      "role": "evidence/s0a",
+      "s0a_manifest_covered": true
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-23-dr03-s0a-capco/capco-pdf-by-industry.pdf",
+      "bytes": 1935787,
+      "sha256": "caa7d96b05ff9ec2165aa3b4cb69edd69c8b1a1a0f99198c4cfcf85727f1d7bc",
+      "role": "evidence/s0a",
+      "s0a_manifest_covered": true
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-23-dr03-s0a-capco/capco-pdf-by-industry.txt",
+      "bytes": 138064,
+      "sha256": "ede0a31b94a5b30056d3219045af87b212163f71f56897aabb0b2d163c6610c4",
+      "role": "evidence/s0a",
+      "s0a_manifest_covered": true
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-23-dr03-s0a-capco/capco-site-bundle.js",
+      "bytes": 1843472,
+      "sha256": "80d01e801cce51f91f14f8d8ab53e0ffa3a3140f4de639f535704a150d67d83d",
+      "role": "evidence/s0a",
+      "s0a_manifest_covered": true
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-23-dr03-s0a-capco/capco-taxonomy-guide.js",
+      "bytes": 1948,
+      "sha256": "b7ad99d947fad5b71b3464d55d19530012bd91ad5465574d82846ee519b4f584",
+      "role": "evidence/s0a",
+      "s0a_manifest_covered": true
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-23-dr03-s0a-capco/manifest.json",
+      "bytes": 5255,
+      "sha256": "3b35b3076030b8d653533b1683042a7064320a15c6af7309041b00066d18bbb9",
+      "role": "control/s0a-manifest",
+      "s0a_manifest_covered": false
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-23-dr03-s0a-capco/pdf-code-counts.json",
+      "bytes": 367,
+      "sha256": "079d28a12a60756c4f35891984f86fa13a9bfc38ca0b1e8fa1661472a8876eb9",
+      "role": "evidence/s0a",
+      "s0a_manifest_covered": true
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-23-dr03-s0a-capco/requests.json",
+      "bytes": 24921,
+      "sha256": "06f1cd2f9a796f0416bf715aae26d09643502968f9c725ea577a7ac77c7cf585",
+      "role": "evidence/s0a",
+      "s0a_manifest_covered": true
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-23-dr03-s0a-capco/summary.json",
+      "bytes": 5161,
+      "sha256": "6b471801489a9733af85806cb0b07133babee9dafa6c838bf80a467dbb491d40",
+      "role": "evidence/s0a",
+      "s0a_manifest_covered": true
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-23-dr03-s0a-capco/universe-difference.json",
+      "bytes": 2951,
+      "sha256": "8a29892ff97bb579954d66da219fd3c3a9d5c8664cf01a3749ce4b4ae7fdac54",
+      "role": "evidence/s0a",
+      "s0a_manifest_covered": true
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-23-dr03-s0a-capco/verification.txt",
+      "bytes": 1645,
+      "sha256": "75bf3a7b7a05e2ba754e46cb30f1254932854e07ed1c76a367bdee89d19d436a",
+      "role": "control/s0a-verification",
+      "s0a_manifest_covered": false
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-23-dr03-s1-capco/verification.json",
+      "bytes": 26097,
+      "sha256": "a76237fed8de491e0ad1d4985d0d2ab44d497327205da4cc246f10ab68063219",
+      "role": "evidence/s1"
+    },
+    {
+      "path": "docs/audits/2026-10-23-dr03-s1-closeout.md",
+      "bytes": 12749,
+      "sha256": "aef626c65ad216fe7404a973bd8d51139ceaa26b23a1a501dde0ead97afe037c",
+      "role": "closeout"
+    },
+    {
+      "path": "docs/audits/2026-10-23-dr03-consumer-contract-clarification.md",
+      "role": "contract-clarification",
+      "bytes": 11340,
+      "sha256": "7d0134fd48933ac392d67d7258927e3dbc37ff1efbb0a307b8848c15e5ff94ea"
+    },
+    {
+      "path": "docs/audits/2026-10-23-dr03-owner-decision-addendum.md",
+      "role": "owner-decision-addendum",
+      "bytes": 11327,
+      "sha256": "aa722f1fde5f8fe16eb9108f58d78fcd4eee77aa9dfc5d26c20ebb55d8bd1862"
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-23-dr03-owner-semantics-closeout/verification.json",
+      "role": "control/owner-semantics-verification",
+      "bytes": 35115,
+      "sha256": "951969db9837035695a8bbf23e5f8c93ac7607be5232a26b8715cb357e9e9efa"
+    },
+    {
+      "path": "docs/MISHI_RADAR_TO_CHSTOCKDATA_DR01_DR06_CONSUMER_REQUEST_2026-10-16.md",
+      "bytes": 8103,
+      "sha256": "4233a353f295e1feb3c3f7c38b6504fa76c62b34b9db093b84deac501da37a0a",
+      "role": "consumer-contract-synced-copy"
+    },
+    {
+      "path": "docs/MISHI_RADAR_V0_1_SPEC_R3_2_SCOPE_APPROVED_DATA_PENDING_2026-10-16.md",
+      "bytes": 20554,
+      "sha256": "b4b3965e7e52eeb7550d3bdba6f8ce2cc0780ab86adcd72c6ef81a13000fe7a1",
+      "role": "consumer-contract-synced-copy"
+    }
+  ],
+  "count": 42,
+  "total_bytes": 15546410,
+  "storage": {
+    "git_lfs_required": false,
+    "max_single_file_bytes": 4626417,
+    "reason": "Existing archive remains about 15.5 MB plus documentation controls; largest file remains 4,626,417 bytes; no LFS change."
+  },
+  "excluded": {
+    "unrelated_untracked_entries_preserved": 92,
+    "consumer_contract_files": "Two directly synchronized copies included; four-file Mishi commit and fingerprints in final_closeout. Other consumer documents excluded.",
+    "dr01_external_raw": "D:/Dev/Projects/mishi-radar/outputs/dr01-current-2026-10-18/evidence/reused/",
+    "dr03_referenced_raw": "docs/audits/evidence/2026-10-22-s07-free-supply-decisive-screen/",
+    "note": "Six raw dependencies retain prior verified hashes and remain excluded. Original 94 untracked entries all retained; only two directly authorized consumer copies changed, other 92 untouched.",
+    "original_94_entries_all_retained": true
+  },
+  "self": {
+    "path": "docs/audits/2026-10-23-dr03-s1-archive-manifest.json",
+    "included_in_own_file_list": false,
+    "included_in_archive_whitelist": true,
+    "note": "Self SHA-256 is deliberately excluded to avoid a hash cycle; recorded in the final handoff."
+  },
+  "hashed_file_count": 42,
+  "archive_file_count": 43,
+  "archive_whitelist": [
+    "docs/MISHI_RADAR_TO_CHSTOCKDATA_DR01_DR06_CONSUMER_REQUEST_2026-10-16.md",
+    "docs/MISHI_RADAR_V0_1_SPEC_R3_2_SCOPE_APPROVED_DATA_PENDING_2026-10-16.md",
+    "docs/audits/2026-10-23-dr03-consumer-contract-clarification.md",
+    "docs/audits/2026-10-23-dr03-owner-decision-addendum.md",
+    "docs/audits/2026-10-23-dr03-s0a-capco-historical-source-review.md",
+    "docs/audits/2026-10-23-dr03-s1-archive-manifest.json",
+    "docs/audits/2026-10-23-dr03-s1-capco-historical-membership-qualification.md",
+    "docs/audits/2026-10-23-dr03-s1-closeout.md",
+    "docs/audits/evidence/2026-10-23-dr03-owner-semantics-closeout/verification.json",
+    "docs/audits/evidence/2026-10-23-dr03-s0a-capco/capco-app-path-fallback.html",
+    "docs/audits/evidence/2026-10-23-dr03-s0a-capco/capco-article-2025H1.js",
+    "docs/audits/evidence/2026-10-23-dr03-s0a-capco/capco-article-2025H2.js",
+    "docs/audits/evidence/2026-10-23-dr03-s0a-capco/capco-article-2026H1.js",
+    "docs/audits/evidence/2026-10-23-dr03-s0a-capco/capco-article-detail-js.js",
+    "docs/audits/evidence/2026-10-23-dr03-s0a-capco/capco-article-list-js.js",
+    "docs/audits/evidence/2026-10-23-dr03-s0a-capco/capco-bse-code-map.json",
+    "docs/audits/evidence/2026-10-23-dr03-s0a-capco/capco-code-sets.json",
+    "docs/audits/evidence/2026-10-23-dr03-s0a-capco/capco-page.html",
+    "docs/audits/evidence/2026-10-23-dr03-s0a-capco/capco-pdf-2025H2-by-code-classification.json",
+    "docs/audits/evidence/2026-10-23-dr03-s0a-capco/capco-pdf-2025H2-by-code-industry.json",
+    "docs/audits/evidence/2026-10-23-dr03-s0a-capco/capco-pdf-2025H2-by-code.pdf",
+    "docs/audits/evidence/2026-10-23-dr03-s0a-capco/capco-pdf-2025H2-by-code.txt",
+    "docs/audits/evidence/2026-10-23-dr03-s0a-capco/capco-pdf-2026H1-by-code-classification.json",
+    "docs/audits/evidence/2026-10-23-dr03-s0a-capco/capco-pdf-2026H1-by-code-industry.json",
+    "docs/audits/evidence/2026-10-23-dr03-s0a-capco/capco-pdf-2026H1-by-code.pdf",
+    "docs/audits/evidence/2026-10-23-dr03-s0a-capco/capco-pdf-2026H1-by-code.txt",
+    "docs/audits/evidence/2026-10-23-dr03-s0a-capco/capco-pdf-bse-code-map.pdf",
+    "docs/audits/evidence/2026-10-23-dr03-s0a-capco/capco-pdf-bse-code-map.txt",
+    "docs/audits/evidence/2026-10-23-dr03-s0a-capco/capco-pdf-by-code-classification.json",
+    "docs/audits/evidence/2026-10-23-dr03-s0a-capco/capco-pdf-by-code-industry.json",
+    "docs/audits/evidence/2026-10-23-dr03-s0a-capco/capco-pdf-by-code.pdf",
+    "docs/audits/evidence/2026-10-23-dr03-s0a-capco/capco-pdf-by-code.txt",
+    "docs/audits/evidence/2026-10-23-dr03-s0a-capco/capco-pdf-by-industry.pdf",
+    "docs/audits/evidence/2026-10-23-dr03-s0a-capco/capco-pdf-by-industry.txt",
+    "docs/audits/evidence/2026-10-23-dr03-s0a-capco/capco-site-bundle.js",
+    "docs/audits/evidence/2026-10-23-dr03-s0a-capco/capco-taxonomy-guide.js",
+    "docs/audits/evidence/2026-10-23-dr03-s0a-capco/manifest.json",
+    "docs/audits/evidence/2026-10-23-dr03-s0a-capco/pdf-code-counts.json",
+    "docs/audits/evidence/2026-10-23-dr03-s0a-capco/requests.json",
+    "docs/audits/evidence/2026-10-23-dr03-s0a-capco/summary.json",
+    "docs/audits/evidence/2026-10-23-dr03-s0a-capco/universe-difference.json",
+    "docs/audits/evidence/2026-10-23-dr03-s0a-capco/verification.txt",
+    "docs/audits/evidence/2026-10-23-dr03-s1-capco/verification.json"
+  ],
+  "total_bytes_scope": "42 listed files, excludes manifest itself",
+  "decision": {
+    "current_decision": "CHANGE_REQUEST",
+    "owner_semantic_direction": "APPROVED",
+    "consumer_contract_clarification": "APPROVED_DOCUMENTED__MISHI_SYNCED",
+    "capco_old_stop_record": "PRESERVED",
+    "capco_requalification": "NOT_STARTED",
+    "dr03_current_gate": "NOT_PASSED",
+    "dr03_historical_gate": "NOT_PASSED",
+    "implementation_authorized": false,
+    "git_commit": "AUTHORIZED_EXACT_WHITELIST__FINAL_SHA_IN_HANDOFF",
+    "git_push": "AUTHORIZED_ARCHIVE_BRANCH_ONLY__NO_H01_OR_CH_MAIN_LANDING",
+    "scope_deviation": "NONE",
+    "capco_source_status": "OFFICIAL_SOURCE_AVAILABLE__REQUALIFICATION_PENDING",
+    "source_qualification": "PARTIAL"
+  },
+  "integrity": {
+    "original_archive_files_preserved": 37,
+    "s0a_manifest_files_verified": 31,
+    "consumer_input_fingerprints_unchanged": 8,
+    "referenced_raw_inputs_verified": 6,
+    "hash_and_size_mismatches": 0,
+    "qualification_not_rerun": true,
+    "default_git_add_would_normalize_original_files": 21,
+    "required_future_staging_mode": "git -c core.autocrlf=false add -- <archive_whitelist literal paths>",
+    "no_staging_performed": true,
+    "hash_recalculation_scope": "Only 5 changed/added payload identities; original 37 rows reused unchanged; newly staged Git blobs verified against final manifest."
+  }
+}

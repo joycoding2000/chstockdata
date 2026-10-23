@@ -1,0 +1,106 @@
+
+ 
+
+	
+	
+	
+
+
+<script>
+  <!--
+    
+	
+    
+    
+    
+    
+    
+        
+    
+    
+    
+       
+    
+
+   var totalCount="83";
+   var pageSize="11";
+   var pageNo="1";
+   var pageCount="8";
+   var startPage="1";
+   var endPage="8";
+   var columnId = "630";
+   var fundCode="513030";
+   -->   
+  </script>
+<ul>
+	
+	<li><span class="fl"><a href="/upload2010/2026/08/31/002315190_9856123d-a822-374c-9195-97cb2e3c30ff.pdf" target="_blank">华安德国（DAX）ETF2026年中期报告</a></span><span class="fr">2026-08-31</span></li>
+	
+	<li><span class="fl"><a href="/upload2010/2026/07/21/010211121_d2284660-08e4-3f2b-894c-d08d2cd196a2.pdf" target="_blank">华安德国（DAX）ETF2026年第2季度报告</a></span><span class="fr">2026-07-21</span></li>
+	
+	<li><span class="fl"><a href="/upload2010/2026/04/22/005852293_aff67345-62e8-31c8-8809-4082b6b46da2.pdf" target="_blank">华安德国（DAX）ETF2026年第1季度报告</a></span><span class="fr">2026-04-22</span></li>
+	
+	<li><span class="fl"><a href="/upload2010/2026/03/31/012354735_2a75fbf4-be72-3e8b-8234-d49e2bfaf126.pdf" target="_blank">华安德国（DAX）ETF2025年年度报告</a></span><span class="fr">2026-03-31</span></li>
+	
+	<li><span class="fl"><a href="/upload2010/2026/01/22/002141650_6c28ab77-bc8b-354c-b10e-56608ee87bb4.pdf" target="_blank">华安德国（DAX）ETF2025年第4季度报告</a></span><span class="fr">2026-01-22</span></li>
+	
+	<li><span class="fl"><a href="/upload2010/2025/10/28/001454458_e846cf40-860f-30e8-a167-baac48ae1122.pdf" target="_blank">华安国际龙头（DAX）ETF2025年第3季度报告</a></span><span class="fr">2025-10-28</span></li>
+	
+	<li><span class="fl"><a href="/upload2010/2025/08/29/163824747_e8215db5-b0ae-3090-bee0-2df1a2084cc0.pdf" target="_blank">华安德国（DAX）ETF2025年中期报告</a></span><span class="fr">2025-08-30</span></li>
+	
+	<li><span class="fl"><a href="/upload2010/2025/07/21/011238330_f17784ed-ffd5-3fdf-aa3d-b39bf818de88.pdf" target="_blank">华安国际龙头（DAX）ETF2025年第2季度报告</a></span><span class="fr">2025-07-21</span></li>
+	
+	<li><span class="fl"><a href="/upload2010/2025/04/21/065616659_f3918faf-f6e4-3563-85fe-280dc478f557.pdf" target="_blank">华安德国（DAX）ETF2025年第1季度报告</a></span><span class="fr">2025-04-22</span></li>
+	
+	<li><span class="fl"><a href="/upload2010/2025/03/31/012758981_ca1bef5e-4a57-358c-ba60-b8ee22a773b7.pdf" target="_blank">华安德国（DAX）ETF2024年年度报告</a></span><span class="fr">2025-03-31</span></li>
+	
+	<li><span class="fl"><a href="/upload2010/2025/01/22/003649050_5fdf63f0-bb99-3a04-b3e7-c4e008d999d2.pdf" target="_blank">华安德国（DAX）ETF2024年第4季度报告</a></span><span class="fr">2025-01-22</span></li>
+	
+</ul>
+<p class="pages">
+	
+    <a href="javascript:void(0)" onclick="pageGoByPos(1)">&lt;</a>
+    
+	
+	   <span class="a_curr">1</span>
+	
+	
+	
+	
+	
+	   <a href="javascript:void(0)"  onclick="pageGoByPos(2)">2</a>
+	
+	
+	
+	
+	   <a href="javascript:void(0)"  onclick="pageGoByPos(3)">3</a>
+	
+	
+	
+	
+	   <a href="javascript:void(0)"  onclick="pageGoByPos(4)">4</a>
+	
+	
+	
+	
+	   <a href="javascript:void(0)"  onclick="pageGoByPos(5)">5</a>
+	
+	
+	
+	
+	   <a href="javascript:void(0)"  onclick="pageGoByPos(6)">6</a>
+	
+	
+	
+	
+	   <a href="javascript:void(0)"  onclick="pageGoByPos(7)">7</a>
+	
+	
+	
+	
+	   <a href="javascript:void(0)"  onclick="pageGoByPos(8)">8</a>
+	
+	
+	<a href="javascript:void(0)" onclick="pageGoByPos(2)">&gt;</a>
+	<input name="pagePosInput" id="pagePosInput" type="text" class="input"><input type="button" value="前往" class="btn" onclick="pageAjaxGO('pagePosInput',pageCount)">
+</p>

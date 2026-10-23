@@ -1,0 +1,53 @@
+{
+  "sios_source_sha256": "cf848bff60618c1a9a8f48e433420b6db557627fec7d00c05707891357a02d08",
+  "sios_runtime_sha256": "12c7c6a289958a824920cb2e2122d533910ad8c6eec8e2ec63bbf11d28057d17",
+  "chstockdata_wheel_unchanged": true,
+  "chstockdata_source_files_unchanged": 765,
+  "old_sios_files_unchanged": 256,
+  "r1_delivery_zip_unchanged": true,
+  "junit": {
+    "red": {
+      "tests": 16,
+      "pass": 13,
+      "failure": 3,
+      "error": 0,
+      "skipped": 0
+    },
+    "red-final": {
+      "tests": 26,
+      "pass": 19,
+      "failure": 7,
+      "error": 0,
+      "skipped": 0
+    },
+    "green-26": {
+      "tests": 26,
+      "pass": 26,
+      "failure": 0,
+      "error": 0,
+      "skipped": 0
+    },
+    "sios-offline-final": {
+      "tests": 1004,
+      "pass": 999,
+      "failure": 0,
+      "error": 0,
+      "skipped": 5
+    },
+    "sios-provider": {
+      "tests": 73,
+      "pass": 73,
+      "failure": 0,
+      "error": 0,
+      "skipped": 0
+    },
+    "sios-golden-etf": {
+      "tests": 170,
+      "pass": 165,
+      "failure": 0,
+      "error": 0,
+      "skipped": 5
+    }
+  },
+  "snapshot_pit_replay_related_passed": 67
+}

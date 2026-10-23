@@ -1,0 +1,582 @@
+FFFFFFFFF...F.                                                           [100%]
+================================== FAILURES ===================================
+_______________ test_full_payload_adapter_hash_and_unknown_pit ________________
+
+    def test_full_payload_adapter_hash_and_unknown_pit():
+>       fact=mapped(payload())
+             ^^^^^^^^^^^^^^^^^
+
+tests\component\test_historical_opening_execution.py:63: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\component\test_historical_opening_execution.py:41: in mapped
+    result=FetchResult(data=data,metadata=FetchMetadata(capability="historical_opening_evidence",final_provider="recorded-step1",retrieved_at=data["retrieved_at"],outcome_status="success"))
+                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+<string>:14: in __init__
+    ???
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = FetchMetadata(capability='historical_opening_evidence', final_provider='recorded-step1', retrieved_at='2026-10-11T07:4... data_as_of=None, stale=False, partial=False, limitations=[], attempts=[], providers_used=[], outcome_status='success')
+
+    def __post_init__(self) -> None:
+        if not self.capability:
+            raise ValueError("capability must not be empty")
+        if not isinstance(self.limitations, list):
+            raise ValueError(  # noqa: TRY004 - preserve the structured validation taxonomy
+                "limitations must be a list"
+            )
+        if not isinstance(self.attempts, list):
+            raise ValueError(  # noqa: TRY004 - preserve the structured validation taxonomy
+                "attempts must be a list"
+            )
+        if not isinstance(self.providers_used, list):
+            raise ValueError(  # noqa: TRY004 - preserve the structured validation taxonomy
+                "providers_used must be a list"
+            )
+        if self.outcome_status is not None and self.outcome_status not in (
+            FETCH_SUCCESS, FETCH_NORMAL_EMPTY, FETCH_FAILED_NETWORK,
+            FETCH_FAILED_RATE_LIMIT, FETCH_FAILED_STRUCTURE,
+            FETCH_NOT_CONFIGURED, FETCH_SKIPPED,
+        ):
+            raise ValueError(
+                f"invalid outcome_status: {self.outcome_status!r}"
+            )
+        # Contract: final_provider set ⟺ exactly one contributing provider.
+        if len(self.providers_used) == 1:
+            if self.final_provider is None:
+                self.final_provider = self.providers_used[0]
+            elif self.final_provider != self.providers_used[0]:
+                raise ValueError(
+                    "final_provider must match the sole entry of providers_used"
+                )
+        elif self.final_provider is not None:
+>           raise ValueError(
+                "final_provider must be None unless exactly one provider "
+                "contributed (use providers_used for mixed results)"
+            )
+E           ValueError: final_provider must be None unless exactly one provider contributed (use providers_used for mixed results)
+
+..\chstockdata\src\chstockdata\fetch_result.py:215: ValueError
+_________________ test_execution_fact_only_changes_t_plus_one _________________
+
+make_engine = <function make_engine.<locals>.build at 0x0000023EE28F3600>
+bar_factory = <function bar_factory.<locals>.build at 0x0000023EE28F3740>
+target_contribution = <function target_contribution.<locals>.build at 0x0000023EE28F3880>
+predetermined_targets = <class 'conftest.PredeterminedTargetSource'>
+
+    def test_execution_fact_only_changes_t_plus_one(make_engine,bar_factory,target_contribution,predetermined_targets):
+        inputs=(make_engine,bar_factory,target_contribution,predetermined_targets)
+        original=payload()
+        changed=copy.deepcopy(original);changed["opening_status"]="UNKNOWN";changed["reason"]="unknown_activity"
+>       a,sa=run((mapped(original),),(gap(),),*inputs)
+                  ^^^^^^^^^^^^^^^^
+
+tests\component\test_historical_opening_execution.py:74: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\component\test_historical_opening_execution.py:41: in mapped
+    result=FetchResult(data=data,metadata=FetchMetadata(capability="historical_opening_evidence",final_provider="recorded-step1",retrieved_at=data["retrieved_at"],outcome_status="success"))
+                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+<string>:14: in __init__
+    ???
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = FetchMetadata(capability='historical_opening_evidence', final_provider='recorded-step1', retrieved_at='2026-10-11T07:4... data_as_of=None, stale=False, partial=False, limitations=[], attempts=[], providers_used=[], outcome_status='success')
+
+    def __post_init__(self) -> None:
+        if not self.capability:
+            raise ValueError("capability must not be empty")
+        if not isinstance(self.limitations, list):
+            raise ValueError(  # noqa: TRY004 - preserve the structured validation taxonomy
+                "limitations must be a list"
+            )
+        if not isinstance(self.attempts, list):
+            raise ValueError(  # noqa: TRY004 - preserve the structured validation taxonomy
+                "attempts must be a list"
+            )
+        if not isinstance(self.providers_used, list):
+            raise ValueError(  # noqa: TRY004 - preserve the structured validation taxonomy
+                "providers_used must be a list"
+            )
+        if self.outcome_status is not None and self.outcome_status not in (
+            FETCH_SUCCESS, FETCH_NORMAL_EMPTY, FETCH_FAILED_NETWORK,
+            FETCH_FAILED_RATE_LIMIT, FETCH_FAILED_STRUCTURE,
+            FETCH_NOT_CONFIGURED, FETCH_SKIPPED,
+        ):
+            raise ValueError(
+                f"invalid outcome_status: {self.outcome_status!r}"
+            )
+        # Contract: final_provider set ⟺ exactly one contributing provider.
+        if len(self.providers_used) == 1:
+            if self.final_provider is None:
+                self.final_provider = self.providers_used[0]
+            elif self.final_provider != self.providers_used[0]:
+                raise ValueError(
+                    "final_provider must match the sole entry of providers_used"
+                )
+        elif self.final_provider is not None:
+>           raise ValueError(
+                "final_provider must be None unless exactly one provider "
+                "contributed (use providers_used for mixed results)"
+            )
+E           ValueError: final_provider must be None unless exactly one provider contributed (use providers_used for mixed results)
+
+..\chstockdata\src\chstockdata\fetch_result.py:215: ValueError
+_ test_positive_does_not_override_other_unknown_or_blocks[UNKNOWN-generic_missing] _
+
+status = <TradabilityStatusKind.UNKNOWN: 'UNKNOWN'>, reason = 'generic_missing'
+make_engine = <function make_engine.<locals>.build at 0x0000023EE28F3E20>
+bar_factory = <function bar_factory.<locals>.build at 0x0000023EE28F3F60>
+target_contribution = <function target_contribution.<locals>.build at 0x0000023EE26EC0E0>
+predetermined_targets = <class 'conftest.PredeterminedTargetSource'>
+
+    @pytest.mark.parametrize("status,reason",[(TradabilityStatusKind.UNKNOWN,"generic_missing"),(TradabilityStatusKind.NOT_LISTED,"not_listed"),(TradabilityStatusKind.DELISTED,"delisted"),(TradabilityStatusKind.BUY_BLOCKED_UPPER_LIMIT,"side_block"),(TradabilityStatusKind.SUSPENDED,"suspended")])
+    def test_positive_does_not_override_other_unknown_or_blocks(status,reason,make_engine,bar_factory,target_contribution,predetermined_targets):
+>       result,_=run((mapped(payload()),),(gap(status=status,reason=reason),),make_engine,bar_factory,target_contribution,predetermined_targets)
+                      ^^^^^^^^^^^^^^^^^
+
+tests\component\test_historical_opening_execution.py:86: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\component\test_historical_opening_execution.py:41: in mapped
+    result=FetchResult(data=data,metadata=FetchMetadata(capability="historical_opening_evidence",final_provider="recorded-step1",retrieved_at=data["retrieved_at"],outcome_status="success"))
+                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+<string>:14: in __init__
+    ???
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = FetchMetadata(capability='historical_opening_evidence', final_provider='recorded-step1', retrieved_at='2026-10-11T07:4... data_as_of=None, stale=False, partial=False, limitations=[], attempts=[], providers_used=[], outcome_status='success')
+
+    def __post_init__(self) -> None:
+        if not self.capability:
+            raise ValueError("capability must not be empty")
+        if not isinstance(self.limitations, list):
+            raise ValueError(  # noqa: TRY004 - preserve the structured validation taxonomy
+                "limitations must be a list"
+            )
+        if not isinstance(self.attempts, list):
+            raise ValueError(  # noqa: TRY004 - preserve the structured validation taxonomy
+                "attempts must be a list"
+            )
+        if not isinstance(self.providers_used, list):
+            raise ValueError(  # noqa: TRY004 - preserve the structured validation taxonomy
+                "providers_used must be a list"
+            )
+        if self.outcome_status is not None and self.outcome_status not in (
+            FETCH_SUCCESS, FETCH_NORMAL_EMPTY, FETCH_FAILED_NETWORK,
+            FETCH_FAILED_RATE_LIMIT, FETCH_FAILED_STRUCTURE,
+            FETCH_NOT_CONFIGURED, FETCH_SKIPPED,
+        ):
+            raise ValueError(
+                f"invalid outcome_status: {self.outcome_status!r}"
+            )
+        # Contract: final_provider set ⟺ exactly one contributing provider.
+        if len(self.providers_used) == 1:
+            if self.final_provider is None:
+                self.final_provider = self.providers_used[0]
+            elif self.final_provider != self.providers_used[0]:
+                raise ValueError(
+                    "final_provider must match the sole entry of providers_used"
+                )
+        elif self.final_provider is not None:
+>           raise ValueError(
+                "final_provider must be None unless exactly one provider "
+                "contributed (use providers_used for mixed results)"
+            )
+E           ValueError: final_provider must be None unless exactly one provider contributed (use providers_used for mixed results)
+
+..\chstockdata\src\chstockdata\fetch_result.py:215: ValueError
+_ test_positive_does_not_override_other_unknown_or_blocks[NOT_LISTED-not_listed] _
+
+status = <TradabilityStatusKind.NOT_LISTED: 'NOT_LISTED'>, reason = 'not_listed'
+make_engine = <function make_engine.<locals>.build at 0x0000023EE26EC5E0>
+bar_factory = <function bar_factory.<locals>.build at 0x0000023EE26EC720>
+target_contribution = <function target_contribution.<locals>.build at 0x0000023EE26EC860>
+predetermined_targets = <class 'conftest.PredeterminedTargetSource'>
+
+    @pytest.mark.parametrize("status,reason",[(TradabilityStatusKind.UNKNOWN,"generic_missing"),(TradabilityStatusKind.NOT_LISTED,"not_listed"),(TradabilityStatusKind.DELISTED,"delisted"),(TradabilityStatusKind.BUY_BLOCKED_UPPER_LIMIT,"side_block"),(TradabilityStatusKind.SUSPENDED,"suspended")])
+    def test_positive_does_not_override_other_unknown_or_blocks(status,reason,make_engine,bar_factory,target_contribution,predetermined_targets):
+>       result,_=run((mapped(payload()),),(gap(status=status,reason=reason),),make_engine,bar_factory,target_contribution,predetermined_targets)
+                      ^^^^^^^^^^^^^^^^^
+
+tests\component\test_historical_opening_execution.py:86: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\component\test_historical_opening_execution.py:41: in mapped
+    result=FetchResult(data=data,metadata=FetchMetadata(capability="historical_opening_evidence",final_provider="recorded-step1",retrieved_at=data["retrieved_at"],outcome_status="success"))
+                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+<string>:14: in __init__
+    ???
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = FetchMetadata(capability='historical_opening_evidence', final_provider='recorded-step1', retrieved_at='2026-10-11T07:4... data_as_of=None, stale=False, partial=False, limitations=[], attempts=[], providers_used=[], outcome_status='success')
+
+    def __post_init__(self) -> None:
+        if not self.capability:
+            raise ValueError("capability must not be empty")
+        if not isinstance(self.limitations, list):
+            raise ValueError(  # noqa: TRY004 - preserve the structured validation taxonomy
+                "limitations must be a list"
+            )
+        if not isinstance(self.attempts, list):
+            raise ValueError(  # noqa: TRY004 - preserve the structured validation taxonomy
+                "attempts must be a list"
+            )
+        if not isinstance(self.providers_used, list):
+            raise ValueError(  # noqa: TRY004 - preserve the structured validation taxonomy
+                "providers_used must be a list"
+            )
+        if self.outcome_status is not None and self.outcome_status not in (
+            FETCH_SUCCESS, FETCH_NORMAL_EMPTY, FETCH_FAILED_NETWORK,
+            FETCH_FAILED_RATE_LIMIT, FETCH_FAILED_STRUCTURE,
+            FETCH_NOT_CONFIGURED, FETCH_SKIPPED,
+        ):
+            raise ValueError(
+                f"invalid outcome_status: {self.outcome_status!r}"
+            )
+        # Contract: final_provider set ⟺ exactly one contributing provider.
+        if len(self.providers_used) == 1:
+            if self.final_provider is None:
+                self.final_provider = self.providers_used[0]
+            elif self.final_provider != self.providers_used[0]:
+                raise ValueError(
+                    "final_provider must match the sole entry of providers_used"
+                )
+        elif self.final_provider is not None:
+>           raise ValueError(
+                "final_provider must be None unless exactly one provider "
+                "contributed (use providers_used for mixed results)"
+            )
+E           ValueError: final_provider must be None unless exactly one provider contributed (use providers_used for mixed results)
+
+..\chstockdata\src\chstockdata\fetch_result.py:215: ValueError
+_ test_positive_does_not_override_other_unknown_or_blocks[DELISTED-delisted] __
+
+status = <TradabilityStatusKind.DELISTED: 'DELISTED'>, reason = 'delisted'
+make_engine = <function make_engine.<locals>.build at 0x0000023EE26ED080>
+bar_factory = <function bar_factory.<locals>.build at 0x0000023EE26ED1C0>
+target_contribution = <function target_contribution.<locals>.build at 0x0000023EE26ED300>
+predetermined_targets = <class 'conftest.PredeterminedTargetSource'>
+
+    @pytest.mark.parametrize("status,reason",[(TradabilityStatusKind.UNKNOWN,"generic_missing"),(TradabilityStatusKind.NOT_LISTED,"not_listed"),(TradabilityStatusKind.DELISTED,"delisted"),(TradabilityStatusKind.BUY_BLOCKED_UPPER_LIMIT,"side_block"),(TradabilityStatusKind.SUSPENDED,"suspended")])
+    def test_positive_does_not_override_other_unknown_or_blocks(status,reason,make_engine,bar_factory,target_contribution,predetermined_targets):
+>       result,_=run((mapped(payload()),),(gap(status=status,reason=reason),),make_engine,bar_factory,target_contribution,predetermined_targets)
+                      ^^^^^^^^^^^^^^^^^
+
+tests\component\test_historical_opening_execution.py:86: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\component\test_historical_opening_execution.py:41: in mapped
+    result=FetchResult(data=data,metadata=FetchMetadata(capability="historical_opening_evidence",final_provider="recorded-step1",retrieved_at=data["retrieved_at"],outcome_status="success"))
+                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+<string>:14: in __init__
+    ???
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = FetchMetadata(capability='historical_opening_evidence', final_provider='recorded-step1', retrieved_at='2026-10-11T07:4... data_as_of=None, stale=False, partial=False, limitations=[], attempts=[], providers_used=[], outcome_status='success')
+
+    def __post_init__(self) -> None:
+        if not self.capability:
+            raise ValueError("capability must not be empty")
+        if not isinstance(self.limitations, list):
+            raise ValueError(  # noqa: TRY004 - preserve the structured validation taxonomy
+                "limitations must be a list"
+            )
+        if not isinstance(self.attempts, list):
+            raise ValueError(  # noqa: TRY004 - preserve the structured validation taxonomy
+                "attempts must be a list"
+            )
+        if not isinstance(self.providers_used, list):
+            raise ValueError(  # noqa: TRY004 - preserve the structured validation taxonomy
+                "providers_used must be a list"
+            )
+        if self.outcome_status is not None and self.outcome_status not in (
+            FETCH_SUCCESS, FETCH_NORMAL_EMPTY, FETCH_FAILED_NETWORK,
+            FETCH_FAILED_RATE_LIMIT, FETCH_FAILED_STRUCTURE,
+            FETCH_NOT_CONFIGURED, FETCH_SKIPPED,
+        ):
+            raise ValueError(
+                f"invalid outcome_status: {self.outcome_status!r}"
+            )
+        # Contract: final_provider set ⟺ exactly one contributing provider.
+        if len(self.providers_used) == 1:
+            if self.final_provider is None:
+                self.final_provider = self.providers_used[0]
+            elif self.final_provider != self.providers_used[0]:
+                raise ValueError(
+                    "final_provider must match the sole entry of providers_used"
+                )
+        elif self.final_provider is not None:
+>           raise ValueError(
+                "final_provider must be None unless exactly one provider "
+                "contributed (use providers_used for mixed results)"
+            )
+E           ValueError: final_provider must be None unless exactly one provider contributed (use providers_used for mixed results)
+
+..\chstockdata\src\chstockdata\fetch_result.py:215: ValueError
+_ test_positive_does_not_override_other_unknown_or_blocks[BUY_BLOCKED_UPPER_LIMIT-side_block] _
+
+status = <TradabilityStatusKind.BUY_BLOCKED_UPPER_LIMIT: 'BUY_BLOCKED_UPPER_LIMIT'>
+reason = 'side_block'
+make_engine = <function make_engine.<locals>.build at 0x0000023EE26EDB20>
+bar_factory = <function bar_factory.<locals>.build at 0x0000023EE26EDC60>
+target_contribution = <function target_contribution.<locals>.build at 0x0000023EE26EDDA0>
+predetermined_targets = <class 'conftest.PredeterminedTargetSource'>
+
+    @pytest.mark.parametrize("status,reason",[(TradabilityStatusKind.UNKNOWN,"generic_missing"),(TradabilityStatusKind.NOT_LISTED,"not_listed"),(TradabilityStatusKind.DELISTED,"delisted"),(TradabilityStatusKind.BUY_BLOCKED_UPPER_LIMIT,"side_block"),(TradabilityStatusKind.SUSPENDED,"suspended")])
+    def test_positive_does_not_override_other_unknown_or_blocks(status,reason,make_engine,bar_factory,target_contribution,predetermined_targets):
+>       result,_=run((mapped(payload()),),(gap(status=status,reason=reason),),make_engine,bar_factory,target_contribution,predetermined_targets)
+                      ^^^^^^^^^^^^^^^^^
+
+tests\component\test_historical_opening_execution.py:86: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\component\test_historical_opening_execution.py:41: in mapped
+    result=FetchResult(data=data,metadata=FetchMetadata(capability="historical_opening_evidence",final_provider="recorded-step1",retrieved_at=data["retrieved_at"],outcome_status="success"))
+                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+<string>:14: in __init__
+    ???
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = FetchMetadata(capability='historical_opening_evidence', final_provider='recorded-step1', retrieved_at='2026-10-11T07:4... data_as_of=None, stale=False, partial=False, limitations=[], attempts=[], providers_used=[], outcome_status='success')
+
+    def __post_init__(self) -> None:
+        if not self.capability:
+            raise ValueError("capability must not be empty")
+        if not isinstance(self.limitations, list):
+            raise ValueError(  # noqa: TRY004 - preserve the structured validation taxonomy
+                "limitations must be a list"
+            )
+        if not isinstance(self.attempts, list):
+            raise ValueError(  # noqa: TRY004 - preserve the structured validation taxonomy
+                "attempts must be a list"
+            )
+        if not isinstance(self.providers_used, list):
+            raise ValueError(  # noqa: TRY004 - preserve the structured validation taxonomy
+                "providers_used must be a list"
+            )
+        if self.outcome_status is not None and self.outcome_status not in (
+            FETCH_SUCCESS, FETCH_NORMAL_EMPTY, FETCH_FAILED_NETWORK,
+            FETCH_FAILED_RATE_LIMIT, FETCH_FAILED_STRUCTURE,
+            FETCH_NOT_CONFIGURED, FETCH_SKIPPED,
+        ):
+            raise ValueError(
+                f"invalid outcome_status: {self.outcome_status!r}"
+            )
+        # Contract: final_provider set ⟺ exactly one contributing provider.
+        if len(self.providers_used) == 1:
+            if self.final_provider is None:
+                self.final_provider = self.providers_used[0]
+            elif self.final_provider != self.providers_used[0]:
+                raise ValueError(
+                    "final_provider must match the sole entry of providers_used"
+                )
+        elif self.final_provider is not None:
+>           raise ValueError(
+                "final_provider must be None unless exactly one provider "
+                "contributed (use providers_used for mixed results)"
+            )
+E           ValueError: final_provider must be None unless exactly one provider contributed (use providers_used for mixed results)
+
+..\chstockdata\src\chstockdata\fetch_result.py:215: ValueError
+_ test_positive_does_not_override_other_unknown_or_blocks[SUSPENDED-suspended] _
+
+status = <TradabilityStatusKind.SUSPENDED: 'SUSPENDED'>, reason = 'suspended'
+make_engine = <function make_engine.<locals>.build at 0x0000023EE26EE340>
+bar_factory = <function bar_factory.<locals>.build at 0x0000023EE26EE480>
+target_contribution = <function target_contribution.<locals>.build at 0x0000023EE26EE5C0>
+predetermined_targets = <class 'conftest.PredeterminedTargetSource'>
+
+    @pytest.mark.parametrize("status,reason",[(TradabilityStatusKind.UNKNOWN,"generic_missing"),(TradabilityStatusKind.NOT_LISTED,"not_listed"),(TradabilityStatusKind.DELISTED,"delisted"),(TradabilityStatusKind.BUY_BLOCKED_UPPER_LIMIT,"side_block"),(TradabilityStatusKind.SUSPENDED,"suspended")])
+    def test_positive_does_not_override_other_unknown_or_blocks(status,reason,make_engine,bar_factory,target_contribution,predetermined_targets):
+>       result,_=run((mapped(payload()),),(gap(status=status,reason=reason),),make_engine,bar_factory,target_contribution,predetermined_targets)
+                      ^^^^^^^^^^^^^^^^^
+
+tests\component\test_historical_opening_execution.py:86: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\component\test_historical_opening_execution.py:41: in mapped
+    result=FetchResult(data=data,metadata=FetchMetadata(capability="historical_opening_evidence",final_provider="recorded-step1",retrieved_at=data["retrieved_at"],outcome_status="success"))
+                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+<string>:14: in __init__
+    ???
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = FetchMetadata(capability='historical_opening_evidence', final_provider='recorded-step1', retrieved_at='2026-10-11T07:4... data_as_of=None, stale=False, partial=False, limitations=[], attempts=[], providers_used=[], outcome_status='success')
+
+    def __post_init__(self) -> None:
+        if not self.capability:
+            raise ValueError("capability must not be empty")
+        if not isinstance(self.limitations, list):
+            raise ValueError(  # noqa: TRY004 - preserve the structured validation taxonomy
+                "limitations must be a list"
+            )
+        if not isinstance(self.attempts, list):
+            raise ValueError(  # noqa: TRY004 - preserve the structured validation taxonomy
+                "attempts must be a list"
+            )
+        if not isinstance(self.providers_used, list):
+            raise ValueError(  # noqa: TRY004 - preserve the structured validation taxonomy
+                "providers_used must be a list"
+            )
+        if self.outcome_status is not None and self.outcome_status not in (
+            FETCH_SUCCESS, FETCH_NORMAL_EMPTY, FETCH_FAILED_NETWORK,
+            FETCH_FAILED_RATE_LIMIT, FETCH_FAILED_STRUCTURE,
+            FETCH_NOT_CONFIGURED, FETCH_SKIPPED,
+        ):
+            raise ValueError(
+                f"invalid outcome_status: {self.outcome_status!r}"
+            )
+        # Contract: final_provider set ⟺ exactly one contributing provider.
+        if len(self.providers_used) == 1:
+            if self.final_provider is None:
+                self.final_provider = self.providers_used[0]
+            elif self.final_provider != self.providers_used[0]:
+                raise ValueError(
+                    "final_provider must match the sole entry of providers_used"
+                )
+        elif self.final_provider is not None:
+>           raise ValueError(
+                "final_provider must be None unless exactly one provider "
+                "contributed (use providers_used for mixed results)"
+            )
+E           ValueError: final_provider must be None unless exactly one provider contributed (use providers_used for mixed results)
+
+..\chstockdata\src\chstockdata\fetch_result.py:215: ValueError
+___________________ test_positive_does_not_override_absence ___________________
+
+make_engine = <function make_engine.<locals>.build at 0x0000023EE26EECA0>
+bar_factory = <function bar_factory.<locals>.build at 0x0000023EE26EEDE0>
+target_contribution = <function target_contribution.<locals>.build at 0x0000023EE26EEF20>
+predetermined_targets = <class 'conftest.PredeterminedTargetSource'>
+
+    def test_positive_does_not_override_absence(make_engine,bar_factory,target_contribution,predetermined_targets):
+>       result,_=run((mapped(payload()),),(),make_engine,bar_factory,target_contribution,predetermined_targets)
+                      ^^^^^^^^^^^^^^^^^
+
+tests\component\test_historical_opening_execution.py:91: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\component\test_historical_opening_execution.py:41: in mapped
+    result=FetchResult(data=data,metadata=FetchMetadata(capability="historical_opening_evidence",final_provider="recorded-step1",retrieved_at=data["retrieved_at"],outcome_status="success"))
+                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+<string>:14: in __init__
+    ???
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = FetchMetadata(capability='historical_opening_evidence', final_provider='recorded-step1', retrieved_at='2026-10-11T07:4... data_as_of=None, stale=False, partial=False, limitations=[], attempts=[], providers_used=[], outcome_status='success')
+
+    def __post_init__(self) -> None:
+        if not self.capability:
+            raise ValueError("capability must not be empty")
+        if not isinstance(self.limitations, list):
+            raise ValueError(  # noqa: TRY004 - preserve the structured validation taxonomy
+                "limitations must be a list"
+            )
+        if not isinstance(self.attempts, list):
+            raise ValueError(  # noqa: TRY004 - preserve the structured validation taxonomy
+                "attempts must be a list"
+            )
+        if not isinstance(self.providers_used, list):
+            raise ValueError(  # noqa: TRY004 - preserve the structured validation taxonomy
+                "providers_used must be a list"
+            )
+        if self.outcome_status is not None and self.outcome_status not in (
+            FETCH_SUCCESS, FETCH_NORMAL_EMPTY, FETCH_FAILED_NETWORK,
+            FETCH_FAILED_RATE_LIMIT, FETCH_FAILED_STRUCTURE,
+            FETCH_NOT_CONFIGURED, FETCH_SKIPPED,
+        ):
+            raise ValueError(
+                f"invalid outcome_status: {self.outcome_status!r}"
+            )
+        # Contract: final_provider set ⟺ exactly one contributing provider.
+        if len(self.providers_used) == 1:
+            if self.final_provider is None:
+                self.final_provider = self.providers_used[0]
+            elif self.final_provider != self.providers_used[0]:
+                raise ValueError(
+                    "final_provider must match the sole entry of providers_used"
+                )
+        elif self.final_provider is not None:
+>           raise ValueError(
+                "final_provider must be None unless exactly one provider "
+                "contributed (use providers_used for mixed results)"
+            )
+E           ValueError: final_provider must be None unless exactly one provider contributed (use providers_used for mixed results)
+
+..\chstockdata\src\chstockdata\fetch_result.py:215: ValueError
+_____________________ test_new_clock_rejects_utc_default ______________________
+
+make_engine = <function make_engine.<locals>.build at 0x0000023EE26EF600>
+
+    def test_new_clock_rejects_utc_default(make_engine):
+>       with pytest.raises(ValueError,match="Shanghai"):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       AssertionError: Regex pattern did not match.
+E         Expected regex: 'Shanghai'
+E         Actual message: 'final_provider must be None unless exactly one provider contributed (use providers_used for mixed results)'
+
+tests\component\test_historical_opening_execution.py:96: AssertionError
+____________ test_snapshot_full_partition_roundtrip_and_v2_compat _____________
+
+tmp_path = WindowsPath('C:/Users/Administrator/.codex/visualizations/2026/10/10/01a125dd-33f2-78d3-abe7-45e0928975d0/v042-opening-implementation/evidence/r21-step2/tmp/test_snapshot_full_partition_r0')
+bar_factory = <function bar_factory.<locals>.build at 0x0000023EE26EF920>
+
+    def test_snapshot_full_partition_roundtrip_and_v2_compat(tmp_path,bar_factory):
+>       h=api();fact=mapped(payload())
+                     ^^^^^^^^^^^^^^^^^
+
+tests\component\test_historical_opening_execution.py:112: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\component\test_historical_opening_execution.py:41: in mapped
+    result=FetchResult(data=data,metadata=FetchMetadata(capability="historical_opening_evidence",final_provider="recorded-step1",retrieved_at=data["retrieved_at"],outcome_status="success"))
+                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+<string>:14: in __init__
+    ???
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = FetchMetadata(capability='historical_opening_evidence', final_provider='recorded-step1', retrieved_at='2026-10-11T07:4... data_as_of=None, stale=False, partial=False, limitations=[], attempts=[], providers_used=[], outcome_status='success')
+
+    def __post_init__(self) -> None:
+        if not self.capability:
+            raise ValueError("capability must not be empty")
+        if not isinstance(self.limitations, list):
+            raise ValueError(  # noqa: TRY004 - preserve the structured validation taxonomy
+                "limitations must be a list"
+            )
+        if not isinstance(self.attempts, list):
+            raise ValueError(  # noqa: TRY004 - preserve the structured validation taxonomy
+                "attempts must be a list"
+            )
+        if not isinstance(self.providers_used, list):
+            raise ValueError(  # noqa: TRY004 - preserve the structured validation taxonomy
+                "providers_used must be a list"
+            )
+        if self.outcome_status is not None and self.outcome_status not in (
+            FETCH_SUCCESS, FETCH_NORMAL_EMPTY, FETCH_FAILED_NETWORK,
+            FETCH_FAILED_RATE_LIMIT, FETCH_FAILED_STRUCTURE,
+            FETCH_NOT_CONFIGURED, FETCH_SKIPPED,
+        ):
+            raise ValueError(
+                f"invalid outcome_status: {self.outcome_status!r}"
+            )
+        # Contract: final_provider set ⟺ exactly one contributing provider.
+        if len(self.providers_used) == 1:
+            if self.final_provider is None:
+                self.final_provider = self.providers_used[0]
+            elif self.final_provider != self.providers_used[0]:
+                raise ValueError(
+                    "final_provider must match the sole entry of providers_used"
+                )
+        elif self.final_provider is not None:
+>           raise ValueError(
+                "final_provider must be None unless exactly one provider "
+                "contributed (use providers_used for mixed results)"
+            )
+E           ValueError: final_provider must be None unless exactly one provider contributed (use providers_used for mixed results)
+
+..\chstockdata\src\chstockdata\fetch_result.py:215: ValueError
+=========================== short test summary info ===========================
+FAILED tests/component/test_historical_opening_execution.py::test_full_payload_adapter_hash_and_unknown_pit
+FAILED tests/component/test_historical_opening_execution.py::test_execution_fact_only_changes_t_plus_one
+FAILED tests/component/test_historical_opening_execution.py::test_positive_does_not_override_other_unknown_or_blocks[UNKNOWN-generic_missing]
+FAILED tests/component/test_historical_opening_execution.py::test_positive_does_not_override_other_unknown_or_blocks[NOT_LISTED-not_listed]
+FAILED tests/component/test_historical_opening_execution.py::test_positive_does_not_override_other_unknown_or_blocks[DELISTED-delisted]
+FAILED tests/component/test_historical_opening_execution.py::test_positive_does_not_override_other_unknown_or_blocks[BUY_BLOCKED_UPPER_LIMIT-side_block]
+FAILED tests/component/test_historical_opening_execution.py::test_positive_does_not_override_other_unknown_or_blocks[SUSPENDED-suspended]
+FAILED tests/component/test_historical_opening_execution.py::test_positive_does_not_override_absence
+FAILED tests/component/test_historical_opening_execution.py::test_new_clock_rejects_utc_default
+FAILED tests/component/test_historical_opening_execution.py::test_snapshot_full_partition_roundtrip_and_v2_compat
+10 failed, 4 passed in 3.88s

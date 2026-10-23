@@ -1,0 +1,161 @@
+{
+  "status": "DONE",
+  "scope": "Step2 ONLY",
+  "local_gate": "PASS",
+  "owner_gate": "Independent spec/quality review pending; no phase advancement claim",
+  "runtime_source_tree_sha256": "73376752616edc41b1560e0cea40a7cdb6190d2795c83dab34d19fdcffd4186f",
+  "runtime_source_identity_scope": "Sorted src/**/*.py relative path and raw file SHA256 canonical JSON digest",
+  "frozen_sios_commit": "84fd54fae0740bc06b1d250afa4578be29556956",
+  "git_state": "Isolated SIOS export has no .git; no commit/push/merge/tag",
+  "final_tests": {
+    "passed": 472,
+    "new_regressions": 39,
+    "old_affected_regressions": 433,
+    "failed": 0,
+    "junit": "final.xml",
+    "log": "final.log",
+    "metadata": "final.json",
+    "exit_code": 0
+  },
+  "real_source_replay": {
+    "pass": 12,
+    "raw_responses": 74,
+    "library_version": "0.4.2",
+    "library_import_path": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\chstockdata\\src\\chstockdata\\__init__.py",
+    "metadata": "replay-adapter-final.json",
+    "not_new_live": true
+  },
+  "legacy_compatibility": {
+    "full_v2_bytes_equal": true,
+    "dataset_digest_equal": true,
+    "snapshot_id": "9c11e898a45463f2464b88e00767945d2e604f79cf7149a077386652540fb561",
+    "both_reader_directions": true,
+    "evidence": "frozen-compat.json",
+    "source_diff": "source-vs-frozen.diff",
+    "source_diff_normalization": "Existing LF export vs CRLF ZIP: diff normalizes line endings; actual per-file hashes remain explicit"
+  },
+  "changed_files": [
+    {
+      "path": "docs/contracts/historical-opening-execution-r21.md",
+      "sha256": "963dadacca6cafa65fbb7895e1fa12c675ed14f902c415a6e96eab443c81be6e"
+    },
+    {
+      "path": "src/systematic_investing/adapters/chstockdata/provider.py",
+      "sha256": "916523ef30046c51003f29b883e87a1b3109270cf93c963145a08d482d55cf2b"
+    },
+    {
+      "path": "src/systematic_investing/backtest/engine.py",
+      "sha256": "ac81cbb424b38577b87e753a172ebe6c7ca48835c9c686ddf1351dc1bebfeaff"
+    },
+    {
+      "path": "src/systematic_investing/backtest/execution.py",
+      "sha256": "a6a5d0a8542da0f92b5075d81616b2a3f89130ea3e70e8a6e557c3327c379c3d"
+    },
+    {
+      "path": "src/systematic_investing/data/ports.py",
+      "sha256": "dea2328ae79fa431a3564f52cac29662445be5ab51511956905447fa6a04e506"
+    },
+    {
+      "path": "src/systematic_investing/data/quality.py",
+      "sha256": "8c78b5db68d727a023ea120a06ae875d3dd43c0825f15258aa0dc1e42042c649"
+    },
+    {
+      "path": "src/systematic_investing/data/snapshots.py",
+      "sha256": "e5d38a03a4eee675435d075cb27e2a612df2c1d3efd3a37a336a0c5f187db119"
+    },
+    {
+      "path": "src/systematic_investing/domain/historical_opening.py",
+      "sha256": "e6bba0cea2bda5f6d6e820c90466089fe37ffe0b4de198e0fe509e290dae8f5d"
+    },
+    {
+      "path": "src/systematic_investing/research/cli.py",
+      "sha256": "4bdb706614d982f0f6cd658bc02a006ff93f9b8cbdeb5b21f500d6899b65bc19"
+    },
+    {
+      "path": "src/systematic_investing/research/intake.py",
+      "sha256": "f868dbabf4b66954bc9507d1db36d75232b9eb43c54df4f953ce062427075a7a"
+    },
+    {
+      "path": "src/systematic_investing/research/oos.py",
+      "sha256": "cff8d023dc4d4593dbe8385cc2c6cf37eb8c71d817428eb3442cf06bc9f1fccb"
+    },
+    {
+      "path": "src/systematic_investing/research/runner.py",
+      "sha256": "dcd802edc1c52d119ef7a330438374ff0d33d9568ac51a97121d3d68686259a2"
+    },
+    {
+      "path": "tests/component/test_historical_opening_execution.py",
+      "sha256": "9ca2975393665c1058e7e0d26c6b1ff23af9e50a62bfbf397b7791f972a5d5be"
+    },
+    {
+      "path": "tests/contract/test_chstockdata_provider.py",
+      "sha256": "1bb7b4d3dc948c4769b1687e67fa81de263e769b03ecfb84b3b3ec31d1baf39d"
+    },
+    {
+      "path": "tests/fixtures/chstockdata/historical_opening/000002-2015-12-18.json",
+      "sha256": "b9d81cbba5d5675c781217df344bbf486be5b6969702e212d53453d77bcc018d"
+    },
+    {
+      "path": "tests/fixtures/chstockdata/historical_opening/000002-2016-01-04.json",
+      "sha256": "c8c15982e7fed2d4110d643b3d5b1361fb1d154395001fd7db467dd1d1cc924d"
+    },
+    {
+      "path": "tests/fixtures/chstockdata/historical_opening/159509-2026-09-11.json",
+      "sha256": "9a36bc96958c7e555f3aaaf8669ac584a27c0eb4080972462bcd6cd1c3580137"
+    },
+    {
+      "path": "tests/fixtures/chstockdata/historical_opening/159915-2026-09-11.json",
+      "sha256": "be867481e34bb80f4df2ed42b3e159b3ea419837ff75ccfc9cf36e2e9c36db3d"
+    },
+    {
+      "path": "tests/fixtures/chstockdata/historical_opening/510300-2016-12-30.json",
+      "sha256": "2a1d2bc82226278e910f2a82c92efbdcdf247d9d8a82c4da202792589c906943"
+    },
+    {
+      "path": "tests/fixtures/chstockdata/historical_opening/510300-2022-12-30.json",
+      "sha256": "0f250bda1029ac17c41d0a824c85655f1c16f198bd5d5b71d7163112a994bcee"
+    },
+    {
+      "path": "tests/fixtures/chstockdata/historical_opening/510300-2026-09-11.json",
+      "sha256": "3077fb6aa366d47c161ee2c598d4589a29d5658cf33b87c69182d9c7e51a75c5"
+    },
+    {
+      "path": "tests/fixtures/chstockdata/historical_opening/511010-2026-09-11.json",
+      "sha256": "28057c4735cabc1e138eb14053e1f2ae75891186f5d8500185880cbb05e38679"
+    },
+    {
+      "path": "tests/fixtures/chstockdata/historical_opening/513100-2026-09-11.json",
+      "sha256": "507375917f845aa92f3e949f9c4c7f1a7301432e8be8fd47ae0de261027a1033"
+    },
+    {
+      "path": "tests/fixtures/chstockdata/historical_opening/518880-2026-09-11.json",
+      "sha256": "cbabd0c94b3135033bf108449309396f2504872f8b9882e10a1fd927aa538c28"
+    },
+    {
+      "path": "tests/fixtures/chstockdata/historical_opening/688432-2026-08-31.json",
+      "sha256": "7463fea6ac7dea8821894b0f484244e6bf2ab6ac416a9628f9020aff48757147"
+    },
+    {
+      "path": "tests/fixtures/chstockdata/historical_opening/688432-2026-09-14.json",
+      "sha256": "c73f3fc7eae4d6f4a977668b56d13c70d459e8a3e2481190254a5f4a707169a4"
+    },
+    {
+      "path": "tests/research/test_historical_opening_wiring.py",
+      "sha256": "39a2434befea59ac17bc7e15fc2e4dd1c29e24492dcb0229a93def3e1e3be7cf"
+    },
+    {
+      "path": "tests/unit/test_historical_opening_provider.py",
+      "sha256": "c4523f125af42a245687d3c2049493ff488c9066b373945ea590fc5388f9d5c7"
+    }
+  ],
+  "contract_change": "Missing historical information availability is UNKNOWN, never inferred from exchange 09:30; old contract assertion updated, no skips/deletions",
+  "unresolved_blockers": [],
+  "source_identity_test_fixture": "Test process only injects actual source_tree_sha256 identity into research.runner/oos.resolve_code_commit for .git-less export; production functions unchanged; final.json identifies injection points",
+  "step3_interfaces": "public-api.json",
+  "remaining_verification": "Independent Step2 spec/quality review; Step3 mandatory live and Step4 unified candidate Gate not executed by this implementer",
+  "release_authorized": false,
+  "scope_expansion": false,
+  "preexisting_export_files_not_edited_by_implementer": [
+    ".gitignore"
+  ]
+}

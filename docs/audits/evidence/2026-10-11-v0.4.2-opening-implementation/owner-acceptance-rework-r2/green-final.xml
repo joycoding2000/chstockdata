@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="3" skipped="0" tests="26" time="0.571" timestamp="2026-10-14T10:34:46.381671+08:00" hostname="CHINAMI-4QO1VLN"><testcase classname="tests.component.test_owner_r2_interval_contract" name="test_cross_repository_interval[2015-12-18-OPEN_ACTIVITY_CONFIRMED-False]" time="0.006" /><testcase classname="tests.component.test_owner_r2_interval_contract" name="test_cross_repository_interval[2016-01-04-UNKNOWN-True]" time="0.003" /><testcase classname="tests.component.test_owner_r2_interval_contract" name="test_cross_repository_interval[2016-07-04-UNKNOWN-False]" time="0.003" /><testcase classname="tests.component.test_owner_r2_interval_contract" name="test_cross_repository_interval[2016-07-05-OPEN_ACTIVITY_CONFIRMED-False]" time="0.003" /><testcase classname="tests.component.test_owner_r2_interval_contract" name="test_cross_repository_interval[2022-12-30-OPEN_ACTIVITY_CONFIRMED-False]" time="0.003" /><testcase classname="tests.component.test_owner_r2_interval_contract" name="test_later_session_requires_both_sources[False-False]" time="0.003" /><testcase classname="tests.component.test_owner_r2_interval_contract" name="test_later_session_requires_both_sources[True-True]" time="0.003" /><testcase classname="tests.component.test_owner_r2_interval_contract" name="test_caller_cannot_authenticate_resume[resume_date]" time="0.004" /><testcase classname="tests.component.test_owner_r2_interval_contract" name="test_caller_cannot_authenticate_resume[verified]" time="0.004" /><testcase classname="tests.component.test_owner_r2_interval_contract" name="test_caller_cannot_authenticate_resume[source_url]" time="0.004" /><testcase classname="tests.component.test_owner_r2_interval_contract" name="test_caller_cannot_authenticate_resume[source_sha]" time="0.004" /><testcase classname="tests.component.test_owner_r2_interval_contract" name="test_caller_cannot_authenticate_resume[source_kind]" time="0.004" /><testcase classname="tests.component.test_owner_r2_interval_contract" name="test_caller_cannot_authenticate_resume[new_halt]" time="0.004" /><testcase classname="tests.component.test_owner_r2_interval_contract" name="test_hash_resealed_positive_cannot_override_halt_or_resume_day[2016-01-04]" time="0.002" /><testcase classname="tests.component.test_owner_r2_interval_contract" name="test_hash_resealed_positive_cannot_override_halt_or_resume_day[2016-07-04]" time="0.002" /><testcase classname="tests.component.test_owner_r2_interval_contract" name="test_payload_hash_snapshot_and_replay" time="0.043" /><testcase classname="tests.component.test_owner_r2_interval_contract" name="test_actual_execution_and_legacy[HISTORICAL_OPENING_R21-2015-12-18-2015-12-17-True]" time="0.006"><failure message="systematic_investing.domain.market.UnknownSessionError: calendar 'XSHE' snapshot 'r2-injected' has no open session after 2015-12-18">day = '2015-12-18', previous = '2015-12-17', eligible = True
+mode = &lt;ExecutionEligibilityMode.HISTORICAL_OPENING_R21: 'HISTORICAL_OPENING_R21'&gt;
+monkeypatch = &lt;_pytest.monkeypatch.MonkeyPatch object at 0x0000014FD2D9ECC0&gt;
+make_engine = &lt;function make_engine.&lt;locals&gt;.build at 0x0000014FD321CA40&gt;
+bar_factory = &lt;function bar_factory.&lt;locals&gt;.build at 0x0000014FD321CB80&gt;
+target_contribution = &lt;function target_contribution.&lt;locals&gt;.build at 0x0000014FD321CCC0&gt;
+predetermined_targets = &lt;class 'conftest.PredeterminedTargetSource'&gt;
+account_fees = AccountFeeConfig(config_id='RUN-M0-TEST', config_version='1', broker_profiles=(BrokerFeeProfile(profile_id='ACCT:MAIN'...imal('5'), agreement_reference='broker-agreement-2026', effective_from=datetime.date(2022, 1, 4), effective_to=None),))
+
+    @pytest.mark.parametrize('day,previous,eligible', [
+        ('2015-12-18', '2015-12-17', True),
+        ('2016-01-04', '2015-12-31', False),
+        ('2016-07-04', '2016-07-01', False),
+        ('2016-07-05', '2016-07-04', True),
+        ('2022-12-30', '2022-12-29', True),
+    ])
+    @pytest.mark.parametrize('mode', [ExecutionEligibilityMode.HISTORICAL_OPENING_R21, ExecutionEligibilityMode.LEGACY])
+    def test_actual_execution_and_legacy(day, previous, eligible, mode, monkeypatch,
+        make_engine, bar_factory, target_contribution, predetermined_targets, account_fees):
+        from systematic_investing.backtest.engine import EngineClock
+        from systematic_investing.domain.historical_opening import HISTORICAL_SUSPENSION_GAP, SHANGHAI
+        from systematic_investing.domain.market import Availability, AvailabilityBasis, MarketCalendar, TradingSession, TradabilityStatus, TradabilityStatusKind
+        from systematic_investing.instrument_master.repository import InstrumentMaster, default_m0_master
+    
+        result = consume(fetch(day), monkeypatch)
+        assert isinstance(result, ProviderSuccess), result
+        session, prior = date.fromisoformat(day), date.fromisoformat(previous)
+        seed = default_m0_master()
+        seed_id = InstrumentId.parse('XSHE:000001')
+        master = InstrumentMaster()
+        reference = seed.resolve_instrument(seed_id, date(2026, 9, 11))
+        master.register_instrument(replace(reference, instrument_id=I, list_date=date(2000, 1, 1), valid_from=date(2000, 1, 1)))
+        rules = seed.resolve_rules(seed_id, date(2026, 9, 11))
+        for profile in (rules.lot, rules.settlement, rules.price_limit, rules.market_fee_tax):
+            master.add_rule_profile(replace(profile, effective_from=date(2000, 1, 1)))
+        fees = replace(account_fees, broker_profiles=tuple(replace(p, effective_from=date(2000, 1, 1)) for p in account_fees.broker_profiles))
+        calendar = MarketCalendar('XSHE', 'r2-injected', tuple(TradingSession('XSHE', d, True, None, 'r2-injected') for d in (prior, session)))
+        bars = tuple(bar_factory(I, d, open='22.4', close='22.4', pre_close='22.4', available_at=datetime(d.year, d.month, d.day, 15, 5, tzinfo=SHANGHAI)) for d in (prior, session))
+        gap = TradabilityStatus(I, session, TradabilityStatusKind.UNKNOWN, HISTORICAL_SUSPENSION_GAP, Availability(None, NOW, AvailabilityBasis.UNKNOWN), 'owner-r2-injected')
+        target = predetermined_targets({prior: (target_contribution(I, '0.10'),)})
+        run = make_engine(calendar=calendar, master=master, account_fees=fees, clock=EngineClock.shanghai(), bars=bars,
+            tradability=(gap,), historical_opening_evidence=result.records,
+&gt;           execution_eligibility_mode=mode, target_source=target).run(start_session=prior, end_session=session)
+                                                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\component\test_owner_r2_interval_contract.py:185: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+src\systematic_investing\backtest\engine.py:764: in run
+    outcome = self._run_session(
+src\systematic_investing\backtest\engine.py:809: in _run_session
+    activation = self._activate(session_date, surviving, cash, positions)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+src\systematic_investing\backtest\engine.py:964: in _activate
+    return activate_pending_plans(
+src\systematic_investing\backtest\execution.py:502: in activate_pending_plans
+    new_position, holdings_entry = apply_fill_to_position(
+src\systematic_investing\backtest\accounting.py:302: in apply_fill_to_position
+    sellable = sellable_from(
+src\systematic_investing\backtest\accounting.py:88: in sellable_from
+    current = calendar.next_session(current).session_date
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = MarketCalendar(calendar_id='XSHE', snapshot_version='r2-injected', sessions=(TradingSession(calendar_id='XSHE', sessio...alendar_id='XSHE', session_date=datetime.date(2015, 12, 18), is_open=True, note=None, snapshot_version='r2-injected')))
+after = datetime.date(2015, 12, 18)
+
+    def next_session(self, after: date) -&gt; TradingSession:
+        """The earliest open session strictly after ``after``, resolved only
+        from this snapshot; the snapshot end fails closed."""
+        require_session_date(after)
+        for trading_session in self.sessions:
+            if trading_session.session_date &gt; after and trading_session.is_open:
+                return trading_session
+&gt;       raise UnknownSessionError(
+            f"calendar {self.calendar_id!r} snapshot {self.snapshot_version!r} has no "
+            f"open session after {after}"
+        )
+E       systematic_investing.domain.market.UnknownSessionError: calendar 'XSHE' snapshot 'r2-injected' has no open session after 2015-12-18
+
+src\systematic_investing\domain\market.py:303: UnknownSessionError</failure></testcase><testcase classname="tests.component.test_owner_r2_interval_contract" name="test_actual_execution_and_legacy[HISTORICAL_OPENING_R21-2016-01-04-2015-12-31-False]" time="0.004" /><testcase classname="tests.component.test_owner_r2_interval_contract" name="test_actual_execution_and_legacy[HISTORICAL_OPENING_R21-2016-07-04-2016-07-01-False]" time="0.004" /><testcase classname="tests.component.test_owner_r2_interval_contract" name="test_actual_execution_and_legacy[HISTORICAL_OPENING_R21-2016-07-05-2016-07-04-True]" time="0.004"><failure message="systematic_investing.domain.market.UnknownSessionError: calendar 'XSHE' snapshot 'r2-injected' has no open session after 2016-07-05">day = '2016-07-05', previous = '2016-07-04', eligible = True
+mode = &lt;ExecutionEligibilityMode.HISTORICAL_OPENING_R21: 'HISTORICAL_OPENING_R21'&gt;
+monkeypatch = &lt;_pytest.monkeypatch.MonkeyPatch object at 0x0000014FD2DA3440&gt;
+make_engine = &lt;function make_engine.&lt;locals&gt;.build at 0x0000014FD334A8E0&gt;
+bar_factory = &lt;function bar_factory.&lt;locals&gt;.build at 0x0000014FD3349580&gt;
+target_contribution = &lt;function target_contribution.&lt;locals&gt;.build at 0x0000014FD334AE80&gt;
+predetermined_targets = &lt;class 'conftest.PredeterminedTargetSource'&gt;
+account_fees = AccountFeeConfig(config_id='RUN-M0-TEST', config_version='1', broker_profiles=(BrokerFeeProfile(profile_id='ACCT:MAIN'...imal('5'), agreement_reference='broker-agreement-2026', effective_from=datetime.date(2022, 1, 4), effective_to=None),))
+
+    @pytest.mark.parametrize('day,previous,eligible', [
+        ('2015-12-18', '2015-12-17', True),
+        ('2016-01-04', '2015-12-31', False),
+        ('2016-07-04', '2016-07-01', False),
+        ('2016-07-05', '2016-07-04', True),
+        ('2022-12-30', '2022-12-29', True),
+    ])
+    @pytest.mark.parametrize('mode', [ExecutionEligibilityMode.HISTORICAL_OPENING_R21, ExecutionEligibilityMode.LEGACY])
+    def test_actual_execution_and_legacy(day, previous, eligible, mode, monkeypatch,
+        make_engine, bar_factory, target_contribution, predetermined_targets, account_fees):
+        from systematic_investing.backtest.engine import EngineClock
+        from systematic_investing.domain.historical_opening import HISTORICAL_SUSPENSION_GAP, SHANGHAI
+        from systematic_investing.domain.market import Availability, AvailabilityBasis, MarketCalendar, TradingSession, TradabilityStatus, TradabilityStatusKind
+        from systematic_investing.instrument_master.repository import InstrumentMaster, default_m0_master
+    
+        result = consume(fetch(day), monkeypatch)
+        assert isinstance(result, ProviderSuccess), result
+        session, prior = date.fromisoformat(day), date.fromisoformat(previous)
+        seed = default_m0_master()
+        seed_id = InstrumentId.parse('XSHE:000001')
+        master = InstrumentMaster()
+        reference = seed.resolve_instrument(seed_id, date(2026, 9, 11))
+        master.register_instrument(replace(reference, instrument_id=I, list_date=date(2000, 1, 1), valid_from=date(2000, 1, 1)))
+        rules = seed.resolve_rules(seed_id, date(2026, 9, 11))
+        for profile in (rules.lot, rules.settlement, rules.price_limit, rules.market_fee_tax):
+            master.add_rule_profile(replace(profile, effective_from=date(2000, 1, 1)))
+        fees = replace(account_fees, broker_profiles=tuple(replace(p, effective_from=date(2000, 1, 1)) for p in account_fees.broker_profiles))
+        calendar = MarketCalendar('XSHE', 'r2-injected', tuple(TradingSession('XSHE', d, True, None, 'r2-injected') for d in (prior, session)))
+        bars = tuple(bar_factory(I, d, open='22.4', close='22.4', pre_close='22.4', available_at=datetime(d.year, d.month, d.day, 15, 5, tzinfo=SHANGHAI)) for d in (prior, session))
+        gap = TradabilityStatus(I, session, TradabilityStatusKind.UNKNOWN, HISTORICAL_SUSPENSION_GAP, Availability(None, NOW, AvailabilityBasis.UNKNOWN), 'owner-r2-injected')
+        target = predetermined_targets({prior: (target_contribution(I, '0.10'),)})
+        run = make_engine(calendar=calendar, master=master, account_fees=fees, clock=EngineClock.shanghai(), bars=bars,
+            tradability=(gap,), historical_opening_evidence=result.records,
+&gt;           execution_eligibility_mode=mode, target_source=target).run(start_session=prior, end_session=session)
+                                                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\component\test_owner_r2_interval_contract.py:185: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+src\systematic_investing\backtest\engine.py:764: in run
+    outcome = self._run_session(
+src\systematic_investing\backtest\engine.py:809: in _run_session
+    activation = self._activate(session_date, surviving, cash, positions)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+src\systematic_investing\backtest\engine.py:964: in _activate
+    return activate_pending_plans(
+src\systematic_investing\backtest\execution.py:502: in activate_pending_plans
+    new_position, holdings_entry = apply_fill_to_position(
+src\systematic_investing\backtest\accounting.py:302: in apply_fill_to_position
+    sellable = sellable_from(
+src\systematic_investing\backtest\accounting.py:88: in sellable_from
+    current = calendar.next_session(current).session_date
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = MarketCalendar(calendar_id='XSHE', snapshot_version='r2-injected', sessions=(TradingSession(calendar_id='XSHE', sessio...(calendar_id='XSHE', session_date=datetime.date(2016, 7, 5), is_open=True, note=None, snapshot_version='r2-injected')))
+after = datetime.date(2016, 7, 5)
+
+    def next_session(self, after: date) -&gt; TradingSession:
+        """The earliest open session strictly after ``after``, resolved only
+        from this snapshot; the snapshot end fails closed."""
+        require_session_date(after)
+        for trading_session in self.sessions:
+            if trading_session.session_date &gt; after and trading_session.is_open:
+                return trading_session
+&gt;       raise UnknownSessionError(
+            f"calendar {self.calendar_id!r} snapshot {self.snapshot_version!r} has no "
+            f"open session after {after}"
+        )
+E       systematic_investing.domain.market.UnknownSessionError: calendar 'XSHE' snapshot 'r2-injected' has no open session after 2016-07-05
+
+src\systematic_investing\domain\market.py:303: UnknownSessionError</failure></testcase><testcase classname="tests.component.test_owner_r2_interval_contract" name="test_actual_execution_and_legacy[HISTORICAL_OPENING_R21-2022-12-30-2022-12-29-True]" time="0.005"><failure message="systematic_investing.domain.market.UnknownSessionError: calendar 'XSHE' snapshot 'r2-injected' has no open session after 2022-12-30">day = '2022-12-30', previous = '2022-12-29', eligible = True
+mode = &lt;ExecutionEligibilityMode.HISTORICAL_OPENING_R21: 'HISTORICAL_OPENING_R21'&gt;
+monkeypatch = &lt;_pytest.monkeypatch.MonkeyPatch object at 0x0000014FD2DA0B30&gt;
+make_engine = &lt;function make_engine.&lt;locals&gt;.build at 0x0000014FD334AB60&gt;
+bar_factory = &lt;function bar_factory.&lt;locals&gt;.build at 0x0000014FD3349EE0&gt;
+target_contribution = &lt;function target_contribution.&lt;locals&gt;.build at 0x0000014FD3349DA0&gt;
+predetermined_targets = &lt;class 'conftest.PredeterminedTargetSource'&gt;
+account_fees = AccountFeeConfig(config_id='RUN-M0-TEST', config_version='1', broker_profiles=(BrokerFeeProfile(profile_id='ACCT:MAIN'...imal('5'), agreement_reference='broker-agreement-2026', effective_from=datetime.date(2022, 1, 4), effective_to=None),))
+
+    @pytest.mark.parametrize('day,previous,eligible', [
+        ('2015-12-18', '2015-12-17', True),
+        ('2016-01-04', '2015-12-31', False),
+        ('2016-07-04', '2016-07-01', False),
+        ('2016-07-05', '2016-07-04', True),
+        ('2022-12-30', '2022-12-29', True),
+    ])
+    @pytest.mark.parametrize('mode', [ExecutionEligibilityMode.HISTORICAL_OPENING_R21, ExecutionEligibilityMode.LEGACY])
+    def test_actual_execution_and_legacy(day, previous, eligible, mode, monkeypatch,
+        make_engine, bar_factory, target_contribution, predetermined_targets, account_fees):
+        from systematic_investing.backtest.engine import EngineClock
+        from systematic_investing.domain.historical_opening import HISTORICAL_SUSPENSION_GAP, SHANGHAI
+        from systematic_investing.domain.market import Availability, AvailabilityBasis, MarketCalendar, TradingSession, TradabilityStatus, TradabilityStatusKind
+        from systematic_investing.instrument_master.repository import InstrumentMaster, default_m0_master
+    
+        result = consume(fetch(day), monkeypatch)
+        assert isinstance(result, ProviderSuccess), result
+        session, prior = date.fromisoformat(day), date.fromisoformat(previous)
+        seed = default_m0_master()
+        seed_id = InstrumentId.parse('XSHE:000001')
+        master = InstrumentMaster()
+        reference = seed.resolve_instrument(seed_id, date(2026, 9, 11))
+        master.register_instrument(replace(reference, instrument_id=I, list_date=date(2000, 1, 1), valid_from=date(2000, 1, 1)))
+        rules = seed.resolve_rules(seed_id, date(2026, 9, 11))
+        for profile in (rules.lot, rules.settlement, rules.price_limit, rules.market_fee_tax):
+            master.add_rule_profile(replace(profile, effective_from=date(2000, 1, 1)))
+        fees = replace(account_fees, broker_profiles=tuple(replace(p, effective_from=date(2000, 1, 1)) for p in account_fees.broker_profiles))
+        calendar = MarketCalendar('XSHE', 'r2-injected', tuple(TradingSession('XSHE', d, True, None, 'r2-injected') for d in (prior, session)))
+        bars = tuple(bar_factory(I, d, open='22.4', close='22.4', pre_close='22.4', available_at=datetime(d.year, d.month, d.day, 15, 5, tzinfo=SHANGHAI)) for d in (prior, session))
+        gap = TradabilityStatus(I, session, TradabilityStatusKind.UNKNOWN, HISTORICAL_SUSPENSION_GAP, Availability(None, NOW, AvailabilityBasis.UNKNOWN), 'owner-r2-injected')
+        target = predetermined_targets({prior: (target_contribution(I, '0.10'),)})
+        run = make_engine(calendar=calendar, master=master, account_fees=fees, clock=EngineClock.shanghai(), bars=bars,
+            tradability=(gap,), historical_opening_evidence=result.records,
+&gt;           execution_eligibility_mode=mode, target_source=target).run(start_session=prior, end_session=session)
+                                                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\component\test_owner_r2_interval_contract.py:185: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+src\systematic_investing\backtest\engine.py:764: in run
+    outcome = self._run_session(
+src\systematic_investing\backtest\engine.py:809: in _run_session
+    activation = self._activate(session_date, surviving, cash, positions)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+src\systematic_investing\backtest\engine.py:964: in _activate
+    return activate_pending_plans(
+src\systematic_investing\backtest\execution.py:502: in activate_pending_plans
+    new_position, holdings_entry = apply_fill_to_position(
+src\systematic_investing\backtest\accounting.py:302: in apply_fill_to_position
+    sellable = sellable_from(
+src\systematic_investing\backtest\accounting.py:88: in sellable_from
+    current = calendar.next_session(current).session_date
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = MarketCalendar(calendar_id='XSHE', snapshot_version='r2-injected', sessions=(TradingSession(calendar_id='XSHE', sessio...alendar_id='XSHE', session_date=datetime.date(2022, 12, 30), is_open=True, note=None, snapshot_version='r2-injected')))
+after = datetime.date(2022, 12, 30)
+
+    def next_session(self, after: date) -&gt; TradingSession:
+        """The earliest open session strictly after ``after``, resolved only
+        from this snapshot; the snapshot end fails closed."""
+        require_session_date(after)
+        for trading_session in self.sessions:
+            if trading_session.session_date &gt; after and trading_session.is_open:
+                return trading_session
+&gt;       raise UnknownSessionError(
+            f"calendar {self.calendar_id!r} snapshot {self.snapshot_version!r} has no "
+            f"open session after {after}"
+        )
+E       systematic_investing.domain.market.UnknownSessionError: calendar 'XSHE' snapshot 'r2-injected' has no open session after 2022-12-30
+
+src\systematic_investing\domain\market.py:303: UnknownSessionError</failure></testcase><testcase classname="tests.component.test_owner_r2_interval_contract" name="test_actual_execution_and_legacy[LEGACY-2015-12-18-2015-12-17-True]" time="0.004" /><testcase classname="tests.component.test_owner_r2_interval_contract" name="test_actual_execution_and_legacy[LEGACY-2016-01-04-2015-12-31-False]" time="0.004" /><testcase classname="tests.component.test_owner_r2_interval_contract" name="test_actual_execution_and_legacy[LEGACY-2016-07-04-2016-07-01-False]" time="0.004" /><testcase classname="tests.component.test_owner_r2_interval_contract" name="test_actual_execution_and_legacy[LEGACY-2016-07-05-2016-07-04-True]" time="0.004" /><testcase classname="tests.component.test_owner_r2_interval_contract" name="test_actual_execution_and_legacy[LEGACY-2022-12-30-2022-12-29-True]" time="0.004" /></testsuite></testsuites>

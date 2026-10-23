@@ -1,0 +1,7 @@
+{
+  "public_api": "(ticker: 'str', session_date: 'str', *, known_events: 'Sequence[OfficialOpeningEvent]' = (), tdx_reader: 'TdxOpeningReader | None' = None, official_reader: 'OfficialOpeningReader | None' = None) -> 'FetchResult[dict]'",
+  "official_event": "(instrument: 'str', market: 'str', effective_start: 'str', effective_end: 'str | None', source_url: 'str', raw_sha256: 'str', certification_basis: 'str', retrieved_at: 'str', source_kind: 'str' = 'official', secondary_market: 'bool' = True, offline_cache: 'bool' = False, raw_fields: 'dict[str, Any]' = <factory>, information_available_at: 'str | None' = None, information_basis: 'str' = 'UNKNOWN') -> None",
+  "tdx_reader": "(*, client_factory: 'Callable | None' = None, versions: 'tuple[str, str] | None' = None, page_offsets: 'Sequence[int]' = (0, 800, 1600, 2400, 3200, 4000, 4800, 5600, 6400))",
+  "official_reader": "(*, session=None, page_size=25, max_pages=4)",
+  "payload": "final-replay-stock-interval-dates/510300-2026-09-11.json"
+}

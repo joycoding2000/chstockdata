@@ -1,0 +1,3442 @@
+--- a/MANIFEST.in
++++ b/MANIFEST.in
+@@ -0,0 +1 @@
++recursive-include tests/fixtures *
+--- a/docs/audits/2026-10-11-v0.4.2-opening-implementation.md
++++ b/docs/audits/2026-10-11-v0.4.2-opening-implementation.md
+@@ -0,0 +1,267 @@
++# v0.4.2 historical opening execution — implementation audit
++
++日期：2026-10-11，Asia/Shanghai。CURRENT_DECISION=FIX_ONLY；Owner 已批准 R1–R5 和两项能力边界，授权恢复有限实施。RELEASE_AUTHORIZED、PUBLISH_AUTHORIZED、NEXT_PHASE_AUTHORIZED 均为 NO。
++
++本文件记录本轮实际实现和验证；以前的设计 REWORK、旧候选 Gate FAIL 不被覆盖。旧完整历史 PIT 停牌能力仍 UNKNOWN/fail-closed。新能力只用于显式选择的历史开盘执行模式，其 `[09:30,09:31)` 活动代理不承诺整点或具体订单必然成交。
++
++## Step 0 — baseline protection
++
++- chstockdata 原 HEAD：`42bd44ef4d695aa3e88cfab4ebc3417660d0437a`；分支 `codex/rh3-b5-candidate-freeze-preflight`；既有 10 项 tracked 修改及原审计/测试 untracked 保留。
++- 旧候选 566 个文件 SHA256 与保护清单逐项一致，内存重建 Git tree 为 `911d231646edc7d419d2e26ac91c95af5404c5c6`。
++- 旧 wheel SHA256：`b76b065a06cd1d91868880a7b57584f598b6fd4cb42931e9a33700bc99a88c7a`，没有覆盖。
++- SIOS 当前 HEAD：`fafdb6d3942ba52baa9480da7c8674dab1487f5d`，原工作树 clean；实施基线采用冻结 commit `84fd54fae0740bc06b1d250afa4578be29556956`、tree `979b5b33188931e2c78aa01026684ed72e064600`，全部冻结文件逐字节匹配旧消费者清单。
++- chstockdata 当前 tracked/nonignored 文件完整备份及清单保存于隔离目录。备份 ZIP SHA256：`f59d0889112f2e9983c3eab38e47591a6c08d5976f6864857b0377c81246a5d4`。
++
++本轮实际实施根：`C:/Users/Administrator/.codex/visualizations/2026/10/10/01a125dd-33f2-78d3-abe7-45e0928975d0/v042-opening-implementation/`，分别使用 `chstockdata/` 与 `systematic-investing-os/`。根下 `baseline.json` 保存原文件清单、原 Git 状态、冻结源码身份和保护证据。注册的 `C:/Users/Administrator/.codex/worktrees/v042-opening-cr/chstockdata` 另存保护副本；实际修改使用有写入权限的隔离源快照。
++
++导出过程发现 Git archive 自动转换冻结 SIOS 的 LF 为 CRLF（238 个文件哈希不符）。该导出未用于实施；已用 `git cat-file --batch` 直接读取冻结 blob、验证 Git 对象 SHA1，纠正生成目录后再次比对全部文件。默认沙箱读取原 dist wheel 被拒绝，保护检查在有界授权执行中完成，后续使用逐字节复制的隔离旧 wheel。以上过程均未改动原源码或旧工件。
++
++```ini
++BASELINE_PROTECTED = YES
++APPROVED_SCOPE_IDENTIFIED = YES
++OLD_CANDIDATE_IMMUTABLE = YES
++```
++
++## Current handoff
++
++当前阶段：Step 1，新增窄的历史开盘证据能力及确定性回归。Step 2–4 尚未执行。两仓隔离源码尚无新提交；原 chstockdata 工作树仅追加 Owner 批准记录及本审计，旧正确性修复保持。
++
++后续局部门禁、A1–A11 映射、文件清单、实际命令/退出码、来源及候选身份将在产生真实证据后追加；本记录不构成实现 PASS 或 Owner 验收。
++
++
++## Step 1 — source prerequisite STOP
++
++状态为 BLOCKED，产品实现 NOT_EXECUTED。按实施指令“不可验证的数据源前提”停止；没有新 reader、公共函数、schema、TDX 候选调用或源码/测试/依赖改动。Step 2–4 没有执行。
++
++最小源前提核验：默认沙箱首请求 ConnectionError，脚本立即停止（exit 2）；有界提升权限批次固定 5 个请求、连接/读取超时 4/8 秒、TLS 校验开启、无自动重试、无重定向，共 5 个 HTTP 200（exit 0）。这是取证脚本完成，**不是来源语义或候选 Gate PASS**。原 bytes、解析 JSON、请求参数、aware UTC 请求/获取时间、计数和 SHA256 均保留于 [step1 evidence](evidence/2026-10-11-v0.4.2-opening-implementation/step1/)。没有重跑此前 44 次 TDX 调查。
++
++| 输入 | 本轮实际结果 | 合同结论 |
++|---|---|---|
++| SSE 688432 / 2026-09-11 | 1/1，startStopDate=20260831、endStopDate=20260911、type=LXTP、stopTime 空 | 确认该查询返回此前开始的持续停牌区间；末停牌日不是精确复牌时刻 |
++| SSE 688432 / 2026-09-14 | total=0、合法空 | 不能仅凭空事件推导复牌或完整正常状态 |
++| 本轮构造的 SSE 复牌 PDF 路径 | HTTP 200、7373 bytes HTML，非 PDF；路径由旧报告文件名及目录结构构造，未由本轮官方列表认证 | 仅说明该指定请求没有取得合格 PDF；不能认定已认证附件不可访问、官方端整体故障或历史复牌事实缺失 |
++| SZSE 159915 / 公告日期 2026-08-01–09-14 | announceCount=4，4 行 | 所选发布日期窗口的响应计数完整；未认证覆盖窗口前起始、目标日仍持续的二级市场停牌 |
++| SZSE 159509 / 公告日期 2026-09-10–11 | announceCount=2，2 行，停复牌公告附件路径 | 能取得正向公告列表，尚未取得本轮有效时段正文/持续覆盖资格；不得将午夜 publishTime 当作生效时刻 |
++
++**唯一足够的 STOP 依据：UNRESOLVED_RISK / INSUFFICIENT_EVIDENCE——当前 SZSE 有界查询的持续区间覆盖资格未认证。** 这是批准合同要求的必要有界检查，CR §6.3–6.4 明确禁止未知覆盖硬编码为完成；不要求完整历史正常状态认证。没有证据证明该源永远无法支持所需检查，也没有据此新增公告全集、通用路由或扩大窗口抓取工程。
++
++688432 的历史明确复牌事实已有合格材料：E2 `issuer-resume-mirror.pdf`，SHA256 `026b42096af80856f7ae69fb81fc7166d2e805e7dacfd3ddd2566d5278f891ea`，第二页明确 2026-09-14 开市起复牌，旧 disclosure-pages 与批准 CR 已认可，fixture 可用。新构造路径的 HTML 不能否定它；本轮未认证该构造 locator 作为当前运行时 reader 输入。此项不是独立 STOP 的必要理由。
++
++原响应 SHA256：
++
++| 文件 | SHA256 |
++|---|---|
++| sse_688432_interval.bin | 33147724bcee2f692e3de7a637c2490017a86c1399183c7f8ccf1f7fe017d924 |
++| sse_688432_resume_session.bin | ab1fa084a62ae34d98a76d46c9029d3bea698e84d59ca4b7200fa0ac7f347e4b |
++| sse_688432_resume_pdf.bin | 186f5ee5d558e601677cde30d55998b9e53098da13900986d7b55988f31dcc88 |
++| szse_159915_announcements.bin | 13c652bf1ce25aeaec1c58d705053fb10bf37d09128a3dd2b11c4585f24a9797 |
++| szse_159509_announcements_control.bin | 1c799d8c18359ac482465556350b9b889e1c36689eda35f3d033edb5ec3a9813 |
++
++## Actual verification and commands
++
++探针与旧安全测试均只读使用既有 Python 3.12.14 环境；没有安装、替换或修改该环境。实际导入版本：pytest 9.1.1、requests 2.34.2、pandas 3.0.6、mootdx 0.11.7、tdxpy 0.2.7。源前提 probe 使用既有 requests；没有新 TDX 解析器运行，不能将这些版本声明当作 A5 通过。
++
++解释器 P：`C:/Users/Administrator/.codex/visualizations/2026/10/09/01a11feb-cbea-7790-a83e-57b1dd555e13/v042-unified/sios-candidate/Scripts/python.exe`。
++
++| 实际命令 | cwd / 环境 | exit / 结果 |
++|---|---|---|
++| P `-B evidence/step1/probe_source_prerequisites.py sandbox` | 本轮隔离实施根 | 2；首请求传输失败，停止；不当作来源空 |
++| P `-B evidence/step1/probe_source_prerequisites.py live` | 本轮隔离实施根；有界提升权限 | 0；5 响应，语义资格不等于 PASS |
++| P `-B evidence/step1/check_evidence.py` | 本轮隔离实施根 | 1；5 份原响应/解析一致，758 项隔离基线只 CR Owner 批准追加不同。准确保留治理差异，不是产品失败 |
++| P `-m pytest tests/test_suspension_source_semantics.py tests/test_suspension_structured.py -q --tb=short -rA -p no:cacheprovider --basetemp=<隔离根>/legacy-safety-tmp --junitxml=<隔离根>/evidence/step1/legacy-safety.xml` | 隔离 chstockdata；PYTHONPATH=<隔离 chstockdata>/src，PYTHONDONTWRITEBYTECODE=1、PYTHONUTF8=1、PYTEST_DISABLE_PLUGIN_AUTOLOAD=1 | 0；**19 passed、0 failed、0 error、0 skipped** |
++
++完整旧安全测试 argv/cwd/env 在 `step1/legacy-safety-command.json`，日志和 JUnit 同目录；探针请求合同、参数、原响应身份在 `step1/live/requests.json`、manifest。初始化保护用 Git rev-parse/status/ls-files/ls-tree/cat-file 对比真实文件：保护副本批次最初因 Git archive 换行不符 exit 1、默认 wheel 读取拒绝 exit 1，随后冻结 blob 导出与保护 tree 内存重建核验 exit 0；没有改写原文件。最终保护复核脚本 `verify_final.py` 的实际退出码与输出另存 `final-verification.exit/.log/.json`。
++
++独立 spec 复核：SPEC_COMPLIANT_STOP；独立证据质量复核：APPROVED，仅针对停止依据及取证脚本。原始字节、JSON 副本与 SHA 均一致；不能把实现代理声明当候选资格。复核纠正了 688432 既有复牌正文边界。所谓 +08 时间疑点来自 PowerShell ConvertFrom-Json 自动呈现，原请求文件均 +00 UTC，不是证据转换。未增网络或产品改动。
++
++## Approved clauses, files and acceptance mapping
++
++| 条款 | 本轮落实 | 未完成 / 实施门禁 |
++|---|---|---|
++| R1 | 批准记录保留分钟代理边界；旧调查材料保留 | 新 reader/09:30 活动判定及候选 live 未执行，BLOCKED |
++| R2 | 原始官方字段及持续覆盖缺口留证，不把公告空视为正常 | 官方 parser/合成门禁未实现，BLOCKED |
++| R3 | SIOS 冻结 blob 和原工作树保护 | 专用执行输入、PIT 隔离接线未执行，BLOCKED |
++| R4 | 上海模型时钟及旧 UTC 身份边界记录保留 | runner/OOS/qualification 注入未执行，BLOCKED |
++| R5 | 正式合同调整及旧能力边界追加，不改原 REWORK | mandatory live 及断言修订未执行，BLOCKED |
++
++| ID | 本轮验收结果 | 未完成的正式验收 |
++|---|---|---|
++| A1 | BLOCKED | 四 ETF 新 reader/adapter 实际资格无实现 |
++| A2 | BLOCKED | 两临停候选控制及消费者无 Fill 未执行 |
++| A3 | BLOCKED | 既有持续/复牌事实可作 fixture，候选解析/执行未验证 |
++| A4 | BLOCKED | 2016/2022 新候选 reader 未调用，旧样本不替代 |
++| A5 | BLOCKED / NOT_EXECUTED | ×10 修复及永久回归未实施 |
++| A6 | BLOCKED | 新失败/冲突契约未实施；旧安全回归 19 项不替代它 |
++| A7 | BLOCKED / NOT_EXECUTED | SIOS 新模式未实施 |
++| A8 | BLOCKED / NOT_EXECUTED | 实际 Shanghai clock 接线未实施 |
++| A9 | BLOCKED / NOT_EXECUTED | 原算术未改；新模式 Ledger 等价验证未执行 |
++| A10 | BLOCKED / NOT_EXECUTED | 原五 mandatory live 未启动；没有以 skip/fixture 代替 |
++| A11 | BLOCKED / NOT_EXECUTED | 无新候选 source/wheel、安装 profiles 或消费者统一验证 |
++
++本轮原仓库改变仅为：CR 文档追加批准/本轮停止交接；新增本 implementation audit 及同名 evidence 目录。隔离目录新增保护清单/完整备份、Owner 请求身份、源前提取证脚本与原响应、旧安全测试日志、最终核验脚本。**产品 src、tests、pyproject、正式 pin、旧 wheel、SIOS 引擎/策略及冻结研究产物没有修改；没有新 commit。** 这次停止发生在新源码实现前，因而没有 TDD red/green，不伪造实现变化清单。最终 SHA256 清单列在 evidence 的 `SHA256SUMS.json`。
++
++## Final handoff
++
++```ini
++CURRENT_DECISION = FIX_ONLY
++CR_IMPLEMENTATION = BLOCKED
++R1_OPEN_ACTIVITY_PROXY = BLOCKED
++R2_OFFICIAL_SUSPENSION = BLOCKED
++R3_SIOS_EXECUTION_ISOLATION = BLOCKED
++R4_SHANGHAI_CLOCK = BLOCKED
++R5_MANDATORY_LIVE_CONTRACT = BLOCKED
++LEGACY_SUSPENSION_FAIL_CLOSED = PASS
++MOOTDX_0X0FB5_PRICE_REGRESSION = FAIL
++A1_A11_ACCEPTANCE = A1:BLOCKED,A2:BLOCKED,A3:BLOCKED,A4:BLOCKED,A5:BLOCKED,A6:BLOCKED,A7:BLOCKED,A8:BLOCKED,A9:BLOCKED,A10:BLOCKED,A11:BLOCKED
++PACKAGE_TESTS = 19_LEGACY_PASSED;FULL_SUITE_NOT_EXECUTED
++SIOS_OFFLINE = NOT_EXECUTED
++SIOS_MANDATORY_LIVE = NOT_EXECUTED
++TRADINGAGENTS_COMPATIBILITY = NOT_EXECUTED
++CANDIDATE_SOURCE_SHA = NOT_BUILT
++CANDIDATE_WHEEL_SHA256 = NOT_BUILT
++SCOPE_EXPANSION = NO
++UNRESOLVED_BLOCKERS = SZSE_BOUNDED_PERSISTENT_INTERVAL_COVERAGE_NOT_CERTIFIED
++READY_FOR_OWNER_ACCEPTANCE = NO
++RELEASE_GATE = BLOCKED
++RELEASE_AUTHORIZED = NO
++PUBLISH_AUTHORIZED = NO
++TAG_CREATED = NO
++PYPI_UPLOAD = NO
++```
++
++价格回归字段的 FAIL 表示尚未满足验收，实际执行状态为 NOT_IMPLEMENTED / NOT_EXECUTED，**不是运行了一个失败的价格测试**。Step 1 四局部门禁：HISTORICAL_OPEN_EVIDENCE_CONTRACT=BLOCKED；TDX_ETF_PRICE_REGRESSION=NOT_EXECUTED；OFFICIAL_STOP_CONTROLS=BLOCKED；LEGACY_SUSPENSION_SAFETY=PASS（19 项现行安全合同回归）。禁止以最后一项 PASS 推进后续步骤。
++
++当前阶段/步骤：Step 0 通过，Step 1 源前提阻断；原 chstockdata HEAD `42bd44ef4d695aa3e88cfab4ebc3417660d0437a`，原未提交修复保留，本轮文档/evidence 新增；SIOS 原 HEAD `fafdb6d3942ba52baa9480da7c8674dab1487f5d`、工作树 clean，冻结源未修改。Gate 支持证据为本次有界响应字段与覆盖缺口，不是旧调查/候选 PASS。无范围变化，无下一 Phase 或发布授权。
++
++推荐的下一最小动作：补齐/认证 SZSE 必要有界持续停牌检查的输入合同，具体证明目标日之前开始、仍有效的二级市场停牌如何被查询覆盖；在该范围内证据足够后才恢复 Step 1。既有 688432 公告可以用于 fixture，不能把未认证 locator 或空列表冒充当前来源资格。不要求扩大到完整 PIT 历史库。
++
++学习交接：原问题为已批准代理能否安全进入当前实现；本次确认公告日期窗口计数完整不等于持续有效区间覆盖，且已认证旧复牌正文不能被新构造 URL 失败否定。剩余未知限于当前有界官方检查资格。下一决策为保持阻断、补齐这个具体前提，避免以补偿性架构代替来源事实。
++
++
++## R2.1 resume authorization — 2026-10-11
++
++Owner 已批准 R2.1，当前官方有界查询的证券/日期/结构/范围、返回事件的二级市场及时间语义、当前分页和已知正向阻断仍必须认证；不再要求 SZSE 公告库覆盖所有此前开始的历史持续停牌作为真实开盘成交代理的必要前提。精确正式合同追加于 CR §14.5。
++
++```ini
++PREVIOUS_STOP = VALID_UNDER_ORIGINAL_R2
++R2_1_OWNER_APPROVAL = YES
++PREVIOUS_STOP_AS_GLOBAL_PREREQUISITE = SUPERSEDED
++R2_1_AUTHORIZED = YES
++MOOTDX_0X0FB5_PRICE_REGRESSION = NOT_EXECUTED
++RELEASE_AUTHORIZED = NO
++PUBLISH_AUTHORIZED = NO
++```
++
++纠正历史交接中的价格回归 FAIL：此前没有实现或执行该测试，正确状态为 NOT_IMPLEMENTED / NOT_EXECUTED；旧原文保留作为审计历史，不再用 FAIL 代表尚未达成验收。此状态纠正不构成 Step 1 PASS。
++
++仅必要身份复核：原 HEAD 保持42bd44ef4d695aa3e88cfab4ebc3417660d0437a，隔离路径、保护清单、冻结SIOS commit/tree与上轮一致，隔离src/tests尚未有新增实现。复用已完成的Step 0和原响应；不重新运行44次TDX探索。接下来按TDD完成新 reader与永久价格回归，然后新reader有界live验证；不能只改停止标签。后续实际结果逐项追加。
++
++
++## R2.1 Step 1 local Gate accepted — 2026-10-12
++
++本节替代此前 Step 1 尚未实施/来源前提阻断的当前状态；原记录保留。最终 reader SHA256 为 `8e48f46373f974f665807dc3e2db8d7b8520588b699c7bce9fbf8c20986061a8`。产品实现位于受保护的隔离副本，原 chstockdata 和 SIOS 产品源码、旧 wheel 及研究结果没有被覆盖。
++
++新增 `opening_evidence.py`、带出处的已知官方区间 JSON、公共导出、optional `opening-pdf` extra、package-data、必要真实 fixture 和 50 项合同回归。旧 suspension/tradability/VIPDOC 实现保留。只把认证的 mootdx0.11.7/tdxpy0.2.7 ETF 逐笔价格在新输出边界除以十；股票、未知版本/类别及二次规范输入有回归。0x0fb4 与 09:25+09:30 量/末价交叉核验，活动量和价格不参与日线成交算术。
++
++当前官方有界查询、完整分页、所有已知区间与 TDX 活动分别记录；信息时间仍 UNKNOWN，retrieval 为真实 aware 时间。688432 有明确复牌公告；000002 仅复牌日期精度，effective_end=null，不能推断复牌整点。513100/159509 已知区间不能被合法空查询抹掉。旧完整历史 PIT 状态能力仍 fail-closed；本能力仅支持明确选择的新历史开盘代理模式。
++
++TDD 和独立审查发现并修复两类真实缺陷：SSE ETF 的陈旧/跨日日期不能套用单日停复牌语义，日期核验移至非二级事件筛除之前；SSE 股票严格解析八位 ASCII 日期、日历有效性及区间顺序，复牌兼容性比较使用 date，禁止尾随字符被截断解锁。每类 RED/GREEN 保留，两个 fresh reviewer 最终均 APPROVED，仅限 Step 1。
++
++证据目录为本 audit 同名 evidence 下 `r21-step1/`。`green-stock-interval-dates.{command.json,log,xml,exit}` 实际 128 passed、exit 0；根代理独立 `independent-stock-final-green.*` 亦为 128 passed（50 新合同、19 旧停牌安全、59 VIPDOC 价格精度），0 skip/xfail。`live/manifest.json`、`live/requests.json` 为新 public reader 的 12 个真实有界点、74 条原始响应，实际 exit 0；TDX 原始材料是完整 parser-returned rows，未声称 raw TCP。根代理独立校验 74 份 bytes/SHA、12 payload evidence_hash、真实 aware 时间和当前官方查询完整性，见 `independent-live-identity.json`。
++
++最终保守日期修复没有再发网络请求，`final-replay-stock-interval-dates/manifest.json` 对已存的 74 条原始新 live 响应逐请求/SHA 重放，12/12 预期结果、exit 0，明确披露 actual-live-source 与 final-source 身份。不能把重放称为最终源码的新 live，也不能把旧 44 次调查或旧候选 PASS 当作本次新实现资格。
++
++```ini
++CURRENT_DECISION = FIX_ONLY
++R2_1_AUTHORIZED = YES
++STEP_1 = PASS
++HISTORICAL_OPEN_EVIDENCE_CONTRACT = PASS
++TDX_ETF_PRICE_REGRESSION = PASS
++OFFICIAL_STOP_CONTROLS = PASS
++LEGACY_SUSPENSION_SAFETY = PASS_19
++STEP_2 = IN_PROGRESS
++STEP_3 = NOT_EXECUTED
++STEP_4 = NOT_EXECUTED
++NEW_SOURCE_SHA = NOT_BUILT
++NEW_WHEEL_SHA256 = NOT_BUILT
++READY_FOR_OWNER_ACCEPTANCE = NO
++RELEASE_AUTHORIZED = NO
++PUBLISH_AUTHORIZED = NO
++TAG_CREATED = NO
++PYPI_UPLOAD = NO
++```
++
++A1–A6 来源层取得局部证据；A1–A3 的真实消费者/engine 部分以及 A7–A11 仍待 Step 2–4，不把来源测试冒充完整验收。尚无新候选 package 全套或消费者统一 Gate。范围变化仅为 Owner 已正式批准的 R2.1，无额外扩展。
++
++交接：当前 v0.4.2 FIX_ONLY / Step 1 局部门禁通过，进入已授权 Step 2。原 CH commit `42bd44ef4d695aa3e88cfab4ebc3417660d0437a`，预存未提交修改保留；隔离副本无 .git、无新 commit。SIOS 实施基底为冻结 `84fd54fae0740bc06b1d250afa4578be29556956`，原工作树未写入。已确认 Step 1 缺陷均修复；有界范围、parser 价格及未知信息时间限制公开。推荐按既有授权完成独立执行输入、上海时钟和 snapshot/replay，逐步骤审查；这不代表下一 Phase 或发布获准。
++
++
++## R2.1 Step 2 local Gate accepted — 2026-10-12
++
++SIOS 隔离候选完成 R3/R4 接入，fresh 规格和质量审查均 APPROVED。运行源码 54 个文件的 manifest SHA256 为 `73376752616edc41b1560e0cea40a7cdb6190d2795c83dab34d19fdcffd4186f`，这是源码内容身份，不是新 Git commit。原冻结基底仍为 `84fd54fae0740bc06b1d250afa4578be29556956`；原仓和旧研究工件没有被改写。
++
++独立 immutable `HistoricalOpeningEvidence` 保存规范化完整 JSON 和 hash，明确 `LEGACY` 与 `HISTORICAL_OPENING_R21`。仅精确 vendor `historical_suspension_unavailable` typed failure/helper 提供带来源、请求 digest 的 UNKNOWN 停牌覆盖缺口，旧 `fetch_tradability()` 仍失败。普通失败、absence/UNKNOWN、NOT_LISTED/DELISTED、side block、缺 master/规则不能被开盘正量覆盖；new mode 也检查 approved Master 的上市生命周期。旧 effective 09:30 不再冒充历史 information_available_at，未知保持 UNKNOWN。
++
++执行事实只接入 `_activate → activate_pending_plans`，不进入策略 DecisionContext；T-close/PIT 过滤、raw open、滑点、费用、现金、手数、all-or-none 和 corporate action 算术保留。上海 09:15/09:30/15:30 时钟真实接入 Basic/OOS engine；旧 default UTC 和旧 kernel identity 保持。既有三个 CLI 入口增加窄、默认 LEGACY 的显式模式选择，旧 freeze/new mode 和新 freeze/legacy mode 双向错配均拒绝；没有重算原研究。
++
++CanonicalDataset 的执行集合默认为 empty，旧 digest 不变；v2 默认、文件完整字节、snapshot ID 和 reader 双向兼容有冻结源码独立证明。新增 `v3-historical-opening` 独立分区保存完整证据，policy/clock/模式和全部 artifact checksum 在解析前核验；新 mode 不接受缺必要身份的旧 artifact。freeze kernel 只绑定 mode/policy/clock，避免冻结前读取未来 OOS execution facts；完整 facts digest 通过实际 v3 snapshot/data_snapshot_digest 进入 RunManifest identity。wiring 核对 dataset/facts 与 receipt，一项事实变化会改变真实 run identity。
++
++证据在同名 evidence 的 `r21-step2/`：`source-vs-frozen.diff` 和 `summary.json` 列出 11 个 runtime、4 个测试、12 个 full-payload fixture、1 个合同文档的变化。`final.{json,log,xml,exit}` 实际 472 passed（39 新回归、433 旧受影响回归）、exit 0、零 failure/error/skip；根代理独立 `independent-final.*` 重跑也是 472 passed、exit 0，受测源码起止 hash 相同。初始失败和最小修复历史保留，包括移除误传的 corporate action 参数、修正 availability 旧断言，以及新 mode 的上市生命周期拒绝回归。
++
++无 .git 导出所需的 code identity 仅在测试进程公开注入 runner/oos 的 resolver，值为实际 `source_tree_sha256:` 内容 hash；注入点、命令与起止身份留证，生产 `resolve_code_commit` 未改，也不把 frozen commit 当作新源码 commit。`replay-adapter-final.json` 是 12 点/74 原始响应经过真实 CH 0.4.2 函数、Library client、provider、domain 的离线重放，实际版本/import/path 和最终 hash 一致，不能称为新 live。`frozen-compat.json` 保留 v2 字节/digest/ID/reader 验证。
++
++```ini
++CURRENT_DECISION = FIX_ONLY
++R2_1_AUTHORIZED = YES
++STEP_1 = PASS
++STEP_2 = PASS
++STEP_3 = IN_PROGRESS
++STEP_4 = NOT_EXECUTED
++R3_SIOS_EXECUTION_ISOLATION = PASS_LOCAL
++R4_SHANGHAI_CLOCK = PASS_LOCAL
++NEW_SOURCE_SHA = NOT_BUILT
++NEW_WHEEL_SHA256 = NOT_BUILT
++READY_FOR_OWNER_ACCEPTANCE = NO
++RELEASE_AUTHORIZED = NO
++PUBLISH_AUTHORIZED = NO
++TAG_CREATED = NO
++PYPI_UPLOAD = NO
++```
++
++交接：v0.4.2 FIX_ONLY / Step 2 局部门禁通过，进入原已授权 Step 3。原 CH HEAD `42bd44ef4d695aa3e88cfab4ebc3417660d0437a`、原预存未提交修改保留；原 SIOS HEAD `fafdb6d3942ba52baa9480da7c8674dab1487f5d`，无本轮产品写入；隔离 export 无 .git、无新 commit。无已确认 Step 2 阻断或额外范围扩展。下一最小动作是按 R5 正式修订并真实验证 mandatory live，随后统一候选；局部通过不代表统一 Gate、Owner Acceptance、下一 Phase 或发布获准。
++
++学习记录：当前问题是事后执行事实如何进入历史模拟且不变成早知策略数据。证据支持独立通道、精确缺口标识和版本化快照能保留该边界；仍未验证新候选的 mandatory live 和统一安装/消费者资格。下一决策为继续已授权的 Step 3 有界验证，无收益或策略资格结论。
++
++
++## R2.1 Step 3 local Gate accepted — 2026-10-12
++
++R5 的正式 mandatory 合同修订在隔离 SIOS 完成，fresh 规格和质量审查均 APPROVED。旧完整历史 PIT 停牌能力仍失败/UNKNOWN、information_available_at 未补造；新增事实只用于显式 HISTORICAL_OPENING_R21 执行模式。模型窗口为上海 `[09:30,09:31)`，不承诺全天正常、09:15 已知或整点具体委托成交。发布与下一 Phase 均未授权。
++
++保留原五个 live test 名称、原四目标及日期范围，显式启用后实际 **5 PASS、0 failure/error/skip/xfail/deselect，exit 0**。54 个独立 capability outcome 全 PASS，包含四目标真实 corporate actions、RAW、freshness/stale 拒绝、calendar/units/history/pre_close、版本与原 pin 拒绝。四目标真实 opening 事实经 v3 snapshot/reader/full payload/digest/RunManifest 后进入实际 engine，各有正量 plan 和原 RAW-open/slippage/tick 规则的一个 Fill。513100/159509 仅是官方否决与执行拒绝对照，各有非空订单、SUSPENDED 拒绝、零 Fill，无 10:30 重试，不扩大 QDII 产品资格。
++
++本步只改 `tests/qualification/live_qualification.py`、`test_chstockdata_etf_gate.py`、新增 `test_live_r21_contract.py` 及 `docs/contracts/historical-opening-execution-r21.md`；SIOS 的 54 个 runtime 文件逐项 hash 仍等于 Step 2 源码树 `73376752616edc41b1560e0cea40a7cdb6190d2795c83dab34d19fdcffd4186f`。新 opening reader 仍固定单主站、分页有界、无发现/重试；原 calendar 保留默认 freshness 和既有在线 fallback，最终实际 Sina 路由、stale=false，不能将整体 live run 称为所有来源均单主站。
++
++证据位于同名 evidence 的 `r21-step3/`：`live-command.json`、`live.{log,xml,exit}`、`summary.json`、`all-capabilities.json`、`all-calls-coverage.json` 和 `step3-changes.diff`。最终111个实际观测调用的完整 HTTP/解析器返回数据均保留；根代理独立逐份验证 SHA/字节数，全部匹配，runtime 与资格源码起止一致。根代理最终离线验证17 PASS、5个原默认 live opt-in skip、exit 0；离线 skip 不算 mandatory live 豁免或成功。
++
++先前 observer 序列化工具无效 run、真实4 PASS/1 FAIL run 均原样保留。六份真实 snapshot 本地 RED 定位 helper 的输入 tuple 顺序比较错误，canonical content_digest 实际相同；另补 bond 回归发现测试预定资金目标不足一手。仅修 helper 为完整 canonical digest 身份校验、统一明确足量目标，保留非空计划与原执行断言；六真实输入本地 GREEN 是诊断，不冒充新 live。最终5 PASS是再次真实执行结果，并绑定最终 helper hash。早先16-case根代理验证被最终17-case验证取代。
++
++fresh quality 首次 REWORK 确认新离线测试直接要求实际 optional vendor 0.4.2，导致缺 vendor/合法旧 pin CI 失败；仅该离线测试改用既有 library= fake 注入。两环境各 RED 1 failure→GREEN 1 pass，根代理再次独立17 PASS/5原 opt-in skip。runtime、live helper、原五项 live 和合同文件字节不变，资格当前身份明确区分唯一更新的 offline 文件与原5 PASS所绑定 live 字节，无需重复网络。REWORK 历史与修复证据保留在 optional-vendor-rework/；同 reviewers 有限复核批准后才接受本步。
++
++```ini
++CURRENT_DECISION = FIX_ONLY
++R2_1_AUTHORIZED = YES
++STEP_1 = PASS
++STEP_2 = PASS
++STEP_3 = PASS
++STEP_4 = IN_PROGRESS
++R5_MANDATORY_LIVE_CONTRACT = PASS_LOCAL
++NEW_SOURCE_SHA = NOT_BUILT
++NEW_WHEEL_SHA256 = NOT_BUILT
++READY_FOR_OWNER_ACCEPTANCE = NO
++RELEASE_AUTHORIZED = NO
++PUBLISH_AUTHORIZED = NO
++TAG_CREATED = NO
++PYPI_UPLOAD = NO
++```
++
++交接：当前 v0.4.2 FIX_ONLY / Step 3 局部门禁通过，按 Owner R2.1 已授权顺序进入 Step 4。原 CH HEAD `42bd44ef4d695aa3e88cfab4ebc3417660d0437a`、原预存修改与旧 wheel 保留；SIOS 冻结基底 `84fd54fae0740bc06b1d250afa4578be29556956`，隔离导出无 .git、无新 commit。无已确认 Step 3 阻断、无范围扩展。下一动作是构建独立新工件并实际重跑统一候选 Gate，不能把本步源码 live 成功当作 wheel 或统一候选成功。
+--- a/docs/historical-opening-evidence.md
++++ b/docs/historical-opening-evidence.md
+@@ -0,0 +1,98 @@
++# Historical opening execution evidence (R2.1)
++
++`fetch_historical_opening_evidence(ticker, session_date, *, known_events=(),
++tdx_reader=None, official_reader=None) -> FetchResult[dict]` is an additive
++capability. The legacy `get_suspension_info`, `fetch_suspension_info`, and
++`fetch_tradability` retain their existing behavior.
++
++```python
++from chstockdata import fetch_historical_opening_evidence
++
++result = fetch_historical_opening_evidence("510300", "2026-09-11")
++evidence = result.data
++if evidence["opening_status"] == "OPEN_ACTIVITY_CONFIRMED":
++    # The historical opening activity constraint is satisfied.
++    # Prices and volumes in this evidence are not order fill inputs.
++    pass
++```
++
++The supported security category scope is the four certified target ETFs
++510300, 159915, 518880, 511010, two ETF halt controls 513100 and 159509, and
++stock controls 688432 and 000002. This is a certification scope, not a
++security/date verdict table. Other categories or source versions return
++UNKNOWN. Only mootdx 0.11.7 / tdxpy 0.2.7 are certified for the current
++transaction price boundary. They remain optional dependencies, loaded only
++when this capability is invoked. `opening-pdf` is the optional pypdf extra
++for essential official PDF bodies; the verified parser was pypdf 6.10.0.
++An absent PDF parser produces an explicit `not_configured` attempt and
++UNKNOWN execution evidence.
++
++Every request targets Shanghai 09:30 and the half-open minute window
++`[09:30,09:31)`, with an explicit session date and market. The policy version
++is `R2.1`; the schema is `historical-opening-evidence/1`; the purpose is
++`historical_opening_execution_constraint`. `retrieved_at` is an aware UTC
++wall-clock observation. `information_available_at` remains null and
++`information_basis` remains UNKNOWN because neither the historical TDX
++result nor present official retrieval proves historical preopen availability.
++
++`OPEN_ACTIVITY_CONFIRMED` requires genuine positive-volume 09:30 rows from
++0x0fb5, validated prices and minute times, the certified 0x0fb4 crosscheck,
++a successful current bounded official query with complete pagination and
++interpretable returned events, and no known official block or conflicting
++boundary. 09:25 auction activity, untimed minute points, and daily volume
++cannot satisfy this rule. ETF transaction prices are divided by ten exactly
++once in the new reader output boundary; stock prices are preserved. Original
++parser price, normalized price, rule, unit, tick, category, versions, command,
++request market/security/date, and observations are retained.
++
++`BLOCKED_CONFIRMED` means a certified secondary-market interval blocks the
++target instant. A resume during the minute does not cause a later retry.
++A full-window official block with qualified positive activity is UNKNOWN
++with `source_conflict=true` and `official_block_at_target=true`. A boundary
++inside the minute that cannot be ordered against the HH:MM activity is
++UNKNOWN. A later afternoon halt does not revoke an independently qualified
++morning opening window. A missing or failed current essential official
++query, partial page, wrong security, unknown event meaning/time, or malformed
++essential attachment is UNKNOWN, including when a cached halt fact exists.
++
++SSE uses the certified fund history or stock interval queries. Fund
++`dateSource=2 / LSTP / stopTime=915` denotes 09:15–10:30 secondary trading
++halt; certified SG/SH creation/redemption entries are distinguished. SSE
++fund start/end dates must both be eight-digit valid dates equal to the current
++requested session, including rows ignored as creation/redemption entries;
++stale or cross-day rows cannot be interpreted using the single-session rule.
++SSE
++stock `endStopDate` is a last stop day and is never turned into midnight
++resume. Only a compatible independently certified resume timestamp may
++close that interval; a current later LAST_STOP_DAY cannot be erased by a
++cached earlier resume. Stock start/end fields must be exactly eight ASCII
++digits, represent valid calendar dates, and satisfy end >= start; a legal
++continuous interval may start before the queried session. Resume compatibility
++compares parsed dates, never raw strings or truncated fields.
++SZSE uses the official fund announcement list and
++essential official PDF bodies. Known periodic reports and other explicitly
++nonsecondary titles are considered without creating a future-information
++normality claim. Nonempty SZSE stock search bodies outside the current
++certification scope fail closed; the known issuer halt facts still
++participate.
++
++`opening_known_events.json` contains narrow positive interval facts with
++issuer/exchange identity, original source SHA, effective-time certification,
++retrieval/cache provenance, and `offline_cache=true`. It is a packaged data
++asset. It is not counted as a new live attachment retrieval and never replaces
++the current bounded official query. The 000002 resume date has no authenticated
++resume clock, so its interval end remains null. Callers may supply additional
++`OfficialOpeningEvent` facts with provenance; wrong requested security/market
++is an explicit structure failure, not a silently discarded necessary fact.
++
++Metadata success describes source retrieval; it does **not** authorize
++execution. Consumers must inspect `opening_status`, purpose, policy, session,
++target/window, and evidence identity. Per-source `FetchAttempt` entries and
++capability health use the existing observation plumbing, without a generic
++router. The evidence hash binds the serialized evidence and observations.
++
++The capability does not prove strict 09:30 fills, order queue position,
++executable volume quota, all-day normality, complete historical PIT, or that
++information was known at 09:15. The current query makes no global historical
++absence/completeness claim; under R2.1, a legitimate empty current official
++result can combine with certified opening activity and no known block.
+--- a/docs/releases/v0.4.2/change-requests/CR-historical-opening-execution.md
++++ b/docs/releases/v0.4.2/change-requests/CR-historical-opening-execution.md
+@@ -1,628 +1,770 @@
+-# CR-v0.4.2-HISTORICAL-OPEN-EXECUTION — 设计与契约独立审查
+-
+-日期：2026-10-10（Asia/Shanghai）  
+-任务：DOCUMENT_ONLY / CHANGE_REQUEST_DESIGN_REVIEW  
+-状态：**PROPOSED — Owner Design Review；本文件不是已生效合同。**
+-
+-## 1. Executive Summary
+-
+-建议保留 Owner 的产品目标，修订五处关键表述后交 Owner 审议：明确“开盘分钟活动”只是日线开盘模型的代理资格；区分官方阻断与来源冲突；增加独立执行事实输入并在现有 engine 执行入口接入；显式注入上海市场时钟；正式替换原 mandatory live 中已经失效的历史状态假设，同时保全 actions/freshness 和全部其它门禁。
+-
+-**原草案符合性结论为 REWORK。** 冻结日线模型明确不承诺队列成交，能够容纳被明确批准、版本化的分钟代理；但冻结 PIT tradability/09:15 activation 合同尚未允许事后执行事实。因此不能声称这只是 adapter 元数据修复，也不能把代理结论改名为历史全天 TRADABLE。采用该代理是本 CR 的实质合同变更，需要 Owner 决定。
+-
+-**SIOS_ENGINE_CHANGE_REQUIRED = YES。** 冻结 engine.py:903–907 先按 activation 可知性过滤；execution.py:248–256 只接受过滤后的日级状态，没有独立执行事实参数。只改 adapter、只改 availability、只注入时钟或只绕过 live 断言均无法诚实完成目标。建议复用现有 _activate()/activate_pending_plans()，新增窄的执行资格输入及门禁；保留策略切片和全部成交算术，不建设新引擎。
+-
+-已有源证据足以设计这个有限代理合同：四 ETF、临停反例、历史点和价格尺度错误均有保存记录。它不足以证明 09:30:00 确定可执行、集合竞价成交类别、所有历史覆盖或生产接入已经合格。A1–A11 的实现资格仍待授权后验证；当前 Release/SIOS Gate 保持 FAIL。
+-
+-本轮只新增本文，不修改源码、测试、依赖、pin、原审计、wheel 或研究结果，不提交或发布。完成后停止在 Owner Design Review。
+-
+-## 2. Original Frozen Contract
+-
+-### 2.1 身份、权威和证据索引
+-
+-| 标识 | 基线或证据 | 本轮核对与适用边界 |
+-|---|---|---|
+-| B1 | chstockdata HEAD 42bd44ef4d695aa3e88cfab4ebc3417660d0437a | 候选基底；不包含所有未提交正确性修复 |
+-| B2 | 捕获源码 tree 911d231646edc7d419d2e26ac91c95af5404c5c6 | 原候选内容身份；566 个 candidate-source.json 文件本轮逐个 SHA256 匹配，本文不加入或重定义该 tree |
+-| B3 | dist/v042-unified/chstockdata-0.4.2-py3-none-any.whl | SHA256 b76b065a06cd1d91868880a7b57584f598b6fd4cb42931e9a33700bc99a88c7a；39 个 runtime 成员与当前 src 逐字节一致 |
+-| B4 | SIOS 冻结 commit 84fd54fae0740bc06b1d250afa4578be29556956 | tree 979b5b33188931e2c78aa01026684ed72e064600；本轮直接读 Git blobs。旁边 SIOS 当前 HEAD 为 fafdb6d3942ba52baa9480da7c8674dab1487f5d，不能用当前文件替代冻结合同 |
+-| F1 | [v0.4.0 version-design](../../v0.4.0/version-design.md)，§3–7 | 该文件自称追溯重建、Owner review required，不能冒充当初的已签署原始设计；其中明确 additive API、真实来源/未知语义、消费者升级独立验收和保全 M0/M1 |
+-| F2 | SIOS docs/architecture/backtest-semantics.md:13–18、40、74–79、89–93、118–124 | T-close 决策与 sizing；NEXT_SESSION_OPEN；raw open+滑点/tick/费用；未知不成交；submitted all-or-none；新语义产生新运行身份 |
+-| F3 | SIOS docs/architecture/data-contracts.md:14、36–38、53–55、67–69、92、113–138 | PIT 与 retrieval 分离，typed failure、immutable snapshot、ETF subtype/capability gate；供应商抓取属于 chstockdata |
+-| F4 | SIOS engine.py:139–163、178–239、892–928、987–997、1132–1140；execution.py:248–256、259–279、317、391 | 决策与执行入口及 09:15/09:30 真实路径；完整路径见 §8 |
+-| F5 | SIOS provider.py:456–490、1029–1102、1244–1327 | 旧 suspension client、PIT 映射和错误的 historical availability fallback |
+-| E1 | [统一候选 Gate](../../../audits/2026-10-09-v0.4.2-unified-gate.md) 及 [candidate-source.json](../../../audits/evidence/2026-10-09-v0.4.2-unified-gate/candidate-source.json)、[final-integrity.json](../../../audits/evidence/2026-10-09-v0.4.2-unified-gate/final-integrity.json) | 身份及保存的 JUnit/exit 本轮核对；旧结果不是本轮重跑 |
+-| E2 | [历史恢复结论](../../../audits/2026-10-09-v0.4.2-history-recovery-conclusion.md) 及其 tdx-facts.json、disclosure-pages.json、pit-boundary.json | 日线不能证明开盘状态；688432/000002 的披露事实；fallback 诊断；其 activation 默认 09:30 的说法由 E3/冻结源码纠正为 09:15 |
+-| E3 | [官方历史与 SIOS 决策](../../../audits/2026-10-09-v0.4.2-official-history-and-sios-final-decision.md)，§2–6 | SSE/SZSE 事件及响应摘要/SHA；没有完整正常状态或目标 preopen 资格。部分官方原始响应当时只在内存核验，报告留字段和 hash，不声称本轮能离线重放全部原响应 |
+-| E4 | [TDX 历史开盘审计](../../../audits/2026-10-10-v0.4.2-tdx-historical-execution-feasibility.md) 及其四份 JSONL/manifest | 本轮离线解析原记录、复算 SHA、量价及时间字段；44 次既有查询未重跑 |
+-
+-SIOS 路径/行号全部指 B4，chstockdata 源码指本轮受保护工作树。SIOS provider/engine/execution 冻结 blob SHA256 分别为 57a858be4c5e70b964d7d5f2290cf94b7d4243fe497828e5a7592eb24c259e3f、fb27c8be1f9b8068e422e9cb882d5b635ab075398c49c9d936df5023ef336521、f7d21c2e51a85a96850f0b6913baf37514fa8e5d0fad016f86aa7bda9208731e，本轮复算一致。冻结仓库未写入。
+-
+-两仓均先尝试 CodeGraph：chstockdata 的检索片段未准确定位当前 suspension，SIOS 返回 unable to open database file。随后只读当前指定源码及 B4 Git blobs，用 AST/行号核对；未重建索引。
+-
+-### 2.2 原合同不能被本 CR 悄悄改写的部分
+-
+-- T 决策只能使用该会话及更早、cutoff 前可知的数据；T+1 活动不得进入 T 信号、目标、目标权重、universe 或 planned_quantity。
+-- T-close 锁定 sizing；T+1 用 raw 日线 open 加既有滑点、tick rounding、费用、资金/手数/可卖数量和批准规则。资金不足的既有 complete-lot submitted_quantity 调整仍允许，目标和 planned_quantity 不重算。
+-- 不确定执行资格、缺规则、明确停牌或 side 阻断均拒绝；没有日内部分成交、队列模型、复牌补单或隐式 carry/retry。
+-- calendar、Instrument Master、corporate actions、adjustment/freshness、Golden、snapshot/replay 的既有正确性要求保留。QDII 对照仅为数据源反例，不扩大 SIOS 三种已批准 ETF subtype。
+-- B4 具体实现额外把执行所用 tradability 绑定到 activation 前可知。这一部分需要正式修订，不能因日线模型不模拟队列便假定已经获准解除。
+-
+-## 3. Confirmed Defects
+-
+-| 编号 | 分类 | 事实与证据 | 本 CR 内的处理 |
+-|---|---|---|---|
+-| D1 | CONFIRMED_DEFECT | Eastmoney latest-event 集合不是完整历史 as-of；事件缺席的正常状态推论失效。当前 suspension.py:211–218 历史/未来 fail-closed，源语义测试保留 | 不恢复旧推论、不替换旧 API；新能力独立表达执行证据 |
+-| D2 | CONFIRMED_DEFECT | provider.py:1319–1325 在历史 observed_at 不同日时补造上海 09:30 EXCHANGE_RULE；不读取 payload.information_available_at | 改为只接受有依据的信息时间，否则 UNKNOWN；不得使用 effective/retrieved 冒充 |
+-| D3 | CONTRACT_CONFLICT | 真实事后活动不满足 F4 的 09:15 activation 信息门禁；诚实 availability 会被过滤。不是已发现策略实际泄漏的证据 | 增加独立执行输入；策略 PIT 门禁不放宽 |
+-| D4 | CONFIRMED_DEFECT | E4 使用 mootdx 0.11.7 / tdxpy 0.2.7 的 0x0fb5 ETF 价格为分钟值的十倍；四目标均重现 | 接入前必须固定版本/协议/已认证证券类别的尺度和永久回归；错误解析不得 success。与已修复 VIPDOC 日线无关 |
+-| D5 | CONTRACT_CONFLICT / UNRESOLVED_RISK | EngineClock 默认 UTC，runner.py:536、oos.py:1496、vertical smoke:115 直接 EngineClock()；记录时刻和可知性比较确有偏移 | 新语义入口注入 Shanghai clock；不改全局默认，不改历史结果。本轮未重跑研究，不能量化历史 target/NAV 受影响数量 |
+-| D6 | CONFIRMED_DEFECT（资格阻断） | E1 原 live JUnit 5 tests、1 failure、0 skipped；test_live_tradability_adjustment_and_freshness 在历史 is_success 失败，后续 actions/freshness 未执行 | 保持 mandatory；经批准后调整能力断言并独立执行其它断言。已有 offline PASS 不抵消本失败 |
+-
+-“全部免费源不可用”“所有分钟数据不可信”“必须建设完整 PIT 数据库”均无证据，不转为工程要求。完整状态全集、09:30:00/竞价类别证明为 INSUFFICIENT_EVIDENCE；在明确接受分钟代理的前提下，秒级/队列不足属于 NON_BLOCKING_LIMITATION。
+-
+-## 4. Owner Proposed CR
+-
+-以下逐字保留任务输入第二部分（仅统一换行并加引用标记）。其 PROPOSED 和全部 A1–A11、non-goals、停止条件仍为原提案。修正意见在后续章节独立列出，未覆盖、删除或视为已批准。
+-
+-<!-- OWNER_PROPOSED_CR_BEGIN -->
+-> # 第二部分：OWNER_PROPOSED_CR — 完整待审查草案
+->
+-> **以下内容是 Owner 提出的正式设计审查输入。**
+->
+-> 必须在最终文档中逐项保留、分析或明确说明为何需要修改。
+->
+-> 不得将其标记为已经批准实施。
+->
+-> ---
+->
+-> ## CR-v0.4.2-HISTORICAL-OPEN-EXECUTION
+->
+-> ### 历史开盘执行资格的可信数据与 PIT 隔离
+->
+-> 状态：**PROPOSED — Owner Design Review**
+->
+-> 关联项目：
+->
+-> - chstockdata v0.4.2
+-> - systematic-investing-os
+->
+-> 变更性质：
+->
+-> 已确认数据正确性缺陷的有限跨仓契约修复。
+->
+-> ### 1. 原始目标
+->
+-> 修复 chstockdata 历史停复牌状态错误，允许 SIOS 安全升级至 v0.4.2，并维持原定的 T-close 决策、NEXT_SESSION_OPEN 成交模型和无前视约束。
+->
+-> ### 2. 已确认的问题
+->
+-> - Eastmoney 原接口不能提供可靠、完整的历史停牌状态；缺少记录不能解释为正常交易。
+-> - SIOS historical adapter 会把缺乏真实时间依据的历史状态回填为交易日 09:30 已知。
+-> - SIOS 执行激活还要求交易资格事实满足 09:15 的 information_known_at 检查。
+-> - 免费 TDX `0x0fb4` / `0x0fb5` 已取得四只 ETF 的历史开盘活动样本，并与官方临停样本交叉验证。
+-> - mootdx 0.11.7 历史 ETF 逐笔价格存在样本确认的十倍解析错误。
+-> - 原冻结日线回测不要求订单队列、日内部分成交或精确重建撮合。
+->
+-> ### 3. 拟议业务契约
+->
+-> #### 3.1 策略决策不变
+->
+-> T 日决策只能读取 T 日决策截止时已经可知的信息。
+->
+-> T+1 日成交活动不得进入 T 日策略决策、信号、目标权重或仓位计算。
+->
+-> #### 3.2 历史执行资格独立判断
+->
+-> 对 T+1 的 NEXT_SESSION_OPEN 模拟执行：
+->
+-> - 交易所官方记录明确覆盖执行时刻的停牌区间：禁止成交。
+-> - 官方查询未发现冲突，且可信 TDX 历史记录证明开盘分钟存在真实交易活动：允许进入原有日线模拟成交规则。
+-> - 来源缺失、异常、价格/时间含义未认证，或证据冲突：UNKNOWN，拒绝成交。
+-> - 后续才开始的临停不能追溯取消此前已经模拟完成的成交。
+-> - 复牌后不得自动补做原本在 09:30 被拒绝的订单。
+->
+-> **模型限制：**
+->
+-> 开盘分钟真实成交是既有日线开盘成交模型的执行资格代理证据，不承诺 09:30:00 某笔特定订单必然成交。
+->
+-> 正式设计必须记录这一近似及时间粒度边界。
+->
+-> #### 3.3 两种时间语义分离
+->
+-> - `information_available_at`：历史参与者当时能够知道信息的时间。
+-> - `execution_effective_at/window`：真实交易状态或成交活动生效的历史时间。
+-> - `retrieved_at`：系统事后获取数据的时间。
+->
+-> 三者不能相互冒充。
+->
+-> 执行事实可以参与历史执行模拟，但不能通过伪造 `information_available_at` 进入策略决策。
+->
+-> 中国 A 股及 ETF 的交易时钟必须采用明确的 Asia/Shanghai 时区。
+->
+-> 既有 UTC 默认行为的影响需要纳入契约评估，禁止静默重写冻结历史结果。
+->
+-> ### 4. chstockdata 最小变更范围
+->
+-> 新增一个明确的**历史开盘执行证据能力**，不替换、不重新定义旧 `get_suspension_info()`。
+->
+-> 建议输出概念字段：
+->
+-> - 证券、交易日期、交易所、目标执行时间
+-> - 开盘活动证据：时间窗口、成交量、必要时的价格
+-> - 官方停复牌事件：有效区间、事件类型、来源
+-> - 来源覆盖、请求结果及异常
+-> - 时间字段的明确含义与时区
+-> - 获取时间、来源身份、证据摘要
+-> - `OPEN_ACTIVITY_CONFIRMED / BLOCKED_CONFIRMED / UNKNOWN` 等可区分的事实结论
+->
+-> 上述名称是设计草案，不预先锁定 Python 函数签名。
+->
+-> 实现应尽量复用既有 TDX 协议和交易所接口，不引入通用多源框架。
+->
+-> 保留既有历史停牌 fail-closed 行为。
+->
+-> 不能因官方接口返回空列表，就自动派生 `suspended=False`。
+->
+-> ### 5. SIOS 最小变更范围
+->
+-> 仅审查和修改必要的：
+->
+-> - chstockdata 消费者 adapter
+-> - 历史执行资格输入及其时间语义
+-> - activation 与 execution 的事实使用边界
+-> - 直接受影响的合同测试和消费者资格测试
+->
+-> 保留以下冻结业务语义：
+->
+-> - T-close 生成目标
+-> - NEXT_SESSION_OPEN
+-> - T-close sizing
+-> - 开盘价加滑点
+-> - 交易费用、交易规则、手数约束
+-> - all-or-none
+-> - 不得引入未来信息
+-> - 不确定时拒绝成交
+->
+-> 不得扩展到策略、Portfolio、订单簿、日内部分成交、复牌后自动重试或完整 PIT 数据库。
+->
+-> 既有 M0/M1 结果不可覆盖；受新执行规则影响的后续回测必须具有独立语义版本和证据身份。
+->
+-> ### 6. 强制验收条件
+->
+-> **A1 — 四 ETF 开盘活动**
+->
+-> 四只目标 ETF 在 2026-09-11 的开盘成交活动得到真实数据支持。
+->
+-> **A2 — 官方临停拒绝**
+->
+-> 513100、159509 在官方临停至 10:30 的情况下，09:30 必须禁止成交。
+->
+-> **A3 — 历史停牌与盘中边界**
+->
+-> 688432 持续停牌及复牌样本正确；000002 盘中临停不会追溯否定早盘成交。
+->
+-> **A4 — 历史覆盖**
+->
+-> 2022、2016 历史数据覆盖与支持边界有实际证据，未覆盖日期继续 UNKNOWN。
+->
+-> **A5 — 逐笔价格正确性**
+->
+-> TDX 逐笔 ETF 十倍价格错误被回归测试捕获；错误价格不得进入成功结果。
+->
+-> **A6 — 失败与缺失安全性**
+->
+-> 官方空事件、TDX 空响应、零量、网络失败、数据冲突分别得到正确处理。
+->
+-> **A7 — 策略 PIT**
+->
+-> T+1 历史执行事实变化不能改变 T 日策略目标、信号或 sizing。
+->
+-> **A8 — 时区**
+->
+-> 中国市场 09:15/09:30 时间语义正确；UTC 和上海时间不会被混用。
+->
+-> **A9 — 原成交合同**
+->
+-> 原有费用、价格、手数、资金、all-or-none 及 UNKNOWN 拒绝行为保持。
+->
+-> **A10 — 消费者 live 等价覆盖**
+->
+-> SIOS 原强制 live 验证被等价或更严格的消费者合同覆盖；ETF corporate actions 和 freshness 验证不得丢失。
+->
+-> **A11 — 统一候选 Gate**
+->
+-> chstockdata package、SIOS offline/Golden/ETF/live、TradingAgents 兼容及构建安装 Gate 使用同一候选工件并通过。
+->
+-> ### 7. 明确 Non-goals
+->
+-> - 不建设真实订单簿或队列成交概率模型。
+-> - 不引入付费数据源。
+-> - 不扩大至全市场历史分钟数据仓库。
+-> - 不要求恢复全部历史事件公告数据库。
+-> - 不修订冻结 M0/M1 策略研究结果。
+-> - 不全面重构 SIOS 回测引擎。
+-> - 不要求借此解决所有免费数据源稳定性问题。
+->
+-> ### 8. 准入与停止条件
+->
+-> 本 CR 首先进入设计审查。
+->
+-> 在批准实施之前，必须明确：
+->
+-> 1. 开盘分钟成交证据在日线执行模型中的适用规则和不足。
+-> 2. 官方停复牌正向事件与 TDX 成交证据冲突时的优先级。
+-> 3. 旧 historical suspension 合同与新 execution evidence 合同的边界。
+-> 4. SIOS 最小代码影响及必须调整的冻结测试。
+-> 5. UTC/上海时区问题的最小解决方案。
+-> 6. 既有消费者 Gate 如何在不降低严格程度的条件下恢复。
+->
+-> 设计审查未通过则不得实施。
+->
+-> 实施完成不等于 Release Gate PASS；只有全部强制资格通过且 Owner 独立验收，才能进入发布授权。
+->
+-> 当前状态：
+->
+-> ```ini
+-> CR_DESIGN = PROPOSED
+-> IMPLEMENTATION_AUTHORIZED = NO
+-> SIOS_UPGRADE_QUALIFIED = NO
+-> RELEASE_GATE = FAIL
+-> PUBLISH_AUTHORIZED = NO
+-> ```
+->
+-> ---
+-
+-<!-- OWNER_PROPOSED_CR_END -->
+-
+-## 5. Independent Conformance Review
+-
+-### 5.1 逐项追溯
+-
+-“待 Owner”适用于本表所有建议；测试栏是授权后验收设计，不是本轮执行结果。
+-
+-| Owner CR 条款 | 冻结代码/文档 | 已有证据 | 审查结论 | 最小建议 | 验收测试 |
+-|---|---|---|---|---|---|
+-| 标题/性质：有限跨仓 correctness 修复 | F1–F3；AGENTS Gate discipline | E1–E4 | 产品目标一致；跨仓执行资格语义超出已授权 FIX_ONLY，必须 CR | 明列 eligibility/clock/schema 版本及 Owner 决定，不叫纯 metadata 修复 | A11、身份隔离 |
+-| §1 原始目标 | F2:13–18、40、74–79 | E1 live 阻断 | 保留目标；新证据不能使旧历史状态合同自动恢复 | 用新执行能力恢复消费者升级，旧 suspension 仍安全拒绝 | A7、A9、A10 |
+-| §2 Eastmoney 缺席/错误回填/09:15 | F5；F4:903–907 | E2/E3、当前安全源码 | D1–D3 CONFIRMED；09:15 为真，09:30 是执行/错误回填时间 | 取消无依据回填，独立执行输入；不改 cutoff 来迁就 | A6–A8 |
+-| §2 TDX/价格/无需队列 | F2:79、89、128 | E4 原 JSONL、四目标和控样 | 数据可取、价格缺陷确认；队列不足不迫使建设日内模型 | 有界接入 0x0fb4/0x0fb5，价格先验证 | A1–A5 |
+-| §3.1 策略不变 | F4 DecisionContext、_known_tradability_through；quality.py:549–575 | 冻结 no-lookahead 测试 | 符合，必须完整保留 | 执行集合不暴露给策略，不并入 PIT tradability | A7；原未来变异测试 |
+-| §3.2 官方区间覆盖时禁止 | F2:74–79；旧状态无区间 | E3 513100/159509/688432 | 支持正向阻断；需界定区间和冲突标签 | 上海 [start,resume)，末停牌日按会话覆盖，未知边界不猜 | A2、A3、A6 |
+-| §3.2 官方无冲突+TDX 开盘活动 | F2:40、79、128；F3 PIT port | E4 09:30 正量与首点量 | CONTRACT_CONFLICT：支持分钟活动，不是严格整点状态/任意订单保证 | 批准 §6.1 代理；两源有界请求完成且字段认证，无冲突才允许原日线规则继续 | A1、A4、A6、A9 |
+-| §3.2 来源缺失/异常/冲突 UNKNOWN | F1 unknown 不转布尔；F3 typed error | E3 HTML/错误体、E4 空/零量 | 符合；“官方无事件”与“官方失败”必须不同 | 官方合法空+TDX正量可为代理；失败/partial/含义不明或真冲突 UNKNOWN | A6 |
+-| §3.2 后发临停不追溯、复牌不补做 | F2:77、89 | E2/E4 000002、两 ETF 10:30 | 符合；同一开盘分钟内的边界仍不够细 | W 外后发事件不撤销既有 fill；W 内模糊边界安全拒绝；不 retry | A2、A3 |
+-| §3.2 模型限制 | F2:79、128 | 旧逐笔 HH:MM，无 status/秒 | 原披露方向正确，须进一步区分四种开盘语义 | OPEN_ACTIVITY_CONFIRMED 只证明 W 内活动；不声称 09:25 正式竞价或 09:30:00 必成交 | A1、A9 |
+-| §3.3 三种时间与上海时区 | F3:36–38；F4 clock；F5 availability | E3 午夜字段；本轮 clock 单例 | 符合目标；实际默认 UTC 不符合中国市场当地钟点 | 信息时间未知保留空；effective/window 与 retrieval 分开；新入口显式上海注入 | A7、A8 |
+-| §4 新历史开盘能力、不改旧 API | 当前 a_stock.py:5845–5881、suspension.py:193–298、tradability.py:107–333 | source-semantics 回归；E1 runtime 身份 | additive 方向符合 F1；不存在已认证完整历史接口 | 复用 FetchResult/attempt/provenance 和现有协议调用方式，新增窄能力；不通用路由 | A5、A6、A11 |
+-| §4 概念字段/事实结论 | F3 evidence/typed error；旧 bool schema | E3/E4 字段精度不同 | 名称可以保留；必须补 scope/粒度/版本/冲突标记 | §7 字段下限；事实结论与订单许可分开，不提前锁函数名 | A1–A6 |
+-| §5 adapter/输入/activation/execution 最小影响 | F4/F5；domain.market.py:330–375 | 真实调用链及 late-at-activation 测试 | engine 最小修改不可避免；schema/快照/clock wiring 也直接受影响 | 仅现有模块加执行集合/接线；不改策略、Portfolio 和算术 | A7–A11 |
+-| §5 保留 sizing/费用/手数/all-or-none | F2:40、83–93；execution.py:329–335、403–423 | 原 component/Golden | 符合；活动量不是订单流动性配额 | TDX 价格/量只认证资格，不替换日线 open、不限量/部分成交 | A9 |
+-| §5 M0/M1 不覆盖、新版本身份 | F2:118–124；F3:92、134；runs.py:36–119 | 冻结 manifest/Golden/snapshot | 符合；只 version 一个函数名称不够 | 新 evidence 分区、clock/policy/version/digest 进入 identity；旧 replay 按旧 reader/mode | A8、A11、replay |
+-| §6 A1–A5 | E4 样本；F3 subtype 资格 | 四目标、控样、2016/2022、十倍价格 | 数据支持设计；还不是新实现验收 PASS | §11 明确每项可证伪预期和未覆盖 UNKNOWN | A1–A5 |
+-| §6 A6–A9 | F2–F5、原安全/未来/算术测试 | 原源码、失败和量价记录 | 条款保留，新增细分冲突/时区/隔离验证 | 见 §10/11，不改原核心业务断言 | A6–A9 |
+-| §6 A10 live 等价 | F3 ETF gate；live.py:242–261 | E1 失败发生在首个历史请求 | CONTRACT_CONFLICT：旧 historical is_success 不能继续靠补造布尔恢复；不是豁免 | 保留原测试为 mandatory 编排，正式替换历史资格断言；逐项保全 actions/freshness，增加失败/空/未知检查 | A10 |
+-| §6 A11 同一候选 | F1 G5–G7；F3 upgrade qualification | E1 B3 绑定及 TA 基线七失败 | 符合；旧候选 PASS 不适用于未来新代码 | 新工件统一复验；TA 按原相对兼容，保留基线失败，不偷换为全仓全绿 | A11 |
+-| §7 七项 non-goals | F1/F2 范围边界 | 当前目标只需有界代理 | 全部保留 | §12；不要求 0x056a/0x0fc6 作为接受代理的隐性前置 | A9、范围检查 |
+-| §8 六项设计准入、Owner/Release 停止 | AGENTS；F1 release 授权 | E1 Gate FAIL | 完整保留；本文件定义推荐方案不代表授权 | §14；本轮停止，无产品实施 Prompt | 文档完整性/授权核对 |
+-
+-### 5.2 需要正式批准的最小修正文案
+-
+-| 修订 | 保留的 Owner 原提案 | 冲突依据 | 推荐增补文本（待 Owner） |
+-|---|---|---|---|
+-| R1 代理的准确含义 | “开盘分钟真实成交…执行资格代理证据” | F2 日线限制，E4 HH:MM；09:25 中性字段无事件类别 | “OPEN_ACTIVITY_CONFIRMED 仅表示经过验证的 09:30 本地分钟 W 内有实际正量活动。允许版本化日线模型继续以 raw 日线 open 模拟；不证明严格 09:30:00、竞价成交类别、某订单或数量必成交。只接受 09:25 行或无时间的首分钟正量仍不足。” |
+-| R2 官方优先级与冲突 | “官方覆盖禁止；证据冲突 UNKNOWN” | 两句若合并为无条件官方优先会掩盖冲突；E3区间/E4分钟 | “官方阻断具有不可绕过的否决权；无冲突时为 BLOCKED_CONFIRMED。确有同一时间范围的正量矛盾时最终 UNKNOWN/source_conflict，仍保留 official_block_at_target=true 并拒绝，不能用优先级消除矛盾或改为可交易。” |
+-| R3 SIOS 时间/隔离 | “仅必要 adapter、输入与 activation/execution 边界” | F4过滤+F5回填；现有入口无独立参数 | “新增专门的历史开盘执行事实集合，仅在明确选择的新执行资格模式使用；_activate/现有执行门禁接入，策略 PIT 集合与过滤保持。晚知/未知信息时间不妨碍已经认证的执行事实在该模式下用于回放，执行事实本身 UNKNOWN 仍拒绝。” |
+-| R4 时区及结果保护 | “采用明确 Asia/Shanghai；禁止静默重写历史” | runner/oos/default UTC实际路径 | “中国市场新语义运行显式注入上海时钟，旧默认与旧运行保持；时钟、资格政策与执行证据 digest 均进入新身份。旧冻结结果只披露钟点偏移风险，不重算。” |
+-| R5 旧 live 的恢复方法 | “等价或更严格覆盖…不得直接删除/跳过” | 原断言索取不成立的完整历史状态；actions/freshness被短路 | “保留 mandatory 编排与四 ETF 覆盖，将 historical PIT 成功断言正式改为新开盘资格与端到端拒绝/成交合同；旧 historical 请求必须继续失败/未知，时间不伪造。原 actions/RAW/availability/freshness 断言逐项继续强制，子能力均执行并分别汇总失败。” |
+-
+-R1–R5 保留业务目标，改变的是必要的资格/时间/测试假设；不是本轮已实施的 scope expansion。若 Owner 不接受任何修订，本 CR 维持 REWORK，不能直接按草案写代码。
+-
+-## 6. Source Evidence and Time Semantics
+-
+-### 6.1 四种开盘含义与本次代理
+-
+-| 含义 | 已有证据能否证明 | 本 CR 推荐用途 |
+-|---|---|---|
+-| 开盘集合竞价实际撮合 | 09:25 正量、中性侧记录存在，但无事件 status；0x056a/0x0fc6 未真实验证 | 不宣称已认证正式竞价类别；不以虚拟匹配量代替实际成交 |
+-| 09:30 分钟内实际活动 | 0x0fb5 的 HH:MM=09:30、vol>0；四目标的量与 0x0fb4 首点交叉吻合 | 本代理唯一正向开盘输入；W = [D 09:30:00, D 09:31:00)，Asia/Shanghai |
+-| 09:30:00 整点必可交易/某订单可成交 | 无秒/队列/精确临界状态，无法证明 | 不作为事实结论；不得写成 exact-open 资格 |
+-| 日线 NEXT_SESSION_OPEN 近似 | 冻结模型已有 raw open/滑点及二元资格、无队列承诺；却未批准事后资格 | Owner 批准后用分钟活动为资格代理，执行时间标签仍为 09:30，执行价格仍取日线 open。这是模型标签，不是认证成交发生于整点 |
+-
+-0x0fb4 解析返回没有行时间，首点又合并了样本中的 09:25 与 09:30 量。不能仅凭首点>0 推导 W 内成交，不能把首点价格当开盘第一笔。活动量仅作存在性/内部一致性证据，不按量计算可成交委托、不填入订单部分成交。策略目标及 sizing 不读取这些量价。
+-
+-F2:79、128 没有要求严格队列证明，因此上述近似无需扩张为订单簿；F3/F4 的 activation 信息合同仍需正式修订。若 Owner 要求严格 09:30:00，则当前证据 INSUFFICIENT，需一项精确输入：指定目标日执行边界的实际成交/状态响应及秒级事件分类。该要求不属于本推荐代理，不能自动启动新调查。
+-
+-### 6.2 已复核的真实点与原始资产身份
+-
+-单位为手；值保留原证据语义。分钟浮点显示的尾数不被宣称为精确 Decimal 价格。最终合格价格需按认证协议尺度和 tick 表达验证。
+-
+-| 证券/日期 | 原逐笔文件/sequence/start | 09:25量 | 09:30正量行数/量 | 分钟首点量 | 分钟首点价 / 逐笔末条原价 |
+-|---|---|---:|---:|---:|---|
+-| 510300 / 2026-09-11 | final / 1 / 4000 | 77516 | 20 / 352580 | 430096 | 4.576 / 45.76 |
+-| 159915 / 2026-09-11 | followup / 2 / 4000 | 95647 | 20 / 557149 | 652796 | 3.339 / 33.39 |
+-| 518880 / 2026-09-11 | final / 2 / 4800 | 52465 | 20 / 106411 | 158876 | 8.910 / 89.10 |
+-| 511010 / 2026-09-11 | opening_page / 4 / 800 | 46 | 17 / 289 | 335 | 141.177 / 1411.77 |
+-| 510300 / 2022-12-30 | final / 3 / 4000 | 20974 | 20 / 124260 | 145234 | 3.941 / 39.41 |
+-| 510300 / 2016-12-30 | followup / 7 / 1600 | 2372 | 13 / 8157 | 10529 | 3.361 / 33.61 |
+-| 688432 / 2026-09-14 | final / 4 / 4000 | 17109 | 20 / 26531 | 43640 | 40.90 / 40.90 |
+-| 000002 / 2015-12-18 | followup / 5 / 1600 | 0 | 18 / 101856 | 101856 | 22.40 / 22.40 |
+-
+-每一行均为有限页，不是完整日逐笔归档；不同 offset 页可能重叠，未来汇总不能重复计量。正向存在性不需要扫描全天；未取到开盘不能凭晚页/空页认定停牌。四 ETF 的分钟首点价也不是原日线 open（例如 510300 日线 open=4.592）。
+-
+-以下 SHA256 本轮复算一致，原文件不改写。文件均在 [E4 原证据目录](../../../audits/evidence/2026-10-10-v0.4.2-tdx-historical-execution/)：
+-
+-| 原资产 | SHA256 |
+-|---|---|
+-| tdx_history_responses.jsonl（24请求） | 2644ce583796b412d18c5b4730356e2df95691085dbf0080dfa728ecac08a228 |
+-| tdx_opening_page_responses.jsonl（9请求） | 03c727b674a5233d873e90da234879c60dc0b222f548c2ec3e5f97298d347dbd |
+-| tdx_opening_page_followup_responses.jsonl（7请求） | 9989c8a427a4a82fb921fef127b50d7f52a111c9feb033d833ed7842f5aa0ccf |
+-| tdx_opening_page_final_responses.jsonl（4请求） | 5875d32c619d59f18f3bf5f448f1bc8d5f027fc6ce012409e6ab7fb5659a3a34 |
+-
+-四份 manifest 均记录 mootdx 0.11.7、tdxpy 0.2.7、固定单主站、4秒超时、无发现/自动重试/心跳、count=800；共44次 status=response、0请求异常。JSONL 是解析器返回原记录，不是 TCP wire bytes，不是独立于 TDX 的第二行情源。无需重复44次查询；代码接入资格需另外记录实际候选调用/版本，不能拿调查样本代替集成测试。
+-
+-官方证据复用 E3：513100 的 SSE LSTP/stopTime=915 由实际前端映射为 09:15–10:30，响应 SHA256 b0c084336ced5abfd30e2d1ac3b0e2d46c0b35758934e75651f9ae6ad216fd02；159509 官方 PDF 正文为 9/11 开市停牌、10:30起复牌，PDF SHA256 18cf4d821cd8f4de15d515ce0ceef828be5aff3beea30128d4b2049d39647fcd。688432 区间响应 SHA256 1b4980cc2d46993a052a5b3e5a11f4c9186cc0e4787d307cae8534b9f8dd62fb。官方正向区间能用于阻断，不能把空公告、分页计数完整或网站可访问提升为历史状态全集完整。
+-
+-513100/159509 分钟前60点零量，索引60分别为130484/114141手，取得的逐笔页从10:30开始，与官方区间相容。688432/8月31日分钟全零、逐笔仅15:00 vol=0；其停牌来自官方/发行人，不来自零量。000002/2016-01-04 两接口为空；空值单独 UNKNOWN，已有披露才支持阻断。
+-
+-### 6.3 三类时间与区间边界
+-
+-| 字段/概念 | 推荐规范 |
+-|---|---|
+-| information_available_at / availability_basis | 当时市场参与者的可知时间及依据；无认证时刻则 null/UNKNOWN。只有来源日期的午夜、事件生效、现在获取、源端参数日期均不能补造为历史09:15或09:30 |
+-| execution_effective_at/window | 官方状态的生效区间，或成交记录的分钟精度窗口；不转换成 availability |
+-| retrieved_at | 系统实际事后获取的 aware 时刻；UTC表示可以，与本地 session_date 分开 |
+-| target_execution_at | D 09:30+08:00；必须与证券/市场/交易日一致；不是请求取回时间 |
+-| 时间精度 | 日期、分钟、秒分别声明；旧0x0fb5只能声明分钟；官方午夜时间只声明日期，除非真实发布钟点已认证 |
+-
+-暂停区间推荐为 **[停牌生效, 已认证复牌生效)**。513100 用 [09:15,10:30)，159509 用 [本地开市09:30,10:30)，所以09:30阻断、10:29:59阻断、10:30不再被该区间阻断；后一个结论不授权补做09:30订单，也不承诺没有新事件。
+-
+-688432 返回的 endStopDate=20260911 是末停牌日，不是9/11零点复牌；8/31至9/11会话都阻断。9/14复牌来自明确公告与成交控制，不由9/14空列表推导。跨日持续区间应按本地交易会话解释，不能把中间周末记为可交易。事件只有日期、结束含义未知或可能延长而未能验证时，不能编造闭合秒级区间。
+-
+-000002 已认证13:00起停牌不与 W 相交，不撤销开盘模拟成交。官方事件若只在 W 内后半分钟开始、而成交记录只有分钟，无法认证活动先后；推荐 UNKNOWN 拒绝该分钟代理。对 W 之后的后发事件，不追溯修改此前 fill。未知/失效的结束边界不能因“预计复牌”自动允许。
+-
+-### 6.4 事实合成及失败真值表
+-
+-新能力是“有界事件检查+真实活动”的资格代理。官方 absence 只表示本次约定证券/日期及区间查询无冲突；**不要求取得全市场空事件完整性认证，也不声称正常状态已获认证**。但约定查询本身失败、部分页、仅查首页、不能查询持续区间或匹配证券/时间含义未认证，均不能假称完成。查询范围/覆盖限制必须保存，未知覆盖不能被硬编码为“无冲突”。
+-
+-| 官方输入 | TDX输入 | 结论/处理 |
+-|---|---|---|
+-| 已认证区间覆盖目标，活动无矛盾 | 缺失、零量或相容的后续活动 | BLOCKED_CONFIRMED；目标时点禁止。已有完整正向阻断足够安全拒绝，无须以TDX成功为前提 |
+-| 已认证区间覆盖整段W | 同一W有已认证正量活动 | UNKNOWN/source_conflict；保存官方否决与双方证据，拒绝。不得只信TDX |
+-| 区间覆盖目标，但W内随后已认证复牌 | W正量可发生在复牌后 | 不是必然冲突；目标仍 BLOCKED_CONFIRMED，不延后执行 |
+-| 有界查询成功、合法空事件或所有事件与W不冲突 | 已认证09:30正量活动，价格/时间/来源合格 | OPEN_ACTIVITY_CONFIRMED；仅进入原日线成交规则，其它资格未通过仍不fill |
+-| 有界查询成功/无阻断 | 空响应、仅晚页、零量、只有09:25行、只有无时间首分钟正量 | UNKNOWN；不派生停牌，也不允许开盘 |
+-| 网络失败、HTML挑战页、错误体、截断/partial、覆盖/事件含义未知 | 即使TDX有正量 | UNKNOWN；保留网络/结构/覆盖原因，不记正常空结果 |
+-| 官方无已知冲突 | TDX网络失败、日期/证券错配、未认证尺度、坏时间、矛盾量价 | UNKNOWN；错误值不进入成功数据 |
+-| 后发区间起点在W之后 | W活动已认证 | 保持开盘资格；后发停牌不修改已完成模拟订单 |
+-
+-UNKNOWN 是事实结论，不等于传输失败：应分别报告 source request outcome（success/normal_empty/failed_network/failed_structure/partial/unsupported 等）和 verdict/reason。所有原始子源结果留痕，失败不能因另一源成功被改写为green。冲突的官方否决并未失效，UNKNOWN只是拒绝的最终安全标签。
+-
+-## 7. Minimal chstockdata Changes
+-
+-### 7.1 新能力的概念字段下限（待批准，不冻结函数签名）
+-
+-复用现有 FetchResult/FetchMetadata/FetchAttempt 和 operation/capability 观察方式，不建设通用多源路由。旧 get_suspension_info()/fetch_suspension_info()/fetch_tradability() 的历史 fail-closed、当前日和 legacy envelope 不重定义。
+-
+-| 分组 | 必需信息 |
+-|---|---|
+-| 请求身份 | 规范证券/交易所、instrument类别、市场当地session_date、target_execution_at、资格政策/输出schema版本 |
+-| TDX活动 | protocol command、解析库/版本、源身份、请求参数及页/覆盖范围；原HH:MM、精度、正量行/活动窗口、量及单位；若返回价格则明确尺度/币种/tick验证和原值 |
+-| 官方事件 | 二级市场事件类型、start/resume或日会话区间、包含关系、交易所/发行人来源、查询覆盖、分页完整性与已知限制；申赎事件不可当二级停牌 |
+-| 请求/事实结论 | 每源request outcome/异常类别/正常空结果、OPEN_ACTIVITY_CONFIRMED/BLOCKED_CONFIRMED/UNKNOWN、reason、conflict及官方目标否决；不输出代表全天正常的suspended=False |
+-| 三类时间 | 真实或UNKNOWN信息时间及basis、effective窗口/精度、aware retrieved_at；不得互相复制 |
+-| 证据身份 | 原/规范payload checksum、来源/adapter/normalization版本、能力覆盖、引用记录、limitations；缓存命中不伪造请求或改写retrieval |
+-
+-生产不能为四目标/日期硬编码成功记录；认证范围可以窄且明确，运行时必须取得/回放对应证据。未认证证券、日期、主站或字段组合不通过。本任务不承诺全市场任意历史资格，也不把两个历史点扩张为2016年以来连续覆盖。
+-
+-### 7.2 协议接入及尺度边界
+-
+-现有 a_stock.py 有 mootdx client/call 和局部可选导入模式；E4 是调用 client.client 的历史0x0fb4/0x0fb5。现有 tdx_bridge.py/_easy_tdx_bridge.py 是另一 easy-tdx 进程接口，不是已经认证这两个历史命令的bridge；不能仅因名字相同就宣称可直接复用。批准后的 reader 应复用已认证的协议调用方式与现有结果/异常工具，有界请求、无全主站发现/全天扫描，缺可选依赖为明确配置/unsupported失败，不新增必需依赖或全局 monkeypatch 第三方库。
+-
+-归一化只作用于新能力的0x0fb5返回边界，条件包括经认证的解析器/版本、command、市场及证券类别/支持范围。mootdx 0.11.7 / tdxpy 0.2.7 的四目标样本原价按已确认基金尺度换算；股票688432/000002保持原尺度。**禁止所有证券无条件除10；禁止把VIPDOC基金前缀尺度名单照搬到历史逐笔；未知版本/类别不猜。** 不用“与分钟差十倍就自动除10”作为通用启发式。
+-
+-原值、转换规则和规范价同时留证据。永久回归冻结四目标真实原字段/期望尺度、来源SHA和分钟对照；保留股票不除10、未知版本/类别拒绝、已规范值不重复换算的负例。当前资产不是wire bytes，所以该回归首先证明adapter对既有第三方解析返回的纠正；不能声称已覆盖上游二进制解码全部字段。未来若换库/升级，重新认证其输出边界，不默认继续应用旧纠正规则。
+-
+-分钟浮点尾数须在明确证券tick/协议精度下规范比较，不能以宽松容差掩盖十倍错误。未经校验或冲突价格即使不用于fill也不能随OPEN_ACTIVITY成功结果返回。保持VIPDOC现有精确Decimal合同及四目标OHLC/pre_close零容差回归不动。
+-
+-官方reader只需既有已认证接口/事件字段的最小接入。各交易所能力和持久停牌区间语义按已获得的资格保存；不新建历史公告全集，不引入付费源、不再调查BaoStock。来源性质和非商业可读边界沿用E3，不把一次公开请求推成SLA或再分发许可认证；本轮无新的法律判断。
+-
+-## 8. Minimal SIOS Changes
+-
+-### 8.1 已核对的真实路径与不可回避的 engine seam
+-
+-1. LibraryChStockDataClient.suspension()（F5:456–490）调用旧 get_suspension_info；failed_structure 转SCHEMA_DRIFT。fetch_tradability()（1029–1102）collect/map，_map_tradability()（1244–1287）要求同日snapshot_date、布尔suspended和source，映射成日级TradabilityStatus。
+-2. _tradability_availability()（1291–1327）仅同本地日期observed_at采用OBSERVED，否则无依据补上海09:30；不使用payload已有information_available_at。新执行能力不能塞进这个布尔映射。
+-3. EngineClock 给activation09:15和execution09:30；_activate()（892–928）用09:15信息cutoff筛选 self._tradability_by_session，再调用activate_pending_plans()。
+-4. execution.py:_tradability_gate()（248–256）只看dict的status.permits；SELL/BUY在317/391行调用。没有支持旁路的独立执行事实入口。用UTC默认恰好让上海09:30早于UTC09:15，只会掩盖混用，不构成合法方案。
+-5. DecisionContext（178–239）及 _known_tradability_through（1132–1140）同时限制session<=T和信息cutoff；quality.py:549–575对late/UNKNOWN为blocking。这些策略PIT限制完整保留。
+-
+-因此仅利用目前公开入口而不改engine不可行。外部wrapper伪造早知的TradabilityStatus、修改activation钟点、把事后数据当09:15预先可知、子类偷偷改过滤，都不是更小而正确的方案。
+-
+-推荐最小路径：在现有数据port/adapter增加独立历史开盘事实；以独立集合进入现有engine构造/按session索引；_activate()把该会话和目标执行时点的专用事实传给现有activate_pending_plans()/门禁。该函数已经把激活与日线模拟成交合并计算，应在文档明确：09:15仍是需要早知信息的cutoff，事后事实只认证随后模拟执行，不能解释为真实09:15交易者已经看到它。无需新增执行调度器或逐分钟事件循环。
+-
+-新模式仅把历史停牌/开盘活动资格从“必须预先可知的状态”中分离；保留T决策和其它确需提前可知的规则。不把OPEN_ACTIVITY映射成整个TradabilityStatus的TRADABLE，也不让它覆盖已确认NOT_LISTED/DELISTED/side阻断/缺规则/其它未知资格。旧PIT状态缺失，只有在缺失明确属于被新开盘能力替代的历史停牌信息要求时才可由合格专用事实补足；无来源范围或未知原因的缺失仍拒绝。真实官方目标停牌永远否决；历史日级SUSPENDED若没有有效区间，不能随意用盘中事件标签阻断整日或任意用成交覆盖，须按新事实来源认证目标时点。
+-
+-这个模式不是在旧UNKNOWN结果上无条件加一个“有量就通行”分支。需要旧模式无专用事实时原行为不变、新模式必需专用事实时不fallback为允许、两模式输入不混用的测试。资格通过后只继续现有原价/费用/资金/卖出规则；不用TDX活动价格、活动量重算target或订单配额。
+-
+-### 8.2 跨仓影响表
+-
+-| 仓库 | 模块 | 必要变更 | 是否改变冻结语义 | 现有测试影响 | 风险 |
+-|---|---|---|---|---|---|
+-| chstockdata | a_stock.py现有TDX调用方式、FetchResult相关工具及新能力导出边界 | 有界历史活动/官方事件组合和真实provenance；新功能的具体函数/落文件由批准实施时按现有结构决定 | additive；旧接口不变 | 新能力合同/异常/依赖缺失；旧API全部保留 | 时间、覆盖、请求失败被误当空 |
+-| chstockdata | 新历史0x0fb5输出边界 | 条件归一化和永久价格回归 | 不影响VIPDOC/旧日线 | A5加真实四目标及股票负例 | 错尺度、双重换算、未知解析版本 |
+-| SIOS | adapters/chstockdata/provider.py；data/ports.py | 独立执行request/client/map/evidence；修复旧availability fallback | historical 早知假设正式变更；旧port仍PIT | provider旧历史fallback测试修订，旧bool映射条件保留 | 把新事实伪装成旧状态 |
+-| SIOS | domain/market.py；data/contracts.py | 窄的执行事实类型/编解码，明确window/结论/身份；函数名不预锁 | 新schema，不重定义Availability/TradabilityStatus | canonical/port合同新增 | side或全天含义被夸大 |
+-| SIOS | data/quality.py | 独立执行用途的覆盖、字段、时间/冲突检查；既有PIT检查保持 | 新用途政策需版本；不能全局放宽UNKNOWN | 既有INFORMATION_TIME保留；新增执行用途验证 | 以隔离为名跳过其它质量门禁 |
+-| SIOS | data/snapshots.py现有分区/serializer/manifest reader/writer | 新版本执行事实分区及checksum；旧reader/快照仍可按旧模式replay | 新schema/identity；旧快照不迁移覆盖 | snapshot/replay/digest binding新增 | 不落盘导致不可复现 |
+-| SIOS | backtest/engine.py、backtest/execution.py | 独立执行集合接线，_activate/门禁按有效窗口验证；保持原算术 | 执行资格改变，晚知真实事实可影响fill | legacy late/missing/UNKNOWN原样；新模式隔离/拒绝及A9 | bypass掉其它交易限制 |
+-| SIOS | research/runner.py:536、research/oos.py:1496现有clock/dataset wiring；本次资格入口 | 只在选择新语义的中国市场运行接线专用事实并注入Shanghai clock | 新运行时钟/资格版本；旧模式继续原版本 | 新接线测试；旧smoke/研究结果不覆盖 | 当前默认UTC导致误资格/时间标签 |
+-| SIOS | domain/runs.py既有RunManifest及当前运行manifest生成边界 | 使用既有execution_model_version/rule_versions/data_snapshot_digest绑定资格政策、clock、执行证据 | 身份变更；无需泛化RunManifest框架 | manifest identity/reproducibility | 仅描述“上海”但digest不变 |
+-| SIOS | tests/contract、component、qualification、integration中直接受影响用例及对应架构文档 | §10列出的假设修订和新增验收 | 测试/合同正式修订，强制范围不减 | A7–A11，全部原mandatory仍强制 | 只改断言制造green |
+-| TradingAgents | 既有兼容资格选择/安装探针 | 无产品修改；同一新候选按E1原选择验证 | 否 | 原相对基线兼容Gate | 七项基线失败不能写成全绿 |
+-
+-上述均是已存在模块的直接影响说明，不指定新框架或一串新文件。当前FIX_ONLY没有这些跨仓改动授权；全部待Owner决定。
+-
+-现有CanonicalDataset（quality.py:122–165）只有PIT tradability等集合，snapshots.py:256–273的serializer/records-kind固定；不能把执行事实混入旧tradability分区来省代码。最小版本化分区扩展须支持旧snapshot reader/mode，知识cutoff只筛决策信息，执行证据按其用途保留事后获取时间。决策质量若声明需要某项PIT状态而无法取得，仍BLOCKING；新执行分区不是“全数据PIT已通过”的替代声明。
+-
+-RunManifest（runs.py:36–119）已有execution_model_version、rule_versions和data_snapshot_digest进入identity_digest。优先在既有身份容器编码本次资格政策/市场clock及快照摘要，不另造manifest体系；读写验证必须确保缺必要身份的“新模式”拒绝，不凭可选文字字段重放。
+-
+-### 8.3 最小时区合同及真实入口影响
+-
+-保持EngineClock默认UTC用于旧语义及原fixtures；新中国市场模式显式EngineClock(timezone=Asia/Shanghai)。实现表达可按现有tzinfo模式，输出必须有+08:00及市场时区身份，禁止naive钟点。现有runner/oos没有注入市场timezone，故只在provider里转换时间还不够，运行入口接线也直接受影响；此处不全局重写默认。
+-
+-本轮从B4提取EngineClock原类只在内存执行单例，得到：
+-
+-| 本地用途 | 正确上海时刻 | 等价UTC绝对时点 | 旧默认UTC同钟点转换成上海 |
+-|---|---|---|---|
+-| activation | 2026-09-11 09:15+08:00 | 2026-09-11 01:15Z | 17:15+08:00 |
+-| execution | 2026-09-11 09:30+08:00 | 2026-09-11 01:30Z | 17:30+08:00 |
+-| decision | 2026-09-11 15:30+08:00 | 2026-09-11 07:30Z | 23:30+08:00 |
+-
+-这是实际clock行为证据，不是完整研究重跑。后续测试用相同UTC绝对时点表示事件，须得到相同包含关系/资格；“UTC09:30”与“上海09:30”必须被识别为不同目标。上海15:31才可知的T事实在新15:30 cutoff拒绝，而旧默认23:30可能纳入；必须披露这一风险，不能自动重算M0/M1去改旧结论。新模式以新clock/policy/digest生成新身份。
+-
+-## 9. Backward Compatibility
+-
+-旧get_suspension_info历史失败、安全修复和current-day兼容继续；旧fetch_tradability保守逻辑、日历/退市date guard、UNKNOWN不转布尔继续。新能力不承诺恢复完整historical suspension，消费者也不能把新代理的success当旧PIT port成功。
+-
+-修正SIOS availability会改变错误的historical EXCHANGE_RULE输出，属于必要显式契约变更，不伪称完全行为兼容。原冻结源码/fixtures/研究结果保持只读；旧mode和旧schema按原版本replay，不能用修正代码回写已有M0/M1结果。新数据/政策/时钟影响Fill、现金、持仓、NAV和后续决策可能正常发生；A7的隔离比较锁定同一T已形成的目标与planned sizing，并不要求后续所有会话仓位和收益不变。
+-
+-新能力默认不得被旧消费者隐式选择；没有新schema、合格执行证据及明确模式的新运行拒绝。候选资格只沿用受控版本准入的做法，不更新正式0.3.0 pin，不用保留旧pin作为升级目标达成。统一新候选Gate/Owner放行后才讨论正式版本变更。
+-
+-## 10. Test Impact Matrix
+-
+-### 10.1 三类测试
+-
+-| 类别 | 现有测试/业务目的 | 处理与等价边界 |
+-|---|---|---|
+-| 原样保留 | chstockdata tests/test_suspension_source_semantics.py；test_suspension_structured.py、test_astock_listing_status.py已有安全/分页/当前日/envelope合同 | 历史fail-closed、空/未知区分、当前复牌、未来事件、cache不冒充新请求；新能力不改这些业务断言 |
+-| 原样保留 | tests/test_vipdoc_price_scale.py及四ETF精确价格合同 | VIPDOC八类尺度、OHLC/pre_close精确Decimal继续；不借逐笔缺陷重改日线 |
+-| 原样保留 | SIOS tests/component/test_no_lookahead.py:127、160、203、227、267、293 | 未来变异不改变T目标；next open只影响fill；未来/晚知行不能进DecisionContext。新执行集合加变异测试，不重写原断言 |
+-| 原样保留 | tests/component/test_tradability.py:75、102、126、142、171、207；test_execution_accounting.py、test_event_order.py、test_corporate_actions.py | legacy的late/UNKNOWN/missing/suspended/side阻断，以及费用、滑点、T-close、资金、手数、all-or-none、corporate-action replan全部保留 |
+-| 原样保留 | tests/component/test_foundation_adversarial_boundaries.py；Golden/parity、integration/test_snapshot_replay.py、test_manifest_identity.py、test_reproducibility.py及研究结果 | 原不变量和历史artifact/digest不覆盖；新模式另加必要情景 |
+-| 正式变更假设 | tests/contract/test_chstockdata_provider.py:796 test_historical_session_uses_the_exchange_rule_open_time | 该用例明确断言无依据历史09:30回填；改为真实时间保留/未知/日期粒度不补造，保留retrieved_at验证。旧冻结测试仍作为历史基线，不在本轮修改 |
+-| 正式变更假设（限前提） | 同文件:825 test_absent_suspension_record_is_tradable；Library client suspension说明 | 当前测试实际上输入已给出的suspended=False，而非证明事件缺席完整性；可保留布尔映射本身。其“历史缺席可推出False”的源资格假设必须撤回/加专门拒绝测试，不能仅重命名绕过 |
+-| 正式增加模式 | test_tradability.py:142 late-at-activation | 原PIT路径晚知拒绝保持；新模式晚知/未知信息时间且执行事实合格可以继续模拟，另立合同。不能把原断言直接改成所有晚知都可交易 |
+-| 正式变更假设 | qualification/test_chstockdata_etf_gate.py:242 原mandatory live历史成功断言 | 按§10.2调整为执行能力实际合同；原测试保留为mandatory，不删/skip、不单靠mock替代live |
+-| 新增必要 | 四ETF和两临停、持续停牌/复牌、13:00边界、2016/2022、逐笔尺度、异常/冲突/范围 | A1–A6；固定真实数据SHA+当前候选reader真实调用；禁止按ticker/日期硬编码结论 |
+-| 新增必要 | port/schema/quality、engine输入隔离、上海clock接线、序列化/replay/identity | A7–A9、A11；执行分区不穿过策略PIT、篡改证据导致digest/重放失败、旧reader行为继续 |
+-| 新增必要 | live逐能力执行及四ETF corporate actions/freshness | A10，不得因某项提前assert失败让其它能力未执行却标PASS |
+-
+-### 10.2 原 mandatory live 逐断言追溯与保全
+-
+-原test_live_tradability_adjustment_and_freshness（242–261）对matrix_requests的每只ETF顺序执行如下。窗口、证券和ETF instrument_kind继续使用冻结matrix；本轮不能修改。
+-
+-| 原断言/调用 | 业务目的 | 原假设为何需要改变/真实覆盖边界 | 推荐的新强制覆盖 |
+-|---|---|---|---|
+-| fetch_tradability(...); assert is_success（247–248） | 目标历史执行日具备可信停复牌/交易资格 | 旧port索取PIT布尔，Eastmoney能力和09:30回填都不成立；现在安全失败是正确行为 | 旧历史PIT查询必须失败或显式UNKNOWN且不伪造时间；新开盘能力实际请求四ETF均OPEN_ACTIVITY_CONFIRMED；带该证据跑真实consumer执行入口，确定可进入原日线规则。官方两临停和异常/未知仍无fill |
+-| assert tradability.records（249） | 成功结果有真实记录，不接受空success | 原断言只非空，未验证请求身份/状态 | 新记录按四个请求一一匹配证券、日期、目标、source/hash/时区/结论，拒绝空/错配/unknown。不得只assert新is_success |
+-| fetch_corporate_actions(...); assert is_success（251–252） | ETF公司行为与adjustment供应能力 | 原逻辑被前一失败短路；其正确性目的仍成立 | 真实ETF请求保留success；合法空actions仍按coverage判定，不要求强行非空。保留原offline partial/missing ex-date/不支持rights及ETF kind路由合同 |
+-| fetch_daily_bars（254） | 供RAW与时间/freshness验证的数据 | 原测试未先assert bars.is_success/nonempty，失败且空records可能使循环不检查 | 增强为success、非空、范围/coverage合格；保留其它live routing/OHLC/pre_close/units/calendar/history断言 |
+-| assert adjustment_mode == RAW（256） | 防执行价格被复权；避免公司行为重复入账 | 无需改变 | 每只ETF每条bar原样强制；现有corporate-action账本测试继续 |
+-| assert retrieved_at is not None（257） | 实际获取时刻留痕 | 仅非空不等于数据新鲜；不能把测试名字视为完成所有freshness | 原断言保持，并验证aware获取时间；对既有quality策略执行freshness/覆盖检查及stale/missing反例。历史研究用既有 intended-session政策，不误要求目标日等于今天 |
+-| available_at非空则<=retrieved_at（258–261） | 可知与获取先后合理 | 原条件式检查允许未知，且不证明preopen可知 | 原检查保持；UNKNOWN保持明确。新执行事实有效窗口与retrieval独立，策略晚知仍拒绝；不能按execution time补造available_at |
+-
+-建议保留原测试名称作为mandatory编排，内部子能力独立收集结果、最后统一断言，或拆成明确全部mandatory的子测试并由原编排验证覆盖集合。失败不得让actions/freshness不执行后被计作PASS。最终资格记录四ETF×每一子能力结果；mandatory selector若改变，冻结新清单并验证无deselected/skip遗漏。其余四项原live仍需执行，recorded tests仅作确定性回归，不能替代实际源/实际候选live。
+-
+-这是“正确性目的等价或更严格”的设计映射，不声称旧完整历史PIT能力已经恢复。旧历史能力缺口仍公开；替代的是Owner本次提出的开盘执行目标。若Owner坚持旧live必须证明完整历史PIT状态而不批准这一变更，A10仍不足，本方案无法宣称升级合格。
+-
+-## 11. Acceptance Criteria A1–A11
+-
+-以下保留Owner编号和目标，加可证伪的证据要求。**当前均不是新实现验收PASS。** 已有证据可复用作fixtures/设计依据，未来候选接入与消费者链路必须另有证据。
+-
+-| 条件 | 授权后必须取得的验收证据/失败条件 | 当前支持与缺口 |
+-|---|---|---|
+-| A1 四ETF开盘活动 | 四目标×2026-09-11，保留真实0x0fb5 09:30正量、0x0fb4量一致及协议/尺度；经新reader和真实adapter得代理资格；无TDX价格替换raw日线open | 原记录4/4已复核；新reader/consumer资格未实现。仅09:25或首分钟不能通过 |
+-| A2 官方临停拒绝 | 513100/159509上述官方区间，上海09:30无fill；09:15/09:30起点含、10:30结束不含；原09:30订单10:30不补做 | 官方/TDX相容样本具备；端到端门禁未实现 |
+-| A3 持续停牌与盘中边界 | 688432 8/31、9/11阻断、9/14公告+活动恢复；000002 2015-12-18开盘活动与13:00停牌共存，早盘fill不撤销；日期结束不当午夜复牌 | 正向事件及E2/E4活动具备；精度模糊区间/延长需UNKNOWN |
+-| A4 历史覆盖 | 510300/2022-12-30及2016-12-30两点成功有明确单主站/范围；未取得或未认证证券/日期/页继续UNKNOWN；报告支持边界，不声明连续全历史 | 两历史点已取得；任意日期连续覆盖未经认证，不要求全市场库 |
+-| A5 逐笔价格 | mootdx0.11.7/tdxpy0.2.7/0x0fb5四目标真实错误字段必须先触发错误/校验失败；认证归一化后符合固定期望与分钟对照；688432/000002不除10、未知版本/类别拒绝、已规范输入不重复换算；错误值不能success | 四目标真实十倍缺陷和原SHA具备；永久回归未写；不改变VIPDOC已通过精确测试 |
+-| A6 失败/缺失 | 官方合法空+TDX正量可为代理；官方空+TDX空/零/仅竞价为UNKNOWN；网络/错误体/HTML/partial/错日期/坏时区分别typed outcome；官方覆盖W+TDX正量为UNKNOWN冲突带否决；任何不合格均无fill | 原空/零量、分页、格式错误/挑战页支持设计；故障/冲突注入和集成待实施 |
+-| A7 策略PIT | 锁同一T数据/初始状态，变异T+1执行集合的活动、信息时间、retrieval/区间，只能改变T+1 fill/拒绝，不改变T signal/target/权重/universe/planned_quantity；捕获DecisionContext确认无该集合；需要PIT信息的策略晚知/UNKNOWN照旧拒绝 | 冻结隔离合同和测试存在；新集合隔离待验证，不比较后续全部NAV不变 |
+-| A8 时区 | 三用途本地/UTC等价表；边界等值包含/排除、UTC09:30错目标拒绝、naive时间拒绝；runner/oos/新qualification实际注入Shanghai；旧default保持；clock身份变化导致新runID | 本轮B4原clock单例已执行；接线/identity永久测试待实施 |
+-| A9 原成交合同 | 原component/Golden费用、滑点/tick、RAW、T-close、global affordability、手数/卖出规则、corporate-action replan、all-or-none/UNKNOWN拒绝原样过；相同合格资格下ledger一致；改变活动量不改变订单配额或fill价格；无复牌retry | 原离线结果已核对；新模式不能用旧PASS替代 |
+-| A10 消费者live等价 | §10.2四ETF全部能力真调用且各自有结果；旧historical fail-closed/PIT诚实、新执行4/4及临停反例、actions/RAW/availability/freshness/stale全部强制；五项原live与新增mandatory零skip/遗漏，失败完整汇总 | 原强制live失败、后续断言未执行；设计映射齐全但待Owner批准/实际验证 |
+-| A11 统一候选Gate | 一个新源码快照/新wheel SHA绑定package/构建安装/core及可选profiles、SIOSprovider/offline/Golden/ETF/全部live、TA原相对兼容；真实import/version、受控版本准入和新schema/policy/clock/证据digest留痕；旧B3及M0/M1不覆盖 | E1旧B3部分通过、live仍FAIL；本轮不构建或复跑。新候选全部通过且Owner独立接受之前不能发布 |
+-
+-A1–A6的未知/拒绝不是“降级成功”；资格报告必须保存原因。A11的TA“通过”按原冻结相对兼容准则：原选择123 passed/7相同基线失败及五探针，不要求未经批准全仓修复，也不把七失败隐藏。
+-
+-## 12. Non-goals
+-
+-完整保留Owner§7，并保留本次任务第四部分：
+-
+-- 不建设订单簿、队列概率、竞价撮合重建、高频或通用分钟回测引擎。
+-- 不实现日内部分成交、活动量分配、限价队列或复牌后自动补单/重试。
+-- 不引入付费源、全市场历史分钟仓库、完整历史公告全集、完整PIT数据库。
+-- 不扩大ETF产品资格（两只QDII仅source控样），不把股票负例推广为所有ETF。
+-- 不全面重构SIOS引擎、策略、Portfolio或新建通用多源路由。
+-- 不重算/覆盖冻结M0/M1，不重跑研究，不改变正式pin。
+-- 不借此解决所有免费源稳定性，不再调查已否决BaoStock，不重跑44次TDX查询，不无边界搜索GitHub。
+-- 不把0x056a/0x0fc6文档能力当运行时证据，不为本分钟代理自动增加其资格调查。
+-- 本轮不实现、不改测试/依赖、不构建/替换wheel、不合并/提交/推送/tag/发布，不生成实施Prompt。
+-
+-## 13. Risks and Unresolved Decisions
+-
+-| 决策/风险 | 分类 | Owner需要决定或保留的明确边界 |
+-|---|---|---|
+-| O1 分钟代理是否可接受 | CONTRACT_CONFLICT；严格整点为INSUFFICIENT_EVIDENCE | 审批R1及§6.1；可接受则无需队列/竞价新能力。拒绝代理则当前方案不达标，不能悄悄升格数据能力 |
+-| O2 事后执行事实通道 | CONTRACT_CONFLICT | 审批R3及§8窄改动；该事实不早知但可用于历史模拟，执行UNKNOWN仍拒绝。不能仅授权adapter却让实现暗改engine |
+-| O3 官方查询与覆盖 | UNRESOLVED_RISK | 审批有界无已知冲突+真实活动的代理，而非完整负向状态认证；读取持续区间/分页须符合当前源能力。不能认证必要查询范围则该请求UNKNOWN，不扩张全事件库 |
+-| O4 live能力替代 | CONTRACT_CONFLICT | 审批R5逐断言映射及新mandatory清单；完整历史PIT能力未恢复的限制继续披露。若仍要求旧完整状态，则A10无法通过 |
+-| O5 Shanghai clock与运行身份 | CONTRACT_CONFLICT / UNRESOLVED_RISK | 审批R4仅新运行入口；旧UTC偏移影响未量化，不重算旧研究；新结果采用独立版本/证据身份 |
+-| O6 上游解析/连续获取 | UNRESOLVED_RISK | 旧解析记录非wire bytes、只有一主站/有限点；版本或格式变化须拒绝/再认证，免费来源没有稳定覆盖保证。不是本轮新架构理由 |
+-| O7 实际接入仍未验收 | INSUFFICIENT_EVIDENCE | A1–A11尚无新产品实现证据；源样本支持设计不承诺Gate恢复，后续失败应修正阻断而非豁免 |
+-| O8 原证据保留边界 | NON_BLOCKING_LIMITATION（设计），未来集成待证 | 官方部分原response只保存摘要/hash；TDX保存parsed rows。未来资格要保存可重放对应输入，不得把缺失wire/raw说成已经捕获 |
+-
+-原腾讯上游血缘未认证、TA七项基线失败和其原依赖环境边界沿用E1，不扩大为本CR新工程。全市场归档/交易队列是FUTURE_ENHANCEMENT；没有任何SPECULATIVE_CONCERN被转换成必做架构。
+-
+-当前不需要新的无界来源调查。若未来必要的单一字段/命令尚未认证，只提出“指定证券/日期、指定返回字段及可证伪预期”的一次证据需求；不得以完善设计为由重开此前调查。Owner审批对象就是本文件R1–R5、§6–11的推荐规范及这些明确限制。
+-
+-## 14. Gate and Owner Authorization
+-
+-### 14.1 当前报告字段
+-
+-以下PASS/DEFINED如出现只描述设计的边界，不是实现/Release资格。本次原草案仍需R1–R5正式修订，live覆盖仍待批准，故两处REWORK保留。
+-
+-~~~ini
+-CURRENT_DECISION = CHANGE_REQUEST
+-OWNER_PROPOSED_CR_REVIEWED = YES
+-DESIGN_CONFORMANCE = REWORK
+-SOURCE_EVIDENCE = SUFFICIENT_FOR_DESIGN
+-EXECUTION_EVIDENCE_SEMANTICS = DEFINED
+-SIOS_ENGINE_CHANGE_REQUIRED = YES
+-SIOS_TIMEZONE_CONTRACT = DEFINED
+-MOOTDX_PRICE_REGRESSION_REQUIRED = YES
+-TEST_COVERAGE_EQUIVALENCE = REWORK
+-SCOPE_EXPANSION = NO
+-READY_FOR_OWNER_DESIGN_REVIEW = YES
+-READY_FOR_IMPLEMENTATION_AUTHORIZATION = NO
+-SIOS_UPGRADE_QUALIFIED = NO
+-RELEASE_GATE = FAIL
+-PUBLISH_AUTHORIZED = NO
+-~~~
+-
+-SOURCE_EVIDENCE足以设计有限代理；不表示来源全集/严格整点或新实现已认证。TEST_COVERAGE_EQUIVALENCE的REWORK表示原live假设要经正式变更并实现本覆盖映射；不是要求删除原mandatory。推荐方案已经完整可审议，但没有Owner approval记录。
+-
+-### 14.2 Gate顺序与停止
+-
+-1. Owner审议原草案和R1–R5，明确批准或要求修订；审查者不能代签。
+-2. 只有Owner正式批准并另行授权实施，才可能执行窄的跨仓合同/产品/测试改动。本文件不授权该动作。
+-3. 实施完成后按A1–A11以一个新候选取得独立证据；任一强制项失败或证据不足分别FAIL/INSUFFICIENT_EVIDENCE。
+-4. Release Gate全部满足仍须Owner独立验收和明确发布授权；不自动升级阶段或发布。
+-
+-**本轮结束于第1步前的可审议文档交付。** 不生成产品实施Prompt，不启动下一Phase。
+-
+-### 14.3 本轮文档核验与交接
+-
+-本轮核验是只读源码/原证据核对、B4原EngineClock内存单例和文档完整性检查，不运行产品测试、网络查询、构建或策略研究。原保存结果经JUnit/exit直接核对：package 724 passed/1 skipped；SIOS provider 67 passed、offline 929 passed/5 skipped、ETF/Golden/smoke 160 passed/5 skipped；mandatory live 4 passed/1 failed；TA原选择123 passed/7 failed。它们属于原统一候选执行，不能标为本轮新测或新模式资格。
+-
+-收口核对：Owner原文引用完整、14个必需章节、逐项追溯/跨仓影响/三类测试/A1–A11齐备；git diff --check及新增文档的whitespace检查通过。进入本轮的759个chstockdata文件（含wheel/sdist）逐字节SHA256未变，新增文件只有本文；566个原候选文件继续匹配。SIOS本轮保护清单244个tracked/non-ignored文件及当前HEAD未变；冻结B4的核心blob/tree身份保持。SIOS现有Git环境的status命令返回“must be run in a work tree”，故不声称其工作树clean；用进入/收口文件哈希核对无本轮写入。没有Git提交、暂存或消费者源码修改。
+-
+-- 当前phase/step：v0.4.2 FIX_ONLY阻断下，CHANGE_REQUEST_DESIGN_REVIEW文档交付；未推进Phase。
+-- Commit与工作树：chstockdata HEAD 42bd44ef4d695aa3e88cfab4ebc3417660d0437a，无新commit；原未提交源码/测试/文档/证据保留，本轮仅新增本文。原候选tree和wheel身份见B2/B3。
+-- Gate与依据：Release/SIOS FAIL；E1真实mandatory live失败，当前仅设计，无新的A1–A11集成证据；原草案REWORK，推荐语义可供Owner审议。
+-- 未解决阻断/范围：Owner尚未批准R1–R5；来源/解析/时钟/消费者新模式未实现或资格验证。无本轮实施范围扩大。
+-- 推荐下一动作：Owner对本文作正式设计审议，尤其分钟代理、执行隔离、上海clock及mandatory live替代；不是下一Phase或实施授权。
+-
+-学习交接：本次问题是分钟级真实活动能否支持冻结日线执行目标并保持PIT。原记录支持有界代理、暴露价格尺度错误，真实调用链证明需engine窄接线；它不支持严格整点或完整状态全集。下一决策是Owner选择是否接受明确近似与合同修订，不能以文档完成声称升级或发布已合格。
+-
++# CR-v0.4.2-HISTORICAL-OPEN-EXECUTION — 设计与契约独立审查
++
++日期：2026-10-10（Asia/Shanghai）  
++任务：DOCUMENT_ONLY / CHANGE_REQUEST_DESIGN_REVIEW  
++状态：**PROPOSED — Owner Design Review；本文件不是已生效合同。**
++
++## 1. Executive Summary
++
++建议保留 Owner 的产品目标，修订五处关键表述后交 Owner 审议：明确“开盘分钟活动”只是日线开盘模型的代理资格；区分官方阻断与来源冲突；增加独立执行事实输入并在现有 engine 执行入口接入；显式注入上海市场时钟；正式替换原 mandatory live 中已经失效的历史状态假设，同时保全 actions/freshness 和全部其它门禁。
++
++**原草案符合性结论为 REWORK。** 冻结日线模型明确不承诺队列成交，能够容纳被明确批准、版本化的分钟代理；但冻结 PIT tradability/09:15 activation 合同尚未允许事后执行事实。因此不能声称这只是 adapter 元数据修复，也不能把代理结论改名为历史全天 TRADABLE。采用该代理是本 CR 的实质合同变更，需要 Owner 决定。
++
++**SIOS_ENGINE_CHANGE_REQUIRED = YES。** 冻结 engine.py:903–907 先按 activation 可知性过滤；execution.py:248–256 只接受过滤后的日级状态，没有独立执行事实参数。只改 adapter、只改 availability、只注入时钟或只绕过 live 断言均无法诚实完成目标。建议复用现有 _activate()/activate_pending_plans()，新增窄的执行资格输入及门禁；保留策略切片和全部成交算术，不建设新引擎。
++
++已有源证据足以设计这个有限代理合同：四 ETF、临停反例、历史点和价格尺度错误均有保存记录。它不足以证明 09:30:00 确定可执行、集合竞价成交类别、所有历史覆盖或生产接入已经合格。A1–A11 的实现资格仍待授权后验证；当前 Release/SIOS Gate 保持 FAIL。
++
++本轮只新增本文，不修改源码、测试、依赖、pin、原审计、wheel 或研究结果，不提交或发布。完成后停止在 Owner Design Review。
++
++## 2. Original Frozen Contract
++
++### 2.1 身份、权威和证据索引
++
++| 标识 | 基线或证据 | 本轮核对与适用边界 |
++|---|---|---|
++| B1 | chstockdata HEAD 42bd44ef4d695aa3e88cfab4ebc3417660d0437a | 候选基底；不包含所有未提交正确性修复 |
++| B2 | 捕获源码 tree 911d231646edc7d419d2e26ac91c95af5404c5c6 | 原候选内容身份；566 个 candidate-source.json 文件本轮逐个 SHA256 匹配，本文不加入或重定义该 tree |
++| B3 | dist/v042-unified/chstockdata-0.4.2-py3-none-any.whl | SHA256 b76b065a06cd1d91868880a7b57584f598b6fd4cb42931e9a33700bc99a88c7a；39 个 runtime 成员与当前 src 逐字节一致 |
++| B4 | SIOS 冻结 commit 84fd54fae0740bc06b1d250afa4578be29556956 | tree 979b5b33188931e2c78aa01026684ed72e064600；本轮直接读 Git blobs。旁边 SIOS 当前 HEAD 为 fafdb6d3942ba52baa9480da7c8674dab1487f5d，不能用当前文件替代冻结合同 |
++| F1 | [v0.4.0 version-design](../../v0.4.0/version-design.md)，§3–7 | 该文件自称追溯重建、Owner review required，不能冒充当初的已签署原始设计；其中明确 additive API、真实来源/未知语义、消费者升级独立验收和保全 M0/M1 |
++| F2 | SIOS docs/architecture/backtest-semantics.md:13–18、40、74–79、89–93、118–124 | T-close 决策与 sizing；NEXT_SESSION_OPEN；raw open+滑点/tick/费用；未知不成交；submitted all-or-none；新语义产生新运行身份 |
++| F3 | SIOS docs/architecture/data-contracts.md:14、36–38、53–55、67–69、92、113–138 | PIT 与 retrieval 分离，typed failure、immutable snapshot、ETF subtype/capability gate；供应商抓取属于 chstockdata |
++| F4 | SIOS engine.py:139–163、178–239、892–928、987–997、1132–1140；execution.py:248–256、259–279、317、391 | 决策与执行入口及 09:15/09:30 真实路径；完整路径见 §8 |
++| F5 | SIOS provider.py:456–490、1029–1102、1244–1327 | 旧 suspension client、PIT 映射和错误的 historical availability fallback |
++| E1 | [统一候选 Gate](../../../audits/2026-10-09-v0.4.2-unified-gate.md) 及 [candidate-source.json](../../../audits/evidence/2026-10-09-v0.4.2-unified-gate/candidate-source.json)、[final-integrity.json](../../../audits/evidence/2026-10-09-v0.4.2-unified-gate/final-integrity.json) | 身份及保存的 JUnit/exit 本轮核对；旧结果不是本轮重跑 |
++| E2 | [历史恢复结论](../../../audits/2026-10-09-v0.4.2-history-recovery-conclusion.md) 及其 tdx-facts.json、disclosure-pages.json、pit-boundary.json | 日线不能证明开盘状态；688432/000002 的披露事实；fallback 诊断；其 activation 默认 09:30 的说法由 E3/冻结源码纠正为 09:15 |
++| E3 | [官方历史与 SIOS 决策](../../../audits/2026-10-09-v0.4.2-official-history-and-sios-final-decision.md)，§2–6 | SSE/SZSE 事件及响应摘要/SHA；没有完整正常状态或目标 preopen 资格。部分官方原始响应当时只在内存核验，报告留字段和 hash，不声称本轮能离线重放全部原响应 |
++| E4 | [TDX 历史开盘审计](../../../audits/2026-10-10-v0.4.2-tdx-historical-execution-feasibility.md) 及其四份 JSONL/manifest | 本轮离线解析原记录、复算 SHA、量价及时间字段；44 次既有查询未重跑 |
++
++SIOS 路径/行号全部指 B4，chstockdata 源码指本轮受保护工作树。SIOS provider/engine/execution 冻结 blob SHA256 分别为 57a858be4c5e70b964d7d5f2290cf94b7d4243fe497828e5a7592eb24c259e3f、fb27c8be1f9b8068e422e9cb882d5b635ab075398c49c9d936df5023ef336521、f7d21c2e51a85a96850f0b6913baf37514fa8e5d0fad016f86aa7bda9208731e，本轮复算一致。冻结仓库未写入。
++
++两仓均先尝试 CodeGraph：chstockdata 的检索片段未准确定位当前 suspension，SIOS 返回 unable to open database file。随后只读当前指定源码及 B4 Git blobs，用 AST/行号核对；未重建索引。
++
++### 2.2 原合同不能被本 CR 悄悄改写的部分
++
++- T 决策只能使用该会话及更早、cutoff 前可知的数据；T+1 活动不得进入 T 信号、目标、目标权重、universe 或 planned_quantity。
++- T-close 锁定 sizing；T+1 用 raw 日线 open 加既有滑点、tick rounding、费用、资金/手数/可卖数量和批准规则。资金不足的既有 complete-lot submitted_quantity 调整仍允许，目标和 planned_quantity 不重算。
++- 不确定执行资格、缺规则、明确停牌或 side 阻断均拒绝；没有日内部分成交、队列模型、复牌补单或隐式 carry/retry。
++- calendar、Instrument Master、corporate actions、adjustment/freshness、Golden、snapshot/replay 的既有正确性要求保留。QDII 对照仅为数据源反例，不扩大 SIOS 三种已批准 ETF subtype。
++- B4 具体实现额外把执行所用 tradability 绑定到 activation 前可知。这一部分需要正式修订，不能因日线模型不模拟队列便假定已经获准解除。
++
++## 3. Confirmed Defects
++
++| 编号 | 分类 | 事实与证据 | 本 CR 内的处理 |
++|---|---|---|---|
++| D1 | CONFIRMED_DEFECT | Eastmoney latest-event 集合不是完整历史 as-of；事件缺席的正常状态推论失效。当前 suspension.py:211–218 历史/未来 fail-closed，源语义测试保留 | 不恢复旧推论、不替换旧 API；新能力独立表达执行证据 |
++| D2 | CONFIRMED_DEFECT | provider.py:1319–1325 在历史 observed_at 不同日时补造上海 09:30 EXCHANGE_RULE；不读取 payload.information_available_at | 改为只接受有依据的信息时间，否则 UNKNOWN；不得使用 effective/retrieved 冒充 |
++| D3 | CONTRACT_CONFLICT | 真实事后活动不满足 F4 的 09:15 activation 信息门禁；诚实 availability 会被过滤。不是已发现策略实际泄漏的证据 | 增加独立执行输入；策略 PIT 门禁不放宽 |
++| D4 | CONFIRMED_DEFECT | E4 使用 mootdx 0.11.7 / tdxpy 0.2.7 的 0x0fb5 ETF 价格为分钟值的十倍；四目标均重现 | 接入前必须固定版本/协议/已认证证券类别的尺度和永久回归；错误解析不得 success。与已修复 VIPDOC 日线无关 |
++| D5 | CONTRACT_CONFLICT / UNRESOLVED_RISK | EngineClock 默认 UTC，runner.py:536、oos.py:1496、vertical smoke:115 直接 EngineClock()；记录时刻和可知性比较确有偏移 | 新语义入口注入 Shanghai clock；不改全局默认，不改历史结果。本轮未重跑研究，不能量化历史 target/NAV 受影响数量 |
++| D6 | CONFIRMED_DEFECT（资格阻断） | E1 原 live JUnit 5 tests、1 failure、0 skipped；test_live_tradability_adjustment_and_freshness 在历史 is_success 失败，后续 actions/freshness 未执行 | 保持 mandatory；经批准后调整能力断言并独立执行其它断言。已有 offline PASS 不抵消本失败 |
++
++“全部免费源不可用”“所有分钟数据不可信”“必须建设完整 PIT 数据库”均无证据，不转为工程要求。完整状态全集、09:30:00/竞价类别证明为 INSUFFICIENT_EVIDENCE；在明确接受分钟代理的前提下，秒级/队列不足属于 NON_BLOCKING_LIMITATION。
++
++## 4. Owner Proposed CR
++
++以下逐字保留任务输入第二部分（仅统一换行并加引用标记）。其 PROPOSED 和全部 A1–A11、non-goals、停止条件仍为原提案。修正意见在后续章节独立列出，未覆盖、删除或视为已批准。
++
++<!-- OWNER_PROPOSED_CR_BEGIN -->
++> # 第二部分：OWNER_PROPOSED_CR — 完整待审查草案
++>
++> **以下内容是 Owner 提出的正式设计审查输入。**
++>
++> 必须在最终文档中逐项保留、分析或明确说明为何需要修改。
++>
++> 不得将其标记为已经批准实施。
++>
++> ---
++>
++> ## CR-v0.4.2-HISTORICAL-OPEN-EXECUTION
++>
++> ### 历史开盘执行资格的可信数据与 PIT 隔离
++>
++> 状态：**PROPOSED — Owner Design Review**
++>
++> 关联项目：
++>
++> - chstockdata v0.4.2
++> - systematic-investing-os
++>
++> 变更性质：
++>
++> 已确认数据正确性缺陷的有限跨仓契约修复。
++>
++> ### 1. 原始目标
++>
++> 修复 chstockdata 历史停复牌状态错误，允许 SIOS 安全升级至 v0.4.2，并维持原定的 T-close 决策、NEXT_SESSION_OPEN 成交模型和无前视约束。
++>
++> ### 2. 已确认的问题
++>
++> - Eastmoney 原接口不能提供可靠、完整的历史停牌状态；缺少记录不能解释为正常交易。
++> - SIOS historical adapter 会把缺乏真实时间依据的历史状态回填为交易日 09:30 已知。
++> - SIOS 执行激活还要求交易资格事实满足 09:15 的 information_known_at 检查。
++> - 免费 TDX `0x0fb4` / `0x0fb5` 已取得四只 ETF 的历史开盘活动样本，并与官方临停样本交叉验证。
++> - mootdx 0.11.7 历史 ETF 逐笔价格存在样本确认的十倍解析错误。
++> - 原冻结日线回测不要求订单队列、日内部分成交或精确重建撮合。
++>
++> ### 3. 拟议业务契约
++>
++> #### 3.1 策略决策不变
++>
++> T 日决策只能读取 T 日决策截止时已经可知的信息。
++>
++> T+1 日成交活动不得进入 T 日策略决策、信号、目标权重或仓位计算。
++>
++> #### 3.2 历史执行资格独立判断
++>
++> 对 T+1 的 NEXT_SESSION_OPEN 模拟执行：
++>
++> - 交易所官方记录明确覆盖执行时刻的停牌区间：禁止成交。
++> - 官方查询未发现冲突，且可信 TDX 历史记录证明开盘分钟存在真实交易活动：允许进入原有日线模拟成交规则。
++> - 来源缺失、异常、价格/时间含义未认证，或证据冲突：UNKNOWN，拒绝成交。
++> - 后续才开始的临停不能追溯取消此前已经模拟完成的成交。
++> - 复牌后不得自动补做原本在 09:30 被拒绝的订单。
++>
++> **模型限制：**
++>
++> 开盘分钟真实成交是既有日线开盘成交模型的执行资格代理证据，不承诺 09:30:00 某笔特定订单必然成交。
++>
++> 正式设计必须记录这一近似及时间粒度边界。
++>
++> #### 3.3 两种时间语义分离
++>
++> - `information_available_at`：历史参与者当时能够知道信息的时间。
++> - `execution_effective_at/window`：真实交易状态或成交活动生效的历史时间。
++> - `retrieved_at`：系统事后获取数据的时间。
++>
++> 三者不能相互冒充。
++>
++> 执行事实可以参与历史执行模拟，但不能通过伪造 `information_available_at` 进入策略决策。
++>
++> 中国 A 股及 ETF 的交易时钟必须采用明确的 Asia/Shanghai 时区。
++>
++> 既有 UTC 默认行为的影响需要纳入契约评估，禁止静默重写冻结历史结果。
++>
++> ### 4. chstockdata 最小变更范围
++>
++> 新增一个明确的**历史开盘执行证据能力**，不替换、不重新定义旧 `get_suspension_info()`。
++>
++> 建议输出概念字段：
++>
++> - 证券、交易日期、交易所、目标执行时间
++> - 开盘活动证据：时间窗口、成交量、必要时的价格
++> - 官方停复牌事件：有效区间、事件类型、来源
++> - 来源覆盖、请求结果及异常
++> - 时间字段的明确含义与时区
++> - 获取时间、来源身份、证据摘要
++> - `OPEN_ACTIVITY_CONFIRMED / BLOCKED_CONFIRMED / UNKNOWN` 等可区分的事实结论
++>
++> 上述名称是设计草案，不预先锁定 Python 函数签名。
++>
++> 实现应尽量复用既有 TDX 协议和交易所接口，不引入通用多源框架。
++>
++> 保留既有历史停牌 fail-closed 行为。
++>
++> 不能因官方接口返回空列表，就自动派生 `suspended=False`。
++>
++> ### 5. SIOS 最小变更范围
++>
++> 仅审查和修改必要的：
++>
++> - chstockdata 消费者 adapter
++> - 历史执行资格输入及其时间语义
++> - activation 与 execution 的事实使用边界
++> - 直接受影响的合同测试和消费者资格测试
++>
++> 保留以下冻结业务语义：
++>
++> - T-close 生成目标
++> - NEXT_SESSION_OPEN
++> - T-close sizing
++> - 开盘价加滑点
++> - 交易费用、交易规则、手数约束
++> - all-or-none
++> - 不得引入未来信息
++> - 不确定时拒绝成交
++>
++> 不得扩展到策略、Portfolio、订单簿、日内部分成交、复牌后自动重试或完整 PIT 数据库。
++>
++> 既有 M0/M1 结果不可覆盖；受新执行规则影响的后续回测必须具有独立语义版本和证据身份。
++>
++> ### 6. 强制验收条件
++>
++> **A1 — 四 ETF 开盘活动**
++>
++> 四只目标 ETF 在 2026-09-11 的开盘成交活动得到真实数据支持。
++>
++> **A2 — 官方临停拒绝**
++>
++> 513100、159509 在官方临停至 10:30 的情况下，09:30 必须禁止成交。
++>
++> **A3 — 历史停牌与盘中边界**
++>
++> 688432 持续停牌及复牌样本正确；000002 盘中临停不会追溯否定早盘成交。
++>
++> **A4 — 历史覆盖**
++>
++> 2022、2016 历史数据覆盖与支持边界有实际证据，未覆盖日期继续 UNKNOWN。
++>
++> **A5 — 逐笔价格正确性**
++>
++> TDX 逐笔 ETF 十倍价格错误被回归测试捕获；错误价格不得进入成功结果。
++>
++> **A6 — 失败与缺失安全性**
++>
++> 官方空事件、TDX 空响应、零量、网络失败、数据冲突分别得到正确处理。
++>
++> **A7 — 策略 PIT**
++>
++> T+1 历史执行事实变化不能改变 T 日策略目标、信号或 sizing。
++>
++> **A8 — 时区**
++>
++> 中国市场 09:15/09:30 时间语义正确；UTC 和上海时间不会被混用。
++>
++> **A9 — 原成交合同**
++>
++> 原有费用、价格、手数、资金、all-or-none 及 UNKNOWN 拒绝行为保持。
++>
++> **A10 — 消费者 live 等价覆盖**
++>
++> SIOS 原强制 live 验证被等价或更严格的消费者合同覆盖；ETF corporate actions 和 freshness 验证不得丢失。
++>
++> **A11 — 统一候选 Gate**
++>
++> chstockdata package、SIOS offline/Golden/ETF/live、TradingAgents 兼容及构建安装 Gate 使用同一候选工件并通过。
++>
++> ### 7. 明确 Non-goals
++>
++> - 不建设真实订单簿或队列成交概率模型。
++> - 不引入付费数据源。
++> - 不扩大至全市场历史分钟数据仓库。
++> - 不要求恢复全部历史事件公告数据库。
++> - 不修订冻结 M0/M1 策略研究结果。
++> - 不全面重构 SIOS 回测引擎。
++> - 不要求借此解决所有免费数据源稳定性问题。
++>
++> ### 8. 准入与停止条件
++>
++> 本 CR 首先进入设计审查。
++>
++> 在批准实施之前，必须明确：
++>
++> 1. 开盘分钟成交证据在日线执行模型中的适用规则和不足。
++> 2. 官方停复牌正向事件与 TDX 成交证据冲突时的优先级。
++> 3. 旧 historical suspension 合同与新 execution evidence 合同的边界。
++> 4. SIOS 最小代码影响及必须调整的冻结测试。
++> 5. UTC/上海时区问题的最小解决方案。
++> 6. 既有消费者 Gate 如何在不降低严格程度的条件下恢复。
++>
++> 设计审查未通过则不得实施。
++>
++> 实施完成不等于 Release Gate PASS；只有全部强制资格通过且 Owner 独立验收，才能进入发布授权。
++>
++> 当前状态：
++>
++> ```ini
++> CR_DESIGN = PROPOSED
++> IMPLEMENTATION_AUTHORIZED = NO
++> SIOS_UPGRADE_QUALIFIED = NO
++> RELEASE_GATE = FAIL
++> PUBLISH_AUTHORIZED = NO
++> ```
++>
++> ---
++
++<!-- OWNER_PROPOSED_CR_END -->
++
++## 5. Independent Conformance Review
++
++### 5.1 逐项追溯
++
++“待 Owner”适用于本表所有建议；测试栏是授权后验收设计，不是本轮执行结果。
++
++| Owner CR 条款 | 冻结代码/文档 | 已有证据 | 审查结论 | 最小建议 | 验收测试 |
++|---|---|---|---|---|---|
++| 标题/性质：有限跨仓 correctness 修复 | F1–F3；AGENTS Gate discipline | E1–E4 | 产品目标一致；跨仓执行资格语义超出已授权 FIX_ONLY，必须 CR | 明列 eligibility/clock/schema 版本及 Owner 决定，不叫纯 metadata 修复 | A11、身份隔离 |
++| §1 原始目标 | F2:13–18、40、74–79 | E1 live 阻断 | 保留目标；新证据不能使旧历史状态合同自动恢复 | 用新执行能力恢复消费者升级，旧 suspension 仍安全拒绝 | A7、A9、A10 |
++| §2 Eastmoney 缺席/错误回填/09:15 | F5；F4:903–907 | E2/E3、当前安全源码 | D1–D3 CONFIRMED；09:15 为真，09:30 是执行/错误回填时间 | 取消无依据回填，独立执行输入；不改 cutoff 来迁就 | A6–A8 |
++| §2 TDX/价格/无需队列 | F2:79、89、128 | E4 原 JSONL、四目标和控样 | 数据可取、价格缺陷确认；队列不足不迫使建设日内模型 | 有界接入 0x0fb4/0x0fb5，价格先验证 | A1–A5 |
++| §3.1 策略不变 | F4 DecisionContext、_known_tradability_through；quality.py:549–575 | 冻结 no-lookahead 测试 | 符合，必须完整保留 | 执行集合不暴露给策略，不并入 PIT tradability | A7；原未来变异测试 |
++| §3.2 官方区间覆盖时禁止 | F2:74–79；旧状态无区间 | E3 513100/159509/688432 | 支持正向阻断；需界定区间和冲突标签 | 上海 [start,resume)，末停牌日按会话覆盖，未知边界不猜 | A2、A3、A6 |
++| §3.2 官方无冲突+TDX 开盘活动 | F2:40、79、128；F3 PIT port | E4 09:30 正量与首点量 | CONTRACT_CONFLICT：支持分钟活动，不是严格整点状态/任意订单保证 | 批准 §6.1 代理；两源有界请求完成且字段认证，无冲突才允许原日线规则继续 | A1、A4、A6、A9 |
++| §3.2 来源缺失/异常/冲突 UNKNOWN | F1 unknown 不转布尔；F3 typed error | E3 HTML/错误体、E4 空/零量 | 符合；“官方无事件”与“官方失败”必须不同 | 官方合法空+TDX正量可为代理；失败/partial/含义不明或真冲突 UNKNOWN | A6 |
++| §3.2 后发临停不追溯、复牌不补做 | F2:77、89 | E2/E4 000002、两 ETF 10:30 | 符合；同一开盘分钟内的边界仍不够细 | W 外后发事件不撤销既有 fill；W 内模糊边界安全拒绝；不 retry | A2、A3 |
++| §3.2 模型限制 | F2:79、128 | 旧逐笔 HH:MM，无 status/秒 | 原披露方向正确，须进一步区分四种开盘语义 | OPEN_ACTIVITY_CONFIRMED 只证明 W 内活动；不声称 09:25 正式竞价或 09:30:00 必成交 | A1、A9 |
++| §3.3 三种时间与上海时区 | F3:36–38；F4 clock；F5 availability | E3 午夜字段；本轮 clock 单例 | 符合目标；实际默认 UTC 不符合中国市场当地钟点 | 信息时间未知保留空；effective/window 与 retrieval 分开；新入口显式上海注入 | A7、A8 |
++| §4 新历史开盘能力、不改旧 API | 当前 a_stock.py:5845–5881、suspension.py:193–298、tradability.py:107–333 | source-semantics 回归；E1 runtime 身份 | additive 方向符合 F1；不存在已认证完整历史接口 | 复用 FetchResult/attempt/provenance 和现有协议调用方式，新增窄能力；不通用路由 | A5、A6、A11 |
++| §4 概念字段/事实结论 | F3 evidence/typed error；旧 bool schema | E3/E4 字段精度不同 | 名称可以保留；必须补 scope/粒度/版本/冲突标记 | §7 字段下限；事实结论与订单许可分开，不提前锁函数名 | A1–A6 |
++| §5 adapter/输入/activation/execution 最小影响 | F4/F5；domain.market.py:330–375 | 真实调用链及 late-at-activation 测试 | engine 最小修改不可避免；schema/快照/clock wiring 也直接受影响 | 仅现有模块加执行集合/接线；不改策略、Portfolio 和算术 | A7–A11 |
++| §5 保留 sizing/费用/手数/all-or-none | F2:40、83–93；execution.py:329–335、403–423 | 原 component/Golden | 符合；活动量不是订单流动性配额 | TDX 价格/量只认证资格，不替换日线 open、不限量/部分成交 | A9 |
++| §5 M0/M1 不覆盖、新版本身份 | F2:118–124；F3:92、134；runs.py:36–119 | 冻结 manifest/Golden/snapshot | 符合；只 version 一个函数名称不够 | 新 evidence 分区、clock/policy/version/digest 进入 identity；旧 replay 按旧 reader/mode | A8、A11、replay |
++| §6 A1–A5 | E4 样本；F3 subtype 资格 | 四目标、控样、2016/2022、十倍价格 | 数据支持设计；还不是新实现验收 PASS | §11 明确每项可证伪预期和未覆盖 UNKNOWN | A1–A5 |
++| §6 A6–A9 | F2–F5、原安全/未来/算术测试 | 原源码、失败和量价记录 | 条款保留，新增细分冲突/时区/隔离验证 | 见 §10/11，不改原核心业务断言 | A6–A9 |
++| §6 A10 live 等价 | F3 ETF gate；live.py:242–261 | E1 失败发生在首个历史请求 | CONTRACT_CONFLICT：旧 historical is_success 不能继续靠补造布尔恢复；不是豁免 | 保留原测试为 mandatory 编排，正式替换历史资格断言；逐项保全 actions/freshness，增加失败/空/未知检查 | A10 |
++| §6 A11 同一候选 | F1 G5–G7；F3 upgrade qualification | E1 B3 绑定及 TA 基线七失败 | 符合；旧候选 PASS 不适用于未来新代码 | 新工件统一复验；TA 按原相对兼容，保留基线失败，不偷换为全仓全绿 | A11 |
++| §7 七项 non-goals | F1/F2 范围边界 | 当前目标只需有界代理 | 全部保留 | §12；不要求 0x056a/0x0fc6 作为接受代理的隐性前置 | A9、范围检查 |
++| §8 六项设计准入、Owner/Release 停止 | AGENTS；F1 release 授权 | E1 Gate FAIL | 完整保留；本文件定义推荐方案不代表授权 | §14；本轮停止，无产品实施 Prompt | 文档完整性/授权核对 |
++
++### 5.2 需要正式批准的最小修正文案
++
++| 修订 | 保留的 Owner 原提案 | 冲突依据 | 推荐增补文本（待 Owner） |
++|---|---|---|---|
++| R1 代理的准确含义 | “开盘分钟真实成交…执行资格代理证据” | F2 日线限制，E4 HH:MM；09:25 中性字段无事件类别 | “OPEN_ACTIVITY_CONFIRMED 仅表示经过验证的 09:30 本地分钟 W 内有实际正量活动。允许版本化日线模型继续以 raw 日线 open 模拟；不证明严格 09:30:00、竞价成交类别、某订单或数量必成交。只接受 09:25 行或无时间的首分钟正量仍不足。” |
++| R2 官方优先级与冲突 | “官方覆盖禁止；证据冲突 UNKNOWN” | 两句若合并为无条件官方优先会掩盖冲突；E3区间/E4分钟 | “官方阻断具有不可绕过的否决权；无冲突时为 BLOCKED_CONFIRMED。确有同一时间范围的正量矛盾时最终 UNKNOWN/source_conflict，仍保留 official_block_at_target=true 并拒绝，不能用优先级消除矛盾或改为可交易。” |
++| R3 SIOS 时间/隔离 | “仅必要 adapter、输入与 activation/execution 边界” | F4过滤+F5回填；现有入口无独立参数 | “新增专门的历史开盘执行事实集合，仅在明确选择的新执行资格模式使用；_activate/现有执行门禁接入，策略 PIT 集合与过滤保持。晚知/未知信息时间不妨碍已经认证的执行事实在该模式下用于回放，执行事实本身 UNKNOWN 仍拒绝。” |
++| R4 时区及结果保护 | “采用明确 Asia/Shanghai；禁止静默重写历史” | runner/oos/default UTC实际路径 | “中国市场新语义运行显式注入上海时钟，旧默认与旧运行保持；时钟、资格政策与执行证据 digest 均进入新身份。旧冻结结果只披露钟点偏移风险，不重算。” |
++| R5 旧 live 的恢复方法 | “等价或更严格覆盖…不得直接删除/跳过” | 原断言索取不成立的完整历史状态；actions/freshness被短路 | “保留 mandatory 编排与四 ETF 覆盖，将 historical PIT 成功断言正式改为新开盘资格与端到端拒绝/成交合同；旧 historical 请求必须继续失败/未知，时间不伪造。原 actions/RAW/availability/freshness 断言逐项继续强制，子能力均执行并分别汇总失败。” |
++
++R1–R5 保留业务目标，改变的是必要的资格/时间/测试假设；不是本轮已实施的 scope expansion。若 Owner 不接受任何修订，本 CR 维持 REWORK，不能直接按草案写代码。
++
++## 6. Source Evidence and Time Semantics
++
++### 6.1 四种开盘含义与本次代理
++
++| 含义 | 已有证据能否证明 | 本 CR 推荐用途 |
++|---|---|---|
++| 开盘集合竞价实际撮合 | 09:25 正量、中性侧记录存在，但无事件 status；0x056a/0x0fc6 未真实验证 | 不宣称已认证正式竞价类别；不以虚拟匹配量代替实际成交 |
++| 09:30 分钟内实际活动 | 0x0fb5 的 HH:MM=09:30、vol>0；四目标的量与 0x0fb4 首点交叉吻合 | 本代理唯一正向开盘输入；W = [D 09:30:00, D 09:31:00)，Asia/Shanghai |
++| 09:30:00 整点必可交易/某订单可成交 | 无秒/队列/精确临界状态，无法证明 | 不作为事实结论；不得写成 exact-open 资格 |
++| 日线 NEXT_SESSION_OPEN 近似 | 冻结模型已有 raw open/滑点及二元资格、无队列承诺；却未批准事后资格 | Owner 批准后用分钟活动为资格代理，执行时间标签仍为 09:30，执行价格仍取日线 open。这是模型标签，不是认证成交发生于整点 |
++
++0x0fb4 解析返回没有行时间，首点又合并了样本中的 09:25 与 09:30 量。不能仅凭首点>0 推导 W 内成交，不能把首点价格当开盘第一笔。活动量仅作存在性/内部一致性证据，不按量计算可成交委托、不填入订单部分成交。策略目标及 sizing 不读取这些量价。
++
++F2:79、128 没有要求严格队列证明，因此上述近似无需扩张为订单簿；F3/F4 的 activation 信息合同仍需正式修订。若 Owner 要求严格 09:30:00，则当前证据 INSUFFICIENT，需一项精确输入：指定目标日执行边界的实际成交/状态响应及秒级事件分类。该要求不属于本推荐代理，不能自动启动新调查。
++
++### 6.2 已复核的真实点与原始资产身份
++
++单位为手；值保留原证据语义。分钟浮点显示的尾数不被宣称为精确 Decimal 价格。最终合格价格需按认证协议尺度和 tick 表达验证。
++
++| 证券/日期 | 原逐笔文件/sequence/start | 09:25量 | 09:30正量行数/量 | 分钟首点量 | 分钟首点价 / 逐笔末条原价 |
++|---|---|---:|---:|---:|---|
++| 510300 / 2026-09-11 | final / 1 / 4000 | 77516 | 20 / 352580 | 430096 | 4.576 / 45.76 |
++| 159915 / 2026-09-11 | followup / 2 / 4000 | 95647 | 20 / 557149 | 652796 | 3.339 / 33.39 |
++| 518880 / 2026-09-11 | final / 2 / 4800 | 52465 | 20 / 106411 | 158876 | 8.910 / 89.10 |
++| 511010 / 2026-09-11 | opening_page / 4 / 800 | 46 | 17 / 289 | 335 | 141.177 / 1411.77 |
++| 510300 / 2022-12-30 | final / 3 / 4000 | 20974 | 20 / 124260 | 145234 | 3.941 / 39.41 |
++| 510300 / 2016-12-30 | followup / 7 / 1600 | 2372 | 13 / 8157 | 10529 | 3.361 / 33.61 |
++| 688432 / 2026-09-14 | final / 4 / 4000 | 17109 | 20 / 26531 | 43640 | 40.90 / 40.90 |
++| 000002 / 2015-12-18 | followup / 5 / 1600 | 0 | 18 / 101856 | 101856 | 22.40 / 22.40 |
++
++每一行均为有限页，不是完整日逐笔归档；不同 offset 页可能重叠，未来汇总不能重复计量。正向存在性不需要扫描全天；未取到开盘不能凭晚页/空页认定停牌。四 ETF 的分钟首点价也不是原日线 open（例如 510300 日线 open=4.592）。
++
++以下 SHA256 本轮复算一致，原文件不改写。文件均在 [E4 原证据目录](../../../audits/evidence/2026-10-10-v0.4.2-tdx-historical-execution/)：
++
++| 原资产 | SHA256 |
++|---|---|
++| tdx_history_responses.jsonl（24请求） | 2644ce583796b412d18c5b4730356e2df95691085dbf0080dfa728ecac08a228 |
++| tdx_opening_page_responses.jsonl（9请求） | 03c727b674a5233d873e90da234879c60dc0b222f548c2ec3e5f97298d347dbd |
++| tdx_opening_page_followup_responses.jsonl（7请求） | 9989c8a427a4a82fb921fef127b50d7f52a111c9feb033d833ed7842f5aa0ccf |
++| tdx_opening_page_final_responses.jsonl（4请求） | 5875d32c619d59f18f3bf5f448f1bc8d5f027fc6ce012409e6ab7fb5659a3a34 |
++
++四份 manifest 均记录 mootdx 0.11.7、tdxpy 0.2.7、固定单主站、4秒超时、无发现/自动重试/心跳、count=800；共44次 status=response、0请求异常。JSONL 是解析器返回原记录，不是 TCP wire bytes，不是独立于 TDX 的第二行情源。无需重复44次查询；代码接入资格需另外记录实际候选调用/版本，不能拿调查样本代替集成测试。
++
++官方证据复用 E3：513100 的 SSE LSTP/stopTime=915 由实际前端映射为 09:15–10:30，响应 SHA256 b0c084336ced5abfd30e2d1ac3b0e2d46c0b35758934e75651f9ae6ad216fd02；159509 官方 PDF 正文为 9/11 开市停牌、10:30起复牌，PDF SHA256 18cf4d821cd8f4de15d515ce0ceef828be5aff3beea30128d4b2049d39647fcd。688432 区间响应 SHA256 1b4980cc2d46993a052a5b3e5a11f4c9186cc0e4787d307cae8534b9f8dd62fb。官方正向区间能用于阻断，不能把空公告、分页计数完整或网站可访问提升为历史状态全集完整。
++
++513100/159509 分钟前60点零量，索引60分别为130484/114141手，取得的逐笔页从10:30开始，与官方区间相容。688432/8月31日分钟全零、逐笔仅15:00 vol=0；其停牌来自官方/发行人，不来自零量。000002/2016-01-04 两接口为空；空值单独 UNKNOWN，已有披露才支持阻断。
++
++### 6.3 三类时间与区间边界
++
++| 字段/概念 | 推荐规范 |
++|---|---|
++| information_available_at / availability_basis | 当时市场参与者的可知时间及依据；无认证时刻则 null/UNKNOWN。只有来源日期的午夜、事件生效、现在获取、源端参数日期均不能补造为历史09:15或09:30 |
++| execution_effective_at/window | 官方状态的生效区间，或成交记录的分钟精度窗口；不转换成 availability |
++| retrieved_at | 系统实际事后获取的 aware 时刻；UTC表示可以，与本地 session_date 分开 |
++| target_execution_at | D 09:30+08:00；必须与证券/市场/交易日一致；不是请求取回时间 |
++| 时间精度 | 日期、分钟、秒分别声明；旧0x0fb5只能声明分钟；官方午夜时间只声明日期，除非真实发布钟点已认证 |
++
++暂停区间推荐为 **[停牌生效, 已认证复牌生效)**。513100 用 [09:15,10:30)，159509 用 [本地开市09:30,10:30)，所以09:30阻断、10:29:59阻断、10:30不再被该区间阻断；后一个结论不授权补做09:30订单，也不承诺没有新事件。
++
++688432 返回的 endStopDate=20260911 是末停牌日，不是9/11零点复牌；8/31至9/11会话都阻断。9/14复牌来自明确公告与成交控制，不由9/14空列表推导。跨日持续区间应按本地交易会话解释，不能把中间周末记为可交易。事件只有日期、结束含义未知或可能延长而未能验证时，不能编造闭合秒级区间。
++
++000002 已认证13:00起停牌不与 W 相交，不撤销开盘模拟成交。官方事件若只在 W 内后半分钟开始、而成交记录只有分钟，无法认证活动先后；推荐 UNKNOWN 拒绝该分钟代理。对 W 之后的后发事件，不追溯修改此前 fill。未知/失效的结束边界不能因“预计复牌”自动允许。
++
++### 6.4 事实合成及失败真值表
++
++新能力是“有界事件检查+真实活动”的资格代理。官方 absence 只表示本次约定证券/日期及区间查询无冲突；**不要求取得全市场空事件完整性认证，也不声称正常状态已获认证**。但约定查询本身失败、部分页、仅查首页、不能查询持续区间或匹配证券/时间含义未认证，均不能假称完成。查询范围/覆盖限制必须保存，未知覆盖不能被硬编码为“无冲突”。
++
++| 官方输入 | TDX输入 | 结论/处理 |
++|---|---|---|
++| 已认证区间覆盖目标，活动无矛盾 | 缺失、零量或相容的后续活动 | BLOCKED_CONFIRMED；目标时点禁止。已有完整正向阻断足够安全拒绝，无须以TDX成功为前提 |
++| 已认证区间覆盖整段W | 同一W有已认证正量活动 | UNKNOWN/source_conflict；保存官方否决与双方证据，拒绝。不得只信TDX |
++| 区间覆盖目标，但W内随后已认证复牌 | W正量可发生在复牌后 | 不是必然冲突；目标仍 BLOCKED_CONFIRMED，不延后执行 |
++| 有界查询成功、合法空事件或所有事件与W不冲突 | 已认证09:30正量活动，价格/时间/来源合格 | OPEN_ACTIVITY_CONFIRMED；仅进入原日线成交规则，其它资格未通过仍不fill |
++| 有界查询成功/无阻断 | 空响应、仅晚页、零量、只有09:25行、只有无时间首分钟正量 | UNKNOWN；不派生停牌，也不允许开盘 |
++| 网络失败、HTML挑战页、错误体、截断/partial、覆盖/事件含义未知 | 即使TDX有正量 | UNKNOWN；保留网络/结构/覆盖原因，不记正常空结果 |
++| 官方无已知冲突 | TDX网络失败、日期/证券错配、未认证尺度、坏时间、矛盾量价 | UNKNOWN；错误值不进入成功数据 |
++| 后发区间起点在W之后 | W活动已认证 | 保持开盘资格；后发停牌不修改已完成模拟订单 |
++
++UNKNOWN 是事实结论，不等于传输失败：应分别报告 source request outcome（success/normal_empty/failed_network/failed_structure/partial/unsupported 等）和 verdict/reason。所有原始子源结果留痕，失败不能因另一源成功被改写为green。冲突的官方否决并未失效，UNKNOWN只是拒绝的最终安全标签。
++
++## 7. Minimal chstockdata Changes
++
++### 7.1 新能力的概念字段下限（待批准，不冻结函数签名）
++
++复用现有 FetchResult/FetchMetadata/FetchAttempt 和 operation/capability 观察方式，不建设通用多源路由。旧 get_suspension_info()/fetch_suspension_info()/fetch_tradability() 的历史 fail-closed、当前日和 legacy envelope 不重定义。
++
++| 分组 | 必需信息 |
++|---|---|
++| 请求身份 | 规范证券/交易所、instrument类别、市场当地session_date、target_execution_at、资格政策/输出schema版本 |
++| TDX活动 | protocol command、解析库/版本、源身份、请求参数及页/覆盖范围；原HH:MM、精度、正量行/活动窗口、量及单位；若返回价格则明确尺度/币种/tick验证和原值 |
++| 官方事件 | 二级市场事件类型、start/resume或日会话区间、包含关系、交易所/发行人来源、查询覆盖、分页完整性与已知限制；申赎事件不可当二级停牌 |
++| 请求/事实结论 | 每源request outcome/异常类别/正常空结果、OPEN_ACTIVITY_CONFIRMED/BLOCKED_CONFIRMED/UNKNOWN、reason、conflict及官方目标否决；不输出代表全天正常的suspended=False |
++| 三类时间 | 真实或UNKNOWN信息时间及basis、effective窗口/精度、aware retrieved_at；不得互相复制 |
++| 证据身份 | 原/规范payload checksum、来源/adapter/normalization版本、能力覆盖、引用记录、limitations；缓存命中不伪造请求或改写retrieval |
++
++生产不能为四目标/日期硬编码成功记录；认证范围可以窄且明确，运行时必须取得/回放对应证据。未认证证券、日期、主站或字段组合不通过。本任务不承诺全市场任意历史资格，也不把两个历史点扩张为2016年以来连续覆盖。
++
++### 7.2 协议接入及尺度边界
++
++现有 a_stock.py 有 mootdx client/call 和局部可选导入模式；E4 是调用 client.client 的历史0x0fb4/0x0fb5。现有 tdx_bridge.py/_easy_tdx_bridge.py 是另一 easy-tdx 进程接口，不是已经认证这两个历史命令的bridge；不能仅因名字相同就宣称可直接复用。批准后的 reader 应复用已认证的协议调用方式与现有结果/异常工具，有界请求、无全主站发现/全天扫描，缺可选依赖为明确配置/unsupported失败，不新增必需依赖或全局 monkeypatch 第三方库。
++
++归一化只作用于新能力的0x0fb5返回边界，条件包括经认证的解析器/版本、command、市场及证券类别/支持范围。mootdx 0.11.7 / tdxpy 0.2.7 的四目标样本原价按已确认基金尺度换算；股票688432/000002保持原尺度。**禁止所有证券无条件除10；禁止把VIPDOC基金前缀尺度名单照搬到历史逐笔；未知版本/类别不猜。** 不用“与分钟差十倍就自动除10”作为通用启发式。
++
++原值、转换规则和规范价同时留证据。永久回归冻结四目标真实原字段/期望尺度、来源SHA和分钟对照；保留股票不除10、未知版本/类别拒绝、已规范值不重复换算的负例。当前资产不是wire bytes，所以该回归首先证明adapter对既有第三方解析返回的纠正；不能声称已覆盖上游二进制解码全部字段。未来若换库/升级，重新认证其输出边界，不默认继续应用旧纠正规则。
++
++分钟浮点尾数须在明确证券tick/协议精度下规范比较，不能以宽松容差掩盖十倍错误。未经校验或冲突价格即使不用于fill也不能随OPEN_ACTIVITY成功结果返回。保持VIPDOC现有精确Decimal合同及四目标OHLC/pre_close零容差回归不动。
++
++官方reader只需既有已认证接口/事件字段的最小接入。各交易所能力和持久停牌区间语义按已获得的资格保存；不新建历史公告全集，不引入付费源、不再调查BaoStock。来源性质和非商业可读边界沿用E3，不把一次公开请求推成SLA或再分发许可认证；本轮无新的法律判断。
++
++## 8. Minimal SIOS Changes
++
++### 8.1 已核对的真实路径与不可回避的 engine seam
++
++1. LibraryChStockDataClient.suspension()（F5:456–490）调用旧 get_suspension_info；failed_structure 转SCHEMA_DRIFT。fetch_tradability()（1029–1102）collect/map，_map_tradability()（1244–1287）要求同日snapshot_date、布尔suspended和source，映射成日级TradabilityStatus。
++2. _tradability_availability()（1291–1327）仅同本地日期observed_at采用OBSERVED，否则无依据补上海09:30；不使用payload已有information_available_at。新执行能力不能塞进这个布尔映射。
++3. EngineClock 给activation09:15和execution09:30；_activate()（892–928）用09:15信息cutoff筛选 self._tradability_by_session，再调用activate_pending_plans()。
++4. execution.py:_tradability_gate()（248–256）只看dict的status.permits；SELL/BUY在317/391行调用。没有支持旁路的独立执行事实入口。用UTC默认恰好让上海09:30早于UTC09:15，只会掩盖混用，不构成合法方案。
++5. DecisionContext（178–239）及 _known_tradability_through（1132–1140）同时限制session<=T和信息cutoff；quality.py:549–575对late/UNKNOWN为blocking。这些策略PIT限制完整保留。
++
++因此仅利用目前公开入口而不改engine不可行。外部wrapper伪造早知的TradabilityStatus、修改activation钟点、把事后数据当09:15预先可知、子类偷偷改过滤，都不是更小而正确的方案。
++
++推荐最小路径：在现有数据port/adapter增加独立历史开盘事实；以独立集合进入现有engine构造/按session索引；_activate()把该会话和目标执行时点的专用事实传给现有activate_pending_plans()/门禁。该函数已经把激活与日线模拟成交合并计算，应在文档明确：09:15仍是需要早知信息的cutoff，事后事实只认证随后模拟执行，不能解释为真实09:15交易者已经看到它。无需新增执行调度器或逐分钟事件循环。
++
++新模式仅把历史停牌/开盘活动资格从“必须预先可知的状态”中分离；保留T决策和其它确需提前可知的规则。不把OPEN_ACTIVITY映射成整个TradabilityStatus的TRADABLE，也不让它覆盖已确认NOT_LISTED/DELISTED/side阻断/缺规则/其它未知资格。旧PIT状态缺失，只有在缺失明确属于被新开盘能力替代的历史停牌信息要求时才可由合格专用事实补足；无来源范围或未知原因的缺失仍拒绝。真实官方目标停牌永远否决；历史日级SUSPENDED若没有有效区间，不能随意用盘中事件标签阻断整日或任意用成交覆盖，须按新事实来源认证目标时点。
++
++这个模式不是在旧UNKNOWN结果上无条件加一个“有量就通行”分支。需要旧模式无专用事实时原行为不变、新模式必需专用事实时不fallback为允许、两模式输入不混用的测试。资格通过后只继续现有原价/费用/资金/卖出规则；不用TDX活动价格、活动量重算target或订单配额。
++
++### 8.2 跨仓影响表
++
++| 仓库 | 模块 | 必要变更 | 是否改变冻结语义 | 现有测试影响 | 风险 |
++|---|---|---|---|---|---|
++| chstockdata | a_stock.py现有TDX调用方式、FetchResult相关工具及新能力导出边界 | 有界历史活动/官方事件组合和真实provenance；新功能的具体函数/落文件由批准实施时按现有结构决定 | additive；旧接口不变 | 新能力合同/异常/依赖缺失；旧API全部保留 | 时间、覆盖、请求失败被误当空 |
++| chstockdata | 新历史0x0fb5输出边界 | 条件归一化和永久价格回归 | 不影响VIPDOC/旧日线 | A5加真实四目标及股票负例 | 错尺度、双重换算、未知解析版本 |
++| SIOS | adapters/chstockdata/provider.py；data/ports.py | 独立执行request/client/map/evidence；修复旧availability fallback | historical 早知假设正式变更；旧port仍PIT | provider旧历史fallback测试修订，旧bool映射条件保留 | 把新事实伪装成旧状态 |
++| SIOS | domain/market.py；data/contracts.py | 窄的执行事实类型/编解码，明确window/结论/身份；函数名不预锁 | 新schema，不重定义Availability/TradabilityStatus | canonical/port合同新增 | side或全天含义被夸大 |
++| SIOS | data/quality.py | 独立执行用途的覆盖、字段、时间/冲突检查；既有PIT检查保持 | 新用途政策需版本；不能全局放宽UNKNOWN | 既有INFORMATION_TIME保留；新增执行用途验证 | 以隔离为名跳过其它质量门禁 |
++| SIOS | data/snapshots.py现有分区/serializer/manifest reader/writer | 新版本执行事实分区及checksum；旧reader/快照仍可按旧模式replay | 新schema/identity；旧快照不迁移覆盖 | snapshot/replay/digest binding新增 | 不落盘导致不可复现 |
++| SIOS | backtest/engine.py、backtest/execution.py | 独立执行集合接线，_activate/门禁按有效窗口验证；保持原算术 | 执行资格改变，晚知真实事实可影响fill | legacy late/missing/UNKNOWN原样；新模式隔离/拒绝及A9 | bypass掉其它交易限制 |
++| SIOS | research/runner.py:536、research/oos.py:1496现有clock/dataset wiring；本次资格入口 | 只在选择新语义的中国市场运行接线专用事实并注入Shanghai clock | 新运行时钟/资格版本；旧模式继续原版本 | 新接线测试；旧smoke/研究结果不覆盖 | 当前默认UTC导致误资格/时间标签 |
++| SIOS | domain/runs.py既有RunManifest及当前运行manifest生成边界 | 使用既有execution_model_version/rule_versions/data_snapshot_digest绑定资格政策、clock、执行证据 | 身份变更；无需泛化RunManifest框架 | manifest identity/reproducibility | 仅描述“上海”但digest不变 |
++| SIOS | tests/contract、component、qualification、integration中直接受影响用例及对应架构文档 | §10列出的假设修订和新增验收 | 测试/合同正式修订，强制范围不减 | A7–A11，全部原mandatory仍强制 | 只改断言制造green |
++| TradingAgents | 既有兼容资格选择/安装探针 | 无产品修改；同一新候选按E1原选择验证 | 否 | 原相对基线兼容Gate | 七项基线失败不能写成全绿 |
++
++上述均是已存在模块的直接影响说明，不指定新框架或一串新文件。当前FIX_ONLY没有这些跨仓改动授权；全部待Owner决定。
++
++现有CanonicalDataset（quality.py:122–165）只有PIT tradability等集合，snapshots.py:256–273的serializer/records-kind固定；不能把执行事实混入旧tradability分区来省代码。最小版本化分区扩展须支持旧snapshot reader/mode，知识cutoff只筛决策信息，执行证据按其用途保留事后获取时间。决策质量若声明需要某项PIT状态而无法取得，仍BLOCKING；新执行分区不是“全数据PIT已通过”的替代声明。
++
++RunManifest（runs.py:36–119）已有execution_model_version、rule_versions和data_snapshot_digest进入identity_digest。优先在既有身份容器编码本次资格政策/市场clock及快照摘要，不另造manifest体系；读写验证必须确保缺必要身份的“新模式”拒绝，不凭可选文字字段重放。
++
++### 8.3 最小时区合同及真实入口影响
++
++保持EngineClock默认UTC用于旧语义及原fixtures；新中国市场模式显式EngineClock(timezone=Asia/Shanghai)。实现表达可按现有tzinfo模式，输出必须有+08:00及市场时区身份，禁止naive钟点。现有runner/oos没有注入市场timezone，故只在provider里转换时间还不够，运行入口接线也直接受影响；此处不全局重写默认。
++
++本轮从B4提取EngineClock原类只在内存执行单例，得到：
++
++| 本地用途 | 正确上海时刻 | 等价UTC绝对时点 | 旧默认UTC同钟点转换成上海 |
++|---|---|---|---|
++| activation | 2026-09-11 09:15+08:00 | 2026-09-11 01:15Z | 17:15+08:00 |
++| execution | 2026-09-11 09:30+08:00 | 2026-09-11 01:30Z | 17:30+08:00 |
++| decision | 2026-09-11 15:30+08:00 | 2026-09-11 07:30Z | 23:30+08:00 |
++
++这是实际clock行为证据，不是完整研究重跑。后续测试用相同UTC绝对时点表示事件，须得到相同包含关系/资格；“UTC09:30”与“上海09:30”必须被识别为不同目标。上海15:31才可知的T事实在新15:30 cutoff拒绝，而旧默认23:30可能纳入；必须披露这一风险，不能自动重算M0/M1去改旧结论。新模式以新clock/policy/digest生成新身份。
++
++## 9. Backward Compatibility
++
++旧get_suspension_info历史失败、安全修复和current-day兼容继续；旧fetch_tradability保守逻辑、日历/退市date guard、UNKNOWN不转布尔继续。新能力不承诺恢复完整historical suspension，消费者也不能把新代理的success当旧PIT port成功。
++
++修正SIOS availability会改变错误的historical EXCHANGE_RULE输出，属于必要显式契约变更，不伪称完全行为兼容。原冻结源码/fixtures/研究结果保持只读；旧mode和旧schema按原版本replay，不能用修正代码回写已有M0/M1结果。新数据/政策/时钟影响Fill、现金、持仓、NAV和后续决策可能正常发生；A7的隔离比较锁定同一T已形成的目标与planned sizing，并不要求后续所有会话仓位和收益不变。
++
++新能力默认不得被旧消费者隐式选择；没有新schema、合格执行证据及明确模式的新运行拒绝。候选资格只沿用受控版本准入的做法，不更新正式0.3.0 pin，不用保留旧pin作为升级目标达成。统一新候选Gate/Owner放行后才讨论正式版本变更。
++
++## 10. Test Impact Matrix
++
++### 10.1 三类测试
++
++| 类别 | 现有测试/业务目的 | 处理与等价边界 |
++|---|---|---|
++| 原样保留 | chstockdata tests/test_suspension_source_semantics.py；test_suspension_structured.py、test_astock_listing_status.py已有安全/分页/当前日/envelope合同 | 历史fail-closed、空/未知区分、当前复牌、未来事件、cache不冒充新请求；新能力不改这些业务断言 |
++| 原样保留 | tests/test_vipdoc_price_scale.py及四ETF精确价格合同 | VIPDOC八类尺度、OHLC/pre_close精确Decimal继续；不借逐笔缺陷重改日线 |
++| 原样保留 | SIOS tests/component/test_no_lookahead.py:127、160、203、227、267、293 | 未来变异不改变T目标；next open只影响fill；未来/晚知行不能进DecisionContext。新执行集合加变异测试，不重写原断言 |
++| 原样保留 | tests/component/test_tradability.py:75、102、126、142、171、207；test_execution_accounting.py、test_event_order.py、test_corporate_actions.py | legacy的late/UNKNOWN/missing/suspended/side阻断，以及费用、滑点、T-close、资金、手数、all-or-none、corporate-action replan全部保留 |
++| 原样保留 | tests/component/test_foundation_adversarial_boundaries.py；Golden/parity、integration/test_snapshot_replay.py、test_manifest_identity.py、test_reproducibility.py及研究结果 | 原不变量和历史artifact/digest不覆盖；新模式另加必要情景 |
++| 正式变更假设 | tests/contract/test_chstockdata_provider.py:796 test_historical_session_uses_the_exchange_rule_open_time | 该用例明确断言无依据历史09:30回填；改为真实时间保留/未知/日期粒度不补造，保留retrieved_at验证。旧冻结测试仍作为历史基线，不在本轮修改 |
++| 正式变更假设（限前提） | 同文件:825 test_absent_suspension_record_is_tradable；Library client suspension说明 | 当前测试实际上输入已给出的suspended=False，而非证明事件缺席完整性；可保留布尔映射本身。其“历史缺席可推出False”的源资格假设必须撤回/加专门拒绝测试，不能仅重命名绕过 |
++| 正式增加模式 | test_tradability.py:142 late-at-activation | 原PIT路径晚知拒绝保持；新模式晚知/未知信息时间且执行事实合格可以继续模拟，另立合同。不能把原断言直接改成所有晚知都可交易 |
++| 正式变更假设 | qualification/test_chstockdata_etf_gate.py:242 原mandatory live历史成功断言 | 按§10.2调整为执行能力实际合同；原测试保留为mandatory，不删/skip、不单靠mock替代live |
++| 新增必要 | 四ETF和两临停、持续停牌/复牌、13:00边界、2016/2022、逐笔尺度、异常/冲突/范围 | A1–A6；固定真实数据SHA+当前候选reader真实调用；禁止按ticker/日期硬编码结论 |
++| 新增必要 | port/schema/quality、engine输入隔离、上海clock接线、序列化/replay/identity | A7–A9、A11；执行分区不穿过策略PIT、篡改证据导致digest/重放失败、旧reader行为继续 |
++| 新增必要 | live逐能力执行及四ETF corporate actions/freshness | A10，不得因某项提前assert失败让其它能力未执行却标PASS |
++
++### 10.2 原 mandatory live 逐断言追溯与保全
++
++原test_live_tradability_adjustment_and_freshness（242–261）对matrix_requests的每只ETF顺序执行如下。窗口、证券和ETF instrument_kind继续使用冻结matrix；本轮不能修改。
++
++| 原断言/调用 | 业务目的 | 原假设为何需要改变/真实覆盖边界 | 推荐的新强制覆盖 |
++|---|---|---|---|
++| fetch_tradability(...); assert is_success（247–248） | 目标历史执行日具备可信停复牌/交易资格 | 旧port索取PIT布尔，Eastmoney能力和09:30回填都不成立；现在安全失败是正确行为 | 旧历史PIT查询必须失败或显式UNKNOWN且不伪造时间；新开盘能力实际请求四ETF均OPEN_ACTIVITY_CONFIRMED；带该证据跑真实consumer执行入口，确定可进入原日线规则。官方两临停和异常/未知仍无fill |
++| assert tradability.records（249） | 成功结果有真实记录，不接受空success | 原断言只非空，未验证请求身份/状态 | 新记录按四个请求一一匹配证券、日期、目标、source/hash/时区/结论，拒绝空/错配/unknown。不得只assert新is_success |
++| fetch_corporate_actions(...); assert is_success（251–252） | ETF公司行为与adjustment供应能力 | 原逻辑被前一失败短路；其正确性目的仍成立 | 真实ETF请求保留success；合法空actions仍按coverage判定，不要求强行非空。保留原offline partial/missing ex-date/不支持rights及ETF kind路由合同 |
++| fetch_daily_bars（254） | 供RAW与时间/freshness验证的数据 | 原测试未先assert bars.is_success/nonempty，失败且空records可能使循环不检查 | 增强为success、非空、范围/coverage合格；保留其它live routing/OHLC/pre_close/units/calendar/history断言 |
++| assert adjustment_mode == RAW（256） | 防执行价格被复权；避免公司行为重复入账 | 无需改变 | 每只ETF每条bar原样强制；现有corporate-action账本测试继续 |
++| assert retrieved_at is not None（257） | 实际获取时刻留痕 | 仅非空不等于数据新鲜；不能把测试名字视为完成所有freshness | 原断言保持，并验证aware获取时间；对既有quality策略执行freshness/覆盖检查及stale/missing反例。历史研究用既有 intended-session政策，不误要求目标日等于今天 |
++| available_at非空则<=retrieved_at（258–261） | 可知与获取先后合理 | 原条件式检查允许未知，且不证明preopen可知 | 原检查保持；UNKNOWN保持明确。新执行事实有效窗口与retrieval独立，策略晚知仍拒绝；不能按execution time补造available_at |
++
++建议保留原测试名称作为mandatory编排，内部子能力独立收集结果、最后统一断言，或拆成明确全部mandatory的子测试并由原编排验证覆盖集合。失败不得让actions/freshness不执行后被计作PASS。最终资格记录四ETF×每一子能力结果；mandatory selector若改变，冻结新清单并验证无deselected/skip遗漏。其余四项原live仍需执行，recorded tests仅作确定性回归，不能替代实际源/实际候选live。
++
++这是“正确性目的等价或更严格”的设计映射，不声称旧完整历史PIT能力已经恢复。旧历史能力缺口仍公开；替代的是Owner本次提出的开盘执行目标。若Owner坚持旧live必须证明完整历史PIT状态而不批准这一变更，A10仍不足，本方案无法宣称升级合格。
++
++## 11. Acceptance Criteria A1–A11
++
++以下保留Owner编号和目标，加可证伪的证据要求。**当前均不是新实现验收PASS。** 已有证据可复用作fixtures/设计依据，未来候选接入与消费者链路必须另有证据。
++
++| 条件 | 授权后必须取得的验收证据/失败条件 | 当前支持与缺口 |
++|---|---|---|
++| A1 四ETF开盘活动 | 四目标×2026-09-11，保留真实0x0fb5 09:30正量、0x0fb4量一致及协议/尺度；经新reader和真实adapter得代理资格；无TDX价格替换raw日线open | 原记录4/4已复核；新reader/consumer资格未实现。仅09:25或首分钟不能通过 |
++| A2 官方临停拒绝 | 513100/159509上述官方区间，上海09:30无fill；09:15/09:30起点含、10:30结束不含；原09:30订单10:30不补做 | 官方/TDX相容样本具备；端到端门禁未实现 |
++| A3 持续停牌与盘中边界 | 688432 8/31、9/11阻断、9/14公告+活动恢复；000002 2015-12-18开盘活动与13:00停牌共存，早盘fill不撤销；日期结束不当午夜复牌 | 正向事件及E2/E4活动具备；精度模糊区间/延长需UNKNOWN |
++| A4 历史覆盖 | 510300/2022-12-30及2016-12-30两点成功有明确单主站/范围；未取得或未认证证券/日期/页继续UNKNOWN；报告支持边界，不声明连续全历史 | 两历史点已取得；任意日期连续覆盖未经认证，不要求全市场库 |
++| A5 逐笔价格 | mootdx0.11.7/tdxpy0.2.7/0x0fb5四目标真实错误字段必须先触发错误/校验失败；认证归一化后符合固定期望与分钟对照；688432/000002不除10、未知版本/类别拒绝、已规范输入不重复换算；错误值不能success | 四目标真实十倍缺陷和原SHA具备；永久回归未写；不改变VIPDOC已通过精确测试 |
++| A6 失败/缺失 | 官方合法空+TDX正量可为代理；官方空+TDX空/零/仅竞价为UNKNOWN；网络/错误体/HTML/partial/错日期/坏时区分别typed outcome；官方覆盖W+TDX正量为UNKNOWN冲突带否决；任何不合格均无fill | 原空/零量、分页、格式错误/挑战页支持设计；故障/冲突注入和集成待实施 |
++| A7 策略PIT | 锁同一T数据/初始状态，变异T+1执行集合的活动、信息时间、retrieval/区间，只能改变T+1 fill/拒绝，不改变T signal/target/权重/universe/planned_quantity；捕获DecisionContext确认无该集合；需要PIT信息的策略晚知/UNKNOWN照旧拒绝 | 冻结隔离合同和测试存在；新集合隔离待验证，不比较后续全部NAV不变 |
++| A8 时区 | 三用途本地/UTC等价表；边界等值包含/排除、UTC09:30错目标拒绝、naive时间拒绝；runner/oos/新qualification实际注入Shanghai；旧default保持；clock身份变化导致新runID | 本轮B4原clock单例已执行；接线/identity永久测试待实施 |
++| A9 原成交合同 | 原component/Golden费用、滑点/tick、RAW、T-close、global affordability、手数/卖出规则、corporate-action replan、all-or-none/UNKNOWN拒绝原样过；相同合格资格下ledger一致；改变活动量不改变订单配额或fill价格；无复牌retry | 原离线结果已核对；新模式不能用旧PASS替代 |
++| A10 消费者live等价 | §10.2四ETF全部能力真调用且各自有结果；旧historical fail-closed/PIT诚实、新执行4/4及临停反例、actions/RAW/availability/freshness/stale全部强制；五项原live与新增mandatory零skip/遗漏，失败完整汇总 | 原强制live失败、后续断言未执行；设计映射齐全但待Owner批准/实际验证 |
++| A11 统一候选Gate | 一个新源码快照/新wheel SHA绑定package/构建安装/core及可选profiles、SIOSprovider/offline/Golden/ETF/全部live、TA原相对兼容；真实import/version、受控版本准入和新schema/policy/clock/证据digest留痕；旧B3及M0/M1不覆盖 | E1旧B3部分通过、live仍FAIL；本轮不构建或复跑。新候选全部通过且Owner独立接受之前不能发布 |
++
++A1–A6的未知/拒绝不是“降级成功”；资格报告必须保存原因。A11的TA“通过”按原冻结相对兼容准则：原选择123 passed/7相同基线失败及五探针，不要求未经批准全仓修复，也不把七失败隐藏。
++
++## 12. Non-goals
++
++完整保留Owner§7，并保留本次任务第四部分：
++
++- 不建设订单簿、队列概率、竞价撮合重建、高频或通用分钟回测引擎。
++- 不实现日内部分成交、活动量分配、限价队列或复牌后自动补单/重试。
++- 不引入付费源、全市场历史分钟仓库、完整历史公告全集、完整PIT数据库。
++- 不扩大ETF产品资格（两只QDII仅source控样），不把股票负例推广为所有ETF。
++- 不全面重构SIOS引擎、策略、Portfolio或新建通用多源路由。
++- 不重算/覆盖冻结M0/M1，不重跑研究，不改变正式pin。
++- 不借此解决所有免费源稳定性，不再调查已否决BaoStock，不重跑44次TDX查询，不无边界搜索GitHub。
++- 不把0x056a/0x0fc6文档能力当运行时证据，不为本分钟代理自动增加其资格调查。
++- 本轮不实现、不改测试/依赖、不构建/替换wheel、不合并/提交/推送/tag/发布，不生成实施Prompt。
++
++## 13. Risks and Unresolved Decisions
++
++| 决策/风险 | 分类 | Owner需要决定或保留的明确边界 |
++|---|---|---|
++| O1 分钟代理是否可接受 | CONTRACT_CONFLICT；严格整点为INSUFFICIENT_EVIDENCE | 审批R1及§6.1；可接受则无需队列/竞价新能力。拒绝代理则当前方案不达标，不能悄悄升格数据能力 |
++| O2 事后执行事实通道 | CONTRACT_CONFLICT | 审批R3及§8窄改动；该事实不早知但可用于历史模拟，执行UNKNOWN仍拒绝。不能仅授权adapter却让实现暗改engine |
++| O3 官方查询与覆盖 | UNRESOLVED_RISK | 审批有界无已知冲突+真实活动的代理，而非完整负向状态认证；读取持续区间/分页须符合当前源能力。不能认证必要查询范围则该请求UNKNOWN，不扩张全事件库 |
++| O4 live能力替代 | CONTRACT_CONFLICT | 审批R5逐断言映射及新mandatory清单；完整历史PIT能力未恢复的限制继续披露。若仍要求旧完整状态，则A10无法通过 |
++| O5 Shanghai clock与运行身份 | CONTRACT_CONFLICT / UNRESOLVED_RISK | 审批R4仅新运行入口；旧UTC偏移影响未量化，不重算旧研究；新结果采用独立版本/证据身份 |
++| O6 上游解析/连续获取 | UNRESOLVED_RISK | 旧解析记录非wire bytes、只有一主站/有限点；版本或格式变化须拒绝/再认证，免费来源没有稳定覆盖保证。不是本轮新架构理由 |
++| O7 实际接入仍未验收 | INSUFFICIENT_EVIDENCE | A1–A11尚无新产品实现证据；源样本支持设计不承诺Gate恢复，后续失败应修正阻断而非豁免 |
++| O8 原证据保留边界 | NON_BLOCKING_LIMITATION（设计），未来集成待证 | 官方部分原response只保存摘要/hash；TDX保存parsed rows。未来资格要保存可重放对应输入，不得把缺失wire/raw说成已经捕获 |
++
++原腾讯上游血缘未认证、TA七项基线失败和其原依赖环境边界沿用E1，不扩大为本CR新工程。全市场归档/交易队列是FUTURE_ENHANCEMENT；没有任何SPECULATIVE_CONCERN被转换成必做架构。
++
++当前不需要新的无界来源调查。若未来必要的单一字段/命令尚未认证，只提出“指定证券/日期、指定返回字段及可证伪预期”的一次证据需求；不得以完善设计为由重开此前调查。Owner审批对象就是本文件R1–R5、§6–11的推荐规范及这些明确限制。
++
++## 14. Gate and Owner Authorization
++
++### 14.1 当前报告字段
++
++以下PASS/DEFINED如出现只描述设计的边界，不是实现/Release资格。本次原草案仍需R1–R5正式修订，live覆盖仍待批准，故两处REWORK保留。
++
++~~~ini
++CURRENT_DECISION = CHANGE_REQUEST
++OWNER_PROPOSED_CR_REVIEWED = YES
++DESIGN_CONFORMANCE = REWORK
++SOURCE_EVIDENCE = SUFFICIENT_FOR_DESIGN
++EXECUTION_EVIDENCE_SEMANTICS = DEFINED
++SIOS_ENGINE_CHANGE_REQUIRED = YES
++SIOS_TIMEZONE_CONTRACT = DEFINED
++MOOTDX_PRICE_REGRESSION_REQUIRED = YES
++TEST_COVERAGE_EQUIVALENCE = REWORK
++SCOPE_EXPANSION = NO
++READY_FOR_OWNER_DESIGN_REVIEW = YES
++READY_FOR_IMPLEMENTATION_AUTHORIZATION = NO
++SIOS_UPGRADE_QUALIFIED = NO
++RELEASE_GATE = FAIL
++PUBLISH_AUTHORIZED = NO
++~~~
++
++SOURCE_EVIDENCE足以设计有限代理；不表示来源全集/严格整点或新实现已认证。TEST_COVERAGE_EQUIVALENCE的REWORK表示原live假设要经正式变更并实现本覆盖映射；不是要求删除原mandatory。推荐方案已经完整可审议，但没有Owner approval记录。
++
++### 14.2 Gate顺序与停止
++
++1. Owner审议原草案和R1–R5，明确批准或要求修订；审查者不能代签。
++2. 只有Owner正式批准并另行授权实施，才可能执行窄的跨仓合同/产品/测试改动。本文件不授权该动作。
++3. 实施完成后按A1–A11以一个新候选取得独立证据；任一强制项失败或证据不足分别FAIL/INSUFFICIENT_EVIDENCE。
++4. Release Gate全部满足仍须Owner独立验收和明确发布授权；不自动升级阶段或发布。
++
++**本轮结束于第1步前的可审议文档交付。** 不生成产品实施Prompt，不启动下一Phase。
++
++### 14.3 本轮文档核验与交接
++
++本轮核验是只读源码/原证据核对、B4原EngineClock内存单例和文档完整性检查，不运行产品测试、网络查询、构建或策略研究。原保存结果经JUnit/exit直接核对：package 724 passed/1 skipped；SIOS provider 67 passed、offline 929 passed/5 skipped、ETF/Golden/smoke 160 passed/5 skipped；mandatory live 4 passed/1 failed；TA原选择123 passed/7 failed。它们属于原统一候选执行，不能标为本轮新测或新模式资格。
++
++收口核对：Owner原文引用完整、14个必需章节、逐项追溯/跨仓影响/三类测试/A1–A11齐备；git diff --check及新增文档的whitespace检查通过。进入本轮的759个chstockdata文件（含wheel/sdist）逐字节SHA256未变，新增文件只有本文；566个原候选文件继续匹配。SIOS本轮保护清单244个tracked/non-ignored文件及当前HEAD未变；冻结B4的核心blob/tree身份保持。SIOS现有Git环境的status命令返回“must be run in a work tree”，故不声称其工作树clean；用进入/收口文件哈希核对无本轮写入。没有Git提交、暂存或消费者源码修改。
++
++- 当前phase/step：v0.4.2 FIX_ONLY阻断下，CHANGE_REQUEST_DESIGN_REVIEW文档交付；未推进Phase。
++- Commit与工作树：chstockdata HEAD 42bd44ef4d695aa3e88cfab4ebc3417660d0437a，无新commit；原未提交源码/测试/文档/证据保留，本轮仅新增本文。原候选tree和wheel身份见B2/B3。
++- Gate与依据：Release/SIOS FAIL；E1真实mandatory live失败，当前仅设计，无新的A1–A11集成证据；原草案REWORK，推荐语义可供Owner审议。
++- 未解决阻断/范围：Owner尚未批准R1–R5；来源/解析/时钟/消费者新模式未实现或资格验证。无本轮实施范围扩大。
++- 推荐下一动作：Owner对本文作正式设计审议，尤其分钟代理、执行隔离、上海clock及mandatory live替代；不是下一Phase或实施授权。
++
++学习交接：本次问题是分钟级真实活动能否支持冻结日线执行目标并保持PIT。原记录支持有界代理、暴露价格尺度错误，真实调用链证明需engine窄接线；它不支持严格整点或完整状态全集。下一决策是Owner选择是否接受明确近似与合同修订，不能以文档完成声称升级或发布已合格。
++
++
++
++### 14.3 Owner approval and implementation authorization — 2026-10-11
++
++Owner 已正式批准 R1–R5 及下列两项合同边界，并在新的实施指令中恢复此前暂缓的最小修复实施授权。此前原提案、REWORK 设计审计和历史 Gate 结论保持不变；本记录不把它们改写为实现 PASS。
++
++1. R5 是 Owner 正式批准的验收合同调整，不是测试豁免，也不能称为“原历史停牌能力已经恢复”。旧完整历史 PIT 停牌查询继续 UNKNOWN/fail-closed；新历史开盘资格仅供显式选择的新回测执行模式，禁止其它消费者将其解释为全天状态或完整历史 PIT 信息。
++2. R1 明确采用 `[09:30:00, 09:31:00)`、Asia/Shanghai 的模型假设。已验证的 TDX `0x0fb5` 在窗口内有真实正量，且官方有界检查没有阻断、冲突或来源错误，才可进入原日线 NEXT_SESSION_OPEN 模拟规则；该证据只证明分钟内活动，不承诺整点或任意具体订单必然成交。不研究队列，不将 `0x056a`、`0x0fc6` 升为当前 Gate 必需输入。
++
++```ini
++CURRENT_DECISION = FIX_ONLY
++CR_DESIGN_AUTHORIZED = YES
++APPROVED_REVISIONS = R1,R2,R3,R4,R5
++IMPLEMENTATION_AUTHORIZED = YES
++RELEASE_AUTHORIZED = NO
++PUBLISH_AUTHORIZED = NO
++NEXT_PHASE_AUTHORIZED = NO
++```
++
++实施顺序与局部门禁：基线保护 → chstockdata 最小能力 → SIOS 最小接线 → 受影响测试合同 → 同一新候选统一资格 → Owner Review。任何来源或局部门禁阻断均不得用旧调查样本、skip 或伪造成功替代。本轮尚无实现验收结论。
++
++Step 0 保护证据及后续实施映射见 [implementation audit](../../../audits/2026-10-11-v0.4.2-opening-implementation.md)。
++
++
++### 14.4 Implementation handoff — 2026-10-11
++
++Step 0 已核对保护清单、冻结 blob、旧 wheel，并保留完整既有未提交修复。Step 1 在新源码实现前触发批准实施指令的“不可验证的数据源前提”停止条件：当前 SZSE 有界公告查询的持续停牌覆盖资格未认证。不是要求恢复完整历史 PIT 状态；688432 既有发行人明确复牌正文仍有效且可用于 fixture。
++
++本轮没有修改产品源码、测试、依赖、SIOS 引擎或正式 pin；没有新 reader/API/schema 或新候选工件。旧停牌安全回归实测 19 passed。Step 2–4 未执行，A1–A11 均尚未通过新实现验收。R1–R5 和两项能力边界的 Owner 批准保持，原设计 REWORK 和旧 Gate 历史不改写。
++
++`CR_IMPLEMENTATION=BLOCKED`，`READY_FOR_OWNER_ACCEPTANCE=NO`，`RELEASE_GATE=BLOCKED`；发布、tag、PyPI、下一 Phase 均未授权或执行。详见 [本轮 implementation audit](../../../audits/2026-10-11-v0.4.2-opening-implementation.md) 的原响应、必要覆盖缺口、局部门禁、命令退出码、A1–A11 和文件映射。
++
++
++### 14.5 R2.1 Owner approval — 2026-10-11
++
++Owner 正式批准 R2.1，恢复原 R1–R5 + 两项附加边界范围内的最小跨仓实施。原提案、REWORK、原实施 BLOCKED 和 R2 均保留历史，不覆盖。以下是本轮 Owner 正式合同原文：
++
++## R2.1 正式合同
++
++### 2.1 官方停牌否决权保留
++
++经认证的官方停牌区间覆盖目标执行时刻，禁止成交。
++
++若官方确认停牌，而 TDX 显示同一冲突时段存在正成交量：
++
++- 保留官方阻断证据。
++- 记录 source_conflict。
++- 最终拒绝成交。
++- 不得以 TDX 正量覆盖官方停牌。
++
++### 2.2 官方有界查询要求
++
++官方查询必须：
++
++- 实际请求成功。
++- 请求证券和日期正确。
++- 响应结构有效。
++- 请求范围明确。
++- 返回事件的二级市场语义可以识别。
++- 当前请求的分页完整。
++- 已返回且影响目标执行窗口的事件全部参加判断。
++
++网络失败、HTML 错误体、分页截断、字段不明、来源错配和未知时间语义，继续 fail-closed。
++
++### 2.3 修订历史负向完整性要求
++
++针对目标上海本地时间窗口：
++
++`[09:30:00, 09:31:00)`
++
++若：
++
++1. TDX `0x0fb5` 提供经过认证的真实正成交活动。
++2. 证券、日期、时间、成交量及必要价格尺度通过验证。
++3. 当前官方有界查询成功。
++4. 当前返回事件及其它已知、经认证的官方停牌证据均没有发现影响目标执行时刻的阻断或冲突。
++5. 其它执行资格规则满足。
++
++则允许返回：
++
++`OPEN_ACTIVITY_CONFIRMED`
++
++并进入原有 `NEXT_SESSION_OPEN` 日线模拟成交规则。
++
++**不再额外要求证明官方公告数据库完整收录了所有历史持续停牌事件。**
++
++这是已批准日线代理模型的明确边界。
++
++不能将该结果称为：
++
++- 全日正常交易。
++- 完整历史停牌状态。
++- 09:15 已知。
++- 09:30:00 任意委托必然成交。
++
++### 2.4 其它情况
++
++以下情况继续 UNKNOWN 或相应安全阻断：
++
++- 只有官方空公告，没有真实开盘成交证据。
++- TDX 仅返回 09:25 记录。
++- 仅有无时间语义的首分钟成交量。
++- TDX 返回零量、空响应或未经验证的解析结果。
++- 已知官方停牌与活动证据冲突。
++- 官方当前有界请求失败或部分返回。
++- 已知持续停牌证据存在，但结束时刻没有确认。
++- 开盘窗口内部出现无法排序的停复牌边界。
++- 必要的日历、上市、交易规则或其它资格仍未知。
++
++R2.1 不能成为“只要有成交量就通行”的捷径。
++
++### 2.5 维持其它合同
++
++R1、R3、R4、R5 和附加合同边界不变。
++
++A1–A11 保持原正确性目标。
++
++不修改：
++
++- T-close 策略决策。
++- NEXT_SESSION_OPEN。
++- raw 日线开盘价。
++- 滑点、费用、资金与手数规则。
++- all-or-none。
++- PIT/no-lookahead。
++- 旧 suspension API 的 fail-closed 行为。
++
++---
++
++```ini
++CURRENT_DECISION = FIX_ONLY
++R2_1_AUTHORIZED = YES
++IMPLEMENTATION_AUTHORIZED = YES
++PREVIOUS_STOP = VALID_UNDER_ORIGINAL_R2
++R2_1_OWNER_APPROVAL = YES
++PREVIOUS_STOP_AS_GLOBAL_PREREQUISITE = SUPERSEDED
++RELEASE_AUTHORIZED = NO
++PUBLISH_AUTHORIZED = NO
++NEXT_PHASE_AUTHORIZED = NO
++```
++
++本轮不再因历史持续停牌负向全集未认证而全局停止。已知官方区间否决、当前有界请求/分页/语义完整、真实09:30正量、故障/冲突拒绝仍必须实现并验证；不将代理解释成完整PIT或全天状态。Step 1通过后可继续原已授权Step 2–4，各局部门禁照旧，发布终点不变。
+--- a/pyproject.toml
++++ b/pyproject.toml
+@@ -42,6 +42,8 @@
+ # works via local vipdoc history + Sina fallback. NOTE: mootdx pins
+ # httpx==0.25.2, which conflicts with stacks needing httpx>=0.28.
+ mootdx = ["mootdx>=0.10.0"]
++# Optional structured parser for essential official historical halt PDF bodies.
++opening-pdf = ["pypdf>=6.0"]
+ # Historical turnover (turn) input for CYQ chip distribution. baostock is a
+ # zero-key TCP client and does NOT support the Beijing Stock Exchange (4/8/92/920).
+ baostock = ["baostock>=0.8.9"]
+@@ -60,7 +62,7 @@
+ where = ["src"]
+ 
+ [tool.setuptools.package-data]
+-chstockdata = ["py.typed"]
++chstockdata = ["py.typed", "opening_known_events.json"]
+ 
+ [tool.pytest.ini_options]
+ testpaths = ["tests"]
+--- a/src/chstockdata/__init__.py
++++ b/src/chstockdata/__init__.py
+@@ -1,163 +1,163 @@
+-"""chstockdata — free China A-share market data toolkit.
+-
+-No API keys, no mandatory third-party market-data SDK in the core path —
+-direct HTTP/TCP access to public quote vendors (Tencent, mootdx/TDX,
+-Eastmoney, Sina, THS, CLS, SSE/SZSE), extracted and battle-tested from
+-TradingAgents-astock. Optional extras (``mootdx``, ``baostock``) unlock
+-specific capabilities such as the K-line primary source.
+-
+-Quick start::
+-
+-    from chstockdata import configure, get_stock_data, resolve_ticker
+-
+-    configure(cache_dir="./cache")            # optional
+-    resolve_ticker("贵州茅台")                  # -> "600519"
+-    df = get_stock_data("600519", 365)         # daily OHLCV
+-
+-Eastmoney requests are throttled module-wide (``EM_MIN_INTERVAL``, default
+-1.0s) — keep it that way; do not fan out concurrent full-market scans.
+-"""
+-
+-from __future__ import annotations
+-
+-from .config import (
+-    configure,
+-    get_config,
+-    get_setting,
+-    reset_config,
+-    validate_vipdoc_history_config,
+-)
+-from .vendor_errors import (
+-    DeadlineExceeded,
+-    SourceContextDeadlineExceeded,
+-    VendorError,
+-    VendorNetworkError,
+-    VendorNoDataError,
+-    VendorNotConfiguredError,
+-    VendorRateLimitError,
+-)
+-from .utils import safe_ticker_component
+-
+-# ── Core vendor functions (a_stock) ─────────────────────────────────────────
+-from .a_stock import (
+-    ensure_name_code_map_warmup,
+-    name_code_map_ready,
+-    resolve_ticker,
+-    reset_mootdx_client,
+-    get_realtime_snapshot,
+-    get_hot_concept_examples,
+-    get_ohlcv_frame_cached,
+-    get_stock_data,
+-    get_fundamentals,
+-    get_balance_sheet,
+-    get_cashflow,
+-    get_income_statement,
+-    get_free_financial_indicators,
+-    get_news,
+-    get_global_news,
+-    get_insider_transactions,
+-    get_research_reports,
+-    get_earnings_forecast,
+-    get_shareholder_pledge,
+-    get_corporate_buyback,
+-    get_margin_trading,
+-    get_valuation_history,
+-    get_macro_indicators,
+-    get_disclosure_schedule,
+-    get_suspension_info,
+-    get_delisting_info,
+-    get_hot_stocks,
+-    get_stock_monitor,
+-    get_market_breadth,
+-    get_corporate_actions,
+-    get_fund_corporate_actions,
+-    get_announcement_index,
+-    get_block_trades,
+-    get_northbound_flow,
+-    get_policy_news,
+-    get_concept_blocks,
+-    get_fund_flow,
+-    get_dragon_tiger_board,
+-    get_lockup_expiry,
+-    get_industry_comparison,
+-    get_daily_dragon_tiger,
+-)
+-
+-# ── Reversed-ported upstream endpoints (v0.2.0) ─────────────────────────────
+-from .board_flow import get_board_fund_flow
+-from .chips import chip_distribution, get_chip_distribution
+-from .etf_options import (
+-    get_etf_option_chain,
+-    get_etf_option_greeks,
+-    get_etf_option_tquote,
+-    list_etf_option_contracts,
+-)
+-from .hot_rank import get_em_hot_rank, get_hot_concepts, get_hot_rank
+-from .investor_qa import get_investor_qa
+-from .limit_up import get_limit_up_pool, get_limit_up_reasons
+-
+-# ── Adjusted bars / calendar / vipdoc history ───────────────────────────────
+-from .adjusted_bars import get_adjusted_bars
+-from .trading_calendar import (
+-    TRADING_CALENDAR_PROVIDERS,
+-    fetch_trading_calendar,
+-    load_trading_calendar,
+-    local_is_trading_day,
+-    probe_trading_calendar_provider,
+-)
+-from .vipdoc_history import (
+-    load_vipdoc_daily,
+-    vipdoc_history_dir,
+-    vipdoc_history_status,
+-)
+-
+-# ── Policy news ─────────────────────────────────────────────────────────────
+-from .policy_news import get_policy_news_for_context
+-
+-# ── Provenance (evidence envelopes; capability resolver is injectable) ─────
+-from .provenance import (
+-    ATTEMPT_FAILED_AUTH,
+-    ATTEMPT_FAILED_NETWORK,
+-    ATTEMPT_FAILED_RATE_LIMIT,
+-    ATTEMPT_FAILED_STRUCTURE,
+-    ATTEMPT_NORMAL_EMPTY,
+-    ATTEMPT_SKIPPED,
+-    ATTEMPT_SKIPPED_DUE_TO_RUN_CIRCUIT,
+-    ATTEMPT_SUCCESS,
+-    COMPLETENESS_FULL,
+-    COMPLETENESS_MINIMAL,
+-    COMPLETENESS_PARTIAL,
+-    EvidenceEnvelope,
+-    ProviderAttempt,
+-    make_attempt,
+-    make_envelope,
+-    set_capability_resolver,
+-    validate_envelope,
+-)
+-
+-# ── Capability health + structured results (v0.4.0, additive) ───────────────
+-from .capabilities import (
+-    CapabilityHealth,
+-    ProviderCapability,
+-    capability_health_snapshot,
+-    fetch_status_to_health_status,
+-    get_capability_health,
+-    record_capability_health,
+-    reset_capability_health,
+-)
+-from .fetch_result import (
+-    FETCH_FAILED_NETWORK,
+-    FETCH_FAILED_RATE_LIMIT,
+-    FETCH_FAILED_STRUCTURE,
+-    FETCH_NORMAL_EMPTY,
+-    FETCH_NOT_CONFIGURED,
+-    FETCH_SKIPPED,
+-    FETCH_SUCCESS,
+-    FetchAttempt,
+-    FetchMetadata,
+-    FetchResult,
+-)
+-from .quote_chain import fetch_realtime_quotes, probe_quote_provider
++"""chstockdata — free China A-share market data toolkit.
++
++No API keys, no mandatory third-party market-data SDK in the core path —
++direct HTTP/TCP access to public quote vendors (Tencent, mootdx/TDX,
++Eastmoney, Sina, THS, CLS, SSE/SZSE), extracted and battle-tested from
++TradingAgents-astock. Optional extras (``mootdx``, ``baostock``) unlock
++specific capabilities such as the K-line primary source.
++
++Quick start::
++
++    from chstockdata import configure, get_stock_data, resolve_ticker
++
++    configure(cache_dir="./cache")            # optional
++    resolve_ticker("贵州茅台")                  # -> "600519"
++    df = get_stock_data("600519", 365)         # daily OHLCV
++
++Eastmoney requests are throttled module-wide (``EM_MIN_INTERVAL``, default
++1.0s) — keep it that way; do not fan out concurrent full-market scans.
++"""
++
++from __future__ import annotations
++
++from .config import (
++    configure,
++    get_config,
++    get_setting,
++    reset_config,
++    validate_vipdoc_history_config,
++)
++from .vendor_errors import (
++    DeadlineExceeded,
++    SourceContextDeadlineExceeded,
++    VendorError,
++    VendorNetworkError,
++    VendorNoDataError,
++    VendorNotConfiguredError,
++    VendorRateLimitError,
++)
++from .utils import safe_ticker_component
++
++# ── Core vendor functions (a_stock) ─────────────────────────────────────────
++from .a_stock import (
++    ensure_name_code_map_warmup,
++    name_code_map_ready,
++    resolve_ticker,
++    reset_mootdx_client,
++    get_realtime_snapshot,
++    get_hot_concept_examples,
++    get_ohlcv_frame_cached,
++    get_stock_data,
++    get_fundamentals,
++    get_balance_sheet,
++    get_cashflow,
++    get_income_statement,
++    get_free_financial_indicators,
++    get_news,
++    get_global_news,
++    get_insider_transactions,
++    get_research_reports,
++    get_earnings_forecast,
++    get_shareholder_pledge,
++    get_corporate_buyback,
++    get_margin_trading,
++    get_valuation_history,
++    get_macro_indicators,
++    get_disclosure_schedule,
++    get_suspension_info,
++    get_delisting_info,
++    get_hot_stocks,
++    get_stock_monitor,
++    get_market_breadth,
++    get_corporate_actions,
++    get_fund_corporate_actions,
++    get_announcement_index,
++    get_block_trades,
++    get_northbound_flow,
++    get_policy_news,
++    get_concept_blocks,
++    get_fund_flow,
++    get_dragon_tiger_board,
++    get_lockup_expiry,
++    get_industry_comparison,
++    get_daily_dragon_tiger,
++)
++
++# ── Reversed-ported upstream endpoints (v0.2.0) ─────────────────────────────
++from .board_flow import get_board_fund_flow
++from .chips import chip_distribution, get_chip_distribution
++from .etf_options import (
++    get_etf_option_chain,
++    get_etf_option_greeks,
++    get_etf_option_tquote,
++    list_etf_option_contracts,
++)
++from .hot_rank import get_em_hot_rank, get_hot_concepts, get_hot_rank
++from .investor_qa import get_investor_qa
++from .limit_up import get_limit_up_pool, get_limit_up_reasons
++
++# ── Adjusted bars / calendar / vipdoc history ───────────────────────────────
++from .adjusted_bars import get_adjusted_bars
++from .trading_calendar import (
++    TRADING_CALENDAR_PROVIDERS,
++    fetch_trading_calendar,
++    load_trading_calendar,
++    local_is_trading_day,
++    probe_trading_calendar_provider,
++)
++from .vipdoc_history import (
++    load_vipdoc_daily,
++    vipdoc_history_dir,
++    vipdoc_history_status,
++)
++
++# ── Policy news ─────────────────────────────────────────────────────────────
++from .policy_news import get_policy_news_for_context
++
++# ── Provenance (evidence envelopes; capability resolver is injectable) ─────
++from .provenance import (
++    ATTEMPT_FAILED_AUTH,
++    ATTEMPT_FAILED_NETWORK,
++    ATTEMPT_FAILED_RATE_LIMIT,
++    ATTEMPT_FAILED_STRUCTURE,
++    ATTEMPT_NORMAL_EMPTY,
++    ATTEMPT_SKIPPED,
++    ATTEMPT_SKIPPED_DUE_TO_RUN_CIRCUIT,
++    ATTEMPT_SUCCESS,
++    COMPLETENESS_FULL,
++    COMPLETENESS_MINIMAL,
++    COMPLETENESS_PARTIAL,
++    EvidenceEnvelope,
++    ProviderAttempt,
++    make_attempt,
++    make_envelope,
++    set_capability_resolver,
++    validate_envelope,
++)
++
++# ── Capability health + structured results (v0.4.0, additive) ───────────────
++from .capabilities import (
++    CapabilityHealth,
++    ProviderCapability,
++    capability_health_snapshot,
++    fetch_status_to_health_status,
++    get_capability_health,
++    record_capability_health,
++    reset_capability_health,
++)
++from .fetch_result import (
++    FETCH_FAILED_NETWORK,
++    FETCH_FAILED_RATE_LIMIT,
++    FETCH_FAILED_STRUCTURE,
++    FETCH_NORMAL_EMPTY,
++    FETCH_NOT_CONFIGURED,
++    FETCH_SKIPPED,
++    FETCH_SUCCESS,
++    FetchAttempt,
++    FetchMetadata,
++    FetchResult,
++)
++from .quote_chain import fetch_realtime_quotes, probe_quote_provider
+ from .daily_bars import (
+     DAILY_BAR_PROVIDERS,
+     fetch_daily_bars,
+@@ -166,71 +166,72 @@
+ from .suspension import fetch_suspension_info
+ from .delisting import fetch_delisting_status
+ from .tradability import fetch_tradability
+-
+-__version__ = "0.4.2"
+-
+-__all__ = [
+-    # config
+-    "configure", "get_config", "get_setting", "reset_config",
+-    "validate_vipdoc_history_config",
+-    # errors
+-    "DeadlineExceeded", "SourceContextDeadlineExceeded", "VendorError",
+-    "VendorNetworkError", "VendorNoDataError", "VendorNotConfiguredError",
+-    "VendorRateLimitError",
+-    # ticker safety / name resolution
+-    "safe_ticker_component", "resolve_ticker", "name_code_map_ready",
+-    "ensure_name_code_map_warmup", "reset_mootdx_client",
+-    # quotes / OHLCV
+-    "get_realtime_snapshot", "get_ohlcv_frame_cached", "get_stock_data",
+-    "get_adjusted_bars", "get_stock_monitor", "get_hot_concept_examples",
+-    # fundamentals / financials
+-    "get_fundamentals", "get_balance_sheet", "get_cashflow",
+-    "get_income_statement", "get_free_financial_indicators",
+-    "get_earnings_forecast", "get_research_reports",
+-    # corporate events / governance
+-    "get_corporate_actions", "get_fund_corporate_actions", "get_announcement_index",
+-    "get_disclosure_schedule", "get_suspension_info", "get_delisting_info",
+-    "get_insider_transactions", "get_shareholder_pledge",
+-    "get_corporate_buyback",
+-    # money flow / microstructure
+-    "get_fund_flow", "get_dragon_tiger_board", "get_block_trades",
+-    "get_northbound_flow", "get_market_breadth", "get_margin_trading",
+-    "get_valuation_history", "get_industry_comparison", "get_concept_blocks",
+-    "get_daily_dragon_tiger", "get_board_fund_flow",
+-    # limit-up / chip distribution
+-    "get_limit_up_pool", "get_limit_up_reasons",
+-    "chip_distribution", "get_chip_distribution",
+-    # ETF options (Sina)
+-    "list_etf_option_contracts", "get_etf_option_tquote",
+-    "get_etf_option_greeks", "get_etf_option_chain",
+-    # market sentiment / investor relations
+-    "get_hot_rank", "get_em_hot_rank", "get_hot_concepts", "get_investor_qa",
+-    # news / policy
+-    "get_news", "get_global_news", "get_policy_news", "get_policy_news_for_context",
+-    "get_hot_stocks", "get_macro_indicators",
+-    # calendar / vipdoc history
+-    "local_is_trading_day", "load_trading_calendar",
+-    "TRADING_CALENDAR_PROVIDERS", "fetch_trading_calendar",
+-    "probe_trading_calendar_provider",
+-    "load_vipdoc_daily", "vipdoc_history_dir", "vipdoc_history_status",
+-    # provenance
+-    "ATTEMPT_SUCCESS", "ATTEMPT_NORMAL_EMPTY", "ATTEMPT_FAILED_NETWORK",
+-    "ATTEMPT_FAILED_AUTH", "ATTEMPT_FAILED_RATE_LIMIT",
+-    "ATTEMPT_FAILED_STRUCTURE", "ATTEMPT_SKIPPED",
+-    "ATTEMPT_SKIPPED_DUE_TO_RUN_CIRCUIT",
+-    "COMPLETENESS_FULL", "COMPLETENESS_PARTIAL", "COMPLETENESS_MINIMAL",
+-    "EvidenceEnvelope", "ProviderAttempt", "make_attempt", "make_envelope",
+-    "set_capability_resolver", "validate_envelope",
+-    # capability health + structured results (v0.4.0, additive)
+-    "ProviderCapability", "CapabilityHealth", "capability_health_snapshot",
+-    "get_capability_health", "record_capability_health", "reset_capability_health",
+-    "fetch_status_to_health_status",
+-    "FETCH_SUCCESS", "FETCH_NORMAL_EMPTY", "FETCH_FAILED_NETWORK",
+-    "FETCH_FAILED_RATE_LIMIT", "FETCH_FAILED_STRUCTURE",
+-    "FETCH_NOT_CONFIGURED", "FETCH_SKIPPED",
+-    "FetchAttempt", "FetchMetadata", "FetchResult", "fetch_realtime_quotes",
+-    "probe_quote_provider",
+-    # daily bars structured routing (v0.4.0 Phase 2, additive)
++from .opening_evidence import fetch_historical_opening_evidence, OfficialOpeningEvent
++
++__version__ = "0.4.2"
++
++__all__ = [
++    # config
++    "configure", "get_config", "get_setting", "reset_config",
++    "validate_vipdoc_history_config",
++    # errors
++    "DeadlineExceeded", "SourceContextDeadlineExceeded", "VendorError",
++    "VendorNetworkError", "VendorNoDataError", "VendorNotConfiguredError",
++    "VendorRateLimitError",
++    # ticker safety / name resolution
++    "safe_ticker_component", "resolve_ticker", "name_code_map_ready",
++    "ensure_name_code_map_warmup", "reset_mootdx_client",
++    # quotes / OHLCV
++    "get_realtime_snapshot", "get_ohlcv_frame_cached", "get_stock_data",
++    "get_adjusted_bars", "get_stock_monitor", "get_hot_concept_examples",
++    # fundamentals / financials
++    "get_fundamentals", "get_balance_sheet", "get_cashflow",
++    "get_income_statement", "get_free_financial_indicators",
++    "get_earnings_forecast", "get_research_reports",
++    # corporate events / governance
++    "get_corporate_actions", "get_fund_corporate_actions", "get_announcement_index",
++    "get_disclosure_schedule", "get_suspension_info", "get_delisting_info",
++    "get_insider_transactions", "get_shareholder_pledge",
++    "get_corporate_buyback",
++    # money flow / microstructure
++    "get_fund_flow", "get_dragon_tiger_board", "get_block_trades",
++    "get_northbound_flow", "get_market_breadth", "get_margin_trading",
++    "get_valuation_history", "get_industry_comparison", "get_concept_blocks",
++    "get_daily_dragon_tiger", "get_board_fund_flow",
++    # limit-up / chip distribution
++    "get_limit_up_pool", "get_limit_up_reasons",
++    "chip_distribution", "get_chip_distribution",
++    # ETF options (Sina)
++    "list_etf_option_contracts", "get_etf_option_tquote",
++    "get_etf_option_greeks", "get_etf_option_chain",
++    # market sentiment / investor relations
++    "get_hot_rank", "get_em_hot_rank", "get_hot_concepts", "get_investor_qa",
++    # news / policy
++    "get_news", "get_global_news", "get_policy_news", "get_policy_news_for_context",
++    "get_hot_stocks", "get_macro_indicators",
++    # calendar / vipdoc history
++    "local_is_trading_day", "load_trading_calendar",
++    "TRADING_CALENDAR_PROVIDERS", "fetch_trading_calendar",
++    "probe_trading_calendar_provider",
++    "load_vipdoc_daily", "vipdoc_history_dir", "vipdoc_history_status",
++    # provenance
++    "ATTEMPT_SUCCESS", "ATTEMPT_NORMAL_EMPTY", "ATTEMPT_FAILED_NETWORK",
++    "ATTEMPT_FAILED_AUTH", "ATTEMPT_FAILED_RATE_LIMIT",
++    "ATTEMPT_FAILED_STRUCTURE", "ATTEMPT_SKIPPED",
++    "ATTEMPT_SKIPPED_DUE_TO_RUN_CIRCUIT",
++    "COMPLETENESS_FULL", "COMPLETENESS_PARTIAL", "COMPLETENESS_MINIMAL",
++    "EvidenceEnvelope", "ProviderAttempt", "make_attempt", "make_envelope",
++    "set_capability_resolver", "validate_envelope",
++    # capability health + structured results (v0.4.0, additive)
++    "ProviderCapability", "CapabilityHealth", "capability_health_snapshot",
++    "get_capability_health", "record_capability_health", "reset_capability_health",
++    "fetch_status_to_health_status",
++    "FETCH_SUCCESS", "FETCH_NORMAL_EMPTY", "FETCH_FAILED_NETWORK",
++    "FETCH_FAILED_RATE_LIMIT", "FETCH_FAILED_STRUCTURE",
++    "FETCH_NOT_CONFIGURED", "FETCH_SKIPPED",
++    "FetchAttempt", "FetchMetadata", "FetchResult", "fetch_realtime_quotes",
++    "probe_quote_provider",
++    # daily bars structured routing (v0.4.0 Phase 2, additive)
+     "DAILY_BAR_PROVIDERS", "fetch_daily_bars", "probe_daily_bars_provider",
+     # suspension structured snapshot (v0.4.0 Phase 5, additive)
+     "fetch_suspension_info",
+@@ -238,4 +239,5 @@
+     "fetch_delisting_status",
+     # derived tradability (calendar + suspension, additive)
+     "fetch_tradability",
++    "fetch_historical_opening_evidence", "OfficialOpeningEvent",
+ ]
+--- a/src/chstockdata/opening_evidence.py
++++ b/src/chstockdata/opening_evidence.py
+@@ -0,0 +1,533 @@
++"""Bounded R2.1 historical opening execution evidence; independent of legacy PIT.
++
++The HH:MM transaction window is an activity proxy, never an order fill, volume
++quota, all-day status, or a statement that information was known before open.
++TDX and current official retrieval observations remain distinct from eligibility.
++"""
++from __future__ import annotations
++
++import hashlib
++import importlib.metadata
++import io
++import json
++import re
++import time
++from collections.abc import Callable, Sequence
++from dataclasses import asdict, dataclass, field
++from datetime import date, datetime, timedelta, timezone
++from decimal import Decimal, InvalidOperation
++from itertools import pairwise
++from pathlib import Path
++from typing import Any
++
++from .fetch_result import (
++    FETCH_FAILED_NETWORK,
++    FETCH_FAILED_STRUCTURE,
++    FETCH_NORMAL_EMPTY,
++    FETCH_NOT_CONFIGURED,
++    FETCH_SUCCESS,
++    FetchAttempt,
++    FetchMetadata,
++    FetchResult,
++)
++from .routing_observation import record_fetch_observation, utc_now_iso
++
++POLICY_VERSION = 'R2.1'
++SCHEMA_VERSION = 'historical-opening-evidence/1'
++SHANGHAI = timezone(timedelta(hours=8), 'Asia/Shanghai')
++SERVER = ('110.41.147.114', 7709)
++# This is a security-category certification scope, not a date/verdict lookup.
++# The four target ETFs and two halt controls were protocol/price certified in
++# the frozen 44-request sample. Uncertified securities fail closed.
++CERTIFIED_SECURITIES = {
++    '510300': (1, 'ETF', Decimal('0.001')), '159915': (0, 'ETF', Decimal('0.001')),
++    '518880': (1, 'ETF', Decimal('0.001')), '511010': (1, 'ETF', Decimal('0.001')),
++    '513100': (1, 'ETF', Decimal('0.001')), '159509': (0, 'ETF', Decimal('0.001')),
++    '688432': (1, 'STOCK', Decimal('0.01')), '000002': (0, 'STOCK', Decimal('0.01')),
++}
++
++
++def _hash(value: Any) -> str:
++    if isinstance(value,bytes):
++        return hashlib.sha256(value).hexdigest()
++    if not isinstance(value,(dict,list,tuple,str,int,float,bool,type(None))):
++        value={'object_type':type(value).__name__}
++    return hashlib.sha256(json.dumps(value, sort_keys=True, ensure_ascii=False,
++        separators=(',', ':'), allow_nan=False).encode('utf-8')).hexdigest()
++
++
++def _instant(value: str) -> datetime:
++    result = datetime.fromisoformat(value)
++    if result.utcoffset() is None:
++        raise ValueError('effective timestamps require an explicit timezone')
++    return result
++
++
++def _sse_date(value: Any) -> date:
++    if not isinstance(value,str) or not re.fullmatch(r'[0-9]{8}',value):
++        raise ValueError('SSE date must be exactly eight digits')
++    return date.fromisoformat(f'{value[:4]}-{value[4:6]}-{value[6:8]}')
++
++
++@dataclass(frozen=True)
++class OfficialOpeningEvent:
++    """Certified effective interval with original-source identity, not a verdict."""
++    instrument: str
++    market: str
++    effective_start: str
++    effective_end: str | None
++    source_url: str
++    raw_sha256: str
++    certification_basis: str
++    retrieved_at: str
++    source_kind: str = 'official'
++    secondary_market: bool = True
++    offline_cache: bool = False
++    raw_fields: dict[str, Any] = field(default_factory=dict)
++    information_available_at: str | None = None
++    information_basis: str = 'UNKNOWN'
++
++    def __post_init__(self):
++        if not re.fullmatch(r'\d{6}', self.instrument) or self.market not in {'SSE','SZSE'}:
++            raise ValueError('invalid official event security/market')
++        start = _instant(self.effective_start)
++        if self.effective_end is not None and _instant(self.effective_end) <= start:
++            raise ValueError('invalid official interval')
++        if not re.fullmatch('[0-9a-f]{64}', self.raw_sha256) or not self.source_url or not self.certification_basis:
++            raise ValueError('official interval requires original bytes identity and certification')
++        _instant(self.retrieved_at)
++        if self.information_available_at is not None:
++            _instant(self.information_available_at)
++            if self.information_basis == 'UNKNOWN':
++                raise ValueError('availability needs a verified basis')
++
++
++def _known_events() -> list[OfficialOpeningEvent]:
++    asset = Path(__file__).with_name('opening_known_events.json')
++    return [OfficialOpeningEvent(**r) for r in json.loads(asset.read_text(encoding='utf-8'))]
++
++
++def _observe(attempts, provider, capability, call, observations, request):
++    started, clock = utc_now_iso(), time.monotonic()
++    try:
++        value = call()
++        status = FETCH_SUCCESS if value else FETCH_NORMAL_EMPTY
++        error = None
++    except ImportError as exc:
++        value, status, error = None, FETCH_NOT_CONFIGURED, type(exc).__name__
++    except (ValueError, TypeError, KeyError, InvalidOperation) as exc:
++        value, status, error = None, FETCH_FAILED_STRUCTURE, type(exc).__name__
++    except Exception as exc:  # noqa: BLE001 - vendor boundary records unknown transport errors.
++        value, status, error = None, FETCH_FAILED_NETWORK, type(exc).__name__
++    record_fetch_observation(attempts, provider=provider, capability_id=capability,
++        status=status, started_at=started, elapsed_ms=max(0,int((time.monotonic()-clock)*1000)),
++        record_count=len(value) if isinstance(value,(list,dict)) else None,
++        error_type=error, message=error)
++    observations.append({'request':request, 'status':status, 'retrieved_at':utc_now_iso(),
++                         'parsed_response_sha256':_hash(value), 'error_type':error})
++    return value, status
++
++
++def _number(value, *, tick: Decimal | None = None) -> Decimal:
++    if isinstance(value, bool):
++        raise ValueError('boolean is not price/volume')  # noqa: TRY004 - public malformed-payload contract.
++    n = Decimal(str(value))
++    if not n.is_finite() or n < 0:
++        raise ValueError('invalid numeric value')
++    if tick is not None:
++        # Parser float artifacts are tolerated only to 1e-9 yuan, never a
++        # price ratio heuristic or a second normalization.
++        rounded = (n / tick).quantize(Decimal(1)) * tick
++        if n <= 0 or abs(rounded-n)>Decimal('0.000000001'):
++            raise ValueError('price violates certified security tick')
++        n = rounded
++    elif n != n.to_integral_value():
++        raise ValueError('volume must be integral lots')
++    return n
++
++
++def _decimal_text(n):
++    return format(n.normalize(), 'f')
++
++
++class TdxOpeningReader:
++    """Single-host, no retry, finite 800-row paging of the certified commands."""
++    def __init__(self, *, client_factory: Callable | None = None,
++                 versions: tuple[str,str] | None = None,
++                 page_offsets: Sequence[int] = tuple(range(0,7200,800))):
++        if not page_offsets or len(page_offsets)>9 or any(type(x) is not int or x<0 or x%800 for x in page_offsets):
++            raise ValueError('TDX paging must be bounded to nine 800-row pages')
++        self.client_factory, self.versions = client_factory, versions
++        self.page_offsets = tuple(page_offsets)
++
++    def read(self, code, day, attempts):
++        observations=[]
++        result={'instrument':code, 'session_date':day, 'source':'mootdx/tdxpy',
++                'server':{'host':SERVER[0],'port':SERVER[1]}, 'timeout_seconds':4,
++                'auto_retry':False, 'heartbeat':False, 'server_discovery':False,
++                'command':'0x0fb5', 'crosscheck_command':'0x0fb4',
++                'time_granularity':'minute', 'price_unit':'CNY/security',
++                'volume_unit':'TDX lots (not an executable quota)', 'observations':observations,
++                'qualified':False, 'opening_volume_lots':0, 'normalization_count':0}
++        scope=CERTIFIED_SECURITIES.get(code)
++        if scope is None:
++            result['reason']='uncertified_security_category';return result
++        try:
++            versions=self.versions or (importlib.metadata.version('mootdx'),importlib.metadata.version('tdxpy'))
++        except importlib.metadata.PackageNotFoundError:
++            versions=('unavailable','unavailable')
++        result['versions']={'mootdx':versions[0],'tdxpy':versions[1]}
++        if versions!=('0.11.7','0.2.7'):
++            result['reason']='uncertified_source_version';return result
++        market, category, tick=scope
++        result.update(market_id=market, category=category, tick_size=str(tick),
++            category_certification='frozen 2026-10-10 44-request protocol and price sample',
++            normalization_rule=('tdxpy_0.2.7_0x0fb5_certified_etf_divide_10' if category=='ETF'
++                                else 'tdxpy_0.2.7_0x0fb5_certified_stock_identity'))
++        client=None
++        try:
++            def connect():
++                factory=self.client_factory
++                if factory is None:
++                    from mootdx.quotes import Quotes
++                    factory=Quotes.factory
++                return factory(market='std',server=SERVER,bestip=False,timeout=4,
++                    heartbeat=False,auto_retry=False,raise_exception=True)
++            client,status=_observe(attempts,'mootdx','mootdx:historical_opening_activity',
++                connect,observations,{'operation':'connect','server':list(SERVER)})
++            if status!=FETCH_SUCCESS:
++                result['reason']='tdx_connection_unavailable';return result
++            rawdate=int(day.replace('-',''))
++            params={'market':market,'code':code,'date':rawdate}
++            minutes,status=_observe(attempts,'mootdx','mootdx:historical_opening_activity',
++                lambda:client.client.get_history_minute_time_data(**params),observations,
++                {'command':'0x0fb4',**params})
++            if status not in {FETCH_SUCCESS,FETCH_NORMAL_EMPTY} or not isinstance(minutes,list):
++                result['reason']='minute_crosscheck_unavailable';return result
++            pages=[]; complete=False
++            for start in self.page_offsets:
++                request={'command':'0x0fb5',**params,'start':start,'count':800}
++                rows,status=_observe(attempts,'mootdx','mootdx:historical_opening_activity',
++                    lambda start=start:client.client.get_history_transaction_data(market,code,start,800,rawdate),
++                    observations,request)
++                if status not in {FETCH_SUCCESS,FETCH_NORMAL_EMPTY} or not isinstance(rows,list):
++                    result['reason']='transaction_request_unavailable';return result
++                if len(rows)>800:
++                    raise ValueError('transaction page exceeds requested size')
++                normalized=[]
++                for row in rows:
++                    if not isinstance(row,dict) or not re.fullmatch(r'(?:09|10|11|13|14|15):[0-5][0-9]',str(row.get('time',''))):
++                        raise ValueError('uncertified transaction time')
++                    raw=_number(row['price'],tick=tick*10 if category=='ETF' else tick)
++                    price=_number(raw/10 if category=='ETF' else raw,tick=tick)
++                    volume=int(_number(row['vol']))
++                    normalized.append({'time':row['time'],'raw_price':str(row['price']),
++                        'normalized_price':_decimal_text(price),'volume_lots':volume})
++                if any(a['time']>b['time'] for a,b in pairwise(normalized)):
++                    raise ValueError('transaction times are not chronological')
++                pages.append((start,normalized))
++                if len(rows)<800 or (normalized and normalized[0]['time']<'09:30'):
++                    complete=True;break
++            allrows=[r for _,page in sorted(pages,reverse=True) for r in page]
++            opening=[r for r in allrows if r['time']=='09:30']
++            auction=[r for r in allrows if r['time']=='09:25']
++            result.update(normalized_opening_rows=opening, auction_rows=auction,
++                normalization_count=1, opening_volume_lots=sum(r['volume_lots'] for r in opening),
++                bounded_page_count=len(pages), opening_crosscheck_complete=complete,
++                minute_first=minutes[0] if minutes else None)
++            if not opening or not minutes or not complete or result['opening_volume_lots']<=0:
++                result['reason']='no_qualified_0930_transaction_activity';return result
++            minute_price=_number(minutes[0]['price'],tick=tick)
++            minute_volume=int(_number(minutes[0]['vol']))
++            if (sum(r['volume_lots'] for r in auction)+result['opening_volume_lots']!=minute_volume
++                    or Decimal(opening[-1]['normalized_price'])!=minute_price):
++                result['reason']='minute_transaction_crosscheck_mismatch';return result
++            result.update(qualified=True, reason='certified_positive_0930_activity',
++                last_opening_price=opening[-1]['normalized_price'])
++        except (ValueError,KeyError,TypeError,InvalidOperation) as exc:
++            result['reason']='invalid_tdx_payload'
++            record_fetch_observation(attempts,provider='mootdx',capability_id='mootdx:historical_opening_activity',
++                status=FETCH_FAILED_STRUCTURE,started_at=utc_now_iso(),elapsed_ms=0,error_type=type(exc).__name__)
++        finally:
++            if client is not None:
++                try: client.close()
++                except Exception:  # noqa: BLE001, S110 - cleanup must preserve the observed vendor result.
++                    pass
++        return result
++
++
++class OfficialOpeningReader:
++    """Current bounded official event query; empty is query success, not normality."""
++    def __init__(self, *, session=None, page_size=25, max_pages=4):
++        if not 1<=page_size<=50 or not 1<=max_pages<=4:
++            raise ValueError('official query bounds exceeded')
++        self.session=session;self.page_size=page_size;self.max_pages=max_pages
++
++    def _response(self, method, url, arguments, attempts, observations, provider):
++        session=self.session
++        if session is None:
++            import requests
++            session=requests.Session();session.trust_env=False
++            self.session=session
++        raw=[]
++        def request():
++            response=getattr(session,method)(url,timeout=(4,8),allow_redirects=False,**arguments)
++            response.raise_for_status()
++            raw.append(response.content)
++            if getattr(response,'status_code',200)!=200:
++                raise ValueError('official response is not HTTP 200')
++            return response.content
++        value,status=_observe(attempts,provider,f'{provider}:historical_opening_events',
++            request,observations,{'method':method.upper(),'url':url,**arguments})
++        if raw:
++            observations[-1].update(raw_sha256=hashlib.sha256(raw[0]).hexdigest(),raw_bytes=len(raw[0]))
++        return value,status
++
++    def read(self, code, day, market, category, attempts):
++        provider=market.lower();observations=[];events=[];rawrows=[]
++        result={'instrument':code,'market':market,'query_range':[day,day],
++            'range_kind':'effective interval' if market=='SSE' else 'announcement publication date',
++            'historical_global_completeness_claim':False,'status':'unknown',
++            'pagination_complete':False,'observations':observations,'events':events,
++            'all_returned_rows_considered':False,'raw_rows':rawrows}
++        try:
++            total=None
++            for page in range(1,self.max_pages+1):
++                if market=='SSE':
++                    fund=category=='ETF'
++                    url='https://query.sse.com.cn/sseQuery/commonSoaQuery.do' if fund else 'https://query.sse.com.cn/commonSoaQuery.do'
++                    params={'isPagination':'true','pageHelp.pageSize':self.page_size,'pageHelp.pageNo':page,
++                        'pageHelp.beginPage':page,'pageHelp.cacheSize':1,'pageHelp.endPage':page,
++                        'sqlId':'SSE_PL_JYTS_TFPXX_JJ' if fund else 'GW_PL_JYTS_TFPXX'}
++                    params.update({'secCode':code,'stopReason':'','order':'startStopDate|desc,secCode|asc',
++                        'startDate':day.replace('-',''),'endDate':day.replace('-','')} if fund else
++                        {'productCode':code,'keyWords':'','startStopDate':day.replace('-',''),'endStopDate':day.replace('-','')})
++                    args={'params':params,'headers':{'Referer':f'https://www.sse.com.cn/disclosure/dealinstruc/suspension/{"fund" if fund else "stock"}/'}}
++                    body,status=self._response('get',url,args,attempts,observations,provider)
++                elif category=='ETF':
++                    url='https://www.szse.cn/api/disc/announcement/annList'
++                    args={'json':{'stock':[code],'channelCode':['fundinfoNotice_disc'],'seDate':[day,day],
++                        'pageSize':self.page_size,'pageNum':page}}
++                    body,status=self._response('post',url,args,attempts,observations,provider)
++                else:
++                    url='https://www.szse.cn/api/search/content'
++                    epoch=int(datetime.combine(date.fromisoformat(day),datetime.min.time(),SHANGHAI).timestamp()*1000)
++                    args={'data':{'keyword':code,'range':'title','channelCode[]':'tempsuspension_news',
++                        'time':epoch,'endTime':epoch,'scope':1,'currentPage':page,'pageSize':self.page_size}}
++                    body,status=self._response('post',url,args,attempts,observations,provider)
++                if status not in {FETCH_SUCCESS,FETCH_NORMAL_EMPTY}:
++                    result.update(status=status,reason='official_request_unavailable');return result
++                payload=json.loads(body.decode('utf-8-sig'))
++                if not isinstance(payload,dict) or payload.get('success') is False or payload.get('code') not in (None,0,'0','200',200):
++                    raise ValueError('official query error body')
++                if market=='SSE':
++                    rows=payload['result'];ph=payload['pageHelp'];count=ph['total'];pages=ph['pageCount']
++                    if ph['pageNo']!=page or ph['pageSize']!=self.page_size or ph.get('data',rows)!=rows:
++                        raise ValueError('official page identity mismatch')
++                    if pages!=(count+self.page_size-1)//self.page_size:
++                        raise ValueError('official page count inconsistent')
++                else:
++                    rows=payload['data'];count=payload.get('announceCount',payload.get('totalSize'))
++                    pages=(count+self.page_size-1)//self.page_size if type(count) is int else None
++                if type(count) is not int or count<0 or not isinstance(rows,list) or len(rows)>self.page_size:
++                    raise ValueError('official structure/count invalid')
++                if total is not None and total!=count:
++                    raise ValueError('official pagination changed total')
++                total=count
++                if len(rows)!=min(self.page_size,max(0,total-(page-1)*self.page_size)):
++                    raise ValueError('official partial page')
++                rawrows.extend(rows)
++                for row in rows:
++                    if not isinstance(row,dict): raise ValueError('invalid event row')  # noqa: TRY004 - public malformed-payload contract.
++                    sha=observations[-1]['raw_sha256']
++                    got=self._sse_event(row,code,day,category,url,sha) if market=='SSE' else self._szse_event(row,code,day,category,attempts,observations)
++                    if got is not None:events.append(got)
++                if page>=pages:
++                    result.update(status=FETCH_SUCCESS if rows or rawrows else FETCH_NORMAL_EMPTY,
++                        pagination_complete=True,total=total,page_count=page,
++                        all_returned_rows_considered=True,reason='current_bounded_query_complete')
++                    return result
++            raise ValueError('official_pagination_cap_partial')
++        except ImportError as exc:
++            status=FETCH_NOT_CONFIGURED;error=type(exc).__name__
++        except (ValueError,TypeError,KeyError) as exc:
++            status=FETCH_FAILED_STRUCTURE;error=type(exc).__name__
++        record_fetch_observation(attempts,provider=provider,capability_id=f'{provider}:historical_opening_events',
++            status=status,started_at=utc_now_iso(),elapsed_ms=0,error_type=error)
++        result.update(status=status,reason='official_structure_meaning_or_time_unverified')
++        return result
++
++    def _sse_event(self,row,code,day,category,url,sha):
++        if row.get('secCode' if category=='ETF' else 'productCode')!=code:
++            raise ValueError('official returned wrong security')
++        start=_sse_date(row.get('startStopDate'))
++        last_stop=_sse_date(row.get('endStopDate'))
++        if last_stop<start:
++            raise ValueError('SSE interval end precedes start')
++        if category=='ETF' and (start!=date.fromisoformat(day) or last_stop!=date.fromisoformat(day)):
++            raise ValueError('single-session fund dates invalid or do not match requested session')
++        if category=='ETF':
++            if row.get('dateSource') in {'1','3'} and row.get('startStopType') in {'SG','SH','SGSH'}:
++                return None
++            if row.get('dateSource')!='2' or row.get('startStopType')!='LSTP' or row.get('stopTime')!='915':
++                raise ValueError('uncertified secondary-market fund event meaning/time')
++            end=f'{start.isoformat()}T10:30:00+08:00';at=f'{start.isoformat()}T09:15:00+08:00'
++        else:
++            if row.get('type')!='LXTP' or row.get('controlType')!='TR':
++                raise ValueError('uncertified secondary-market stock event')
++            at=f'{start.isoformat()}T09:30:00+08:00';end=None
++        if start>date.fromisoformat(day):raise ValueError('official returned future interval outside query')
++        return OfficialOpeningEvent(code,'SSE',at,end,url,sha,
++            'SSE front-end dateSource=2/LSTP/915 = 09:15-10:30' if category=='ETF' else
++            'SSE LXTP/TR continuous halt; endStopDate is last stop day, not resume time',
++            utc_now_iso(),raw_fields=dict(row))
++
++    def _szse_event(self,row,code,day,category,attempts,observations):
++        if category!='ETF':
++            # Only bounded empty stock queries currently certified. An actual
++            # nonempty result must not be reduced to title-based normality.
++            raise ValueError('stock announcement body interval not certified')
++        if code not in row.get('secCode',[]) or str(row.get('publishTime',''))[:10]!=day:
++            raise ValueError('announcement security/date mismatch')
++        title=row.get('title','')
++        if not any(x in title for x in ('停牌','复牌','暂停','恢复','终止上市')):
++            if any(x in title for x in ('中期报告','年度报告','季度报告','资料概要','一级交易商','非公开发行')):
++                return None
++            raise ValueError('announcement secondary-market meaning unverified')
++        if '二级市场' not in title or '停复牌' not in title:
++            raise ValueError('announcement requires certified secondary-market meaning')
++        path=row.get('attachPath','')
++        if not path.startswith('/disc/') or not path.upper().endswith('.PDF'):
++            raise ValueError('official attachment locator invalid')
++        url='https://disc.static.szse.cn'+path
++        body,status=self._response('get',url,{},attempts,observations,'szse')
++        if status!=FETCH_SUCCESS or not body.startswith(b'%PDF-'):
++            raise ValueError('essential official attachment unavailable or HTML')
++        from pypdf import PdfReader
++        try:
++            text=''.join(p.extract_text() or '' for p in PdfReader(io.BytesIO(body)).pages)
++        except Exception as exc:
++            # Exceptions are confined to the optional PDF parser boundary;
++            # malformed PDF internals are source structure failures.
++            raise ValueError('official PDF structure invalid') from exc
++        compact=re.sub(r'\s+','',text)
++        d=date.fromisoformat(day)
++        stamp=rf'{d.year}年0?{d.month}月0?{d.day}日'
++        if code not in compact or not re.search(stamp+'.{0,100}(?:开市起|开市时起|开市起至|开市开始)',compact):
++            raise ValueError('attachment security/date/open halt unverified')
++        if not re.search(r'10[:：]30.{0,24}(?:起复牌|复牌|恢复交易)',compact):
++            raise ValueError('attachment resume time unverified')
++        return OfficialOpeningEvent(code,'SZSE',f'{day}T09:30:00+08:00',f'{day}T10:30:00+08:00',
++            url,hashlib.sha256(body).hexdigest(),'official PDF explicit open halt and 10:30 resume',
++            utc_now_iso(),raw_fields={'announcement':row,'body_text':text})
++
++
++def fetch_historical_opening_evidence(ticker: str, session_date: str, *,
++        known_events: Sequence[OfficialOpeningEvent] = (),
++        tdx_reader: TdxOpeningReader | None = None,
++        official_reader: OfficialOpeningReader | None = None) -> FetchResult[dict]:
++    """Fetch minute-level execution constraints under Owner-approved R2.1.
++
++    Consumers must inspect ``opening_status``. Metadata success describes
++    retrieval, and can coexist with UNKNOWN execution eligibility.
++    Certified known intervals supplement, never replace, the current query.
++    No preopen historical information availability is inferred.
++    """
++    attempts: list[FetchAttempt]=[]
++    code=str(ticker).strip()
++    scope=CERTIFIED_SECURITIES.get(code)
++    market='SSE' if (scope and scope[0]==1) or code.startswith(('5','6')) else 'SZSE'
++    data={'instrument':code,'market':market,'session_date':session_date,
++        'purpose':'historical_opening_execution_constraint','schema_version':SCHEMA_VERSION,
++        'policy_version':POLICY_VERSION,'opening_status':'UNKNOWN','reason':'invalid_or_unsupported_input',
++        'source_conflict':False,'official_block_at_target':False,'information_available_at':None,
++        'information_basis':'UNKNOWN','time_granularity':'minute','official_events':[],
++        'limitations':['[09:30,09:31) activity does not prove strict 09:30 order fill, full-day normality, or preopen PIT.',
++            'TDX prices are evidence crosschecks only; volumes are not fill quotas.',
++            'Current bounded official query does not claim all historical events or revisions are complete.']}
++    valid=False
++    try:
++        day=date.fromisoformat(session_date)
++        valid=re.fullmatch(r'\d{6}',code) is not None and day>=date(2015,12,18) and day<=datetime.now(SHANGHAI).date()
++        target=datetime.combine(day,datetime.min.time(),SHANGHAI).replace(hour=9,minute=30)
++        end=target+timedelta(minutes=1)
++        data.update(target_execution_at=target.isoformat(),execution_effect_window={'start':target.isoformat(),'end':end.isoformat()})
++    except (ValueError,TypeError):
++        valid=False
++    if valid:
++        tdx=(tdx_reader or TdxOpeningReader()).read(code,session_date,attempts)
++        official=(official_reader or OfficialOpeningReader()).read(code,session_date,market,scope[1] if scope else 'UNKNOWN',attempts)
++        data.update(tdx_activity=tdx,official_query={k:v for k,v in official.items() if k!='events'})
++        identity_error=any(not isinstance(e,OfficialOpeningEvent) or e.instrument!=code or e.market!=market
++                           for e in known_events)
++        if identity_error:
++            record_fetch_observation(attempts,provider='known_official',capability_id='known_official:historical_opening_events',
++                status=FETCH_FAILED_STRUCTURE,started_at=utc_now_iso(),elapsed_ms=0,
++                error_type='KnownEvidenceIdentityMismatch')
++        packaged_events=_known_events()
++        # Only objects loaded from the controlled asset carry authenticated
++        # date-only resume evidence. Caller fields/verification flags do not.
++        resume_days={id(e):date.fromisoformat(e.raw_fields['resume_date']) for e in packaged_events
++                     if e.effective_end is None and 'resume_date' in e.raw_fields}
++        events=[e for e in (*packaged_events,*([] if identity_error else known_events),*official['events'])
++                if e.instrument==code and e.market==market]
++        # Resolve only matching certified intervals, never the last-stop date.
++        resolved=[]
++        for event in events:
++            if event.effective_end is None:
++                last_stop=event.raw_fields.get('endStopDate')
++                try:
++                    last_stop_day=_sse_date(last_stop) if last_stop is not None else None
++                except ValueError:
++                    # An unverified user-supplied date cannot close an interval.
++                    last_stop_day=None
++                matching=[e for e in events if e.effective_start==event.effective_start and e.effective_end is not None
++                    and last_stop_day is not None and last_stop_day<_instant(e.effective_end).date()]
++                if matching:
++                    resolved.extend(matching);continue
++            resolved.append(event)
++        # Resolution changes applicability, not the original evidence facts.
++        data['official_events']=list({_hash(asdict(e)):asdict(e) for e in events}.values())
++        unique={}
++        for event in resolved:
++            unique.setdefault(_hash(asdict(event)),event)
++        blocking=[];boundaries=[];resume_clock_unknown=False
++        for event in unique.values():
++            if not event.secondary_market:continue
++            start=_instant(event.effective_start);stop=_instant(event.effective_end) if event.effective_end else None
++            resume_day=resume_days.get(id(event))
++            if resume_day is not None and day>=resume_day:
++                # The date bounds this halt after the resume day; on that day
++                # the opening clock remains unknown. Never synthesize an end.
++                resume_clock_unknown=resume_clock_unknown or day==resume_day
++                continue
++            if start<=target and (stop is None or target<stop):blocking.append((start,stop))
++            if target<start<end or (stop is not None and target<stop<end):boundaries.append((start,stop))
++        blocked=bool(blocking);data['official_block_at_target']=blocked
++        full_block=any(stop is None or stop>=end for _,stop in blocking)
++        if identity_error:
++            data['reason']='known_evidence_identity_mismatch'
++        elif blocked and full_block and tdx['qualified']:
++            data.update(source_conflict=True,reason='source_conflict')
++        elif official['status'] not in {FETCH_SUCCESS,FETCH_NORMAL_EMPTY} or not official['pagination_complete']:
++            data['reason']=official.get('reason','current_official_query_unknown')
++        elif blocked:
++            data.update(opening_status='BLOCKED_CONFIRMED',reason='certified_official_block_at_target')
++        elif boundaries:
++            data['reason']='boundary_inside_activity_window'
++        elif resume_clock_unknown:
++            data['reason']='authenticated_resume_date_clock_unknown'
++        elif tdx['qualified']:
++            data.update(opening_status='OPEN_ACTIVITY_CONFIRMED',reason='certified_0930_activity_current_query_no_known_block')
++        else:
++            data['reason']=tdx.get('reason','tdx_activity_unknown')
++    providers=list(dict.fromkeys(a.provider for a in attempts if a.status in {FETCH_SUCCESS,FETCH_NORMAL_EMPTY}))
++    data['retrieved_at']=utc_now_iso()
++    data['evidence_hash']=_hash(data)
++    metadata=FetchMetadata(capability='historical_opening_evidence',final_provider=None,
++        retrieved_at=data['retrieved_at'],data_as_of=session_date,partial=data['opening_status']=='UNKNOWN',
++        limitations=data['limitations'],attempts=attempts,providers_used=providers)
++    return FetchResult(data=data,metadata=metadata)
++
++
++__all__=['OfficialOpeningEvent', 'OfficialOpeningReader', 'TdxOpeningReader', 'fetch_historical_opening_evidence']
+--- a/src/chstockdata/opening_known_events.json
++++ b/src/chstockdata/opening_known_events.json
+@@ -0,0 +1,96 @@
++[
++  {
++    "instrument": "688432",
++    "market": "SSE",
++    "effective_start": "2026-08-31T09:30:00+08:00",
++    "effective_end": "2026-09-14T09:30:00+08:00",
++    "source_url": "https://pdf.dfcfw.com/pdf/H2_AN202609111829278590_1.pdf",
++    "raw_sha256": "026b42096af80856f7ae69fb81fc7166d2e805e7dacfd3ddd2566d5278f891ea",
++    "source_kind": "issuer_authored_distributor_mirror",
++    "offline_cache": true,
++    "certification_basis": "issuer-authored resume disclosure page 2 explicitly identifies 688432 halt from 2026-08-31 open and resume 2026-09-14 open; SSE endStopDate=20260911 is LAST_STOP_DAY",
++    "retrieved_at": "2026-10-11T07:35:19.626967+00:00",
++    "raw_fields": {
++      "issuer": "有研半导体硅材料股份公司",
++      "announcement": "2026-039",
++      "page": 2,
++      "halt_excerpt": "股票（证券简称：有研硅，证券代码：688432）自2026年8月31日开市起开始停牌",
++      "resume_excerpt": "将于2026年9月14日（星期一）开市起复牌",
++      "cache_origin": "docs/audits/evidence/2026-10-09-v0.4.2-history-recovery/issuer-resume-mirror.pdf",
++      "source_retrieved_at": null,
++      "cache_imported_at": "2026-10-11T07:35:19.626967+00:00",
++      "retrieved_at_basis": "offline cache import wall clock; original HTTP retrieval time not authenticated"
++    }
++  },
++  {
++    "instrument": "000002",
++    "market": "SZSE",
++    "effective_start": "2015-12-18T13:00:00+08:00",
++    "effective_end": null,
++    "source_url": "https://static.cninfo.com.cn/finalpage/2016-07-02/1202445845.PDF",
++    "raw_sha256": "d1e3f6de50f64b5fda46a93b39a28b0573b3541e85e98e2107fdb8f361c818f3",
++    "source_kind": "issuer_official_disclosure",
++    "offline_cache": true,
++    "certification_basis": "issuer disclosure pages 13/113 explicitly 2015-12-18 13:00 continuous halt; official fund report page 25 records 2016-07-04 resume DATE only, no authenticated resume clock; do not infer an effective interval end; this halt is inapplicable after the authenticated resume date, while opening on the resume date remains unknown",
++    "retrieved_at": "2026-10-09T13:03:37.528586+00:00",
++    "raw_fields": {
++      "issuer": "万科企业股份有限公司",
++      "page": 13,
++      "halt_excerpt": "公司A股股票从2015年12月18日13:00起开始停牌",
++      "resume_source_url": "https://static.cninfo.com.cn/finalpage/2016-08-29/1202629464.PDF",
++      "resume_raw_sha256": "3bd3084bae486a56ba03cc55e45df43573fa6da6063017341fe0bd4ca06e94ce",
++      "resume_page": 25,
++      "resume_date": "2016-07-04",
++      "cache_origin": "docs/audits/evidence/2026-10-09-v0.4.2-history-recovery/vanke-issuer-history.pdf",
++      "cache_imported_at": "2026-10-11T07:35:19.626967+00:00"
++    }
++  },
++  {
++    "instrument": "159509",
++    "market": "SZSE",
++    "effective_start": "2026-09-11T09:30:00+08:00",
++    "effective_end": "2026-09-11T10:30:00+08:00",
++    "source_url": "https://disc.static.szse.cn/disc/disk03/finalpage/2026-09-11/441bfc71-d5d9-4f67-aed6-05eeeec9aaf3.PDF",
++    "raw_sha256": "18cf4d821cd8f4de15d515ce0ceef828be5aff3beea30128d4b2049d39647fcd",
++    "source_kind": "issuer_official_disclosure",
++    "offline_cache": true,
++    "certification_basis": "official PDF explicitly secondary-market halt from open until 10:30; redemption remains available, distinct from trading halt",
++    "retrieved_at": "2026-10-11T07:32:47.892700+00:00",
++    "raw_fields": {
++      "issuer": "景顺长城基金管理有限公司",
++      "annId": 1225557465,
++      "effective_interval": "2026-09-11 开市起停牌，10:30 起复牌",
++      "cache_origin": "2026-10-09 official history investigation ZF5 raw PDF hash",
++      "cache_imported_at": "2026-10-11T07:35:19.626967+00:00",
++      "source_retrieved_at": "2026-10-11T07:32:47.892700+00:00"
++    }
++  },
++  {
++    "instrument": "513100",
++    "market": "SSE",
++    "effective_start": "2026-09-11T09:15:00+08:00",
++    "effective_end": "2026-09-11T10:30:00+08:00",
++    "source_url": "https://query.sse.com.cn/sseQuery/commonSoaQuery.do",
++    "raw_sha256": "b0c084336ced5abfd30e2d1ac3b0e2d46c0b35758934e75651f9ae6ad216fd02",
++    "source_kind": "exchange_official_history",
++    "offline_cache": true,
++    "certification_basis": "SSE actual source dateSource=2, startStopType=LSTP, stopTime=915; authenticated front-end maps to 09:15-10:30",
++    "retrieved_at": "2026-10-11T07:32:46.083821+00:00",
++    "raw_fields": {
++      "endStopType": "LSTP",
++      "startStopReason": "根据基金管理人申请",
++      "endStopDate": "20260911",
++      "endType": "",
++      "secCode": "513100",
++      "expandAbbr": "纳指ETF国泰",
++      "startType": "null",
++      "startStopDate": "20260911",
++      "endStopReason": "根据基金管理人申请",
++      "startStopType": "LSTP",
++      "dateSource": "2",
++      "secAbbr": "纳指ETF",
++      "stopTime": "915",
++      "cache_imported_at": "2026-10-11T07:35:19.626967+00:00"
++    }
++  }
++]
+--- a/tests/fixtures/opening/manifest.json
++++ b/tests/fixtures/opening/manifest.json
+@@ -0,0 +1,31 @@
++{
++  "provenance": {
++    "sse_688432_interval.bin": "W/evidence/step1/live prior bounded request original bytes, SHA331477...",
++    "szse_159509_announcements_control.bin": "W/evidence/step1/live prior bounded official list original bytes, SHA1c799...",
++    "szse_159915_announcements.bin": "W/evidence/step1/live prior bounded official list original bytes, SHA13c652...",
++    "159509-20260911.pdf": "single necessary official raw fixture acquisition recorded in W/evidence/r21-step1/pdf-fixture-acquisition.json; exact old certified PDF SHA18cf4..."
++  },
++  "files": [
++    {
++      "file": "159509-20260911.pdf",
++      "sha256": "18cf4d821cd8f4de15d515ce0ceef828be5aff3beea30128d4b2049d39647fcd",
++      "bytes": 96655
++    },
++    {
++      "file": "sse_688432_interval.bin",
++      "sha256": "33147724bcee2f692e3de7a637c2490017a86c1399183c7f8ccf1f7fe017d924",
++      "bytes": 954
++    },
++    {
++      "file": "szse_159509_announcements_control.bin",
++      "sha256": "1c799d8c18359ac482465556350b9b889e1c36689eda35f3d033edb5ec3a9813",
++      "bytes": 1280
++    },
++    {
++      "file": "szse_159915_announcements.bin",
++      "sha256": "13c652bf1ce25aeaec1c58d705053fb10bf37d09128a3dd2b11c4585f24a9797",
++      "bytes": 2295
++    }
++  ],
++  "fixture_note": "Tests use original source bytes and frozen TDX complete parser-returned JSONL identities; fault injection and request-date rebinding are explicitly labeled synthetic, never live evidence."
++}
+--- a/tests/test_historical_opening_evidence.py
++++ b/tests/test_historical_opening_evidence.py
+@@ -0,0 +1,504 @@
++"""R2.1 contract: replay frozen parser output through the public composition."""
++import copy
++import hashlib
++import json
++from datetime import datetime
++from pathlib import Path
++
++import pytest
++
++import chstockdata
++
++ROOT = Path(__file__).resolve().parents[1]
++TDX = ROOT / 'docs/audits/evidence/2026-10-10-v0.4.2-tdx-historical-execution'
++OFFICIAL = ROOT / 'tests/fixtures/opening'
++SHAS = {
++    'tdx_history_responses.jsonl': '2644ce583796b412d18c5b4730356e2df95691085dbf0080dfa728ecac08a228',
++    'tdx_opening_page_responses.jsonl': '03c727b674a5233d873e90da234879c60dc0b222f548c2ec3e5f97298d347dbd',
++    'tdx_opening_page_followup_responses.jsonl': '9989c8a427a4a82fb921fef127b50d7f52a111c9feb033d833ed7842f5aa0ccf',
++    'tdx_opening_page_final_responses.jsonl': '5875d32c619d59f18f3bf5f448f1bc8d5f027fc6ce012409e6ab7fb5659a3a34',
++}
++
++
++def api():
++    assert hasattr(chstockdata, 'fetch_historical_opening_evidence'), 'public R2.1 capability missing'
++    from chstockdata import opening_evidence
++    return opening_evidence
++
++
++def records(code, day):
++    found = []
++    for name, sha in SHAS.items():
++        raw = (TDX / name).read_bytes()
++        assert hashlib.sha256(raw).hexdigest() == sha
++        found.extend(r for r in map(json.loads, raw.decode('utf-8').splitlines())
++                     if r['security'] == code and r['date'] == day.replace('-', ''))
++    return found
++
++
++class ReplayClient:
++    def __init__(self, rows):
++        self.rows = rows
++        self.client = self
++    def get_history_minute_time_data(self, market, code, date):
++        return copy.deepcopy(next(r['rows'] for r in self.rows if r['command'].endswith('fb4')))
++    def get_history_transaction_data(self, market, code, start, count, date):
++        row = next(r for r in self.rows if r['command'].endswith('fb5') and r['parameters']['start'] == start)
++        assert (market, code, date, count) == (row['market_id'], row['security'], int(row['date']), 800)
++        return copy.deepcopy(row['rows'])
++    def close(self):
++        pass
++
++
++class Response:
++    def __init__(self, payload, status=200):
++        self.content = payload if isinstance(payload, bytes) else json.dumps(payload).encode()
++        self.status_code = status
++        self.headers = {'Content-Type': 'application/json'}
++    def raise_for_status(self):
++        if self.status_code != 200:
++            raise ConnectionError('fault transport')
++    def json(self):
++        return json.loads(self.content)
++
++
++class ReplayHttp:
++    def __init__(self, payloads):
++        self.payloads = list(payloads)
++        self.requests = []
++    def get(self, url, **kwargs):
++        self.requests.append((url, kwargs))
++        payload = self.payloads.pop(0)
++        if isinstance(payload, Exception):
++            raise payload
++        return Response(payload)
++    post = get
++
++
++def empty(code):
++    return {'announceCount': 0, 'data': []} if code.startswith(('0', '1')) else {
++        'result': [], 'pageHelp': {'pageNo': 1, 'pageCount': 0, 'pageSize': 25, 'total': 0, 'data': []}}
++
++
++def readers(code, day, official=None, mutate=None, versions=('0.11.7', '0.2.7')):
++    m = api()
++    rs = records(code, day)
++    if mutate:
++        mutate(rs)
++    pages = [r for r in rs if r['command'].endswith('fb5')]
++    # Replay a certified bounded page containing all opening rows, or an empty/late control.
++    chosen = next((r for r in pages if any(x.get('time') == '09:30' for x in (r['rows'] or []))), pages[-1])
++    client = ReplayClient(rs)
++    return (m.TdxOpeningReader(client_factory=lambda **kw: client, versions=versions,
++                               page_offsets=(chosen['parameters']['start'],)),
++            m.OfficialOpeningReader(session=ReplayHttp(official or [empty(code)])))
++
++
++def fetch(code='510300', day='2026-09-11', **kwargs):
++    tdx, official = readers(code, day, kwargs.pop('official', None), kwargs.pop('mutate', None),
++                            kwargs.pop('versions', ('0.11.7', '0.2.7')))
++    return chstockdata.fetch_historical_opening_evidence(code, day, tdx_reader=tdx,
++                                                        official_reader=official, **kwargs)
++
++
++@pytest.mark.parametrize('code,price,volume', [('510300', '4.576',352580), ('159915','3.339',557149),
++                                             ('518880','8.91',106411), ('511010','141.177',289)])
++def test_four_real_etf_opening_composition(code, price, volume):
++    result = fetch(code)
++    data = result.data
++    assert data['opening_status'] == 'OPEN_ACTIVITY_CONFIRMED'
++    assert data['tdx_activity']['last_opening_price'] == price
++    assert data['tdx_activity']['opening_volume_lots'] == volume
++    assert data['tdx_activity']['normalization_rule'] == 'tdxpy_0.2.7_0x0fb5_certified_etf_divide_10'
++    assert data['information_available_at'] is None and data['information_basis'] == 'UNKNOWN'
++    assert data['target_execution_at'] == '2026-09-11T09:30:00+08:00'
++    assert data['execution_effect_window']['end'] == '2026-09-11T09:31:00+08:00'
++    assert data['policy_version'] == 'R2.1'
++    assert len(data['evidence_hash']) == 64
++    assert datetime.fromisoformat(result.metadata.retrieved_at).utcoffset().total_seconds() == 0
++    assert result.metadata.capability == 'historical_opening_evidence'
++    assert {a.capability for a in result.metadata.attempts} >= {'mootdx:historical_opening_activity'}
++
++
++@pytest.mark.parametrize('code,day,price', [('688432','2026-09-14','40.9'), ('000002','2015-12-18','22.4')])
++def test_stock_prices_preserved_and_later_halt_does_not_veto_open(code, day, price):
++    result = fetch(code,day)
++    assert result.data['opening_status'] == 'OPEN_ACTIVITY_CONFIRMED'
++    assert result.data['tdx_activity']['last_opening_price'] == price
++    assert result.data['tdx_activity']['normalization_rule'].endswith('stock_identity')
++    assert not result.data['official_block_at_target']
++
++
++@pytest.mark.parametrize('day', ['2016-12-30','2022-12-30'])
++def test_bounded_real_history(day):
++    assert fetch(day=day).data['opening_status'] == 'OPEN_ACTIVITY_CONFIRMED'
++
++
++def event(start='2026-09-11T09:15:00+08:00', end='2026-09-11T10:30:00+08:00', **kwargs):
++    return api().OfficialOpeningEvent(instrument='510300', market='SSE', effective_start=start,
++        effective_end=end, source_url='https://www.sse.com.cn/disclosure/example',
++        raw_sha256='a'*64, certification_basis='explicit secondary-market effective interval',
++        retrieved_at='2026-10-09T13:00:00+00:00', **kwargs)
++
++
++def test_known_full_window_block_plus_positive_activity_is_conflict():
++    data = fetch(known_events=[event()]).data
++    assert data['opening_status'] == 'UNKNOWN'
++    assert data['source_conflict'] and data['official_block_at_target']
++
++
++def test_resume_inside_minute_blocks_target_without_retry():
++    data = fetch(known_events=[event(end='2026-09-11T09:30:30+08:00')]).data
++    assert data['opening_status'] == 'BLOCKED_CONFIRMED'
++    assert not data['source_conflict'] and data['official_block_at_target']
++
++
++def test_halt_start_inside_minute_cannot_order_activity():
++    data = fetch(known_events=[event(start='2026-09-11T09:30:30+08:00')]).data
++    assert data['opening_status'] == 'UNKNOWN'
++    assert data['reason'] == 'boundary_inside_activity_window'
++
++
++def test_ongoing_unconfirmed_end_vetoes_empty_official():
++    data = fetch(known_events=[event(end=None)]).data
++    assert data['opening_status'] == 'UNKNOWN'
++    assert data['official_block_at_target'] and data['source_conflict']
++
++
++@pytest.mark.parametrize('bad', [ConnectionError(), b'<html>not json</html>',
++    {'result':[], 'pageHelp':{'pageNo':1,'pageCount':2,'pageSize':25,'total':1,'data':[]}}])
++def test_current_official_failure_and_partial_do_not_allow_open(bad):
++    result = fetch(official=[bad])
++    assert result.data['opening_status'] == 'UNKNOWN'
++    assert result.metadata.partial
++    assert any(a.is_failure() for a in result.metadata.attempts)
++
++
++@pytest.mark.parametrize('mode', ['auction_only','zero','minute_only','bad_price','bad_time','double_normalized'])
++def test_no_qualified_activity_unknown(mode):
++    def mutate(rs):
++        for r in rs:
++            if r['command'].endswith('fb5'):
++                if mode=='auction_only': r['rows']=[x for x in r['rows'] if x['time']=='09:25']
++                if mode=='minute_only': r['rows']=[]
++                if mode=='zero':
++                    for x in r['rows']: x['vol']=0
++                if mode=='bad_price':
++                    for x in r['rows']: x['price']=-1
++                if mode=='bad_time':
++                    for x in r['rows']: x['time']='09:30:01'
++                if mode=='double_normalized':
++                    for x in r['rows']: x['price']=x['price']/10
++    assert fetch(mutate=mutate).data['opening_status'] == 'UNKNOWN'
++
++
++def test_unknown_version_rejected():
++    assert fetch(versions=('0.12.0','0.2.7')).data['opening_status']=='UNKNOWN'
++
++
++def test_unverified_category_and_unsupported_date_boundary_rejected():
++    m=api()
++    r=chstockdata.fetch_historical_opening_evidence('510301','2026-09-11',
++        tdx_reader=m.TdxOpeningReader(client_factory=lambda **kw: pytest.fail('must reject before network')),
++        official_reader=m.OfficialOpeningReader(session=ReplayHttp([empty('510301')])))
++    assert r.data['opening_status']=='UNKNOWN'
++    r=chstockdata.fetch_historical_opening_evidence('510300','2000-01-01')
++    assert r.data['opening_status']=='UNKNOWN'
++
++
++def test_real_sse_interval_and_resume_evidence_participate():
++    payload=(OFFICIAL/'sse_688432_interval.bin').read_bytes()
++    assert hashlib.sha256(payload).hexdigest()=='33147724bcee2f692e3de7a637c2490017a86c1399183c7f8ccf1f7fe017d924'
++    r=fetch('688432','2026-08-31',official=[payload])
++    assert r.data['opening_status']=='BLOCKED_CONFIRMED'
++    assert r.data['official_block_at_target']
++    assert fetch('688432','2026-09-14').data['opening_status']=='OPEN_ACTIVITY_CONFIRMED'
++
++
++def test_known_000002_continuous_halt_empty_tdx_not_normal():
++    r=fetch('000002','2016-01-04')
++    assert r.data['opening_status']=='BLOCKED_CONFIRMED'
++
++
++def test_sse_fund_halt_control_actual_field_contract():
++    row={'endStopType':'LSTP','startStopReason':'根据基金管理人申请','endStopDate':'20260911',
++         'endType':'','secCode':'513100','startType':'null','startStopDate':'20260911',
++         'startStopType':'LSTP','dateSource':'2','stopTime':'915'}
++    payload={'result':[row],'pageHelp':{'pageNo':1,'pageCount':1,'pageSize':25,'total':1,'data':[row]}}
++    r=fetch('513100', official=[payload])
++    assert r.data['opening_status']=='BLOCKED_CONFIRMED'
++
++
++def test_szse_fund_halt_real_attachment_and_all_rows_considered():
++    # Actual list bytes + actual official attachment replay, not a provider verdict mock.
++    payload=json.loads((OFFICIAL/'szse_159509_announcements_control.bin').read_bytes())
++    payload['data']=payload['data'][:1];payload['announceCount']=1
++    pdf=ROOT/'tests/fixtures/opening/159509-20260911.pdf'
++    assert pdf.exists(), 'certified PDF raw fixture missing'
++    assert hashlib.sha256(pdf.read_bytes()).hexdigest()=='18cf4d821cd8f4de15d515ce0ceef828be5aff3beea30128d4b2049d39647fcd'
++    r=fetch('159509',official=[payload,pdf.read_bytes()])
++    assert r.data['opening_status']=='BLOCKED_CONFIRMED'
++
++
++def test_szse_unknown_event_meaning_and_bad_attachment_are_unknown():
++    payload=json.loads((OFFICIAL/'szse_159509_announcements_control.bin').read_bytes())
++    payload['data']=payload['data'][:1];payload['announceCount']=1
++    assert fetch('159509',official=[payload,b'<html>blocked</html>']).data['opening_status']=='UNKNOWN'
++
++
++def test_sse_wrong_code_and_unknown_secondary_time_unknown():
++    row={'secCode':'999999','startStopDate':'20260911','endStopDate':'20260911',
++         'dateSource':'2','startStopType':'LSTP','stopTime':'999'}
++    payload={'result':[row],'pageHelp':{'pageNo':1,'pageCount':1,'pageSize':25,'total':1,'data':[row]}}
++    assert fetch(official=[payload]).data['opening_status']=='UNKNOWN'
++    row['secCode']='510300'
++    assert fetch(official=[payload]).data['opening_status']=='UNKNOWN'
++
++
++def test_complete_current_pagination_and_partial_cap():
++    m=api()
++    row={'secCode':'510300','startStopDate':'20260911','endStopDate':'20260911',
++         'dateSource':'3','startStopType':'SG','stopTime':''}
++    pages=[{'result':[row], 'pageHelp':{'pageNo':i,'pageCount':2,'pageSize':1,'total':2,'data':[row]}} for i in (1,2)]
++    http=ReplayHttp(pages)
++    tdx,_=readers('510300','2026-09-11')
++    r=chstockdata.fetch_historical_opening_evidence('510300','2026-09-11',tdx_reader=tdx,
++        official_reader=m.OfficialOpeningReader(session=http,page_size=1))
++    assert r.data['opening_status']=='OPEN_ACTIVITY_CONFIRMED'
++    assert len(http.requests)==2 and r.data['official_query']['pagination_complete']
++    http=ReplayHttp(pages)
++    r=chstockdata.fetch_historical_opening_evidence('510300','2026-09-11',tdx_reader=tdx,
++        official_reader=m.OfficialOpeningReader(session=http,page_size=1,max_pages=1))
++    assert r.data['opening_status']=='UNKNOWN'
++
++
++def test_current_last_stop_day_cannot_be_erased_by_cached_resume():
++    payload=json.loads((OFFICIAL/'sse_688432_interval.bin').read_bytes())
++    payload['result'][0]['endStopDate']='20260914'
++    payload['pageHelp']['data'][0]['endStopDate']='20260914'
++    r=fetch('688432','2026-09-14',official=[payload])
++    assert r.data['opening_status']=='UNKNOWN'
++    assert r.data['source_conflict'] and r.data['official_block_at_target']
++
++
++def test_mismatched_known_security_is_typed_unknown_not_silently_ignored():
++    known=api().OfficialOpeningEvent(instrument='159915',market='SZSE',
++        effective_start='2026-09-11T09:30:00+08:00',effective_end=None,
++        source_url='https://www.szse.cn/disclosure/example',raw_sha256='b'*64,
++        certification_basis='explicit interval',retrieved_at='2026-10-09T13:00:00+00:00')
++    r=fetch(known_events=[known])
++    assert r.data['opening_status']=='UNKNOWN'
++    assert r.data['reason']=='known_evidence_identity_mismatch'
++    assert any(a.status=='failed_structure' for a in r.metadata.attempts)
++
++
++def test_pdf_magic_with_corrupt_pdf_is_typed_unknown():
++    payload=json.loads((OFFICIAL/'szse_159509_announcements_control.bin').read_bytes())
++    payload['data']=payload['data'][:1];payload['announceCount']=1
++    r=fetch('159509',official=[payload,b'%PDF-1.7\ncorrupt'])
++    assert r.data['opening_status']=='UNKNOWN'
++    assert any(a.status=='failed_structure' for a in r.metadata.attempts)
++
++
++def test_last_stop_day_is_blocked_through_open_not_midnight_resume():
++    payload=(OFFICIAL/'sse_688432_interval.bin').read_bytes()
++    # No TDX 9/11 fixture exists; use a real zero-volume continuous-halt sample
++    # for the transport only, with the request identity rebound explicitly.
++    m=api();rs=records('688432','2026-08-31')
++    for row in rs: row['date']='20260911'
++    tdx=m.TdxOpeningReader(client_factory=lambda **kw:ReplayClient(rs),page_offsets=(0,))
++    r=chstockdata.fetch_historical_opening_evidence('688432','2026-09-11',tdx_reader=tdx,
++        official_reader=m.OfficialOpeningReader(session=ReplayHttp([payload])))
++    assert r.data['opening_status']=='BLOCKED_CONFIRMED'
++    assert r.data['official_block_at_target']
++
++
++def test_known_stock_resume_date_does_not_infer_unverified_clock():
++    data=fetch('000002','2016-01-04').data
++    assert data['official_events'][0]['effective_end'] is None
++    assert data['official_events'][0]['raw_fields']['resume_date']=='2016-07-04'
++
++
++def test_known_sse_etf_halt_survives_legitimate_empty_current_query():
++    data=fetch('513100').data
++    assert data['opening_status']=='BLOCKED_CONFIRMED'
++    assert data['official_block_at_target']
++    assert any(e['offline_cache'] for e in data['official_events'])
++
++
++def test_optional_pdf_parser_absent_is_typed_unknown(monkeypatch):
++    import builtins
++    original=builtins.__import__
++    def without_pdf(name,*args,**kwargs):
++        if name=='pypdf': raise ImportError('optional parser absent')
++        return original(name,*args,**kwargs)
++    monkeypatch.setattr(builtins,'__import__',without_pdf)
++    payload=json.loads((OFFICIAL/'szse_159509_announcements_control.bin').read_bytes())
++    payload['data']=payload['data'][:1];payload['announceCount']=1
++    data=fetch('159509',official=[payload,(OFFICIAL/'159509-20260911.pdf').read_bytes()])
++    assert data.data['opening_status']=='UNKNOWN'
++    assert any(a.status=='not_configured' for a in data.metadata.attempts)
++
++
++def test_real_periodic_report_is_known_nonsecondary_not_future_normal_fact():
++    m=api()
++    payload=json.loads((OFFICIAL/'szse_159915_announcements.bin').read_bytes())
++    payload['data']=payload['data'][:1];payload['announceCount']=1
++    result=m.OfficialOpeningReader(session=ReplayHttp([payload])).read('159915','2026-08-31','SZSE','ETF',[])
++    assert result['status']=='success'
++    assert result['all_returned_rows_considered'] and result['events']==[]
++
++
++@pytest.mark.parametrize('end_date',['20260910','20260911'])
++def test_sse_single_session_etf_rule_rejects_stale_or_cross_day_interval(end_date):
++    # Synthetic identity/date fault using the actual SSE LSTP/915 field contract.
++    row={'secCode':'510300','startStopDate':'20260910','endStopDate':end_date,
++         'dateSource':'2','startStopType':'LSTP','stopTime':'915'}
++    payload={'result':[row],'pageHelp':{'pageNo':1,'pageCount':1,'pageSize':25,'total':1,'data':[row]}}
++    r=fetch(official=[payload])
++    assert r.data['opening_status']=='UNKNOWN'
++    assert r.data['official_query']['status']=='failed_structure'
++
++
++@pytest.mark.parametrize('bad_date',['20260910','20260911junk','2026-09-11'])
++def test_sse_nonsecondary_row_still_requires_valid_current_session_identity(bad_date):
++    row={'secCode':'510300','startStopDate':bad_date,'endStopDate':bad_date,
++         'dateSource':'3','startStopType':'SG','stopTime':''}
++    payload={'result':[row],'pageHelp':{'pageNo':1,'pageCount':1,'pageSize':25,'total':1,'data':[row]}}
++    r=fetch(official=[payload])
++    assert r.data['opening_status']=='UNKNOWN'
++    assert r.data['official_query']['status']=='failed_structure'
++
++
++@pytest.mark.parametrize('field,bad_date',[
++    ('startStopDate','20260831junk'), ('endStopDate','20260911junk'),
++    ('startStopDate','20260912'), ('endStopDate','20260830'),
++    ('startStopDate','20260230'), ('endStopDate','20260931'),
++])
++def test_sse_stock_interval_dates_require_strict_format_validity_and_order(field,bad_date):
++    payload=json.loads((OFFICIAL/'sse_688432_interval.bin').read_bytes())
++    payload['result'][0][field]=bad_date
++    payload['pageHelp']['data'][0][field]=bad_date
++    r=fetch('688432','2026-09-14',official=[payload])
++    assert r.data['opening_status']=='UNKNOWN'
++    assert r.data['official_query']['status']=='failed_structure'
++
++
++def test_valid_stock_continuous_interval_allows_start_before_query_and_blocks_last_day():
++    payload=json.loads((OFFICIAL/'sse_688432_interval.bin').read_bytes())
++    payload['result'][0]['endStopDate']='20260914'
++    payload['pageHelp']['data'][0]['endStopDate']='20260914'
++    r=fetch('688432','2026-09-14',official=[payload])
++    assert r.data['official_query']['status']=='success'
++    assert r.data['opening_status']=='UNKNOWN'
++    assert r.data['source_conflict'] and r.data['official_block_at_target']
++
++
++def owner_interval_fetch(day, *, activity='positive', official=None, known_events=(), current_event=None):
++    """Deterministic injected transport, not historical live qualification."""
++    m = api()
++    rows = [{'time': '09:30', 'price': 22.4, 'vol': 1 if activity == 'positive' else 0}]
++    if activity == 'empty':
++        rows = []
++    rs = [
++        {'command': '0x0fb4', 'rows': [{'price': 22.4, 'vol': rows[0]['vol'] if rows else 0}]},
++        {'command': '0x0fb5', 'parameters': {'start': 0}, 'rows': rows,
++         'market_id': 0, 'security': '000002', 'date': day.replace('-', '')},
++    ]
++    tdx = m.TdxOpeningReader(client_factory=lambda **kw: ReplayClient(rs),
++                             versions=('0.11.7', '0.2.7'), page_offsets=(0,))
++
++    class InjectedCurrentReader(m.OfficialOpeningReader):
++        def read(self, *args):
++            result = super().read(*args)
++            if current_event is not None:
++                result['events'].append(current_event)
++            return result
++
++    reader = InjectedCurrentReader(session=ReplayHttp([empty('000002') if official is None else official]))
++    return chstockdata.fetch_historical_opening_evidence(
++        '000002', day, tdx_reader=tdx, official_reader=reader, known_events=known_events)
++
++
++@pytest.mark.parametrize('day,status,block', [
++    ('2015-12-18', 'OPEN_ACTIVITY_CONFIRMED', False),
++    ('2016-01-04', 'UNKNOWN', True),
++    ('2016-07-04', 'UNKNOWN', False),
++    ('2016-07-05', 'OPEN_ACTIVITY_CONFIRMED', False),
++    ('2022-12-30', 'OPEN_ACTIVITY_CONFIRMED', False),
++])
++def test_owner_authenticated_resume_date_bounds_only_corresponding_halt(day, status, block):
++    data = owner_interval_fetch(day).data
++    assert data['opening_status'] == status
++    assert data['official_block_at_target'] is block
++    assert data['source_conflict'] is block
++    assert data['information_available_at'] is None and data['information_basis'] == 'UNKNOWN'
++    cached = next(e for e in data['official_events'] if e['offline_cache'])
++    expected = next(e for e in api()._known_events() if e.instrument == '000002')
++    from dataclasses import asdict
++    assert cached == asdict(expected)
++    assert cached['effective_end'] is None
++
++
++@pytest.mark.parametrize('activity', ['empty', 'zero'])
++def test_owner_resume_day_unknown_without_positive_activity(activity):
++    data = owner_interval_fetch('2016-07-04', activity=activity).data
++    assert data['opening_status'] == 'UNKNOWN'
++    assert not data['official_block_at_target']
++    assert data['reason'] == 'authenticated_resume_date_clock_unknown'
++
++
++@pytest.mark.parametrize('day', ['2016-07-05', '2022-12-30'])
++@pytest.mark.parametrize('activity', ['empty', 'zero'])
++def test_owner_after_resume_still_requires_positive_tdx(day, activity):
++    data = owner_interval_fetch(day, activity=activity).data
++    assert data['opening_status'] == 'UNKNOWN'
++    assert not data['official_block_at_target'] and not data['source_conflict']
++
++
++@pytest.mark.parametrize('bad', [ConnectionError('injected fault'), b'<html>fault</html>',
++                               {'announceCount': 26, 'data': []},
++                               {'announceCount': 1, 'data': [{'title': 'uncertified stock halt'}]}])
++def test_owner_after_resume_still_requires_successful_complete_official(bad):
++    result = owner_interval_fetch('2022-12-30', official=bad)
++    assert result.data['opening_status'] == 'UNKNOWN'
++    assert result.metadata.partial
++    assert not result.data['official_block_at_target'] and not result.data['source_conflict']
++    assert any(a.is_failure() for a in result.metadata.attempts)
++
++
++@pytest.mark.parametrize('channel', ['caller', 'current'])
++def test_owner_new_ongoing_halt_cannot_be_erased_by_old_resume_date(channel):
++    from dataclasses import replace
++    original = next(e for e in api()._known_events() if e.instrument == '000002')
++    newer = replace(original, effective_start='2022-12-29T09:30:00+08:00', offline_cache=False,
++                    raw_sha256='b' * 64, raw_fields={'resume_date': '2016-07-04', 'verified': True})
++    kwargs = {'known_events': [newer]} if channel == 'caller' else {'current_event': newer}
++    data = owner_interval_fetch('2022-12-30', **kwargs).data
++    assert data['opening_status'] == 'UNKNOWN'
++    assert data['official_block_at_target'] and data['source_conflict']
++    assert len(data['official_events']) == 2
++
++
++@pytest.mark.parametrize('mutation', ['earlier_date', 'source_sha', 'source_url', 'marker', 'date_only'])
++def test_owner_caller_resume_provenance_cannot_self_authenticate(mutation):
++    from dataclasses import replace
++    original = next(e for e in api()._known_events() if e.instrument == '000002')
++    fields = copy.deepcopy(original.raw_fields)
++    changes = {}
++    if mutation == 'earlier_date':
++        fields['resume_date'] = '2016-01-01'
++    elif mutation == 'source_sha':
++        changes['raw_sha256'] = 'c' * 64
++    elif mutation == 'source_url':
++        changes['source_url'] = 'https://example.invalid/self-asserted'
++    elif mutation == 'marker':
++        fields.update(verified=True, resume_date_verified=True)
++    else:
++        fields = {'resume_date': '2016-07-04', 'verified': True}
++    caller = replace(original, raw_fields=fields, **changes)
++    day = '2016-01-04' if mutation == 'earlier_date' else '2022-12-30'
++    data = owner_interval_fetch(day, known_events=[caller]).data
++    assert data['opening_status'] == 'UNKNOWN'
++    assert data['official_block_at_target'] and data['source_conflict']
++    assert len(data['official_events']) == 2

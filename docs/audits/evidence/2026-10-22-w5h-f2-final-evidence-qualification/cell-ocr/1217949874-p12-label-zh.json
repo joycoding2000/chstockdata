@@ -1,0 +1,90 @@
+{
+    "id":  "1217949874",
+    "text":  "经 菅 活 动 产 生 的 金 量 净",
+    "pit_qualified":  false,
+    "engine":  "Windows.Media.Ocr existing zh-Hans-CN",
+    "maximum_image_dimension":  10000,
+    "machine_seconds":  0.016665199999999998,
+    "pixel_height":  114,
+    "image_sha256":  "e96da4b723ca711e6d8df10a2cd98465954c5bf6dbfdf2c75838c5c8b41ad30d",
+    "pixel_width":  1590,
+    "source_sha256":  "5cefd1e1ef733ef5887b619e09ce792d52bd33e2710580616be5736da03cd33c",
+    "physical_page":  12,
+    "lines":  [
+                  {
+                      "text":  "经 菅 活 动 产 生 的 金 量 净",
+                      "words":  [
+                                    {
+                                        "y":  26,
+                                        "height":  56,
+                                        "width":  49,
+                                        "text":  "经",
+                                        "x":  296
+                                    },
+                                    {
+                                        "y":  26,
+                                        "height":  56,
+                                        "width":  46,
+                                        "text":  "菅",
+                                        "x":  354
+                                    },
+                                    {
+                                        "y":  26,
+                                        "height":  54,
+                                        "width":  46,
+                                        "text":  "活",
+                                        "x":  410
+                                    },
+                                    {
+                                        "y":  25,
+                                        "height":  58,
+                                        "width":  47,
+                                        "text":  "动",
+                                        "x":  466
+                                    },
+                                    {
+                                        "y":  25,
+                                        "height":  60,
+                                        "width":  50,
+                                        "text":  "产",
+                                        "x":  521
+                                    },
+                                    {
+                                        "y":  32,
+                                        "height":  50,
+                                        "width":  51,
+                                        "text":  "生",
+                                        "x":  577
+                                    },
+                                    {
+                                        "y":  25,
+                                        "height":  58,
+                                        "width":  46,
+                                        "text":  "的",
+                                        "x":  637
+                                    },
+                                    {
+                                        "y":  26,
+                                        "height":  56,
+                                        "width":  55,
+                                        "text":  "金",
+                                        "x":  744
+                                    },
+                                    {
+                                        "y":  29,
+                                        "height":  53,
+                                        "width":  48,
+                                        "text":  "量",
+                                        "x":  859
+                                    },
+                                    {
+                                        "y":  25,
+                                        "height":  62,
+                                        "width":  49,
+                                        "text":  "净",
+                                        "x":  914
+                                    }
+                                ]
+                  }
+              ]
+}

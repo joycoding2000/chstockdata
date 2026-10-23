@@ -1,0 +1,30 @@
+{
+  "head": "0dc85e3e43588c5781771486a3c6f80c4be7714f",
+  "baseline_sha": "17af23fe8183f740150dc01dd877473afe3911b7",
+  "results": {
+    "candidate": {
+      "total": 2,
+      "failed": 2,
+      "tests": [
+        "test_crlf_preserves_added_line_discrimination[False]",
+        "test_crlf_preserves_added_line_discrimination[True]"
+      ]
+    },
+    "baseline": {
+      "total": 2,
+      "failed": 2,
+      "tests": [
+        "test_crlf_preserves_added_line_discrimination[False]",
+        "test_crlf_preserves_added_line_discrimination[True]"
+      ]
+    }
+  },
+  "classification": "ENVIRONMENT_OR_TEST_DEFECT",
+  "baseline_same_root_cause_reproduced": true,
+  "cause": "fixture helper explicitly trusts its temporary repository, static gate git diff does not; Git rejects repository ownership, falls back to no-index diff handling and rejects its pathspec arguments",
+  "gate_recommendation": "Owner Review; retain failed status; no automatic PASS or waiver",
+  "protected_files_unchanged": true,
+  "git_config_files_unchanged": true,
+  "original_temporaries_probed": 2,
+  "no_fixes_performed": true
+}

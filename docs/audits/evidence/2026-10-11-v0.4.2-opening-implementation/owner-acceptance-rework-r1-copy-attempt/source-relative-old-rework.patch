@@ -1,0 +1,177 @@
+--- a/src/chstockdata/opening_evidence.py
++++ b/src/chstockdata/opening_evidence.py
+@@ -464,7 +464,12 @@
+             record_fetch_observation(attempts,provider='known_official',capability_id='known_official:historical_opening_events',
+                 status=FETCH_FAILED_STRUCTURE,started_at=utc_now_iso(),elapsed_ms=0,
+                 error_type='KnownEvidenceIdentityMismatch')
+-        events=[e for e in (*_known_events(),*([] if identity_error else known_events),*official['events'])
++        packaged_events=_known_events()
++        # Only objects loaded from the controlled asset carry authenticated
++        # date-only resume evidence. Caller fields/verification flags do not.
++        resume_days={id(e):date.fromisoformat(e.raw_fields['resume_date']) for e in packaged_events
++                     if e.effective_end is None and 'resume_date' in e.raw_fields}
++        events=[e for e in (*packaged_events,*([] if identity_error else known_events),*official['events'])
+                 if e.instrument==code and e.market==market]
+         # Resolve only matching certified intervals, never the last-stop date.
+         resolved=[]
+@@ -481,12 +486,21 @@
+                 if matching:
+                     resolved.extend(matching);continue
+             resolved.append(event)
+-        unique={_hash(asdict(e)):e for e in resolved}
+-        data['official_events']=[asdict(e) for e in unique.values()]
+-        blocking=[];boundaries=[]
++        # Resolution changes applicability, not the original evidence facts.
++        data['official_events']=list({_hash(asdict(e)):asdict(e) for e in events}.values())
++        unique={}
++        for event in resolved:
++            unique.setdefault(_hash(asdict(event)),event)
++        blocking=[];boundaries=[];resume_clock_unknown=False
+         for event in unique.values():
+             if not event.secondary_market:continue
+             start=_instant(event.effective_start);stop=_instant(event.effective_end) if event.effective_end else None
++            resume_day=resume_days.get(id(event))
++            if resume_day is not None and day>=resume_day:
++                # The date bounds this halt after the resume day; on that day
++                # the opening clock remains unknown. Never synthesize an end.
++                resume_clock_unknown=resume_clock_unknown or day==resume_day
++                continue
+             if start<=target and (stop is None or target<stop):blocking.append((start,stop))
+             if target<start<end or (stop is not None and target<stop<end):boundaries.append((start,stop))
+         blocked=bool(blocking);data['official_block_at_target']=blocked
+@@ -501,6 +515,8 @@
+             data.update(opening_status='BLOCKED_CONFIRMED',reason='certified_official_block_at_target')
+         elif boundaries:
+             data['reason']='boundary_inside_activity_window'
++        elif resume_clock_unknown:
++            data['reason']='authenticated_resume_date_clock_unknown'
+         elif tdx['qualified']:
+             data.update(opening_status='OPEN_ACTIVITY_CONFIRMED',reason='certified_0930_activity_current_query_no_known_block')
+         else:
+--- a/src/chstockdata/opening_known_events.json
++++ b/src/chstockdata/opening_known_events.json
+@@ -31,7 +31,7 @@
+     "raw_sha256": "d1e3f6de50f64b5fda46a93b39a28b0573b3541e85e98e2107fdb8f361c818f3",
+     "source_kind": "issuer_official_disclosure",
+     "offline_cache": true,
+-    "certification_basis": "issuer disclosure pages 13/113 explicitly 2015-12-18 13:00 continuous halt; official fund report page 25 records 2016-07-04 resume DATE only, no authenticated resume clock; do not infer an effective interval end",
++    "certification_basis": "issuer disclosure pages 13/113 explicitly 2015-12-18 13:00 continuous halt; official fund report page 25 records 2016-07-04 resume DATE only, no authenticated resume clock; do not infer an effective interval end; this halt is inapplicable after the authenticated resume date, while opening on the resume date remains unknown",
+     "retrieved_at": "2026-10-09T13:03:37.528586+00:00",
+     "raw_fields": {
+       "issuer": "万科企业股份有限公司",
+--- a/tests/test_historical_opening_evidence.py
++++ b/tests/test_historical_opening_evidence.py
+@@ -392,3 +392,113 @@
+     assert r.data['official_query']['status']=='success'
+     assert r.data['opening_status']=='UNKNOWN'
+     assert r.data['source_conflict'] and r.data['official_block_at_target']
++
++
++def owner_interval_fetch(day, *, activity='positive', official=None, known_events=(), current_event=None):
++    """Deterministic injected transport, not historical live qualification."""
++    m = api()
++    rows = [{'time': '09:30', 'price': 22.4, 'vol': 1 if activity == 'positive' else 0}]
++    if activity == 'empty':
++        rows = []
++    rs = [
++        {'command': '0x0fb4', 'rows': [{'price': 22.4, 'vol': rows[0]['vol'] if rows else 0}]},
++        {'command': '0x0fb5', 'parameters': {'start': 0}, 'rows': rows,
++         'market_id': 0, 'security': '000002', 'date': day.replace('-', '')},
++    ]
++    tdx = m.TdxOpeningReader(client_factory=lambda **kw: ReplayClient(rs),
++                             versions=('0.11.7', '0.2.7'), page_offsets=(0,))
++
++    class InjectedCurrentReader(m.OfficialOpeningReader):
++        def read(self, *args):
++            result = super().read(*args)
++            if current_event is not None:
++                result['events'].append(current_event)
++            return result
++
++    reader = InjectedCurrentReader(session=ReplayHttp([empty('000002') if official is None else official]))
++    return chstockdata.fetch_historical_opening_evidence(
++        '000002', day, tdx_reader=tdx, official_reader=reader, known_events=known_events)
++
++
++@pytest.mark.parametrize('day,status,block', [
++    ('2015-12-18', 'OPEN_ACTIVITY_CONFIRMED', False),
++    ('2016-01-04', 'UNKNOWN', True),
++    ('2016-07-04', 'UNKNOWN', False),
++    ('2016-07-05', 'OPEN_ACTIVITY_CONFIRMED', False),
++    ('2022-12-30', 'OPEN_ACTIVITY_CONFIRMED', False),
++])
++def test_owner_authenticated_resume_date_bounds_only_corresponding_halt(day, status, block):
++    data = owner_interval_fetch(day).data
++    assert data['opening_status'] == status
++    assert data['official_block_at_target'] is block
++    assert data['source_conflict'] is block
++    assert data['information_available_at'] is None and data['information_basis'] == 'UNKNOWN'
++    cached = next(e for e in data['official_events'] if e['offline_cache'])
++    expected = next(e for e in api()._known_events() if e.instrument == '000002')
++    from dataclasses import asdict
++    assert cached == asdict(expected)
++    assert cached['effective_end'] is None
++
++
++@pytest.mark.parametrize('activity', ['empty', 'zero'])
++def test_owner_resume_day_unknown_without_positive_activity(activity):
++    data = owner_interval_fetch('2016-07-04', activity=activity).data
++    assert data['opening_status'] == 'UNKNOWN'
++    assert not data['official_block_at_target']
++    assert data['reason'] == 'authenticated_resume_date_clock_unknown'
++
++
++@pytest.mark.parametrize('day', ['2016-07-05', '2022-12-30'])
++@pytest.mark.parametrize('activity', ['empty', 'zero'])
++def test_owner_after_resume_still_requires_positive_tdx(day, activity):
++    data = owner_interval_fetch(day, activity=activity).data
++    assert data['opening_status'] == 'UNKNOWN'
++    assert not data['official_block_at_target'] and not data['source_conflict']
++
++
++@pytest.mark.parametrize('bad', [ConnectionError('injected fault'), b'<html>fault</html>',
++                               {'announceCount': 26, 'data': []},
++                               {'announceCount': 1, 'data': [{'title': 'uncertified stock halt'}]}])
++def test_owner_after_resume_still_requires_successful_complete_official(bad):
++    result = owner_interval_fetch('2022-12-30', official=bad)
++    assert result.data['opening_status'] == 'UNKNOWN'
++    assert result.metadata.partial
++    assert not result.data['official_block_at_target'] and not result.data['source_conflict']
++    assert any(a.is_failure() for a in result.metadata.attempts)
++
++
++@pytest.mark.parametrize('channel', ['caller', 'current'])
++def test_owner_new_ongoing_halt_cannot_be_erased_by_old_resume_date(channel):
++    from dataclasses import replace
++    original = next(e for e in api()._known_events() if e.instrument == '000002')
++    newer = replace(original, effective_start='2022-12-29T09:30:00+08:00', offline_cache=False,
++                    raw_sha256='b' * 64, raw_fields={'resume_date': '2016-07-04', 'verified': True})
++    kwargs = {'known_events': [newer]} if channel == 'caller' else {'current_event': newer}
++    data = owner_interval_fetch('2022-12-30', **kwargs).data
++    assert data['opening_status'] == 'UNKNOWN'
++    assert data['official_block_at_target'] and data['source_conflict']
++    assert len(data['official_events']) == 2
++
++
++@pytest.mark.parametrize('mutation', ['earlier_date', 'source_sha', 'source_url', 'marker', 'date_only'])
++def test_owner_caller_resume_provenance_cannot_self_authenticate(mutation):
++    from dataclasses import replace
++    original = next(e for e in api()._known_events() if e.instrument == '000002')
++    fields = copy.deepcopy(original.raw_fields)
++    changes = {}
++    if mutation == 'earlier_date':
++        fields['resume_date'] = '2016-01-01'
++    elif mutation == 'source_sha':
++        changes['raw_sha256'] = 'c' * 64
++    elif mutation == 'source_url':
++        changes['source_url'] = 'https://example.invalid/self-asserted'
++    elif mutation == 'marker':
++        fields.update(verified=True, resume_date_verified=True)
++    else:
++        fields = {'resume_date': '2016-07-04', 'verified': True}
++    caller = replace(original, raw_fields=fields, **changes)
++    day = '2016-01-04' if mutation == 'earlier_date' else '2022-12-30'
++    data = owner_interval_fetch(day, known_events=[caller]).data
++    assert data['opening_status'] == 'UNKNOWN'
++    assert data['official_block_at_target'] and data['source_conflict']
++    assert len(data['official_events']) == 2

@@ -1,0 +1,70 @@
+{
+  "intent_schema_version": "research-candidate-intent-1",
+  "intent_id": "m1-stock-breakout-v1",
+  "lineage_id": "m1-stock-breakout",
+  "asset_class": "STOCK",
+  "sleeve": "SATELLITE",
+  "strategy_id": "stock-breakout",
+  "decision_frequency": "MONTHLY_LAST_SESSION",
+  "economic_rationale": "New highs on liquid main-board A-shares tend to persist as information diffuses slowly and position building takes time; inside the annual PIT liquidity cohort, buying the strongest breakout names at equal weight expresses that persistence while the liquidity ranking keeps the sleeve tradable. The counterparty view is that month-end-observed breakouts on A-shares largely mean-revert after speculative highs; the fixed OOS interval will decide.",
+  "rule_pseudocode": "On the last open session of month M: cohort = the annual PIT cohort governing the next trade date; a cohort instrument breaks out when it has >= breakout_sessions+1 known sessions and close_T > max(high over the breakout_sessions sessions strictly before T); rank breakout instruments by (-median amount over the trailing liquidity_sessions known sessions, InstrumentId); picks = first top_n; TARGETS each pick weight 1/top_n plus every held non-pick weight 0.0. If no instrument has enough history: NO_DECISION(INSUFFICIENT_HISTORY); if history exists but no instrument breaks out and nothing is held: NO_DECISION(NO_ELIGIBLE_BREAKOUT).",
+  "parameter_variants": [
+    {"variant_id": "bo-60-top5", "parameters": {"breakout_sessions": "60", "liquidity_sessions": "60", "top_n": "5"}},
+    {"variant_id": "bo-60-top10", "parameters": {"breakout_sessions": "60", "liquidity_sessions": "60", "top_n": "10"}},
+    {"variant_id": "bo-120-top10", "parameters": {"breakout_sessions": "120", "liquidity_sessions": "60", "top_n": "10"}}
+  ],
+  "parameter_priority": ["bo-60-top5", "bo-60-top10", "bo-120-top10"],
+  "parameter_selection_rule": "PRIORITY_FIRST_BASIC_PASS",
+  "parameter_rationale": "Predeclared priority, not return-optimized: the classic 60-session channel with the most concentrated sleeve is the most falsifiable expression and is tried first; breadth, then a slower 120-session channel, are fallbacks. Only the three declared variants are admitted; no grid search.",
+  "universe_policy": {
+    "policy_name": "STOCK_ANNUAL_PIT_TOP50_V1",
+    "instrument_ids": [],
+    "formation_rule": "Annual PIT reconstitution (M1 architecture 6.3): at the last open session of each calendar year, rank Shanghai/Shenzhen main-board A-shares by trailing 60-open-session median amount desc with InstrumentId tie-break; require >=250 in-snapshot listed sessions, complete 60-session trailing amounts, NORMAL identity and TRADABLE formation status; take the top 50 and require at least 20 eligible names or the year fails closed; the cohort is frozen for the whole next calendar year and never backfilled. Membership is data-derived, so the intent declares no fixed instrument list."
+  },
+  "warm_up_start": "2017-01-03",
+  "basic_start": "2019-01-02",
+  "basic_end": "2022-12-30",
+  "oos_start": "2023-01-03",
+  "oos_end": "2025-12-31",
+  "benchmark": {
+    "kind": "STOCK_ANNUAL_SCHEDULE_EQUAL_WEIGHT",
+    "instrument_ids": [],
+    "rebalance": "ANNUAL",
+    "rationale": "Same-schedule benchmark: at the first open session of each calendar year the benchmark holds that year's PIT cohort at equal weight through the same M0 kernel, fees and execution semantics, so the comparison isolates the breakout selection from cohort exposure; pre-registered before any result."
+  },
+  "risk_off_choice": "CASH_0",
+  "risk_off_rationale": "M1-D04: when no cohort instrument breaks out, the sleeve stands in zero-yield CASH_0; no defensive ETF or bond position is ever substituted for cash by this candidate.",
+  "initial_capital": "1000000",
+  "cost_convention": {
+    "commission_rate": "0.00025",
+    "minimum_commission": "5",
+    "slippage_rate": "0.0005"
+  },
+  "metric_convention": {
+    "return_basis": "DAILY_CLOSE_TO_CLOSE",
+    "annualization_sessions": "252"
+  },
+  "basic_promotion_rule": {
+    "min_nav_observations": "950",
+    "min_excess_total_return_vs_benchmark": "-0.05",
+    "max_drawdown_floor": "-0.40",
+    "max_turnover": "40"
+  },
+  "basic_promotion_rationale": "Fail-closed pre-registered gate: full-window NAV coverage (the 2019-2022 Basic window has roughly 970 open sessions), total return within 5pp of the same-schedule equal-weight benchmark, maximum drawdown no deeper than -40%, and cumulative half-gross turnover at most 40x average equity (a monthly breakout rotation is expected to trade materially less than a full cross-sectional rotation but still far more than buy-and-hold; the ceiling is a sanity bound, not a target). No threshold is tuned after results are seen.",
+  "oos_survivor_rule": {
+    "min_excess_total_return_vs_benchmark": "-0.05",
+    "max_drawdown_floor": "-0.40"
+  },
+  "oos_survivor_rationale": "Survivor means 'worth M2 robustness validation', not tradability: the same benchmark-relative return floor and drawdown ceiling as Basic, applied to the fixed OOS interval only.",
+  "known_limitations": [
+    "DIVIDEND_TAX_NOT_MODELED: personal-investor dividend tax is not modeled in M1 stock backtests (OQ-24); distribution returns are pre-tax, so total returns are overstated for taxable holding patterns.",
+    "PIT ST/delisting-process naming history is not available from the pinned provider; identity screens are enforced through the complete 60-session trailing window plus the top-50 liquidity rank, and STOCK identity status is attested NORMAL only within the owner-materialized cohort union.",
+    "listed_sessions counts in-snapshot trading sessions, not exchange listing age; the snapshot starts >=250 open sessions before the first formation cutoff, so the >=250 threshold is enforced identically, and long-suspended names are conservatively excluded.",
+    "The candidate universe is Shanghai/Shenzhen main-board A-shares only; ChiNext, STAR Market and BSE are excluded because the seed Instrument Master attests standard +/-10% main-board rule profiles only.",
+    "Monthly cadence observes breakouts only at month ends; intra-month breakout-and-fade sequences are invisible to this candidate.",
+    "Basic snapshot physically ends at 2022-12-30; the fixed OOS request 2023-01-03..2025-12-31 stays unrevealed until after freeze."
+  ],
+  "source": "M1 protocol section 7.2 owner-approved seed candidate; no external code or text copied.",
+  "created_at": "2026-09-19",
+  "parent_experiment": null
+}

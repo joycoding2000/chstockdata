@@ -1,0 +1,57 @@
+{
+  "repositories": {
+    "producer": {
+      "head": "5584f5fcacccef9a9531a7a32b8463ea6771d312",
+      "status": "?? docs/DR01-current-free-data-feasibility-2026-10-19.md\n?? docs/DR02-DR06-consolidated-gap-report.md\n?? docs/MISHI_RADAR_TO_CHSTOCKDATA_DR01_DR06_CONSUMER_REQUEST_2026-10-16.md\n?? docs/MISHI_RADAR_V0_1_SPEC_R3_2_SCOPE_APPROVED_DATA_PENDING_2026-10-16.md\n?? docs/SIOS-P2-to-chstockdata-handoff-2026-10-19.zip\n?? docs/audits/2026-10-09-v0.4.2-history-recovery-conclusion.md\n?? docs/audits/2026-10-09-v0.4.2-official-history-and-sios-final-decision.md\n?? docs/audits/2026-10-09-v0.4.2-release-closeout.md\n?? docs/audits/2026-10-09-v0.4.2-unified-gate.md\n?? docs/audits/2026-10-10-v0.4.2-tdx-historical-execution-feasibility.md\n?? docs/audits/2026-10-11-v0.4.2-opening-implementation.md\n?? docs/audits/2026-10-14-v0.4.2-controlled-release.md\n?? docs/audits/2026-10-18-dr04-p-implementation.md\n?? docs/audits/2026-10-18-dr04-p-preflight.md\n?? docs/audits/2026-10-18-dr04-p-regression-fix.md\n?? docs/audits/2026-10-18-dr04-p-regression-root-cause.md\n?? docs/audits/2026-10-19-sios-p2-producer-response.md\n?? docs/audits/2026-10-19-w5h-historical-financial-pit-feasibility.md\n?? docs/audits/2026-10-20-w5h-r2-alternative-source-qualification.md\n?? docs/audits/2026-10-22-mishi-s07-real-window-admission-preflight.md\n?? docs/audits/2026-10-22-mishi-s07-real-window-dependencies.json\n?? docs/audits/2026-10-22-s07-free-supply-decisive-screen.md\n?? docs/audits/2026-10-22-sios-h01-final-repair.md\n?? docs/audits/2026-10-22-sios-h01-priority-delivery.md\n?? docs/audits/2026-10-22-w5h-f2-final-evidence-qualification.md\n?? docs/audits/DR01-current-free-data-feasibility-2026-10-19.md\n?? docs/audits/evidence/2026-10-09-v0.4.2-history-recovery/\n?? docs/audits/evidence/2026-10-09-v0.4.2-release/\n?? docs/audits/evidence/2026-10-09-v0.4.2-unified-gate/\n?? docs/audits/evidence/2026-10-10-v0.4.2-tdx-historical-execution/probe_tdx_history.py\n?? docs/audits/evidence/2026-10-10-v0.4.2-tdx-historical-execution/probe_tdx_opening_pages.py\n?? docs/audits/evidence/2026-10-10-v0.4.2-tdx-historical-execution/probe_tdx_opening_pages_final.py\n?? docs/audits/evidence/2026-10-10-v0.4.2-tdx-historical-execution/probe_tdx_opening_pages_followup.py\n?? docs/audits/evidence/2026-10-10-v0.4.2-tdx-historical-execution/tdx_history_manifest.json\n?? docs/audits/evidence/2026-10-10-v0.4.2-tdx-historical-execution/tdx_opening_page_final_manifest.json\n?? docs/audits/evidence/2026-10-10-v0.4.2-tdx-historical-execution/tdx_opening_page_followup_manifest.json\n?? docs/audits/evidence/2026-10-10-v0.4.2-tdx-historical-execution/tdx_opening_page_manifest.json\n?? docs/audits/evidence/2026-10-11-v0.4.2-opening-implementation/\n?? docs/audits/evidence/2026-10-14-v0.4.2-controlled-release/\n?? docs/audits/evidence/2026-10-18-dr04-p-failure-investigation/\n?? docs/audits/evidence/2026-10-18-dr04-p-implementation/\n?? docs/audits/evidence/2026-10-18-dr04-p-owner-acceptance/focused.stderr.txt\n?? docs/audits/evidence/2026-10-18-dr04-p-owner-acceptance/ruff.stderr.txt\n?? docs/audits/evidence/2026-10-18-dr04-p-owner-acceptance/worktree-before.json\n?? docs/audits/evidence/2026-10-18-dr04-p-preflight/\n?? docs/audits/evidence/2026-10-18-dr04-p-regression-fix-r2/before-test.py.txt\n?? docs/audits/evidence/2026-10-18-dr04-p-regression-fix-r2/before.diff\n?? docs/audits/evidence/2026-10-18-dr04-p-regression-fix-r2/before.json\n?? docs/audits/evidence/2026-10-18-dr04-p-regression-fix-r2/finalize.py\n?? docs/audits/evidence/2026-10-18-dr04-p-regression-fix-r2/focused.stderr.txt\n?? docs/audits/evidence/2026-10-18-dr04-p-regression-fix-r2/regression.stderr.txt\n?? docs/audits/evidence/2026-10-18-dr04-p-regression-fix-r2/resume.py\n?? docs/audits/evidence/2026-10-18-dr04-p-regression-fix-r2/verify.py\n?? docs/audits/evidence/2026-10-18-dr04-p-regression-fix/\n?? docs/audits/evidence/2026-10-18-dr04-p-type-identity-fix/before.json\n?? docs/audits/evidence/2026-10-18-dr04-p-type-identity-fix/finalize.py\n?? docs/audits/evidence/2026-10-18-dr04-p-type-identity-fix/focused.stderr.txt\n?? docs/audits/evidence/2026-10-18-dr04-p-type-identity-fix/full.stderr.txt\n?? docs/audits/evidence/2026-10-18-dr04-p-type-identity-fix/module-before.txt\n?? docs/audits/evidence/2026-10-18-dr04-p-type-identity-fix/red.stderr.txt\n?? docs/audits/evidence/2026-10-18-dr04-p-type-identity-fix/tests-before.txt\n?? docs/audits/evidence/2026-10-18-dr04-p-type-identity-fix/tracked-before.diff\n?? docs/audits/evidence/2026-10-18-dr04-p-type-identity-fix/verify.py\n?? docs/audits/evidence/2026-10-19-sios-p2-producer-response/\n?? docs/audits/evidence/2026-10-19-w5h/\n?? docs/audits/evidence/2026-10-20-w5h-r2/\n?? docs/audits/evidence/2026-10-22-s07-free-supply-decisive-screen/\n?? docs/audits/evidence/2026-10-22-sios-h01-final-repair/\n?? docs/audits/evidence/2026-10-22-sios-h01-priority-delivery/\n?? docs/audits/evidence/2026-10-22-sios-h04-priority-data-delivery/\n?? docs/audits/evidence/2026-10-22-w5h-f2-final-evidence-qualification/\n?? docs/dr04-minimum-consumer-contract-owner-review.md\n?? docs/plans/\n?? tests/test_sios_h01_delivery.py\n?? tests/test_sios_h01_final_repair.py\n",
+      "diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "consumer": {
+      "head": "a46500441ff29c9c7807fdfef155c22cedb72b88",
+      "status": "?? docs/m1-r2/R2-H01-independent-consumer-receipt-2026-10-22.md\n?? docs/m1-r2/R2-external-long-history-mechanism-falsification-2026-10-22.md\n?? research/external-long-history-mechanism-2026-10-22/\n?? research/h01-independent-receipt-2026-10-22/\n",
+      "diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  "contracts": {
+    "R2-H01-H04-parallel-exploratory-admission-2026-10-19.md": {
+      "git_commit": "d75867d3f4c297452d6ff4777aac631bb66edc8c",
+      "sha256": "c8834096f005c29e9d8733e74a391bca0adc91f823544068357052286d9ae57d"
+    },
+    "R2-parallel-economic-falsification-handoff-2026-10-20.md": {
+      "git_commit": "6d47fd2e98c5ba3efcdd7ff0a6e9add8eabff9b9",
+      "sha256": "e231156e233c1f99c3092e78d3f483fb5b68a00eeeeb2e43609ce01f3a9b34cb"
+    }
+  },
+  "source_boundary": [
+    "2024-01-01",
+    "2025-12-31"
+  ],
+  "h04_research_window": "NOT_NEWLY_FROZEN; original H04 exposed common 2024-2025; H01 2025-09-30 cutoff does not apply",
+  "historical_failure": {
+    "date": "2026-10-19T16:35:00+08:00",
+    "funds": [
+      "513530",
+      "513990"
+    ],
+    "status": "failed",
+    "failure_kind": "request_error",
+    "vendor_raw_response_preserved_by_original_task": false,
+    "not_evidence_of_no_distributions": true
+  },
+  "local_sources": {
+    "sh513530.day": {
+      "source": ".rh3a2-vipdoc/sh/lday/sh513530.day",
+      "sha256": "ff4710cb1b78ab88afd13b67b883bc26b8255ce7d72c81b2ddaf21d37378f759",
+      "bytes": 34336
+    },
+    "sh513990.day": {
+      "source": ".rh3a2-vipdoc/sh/lday/sh513990.day",
+      "sha256": "c428e3efdd644f91266ebb192afeb39cb2d20246cc2b5ce26a8ad714f21db6b1",
+      "bytes": 47360
+    },
+    "sh000001.day": {
+      "source": ".rh3a2-vipdoc/sh/lday/sh000001.day",
+      "sha256": "7eeedb6c1691304f21636a88af84730107074b8072c5fb265b8f4098ea28da0c",
+      "bytes": 279392
+    }
+  }
+}

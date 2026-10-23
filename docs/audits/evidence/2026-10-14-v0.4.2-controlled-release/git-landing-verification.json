@@ -1,0 +1,37 @@
+{
+  "CH_LANDING_COMMIT": "17af23fe8183f740150dc01dd877473afe3911b7",
+  "SIOS_LANDING_COMMIT": "d77843cabdfd9246856dc33aa8db19ae0f4d8c38",
+  "CH_APPROVED_SOURCE_MATCH": true,
+  "SIOS_APPROVED_SOURCE_MATCH_WITH_OWNER_EXCEPTION": true,
+  "SIOS_ORIGINAL_R2_RUNTIME_FULL_BYTE_MATCH": false,
+  "sios_owner_authorized_differences": [
+    "src/systematic_investing/research/cli.py",
+    "src/systematic_investing/research/contracts.py",
+    "src/systematic_investing/research/oos.py",
+    "src/systematic_investing/research/runner.py"
+  ],
+  "sios_integrated_manifest": "848f8a437465d645776b5ae69f078ddc379ef1269283ef9d0c828f994214a348",
+  "sios_integrated_runtime_manifest": "fd496d9b3ca00b8636d569994d39396cb9ba3a4d3997316087d2b9af82ca888b",
+  "original_workspace_protection": {
+    "ch": {
+      "head": "42bd44ef4d695aa3e88cfab4ebc3417660d0437a",
+      "protected_user_files": 18,
+      "user_files_unchanged": true
+    },
+    "sios": {
+      "head": "fafdb6d3942ba52baa9480da7c8674dab1487f5d",
+      "protected_user_files": 2,
+      "user_files_unchanged": true
+    }
+  },
+  "mandatory_live": {
+    "exit_code": 0,
+    "capabilities": 54,
+    "raw_calls": 129,
+    "source_unchanged": true
+  },
+  "scope_conformance": true,
+  "local_landing_verified": true,
+  "remote_landing_verified": true,
+  "GATE_L": "PASS"
+}

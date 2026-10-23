@@ -1,0 +1,92 @@
+[
+  {
+    "index": 1,
+    "kind": "load_vipdoc_daily",
+    "request": {
+      "args": [
+        "510300",
+        "2026-09-08",
+        "2026-09-11"
+      ],
+      "kwargs": {
+        "market": "sh"
+      }
+    },
+    "started_at": "2026-10-12T08:57:20.335579+00:00",
+    "outcome": "exception",
+    "error_type": "TypeError",
+    "finished_at": "2026-10-12T08:57:20.397522+00:00"
+  },
+  {
+    "index": 2,
+    "kind": "load_vipdoc_daily",
+    "request": {
+      "args": [
+        "159915",
+        "2026-09-08",
+        "2026-09-11"
+      ],
+      "kwargs": {
+        "market": "sz"
+      }
+    },
+    "started_at": "2026-10-12T08:57:20.399113+00:00",
+    "outcome": "exception",
+    "error_type": "TypeError",
+    "finished_at": "2026-10-12T08:57:20.442236+00:00"
+  },
+  {
+    "index": 3,
+    "kind": "load_vipdoc_daily",
+    "request": {
+      "args": [
+        "518880",
+        "2026-09-08",
+        "2026-09-11"
+      ],
+      "kwargs": {
+        "market": "sh"
+      }
+    },
+    "started_at": "2026-10-12T08:57:20.443477+00:00",
+    "outcome": "exception",
+    "error_type": "TypeError",
+    "finished_at": "2026-10-12T08:57:20.482425+00:00"
+  },
+  {
+    "index": 4,
+    "kind": "load_vipdoc_daily",
+    "request": {
+      "args": [
+        "511010",
+        "2026-09-08",
+        "2026-09-11"
+      ],
+      "kwargs": {
+        "market": "sh"
+      }
+    },
+    "started_at": "2026-10-12T08:57:20.483411+00:00",
+    "outcome": "exception",
+    "error_type": "TypeError",
+    "finished_at": "2026-10-12T08:57:20.522877+00:00"
+  },
+  {
+    "index": 5,
+    "kind": "load_vipdoc_daily",
+    "request": {
+      "args": [
+        "510300",
+        "2026-09-08",
+        "2026-09-11"
+      ],
+      "kwargs": {
+        "market": "sh"
+      }
+    },
+    "started_at": "2026-10-12T08:57:20.745978+00:00",
+    "outcome": "exception",
+    "error_type": "TypeError",
+    "finished_at": "2026-10-12T08:57:20.780234+00:00"
+  }
+]

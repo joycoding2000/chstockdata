@@ -1,0 +1,54 @@
+{
+  "requests_recorded": 22,
+  "http_status_counts": {
+    "200": 19,
+    "301": 2,
+    "405": 1
+  },
+  "minimum_same_source_after_finish_seconds": 3.000091,
+  "source_body_bytes": 1820914,
+  "prior_artifacts_reverified": 30,
+  "prior_valuation_rows_reused_without_network": 729,
+  "baostock_new_logins": 0,
+  "crosscheck_2025": {
+    "600518": {
+      "intersecting_trading_days": 53,
+      "equal_after_source_precision_rounding": 53,
+      "first_intersection": "2025-10-20",
+      "last_intersection": "2025-12-31",
+      "end_2025_baidu": "1587.29",
+      "lineage_conclusion": "Value agreement alone does not prove independent upstream or historical vintage."
+    },
+    "600519": {
+      "intersecting_trading_days": 53,
+      "equal_after_source_precision_rounding": 53,
+      "first_intersection": "2025-10-20",
+      "last_intersection": "2025-12-31",
+      "end_2025_baidu": "19.16",
+      "lineage_conclusion": "Value agreement alone does not prove independent upstream or historical vintage."
+    }
+  },
+  "pe_denominator_check": {
+    "fixed_trade_date": "2020-01-09",
+    "why_extra_original": "2019 Q3 original and its 2018 comparison are required TTM base periods for the already fixed 2020 case, not a replacement stock/year.",
+    "2018_annual_original_parent_profit_yuan": "1135188498.44",
+    "2019_q3_parent_ytd_as_published_20191030_yuan": "33173948.69",
+    "2018_q3_comparative_as_published_20191030_yuan": "689158719.06",
+    "announcement_date_of_q3_original": "2019-10-30",
+    "known_ttm_profit_yuan": "479203728.07",
+    "baidu_market_cap_yuan": "18801000000.00",
+    "old_eastmoney_market_cap_yuan": "18801197131.5",
+    "baidu_static_pe": "16.56",
+    "static_pe_from_original_annual": "16.56200712554499196904319192",
+    "baidu_ttm_pe": "-7.02",
+    "ttm_pe_from_then_disclosed_values": "39.23383500316514972892372724",
+    "old_eastmoney_ttm_pe": "-66.79112414",
+    "old_eastmoney_static_pe": "-4.0340073",
+    "verdict": "Static sample is consistent with the then-disclosed annual profit; TTM sample contradicts the then-disclosed positive TTM numerator. Complete intervening disclosure chain and first-known history remain unqualified."
+  },
+  "authority_current_consumer_copy_equal": {
+    "MISHI_RADAR_V0_1_SPEC_R3_2_SCOPE_APPROVED_DATA_PENDING_2026-10-16.md": true,
+    "MISHI_RADAR_TO_CHSTOCKDATA_DR01_DR06_CONSUMER_REQUEST_2026-10-16.md": true
+  },
+  "production_runtime_changes": 0
+}

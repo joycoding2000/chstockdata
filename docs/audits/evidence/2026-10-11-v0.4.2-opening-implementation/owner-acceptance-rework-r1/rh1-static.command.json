@@ -1,0 +1,12 @@
+{
+  "name": "rh1-static",
+  "argv": [
+    "D:/Dev/Projects/chstockdata/build/v042-qualification/gate/Scripts/python.exe",
+    "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\evidence\\owner-acceptance-rework-r1\\run_static_rework.py"
+  ],
+  "cwd": "C:\\Users\\Administrator\\.codex\\visualizations\\2026\\10\\10\\01a125dd-33f2-78d3-abe7-45e0928975d0\\v042-opening-implementation\\chstockdata-owner-rework",
+  "exit": 0,
+  "log": "rh1-static.log",
+  "log_sha256": "f8fd7a12a790c7ecde3e4da37c347274b925f168afb77cecf693aa455f61884f",
+  "offline_injected": true
+}

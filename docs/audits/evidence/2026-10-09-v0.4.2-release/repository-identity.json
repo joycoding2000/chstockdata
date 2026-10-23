@@ -1,0 +1,55 @@
+{
+  "queried_at": "2026-10-09T07:45:34.618Z",
+  "commands": [
+    {
+      "argv": [
+        "rev-parse",
+        "HEAD"
+      ],
+      "stdout": "42bd44ef4d695aa3e88cfab4ebc3417660d0437a\n",
+      "exit": 0
+    },
+    {
+      "argv": [
+        "branch",
+        "--show-current"
+      ],
+      "stdout": "codex/rh3-b5-candidate-freeze-preflight\n",
+      "exit": 0
+    },
+    {
+      "argv": [
+        "rev-parse",
+        "origin/main"
+      ],
+      "stdout": "c6f5a9c2ad83a8a01a5f80c5f87c46cea1e3b3ca\n",
+      "exit": 0
+    },
+    {
+      "argv": [
+        "rev-list",
+        "--left-right",
+        "--count",
+        "HEAD...origin/main"
+      ],
+      "stdout": "2\t1\n",
+      "exit": 0
+    },
+    {
+      "argv": [
+        "rev-parse",
+        "v0.4.1^{}"
+      ],
+      "stdout": "88f9b6677ade4a6ed280c865e6cf1edaf625a49f\n",
+      "exit": 0
+    },
+    {
+      "argv": [
+        "status",
+        "--short"
+      ],
+      "stdout": " M CHANGELOG.md\n M MIGRATION.md\n M docs/releases/v0.4.2.md\n M src/chstockdata/a_stock.py\n M src/chstockdata/suspension.py\n M src/chstockdata/tradability.py\n M tests/test_astock_listing_status.py\n M tests/test_suspension_structured.py\n?? docs/audits/evidence/2026-10-09-v0.4.2-release/\n?? tests/test_suspension_source_semantics.py\n",
+      "exit": 0
+    }
+  ]
+}

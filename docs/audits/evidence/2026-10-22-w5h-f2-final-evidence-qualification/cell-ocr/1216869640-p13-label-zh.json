@@ -1,0 +1,83 @@
+{
+    "id":  "1216869640",
+    "text":  "归 屋 于 公 司 东 的 净 利",
+    "pit_qualified":  false,
+    "engine":  "Windows.Media.Ocr existing zh-Hans-CN",
+    "maximum_image_dimension":  10000,
+    "machine_seconds":  0.0232934,
+    "pixel_height":  114,
+    "image_sha256":  "181a1db923c1ac9e569f7ee2a4298e8350b0dbce6123a98eeeaa7d170131c3a4",
+    "pixel_width":  2034,
+    "source_sha256":  "d6fecbc0aa8be3e9a8eb2837454af517e58ab29d9f9cbd3e85ac76cf9f752fb8",
+    "physical_page":  13,
+    "lines":  [
+                  {
+                      "text":  "归 屋 于 公 司 东 的 净 利",
+                      "words":  [
+                                    {
+                                        "y":  30,
+                                        "height":  54,
+                                        "width":  51,
+                                        "text":  "归",
+                                        "x":  552
+                                    },
+                                    {
+                                        "y":  30,
+                                        "height":  54,
+                                        "width":  58,
+                                        "text":  "屋",
+                                        "x":  607
+                                    },
+                                    {
+                                        "y":  32,
+                                        "height":  53,
+                                        "width":  57,
+                                        "text":  "于",
+                                        "x":  667
+                                    },
+                                    {
+                                        "y":  32,
+                                        "height":  53,
+                                        "width":  53,
+                                        "text":  "公",
+                                        "x":  786
+                                    },
+                                    {
+                                        "y":  32,
+                                        "height":  53,
+                                        "width":  54,
+                                        "text":  "司",
+                                        "x":  841
+                                    },
+                                    {
+                                        "y":  31,
+                                        "height":  54,
+                                        "width":  55,
+                                        "text":  "东",
+                                        "x":  958
+                                    },
+                                    {
+                                        "y":  30,
+                                        "height":  55,
+                                        "width":  54,
+                                        "text":  "的",
+                                        "x":  1017
+                                    },
+                                    {
+                                        "y":  31,
+                                        "height":  56,
+                                        "width":  54,
+                                        "text":  "净",
+                                        "x":  1074
+                                    },
+                                    {
+                                        "y":  32,
+                                        "height":  56,
+                                        "width":  53,
+                                        "text":  "利",
+                                        "x":  1135
+                                    }
+                                ]
+                  }
+              ]
+}
