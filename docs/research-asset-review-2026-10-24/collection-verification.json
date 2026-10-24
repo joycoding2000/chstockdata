@@ -1,0 +1,251 @@
+{
+  "comparisons": [
+    {
+      "retained": {
+        "path": "build/v042-qualification/sios/var",
+        "files": 6007,
+        "bytes": 314603626,
+        "collection_sha256": "9122a9095afcb96f0e19ce432c056deaf8a4c4c79e992b893dee0cbf3bbad138"
+      },
+      "candidate": {
+        "path": "build/v042-qualification/sios-baseline/var",
+        "files": 6007,
+        "bytes": 314603626,
+        "collection_sha256": "9122a9095afcb96f0e19ce432c056deaf8a4c4c79e992b893dee0cbf3bbad138"
+      },
+      "exact_path_size_content_equal": true
+    },
+    {
+      "retained": {
+        "path": "build/v042-qualification/sios/var",
+        "files": 6007,
+        "bytes": 314603626,
+        "collection_sha256": "9122a9095afcb96f0e19ce432c056deaf8a4c4c79e992b893dee0cbf3bbad138"
+      },
+      "candidate": {
+        "path": "build/v042-unified/sios/var",
+        "files": 6007,
+        "bytes": 314603626,
+        "collection_sha256": "9122a9095afcb96f0e19ce432c056deaf8a4c4c79e992b893dee0cbf3bbad138"
+      },
+      "exact_path_size_content_equal": true
+    },
+    {
+      "retained": {
+        "path": "docs/audits/evidence/2026-10-11-v0.4.2-opening-implementation/owner-acceptance-rework-r1/sios-frozen-source",
+        "files": 238,
+        "bytes": 2618400,
+        "collection_sha256": "95888de76676e1a4b3c9c6aa0c4979d39c97b9e5146da732a073572db45b8d41"
+      },
+      "candidate": {
+        "path": "docs/audits/evidence/2026-10-11-v0.4.2-opening-implementation/owner-acceptance-rework-r1-copy-attempt/sios-frozen-source",
+        "files": 238,
+        "bytes": 2618400,
+        "collection_sha256": "95888de76676e1a4b3c9c6aa0c4979d39c97b9e5146da732a073572db45b8d41"
+      },
+      "exact_path_size_content_equal": true
+    },
+    {
+      "retained": {
+        "path": "docs/audits/evidence/2026-10-11-v0.4.2-opening-implementation/owner-acceptance-rework-r1/sios-reconstructed-source",
+        "files": 256,
+        "bytes": 2890822,
+        "collection_sha256": "1dbc7c3ac167cb168caf2bb3a0a96be7b5d7dc0d7fbf48b31c2083890691d623"
+      },
+      "candidate": {
+        "path": "docs/audits/evidence/2026-10-11-v0.4.2-opening-implementation/owner-acceptance-rework-r1-copy-attempt/sios-reconstructed-source",
+        "files": 256,
+        "bytes": 2890822,
+        "collection_sha256": "1dbc7c3ac167cb168caf2bb3a0a96be7b5d7dc0d7fbf48b31c2083890691d623"
+      },
+      "exact_path_size_content_equal": true
+    },
+    {
+      "retained": {
+        "path": "docs/audits/evidence/2026-10-11-v0.4.2-opening-implementation/owner-acceptance-rework-r1/sios-reconstructed-source-exact",
+        "files": 256,
+        "bytes": 2890082,
+        "collection_sha256": "775b9290997d08ec343971b108f28b0323b4061b40295c63b2b707bbd9909093"
+      },
+      "candidate": {
+        "path": "docs/audits/evidence/2026-10-11-v0.4.2-opening-implementation/owner-acceptance-rework-r1-copy-attempt/sios-reconstructed-source-exact",
+        "files": 256,
+        "bytes": 2890082,
+        "collection_sha256": "775b9290997d08ec343971b108f28b0323b4061b40295c63b2b707bbd9909093"
+      },
+      "exact_path_size_content_equal": true
+    }
+  ],
+  "snapshot_worktree": {
+    "path": "C:\\Users\\Administrator\\.codex\\worktrees\\v042-opening-cr\\chstockdata",
+    "ref": "codex/ssd-migration-rh3b5-worktree-2026-10-23",
+    "files_checked": 758,
+    "files_in_backup_tree": 758,
+    "mismatches": [],
+    "missing_locally_but_in_backup": [],
+    "method": "Every current file compared as raw Git blob; no checkout, staging, qualification run or source request."
+  },
+  "historical_environments": [
+    {
+      "path": "build/v042-qualification/core",
+      "pyvenv_cfg": "home = C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\ninclude-system-site-packages = false\nversion = 3.12.14\nexecutable = C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe\ncommand = C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe -m venv D:\\Dev\\Projects\\chstockdata\\build\\v042-qualification\\core\n",
+      "installed_dist_info_directories": [
+        "certifi-2026.7.22.dist-info",
+        "charset_normalizer-3.5.2.dist-info",
+        "chstockdata-0.4.2.dist-info",
+        "idna-3.20.dist-info",
+        "lxml-6.1.3.dist-info",
+        "numpy-2.5.3.dist-info",
+        "pandas-3.0.6.dist-info",
+        "pip-25.0.1.dist-info",
+        "python_dateutil-2.9.0.post0.dist-info",
+        "requests-2.34.2.dist-info",
+        "six-1.17.0.dist-info",
+        "stockstats-0.6.9.dist-info",
+        "typing_extensions-4.16.0.dist-info",
+        "tzdata-2026.5.dist-info",
+        "urllib3-2.8.0.dist-info"
+      ],
+      "rebuild_limit": "Version inventory and environment origin, not a wheelhouse or a guarantee of exact historical resolver/byte reproduction."
+    },
+    {
+      "path": "build/v042-qualification/gate",
+      "pyvenv_cfg": "home = C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\ninclude-system-site-packages = false\nversion = 3.12.14\nexecutable = C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe\ncommand = C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe -m venv D:\\Dev\\Projects\\chstockdata\\build\\v042-qualification\\gate\n",
+      "installed_dist_info_directories": [
+        "anyio-4.15.1.dist-info",
+        "build-1.6.1.dist-info",
+        "certifi-2026.7.22.dist-info",
+        "charset_normalizer-3.5.2.dist-info",
+        "chstockdata-0.4.2.dist-info",
+        "click-8.5.0.dist-info",
+        "colorama-0.4.6.dist-info",
+        "docutils-0.23.dist-info",
+        "h11-0.16.0.dist-info",
+        "httpcore-1.0.9.dist-info",
+        "httpx-0.25.2.dist-info",
+        "id-1.6.1.dist-info",
+        "idna-3.20.dist-info",
+        "iniconfig-2.3.1.dist-info",
+        "jaraco.classes-3.4.0.dist-info",
+        "jaraco_context-6.1.2.dist-info",
+        "jaraco_functools-4.6.0.dist-info",
+        "keyring-25.7.0.dist-info",
+        "lxml-6.1.3.dist-info",
+        "markdown_it_py-4.2.0.dist-info",
+        "mdurl-0.1.2.dist-info",
+        "mootdx-0.11.7.dist-info",
+        "more_itertools-11.1.0.dist-info",
+        "nh3-0.3.7.dist-info",
+        "numpy-2.5.3.dist-info",
+        "packaging-26.3.dist-info",
+        "pandas-3.0.6.dist-info",
+        "pip-25.0.1.dist-info",
+        "pluggy-1.6.0.dist-info",
+        "prettytable-3.18.0.dist-info",
+        "py_mini_racer-0.6.0.dist-info",
+        "pygments-2.21.0.dist-info",
+        "pyproject_hooks-1.3.3.dist-info",
+        "pytest-9.1.1.dist-info",
+        "python_dateutil-2.9.0.post0.dist-info",
+        "pywin32_ctypes-0.2.3.dist-info",
+        "readme_renderer-46.0.dist-info",
+        "requests-2.34.2.dist-info",
+        "requests_toolbelt-1.0.0.dist-info",
+        "rfc3986-2.0.0.dist-info",
+        "rich-15.0.0.dist-info",
+        "ruff-0.16.10.dist-info",
+        "six-1.17.0.dist-info",
+        "sniffio-1.3.1.dist-info",
+        "stockstats-0.6.9.dist-info",
+        "tdxpy-0.2.7.dist-info",
+        "tenacity-8.5.0.dist-info",
+        "tqdm-4.70.1.dist-info",
+        "twine-7.0.0.dist-info",
+        "typing_extensions-4.16.0.dist-info",
+        "tzdata-2026.5.dist-info",
+        "urllib3-2.8.0.dist-info",
+        "wcwidth-0.9.2.dist-info"
+      ],
+      "rebuild_limit": "Version inventory and environment origin, not a wheelhouse or a guarantee of exact historical resolver/byte reproduction."
+    },
+    {
+      "path": "build/w0-v043/dev",
+      "pyvenv_cfg": "home = C:\\Users\\Administrator\\AppData\\Local\\Programs\\Python\\Python314\ninclude-system-site-packages = false\nversion = 3.14.5\nexecutable = D:\\Dev\\Projects\\chstockdata\\.venv\\Scripts\\python.exe\ncommand = D:\\Dev\\Projects\\chstockdata\\.venv\\Scripts\\python.exe -m venv D:\\Dev\\Projects\\chstockdata\\build\\w0-v043\\dev\n",
+      "installed_dist_info_directories": [
+        "anyio-4.15.1.dist-info",
+        "build-1.6.1.dist-info",
+        "certifi-2026.10.18.dist-info",
+        "charset_normalizer-3.5.2.dist-info",
+        "chstockdata-0.4.3.dist-info",
+        "click-8.5.0.dist-info",
+        "colorama-0.4.6.dist-info",
+        "docutils-0.23.dist-info",
+        "h11-0.16.0.dist-info",
+        "httpcore-1.0.9.dist-info",
+        "httpx-0.25.2.dist-info",
+        "id-1.6.1.dist-info",
+        "idna-3.20.dist-info",
+        "iniconfig-2.3.1.dist-info",
+        "jaraco.classes-3.4.0.dist-info",
+        "jaraco_context-6.1.2.dist-info",
+        "jaraco_functools-4.6.0.dist-info",
+        "keyring-25.7.0.dist-info",
+        "lxml-6.1.3.dist-info",
+        "markdown_it_py-4.2.0.dist-info",
+        "mdurl-0.1.2.dist-info",
+        "mootdx-0.11.7.dist-info",
+        "more_itertools-11.2.1.dist-info",
+        "nh3-0.3.7.dist-info",
+        "numpy-2.5.4.dist-info",
+        "packaging-26.3.dist-info",
+        "pandas-3.0.6.dist-info",
+        "pip-26.1.1.dist-info",
+        "pluggy-1.7.0.dist-info",
+        "prettytable-3.18.0.dist-info",
+        "py_mini_racer-0.6.0.dist-info",
+        "pygments-2.21.0.dist-info",
+        "pypdf-6.21.1.dist-info",
+        "pyproject_hooks-1.3.3.dist-info",
+        "pytest-9.1.1.dist-info",
+        "python_dateutil-2.9.0.post0.dist-info",
+        "pywin32_ctypes-0.2.3.dist-info",
+        "readme_renderer-46.0.dist-info",
+        "requests-2.34.2.dist-info",
+        "requests_toolbelt-1.0.0.dist-info",
+        "rfc3986-2.0.0.dist-info",
+        "rich-15.0.0.dist-info",
+        "ruff-0.16.10.dist-info",
+        "six-1.17.0.dist-info",
+        "sniffio-1.3.1.dist-info",
+        "stockstats-0.6.9.dist-info",
+        "tdxpy-0.2.7.dist-info",
+        "tenacity-8.5.0.dist-info",
+        "tqdm-4.70.1.dist-info",
+        "twine-7.0.0.dist-info",
+        "typing_extensions-4.16.0.dist-info",
+        "tzdata-2026.5.dist-info",
+        "urllib3-2.8.0.dist-info",
+        "wcwidth-0.9.2.dist-info"
+      ],
+      "rebuild_limit": "Version inventory and environment origin, not a wheelhouse or a guarantee of exact historical resolver/byte reproduction."
+    },
+    {
+      "path": "dist/recovery-v0.4.1/sdist-env",
+      "pyvenv_cfg": "home = C:\\Users\\Administrator\\AppData\\Local\\Programs\\Python\\Python314\ninclude-system-site-packages = true\nversion = 3.14.5\nexecutable = C:\\Users\\Administrator\\AppData\\Local\\Programs\\Python\\Python314\\python.exe\ncommand = C:\\Users\\Administrator\\AppData\\Local\\Programs\\Python\\Python314\\python.exe -m venv --system-site-packages D:\\Dev\\Projects\\chstockdata\\dist\\recovery-v0.4.1\\sdist-env\n",
+      "installed_dist_info_directories": [
+        "chstockdata-0.4.1.dist-info",
+        "pip-26.1.1.dist-info"
+      ],
+      "rebuild_limit": "Version inventory and environment origin, not a wheelhouse or a guarantee of exact historical resolver/byte reproduction."
+    },
+    {
+      "path": "dist/recovery-v0.4.1/wheel-env",
+      "pyvenv_cfg": "home = C:\\Users\\Administrator\\AppData\\Local\\Programs\\Python\\Python314\ninclude-system-site-packages = true\nversion = 3.14.5\nexecutable = C:\\Users\\Administrator\\AppData\\Local\\Programs\\Python\\Python314\\python.exe\ncommand = C:\\Users\\Administrator\\AppData\\Local\\Programs\\Python\\Python314\\python.exe -m venv --system-site-packages D:\\Dev\\Projects\\chstockdata\\dist\\recovery-v0.4.1\\wheel-env\n",
+      "installed_dist_info_directories": [
+        "chstockdata-0.4.1.dist-info",
+        "pip-26.1.1.dist-info"
+      ],
+      "rebuild_limit": "Version inventory and environment origin, not a wheelhouse or a guarantee of exact historical resolver/byte reproduction."
+    }
+  ]
+}

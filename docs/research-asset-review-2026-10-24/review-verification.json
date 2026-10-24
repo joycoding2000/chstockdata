@@ -1,0 +1,91 @@
+{
+  "checked_at_utc": "2026-10-24T04:19:33.645926+00:00",
+  "checks": {
+    "category_files_sum": true,
+    "category_bytes_sum": true,
+    "csv_files_sum": true,
+    "csv_bytes_sum": true,
+    "candidate_files_sum": true,
+    "candidate_bytes_sum": true,
+    "no_inventory_errors": true,
+    "main_census_pathset_complete": true,
+    "main_head_unchanged": true,
+    "main_branch_unchanged": true,
+    "main_tracked_unchanged": true,
+    "main_index_unchanged": true,
+    "original_untracked_pathset_unchanged": true,
+    "backup_path_size_coverage": true,
+    "sample_blobs_preserved": true,
+    "duplicate_collections_verified": true,
+    "dirty_worktree_snapshot_preserved": true,
+    "existing_refs_unchanged": true,
+    "remote_refs_captured": true,
+    "remote_backup_refs_match": true,
+    "candidate_commits_reachable": true,
+    "worktree_heads_unchanged": true,
+    "worktree_status_counts_unchanged": true,
+    "w0_local_artifacts_identity_traceable": true,
+    "w0_artifacts_held_in_review": true,
+    "git_evidence_links_resolve": true,
+    "local_document_links_resolve": true,
+    "no_cleanup_authorization": true
+  },
+  "all_pass": true,
+  "git_evidence_links_checked": 22,
+  "worktree_states": [
+    {
+      "path": "C:\\Users\\Administrator\\.codex\\worktrees\\dr03-capco-archive\\chstockdata",
+      "head_unchanged": true,
+      "status_counts": {},
+      "expected_status_counts": {}
+    },
+    {
+      "path": "C:\\Users\\Administrator\\.codex\\worktrees\\v042-controlled-release\\chstockdata",
+      "head_unchanged": true,
+      "status_counts": {},
+      "expected_status_counts": {}
+    },
+    {
+      "path": "C:\\Users\\Administrator\\.codex\\worktrees\\v042-opening-cr\\chstockdata",
+      "head_unchanged": true,
+      "status_counts": {
+        " M": 180,
+        "??": 366
+      },
+      "expected_status_counts": {
+        " M": 180,
+        "??": 366
+      }
+    },
+    {
+      "path": "C:\\Users\\Administrator\\.codex\\worktrees\\w0-v043-release\\chstockdata",
+      "head_unchanged": true,
+      "status_counts": {},
+      "expected_status_counts": {}
+    }
+  ],
+  "recorded_release_artifacts": {
+    "chstockdata-0.4.3-py3-none-any.whl": {
+      "current_sha256": "314643162d439797d68dd7a80925f30166be0f0c8840abbba6441bf65fc4e5ce",
+      "published_sha256": "f554dadbc88ac55427acef0ae33330a2a473c0f417dcaec46f38f6078cea9c9a",
+      "matches_published": false
+    },
+    "chstockdata-0.4.3.tar.gz": {
+      "current_sha256": "cfad1769a4e2ae1920ce78c9ac18dc5b28ee22314122673b1ab5a6451deb12a6",
+      "published_sha256": "98cbe14d1fdd8e55f132c1e8220b75493b0f03117da62e2993cb56fb6815042d",
+      "matches_published": false
+    }
+  },
+  "source_requests": 0,
+  "qualification_tests_run": 0,
+  "limits": [
+    "Historical test outputs were sampled/indexed, not rerun or independently requalified.",
+    "Process evidence is a snapshot; refresh before cleanup.",
+    "All original untracked paths retained; only 53 current-byte samples rehashed, not all research originals."
+  ],
+  "documents_sha256": {
+    "RESEARCH_ASSET_INDEX.md": "7a3f14507909353ff6cf1866d5645fa57783a78a1a6215e41396e56386828074",
+    "RESEARCH_DECISION_QUEUE.md": "7834272b3b37179c50b4814818d5c69f7bb0fc51a7f3a13b3edb2bf9e41686ad",
+    "ASSET_RETENTION_AND_CLEANUP_PLAN.md": "e9ce6d15e268d873276d4f7063c54f78b87ba38dadeb27b399a985b918b18a21"
+  }
+}

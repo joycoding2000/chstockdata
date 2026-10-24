@@ -1,0 +1,108 @@
+{
+  "project": "chstockdata",
+  "review_date": "2026-10-24 Asia/Shanghai",
+  "branch": "codex/research-asset-review-2026-10-24",
+  "commit_parent": "5584f5fcacccef9a9531a7a32b8463ea6771d312",
+  "payload_files_excluding_manifest": [
+    {
+      "path": "docs/research-asset-review-2026-10-24/README.md",
+      "bytes": 4130,
+      "sha256": "7941d230d9c14edde7f8b93da087e41876f4e9686069c93a712dabf01deb1734"
+    },
+    {
+      "path": "docs/research-asset-review-2026-10-24/RESEARCH_ASSET_INDEX.md",
+      "bytes": 15174,
+      "sha256": "7a3f14507909353ff6cf1866d5645fa57783a78a1a6215e41396e56386828074"
+    },
+    {
+      "path": "docs/research-asset-review-2026-10-24/RESEARCH_DECISION_QUEUE.md",
+      "bytes": 6174,
+      "sha256": "7834272b3b37179c50b4814818d5c69f7bb0fc51a7f3a13b3edb2bf9e41686ad"
+    },
+    {
+      "path": "docs/research-asset-review-2026-10-24/ASSET_RETENTION_AND_CLEANUP_PLAN.md",
+      "bytes": 14766,
+      "sha256": "e9ce6d15e268d873276d4f7063c54f78b87ba38dadeb27b399a985b918b18a21"
+    },
+    {
+      "path": "docs/research-asset-review-2026-10-24/collect_inventory.py",
+      "bytes": 10091,
+      "sha256": "da6216ae4c404570586fd1a69acc9aca19d0d0cd7ca78068a304309d09fc3a75"
+    },
+    {
+      "path": "docs/research-asset-review-2026-10-24/analyze_assets.py",
+      "bytes": 4291,
+      "sha256": "418356d5c607efa5e3f552b63db58769f5b2e9d88802c037683ee9dfdee69dc9"
+    },
+    {
+      "path": "docs/research-asset-review-2026-10-24/verify_collections.py",
+      "bytes": 4521,
+      "sha256": "a4497d1d43f2d92a833ba232def37ddf726ca7c73c38698781c36408a066298f"
+    },
+    {
+      "path": "docs/research-asset-review-2026-10-24/classify_inventory.py",
+      "bytes": 10129,
+      "sha256": "51716b640160c6cb4ec692d67b73ba107292013bb058407e2acd747d9972896c"
+    },
+    {
+      "path": "docs/research-asset-review-2026-10-24/verify_report.py",
+      "bytes": 9616,
+      "sha256": "688d2d4edb6387ed51fbfc4d167487680e5af8136a025c7a5efde17edd3a3edc"
+    },
+    {
+      "path": "docs/research-asset-review-2026-10-24/inventory.json",
+      "bytes": 303743,
+      "sha256": "90475e01730c0ceeaad8640de41eaf2cf75f433d5035910e227ea6091f9f1137"
+    },
+    {
+      "path": "docs/research-asset-review-2026-10-24/retention-groups.csv",
+      "bytes": 18083,
+      "sha256": "42fd12c68670f87043ad152b5affb417b224ef0ffaa00967b1619d243b87f8f0"
+    },
+    {
+      "path": "docs/research-asset-review-2026-10-24/classification.json",
+      "bytes": 41434,
+      "sha256": "c54595f6b8ffc94dbac3981b897ce7257576619024741d28f62a4dbd8f585e0a"
+    },
+    {
+      "path": "docs/research-asset-review-2026-10-24/backup-coverage.json",
+      "bytes": 19458,
+      "sha256": "376f105d5ea0babd2ff7ba9f89fb1df3f3c301bd0d753604629bda9ad9ae26da"
+    },
+    {
+      "path": "docs/research-asset-review-2026-10-24/collection-verification.json",
+      "bytes": 11959,
+      "sha256": "01edd9ffc196d80eb81b890527daee64e281a880d9c6277421351c4878e3d069"
+    },
+    {
+      "path": "docs/research-asset-review-2026-10-24/git-refs.json",
+      "bytes": 39480,
+      "sha256": "616332e4084eace1b5e7913b0a33434520a8d42d51164558a454521f34592882"
+    },
+    {
+      "path": "docs/research-asset-review-2026-10-24/remote-refs.txt",
+      "bytes": 1833,
+      "sha256": "32ea87f165b96d64a44e789d84e866fc3ab3cc9c02205f6ece46ba2f606cd98b"
+    },
+    {
+      "path": "docs/research-asset-review-2026-10-24/process-usage.json",
+      "bytes": 1153,
+      "sha256": "9369ef84b2249c4e808e6c3cd68a057259f01d1f5601a711df0622625777d44b"
+    },
+    {
+      "path": "docs/research-asset-review-2026-10-24/baseline-summary.json",
+      "bytes": 478,
+      "sha256": "ad76a6240264dffc19112d1b332f5afe430388ec2c1e7f301b65763db6bf6fa7"
+    },
+    {
+      "path": "docs/research-asset-review-2026-10-24/review-verification.json",
+      "bytes": 3444,
+      "sha256": "90966511e304b41905ca2f70e650c0ff326df5d89b876852fdf72fe04e563cb9"
+    }
+  ],
+  "manifest_self_excluded": true,
+  "source_requests": 0,
+  "cleanup_authorized": false,
+  "owner_review_ready": true,
+  "commit_and_remote_verification": "Final handoff; no self-referential commit hash"
+}

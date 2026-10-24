@@ -1,0 +1,510 @@
+{
+  "backup_ref": "refs/heads/codex/ssd-migration-main-2026-10-23",
+  "backup_commit": "db972cbbaf43688dd6fff2024e4c08cfdc8423d4",
+  "untracked_files_excluding_this_review": 15205,
+  "untracked_bytes": 531318625,
+  "path_covered": 15205,
+  "missing_paths": [],
+  "size_mismatches": [],
+  "sampled_exact_blobs": [
+    {
+      "path": "docs/audits/2026-10-09-v0.4.2-history-recovery-conclusion.md",
+      "bytes": 21811,
+      "local_git_blob": "cb4f98bfa7ec6e5aad335ec316a5ae9fb002dbc8",
+      "backup_git_blob": "cb4f98bfa7ec6e5aad335ec316a5ae9fb002dbc8",
+      "exact_match": true
+    },
+    {
+      "path": "docs/audits/2026-10-09-v0.4.2-official-history-and-sios-final-decision.md",
+      "bytes": 33399,
+      "local_git_blob": "4d42f30df49ae761b4f6a7abf67e04ca6101df0b",
+      "backup_git_blob": "4d42f30df49ae761b4f6a7abf67e04ca6101df0b",
+      "exact_match": true
+    },
+    {
+      "path": "docs/audits/2026-10-09-v0.4.2-release-closeout.md",
+      "bytes": 15254,
+      "local_git_blob": "168f3c836d75d49dea3053f909dd891f1b044f87",
+      "backup_git_blob": "168f3c836d75d49dea3053f909dd891f1b044f87",
+      "exact_match": true
+    },
+    {
+      "path": "docs/audits/2026-10-09-v0.4.2-unified-gate.md",
+      "bytes": 12292,
+      "local_git_blob": "b2fe8bc3fcdc2511ad5a4762bdd98b5596bd7849",
+      "backup_git_blob": "b2fe8bc3fcdc2511ad5a4762bdd98b5596bd7849",
+      "exact_match": true
+    },
+    {
+      "path": "docs/audits/2026-10-10-v0.4.2-tdx-historical-execution-feasibility.md",
+      "bytes": 12782,
+      "local_git_blob": "3fb1f9517188bb96e5d3a403d8e34c8baddcdb00",
+      "backup_git_blob": "3fb1f9517188bb96e5d3a403d8e34c8baddcdb00",
+      "exact_match": true
+    },
+    {
+      "path": "docs/audits/2026-10-11-v0.4.2-opening-implementation.md",
+      "bytes": 54119,
+      "local_git_blob": "a45ce6dbbbcec585fa8e6145813d6b192118da1e",
+      "backup_git_blob": "a45ce6dbbbcec585fa8e6145813d6b192118da1e",
+      "exact_match": true
+    },
+    {
+      "path": "docs/audits/2026-10-14-v0.4.2-controlled-release.md",
+      "bytes": 8582,
+      "local_git_blob": "6cce2ba190e4140bddb7430fff354c5bfe482bc0",
+      "backup_git_blob": "6cce2ba190e4140bddb7430fff354c5bfe482bc0",
+      "exact_match": true
+    },
+    {
+      "path": "docs/audits/2026-10-18-dr04-p-implementation.md",
+      "bytes": 7990,
+      "local_git_blob": "9eeff495256e8d6b8eb72dbb0205589e2ec0ce45",
+      "backup_git_blob": "9eeff495256e8d6b8eb72dbb0205589e2ec0ce45",
+      "exact_match": true
+    },
+    {
+      "path": "docs/audits/2026-10-18-dr04-p-preflight.md",
+      "bytes": 4018,
+      "local_git_blob": "78073274daf077022b15f938e729ae02dd12a46f",
+      "backup_git_blob": "78073274daf077022b15f938e729ae02dd12a46f",
+      "exact_match": true
+    },
+    {
+      "path": "docs/audits/2026-10-18-dr04-p-regression-fix.md",
+      "bytes": 3826,
+      "local_git_blob": "02ebdc8d9df2fbdb5174165a782b0146417a1629",
+      "backup_git_blob": "02ebdc8d9df2fbdb5174165a782b0146417a1629",
+      "exact_match": true
+    },
+    {
+      "path": "docs/audits/2026-10-18-dr04-p-regression-root-cause.md",
+      "bytes": 8874,
+      "local_git_blob": "8e811c58cb04d7225fba7024cb1ba7bfeb1bc466",
+      "backup_git_blob": "8e811c58cb04d7225fba7024cb1ba7bfeb1bc466",
+      "exact_match": true
+    },
+    {
+      "path": "docs/audits/2026-10-19-sios-p2-producer-response.md",
+      "bytes": 18672,
+      "local_git_blob": "1a218e9192f5373776b56c127ba6bd4276965378",
+      "backup_git_blob": "1a218e9192f5373776b56c127ba6bd4276965378",
+      "exact_match": true
+    },
+    {
+      "path": "docs/audits/2026-10-19-w5h-historical-financial-pit-feasibility.md",
+      "bytes": 31391,
+      "local_git_blob": "12104b50dfa9d57b4561b985e5db84c821e194df",
+      "backup_git_blob": "12104b50dfa9d57b4561b985e5db84c821e194df",
+      "exact_match": true
+    },
+    {
+      "path": "docs/audits/2026-10-20-w5h-r2-alternative-source-qualification.md",
+      "bytes": 37262,
+      "local_git_blob": "3ff24af254374be2d46e38dd897ed68f88718d61",
+      "backup_git_blob": "3ff24af254374be2d46e38dd897ed68f88718d61",
+      "exact_match": true
+    },
+    {
+      "path": "docs/audits/2026-10-22-mishi-s07-real-window-admission-preflight.md",
+      "bytes": 45008,
+      "local_git_blob": "049905aeba49c669e0d060f7d7e8ccee88d43eaf",
+      "backup_git_blob": "049905aeba49c669e0d060f7d7e8ccee88d43eaf",
+      "exact_match": true
+    },
+    {
+      "path": "docs/audits/2026-10-22-s07-free-supply-decisive-screen.md",
+      "bytes": 21035,
+      "local_git_blob": "81dcb71b434a59c1f5c1b6ca10d09e1958181f87",
+      "backup_git_blob": "81dcb71b434a59c1f5c1b6ca10d09e1958181f87",
+      "exact_match": true
+    },
+    {
+      "path": "docs/audits/2026-10-22-sios-h04-priority-data-delivery.md",
+      "bytes": 15303,
+      "local_git_blob": "e69d7e561247bc2619a40eef05bdfa8c622e3199",
+      "backup_git_blob": "e69d7e561247bc2619a40eef05bdfa8c622e3199",
+      "exact_match": true
+    },
+    {
+      "path": "docs/audits/2026-10-22-w5h-f2-final-evidence-qualification.md",
+      "bytes": 18223,
+      "local_git_blob": "64d4eb50daafbeaca00574ae3445ec32a806f83e",
+      "backup_git_blob": "64d4eb50daafbeaca00574ae3445ec32a806f83e",
+      "exact_match": true
+    },
+    {
+      "path": "docs/audits/2026-10-23-dr03-consumer-contract-clarification.md",
+      "bytes": 11340,
+      "local_git_blob": "b98cf1c0d5f75542ce24c4363daee6c3c39579a8",
+      "backup_git_blob": "b98cf1c0d5f75542ce24c4363daee6c3c39579a8",
+      "exact_match": true
+    },
+    {
+      "path": "docs/audits/2026-10-23-dr03-owner-decision-addendum.md",
+      "bytes": 11327,
+      "local_git_blob": "f7e804e5b6594f5b5f9e47e8f24e0e22219733f4",
+      "backup_git_blob": "f7e804e5b6594f5b5f9e47e8f24e0e22219733f4",
+      "exact_match": true
+    },
+    {
+      "path": "docs/audits/2026-10-23-dr03-s0a-capco-historical-source-review.md",
+      "bytes": 14585,
+      "local_git_blob": "a2d85ebc249f3c908a7319992d35b0140669e529",
+      "backup_git_blob": "a2d85ebc249f3c908a7319992d35b0140669e529",
+      "exact_match": true
+    },
+    {
+      "path": "docs/audits/2026-10-23-dr03-s1-capco-historical-membership-qualification.md",
+      "bytes": 27917,
+      "local_git_blob": "146f72c89d6b55417193b927f7ea2ba860689203",
+      "backup_git_blob": "146f72c89d6b55417193b927f7ea2ba860689203",
+      "exact_match": true
+    },
+    {
+      "path": "docs/audits/2026-10-23-dr03-s1-closeout.md",
+      "bytes": 12749,
+      "local_git_blob": "83da14fa08f05d861a7baeaeb16de243f6149eba",
+      "backup_git_blob": "83da14fa08f05d861a7baeaeb16de243f6149eba",
+      "exact_match": true
+    },
+    {
+      "path": "docs/audits/DR01-current-free-data-feasibility-2026-10-19.md",
+      "bytes": 47987,
+      "local_git_blob": "10749ea3d798c5b2ed849797c86658333375d017",
+      "backup_git_blob": "10749ea3d798c5b2ed849797c86658333375d017",
+      "exact_match": true
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-09-v0.4.2-history-recovery/issuer-resume-mirror-request.json",
+      "bytes": 263,
+      "local_git_blob": "5ea0f3c60096661329bf8fca3b0048e99505ca45",
+      "backup_git_blob": "5ea0f3c60096661329bf8fca3b0048e99505ca45",
+      "exact_match": true
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-09-v0.4.2-release/github-v041-release.json",
+      "bytes": 107,
+      "local_git_blob": "8d75a3befe059a5a8ee482f544993af384cb7dbd",
+      "backup_git_blob": "8d75a3befe059a5a8ee482f544993af384cb7dbd",
+      "exact_match": true
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-09-v0.4.2-unified-gate/source-snapshot-identity.json",
+      "bytes": 190,
+      "local_git_blob": "f1c2f6a9154d8b62ffbfec0a5ca10284106538f0",
+      "backup_git_blob": "f1c2f6a9154d8b62ffbfec0a5ca10284106538f0",
+      "exact_match": true
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-10-v0.4.2-tdx-historical-execution/tdx_opening_page_final_manifest.json",
+      "bytes": 757,
+      "local_git_blob": "8cf7a8ee61573512c06616405ceb8a9440c33546",
+      "backup_git_blob": "8cf7a8ee61573512c06616405ceb8a9440c33546",
+      "exact_match": true
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-11-v0.4.2-opening-implementation/owner-acceptance-rework-r1-copy-attempt/chstockdata-tested-source.zip",
+      "bytes": 5917333,
+      "local_git_blob": "cd1332b778ed80f08f0afcfe936c533065795b02",
+      "backup_git_blob": "cd1332b778ed80f08f0afcfe936c533065795b02",
+      "exact_match": true
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-11-v0.4.2-opening-implementation/owner-acceptance-rework-r1-copy-attempt/gate/sios-offline-tmp/test_catalog_gap_non_numeric_a0/catalog-non-numeric/notes.json",
+      "bytes": 2,
+      "local_git_blob": "9e26dfeeb6e641a33dae4961196235bdb965b21b",
+      "backup_git_blob": "9e26dfeeb6e641a33dae4961196235bdb965b21b",
+      "exact_match": true
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-11-v0.4.2-opening-implementation/owner-acceptance-rework-r1-evidence.zip",
+      "bytes": 14727396,
+      "local_git_blob": "9ee8915147845b74a83ba131e63c49082f9794cd",
+      "backup_git_blob": "9ee8915147845b74a83ba131e63c49082f9794cd",
+      "exact_match": true
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-11-v0.4.2-opening-implementation/owner-acceptance-rework-r1/chstockdata-tested-source.zip",
+      "bytes": 5917333,
+      "local_git_blob": "cd1332b778ed80f08f0afcfe936c533065795b02",
+      "backup_git_blob": "cd1332b778ed80f08f0afcfe936c533065795b02",
+      "exact_match": true
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-11-v0.4.2-opening-implementation/r21-step4-evidence.zip",
+      "bytes": 7749928,
+      "local_git_blob": "eca47a1a01916961bf0cb46f1b7b5e81c244128b",
+      "backup_git_blob": "eca47a1a01916961bf0cb46f1b7b5e81c244128b",
+      "exact_match": true
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-14-v0.4.2-controlled-release/frozen-results-protection.json",
+      "bytes": 198,
+      "local_git_blob": "a33e0d6eb7d55f31e2fe826eeb320a62445b92ee",
+      "backup_git_blob": "a33e0d6eb7d55f31e2fe826eeb320a62445b92ee",
+      "exact_match": true
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-18-dr04-p-failure-investigation/runs.json",
+      "bytes": 595,
+      "local_git_blob": "c883a2f12c02150ef7f562e8eb6d04183c2431d7",
+      "backup_git_blob": "c883a2f12c02150ef7f562e8eb6d04183c2431d7",
+      "exact_match": true
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-18-dr04-p-implementation/summary.json",
+      "bytes": 2629,
+      "local_git_blob": "e477471732b8fd816613e7359e91b6f2a1da3237",
+      "backup_git_blob": "e477471732b8fd816613e7359e91b6f2a1da3237",
+      "exact_match": true
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-18-dr04-p-owner-acceptance/worktree-before.json",
+      "bytes": 2203268,
+      "local_git_blob": "d86ada61331d48a6bc2cb993f11282a6b69820ee",
+      "backup_git_blob": "d86ada61331d48a6bc2cb993f11282a6b69820ee",
+      "exact_match": true
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-18-dr04-p-preflight/regression.txt",
+      "bytes": 101,
+      "local_git_blob": "dfbab3e10f809ad0186c8bd79c6cb75afe55740b",
+      "backup_git_blob": "dfbab3e10f809ad0186c8bd79c6cb75afe55740b",
+      "exact_match": true
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-18-dr04-p-regression-fix-r2/before.json",
+      "bytes": 1752,
+      "local_git_blob": "13a2365d94d018fd1ca566a47da52acf0e552545",
+      "backup_git_blob": "13a2365d94d018fd1ca566a47da52acf0e552545",
+      "exact_match": true
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-18-dr04-p-regression-fix/assertion-execution.json",
+      "bytes": 751,
+      "local_git_blob": "41ecdf691430d74dbd9396c19c2c33ca4c23c9e8",
+      "backup_git_blob": "41ecdf691430d74dbd9396c19c2c33ca4c23c9e8",
+      "exact_match": true
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-18-dr04-p-type-identity-fix/before.json",
+      "bytes": 1825,
+      "local_git_blob": "e97810d275e67e3b4067f9d08e3b760d5da0f737",
+      "backup_git_blob": "e97810d275e67e3b4067f9d08e3b760d5da0f737",
+      "exact_match": true
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-19-sios-p2-producer-response/sandbox/capture_result.json",
+      "bytes": 155,
+      "local_git_blob": "b2dc4dde4385488bbce20f568a0ae3e590e7cc21",
+      "backup_git_blob": "b2dc4dde4385488bbce20f568a0ae3e590e7cc21",
+      "exact_match": true
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-19-w5h/final_validation.json",
+      "bytes": 666,
+      "local_git_blob": "3a7817e3d6c14284e18733f6540c84647fcfb88e",
+      "backup_git_blob": "3a7817e3d6c14284e18733f6540c84647fcfb88e",
+      "exact_match": true
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-20-w5h-r2/final_validation.json",
+      "bytes": 875,
+      "local_git_blob": "36a766a0cad3c7512416cf127562b6085678290b",
+      "backup_git_blob": "36a766a0cad3c7512416cf127562b6085678290b",
+      "exact_match": true
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-22-s07-free-supply-decisive-screen/plan-em-valuation-method-page.json",
+      "bytes": 247,
+      "local_git_blob": "dd6612d8b1f386d40dfa909f66c35fd17fc58239",
+      "backup_git_blob": "dd6612d8b1f386d40dfa909f66c35fd17fc58239",
+      "exact_match": true
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-22-sios-h01-final-repair/H01-delivery-repaired/parent_identity.json",
+      "bytes": 215,
+      "local_git_blob": "b3b212ca5a8a8365151d07c6eaad20625e621fe4",
+      "backup_git_blob": "b3b212ca5a8a8365151d07c6eaad20625e621fe4",
+      "exact_match": true
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-22-sios-h01-priority-delivery/H01-delivery/raw_source_manifest.json",
+      "bytes": 523,
+      "local_git_blob": "3abd90a830f488324985a16c28fc582fe30b26cb",
+      "backup_git_blob": "3abd90a830f488324985a16c28fc582fe30b26cb",
+      "exact_match": true
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-22-sios-h04-priority-data-delivery/H04-TR-delivery.zip",
+      "bytes": 20975834,
+      "local_git_blob": "5b52926c8615629b6c5dca1ce0c87fff35d9d2db",
+      "backup_git_blob": "5b52926c8615629b6c5dca1ce0c87fff35d9d2db",
+      "exact_match": true
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-22-sios-h04-priority-data-delivery/H04-TR-delivery/cmf-query-semantics.json",
+      "bytes": 216,
+      "local_git_blob": "0478a5d6eaa433b53797f4ede5cac0d680f96787",
+      "backup_git_blob": "0478a5d6eaa433b53797f4ede5cac0d680f96787",
+      "exact_match": true
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-22-w5h-f2-final-evidence-qualification/cell-ocr/1216741269-p11-col3-en.json",
+      "bytes": 501,
+      "local_git_blob": "a2e32b85fdf23c2a6aebdc7fe0b03621daf07c81",
+      "backup_git_blob": "a2e32b85fdf23c2a6aebdc7fe0b03621daf07c81",
+      "exact_match": true
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-23-dr03-owner-semantics-closeout/verification.json",
+      "bytes": 35115,
+      "local_git_blob": "c2fe33cdb497552e6a2e2cafd6f467115c4be008",
+      "backup_git_blob": "c2fe33cdb497552e6a2e2cafd6f467115c4be008",
+      "exact_match": true
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-23-dr03-s0a-capco/pdf-code-counts.json",
+      "bytes": 367,
+      "local_git_blob": "2f33b6ef3bf4e63f86320bca38c46cf3d0cd92dd",
+      "backup_git_blob": "2f33b6ef3bf4e63f86320bca38c46cf3d0cd92dd",
+      "exact_match": true
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-23-dr03-s1-capco/verification.json",
+      "bytes": 26097,
+      "local_git_blob": "5f5f3ae6493d94697e430099ed78f715f735e0ff",
+      "backup_git_blob": "5f5f3ae6493d94697e430099ed78f715f735e0ff",
+      "exact_match": true
+    }
+  ],
+  "limitation": "Path and size coverage over all original untracked files; only listed samples have current byte equality checked. No blanket byte-identity claim.",
+  "batches": [
+    {
+      "path": "docs/audits/evidence/2026-10-09-v0.4.2-history-recovery",
+      "files": 34,
+      "bytes": 3978016
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-09-v0.4.2-release",
+      "files": 172,
+      "bytes": 7528885
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-09-v0.4.2-unified-gate",
+      "files": 141,
+      "bytes": 2324592
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-10-v0.4.2-tdx-historical-execution",
+      "files": 8,
+      "bytes": 24588
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-11-v0.4.2-opening-implementation",
+      "files": 13081,
+      "bytes": 266546826
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-14-v0.4.2-controlled-release",
+      "files": 11,
+      "bytes": 17412
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-18-dr04-p-failure-investigation",
+      "files": 19,
+      "bytes": 215256
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-18-dr04-p-implementation",
+      "files": 7,
+      "bytes": 119173
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-18-dr04-p-owner-acceptance",
+      "files": 3,
+      "bytes": 2203268
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-18-dr04-p-preflight",
+      "files": 1,
+      "bytes": 101
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-18-dr04-p-regression-fix",
+      "files": 10,
+      "bytes": 17842
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-18-dr04-p-regression-fix-r2",
+      "files": 8,
+      "bytes": 15215
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-18-dr04-p-type-identity-fix",
+      "files": 9,
+      "bytes": 53930
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-19-sios-p2-producer-response",
+      "files": 43,
+      "bytes": 5818910
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-19-w5h",
+      "files": 31,
+      "bytes": 6984264
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-20-w5h-r2",
+      "files": 38,
+      "bytes": 5380647
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-22-s07-free-supply-decisive-screen",
+      "files": 78,
+      "bytes": 10677651
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-22-sios-h01-final-repair",
+      "files": 132,
+      "bytes": 18233094
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-22-sios-h01-priority-delivery",
+      "files": 190,
+      "bytes": 25832632
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-22-sios-h04-priority-data-delivery",
+      "files": 282,
+      "bytes": 105970812
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-22-w5h-f2-final-evidence-qualification",
+      "files": 838,
+      "bytes": 53142061
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-23-dr03-owner-semantics-closeout",
+      "files": 1,
+      "bytes": 35115
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-23-dr03-s0a-capco",
+      "files": 33,
+      "bytes": 15378623
+    },
+    {
+      "path": "docs/audits/evidence/2026-10-23-dr03-s1-capco",
+      "files": 1,
+      "bytes": 26097
+    },
+    {
+      "path": "docs/reports",
+      "files": 34,
+      "bytes": 793615
+    }
+  ]
+}
